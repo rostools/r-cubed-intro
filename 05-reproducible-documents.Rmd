@@ -1,0 +1,442 @@
+# Creating dynamically generated, reproducible documents {#rmarkdown}
+
+## Session details
+
+### Objectives
+
+1. To become aware of the importance of reproducibility of data analyses, for
+your own productivity and for greater rigor in science.
+1. To create reproducible documents interwoven with R code that can be easily
+updated by changing the code or data.
+1. To know where to go for continued learning.
+
+**At the end of this session you will be able**:
+
+- Write text, headers, citations, and other writing tasks in RStudio using
+Markdown.
+- Insert R code chunks in the Markdown document that will create figures,
+tables, and/or numbers.
+- As part of the [assignment](/course/assignment/), you will create an
+analytically reproducible document showing your analysis code and output.
+
+## Why try to be reproducible?
+
+Well, first of all, reproducibility and replicability are cornerstones of doing
+rigorous and sound science. As we've learned, reproducibility in science is
+lacking. Being reproducible isn't just doing better science, it can also:
+
+1. Make you much more efficient and productive, as less time is spent between
+coding and putting your results in the document.
+1. Make you more confident in your results, as what you report and show as
+figures or tables will be exactly what you get from your analysis. No copying
+and pasting required!
+1. It's actually a lot of fun! :wink:
+
+Hopefully by the end of this session you'll try to start using R Markdown files
+for writing your manuscripts and other technical documents. Believe us, it can
+save soooo much time in the end, after you've learned how to incorporate text
+with R code, and make your analysis and work more reproducible. Plus you can create
+some beautifully formatting reports, waaayyyy more easily than you can if you did
+it all in Word. As a bonus, switching between citation formats for different
+journals is a breeze.
+
+## Markdown syntax
+
+First, let's create and save an R Markdown file. Go to `File -> New File -> R
+Markdown` and a dialog box will pop up. Type in `Reproducible documents` in the
+title section and your name in the author section. Choose the HTML output format.
+Save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
+
+Markdown is a [markup syntax] and formatting tool that allows you write in plain
+text (like R code and scripts) a document that can convert to a vast range of
+other document types (e.g. HTML, PDF, Word documents, slides, posters, websites).
+In fact, this website is built from R and Markdown! (Plus many other things,
+like HTML.) The Markdown used in R Markdown is based on [pandoc] (pan means all
+and doc means document), a very powerful and well-maintained software tool for
+document conversion. Text formatting is done using special characters (like
+commands) to indicate what is bolded, a header, a list, and so on. Most features
+needed for writing a scientific document are available in Markdown, but not all.
+My suggestion is to try to fit your writing around Markdown, rather than force or
+fight Markdown to do something it wasn't designed to do. You can do a lot with
+what Markdown has.
+
+[markup syntax]: https://en.wikipedia.org/wiki/Markup_language
+[pandoc]: http://pandoc.org/index.html
+
+### Headers 
+
+Creating headers (like chapters or sections) is indicated by one or more `#`: 
+
+```markdown
+# Header 1
+
+Paragraph.
+
+## Header 2
+
+Paragraph.
+
+### Header 3
+
+Paragraph.
+```
+
+### Text formatting
+
+- `**bold**` gives **bold**. 
+- `*italics*` gives *italics*.
+- `super^script^` gives super^script^.
+- `sub~script~` gives sub~script~.
+
+### Lists
+
+Unnumbered list:
+
+```markdown
+- item 1
+- item 2
+- item 3
+```
+
+gives...
+
+- item 1
+- item 2
+- item 3
+
+Numbered list:
+
+```markdown
+1. item 1
+2. item 2
+3. item 3
+```
+
+gives...
+
+1. item 1
+2. item 2
+3. item 3
+
+### Block quotes
+
+One can also create quotes:
+
+```markdown
+> Block quote 
+```
+
+gives...
+
+> Block quote 
+
+
+### Adding footnotes
+
+Footnotes can be done using the following command:
+
+```markdown
+Footnote[^1]
+
+[^1]: Footnote content
+```
+
+gives...
+
+Footnote[^1]
+
+[^1]: Footnote content
+
+### Inserting pictures
+
+
+A png, jpeg, or pdf image can be attached by doing (here, use an image of your own):
+
+```markdown
+![image caption](/img/code-sharing-steps.png)
+```
+
+gives...
+
+![image caption](/img/code-sharing-steps.png)
+
+*Note*: Can also include links to images from the Internet, as a URL link.
+
+### Adding links to websites
+
+And a link can be linked in the following format:
+
+```markdown
+[Link](https://google.com)
+```
+
+gives...
+
+[Link](https://google.com)
+
+### Inserting (simple) tables
+
+You can insert tables using Markdown too. I wouldn't recommend doing it for 
+complicated tables though, as it can get tedious fast! (My recommended approach
+for more complex or bigger tables is to make a data frame in R and then use create
+the table as shown in the section below.)
+
+```
+|   | Fun | Serious |
+|:--|----:|--------:|
+| **Happy** | 1234 | 5678 |
+| **Sad** | 123 | 456 |
+```
+
+gives...
+
+|   | Fun | Serious |
+|:--|:---:|:-------:|
+| **Happy** | 1234 | 5678 |
+| **Sad** | 123 | 456 |
+
+The `|---:|` or `|:---|` tell the table to left-align or right-align the values
+in the column. Center-align is `|:----:|`.
+
+**Break time.**
+
+## R Markdown
+
+R Markdown is an extension of Markdown that combines R code and Markdown formatting
+markup. Output from R code gets inserted into the document for a seamless integration
+of document writing and analysis.
+
+### YAML header/metadata
+
+Most Markdown documents (especially for R Markdown) include [YAML] metadata at
+the top of the document, surrounded by `---` on the top and bottom. The YAML
+contains metadata and options for the entire document. For instance, the title
+or author but also the output format you want to use, such as Word, HTML, or PDF
+(if you want to create a beautiful PDF, you need to install the R package
+[tinytex]). There are many more output formats, but these are the most common.
+
+[YAML]: https://bookdown.org/yihui/rmarkdown/html-document.html
+[tinytex]: https://yihui.name/tinytex/
+
+```yaml
+---
+title: "Document title"
+author: Your Name
+output: word_document
+---
+```
+
+There are additional options you can set in the output field, which we will show
+later below.
+
+### Now the best part! Inserting R code
+
+One of the most powerful and useful features of R Markdown is its ability to
+combine text and R code in the same document! You can insert plots by including a
+code chunk, like the one below. The options added to the code chunk tell it to
+add a caption, to set the height and width of the figure, and to prevent the code
+chunk from showing up in the final document (`echo=FALSE`). The `bmi-plot` label is
+the name of the code chunk (which you can see in the "Document Outline", found
+using `Ctrl-Shift-O`, if you have the options set in the `Tools -> Global
+Options -> R Markdown`).
+
+**NOTE**: Code [chunk labels] should be named without `_`, spaces, or `.` and 
+instead should be one word or be separated by `-`. While an error may not 
+necessarily occur, there can be some unintended side effects that will cause you
+some annoyance without knowing the reason.
+
+[chunk labels]: https://yihui.name/knitr/options/#chunk-options
+
+````markdown
+`r ''````{r bmi-plot, fig.cap="Add your figure title here.", fig.height=8, fig.width=8, echo=FALSE}
+ggplot(NHANES, aes(x = Height, fill = Gender)) +
+    geom_density(alpha = 0.4) +
+    scale_fill_brewer(type = "qual", palette = "Dark2") +
+    theme_minimal() +
+    theme(legend.position = c(0.2, 0.85))
+`r ''````
+````
+
+(ref:insert-plot) Add your figure title here.
+
+```{r bmi-plot, fig.cap="(ref:insert-plot)", fig.height=8, fig.width=8, echo=FALSE}
+ggplot(NHANES, aes(x = Height, fill = Gender)) +
+    geom_density(alpha = 0.4) +
+    scale_fill_brewer(type = "qual", palette = "Dark2") +
+    theme_minimal() +
+    theme(legend.position = c(0.2, 0.85))
+```
+
+You can also create tables by using the `kable()` function from the knitr package:
+
+````markdown
+`r ''````{r mean-bmi-table, echo=FALSE}
+library(knitr)
+NHANES %>% 
+    select(SurveyYr, BMI, Diabetes) %>% 
+    group_by(SurveyYr, Diabetes) %>% 
+    summarise(MeanBMI = mean(BMI, na.rm = TRUE)) %>% 
+    spread(SurveyYr, MeanBMI) %>% 
+    kable(caption = "Table caption here")
+`r ''````
+````
+
+```{r mean-bmi-table, echo=FALSE}
+library(knitr)
+NHANES %>% 
+    select(SurveyYr, BMI, Diabetes) %>% 
+    mutate_at(vars(Diabetes), forcats::fct_explicit_na) %>% 
+    group_by(SurveyYr, Diabetes) %>% 
+    summarise(MeanBMI = round(mean(BMI, na.rm = TRUE), 2)) %>% 
+    spread(SurveyYr, MeanBMI) %>% 
+    kable(caption = "Table caption here")
+```
+
+Or just print out a number to the document:
+
+````markdown
+`r ''````{r, echo=FALSE}
+cor(NHANES$Height, NHANES$Weight)
+`r ''````
+````
+
+```{r, echo=FALSE}
+cor(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+### Inline R code
+
+You can also include R code within the text. You can use this to directly insert
+numbers into the text of the document. By using something like:
+
+> The mean of BMI is &#96;r round(mean(NHANES$BMI, na.rm = TRUE), 2)&#96;.
+
+Gives...
+
+The mean of BMI is `r round(mean(NHANES$BMI, na.rm = TRUE), 2)`.
+
+*Note*: Inline R code can *only* insert a single number or character value,
+nothing more.
+
+## Other features
+
+### Citing literature with R Markdown
+
+If you want to insert a citation use `[@Hoejsgaard2006a]`, which will look like
+`r AutoCite(bib, "Hoejsgaard2006a")`, and the reference is then inserted onto
+the bottom of the document. You need to add a line to the YAML header like this:
+
+```yaml
+---
+title: "My report"
+author: "Me!"
+bibliography: my_references.bib
+---
+```
+
+Make sure to add this to the end of your file:
+
+```markdown
+# References
+```
+
+### Making your report prettier
+
+This part mostly applies to HTML-based and PDF[^tinytex] outputs, since
+programmatically modifying or setting templates Word documents is rather
+difficult[^md-to-word]. Changing broad features of a document can be done by setting the
+"theme" of the document. Add an option in the YAML metadata like:
+
+```yaml
+---
+title: "My report"
+output:
+    html_document:
+        theme: sandstone
+---
+```
+
+Check out the R Markdown [documentation] for more types of themes you can use
+for HTML documents, and advanced topics such as parameterized R Markdown documents. 
+Most of the [Bootswatch] themes are available for use in R
+Markdown to HTML conversion.
+
+[documentation]: https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style
+[Bootswatch]: https://bootswatch.com/3/
+
+[^tinytex]: Knitting to PDF will require that you install LaTeX using the [tinytex](https://yihui.name/tinytex/r/) R package. After you install LaTeX you can create truly beautifully typeset PDF documents.
+
+[^md-to-word]: If you really want to do it, the best way is to create your template in the `.odt`, and then convert to `.docx`. [Here](https://github.com/andrewheiss/Global-Pandoc-files) is a good place to start. 
+
+## Final exercise: Starting creating the assignment report
+
+Time: Until the end of the session.
+
+Open RStudio and create an `R Markdown` document:
+
+**File -> New File -> R Markdown**
+
+Save the file in `doc/` and name the file `assignment.Rmd`. In the R Markdown
+document, include the following "Header 1" `#` sections:
+
+- Abstract
+- Introduction
+- Material and Methods
+- Results
+- Discussion
+- Conclusion
+
+(You don't have to actually fill these out for the assignment.) Compile it by
+pressing the icon `Knit to HTML` or by typing `Ctrl-Shift-K`. Then:
+
+- Write some random words below the **Abstract section**, while using bold and
+italics.
+- Include an unnumbered list below **Introduction** listing two or three fake
+objectives.
+- Include a "Header 2" (`##`) called "Statistical analysis" below "Material and
+Methods".
+
+Compile ("knit") the document again and see what happens. Then, add these
+additional features to the document:
+
+1. Include a random picture with caption (of your research or of any png you
+find in your PC).
+2. Include a footnote.
+3. Include the link of your GitHub (if you created one) or of your academic profile.
+
+Then, add some R code chunks with code to wrangle your data and also to create a
+figure (you can copy and paste from previous sessions). Include these code chunks
+in the "Results" section. During the group work sessions, you can use this as a
+template for the assignment.
+
+## Resources for learning and help
+
+**For learning**:
+
+- [RStudio tutorial on using R Markdown](https://rmarkdown.rstudio.com/lesson-1.html)
+- [Markdown syntax guide](https://rmarkdown.rstudio.com/authoring_basics.html)
+- [Online book for R Markdown](https://bookdown.org/yihui/rmarkdown/)
+- [Pandoc Markdown Manual](https://pandoc.org/MANUAL.html#pandocs-markdown) (R
+Markdown uses [pandoc])
+- [R for Data Science](http://r4ds.had.co.nz/)
+    - [R Markdown chapter](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+
+**For help**:
+
+- [RStudio helpful cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+- [R Markdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) (downloads a pdf file)
+- [R Markdown reference cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+## Acknowledgements
+
+Parts of this lesson were modified from the [UofTCoders R
+Course](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html#exercise) and
+from a [session](https://au-oc.github.io/content/intro-rmarkdown.html) taught at
+the [Aarhus University Open Coders](https://au-oc.github.io/main/), with
+contributions from Maria Izabel Cavassim Alves
+([@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in
+Bioinformatics.
+
+## References
+
+Include this header to list the bibliography.

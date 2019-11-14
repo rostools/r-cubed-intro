@@ -1,0 +1,60 @@
+# Course introduction {#intro}
+
+Reproducibility and open scientific practices are increasingly demanded of
+scientists and researchers. Training on how to apply these practices in data
+analysis is still limited and has not kept up with demand. This course is aimed
+at researchers conducting quantitative analyses (ranging from lab-based research
+to epidemiology). By the end of the course, students will have:
+
+1. An understanding of why an open and reproducible data workflow is important.
+2. Practical experience in setting up and carrying out an open and reproducible
+data analysis workflow.
+3. Know how to continue learning methods and applications in this field.
+
+Students will develop proficiency in using the R statistical computing language,
+as well as improving their data and code literacy. Throughout this course we
+will focus on a general quantitative analytical workflow, using the R
+statistical software and other modern tools. The course will place particular
+emphasis on research in diabetes and metabolism; it will be taught by
+[instructors](#instructors) working in this field and it will use relevant
+examples where possible. This course will *not* teach statistical techniques, as
+these topics are already covered in university curriculums.
+
+## Prerequisites and installation instructions
+
+No experience in data analysis or programming assumed or required. However,
+before attending the workshop, there are a few *prerequisites* to complete.
+
+1. Install the latest version of [R](https://cloud.r-project.org/index.html)
+1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+1. Install the packages listed in the [Course Materials](/course/)
+1. Install [Git](https://git-scm.com/downloads)
+1. Read or scan through [Chapter 1](https://r4ds.had.co.nz/introduction.html) of
+the online book "R for Data Science"
+1. Read and abide by the [Code of Conduct](code-of-conduct)
+
+## Instructors
+
+Recommended number of instructors for a 25-35 class size is about 3-6
+instructors (~1 instructors for every 1-2 sessions). If there are more instructors,
+then less helpers are needed. The recommended combined total number of helpers
+and instructors is about 6 for a smooth workflow experience for the learners.
+
+## Recommended resources
+
+- [R for Data Science](http://r4ds.had.co.nz/): Excellent open and online resource for using R for data analysis and data science.
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): Excellent online resource for using ggplot2 and R graphics.
+- [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/): Great quick reference.
+
+## General schedule
+
+The workshop is structured as a series of participatory live-coding sessions
+(instructor and learner coding together) interspersed with hands-on exercises,
+using either a practice dataset or the participants' own datasets. Some short 
+lectures will be given throughout.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+options(knitr.kable.NA = "")
+schedule <- readr::read_csv("schedule.csv")
+knitr::kable(schedule, align = "l")
+```

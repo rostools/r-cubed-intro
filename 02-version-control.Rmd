@@ -1,0 +1,230 @@
+# Version control with Git {#git}
+
+## Session details
+
+### Objectives
+
+1. To become aware of what "formal" version control is and looks like.
+1. To learn about the tools integrated into RStudio to make use of Git.
+1. To know the basic, and most commonly used, tools for Git.
+1. To recognize that using Git and version control requires a paradigm shift in 
+thinking, which makes it often difficult to learn and use. 
+1. To know that learning version control is an investment and is *very worth it*
+to learn as it pays off *very well* in the future.
+
+*Given the difficulty with version control, we don't expect you to actually start
+using it yet... It took me (Luke) months after I learned about it before I
+actually started using it.* :smile:
+
+**At the end of this session you will be able:**
+
+- Generally, just knowing how to navigate the Git interface in RStudio.
+- Since you now know Git and version control exists, you now know that there
+are better ways of managing your files and changes.
+
+## What is version control?
+
+![Common "version control"](/img/phd-comics-versions-small.jpg)
+
+Version control is a system that manages changes to a file or files. These
+changes are kept as logs in a history, with detailed information on what file(s)
+was changed, what was changed within the file, who changed it, and a message on
+why the change was made.  This is extremely useful, especially when working in
+teams or for yourself 6 months in the future (because you *will* forget things)!
+
+To understand how incredibly powerful version control is, think about
+these questions (or refer to the comic above!): How many files of different
+versions of a manuscript or thesis do you have laying around after getting
+feedback from your supervisor or co-authors? Have you ever wanted to experiment
+with your code or your manuscript and need to make a new file so that the
+original is not touched? Have you ever deleted something and wish you hadn't?
+Have you ever forgotten what you were doing on a project?  All these problems
+are fixed by using version control (git)! There are so many good reasons to use
+version control:
+
+- Claim to first discovery
+- Defend against fraud
+- Evidence of contributions and work
+- Easily keep track of changes to files
+- Easy collaboration
+- Organized files and folders
+- Less time findings things
+
+In this session we are going to go over a typical workflow. This could be either
+a solo workflow or a collaborative workflow. It will also mostly entirely be
+done through RStudio.
+
+## What is Git?
+
+![From [xkcd](https://xkcd.com/1597/)](/img/xkcd-git.png)
+
+Git is a version control system and program. It contains many commands that you
+can use to track and manage your files and changes to those files. It has many
+features that make it ideal at tracking changes and for use in collaborative
+settings. But because it was created by [Linux developers](https://en.wikipedia.org/wiki/Linus_Torvalds),
+it isn't always easy to understand or use. If it's so hard to learn, why should
+you learn Git? Well, because:
+
+- It is very popular
+- It has a very large online community that provide support, documentation, and
+tutorials
+- Most open source work is done with Git on [GitHub] (which is an online Git
+hosting service)
+- Many open scientific projects use Git
+- RStudio has great integration with Git and a really nice interface
+
+[GitHub]: https://github.com/
+
+## Using Git
+
+### Setting up your Git configuration
+
+Since Git tracks who did what to your files, it needs to know who you are. So
+let's get you set up! Open your R Project and open a terminal using `Alt-Shift-T`
+(or `"Tools->Terminal->New Terminal"`). Then start typing:
+
+```{bash, eval=FALSE}
+git config --global user.name "Your Name"
+git config --global user.email "you@some.domain"
+git config --global core.editor "nano"
+```
+
+We'll mostly work in RStudio with Git, but sometimes you may have to use the 
+terminal and interact with Git using the [nano] text editor.
+
+### Four (or five) concepts in Git (and ~11 main commands)
+
+- **Start repository**: `git init`, `git clone` (from GitHub or [GitLab])
+- **Check activity**: `git status`, `git log`, `git diff`
+- **Save to history**: `git add`, `git commit`
+- **Move through the history**: `git checkout`, `git branch` (may be covered)
+- **Using with GitHub (or GitLab)**: `git push`, `git pull` (may be covered)
+
+[GitLab]: https://gitlab.com/
+
+Almost all of these Git commands can be used through the RStudio Git interface!
+For those commands that can't, we'll use the built-in terminal in RStudio
+(*note*, *not* the R Console) to access the Git commands.
+
+### Setting up a Git repository
+
+First off, *what is the Git repository?* Remember how your project folder is set
+up. There are actually several hidden files for Mac or Linux users or files
+starting with `.` for Windows users. There are two important files/folders that
+relate to Git, the `.gitignore` file and the `.git/` folder:
+
+```
+learning-r
+├── .git/ <-- Here
+├── R/
+├── data/
+├── doc/
+├── .gitignore <-- Here
+├── learning-r.Rproj
+└── README.md
+```
+
+The `.gitignore` file tells Git to ignore tracking (or "watching") certain files
+while the `.git/` folder contains all the changes and history for this folder...
+This folder *is the repository*! Everything related to your project is found in 
+that folder, so *don't delete it!*
+
+To set up a repository we can either initialize immediately when we create a R
+Project from the "New Projects" setup instructions. Or, if we already have a
+R Project started we can use:
+
+```{r, eval=FALSE}
+usethis::use_git()
+```
+
+We now will be going through some steps in using Git in RStudio. We'll be doing
+everything live through RStudio, so there is currently no coding involved right
+now. See this excellent video on using [Git in RStudio]. We'll also be posting
+the video of the session later on.
+
+### Git stages overview
+
+During the session we'll go over this image that goes over the different
+"stages" in Git. There are basically four "stages" for files and changes:
+
+1. Untracked files in the working folder.
+2. Tracked (and possibled changed from previous version) files.
+3. Files that have been changed and have been put into the "staging" area.
+4. File changes stored in the history.
+
+We won't be using the Git commands listed in the image. They are there for
+reference.
+
+```{r git-stages, eval=FALSE, echo=FALSE}
+# Need to generate manually
+git_stages <- mermaid("
+sequenceDiagram
+    participant U as Untracked
+    participant W as Working
+    participant S as Staged
+    participant H as History
+    U->>S: git add
+    W->>S: git add
+    W->>H: git commit filename
+    S->>H: git commit
+    H->>W: git checkout
+") 
+html_print(git_stages, viewer = NULL) %>% 
+    webshot("static/img/git-stages.png", vwidth = 850, vheight = 550, cliprect = "viewport")
+```
+
+<img src="/img/git-stages.png" alt="Stages of Git tracking" />
+ 
+### Git "remotes" (GitHub) overview
+
+When we cover GitHub, we'll need to go over some additional concepts and
+commands. When dealing with GitHub, we have the concept of "remotes". A remote
+is a location for the Git repository other than the one you are working on. So 
+in this case, the GitHub location of your repository is called the remote. A
+remote can be anywhere, including on other version control services like GitLab.
+
+```{r git-remotes, eval=FALSE, echo=FALSE}
+# Need to generate manually
+git_remotes <- mermaid("
+sequenceDiagram
+    participant W as Working
+    participant S as Staged
+    participant H as History
+    participant R as GitHub
+    W->>S: git add
+    W->>H: git commit filename
+    S->>H: git commit
+    H->>W: git checkout
+    H->>R: git push
+    R->>W: git pull
+") 
+html_print(git_remotes, viewer = NULL) %>% 
+    webshot("static/img/git-remotes.png", vwidth = 850, vheight = 550, cliprect = "viewport")
+```
+
+<img src="/img/git-remotes.png" alt="Remotes and the links between repositories." />
+
+## Resources for learning and help
+
+For Git within RStudio:
+
+- [Happy Git and GitHub for the useR](http://happygitwithr.com/) (**highly recommended**)
+    - Specifically useful is the chapter on [Daily Workflows](https://happygitwithr.com/repeated-amend.html) using Git
+- [RStudio Git Interface](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
+- Video on using [Git in RStudio]
+
+[Git in RStudio]: https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-part-2/
+
+For Git in general:
+
+- [Sofware Carpentry: Intro to Git](https://swcarpentry.github.io/git-novice/)
+- [Hands-on tutorial, with web-based terminal](https://try.github.io/levels/1/challenges/1)
+- [Official git documentation](https://git-scm.com/doc)
+- [Simpler first-steps guide](https://rogerdudler.github.io/git-guide/)
+- [Interactive, visual tutorial on branching](https://pcottle.github.io/learnGitBranching/)
+- [AUOC session on using Git for version control](https://au-oc.github.io/content/intro-git.html)
+
+## Acknowledgements
+
+Many parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
+given while with the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
