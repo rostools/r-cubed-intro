@@ -1,0 +1,32 @@
+
+/* For footer */
+div.my-footer {
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50px;
+    width: 100%;
+}
+
+div.my-footer span {
+    font-size: 10pt;
+    position: absolute;
+    left: 15px;
+    bottom: 8px;
+}
+
+/* For code on left and plot on right */
+/* Usage: .left-code[], .right-code[]*/
+/* From: https://www.garrickadenbuie.com/blog/2018/08/16/decouple-code-and-output-in-xaringan-slides/ */
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+}
