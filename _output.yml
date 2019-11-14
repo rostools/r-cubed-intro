@@ -1,0 +1,15 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">R<sup>3</sup></a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    download: ["pdf"]
+bookdown::pdf_book:
+  includes:
+    in_header: resources/preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes

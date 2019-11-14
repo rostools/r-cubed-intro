@@ -1,0 +1,19 @@
+--- 
+title: "Reproducible Research in R"
+subtitle: "A 3-day workshop on modern data analysis using R"
+author: "Luke W. Johnston"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [resources/refs.bib, resources/packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a ..."
+---
+
+```{r include=FALSE, eval=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
