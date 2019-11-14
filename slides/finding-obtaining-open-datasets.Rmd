@@ -1,0 +1,150 @@
+---
+title: "Finding and obtaining open datasets"
+author: 
+    - "Daniel Witte"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    lib_dir: libs
+    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
+<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# Insert references
+library(RefManageR)
+BibOptions(
+    check.entries = FALSE,
+    bib.style = "numeric",
+    cite.style = "numeric",
+    style = "markdown",
+    max.names = 2
+    # hyperlink = FALSE,
+)
+bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_accent(
+    base_color = "#2a2e44",
+    header_font_google = google_font("Fira Sans"),
+    text_font_google = google_font("Crimson Text"),
+    code_font_google = google_font("Source Code Pro")
+)
+```
+
+---
+
+## There are different types of open data
+
+- Open data is not primarily about what you can download from the internet
+
+- Accessibility and Openness are two different things
+
+- In terms of access, data should be FAIR[1]:
+  - Findable
+  - Accessible
+  - Interoperable
+  - Reusable
+
+
+.footnote[
+[1] Go FAIR Initiative (https://www.go-fair.org/fair-principles/)
+]
+
+---
+
+## FAIR data[1]
+- Findable: The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers.
+
+- Accessible: Once the user finds the required data, she/he needs to know **how** can they be accessed, possibly including authentication and authorisation.
+
+- Interoperable: The data usually need to interoperate with applications or workflows for analysis, storage, and processing. (Meta)data should use a formal, accessible, shared language or format
+
+- Reusable: Metadata and data should be well-described so that they can be replicated and/or combined in different settings.
+
+
+.footnote[
+[1] Go FAIR Initiative (https://www.go-fair.org/fair-principles/)
+]
+
+---
+
+## Knowing whether data are open
+
+- First important step: know who 'owns' the data and what you are allowed to do with it
+    - Public Domain: There is no owner, you are allowed to use the data in any way
+    - Data are protected by copyright: but the owner gives you a license to use it in a certain way
+  
+- Different types of licenses
+    - MIT
+    - Creative Commons
+        - CC-BY (only attribution required)
+    CC0 (= placing something in the public domain)
+
+---
+
+## Links and references
+
+.pull-left[
+
+- [Go Fair]
+- [GitHub]
+- [Dryad]
+- [figshare]
+]
+
+.pull-right[
+
+- [Foster Open Science]
+- [Open Science Framework]
+- [European Data Portal]
+- [Center for Open Science]
+
+]
+
+
+[Open Science Framework]: https://osf.io/
+[European Data Portal]: https://www.europeandataportal.eu/
+[GitHub]: https://github.com/
+[Dryad]: https://datadryad.org/
+[figshare]: https://figshare.com/
+[Center for Open Science]: https://cos.io/
+[Choose a License]: https://choosealicense.com/
+[Creative Commons]: https://creativecommons.org/
+[Go Fair]: https://www.go-fair.org/fair-principles/
+[EU Turning FAIR into reality]: https://ec.europa.eu/info/sites/info/files/turning_fair_into_reality_0.pdf
+[Plan S]: https://www.coalition-s.org/
+[Foster Open Science]: https://www.fosteropenscience.eu/
+[NIH data repositories]: https://www.nlm.nih.gov/NIHbmic/nih_data_sharing_repositories.html
+[UK Data Archive]: http://data-archive.ac.uk/find/archive-catalogue
+[YODA project]: https://yoda.yale.edu/
+[Project Datasphere]: https://www.projectdatasphere.org/projectdatasphere/html/home
+[ClinicalStudyDataRequest]: https://www.clinicalstudydatarequest.com/
+[Nature recommended data repositories]: https://www.nature.com/sdata/policies/repositories
+
+
+---
+
+## Let's have a look at the PLOS journals
+
+- PLOS journals have a policy requiring researchers to share the data underlying their results and publication
+- But: Are authors complying with these requirements?
+(https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194768)

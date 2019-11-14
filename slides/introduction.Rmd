@@ -1,0 +1,270 @@
+---
+title: "Introduction to the course"
+subtitle: "Reproducibilty and open science"  
+author: 
+    - "Luke Johnston"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    lib_dir: libs
+    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
+<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# Insert references
+library(RefManageR)
+BibOptions(
+    check.entries = FALSE,
+    bib.style = "numeric",
+    cite.style = "numeric",
+    style = "markdown",
+    max.names = 2
+    # hyperlink = FALSE,
+)
+bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_accent(
+    base_color = "#2a2e44",
+    header_font_google = google_font("Fira Sans"),
+    text_font_google = google_font("Crimson Text"),
+    code_font_google = google_font("Source Code Pro")
+)
+```
+
+---
+
+# Outline
+
+- What is reproducibility
+- What is open science
+    - Open access
+    - Open data
+    - Open source (code)
+- What is R and why learn it
+- Course introduction
+    - What it is (and isn't)
+    - Layout and website
+    - Expected learning outcome 
+    - Code of Conduct
+
+---
+
+class: center, middle
+
+# Question: 
+
+## How many know or have heard or know about <u>reproducibility</u>?
+
+---
+
+class: center, middle
+
+# Question: 
+
+## How many know or have heard or know about <u>open science</u>?
+
+---
+
+class: center, middle
+
+# Question: 
+
+## ...or even <u>open access, open data, or open source</u>?
+
+---
+
+class: center, middle
+
+# How many have read a method in a paper and wondered how they <u>actually</u> did it? 
+
+???
+
+Because you are trying to do the same or similar?
+
+---
+
+## Often, (way) more is done than shown in "Methods"
+
+.center[
+```{r, out.height="45%", out.width="45%"}
+knitr::include_graphics("../img/more-than-methods-small.png")
+```
+]
+
+.footnote[Source: `r Citet(bib, "Kim2018a")`]
+
+---
+
+## Has anyone ever received confusing code? Or maybe have written your own confusing code?
+
+.center[
+![](http://phdcomics.com/comics/archive/phd031214s.gif)
+]
+
+.footnote[Source: [PhD Comics](http://phdcomics.com/comics/archive_print.php?comicid=1689)]
+
+---
+
+class: middle, center
+
+# These issues can be fixed by creating and nurturing a culture of openness
+
+---
+
+## Code sharing: From scientific principle of "reproducibility" 
+
+... often confused with "replicability" `r Cite(bib, "Plesser2018a")`<sup>1</sup>
+
+--
+
+.pull-left[
+### Replicability
+
+- Repeating a study by *independently* performing another identical study
+- Difficult, usually needs funding
+- Linked to the "irreproducibility crisis"<sup>2</sup> (covered later)
+]
+
+--
+
+.pull-right[
+### Reproducibility
+
+- Generating the exact same results when using the same data and code
+- Should be easy right? Wrong, often just as hard
+- *Question*: If we can't even *reproduce* a studies results, how can we expect 
+to replicate it?
+]
+
+.footnote[
+1. Also from a American Statistical Association [statement](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).  
+2. Or rather "irreplicability crisis".
+]
+    
+---
+
+## Biomedical studies almost entirely don't publish code with the published paper
+
+- Very few papers provide code `r Cite(bib, c("Leek2017a", "Considine2017a"))`
+    - Except bioinformatics, about 60% of studies do
+
+--
+
+- Example: In epidemiology, of 90 articles reviewed `r Cite(bib, "Peng2006a")`:
+    - 43 (48%) did not report how data was processed
+    - 21 (24%) did not report how analysis was conducted
+    - 0 made code available in any way
+
+--
+
+- *Why*? Likely due to:
+    - Lack of awareness and training
+    - Difficulty of adoption
+    - No incentive or reward
+    - Little to no culture to do it
+
+---
+
+## Open science: Terms and meanings
+
+.center[
+
+| **Term** | **Meaning** |
+|:------------|:---------------|
+| Open science | Freely available, openly licensed .red.bold[*] material for all things related to scientific activity |
+| Open access | Free, unrestricted, publicly available **published articles** |
+| Open data | Freely available, re-usable, openly licensed **data** |
+| Open source/code | Freely available, re-usable, openly licensed **scientific code** used in generating results |
+
+]
+
+.footnote[.red.bold[*] We'll cover licenses later.]
+
+---
+
+class: middle, center
+
+# Goal of this course? Start changing the culture by providing the training.
+
+---
+
+## Course website and layout:
+
+- True to our mission, material publicly accessible and [openly licensed](https://dda-rcourse.lwjohnst.com/license/index.html)
+    - <https://dda-rcourse.lwjohnst.com/>
+- Course is mix of "code-alongs" and lectures
+    - Interspersed with hands-on exercises
+    - Combined with final group-work [assignment](https://dda-rcourse.lwjohnst.com/course/assignment/)
+    (more on this later)
+
+--
+
+.pull-left[
+
+### What we aim to teach (and you learn)
+
+- Recognize importance of reproducibility and open science
+- Know and be aware of (some of) the modern tools to use
+- Know a general workflow for doing analyses
+- Know in general how to navigate and code in R
+- How to generally think about data
+
+]
+
+--
+
+.pull-right[
+
+### What you won't learn
+
+- No (or minimal) statistics or modelling
+- No writing skills
+- No study or experimental design
+- No spreadsheet or large databases (e.g. SQL)
+
+]
+
+---
+
+## Other considerations
+
+- We have a [Code of Conduct](https://dda-rcourse.lwjohnst.com/code-of-conduct/)
+- Asking for help is as easy as using a sticky on your laptop
+    - We have lots of helpers!
+- We're all learning here, this is a supportive and safe environment
+
+--
+
+## Resources and further reading
+
+- Best practices see `r Cite(bib, c("Wilson2014a", "Eglen2016a"))`
+- [Case studies](https://www.practicereproducibleresearch.org/) and lessons for doing reproducibility
+- Case study in Bioinformatics see `r Cite(bib, "Kim2018a")`
+
+---
+
+## References 1
+
+```{r refs1, results='asis', echo=FALSE}
+PrintBibliography(bib, start = 1, end = 7)
+```

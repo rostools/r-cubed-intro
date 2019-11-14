@@ -1,0 +1,271 @@
+---
+title: "Science in the era of (ir)reproducibility"
+subtitle: "How do we move past the reproducibility crisis?"  
+author: 
+    - "Daniel R. Witte"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    lib_dir: libs
+    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
+<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# Insert references
+library(RefManageR)
+BibOptions(
+    check.entries = FALSE,
+    bib.style = "numeric",
+    cite.style = "numeric",
+    style = "markdown",
+    max.names = 2
+    # hyperlink = FALSE,
+)
+bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_accent(
+    base_color = "#2a2e44",
+    header_font_google = google_font("Fira Sans"),
+    text_font_google = google_font("Crimson Text"),
+    code_font_google = google_font("Source Code Pro")
+)
+```
+
+---
+
+## The Reproducibility Crisis
+
+**Is there a reproducibility crisis in research?**
+
+Since the early 2010’s increasing indications that the results of many scientific studies are difficult or impossible to reproduce either by independent researchers or by the original researchers themselves
+
+- Two explanations:
+    - Scientific misconduct (Fraud)
+    - Questionable Research Practices (Incompetence)
+
+---
+## Scientific Fraud
+
+Has probably happened often, started to come to light in the past 15 years:
+
+- Big case in psychology: Stapel (NL, 2011)
+- Marine Ecology: Lönnstedt (SE, 2016)
+- Examples in the medical sciences:
+    - Wakefield (UK, 1998)
+    - Penkowa (DK, 2010)
+
+---
+## Scientific Fraud    
+
+Why do scientists take the risk of making things up when, over the long term, it is almost certain that the fraud will be detected?
+
+- Focus has often been on personal motives:
+    - Search for fame
+    - Wishful thinking: wanting to promote a theory until ‘real’ results could prove it.
+    - Wanting to protect interests:
+        - A long-held theory
+        - Commercial interests
+
+--
+
+But there are also systemic issues:
+
+- Pressure to publish
+- Results and metrics focused evaluation system
+- Journals have moved to a ‘journalistic’ style: searching for big breakthroughs
+
+---
+## Questionable research practices
+
+- Much harder to define, many shades of grey.
+
+### Can you imagine a few examples of a questionable research practice?
+
+---
+
+class: center, middle
+
+# Go to www.menti.com
+
+## Use code 91 30 85.
+
+---
+## How big is the reproducibility problem?
+
+- Estimates vary by discipline.
+    - Randall and Welser: A 2012 study, for example, aimed at reproducing the
+    results of 53 landmark studies in hematology and oncology, but succeeded in
+    replicating only six (11 percent) of those studies.
+
+---
+## How do irreproducible findings come to light?
+
+- Fraud: generally whistleblowers
+- Incompetence: often does not come to light until a replication attempt is made
+
+--
+
+*BUT: is this a problem?* Classical point of view:
+
+- Direction of scientific progress is not exclusively forward
+- Much research is exploratory in nature, and tentative conclusions are both expected and beneficial
+- Research publications will contain errors, despite procedures designed to avoid them
+
+--
+
+A fundamental attribute of science is its capacity for “self-correction”, through published ideas and claims being reviewed and tested by others.
+
+But: is this happening?
+
+---
+## The number of peer-reviewed papers is increasing exponentially with time.
+
+.center[
+```{r, out.height="65%", out.width="65%"}
+knitr::include_graphics("../img/fig1.png")
+```
+]
+
+---
+## Example of replication study: Silberzahn (2018)
+
+.center[
+```{r, out.height="45%", out.width="45%"}
+knitr::include_graphics("../img/Silberzahn1.png")
+```
+]
+
+&quot;In this article, we report an investigation that addressed the current lack of knowledge about how much diversity in analytic choice there can be when different researchers analyze the same data and whether such diversity results in different conclusions. Specifically, we report the impact of analytic decisions on research results obtained by 29 teams that analyzed the same data set to answer the same research question.&quot;
+
+
+&quot;The primary research question tested in this crowd- sourced project was whether soccer players with dark skin tone are more likely than those with light skin tone to receive red cards from referees.&quot;
+
+
+---
+## Silberzahn (2018) Slide 2
+
+.pull-left[
+```{r, out.height="75%", out.width="75%"}
+knitr::include_graphics("../img/Silberzahn3.png")
+```
+]
+
+.pull-right[
+&quot;From a company for sports statistics, we obtained demographic information on all soccer players (N = 2,053) who played in the first male divisions of England, Germany, France, and Spain in the 2012–2013 season. In addition, we obtained data about the interactions of those players with all referees (N = 3,147) whom they encountered across their professional careers.&quot;
+]
+
+---
+## Silberzahn (2018) Slide 3
+
+.center[
+```{r, out.height="45%", out.width="45%"}
+knitr::include_graphics("../img/Silberzahn4.png")
+```
+]
+
+---
+## Silberzahn (2018) Slide 4
+
+- Each team then decided on its own analytic approach to test the primary research question
+- Each team analyzed the data independently of the other teams
+- The teams submitted to the coordinators structured summaries of their analytic approach, including information about data trans- formations, exclusions, covariates, the statistical techniques used, the software used, and the results
+
+---
+## Silberzahn (2018) Slide 5
+
+.center[
+```{r, out.height="45%", out.width="45%"}
+knitr::include_graphics("../img/Silberzahn5.png")
+```
+]
+
+
+---
+## Silberzahn (2018) Slide 6
+
+.center[
+```{r, out.height="70%", out.width="70%"}
+knitr::include_graphics("../img/Silberzahn6.png")
+```
+]
+
+---
+
+class: center, middle
+
+# Over to Mentimeter (www.menti.com) and use code 91 30 85
+
+---
+## Where are the core problems?
+
+-   Flawed statistics
+-   Faulty data
+-   Unsound methodological grounding
+-   Pervasive practices and misconceptions
+-   The current scientific culture and its incentives
+
+---
+## How have fields approached this problem?
+
+.pull-left[
+Human genetics association studies in the 1990s:
+
+-   Small sample sizes and many irreproducible findings
+-   Agreement that power calculations should be considered before analysis and publication
+-   Agreement that reproducibility should be included in manuscripts
+-   Start of era of mega cohorts, GWAS
+]
+
+--
+
+.pull-right[
+The same is happening now in other fields:
+
+```{r, out.height="85%", out.width="85%"}
+knitr::include_graphics("../img/Neuroscience.png")
+```
+]
+
+---
+## What else can be done to beat the reproducibility crisis?
+-   Individual researchers
+-   Institutions
+-   Professional Organisations
+-   Funders
+-   Media
+-   Society
+
+---
+## Why invest in reproducibility?
+- Why spend time and energy setting up an and learning about making your scientific workflow reproducible and open..?
+    -   For yourself:  improve your own productivity, make finished units of work re-usable, get to the new and exciting parts faster, waste less time retracing old steps.
+    -   For your team: make working in a close group more efficient by setting a standardised work flow with clear divisions of responsibilities and tasks
+    -   To improve productivity of a research group or collaborative team:
+        Make it easier to hand-over, communicate and document what you have done.
+    -   For better science: help to advance science at a quicker pace, help develop your research field more quickly
+
+---
+## Questions?
+
+

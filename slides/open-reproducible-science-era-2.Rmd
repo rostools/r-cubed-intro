@@ -1,0 +1,211 @@
+---
+title: "Final remarks: Data analysis in the era of reproducible and open science"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    lib_dir: libs
+    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# Insert references
+library(RefManageR)
+BibOptions(
+    check.entries = FALSE,
+    bib.style = "numeric",
+    cite.style = "numeric",
+    style = "markdown",
+    max.names = 2
+    # hyperlink = FALSE,
+)
+bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_accent(
+    base_color = "#2a2e44",
+    header_font_google = google_font("Fira Sans"),
+    text_font_google = google_font("Crimson Text"),
+    code_font_google = google_font("Source Code Pro")
+)
+```
+
+---
+
+## Reproducible research is part of several large trends
+
+- Openness
+- Transparency
+- Quality: Reproducibility
+- Collaboration / Team work
+- Communication
+
+---
+
+## Many rapid changes to key infrastructures of science
+
+We are in the middle of an exponential growth curve:
+
+- Data production
+- Data storage and transfer
+- Computing power
+- Published research
+- Complexity of methods
+
+---
+
+## Good modern example: UK Biobank
+
+.center[
+```{r, out.height="55%", out.width="55%"}
+knitr::include_graphics("../img/biobank.jpg")
+```
+]
+
+---
+
+## But we scientists still think from "cottage industry" perspective
+
+- Industrialisation of the research work flow
+- Specialisation in research tasks
+
+.pull-left[
+```{r, out.height="70%", out.width="70%"}
+knitr::include_graphics("../img/Cottage_industry.png")
+```
+]
+
+.pull-right[
+```{r, out.height="70%", out.width="70%"}
+knitr::include_graphics("../img/Powerloom.jpg")
+```
+]
+
+---
+
+class: middle
+
+## Current scientific culture not prepared for analytic and computation era
+
+---
+
+## Why? Still very strong barriers to change
+
+- Tools needed
+- Tradition, culture and common practices
+- Researchers don't yet see value in adopting open, reproducible workflow
+- Training and reward systems need to be adapted:
+	- Publication
+	- Academic recognition / careers
+	- Research funding mechanisms
+- Law: privacy concerns about sharing data, IP protection, patents, etc.
+
+---
+
+class: middle
+
+## Open science debates and initiatives don't recognize role of software
+
+.footnote[E.g. [EU H2020 Open Science Mandate] only mentions data and publications.]
+
+[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
+
+---
+
+## Little to no training in software or programming
+
+.center[
+```{r self-taught-comic, echo=FALSE, out.width="100%", out.height="100%"}
+knitr::include_graphics("../img/code-quality.png")
+```
+]
+
+.footnote[Source from [xkcd](https://www.xkcd.com/1513/).]
+
+---
+
+## What does it mean for you?
+
+- Need to stay updated: Keep learning
+    - Read [bookdown](https://bookdown.org/) books (most free)
+    - Ask (and answer!) questions on [StackOverflow](https://stackoverflow.com/)
+    - Teach others!! Great way to learn :)
+    - Read e.g. [Open Science Handbook](https://open-science-training-handbook.gitbook.io/book/)
+
+--
+
+- Find and collaborate with those familiar with these concepts (online and/or in real life)
+
+--
+
+- Cite research that is or tries to be more reproducible
+
+--
+
+- Keep the principles of reproducibility in mind, then find the tools
+
+--
+
+- Practice reproducible and open science
+    - More on this later in session
+
+---
+
+## Recognize importance of code and data: Cite them!
+
+--
+
+```{r cite-packages, echo=TRUE}
+# Example:
+citation("dplyr")
+```
+
+---
+
+## Comment: True reproducibility is very difficult
+
+- Requires self-contained virtual environment
+- With exact package versions and operating system used
+- Tools to do this include:
+    - [Docker] virtual containers [1]
+    - Continuous intergration with [Travis] [2]
+
+--
+
+**...but this is not the goal, nor should it be**
+
+- Tools to simplify this are being developed
+    - Keep eye out
+
+[Docker]: https://github.com/rocker-org/rocker
+[Travis]: https://travis-ci.org/
+
+.footnote[
+[1] Want more info, see [this tutorial](https://colinfay.me/docker-r-reproducibility/).  
+[2] For easier integration and use of Travis in R, see the [travis](https://ropenscilabs.github.io/travis/) package.
+]
+
+---
+
+class: middle
+
+# This is or will be the future. Be prepared.
+
+.footnote[(...i hope...)]
