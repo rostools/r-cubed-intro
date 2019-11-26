@@ -1,7 +1,4 @@
-+++
-title = "Code of Conduct"
-draft = false
-+++
+# Code of Conduct {#conduct}
 
 Science thrives on diversity of thought and origin and we value the participation
 of every member of the scientific community and want all participants to have an
@@ -79,8 +76,6 @@ instructors, or helpers may take any action they deem appropriate, including
 warning the offender or expulsion from the course.
 
 Thank you for helping make this a welcoming, friendly event for all :smile:
-
------
 
 Acknowledgements: Large portions of this Code of Conduct were taken and modified
 from other Codes of Conduct, specifically
