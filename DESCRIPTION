@@ -1,17 +1,16 @@
-Package: ddarcourse
-Title: "Reproducible Quantitative Analyses and Workflows using
-    R"
+Package: rcubed
+Title: "Reproducible Research in R: An introductory workshop on modern data analysis using R"
 Version: 1.0.0.9000
 Authors@R: 
     person(given = "Luke",
            family = "Johnston",
            role = c("aut", "cre"),
            email = "lwjohnst@gmail.com")
-URL: https://gitlab.com/lwjohnst/rqaw-rcourse/issues
+URL: https://gitlab.com/rostools/r-cubed/issues, https://r-cubed.rostools.org
 Depends: 
     R (>= 3.5.3)
 Imports: 
-    blogdown (>= 0.11),
+    bookdown,
     fs (>= 1.2.7),
     furrr (>= 0.1.0),
     here (>= 0.1),
