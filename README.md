@@ -1,7 +1,6 @@
 
 # Reproducible Quantitative Analyses and Workflows using R
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4c7d7232-e173-491a-abf7-c818c290bade/deploy-status)](https://app.netlify.com/sites/rqawr-course/deploys)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
