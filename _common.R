@@ -3,9 +3,9 @@ library(RefManageR)
 library(NHANES)
 library(knitr)
 library(tidyverse)
-library(DiagrammeR)
+# library(DiagrammeR)
 library(htmltools)
-library(webshot)
+# library(webshot)
 
 knitr::opts_chunk$set(
     comment = "#>",
@@ -28,4 +28,4 @@ BibOptions(
 
 options(knitr.table.format = "html")
 
-bib <- ReadBib("references.bib", check = FALSE)
+bib <- ReadBib("resources/references.bib", check = FALSE)
