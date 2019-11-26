@@ -5,12 +5,15 @@ stages:
   - deploy
 
 build:
-  stage: build
-  script:
-    - R -e "remotes::install_deps(dependencies = TRUE)"
-    - R -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
-    # - R -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
+    stage: build
+    script:
+        - R -e "remotes::install_deps(dependencies = TRUE)"
+        - R -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
+    artifacts:
+        paths:
+            - public
 
+# - R -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
 # To produce a code coverage report as a GitLab page see
 # https://about.gitlab.com/2016/11/03/publish-code-coverage-report-with-gitlab-pages/
 
@@ -23,8 +26,5 @@ deploy:
         - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
     only:
         - master
-    artifacts:
-        paths:
-            - public
     dependencies:
         - build
