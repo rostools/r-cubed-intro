@@ -1,0 +1,25 @@
+image: rocker/tidyverse
+
+stages:
+  - build
+  - deploy
+
+building:
+  stage: build
+  script:
+    - R -e "remotes::install_deps(dependencies = TRUE)"
+    - R -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
+    - R -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
+
+# To produce a code coverage report as a GitLab page see
+# https://about.gitlab.com/2016/11/03/publish-code-coverage-report-with-gitlab-pages/
+
+pages:
+    stage: deploy
+    script:
+        - ls
+    artifacts:
+        paths:
+            - public
+    only:
+        - master
