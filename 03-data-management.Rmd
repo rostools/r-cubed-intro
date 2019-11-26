@@ -569,7 +569,8 @@ We can get to this from the wide form through wrangling the data like so:
 (ref:wide-long) Convert from wide to long. Taken from [R for Data Science](https://r4ds.had.co.nz/tidy-data.html).
 
 ```{r image-wide-long, echo=FALSE, fig.cap="(ref:wide-long)"}
-include_graphics("https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png")
+# TODO: fix this. Get image directly.
+# include_graphics("https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png")
 ```
 
 To go from wide to long we use `gather` to sweep up a set of columns into one
@@ -634,7 +635,8 @@ data argument.
 (ref:long-wide) 'Spreading' from long to wide. Taken from the [R for Data Science book](https://r4ds.had.co.nz/tidy-data.html#spreading).
 
 ```{r image-long-to-wide, echo=FALSE, fig.cap="(ref:long-wide)"}
-include_graphics("https://d33wubrfki0l68.cloudfront.net/8350f0dda414629b9d6c354f87acf5c5f722be43/bcb84/images/tidy-8.png")
+# TODO: fix this. Get image directly.
+# include_graphics("https://d33wubrfki0l68.cloudfront.net/8350f0dda414629b9d6c354f87acf5c5f722be43/bcb84/images/tidy-8.png")
 ```
 
 ```{r}
@@ -672,7 +674,6 @@ table below from the dataset given here.
 3. [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
 
 [Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
-[R for Data Science]: https://r4ds.had.co.nz
 
 **For help**:
     

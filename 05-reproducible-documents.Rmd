@@ -158,7 +158,9 @@ A png, jpeg, or pdf image can be attached by doing (here, use an image of your o
 
 gives...
 
-![image caption](/img/code-sharing-steps.png)
+TODO: Add image.
+
+image caption /img/code-sharing-steps.png
 
 *Note*: Can also include links to images from the Internet, as a URL link.
 
@@ -434,7 +436,7 @@ Course](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html#exercise) and
 from a [session](https://au-oc.github.io/content/intro-rmarkdown.html) taught at
 the [Aarhus University Open Coders](https://au-oc.github.io/main/), with
 contributions from Maria Izabel Cavassim Alves
-([@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in
+([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in
 Bioinformatics.
 
 ## References

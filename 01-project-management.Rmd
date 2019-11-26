@@ -4,6 +4,7 @@
 
 ### Objectives
 
+1. Learning how to find help, autocompletion, further learning.
 1. To become aware of and learn some "best practices" (or "good enough
 practices") for project organization.
 1. To use RStudio to create and manage projects with a consistent structure and
@@ -367,7 +368,7 @@ automatically. The tidyverse [style guide] has been implemented into the
 the guide by re-styling selected code. The styler snippets can be found in the
 Addins function on the top of your R document after you have installed it.
 
-![From styler website.](/img/styler_0.1.gif)
+Take from styler website? /img/styler_0.1.gif
 
 RStudio also has its own automatic styling ability, through the menu item `"Code ->
 Reformat Code"` (or `Ctrl-Shift-A`). Try both methods of styling on the exercise
@@ -519,7 +520,6 @@ books (like [R for Data Science]).
 [^nojoke]: No joke, most of the skill in programming comes from learning how to ask Google the right way for your problem.
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
-[R for Data Science]: https://r4ds.had.co.nz/
 
 ## Resources for learning and help
 
@@ -541,5 +541,5 @@ Parts of this lesson were modified from a
 [session](https://au-oc.github.io/content/workflow-setup.html) taught at the
 [Aarhus University Open Coders](https://au-oc.github.io/main/), with
 contributions from Maria Izabel Cavassim Alves
-([@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in 
+([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in 
 Bioinformatics.

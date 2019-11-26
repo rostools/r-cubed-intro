@@ -1,4 +1,6 @@
-# Course introduction {#intro}
+# Course introduction {#introduction}
+
+Reproducible Research in R: An introductory course on modern data analyses and workflows
 
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
@@ -55,6 +57,12 @@ lectures will be given throughout.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 options(knitr.kable.NA = "")
-schedule <- readr::read_csv("schedule.csv")
+schedule <- readr::read_csv("data/schedule.csv")
 knitr::kable(schedule, align = "l")
 ```
+
+Notes: Describe assignments and form groups during introduction.
+Get them in line from "complete beginner to computing" to "know a little bit".
+Then assign numbers for groups then. Structure room into group tables, but get 
+them to sit wherever but not get comfortable when they sit down (since they will
+move).
