@@ -1,13 +1,13 @@
 --- 
 title: "Reproducible Research in R"
-subtitle: "An introductory workshop on modern data analysis using R"
+subtitle: "An introductory workshop on modern data analyses and workflows"
 author: "Luke W. Johnston"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
 link-citations: yes
-description: "This is a 3-day workshop."
+description: "This is a 3-day workshop introducing modern data analysis tools and workflows for researchers."
 ---
 
 # Syllabus
@@ -19,5 +19,81 @@ knitr::write_bib(c(
 ), here::here('resources/packages.bib'))
 ```
 
-
 > NOTE: This content is still being updated.
+
+Reproducibility and open scientific practices are increasingly demanded of
+scientists and researchers. Training on how to apply these practices in data
+analysis has not kept up with demand. With this course, we hope to begin meeting
+that demand. Using a very practical approach bases mostly on code-along sessions
+(instructor and learner coding together), the course will:
+
+1. Explain what an open and reproducible data analysis workflow is, what it
+looks like, and why it is important.
+1. Explain and demonstrate why R is rapidly becoming the standard program of
+choice for doing modern data analysis in science.
+1. Demonstrate and apply collaborative tools and techniques when working in team
+settings (including working with your future self).
+1. Show and apply the fundamental tools and skills for conducting a
+reproducible and modern analysis for a research project.
+1. Show where to go to get help and to continue learning modern data analysis
+skills.
+
+We'll be addressing the following questions:
+
+- What is [R], why should I use it, and how do I use it?
+- What does a modern data analysis setup and workflow look like?
+- What is reproducibility and how is it different from replicability?
+- How can I ensure my data analysis project is reproducible?
+- How can I import and work with my data in R?
+- How can I visualize my data and make publication-quality figures?
+- Why should I and how can I keep track of changes to my analysis files?
+- How can I write reports to document, describe, and present analyses in a
+reproducible way?
+
+By the end of the course, participants will have a basic level of proficiency in
+using the [R] statistical computing language, enabling them to improve their data
+and code literacy, and to conduct a modern and reproducible data analysis. The
+course will place particular emphasis on research in diabetes and metabolism; it
+will be taught by [instructors](#instructors) working in this field and it will
+use relevant examples where possible.
+
+[R]: https://www.r-project.org/
+
+## Is this course for you?
+
+To help manage expectations and develop the material for this course, we make a
+few assumptions about *who you are* as a participant in the course:
+
+- You are a researcher, likely working in the biomedical field (ranging from
+experimental to epidemiology).
+- You currently or will soon do some quantitative data analysis.
+- You: 
+    - know *nothing* or *little* about R (or computing in general); 
+    - *haven't* used coding programs for doing data analysis (e.g. used SPSS); 
+    - *have* used coding programs before (e.g. used SAS or Stata), but not R;
+    - know how to use R, but *haven't* used the [tidyverse] or [RStudio].
+
+[tidyverse]: https://www.tidyverse.org/
+[RStudio]: https://rstudio.com/
+
+While we have these assumptions to help focus the content of the course, if you
+have an interest in learning R but don't fit any of the above assumptions, *you
+are still welcome to attend the course*!! We don't turn anyone away if we can.
+
+In addition to the assumptions, we also have a fairly focused scope for teaching
+and expectations for learning. So this may also help you decide if this course
+is for you.
+
+- We *do* teach how to use R, starting from the very basics and targeted to beginners.
+- We *do not* teach statistics (these are already covered by most university curriculums).
+- We *do* teach from a team science, reproducible research, and open scientific
+perspective (i.e. by including a collaborative group project that uses a transparent
+and reproducible analysis workflow).
+- We *do* teach using practical, applied, and hands-on lessons and exercises, 
+with a few short lectures that introduce a topic.
+
+To further develop your R skills and knowledge, we are having an advanced R
+course from September 8-9, 2020 that will build off of this course (though it
+isn't dependent on this course). Keep on eye on DDA announcements to register
+and learn more about it!
+
