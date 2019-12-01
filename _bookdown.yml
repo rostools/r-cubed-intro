@@ -11,7 +11,7 @@ rmd_files:
     - "index.Rmd"
     - "conduct.Rmd"
     - "assignment.Rmd"
-    - "00-introduction.Rmd"
+    - "00-pre-workshop.Rmd"
     - "01-project-management.Rmd"
     - "02-version-control.Rmd"
     - "03-data-management.Rmd"
