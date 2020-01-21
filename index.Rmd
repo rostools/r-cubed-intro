@@ -7,7 +7,12 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
 link-citations: yes
-description: "This is a 3-day workshop introducing modern data analysis tools and workflows for researchers."
+description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
+apple-touch-icon: "images/apple-touch-icon.png"
+apple-touch-icon-size: 180
+favicon: "images/favicon.ico"
+url: 'https\://r-cubed.rostools.org'
+#gitlab-repo: "rostools/r-cubed"
 ---
 
 # Syllabus
@@ -54,7 +59,7 @@ By the end of the course, participants will have a basic level of proficiency in
 using the [R] statistical computing language, enabling them to improve their data
 and code literacy, and to conduct a modern and reproducible data analysis. The
 course will place particular emphasis on research in diabetes and metabolism; it
-will be taught by [instructors](#instructors) working in this field and it will
+will be taught by instructors working in this field and it will
 use relevant examples where possible.
 
 [R]: https://www.r-project.org/
