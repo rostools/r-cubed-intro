@@ -1,5 +1,5 @@
 Package: rcubed
-Title: "Reproducible Research in R: An introductory workshop on modern data analysis using R"
+Title: "Reproducible Research in R: An Introductory Workshop on Modern Data Analysis using R"
 Version: 1.0.0.9000
 Authors@R: 
     person(given = "Luke",

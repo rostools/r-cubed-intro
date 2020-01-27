@@ -7,7 +7,12 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
 link-citations: yes
-description: "This is a 3-day workshop introducing modern data analysis tools and workflows for researchers."
+description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
+apple-touch-icon: "images/apple-touch-icon.png"
+apple-touch-icon-size: 180
+favicon: "images/favicon.ico"
+url: 'https\://r-cubed.rostools.org'
+#gitlab-repo: "rostools/r-cubed"
 ---
 
 # Syllabus
@@ -54,7 +59,7 @@ By the end of the course, participants will have a basic level of proficiency in
 using the [R] statistical computing language, enabling them to improve their data
 and code literacy, and to conduct a modern and reproducible data analysis. The
 course will place particular emphasis on research in diabetes and metabolism; it
-will be taught by [instructors](#instructors) working in this field and it will
+will be taught by instructors working in this field and it will
 use relevant examples where possible.
 
 [R]: https://www.r-project.org/
@@ -100,14 +105,15 @@ and learn more about it!
 ## General schedule
 
 The workshop is structured as a series of participatory live-coding sessions
-(instructor and learner coding together) interspersed with hands-on exercises,
-using either a practice dataset or the participants' own datasets. Some short 
-lectures will be given throughout.
+(instructor and learner coding together) interspersed with hands-on exercises
+and group work, using either a practice dataset or some other real-world dataset.
+There are some lectures given, mainly at the start and end of the workshop.
+The general schedule outline is shown in the below table.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r schedule-table, echo=FALSE, message=FALSE, warning=FALSE}
 options(knitr.kable.NA = "")
-schedule <- readr::read_csv("data/schedule.csv")
-knitr::kable(schedule, align = "l")
+schedule <- readr::read_csv(here::here("resources/schedule.csv"))
+knitr::kable(schedule, align = "l", caption = "General schedule for the 3 days of the course.")
 ```
 
 Notes: Describe assignments and form groups during introduction.
