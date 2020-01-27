@@ -13,16 +13,3 @@ before attending the workshop, there are a few *prerequisites* to complete.
 the online book "R for Data Science"
 1. Make sure to bring your own laptop, since we do hands-on learning. 
 1. Read and abide by the [Code of Conduct](code-of-conduct)
-
-## Instructors
-
-Recommended number of instructors for a 25-35 class size is about 3-6
-instructors (~1 instructors for every 1-2 sessions). If there are more instructors,
-then less helpers are needed. The recommended combined total number of helpers
-and instructors is about 6 for a smooth workflow experience for the learners.
-
-## Recommended resources
-
-- [R for Data Science](http://r4ds.had.co.nz/): Excellent open and online resource for using R for data analysis and data science.
-- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): Excellent online resource for using ggplot2 and R graphics.
-- [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/): Great quick reference.
