@@ -40,6 +40,124 @@ some beautifully formatting reports, waaayyyy more easily than you can if you di
 it all in Word. As a bonus, switching between citation formats for different
 journals is a breeze.
 
+## R Markdown
+
+R Markdown is an extension of Markdown that combines R code and Markdown formatting
+markup. Output from R code gets inserted into the document for a seamless integration
+of document writing and analysis.
+
+### YAML header/metadata
+
+Most Markdown documents (especially for R Markdown) include [YAML] metadata at
+the top of the document, surrounded by `---` on the top and bottom. The YAML
+contains metadata and options for the entire document. For instance, the title
+or author but also the output format you want to use, such as Word, HTML, or PDF
+(if you want to create a beautiful PDF, you need to install the R package
+[tinytex]). There are many more output formats, but these are the most common.
+
+[YAML]: https://bookdown.org/yihui/rmarkdown/html-document.html
+[tinytex]: https://yihui.name/tinytex/
+
+```yaml
+---
+title: "Document title"
+author: Your Name
+output: word_document
+---
+```
+
+There are additional options you can set in the output field, which we will show
+later below.
+
+### Now the best part! Inserting R code
+
+One of the most powerful and useful features of R Markdown is its ability to
+combine text and R code in the same document! You can insert plots by including a
+code chunk, like the one below. The options added to the code chunk tell it to
+add a caption, to set the height and width of the figure, and to prevent the code
+chunk from showing up in the final document (`echo=FALSE`). The `bmi-plot` label is
+the name of the code chunk (which you can see in the "Document Outline", found
+using `Ctrl-Shift-O`, if you have the options set in the `Tools -> Global
+Options -> R Markdown`).
+
+**NOTE**: Code [chunk labels] should be named without `_`, spaces, or `.` and 
+instead should be one word or be separated by `-`. While an error may not 
+necessarily occur, there can be some unintended side effects that will cause you
+some annoyance without knowing the reason.
+
+[chunk labels]: https://yihui.name/knitr/options/#chunk-options
+
+````markdown
+`r ''````{r bmi-plot, fig.cap="Add your figure title here.", fig.height=8, fig.width=8, echo=FALSE}
+ggplot(NHANES, aes(x = Height, fill = Gender)) +
+    geom_density(alpha = 0.4) +
+    scale_fill_brewer(type = "qual", palette = "Dark2") +
+    theme_minimal() +
+    theme(legend.position = c(0.2, 0.85))
+`r ''````
+````
+
+(ref:insert-plot) Add your figure title here.
+
+```{r bmi-plot, fig.cap="(ref:insert-plot)", fig.height=8, fig.width=8, echo=FALSE}
+ggplot(NHANES, aes(x = Height, fill = Gender)) +
+    geom_density(alpha = 0.4) +
+    scale_fill_brewer(type = "qual", palette = "Dark2") +
+    theme_minimal() +
+    theme(legend.position = c(0.2, 0.85))
+```
+
+You can also create tables by using the `kable()` function from the knitr package:
+
+````markdown
+`r ''````{r mean-bmi-table, echo=FALSE}
+library(knitr)
+NHANES %>% 
+    select(SurveyYr, BMI, Diabetes) %>% 
+    group_by(SurveyYr, Diabetes) %>% 
+    summarise(MeanBMI = mean(BMI, na.rm = TRUE)) %>% 
+    spread(SurveyYr, MeanBMI) %>% 
+    kable(caption = "Table caption here")
+`r ''````
+````
+
+```{r mean-bmi-table, echo=FALSE}
+library(knitr)
+NHANES %>% 
+    select(SurveyYr, BMI, Diabetes) %>% 
+    mutate_at(vars(Diabetes), forcats::fct_explicit_na) %>% 
+    group_by(SurveyYr, Diabetes) %>% 
+    summarise(MeanBMI = round(mean(BMI, na.rm = TRUE), 2)) %>% 
+    spread(SurveyYr, MeanBMI) %>% 
+    kable(caption = "Table caption here")
+```
+
+Or just print out a number to the document:
+
+````markdown
+`r ''````{r, echo=FALSE}
+cor(NHANES$Height, NHANES$Weight)
+`r ''````
+````
+
+```{r, echo=FALSE}
+cor(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+### Inline R code
+
+You can also include R code within the text. You can use this to directly insert
+numbers into the text of the document. By using something like:
+
+> The mean of BMI is &#96;r round(mean(NHANES$BMI, na.rm = TRUE), 2)&#96;.
+
+Gives...
+
+The mean of BMI is `r round(mean(NHANES$BMI, na.rm = TRUE), 2)`.
+
+*Note*: Inline R code can *only* insert a single number or character value,
+nothing more.
+
 ## Markdown syntax
 
 First, let's create and save an R Markdown file. Go to `File -> New File -> R
@@ -201,124 +319,6 @@ The `|---:|` or `|:---|` tell the table to left-align or right-align the values
 in the column. Center-align is `|:----:|`.
 
 **Break time.**
-
-## R Markdown
-
-R Markdown is an extension of Markdown that combines R code and Markdown formatting
-markup. Output from R code gets inserted into the document for a seamless integration
-of document writing and analysis.
-
-### YAML header/metadata
-
-Most Markdown documents (especially for R Markdown) include [YAML] metadata at
-the top of the document, surrounded by `---` on the top and bottom. The YAML
-contains metadata and options for the entire document. For instance, the title
-or author but also the output format you want to use, such as Word, HTML, or PDF
-(if you want to create a beautiful PDF, you need to install the R package
-[tinytex]). There are many more output formats, but these are the most common.
-
-[YAML]: https://bookdown.org/yihui/rmarkdown/html-document.html
-[tinytex]: https://yihui.name/tinytex/
-
-```yaml
----
-title: "Document title"
-author: Your Name
-output: word_document
----
-```
-
-There are additional options you can set in the output field, which we will show
-later below.
-
-### Now the best part! Inserting R code
-
-One of the most powerful and useful features of R Markdown is its ability to
-combine text and R code in the same document! You can insert plots by including a
-code chunk, like the one below. The options added to the code chunk tell it to
-add a caption, to set the height and width of the figure, and to prevent the code
-chunk from showing up in the final document (`echo=FALSE`). The `bmi-plot` label is
-the name of the code chunk (which you can see in the "Document Outline", found
-using `Ctrl-Shift-O`, if you have the options set in the `Tools -> Global
-Options -> R Markdown`).
-
-**NOTE**: Code [chunk labels] should be named without `_`, spaces, or `.` and 
-instead should be one word or be separated by `-`. While an error may not 
-necessarily occur, there can be some unintended side effects that will cause you
-some annoyance without knowing the reason.
-
-[chunk labels]: https://yihui.name/knitr/options/#chunk-options
-
-````markdown
-`r ''````{r bmi-plot, fig.cap="Add your figure title here.", fig.height=8, fig.width=8, echo=FALSE}
-ggplot(NHANES, aes(x = Height, fill = Gender)) +
-    geom_density(alpha = 0.4) +
-    scale_fill_brewer(type = "qual", palette = "Dark2") +
-    theme_minimal() +
-    theme(legend.position = c(0.2, 0.85))
-`r ''````
-````
-
-(ref:insert-plot) Add your figure title here.
-
-```{r bmi-plot, fig.cap="(ref:insert-plot)", fig.height=8, fig.width=8, echo=FALSE}
-ggplot(NHANES, aes(x = Height, fill = Gender)) +
-    geom_density(alpha = 0.4) +
-    scale_fill_brewer(type = "qual", palette = "Dark2") +
-    theme_minimal() +
-    theme(legend.position = c(0.2, 0.85))
-```
-
-You can also create tables by using the `kable()` function from the knitr package:
-
-````markdown
-`r ''````{r mean-bmi-table, echo=FALSE}
-library(knitr)
-NHANES %>% 
-    select(SurveyYr, BMI, Diabetes) %>% 
-    group_by(SurveyYr, Diabetes) %>% 
-    summarise(MeanBMI = mean(BMI, na.rm = TRUE)) %>% 
-    spread(SurveyYr, MeanBMI) %>% 
-    kable(caption = "Table caption here")
-`r ''````
-````
-
-```{r mean-bmi-table, echo=FALSE}
-library(knitr)
-NHANES %>% 
-    select(SurveyYr, BMI, Diabetes) %>% 
-    mutate_at(vars(Diabetes), forcats::fct_explicit_na) %>% 
-    group_by(SurveyYr, Diabetes) %>% 
-    summarise(MeanBMI = round(mean(BMI, na.rm = TRUE), 2)) %>% 
-    spread(SurveyYr, MeanBMI) %>% 
-    kable(caption = "Table caption here")
-```
-
-Or just print out a number to the document:
-
-````markdown
-`r ''````{r, echo=FALSE}
-cor(NHANES$Height, NHANES$Weight)
-`r ''````
-````
-
-```{r, echo=FALSE}
-cor(iris$Sepal.Length, iris$Sepal.Width)
-```
-
-### Inline R code
-
-You can also include R code within the text. You can use this to directly insert
-numbers into the text of the document. By using something like:
-
-> The mean of BMI is &#96;r round(mean(NHANES$BMI, na.rm = TRUE), 2)&#96;.
-
-Gives...
-
-The mean of BMI is `r round(mean(NHANES$BMI, na.rm = TRUE), 2)`.
-
-*Note*: Inline R code can *only* insert a single number or character value,
-nothing more.
 
 ## Other features
 
