@@ -315,7 +315,11 @@ in the column. Center-align is `|:----:|`.
 
 This part mostly applies to HTML-based and PDF[^tinytex] outputs, since
 programmatically modifying or setting templates Word documents is rather
-difficult[^md-to-word]. Changing broad features of a document can be done by setting the
+difficult[^md-to-word]. Knitting to PDF requires that you install LaTeX using
+the [tinytex](https://yihui.name/tinytex/r/) R package.
+After you install LaTeX you can create truly beautifully typeset PDF documents,
+however installing LaTeX can often be quite difficult. So we won't be doing it.
+Changing broad features of a document can be done by setting the
 "theme" of the document. Add an option in the YAML metadata like:
 
 ```yaml
