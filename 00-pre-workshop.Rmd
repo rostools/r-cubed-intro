@@ -2,9 +2,6 @@
 
 > NOTE: This is still being developed. Check back a few weeks before the start of the course.
 
-No experience in data analysis or programming assumed or required. However,
-before attending the workshop, there are a few *prerequisites* to complete.
-
 1. Install the latest version of [R](https://cloud.r-project.org/index.html)
 1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 <!-- 1. Install the packages listed in the [Course Materials](/course/) -->
