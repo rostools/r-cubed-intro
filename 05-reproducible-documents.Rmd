@@ -131,6 +131,8 @@ cor(NHANES$Height, NHANES$Weight)
 cor(iris$Sepal.Length, iris$Sepal.Width)
 ```
 
+TODO: Add explanation about `setup` code chunk
+
 ### Inline R code
 
 You can also include R code within the text. You can use this to directly insert
