@@ -378,47 +378,12 @@ objectives.
 - Include a "Header 2" (`##`) called "Statistical analysis" below "Material and
 Methods".
 
-Compile ("knit") the document again and see what happens. Then, add these
-additional features to the document:
-
-1. Include a random picture with caption (of your research or of any png you
-find in your PC).
-2. Include a footnote.
-3. Include the link of your GitHub (if you created one) or of your academic profile.
+Compile ("knit") the document again and see what happens. 
 
 Then, add some R code chunks with code to wrangle your data and also to create a
 figure (you can copy and paste from previous sessions). Include these code chunks
 in the "Results" section. During the group work sessions, you can use this as a
 template for the assignment.
-
-## Resources for learning and help
-
-**For learning**:
-
-- [RStudio tutorial on using R Markdown](https://rmarkdown.rstudio.com/lesson-1.html)
-- [Markdown syntax guide](https://rmarkdown.rstudio.com/authoring_basics.html)
-- [Online book for R Markdown](https://bookdown.org/yihui/rmarkdown/)
-- [Pandoc Markdown Manual](https://pandoc.org/MANUAL.html#pandocs-markdown) (R
-Markdown uses [pandoc])
-- [R for Data Science](http://r4ds.had.co.nz/)
-    - [R Markdown chapter](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
-- [Adding citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
-
-**For help**:
-
-- [RStudio helpful cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
-- [R Markdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) (downloads a pdf file)
-- [R Markdown reference cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
-
-## Acknowledgements
-
-Parts of this lesson were modified from the [UofTCoders R
-Course](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html#exercise) and
-from a [session](https://au-oc.github.io/content/intro-rmarkdown.html) taught at
-the [Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from Maria Izabel Cavassim Alves
-([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in
-Bioinformatics.
 
 ## References
 

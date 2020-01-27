@@ -1,0 +1,24 @@
+# Additional resources
+
+- [R for Data Science](http://r4ds.had.co.nz/): Excellent open and online resource for using R for data analysis and data science.
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): Excellent online resource for using ggplot2 and R graphics.
+- [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/): Great quick reference.
+
+## Resources for R Markdown {#resources-rmd}
+
+**For learning**:
+
+- [RStudio tutorial on using R Markdown](https://rmarkdown.rstudio.com/lesson-1.html)
+- [Markdown syntax guide](https://rmarkdown.rstudio.com/authoring_basics.html)
+- [Online book for R Markdown](https://bookdown.org/yihui/rmarkdown/)
+- [Pandoc Markdown Manual](https://pandoc.org/MANUAL.html#pandocs-markdown) (R
+Markdown uses [pandoc])
+- [R for Data Science](http://r4ds.had.co.nz/)
+    - [R Markdown chapter](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+- [Adding citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+
+**For help**:
+
+- [RStudio helpful cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+- [R Markdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) (downloads a pdf file)
+- [R Markdown reference cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)

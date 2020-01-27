@@ -1,0 +1,18 @@
+# FOR INSTRUCTORS {-}
+
+## Workshop details
+
+### Instructor and helper number
+
+Recommended number of instructors for a 25-35 class size is about 3-6
+instructors (~1 instructors for every 1-2 sessions). If there are more instructors,
+then less helpers are needed. The recommended combined total number of helpers
+and instructors is about 6 for a smooth workflow experience for the learners.
+
+## Introduction session
+
+Notes: Describe assignments and form groups during introduction.
+Get them in line from "complete beginner to computing" to "know a little bit".
+Then assign numbers for groups then. Structure room into group tables, but get 
+them to sit wherever but not get comfortable when they sit down (since they will
+move).
