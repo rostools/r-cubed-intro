@@ -322,26 +322,6 @@ in the column. Center-align is `|:----:|`.
 
 ## Other features
 
-### Citing literature with R Markdown
-
-If you want to insert a citation use `[@Hoejsgaard2006a]`, which will look like
-`r AutoCite(bib, "Hoejsgaard2006a")`, and the reference is then inserted onto
-the bottom of the document. You need to add a line to the YAML header like this:
-
-```yaml
----
-title: "My report"
-author: "Me!"
-bibliography: my_references.bib
----
-```
-
-Make sure to add this to the end of your file:
-
-```markdown
-# References
-```
-
 ### Making your report prettier
 
 This part mostly applies to HTML-based and PDF[^tinytex] outputs, since
@@ -422,6 +402,7 @@ template for the assignment.
 Markdown uses [pandoc])
 - [R for Data Science](http://r4ds.had.co.nz/)
     - [R Markdown chapter](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+- [Adding citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 
 **For help**:
 
