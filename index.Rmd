@@ -97,3 +97,21 @@ course from September 8-9, 2020 that will build off of this course (though it
 isn't dependent on this course). Keep on eye on DDA announcements to register
 and learn more about it!
 
+## General schedule
+
+The workshop is structured as a series of participatory live-coding sessions
+(instructor and learner coding together) interspersed with hands-on exercises,
+using either a practice dataset or the participants' own datasets. Some short 
+lectures will be given throughout.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+options(knitr.kable.NA = "")
+schedule <- readr::read_csv("data/schedule.csv")
+knitr::kable(schedule, align = "l")
+```
+
+Notes: Describe assignments and form groups during introduction.
+Get them in line from "complete beginner to computing" to "know a little bit".
+Then assign numbers for groups then. Structure room into group tables, but get 
+them to sit wherever but not get comfortable when they sit down (since they will
+move).
