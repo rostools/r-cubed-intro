@@ -1,23 +1,10 @@
 # Creating dynamically generated, reproducible documents {#rmarkdown}
 
-## Session details
+> Session goal: To create your own document, with embedded code that
+automatically adds a figure, a table, and some text results.
 
-### Objectives
-
-1. To become aware of the importance of reproducibility of data analyses, for
-your own productivity and for greater rigor in science.
-1. To create reproducible documents interwoven with R code that can be easily
-updated by changing the code or data.
-1. To know where to go for continued learning.
-
-**At the end of this session you will be able**:
-
-- Write text, headers, citations, and other writing tasks in RStudio using
-Markdown.
-- Insert R code chunks in the Markdown document that will create figures,
-tables, and/or numbers.
-- As part of the [assignment](/course/assignment/), you will create an
-analytically reproducible document showing your analysis code and output.
+See the [Additional Resources for R Markdown](#resources-rmd) page for recommended
+resources to use.
 
 ## Why try to be reproducible?
 
