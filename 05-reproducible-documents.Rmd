@@ -339,9 +339,11 @@ Markdown to HTML conversion.
 
 [^md-to-word]: If you really want to do it, the best way is to create your template in the `.odt`, and then convert to `.docx`. [Here](https://github.com/andrewheiss/Global-Pandoc-files) is a good place to start. 
 
-## Final exercise: Starting creating the assignment report
+## Group exercise
 
 Time: Until the end of the session.
+
+Create a group report of what you've done so far.
 
 Open RStudio and create an `R Markdown` document:
 
