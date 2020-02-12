@@ -1,6 +1,7 @@
 new_session: yes
 output_dir: "public"
 book_filename: "r-cubed"
+include: "slides"
 delete_merged_file: true
 view: https://gitlab.com/rostools/r-cubed/blob/master/%s
 edit: https://gitlab.com/rostools/r-cubed/edit/master/%s
@@ -9,14 +10,16 @@ language:
     chapter_name: "Chapter "
 rmd_files:
     - "index.Rmd"
-    - "conduct.Rmd"
-    - "assignment.Rmd"
-    - "00-pre-workshop.Rmd"
+    - "00-pre-course.Rmd"
+    - "00-conduct.Rmd"
+    - "00-assignment.Rmd"
     - "01-project-management.Rmd"
     - "02-version-control.Rmd"
     - "03-data-management.Rmd"
     - "04-data-visualization.Rmd"
     - "05-reproducible-documents.Rmd"
     - "06-references.Rmd"
+    - "for-instructors.Rmd"
+    - "LICENSE.md"
 before_chapter_script: "_common.R"
 clean: "resources/packages.bib"
