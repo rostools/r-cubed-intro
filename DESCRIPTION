@@ -22,7 +22,9 @@ Imports:
     xaringan (>= 0.10),
     xaringanthemer (>= 0.2.0),
     RefManageR,
-    rversions
+    rversions,
+    emo (>= 0.0.0.9000)
 Encoding: UTF-8
-Remotes: 
-    gadenbuie/xaringanthemer
+Remotes:  
+    gadenbuie/xaringanthemer,
+    hadley/emo

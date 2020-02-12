@@ -75,7 +75,7 @@ engages in behaviour that violates this code of conduct, the organizers,
 instructors, or helpers may take any action they deem appropriate, including
 warning the offender or expulsion from the course.
 
-Thank you for helping make this a welcoming, friendly event for all :smile:
+Thank you for helping make this a welcoming, friendly event for all `r emo::ji("smile")`
 
 Acknowledgements: Large portions of this Code of Conduct were taken and modified
 from other Codes of Conduct, specifically
