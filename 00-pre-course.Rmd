@@ -1,0 +1,127 @@
+# Pre-course tasks {#pre-course}
+
+## Initial tasks
+
+The very first things to do are to:
+
+1. Install the latest [R](https://cloud.r-project.org/index.html) version 
+(`r rversions::r_release()$version`)
+1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+1. Install [Git](https://git-scm.com/downloads)
+
+Once R, RStudio, and Git have been installed, open RStudio. 
+*If you at any point during these pre-course tasks have any troubles*, 
+let us know in the pre-course survey, which is linked at the end of these tasks.
+Watch the video below to get a quick introduction to the RStudio interface:
+
+TODO: Add video introducing panels and layout of RStudio
+
+## Installing R packages
+
+Now that you have RStudio and R on your computer, 
+we need to install the R packages we'll use in the course.
+R packages are external bundles of R code that other people have written.
+There are so many R packages available 
+and if there is something you'd like to do in R, 
+there probably is an R package for doing it. 
+Making use of R packages can seriously help you out when doing your research.
+
+Alright, you'll need to install the remotes package.
+See the GIF in Figure \@ref(fig:rstudio-installing-remotes) below for how to do that:
+
+```{r rstudio-installing-remotes, echo=FALSE, fig.cap="Installing the remotes package in RStudio."}
+knitr::include_graphics(here::here("images/rstudio-installing-remotes.gif"))
+```
+
+Then type in the RStudio Console the commands below. 
+Check out the GIF in Figure \@ref(fig:console-installing-r3) 
+below for how to do that.
+Hit enter and the r3 helper package will be installed.
+
+```r
+remotes::install_gitlab("rostools/r3")
+```
+
+```{r console-installing-r3, echo=FALSE, fig.cap="Using the RStudio Console to install the r3 helper package."}
+knitr::include_graphics(here::here("images/console-install-r3.gif"))
+```
+
+*Note*: When you see a command like `something::something()`,
+for example with `remotes::install_gitlab()`, you would "read" this as:
+
+> R, can you please use the install_gitlab function from the remotes package.
+
+The normal way of doing it would be to load the package with `library(remotes)` 
+and then run the command.
+But by using the `::`, we tell R to directly use a function from a package.
+We use this trick because we only want to use the `install_gitlab()` command
+from the remotes package and nothing else. 
+We will be using this more as we go along.
+
+## Setting up Git and GitHub
+
+We'll cover what Git and GitHub is during the course, 
+but for now we need you to get things ready beforehand so it's easier in the course.
+In order to use Git properly, 
+we need to inform your computer that you are using Git.
+Since we've installed the r3 package and 
+we only want to use specific commands from it, 
+we'll be using `r3::` often. 
+So, type in the RStudio Console:
+
+```r
+r3::setup_git()
+```
+
+Hit enter and follow the instructions. 
+Afterward, type and run this command to make sure everything is ok with the Git configuration.
+You should see your name and your email printed.
+
+```r
+r3::check_git_config()
+```
+
+After you are done, we need to [create a GitHub account](https://github.com/join). 
+**Note**, *GitHub* is a company and website, while *Git* is a software.
+There is sometimes confusion about these two things since they both say "Git",
+and it's important to recognize they are two *separate* things.
+
+```{r github-account-creation, echo=FALSE, fig.cap="Creating a GitHub account."}
+knitr::include_graphics(here::here("images/github-account-creation.gif"))
+```
+
+## Course introduction
+
+Most of the description of the course is found in the [syllabus](syllabus).
+For quickly going to the syllabus from RStudio, 
+run the command `r3::open_syllabus()`.
+Or click it from the menu bar on the side.
+If you haven't read it, **please read it now**.
+Read over what the course will cover, 
+what we expect you to learn at the end of it,
+and what our basic assumptions are about who you are and what you know.
+At the end of this pre-course assignment we'll ask you a few questions to see
+if you understand what you'll learn in the course.
+
+One goal of the course is to educate on open science,
+and true to our mission, we practice what we preach.
+The course material is publicly accessible (all on this website) and 
+[openly licensed](license) so you can use and re-use it!
+The material is ordered as we will cover it during the course.
+Even though the course will include lots of hands-on work during the sessions,
+there is also the final group [project](assignment) 
+to practice in a team what you've learned.
+To quickly access the final project from inside RStudio,
+run the command `r3::open_assignment()`.
+
+We have a [Code of Conduct](conduct). Access it quickly with `r3::open_conduct()`. 
+If you haven't read it, **read it now**.
+At the end there will be a survey that will ask some questions about Conduct.
+We want to make sure this course is a supportive and safe environment for learning,
+so this Code of Conduct is important.
+
+You're almost done. Please fill out the pre-course survey as part of the assignment.
+
+```r
+r3::open_pre_survey()
+```
