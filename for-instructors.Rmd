@@ -1,4 +1,6 @@
-# FOR INSTRUCTORS {-}
+# (APPENDIX) Appendix {-}
+
+# For Instructors
 
 ## Workshop details
 
@@ -9,7 +11,7 @@ instructors (~1 instructors for every 1-2 sessions). If there are more instructo
 then less helpers are needed. The recommended combined total number of helpers
 and instructors is about 6 for a smooth workflow experience for the learners.
 
-## Introduction session
+### Introduction session
 
 Notes: Describe assignments and form groups during introduction.
 Get them in line from "complete beginner to computing" to "know a little bit".
