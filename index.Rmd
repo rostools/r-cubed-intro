@@ -97,11 +97,6 @@ and reproducible analysis workflow).
 - We *do* teach using practical, applied, and hands-on lessons and exercises, 
 with a few short lectures that introduce a topic.
 
-To further develop your R skills and knowledge, we are having an advanced R
-course from September 8-9, 2020 that will build off of this course (though it
-isn't dependent on this course). Keep on eye on DDA announcements to register
-and learn more about it!
-
 ## General schedule
 
 The workshop is structured as a series of participatory live-coding sessions
