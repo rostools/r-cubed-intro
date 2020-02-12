@@ -5,3 +5,6 @@
 public/*
 *_files/*
 resources/packages.bib
+*.rds
+slides/*.html
+slides/*.css
