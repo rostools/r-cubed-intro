@@ -17,14 +17,12 @@ url: 'https\://r-cubed.rostools.org'
 
 # Syllabus
 
-```{r include=FALSE}
+```{r, include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), here::here('resources/packages.bib'))
 ```
-
-> NOTE: This content is still being updated.
 
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
