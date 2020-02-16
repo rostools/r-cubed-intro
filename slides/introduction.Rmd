@@ -268,3 +268,22 @@ class: middle, center
 ```{r refs1, results='asis', echo=FALSE}
 PrintBibliography(bib, start = 1, end = 7)
 ```
+
+---
+
+## Stand and arrange
+
+Find some way to use the "stand and arrange based on range" technique (like agree-disagree line). This could be done to order everyone by "novice-advanced", etc.
+
+### Groups
+
+Can skip first intro part during in-class. Get them into groups right away, do exercises together, etc.
+
+## What is R and why learn it?
+
+Include more "why's, reasons, etc" for using R and for doing reproducibility. Have more lectures in the first section where the previous "intro" material was (after adding the pre-workshop assignment).
+
+Make comment about tidyverse vs base and why teaching this first.
+
+Lastly, please make sure to bring a laptop to the course, 
+since we do hands-on learning

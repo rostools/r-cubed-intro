@@ -4,9 +4,9 @@ author:
     - "Daniel Witte"
 output:
   xaringan::moon_reader:
-    self_contained: true
+    self_contained: false
     lib_dir: libs
-    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    css: ["xaringan-themer.css", "../resources/custom.css"]
     nature:
       ratio: "16:9"
       highlightStyle: github
@@ -14,20 +14,12 @@ output:
       countIncrementalSlides: false
 ---
 
-layout: true
-
-<div class="my-footer">
-<span>
-<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
-<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-</span>
-</div> 
-
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 
 # Insert references
 library(RefManageR)
+library(here)
 BibOptions(
     check.entries = FALSE,
     bib.style = "numeric",
@@ -36,7 +28,7 @@ BibOptions(
     max.names = 2
     # hyperlink = FALSE,
 )
-bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+bib <- ReadBib(here("resources/refs.bib"), check = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -49,8 +41,6 @@ mono_accent(
     code_font_google = google_font("Source Code Pro")
 )
 ```
-
----
 
 ## There are different types of open data
 

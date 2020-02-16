@@ -6,9 +6,9 @@ author:
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    self_contained: true
+    self_contained: false
     lib_dir: libs
-    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    css: ["xaringan-themer.css", "../resources/custom.css"]
     nature:
       ratio: "16:9"
       highlightStyle: github
@@ -16,19 +16,11 @@ output:
       countIncrementalSlides: false
 ---
 
-layout: true
-
-<div class="my-footer">
-<span>
-<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
-<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-</span>
-</div> 
-
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 
 # Insert references
+library(here)
 library(RefManageR)
 BibOptions(
     check.entries = FALSE,
@@ -38,7 +30,7 @@ BibOptions(
     max.names = 2
     # hyperlink = FALSE,
 )
-bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+bib <- ReadBib(here("resources/refs.bib"), check = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -52,7 +44,6 @@ mono_accent(
 )
 ```
 
----
 ## What is collaboration?
 
 -   Multiple people working on the same problem and exchanging ideas
@@ -93,7 +84,6 @@ Collaboration can be organised at different levels:
 
 .center[
 ```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../img/Resnet1.png")
 ```
 ]
 
@@ -103,7 +93,6 @@ knitr::include_graphics("../img/Resnet1.png")
 ## Collaboration is widespread
 .center[
 ```{r, out.height="55%", out.width="55%"}
-knitr::include_graphics("../img/Resnet2.png")
 ```
 ]
 
@@ -113,7 +102,6 @@ knitr::include_graphics("../img/Resnet2.png")
 ## Collaboration is widespread
 .center[
 ```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../img/Resnet3.png")
 ```
 ]
 
@@ -132,18 +120,7 @@ Agreement is needed on:
 -   Intellectual property rights
 -   Publication of results and authorships
 
----
-## Collaboration is based on agreement
-
-Agreement is needed on:
--   Goals
--   Participants, their roles and responsibilities
--   Timing and deadlines
--   Commitment of time and resources
--   Expectations on quality
--   Data sharing, ownership, access
--   Intellectual property rights
--   Publication of results and authorships
+--
 
 ==> *How to communicate about these issues*
 
@@ -152,7 +129,6 @@ Agreement is needed on:
 
 .center[
 ```{r, out.height="60%", out.width="60%"}
-knitr::include_graphics("../img/workflow.png")
 ```
 ]
 
@@ -171,7 +147,6 @@ class: center, middle
 
 .center[
 ```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../img/elife.png")
 ```
 ]
 
