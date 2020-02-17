@@ -1,5 +1,17 @@
 # Pre-course tasks {#pre-course}
 
+![document status](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+
+> Note: This is the first time I've had participants do some pre-course tasks,
+so some things may not work or may not make sense. At the end of this assignment
+there is a survey that has a question about what could be improved and what
+worked. As you complete the tasks, take notes on what could be improved and what
+you liked. I'll use these to make this pre-course assignment better next time!
+Thanks :)
+
+The deadline for these tasks is 3 days before the course starts (end of day
+**March 7**).
+
 ## Initial tasks
 
 The very first things to do are to:
@@ -11,10 +23,31 @@ The very first things to do are to:
 
 Once R, RStudio, and Git have been installed, open RStudio. 
 *If you at any point during these pre-course tasks have any troubles*, 
-let us know in the pre-course survey, which is linked at the end of these tasks.
-Watch the video below to get a quick introduction to the RStudio interface:
+try as best you can to complete the task and then let us know about the
+issues in the pre-course survey. 
+If you continue having problems, indicate on the survey that you need help
+and we can try to book a quick video call to fix the problem. 
+Otherwise, if you can, come to the course earlier (15-20 min) to get help.
 
-TODO: Add video introducing panels and layout of RStudio
+## Getting familiar with RStudio
+
+RStudio is an environment to interact with R. 
+R is like an engine, while RStudio is what you use to actually work with the engine.
+Check out Figure \@ref(fig:rstudio-introduction) below.
+You can see that RStudio has four "panels", 
+dividing the screen into four the four corners.
+
+```{r rstudio-introduction, echo=FALSE, fig.cap="Interface to RStudio."}
+knitr::include_graphics(here::here("images/rstudio-introduction.png"))
+```
+
+You can customize where the panels go, but how the panels are shown is the default.
+
+- Panel "A" is the panel that shows the "scripts", which we will cover in the class.
+You *may or may not see this panel* when you open RStudio for the first time.
+- Panel "B" is the Console. This is where R commands are sent and evaluated by R.
+This is the "engine". Almost all of the tasks below will use the Console.
+- Panel "C"
 
 ## Installing R packages
 
@@ -23,7 +56,7 @@ we need to install the R packages we'll use in the course.
 R packages are external bundles of R code that other people have written.
 There are so many R packages available 
 and if there is something you'd like to do in R, 
-there probably is an R package for doing it. 
+there probably is an R package to do it. 
 Making use of R packages can seriously help you out when doing your research.
 
 Alright, you'll need to install the remotes package.
@@ -55,7 +88,7 @@ The normal way of doing it would be to load the package with `library(remotes)`
 and then run the command.
 But by using the `::`, we tell R to directly use a function from a package.
 We use this trick because we only want to use the `install_gitlab()` command
-from the remotes package and nothing else. 
+from the remotes package and not have to load all the other remotes functions. 
 We will be using this more as we go along.
 
 ## Setting up Git and GitHub
@@ -70,11 +103,11 @@ we'll be using `r3::` often.
 So, type in the RStudio Console:
 
 ```r
-r3::setup_git()
+r3::setup_git_config()
 ```
 
 Hit enter and follow the instructions. 
-Afterward, type and run this command to make sure everything is ok with the Git configuration.
+Afterward, type and run this next command to make sure everything is ok with the Git configuration.
 You should see your name and your email printed.
 
 ```r
@@ -82,7 +115,8 @@ r3::check_git_config()
 ```
 
 After you are done, we need to [create a GitHub account](https://github.com/join). 
-**Note**, *GitHub* is a company and website, while *Git* is a software.
+
+> Note: *GitHub* is a company and website, while *Git* is a software.
 There is sometimes confusion about these two things since they both say "Git",
 and it's important to recognize they are two *separate* things.
 
@@ -109,7 +143,7 @@ The course material is publicly accessible (all on this website) and
 [openly licensed](license) so you can use and re-use it!
 The material is ordered as we will cover it during the course.
 Even though the course will include lots of hands-on work during the sessions,
-there is also the final group [project](assignment) 
+there is also the final group [project assignment](assignment) 
 to practice in a team what you've learned.
 To quickly access the final project from inside RStudio,
 run the command `r3::open_assignment()`.
@@ -120,7 +154,7 @@ At the end there will be a survey that will ask some questions about Conduct.
 We want to make sure this course is a supportive and safe environment for learning,
 so this Code of Conduct is important.
 
-You're almost done. Please fill out the pre-course survey as part of the assignment.
+You're almost done. Please fill out the pre-course survey to find this assignment.
 
 ```r
 r3::open_pre_survey()
