@@ -1,5 +1,7 @@
 # Want to contribute? Great! :tada: 
 
+![document status](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+
 There are a few ways that you can contribute:
 
 - Participating in the discussions on Issues.

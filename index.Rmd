@@ -24,6 +24,11 @@ knitr::write_bib(c(
 ), here::here('resources/packages.bib'))
 ```
 
+![document status](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+
+> Note: You'll see several of these "badges" (image above) throughout the course material.
+This badge indicates whether the material is completed or is still being developed.
+
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
 analysis has not kept up with demand. With this course, we hope to begin meeting

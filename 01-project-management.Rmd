@@ -1,5 +1,7 @@
 # Project management and best practices {#proj-management}
 
+![document status](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
+
 ## Session details
 
 ### Objectives

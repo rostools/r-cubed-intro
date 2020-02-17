@@ -1,5 +1,7 @@
 # Creating dynamically generated, reproducible documents {#rmarkdown}
 
+![document status](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
+
 > Session goal: To create your own document, with embedded code that
 automatically adds a figure, a table, and some text results.
 

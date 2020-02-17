@@ -1,5 +1,7 @@
 # Group assignment {#assignment}
 
+![document status](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
+
 To maximize how much you learn and how much you will retain, you as a group will
 take what you learn in the course and apply it to create a reproducible report
 (as an HTML file) based on a data analysis of a dataset of your choice. At the

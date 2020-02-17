@@ -1,5 +1,7 @@
 # Data visualization and best practices {#ggplot2}
 
+![document status](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
+
 ## Session details
 
 ### Objectives

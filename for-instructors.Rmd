@@ -2,6 +2,8 @@
 
 # For Instructors
 
+![document status](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
+
 ## Workshop details
 
 ### Instructor and helper number
