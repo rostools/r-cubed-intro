@@ -1,6 +1,6 @@
 # Code of Conduct {#conduct}
 
-![document status](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
 
 Science thrives on diversity of thought and origin and we value the participation
 of every member of the scientific community and want all participants to have an

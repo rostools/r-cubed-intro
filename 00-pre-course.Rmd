@@ -1,6 +1,6 @@
 # Pre-course tasks {#pre-course}
 
-![document status](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
 
 > Note: This is the first time I've had participants do some pre-course tasks,
 so some things may not work or may not make sense. At the end of this assignment
