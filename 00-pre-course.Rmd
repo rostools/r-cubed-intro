@@ -17,8 +17,8 @@ The deadline for these tasks is 3 days before the course starts (end of day
 The very first things to do are to:
 
 1. Install the latest [R](https://cloud.r-project.org/index.html) version 
-(`r rversions::r_release()$version`)
-1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+(3.6.2)
+1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download) (1.2.5033)
 1. Install [Git](https://git-scm.com/downloads)
 
 Once R, RStudio, and Git have been installed, open RStudio. 
@@ -41,13 +41,20 @@ dividing the screen into four the four corners.
 knitr::include_graphics(here::here("images/rstudio-introduction.png"))
 ```
 
-You can customize where the panels go, but how the panels are shown is the default.
+While you can customize where the individual panels go, 
+how the panels are shown is the default layout.
 
 - Panel "A" is the panel that shows the "scripts", which we will cover in the class.
 You *may or may not see this panel* when you open RStudio for the first time.
+This panel is where your write R code that will be saved as a file.
 - Panel "B" is the Console. This is where R commands are sent and evaluated by R.
-This is the "engine". Almost all of the tasks below will use the Console.
-- Panel "C"
+This is the "engine". No R code written here is saved.
+Almost all of the tasks below will use the Console.
+- Panel "C" contains the Environment, History, Connections, and Git tabs. 
+In this course we'll only be using the Environment and Git tab, 
+which we'll cover more later.
+- Panel "D" has the Files, Plots, Packages, Help, Build, and Viewer tabs.
+For the course we'll only be going over the Files, Plots, Packages, and Help tabs.
 
 ## Installing R packages
 
