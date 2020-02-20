@@ -13,7 +13,7 @@ instructors (~1 instructors for every 1-2 sessions). If there are more instructo
 then less helpers are needed. The recommended combined total number of helpers
 and instructors is about 6 for a smooth workflow experience for the learners.
 
-### Introduction session
+### First day
 
 Before the introduction session (maybe the day before),
 assign people into groups and create GitHub teams for them using the [ghclass] package.
@@ -25,3 +25,8 @@ Some time during the session, get them to stand in line and arrange themselves f
 During the introduction, describe the assignment and what's the purpose of the groups.
 
 [ghclass]: https://rundel.github.io/ghclass
+
+Before the lunch break, get the groups to have lunch together and 
+to introduce each other. Get them to tell the others their name, 
+program, one thing they are excited or 
+most interested to learn about R and/or data analysis.

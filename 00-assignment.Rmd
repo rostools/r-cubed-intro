@@ -1,4 +1,4 @@
-# Group assignment {#assignment}
+# Group project assignment {#assignment}
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
@@ -53,13 +53,3 @@ When working as a group try to focus on determining roles, who does what tasks,
 what the exact workflow will be, and how you'll collaborate together on the
 assignment.
 
-## Tasks after first forming group
-
-- Introduce yourself. Say your name, program, one thing you are excited or most
-interested to learn about R and/or data analysis.
-- Discuss what you as a group have for expectations of tasks, roles, and behaviour.
-    - When to meet before next session (March 18-19).
-    - How to resolve potential disagreements or differences in opinion.
-    - Who does what tasks for the assignment (e.g. are there specific tasks
-    someone is interested in or wants to do).
-    - Potential skills of each member that can be used.
