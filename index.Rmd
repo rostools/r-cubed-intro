@@ -2,7 +2,7 @@
 title: "Reproducible Research in R"
 subtitle: "An introductory workshop on modern data analyses and workflows"
 author: "Luke W. Johnston"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%B %d %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
@@ -12,7 +12,6 @@ apple-touch-icon: "images/apple-touch-icon.png"
 apple-touch-icon-size: 180
 favicon: "images/favicon.ico"
 url: 'https\://r-cubed.rostools.org'
-#gitlab-repo: "rostools/r-cubed"
 ---
 
 # Syllabus
