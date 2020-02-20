@@ -522,26 +522,3 @@ books (like [R for Data Science]).
 [^nojoke]: No joke, most of the skill in programming comes from learning how to ask Google the right way for your problem.
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
-
-## Resources for learning and help
-
-**For learning**:
-
-- [Good enough practicies in scientific computing](https://doi.org/10.1371/journal.pcbi.1005510) article
-- [Best practices in scientific computing](https://doi.org/10.1371/journal.pbio.1001745) article
-- [Organizing R Source Code](https://www.r-bloggers.com/r-best-practices-r-you-writing-the-r-way/)
-- [An example of a well organised folder project](https://github.com/hadley/data-baby-names)
-
-**For help**:
-
-- [RStudio support](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-- [Tidyverse style guide](https://style.tidyverse.org/)
-
-## Acknowledgements
-
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/workflow-setup.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from Maria Izabel Cavassim Alves
-([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in 
-Bioinformatics.

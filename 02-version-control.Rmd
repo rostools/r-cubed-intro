@@ -209,28 +209,3 @@ html_print(git_remotes, viewer = NULL) %>%
 ```
 
 <img src="/img/git-remotes.png" alt="Remotes and the links between repositories." />
-
-## Resources for learning and help
-
-For Git within RStudio:
-
-- [Happy Git and GitHub for the useR](http://happygitwithr.com/) (**highly recommended**)
-    - Specifically useful is the chapter on [Daily Workflows](https://happygitwithr.com/repeated-amend.html) using Git
-- [RStudio Git Interface](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
-- Video on using [Git in RStudio]
-
-[Git in RStudio]: https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-part-2/
-
-For Git in general:
-
-- [Sofware Carpentry: Intro to Git](https://swcarpentry.github.io/git-novice/)
-- [Hands-on tutorial, with web-based terminal](https://try.github.io/levels/1/challenges/1)
-- [Official git documentation](https://git-scm.com/doc)
-- [Simpler first-steps guide](https://rogerdudler.github.io/git-guide/)
-- [Interactive, visual tutorial on branching](https://pcottle.github.io/learnGitBranching/)
-- [AUOC session on using Git for version control](https://au-oc.github.io/content/intro-git.html)
-
-## Acknowledgements
-
-Many parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
-given while with the [UofTCoders](https://uoftcoders.github.io/studyGroup/).

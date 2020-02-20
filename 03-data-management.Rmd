@@ -666,30 +666,3 @@ table below from the dataset given here.
 
 ```{r nhanes-output, echo=FALSE}
 ```
-
-## Resources for learning and help
-
-**For learning**:
-
-1. "[R for Data Science]" book: [Tidy Data chapter]
-2. [tidyr vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html)
-3. [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
-
-[Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
-
-**For help**:
-    
-1. [Data wrangling cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-2. [StackOverflow for tidyr](https://stackoverflow.com/questions/tagged/tidyr)
-3. [StackOverflow for dplyr](https://stackoverflow.com/questions/tagged/dplyr)
-4. Quick package information using RStudio: `?tidyr`, `?dplyr`
-
-## Acknowledgements
-
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/intro-dplyr.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from [Elena Dudukina](https://pure.au.dk/portal/en/persons/id(4b0465d2-08f2-4966-bc55-0d48e66eda12).html), 
-PhD student at AU in Clinical Epidemiology, as well as from the 
-dplyr sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse).
-Much inspiration was also taken from the [R for Data Science] book.

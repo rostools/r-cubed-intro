@@ -4,7 +4,82 @@
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): Excellent online resource for using ggplot2 and R graphics.
 - [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/): Great quick reference.
 
-## Resources for R Markdown {#resources-rmd}
+## Project management session {#resources-proj}
+
+**For learning**:
+
+- [Good enough practicies in scientific computing](https://doi.org/10.1371/journal.pcbi.1005510) article
+- [Best practices in scientific computing](https://doi.org/10.1371/journal.pbio.1001745) article
+- [Organizing R Source Code](https://www.r-bloggers.com/r-best-practices-r-you-writing-the-r-way/)
+- [An example of a well organised folder project](https://github.com/hadley/data-baby-names)
+
+**For help**:
+
+- [RStudio support](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+- [Tidyverse style guide](https://style.tidyverse.org/)
+
+## Git session {#resources-git}
+
+For Git within RStudio:
+
+- [Happy Git and GitHub for the useR](http://happygitwithr.com/) (**highly recommended**)
+    - Specifically useful is the chapter on [Daily Workflows](https://happygitwithr.com/repeated-amend.html) using Git
+- [RStudio Git Interface](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
+- Video on using [Git in RStudio]
+
+[Git in RStudio]: https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-part-2/
+
+For Git in general:
+
+- [Sofware Carpentry: Intro to Git](https://swcarpentry.github.io/git-novice/)
+- [Hands-on tutorial, with web-based terminal](https://try.github.io/levels/1/challenges/1)
+- [Official git documentation](https://git-scm.com/doc)
+- [Simpler first-steps guide](https://rogerdudler.github.io/git-guide/)
+- [Interactive, visual tutorial on branching](https://pcottle.github.io/learnGitBranching/)
+- [AUOC session on using Git for version control](https://au-oc.github.io/content/intro-git.html)
+
+## Data management and wrangling session {#resources-dplyr}
+
+**For learning**:
+
+1. "[R for Data Science]" book: [Tidy Data chapter]
+2. [tidyr vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html)
+3. [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+
+[Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
+
+**For help**:
+    
+1. [Data wrangling cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+2. [StackOverflow for tidyr](https://stackoverflow.com/questions/tagged/tidyr)
+3. [StackOverflow for dplyr](https://stackoverflow.com/questions/tagged/dplyr)
+4. Quick package information using RStudio: `?tidyr`, `?dplyr`
+
+## Data visualization session {#resources-ggplot2}
+
+**For learning**:
+
+- [R for Data Science]
+    - [Data visualisation](http://r4ds.had.co.nz/data-visualisation.html) and
+    [Graphics for communication](http://r4ds.had.co.nz/graphics-for-communication.html)
+    chapters
+- [Best practices article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
+- [Data Visualization: A practical introduction](http://socviz.co/index.html#preface) (a free online book)
+- [Fundamentals of Data Visualization] (another free online book)
+- [ggplot2 package documentation](https://ggplot2.tidyverse.org/)
+- [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+    - [All RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+- Article to [avoid barplots].
+
+[Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
+
+**For help**:
+
+- [StackOverflow for ggplot2](https://stackoverflow.com/questions/tagged/ggplot2?sort=frequent&pageSize=50)
+- Using within RStudio help using `?` (such as `?geom_point` or `?theme`)
+- [ggplot2 package documentation](https://ggplot2.tidyverse.org/)
+
+## R Markdown session {#resources-rmd}
 
 **For learning**:
 

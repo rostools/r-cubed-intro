@@ -532,38 +532,3 @@ won't be able to get exactly the same, but try to get close! :smile:
 
 ```{r final-exercise-plot2, echo=FALSE}
 ```
-
-## Resources for learning and help
-
-**For learning**:
-
-- [R for Data Science]
-    - [Data visualisation](http://r4ds.had.co.nz/data-visualisation.html) and
-    [Graphics for communication](http://r4ds.had.co.nz/graphics-for-communication.html)
-    chapters
-- [Best practices article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
-- [Data Visualization: A practical introduction](http://socviz.co/index.html#preface) (a free online book)
-- [Fundamentals of Data Visualization] (another free online book)
-- [ggplot2 package documentation](https://ggplot2.tidyverse.org/)
-- [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
-    - [All RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
-- Article to [avoid barplots].
-
-[Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
-
-**For help**:
-
-- [StackOverflow for ggplot2](https://stackoverflow.com/questions/tagged/ggplot2?sort=frequent&pageSize=50)
-- Using within RStudio help using `?` (such as `?geom_point` or `?theme`)
-- [ggplot2 package documentation](https://ggplot2.tidyverse.org/)
-
-## Acknowledgements
-
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/intro-ggplot2.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), as well as from
-the ggplot2 sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse). 
-Much inspiration was also taken from the [R for Data Science] book and the
-[Fundamentals of Data Visualization].
-
-[R for Data Science]: http://r4ds.had.co.nz/
