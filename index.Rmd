@@ -31,7 +31,7 @@ This badge indicates whether the material is completed or is still being develop
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
 analysis has not kept up with demand. With this course, we hope to begin meeting
-that demand. Using a very practical approach bases mostly on code-along sessions
+that demand. Using a very practical approach based mostly on code-along sessions
 (instructor and learner coding together), the course will:
 
 1. Explain what an open and reproducible data analysis workflow is, what it
