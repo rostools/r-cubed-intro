@@ -6,6 +6,14 @@
 
 ### Objectives
 
+1. To know how to apply the `pivot_wider()` and `pivot_longer()` tidyr functions to
+restructure your data between long and wide formats (and vice versa).
+2. To use the `group_by()` and `summarize()` dplyr functions with the
+`pivot_longer()` and `pivot_wider()` functions to apply more powerful and useful
+wrangling techniques to your skills.
+3. (If enough time) To apply common lubridate functions to easily wrangle pesky date variables.
+
+
 1. To learn the difference between "messy" and "tidy" data and see the
 advantages of using data that are consistently structured.
 1. To perform simple data transformations and create summaries.
@@ -73,8 +81,8 @@ tibble::tribble(
     "Transforming or modifying columns", "Multiplying a column's values; taking the log.", "mutate()",
     "Subsetting/filtering out rows/observations", "Keeping rows with glucose values above 4.", "filter()",
     "Sorting/re-arranging rows", "Show rows with the smallest value at the top.", "arrange()",
-    "Converting from wide to long form", "One row per participant to multiple participants per row (repeated measures).", "gather()",
-    "Converting from long to wide form", "Multiple rows per participant (repeated measures) to one participant per row.", "spread()",
+    "Converting from wide to long form", "One row per participant to multiple participants per row (repeated measures).", "pivot_longer()",
+    "Converting from long to wide form", "Multiple rows per participant (repeated measures) to one participant per row.", "pivot_wider()",
     "Calculating summaries on the data", "Calculating the maximum, median, and minimum age.", "summarise()",
     "Running analyses by group", "Calculate means of age by males and females.", "group_by() with summarise()"
 ) %>% 
@@ -543,14 +551,87 @@ NHANES %>%
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
-## Objectives
+## `gather()`: Converting from wide to long form
 
-1. To know how to apply the `pivot_wider()` and `pivot_longer()` tidyr functions to
-restructure your data between long and wide formats (and vice versa).
-2. To use the `group_by()` and `summarize()` dplyr functions with the
-`pivot_longer()` and `pivot_wider()` functions to apply more powerful and useful
-wrangling techniques to your skills.
-3. (If enough time) To apply common lubridate functions to easily wrangle pesky date variables.
+The tidyr package is a companion package to dplyr and allows for a wide range of
+manipulations of the data structure data. For example, sometimes we have data
+in the wide form as it is often easier to enter data in wide form. Wide form can
+be useful when presenting as tables. But there are usually problems with wide
+form data, especially when it comes to analysing it. Look at the table below,
+which is in wide form. Wide form data also tends to be a bit "messier" then long
+form. For instance, what do the values in the `1999` column mean? Unless you had
+a data dictionary, you would not know what those values mean.
+
+```{r table-example-wide-data, echo=FALSE}
+kable(table4b, caption = "Example wide form dataset.")
+```
+
+The long form on the other hand is usually better suited for analyses and
+visualizing, especially when doing [split-apply-combine] techniques. Long form
+data also tends to be more *tidy* compared to wide form.
+
+```{r table-example-long-data, echo=FALSE}
+kable(table1 %>% select(-cases), caption = "Example long form dataset.")
+```
+
+We can get to this from the wide form through wrangling the data like so:
+
+(ref:wide-long) Convert from wide to long. Taken from [R for Data Science](https://r4ds.had.co.nz/tidy-data.html).
+
+```{r image-wide-long, echo=FALSE, fig.cap="(ref:wide-long)"}
+# TODO: fix this. Get image directly.
+# include_graphics("https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png")
+```
+
+To go from wide to long we use `gather` to sweep up a set of columns into one
+key-value pair. The **arguments** for `gather` are:
+
+1. The name of a *new* column that contains the original column names
+2. The name of a *new* column that contains the values from the original columns
+3. The original columns we either want or do not want "gathered" up.
+
+Compare how `table4b` looks normally and then after converting to the long form
+with `gather()`.
+
+```{r}
+# Original data
+table4b
+
+# Convert to long form by stacking population by each year
+# Use minue to exclude a variable (country) from being "gathered"
+table4b %>% 
+    gather(year, population, -country)
+
+# This does the same:
+table4b %>%
+    gather(year, population, `1999`, `2000`)
+```
+
+This can be challenging to conceptually grasp at first. Let's try an example
+situation when you may use `gather()`. Let's say you wanted to find out the
+means of several characteristics of a population. You could use the `group_by()`
+and `summarise()` combination on their own, but another method is using `gather()`
+to group by and summarise all the variables at once.
+
+```{r}
+# Keep only variables of interest
+nhanes_chars <- NHANES %>% 
+    select(SurveyYr, Gender, Age, Weight, Height, BMI, BPSysAve)
+nhanes_chars
+
+# Convert to long form, excluding year and gender
+nhanes_long <- nhanes_chars %>% 
+    gather(Measure, Value, -SurveyYr, -Gender)
+nhanes_long
+
+# Calculate mean on each measure, by gender and year
+nhanes_long %>% 
+    group_by(SurveyYr, Gender, Measure) %>% 
+    summarise(MeanValue = mean(Value, na.rm = TRUE))
+```
+
+Note that summarising by mean can only be done with continuous variables.
+Anyway, with the long form, you can do more with less code `r emo::ji("relaxed")`
 
 ## Why learn to reformat and reshape data?
 
@@ -790,88 +871,6 @@ diamonds_reshaped
 > Advanced: Try creating the same dataframe without using `summarize()`. Instead, apply the `mean()` function using the `values_fn` parameter in `pivot_wider()`. How does this work?
 
 
-## `gather()`: Converting from wide to long form
-
-The tidyr package is a companion package to dplyr and allows for a wide range of
-manipulations of the data structure data. For example, sometimes we have data
-in the wide form as it is often easier to enter data in wide form. Wide form can
-be useful when presenting as tables. But there are usually problems with wide
-form data, especially when it comes to analysing it. Look at the table below,
-which is in wide form. Wide form data also tends to be a bit "messier" then long
-form. For instance, what do the values in the `1999` column mean? Unless you had
-a data dictionary, you would not know what those values mean.
-
-```{r table-example-wide-data, echo=FALSE}
-kable(table4b, caption = "Example wide form dataset.")
-```
-
-The long form on the other hand is usually better suited for analyses and
-visualizing, especially when doing [split-apply-combine] techniques. Long form
-data also tends to be more *tidy* compared to wide form.
-
-```{r table-example-long-data, echo=FALSE}
-kable(table1 %>% select(-cases), caption = "Example long form dataset.")
-```
-
-We can get to this from the wide form through wrangling the data like so:
-
-(ref:wide-long) Convert from wide to long. Taken from [R for Data Science](https://r4ds.had.co.nz/tidy-data.html).
-
-```{r image-wide-long, echo=FALSE, fig.cap="(ref:wide-long)"}
-# TODO: fix this. Get image directly.
-# include_graphics("https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png")
-```
-
-To go from wide to long we use `gather` to sweep up a set of columns into one
-key-value pair. The **arguments** for `gather` are:
-
-1. The name of a *new* column that contains the original column names
-2. The name of a *new* column that contains the values from the original columns
-3. The original columns we either want or do not want "gathered" up.
-
-Compare how `table4b` looks normally and then after converting to the long form
-with `gather()`.
-
-```{r}
-# Original data
-table4b
-
-# Convert to long form by stacking population by each year
-# Use minue to exclude a variable (country) from being "gathered"
-table4b %>% 
-    gather(year, population, -country)
-
-# This does the same:
-table4b %>%
-    gather(year, population, `1999`, `2000`)
-```
-
-This can be challenging to conceptually grasp at first. Let's try an example
-situation when you may use `gather()`. Let's say you wanted to find out the
-means of several characteristics of a population. You could use the `group_by()`
-and `summarise()` combination on their own, but another method is using `gather()`
-to group by and summarise all the variables at once.
-
-```{r}
-# Keep only variables of interest
-nhanes_chars <- NHANES %>% 
-    select(SurveyYr, Gender, Age, Weight, Height, BMI, BPSysAve)
-nhanes_chars
-
-# Convert to long form, excluding year and gender
-nhanes_long <- nhanes_chars %>% 
-    gather(Measure, Value, -SurveyYr, -Gender)
-nhanes_long
-
-# Calculate mean on each measure, by gender and year
-nhanes_long %>% 
-    group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(MeanValue = mean(Value, na.rm = TRUE))
-```
-
-Note that summarising by mean can only be done with continuous variables.
-Anyway, with the long form, you can do more with less code :relaxed:
-
 ## `spread()`: (If time) Converting from long to wide form
 
 You can also convert to wide from long. This is not as commonly done, since most
@@ -900,9 +899,13 @@ table2 %>%
 The key is the discrete value that will make up the new column names, while the
 value will be column that will make up the values of the new columns.
 
-## Final exercise: Replicate the output from the given dataset.
+## Final exercise: Group work
 
 Time: Until end of the session.
+
+This is time to 
+
+In your project
 
 In the `exercise-wrangling.R` file, copy the code below to get the data into the
 form needed. Using everything you learned in this session, try to recreate the
