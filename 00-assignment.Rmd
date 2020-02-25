@@ -2,54 +2,85 @@
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
-To maximize how much you learn and how much you will retain, you as a group will
-take what you learn in the course and apply it to create a reproducible report
-(as an HTML file) based on a data analysis of a dataset of your choice. At the
-end of the course, you will give a (short) presentation of your report and
-analysis. During the presentation, we expect you as the presenters to discuss
-and show:
+To maximize how much you learn and how much you will retain, 
+you as a group will take what you learn in the course 
+and apply it to create a reproducible project (as a GitHub repository) 
+and report (as an HTML file) based on a (simple) data analysis of a dataset of your choice. 
+The dataset **cannot be the same** as the one we used in class,
+and must be an open dataset obtained from an online archive.
 
-- The reasons for choosing what you did and why
-- Your overall workflow and processes
-- Describe and show your graphs and tables
-- Show a very small section of your analysis code
+On the last day of the course, 
+you will give a ~10 min presentation of your analysis and report.
+During the presentation, you as a group will:
 
-As the audience, you will give anonymous feedback and comments on the presenters
-analysis, graphs, and anything else that may come to mind. Specifically, try to
-focus on:
+- Show your project on GitHub
+- Show your generated HTML report
+- Describe what you did and the reasons for why you did them
+- Explain any challenges you encountered or things you would do differently
+- Explain anything you liked and would do more of in the future
 
-- Clarity of reasons, figures, and tables
-- Improvements to workflow
-- Suggestions for future analyses
+When your group isn't presenting, 
+you as an audience member will participate in the discuss by:
 
-Following the presentations we'll discuss what challenges and barriers you as a
-group faced, why you decided on your workflow, what took most of your time, and
-any other points that may come up.
+- Asking questions to *clarify* any thing you may not understand or are confused about
+- Give *constructive* feedback on what they could have improved on
+- Give *concrete* suggestions on how they could handle the things they found challenging
 
-## Tasks to complete the report
+## Specific tasks
 
-As a group, you are to:
+Throughout the course, you will work together as a group on some exercises, 
+especially the final exercise in each session. Before you do any tasks though,
+decide as a group how you want to present the project at the end. 
+We'd recommend having one or two people be the "presenters".
 
-- Choose an open dataset
-- Download and save that dataset
-- Do simple analyses on the data (e.g. summary statistics)
-- Create publication quality figures and tables
-- Have then entire report be reproducible in an R Markdown document
-- Use version control on the analyses and files
+Then, for the group project, your specific tasks are to:
+
+- Create a project (using the "New Project" setup or with the prodigenr package).
+- Put the new project onto the GitHub repository assigned to your group.
+- Find an open dataset to use for your analysis and report. 
+The dataset can be on anything your group is interested in, 
+but *must* be from an open and online data archive.
+Choose a dataset that isn't too big (maybe *max* 4 Mb).
+- Download the dataset and put it into the `data-raw/` folder of your project.
+Add the dataset to your Git repository and upload it to GitHub.
+- Create an R script inside `data-raw/` that cleans up and prepares the raw dataset.
+Save the new dataset in a folder called `data/`.
+- Create an R script in your `R/` folder that generates and saves one or more figures that
+visualize the cleaned dataset. Save the figures in a folder called `images/` inside the
+`doc/` folder.
+- Create an R Markdown document called `report.Rmd` in the `doc/` folder of your project.
+Do some simple analyses of the dataset in this report file.
+    - Create a table in the report that is generated from the data.
+    - Insert the generated figure into the report.
+    - Create typical research section headers (e.g. "Introduction", "Results")
+    - Write up a basic description of what you did in a "Methods" section.
+    - Write up a few sentences on some things you liked about doing the project with
+    the tools you learned and a few sentences on some challenges you had. 
+    This can be done as a group.
+- Generate an HTML of the report.
+- Include all the updated code and files on GitHub.
+
+These tasks may seem like a lot, with a lot of new terminology and tools to use. 
+But don't worry! We will be going over many of these topics and you will have time
+to complete the project over the three days.
 
 ## Expectations
 
-- From the report, analysis code, and project folders, we expect to see examples
-that you used what you learned in class to achieve your analysis goals.
-- Spend approximately 2-3 hours individually in the 2 weeks between sessions.
-- Meet at least once (virtually or in person) with your group to coordinate tasks,
-roles, and make decisions on the assignment.
-- We don't expect complicated analyses or coding. The point is to use what you
-learned on a real-world dataset and problem.
+What we expect:
 
-## Tips
+- Used Git and GitHub throughout as you work on your project.
+- Work collaboratively as a group and share responsibilities and tasks.
+- That you demonstrate that you've learned the material by using as much as you
+can from the course.
 
-When working as a group try to focus on determining roles, who does what tasks,
-what the exact workflow will be, and how you'll collaborate together on the
-assignment.
+What we don't expect:
 
+- Complicated analysis or coding. 
+The simpler it is the easier is to for you and us to see that you've tried to use the tools.
+- Clever or overly concise code. 
+Clearly written and readable code is *always* better than clever or concise code.
+Keep it simple and understandable!
+
+## "Checklist" for a "good" project
+
+- [ ]
