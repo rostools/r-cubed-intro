@@ -23,6 +23,7 @@ contributions from [Elena Dudukina](https://pure.au.dk/portal/en/persons/id(4b04
 PhD student at AU in Clinical Epidemiology, as well as from the 
 dplyr sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse).
 Much inspiration was also taken from the [R for Data Science] book.
+And also from the [AU CRU intermediate dplyr and tidyr session](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/)
 
 ## Data visualization session
 
