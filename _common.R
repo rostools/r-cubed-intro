@@ -28,6 +28,4 @@ BibOptions(
 
 options(knitr.table.format = "html")
 
-bib <- ReadBib("resources/references.bib", check = FALSE)
-
 set.seed(12345)
