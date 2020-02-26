@@ -522,3 +522,27 @@ books (like [R for Data Science]).
 [^nojoke]: No joke, most of the skill in programming comes from learning how to ask Google the right way for your problem.
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
+
+## Final exercise: Group work
+
+Time: 15 min.
+
+For each member of the group:
+
+- Complete item 1. of the [group assignment](assignment)
+(to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
+    - Name the project based on your group name.
+    - While everyone will create a new project, assign one person as the "coordinator".
+    In the [Version Control](version-control) session, 
+    this person will use their project folder as the base for the initial tasks 
+    of the final exercise.
+- Open up the `README.md` file and write a few sentences about yourself.
+- Run these functions from the usethis package to setup the project 
+and to create these files:
+
+    ```r
+    usethis::use_blank_slate()
+    usethis::use_data_raw("original-data")
+    usethis::use_r("generate-figures")
+    ```
