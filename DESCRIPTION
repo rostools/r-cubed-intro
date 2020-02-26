@@ -12,7 +12,6 @@ Depends:
 Imports: 
     bookdown,
     fs (>= 1.2.7),
-    furrr (>= 0.1.0),
     here (>= 0.1),
     NHANES (>= 2.1.0),
     prodigenr (>= 0.4.0),
