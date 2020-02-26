@@ -18,9 +18,10 @@ url: 'https\://r-cubed.rostools.org'
 
 ```{r, include=FALSE}
 # automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), here::here('resources/packages.bib'))
+knitr::write_bib(
+    c(.packages(), "bookdown", "knitr", "rmarkdown"),
+    here::here('resources/packages.bib')
+)
 ```
 
 ![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
