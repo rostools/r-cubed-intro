@@ -35,22 +35,27 @@ We'd recommend assigning one or two people to be the "presenters".
 
 For the group project, your specific tasks are to:
 
-- Create a project (using the "New Project" setup (covered in [Project Management](project-management.html)).
-- Put the new project onto the GitHub repository assigned to your group
-(covered in [Version Control](version-control.html)).
-- Find an open dataset to use for your analysis and report. 
+1. Create a project using the "New Project" setup with the necessary files
+(covered in [Project Management](project-management.html)).
+2. Find an "open" dataset to use for your analysis and report.
 The dataset can be on anything your group is interested in, 
 but *must* be from an open and online data archive.
 Choose a dataset that isn't too big (maybe *max* 4 Mb).
-- Download the dataset and put it into the `data-raw/` folder of your project.
+3. Download the dataset and put it into the `data-raw/` folder of your project.
 Add the dataset to your Git repository and upload it to GitHub.
-- Create an R script inside `data-raw/` that cleans up and prepares the raw dataset
+4. Create an R script inside `data-raw/` that cleans up and prepares the raw dataset
 (as covered in [Data Management](data-management.html)).
 Save the new dataset in a folder called `data/`.
-- Create an R script in your `R/` folder that generates and saves one or more figures that
+5. Put the project under Git version control, add and commit all the files. 
+Add your assigned GitHub group repository to your project 
+and push ("upload") the repository up to GitHub
+(covered in [Version Control](version-control.html)).
+    - Update the README with the information from all of your team members 
+    and with a short description of your project.
+6. Create an R script in your `R/` folder that generates and saves one or more figures that
 visualize the cleaned dataset (covered in [Data Visualization](data-visualization.html)). 
 Save the figures in a folder called `images/` inside the `doc/` folder.
-- Create an R Markdown document called `report.Rmd` in the `doc/` folder of your project
+7. Create an R Markdown document called `report.Rmd` in the `doc/` folder of your project
 (covered in [Reproducible Documents](reproducible-documents.html)).
 Do some simple analyses of the dataset in this report file.
     - Create section headers (e.g. "Introduction", "Methods", "Results", "Discussion")
@@ -63,8 +68,8 @@ Do some simple analyses of the dataset in this report file.
     the tools you learned and a few sentences on some challenges you had in a
     "Discussion" section.
     Add your thoughts as a group.
-- Generate an HTML of the report.
-- Include all the updated code and files on GitHub for the presentation.
+8. Generate an HTML of the report.
+9. Include all the updated code and files on GitHub for the presentation.
 
 These tasks may seem like a lot, with a lot of new terminology and tools to use. 
 But don't worry! We will be going over many of these topics and you will have time
@@ -74,6 +79,7 @@ to complete the project over the three days.
 
 - Project on GitHub
 - Used Git
+- Has a good README describing the project and the team
 - Separate "raw data" from "cleaned data"
 - Used scripts to clean the data
 - Used scripts to generate figures
