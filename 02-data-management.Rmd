@@ -6,28 +6,20 @@
 
 **Session objectives**:
 
-1. 
-1. To know how to apply the `pivot_wider()` and `pivot_longer()` tidyr functions to
-restructure your data between long and wide formats (and vice versa).
-2. To use the `group_by()` and `summarize()` dplyr functions with the
-`pivot_longer()` and `pivot_wider()` functions to apply more powerful and useful
-wrangling techniques to your skills.
-3. (If enough time) To apply common lubridate functions to easily wrangle pesky date variables.
+1. Learn the difference between "messy" and "tidy" data 
+and how to create tidy data to simplify your analysis.
+1. Perform simple transformations and subsetting of datasets, such as:
+    - Subset specific columns and rows of a dataset (with `filter()`and `select()`).
+    - Sort rows of a dataset by a specific column (with `arrange()`).
+    - Create new or transform existing columns in a dataset (with `mutate()`).
+    - Calculate simple data summaries (with `summarize()`).
+1. Learn about and apply the "split-apply-combine" method for doing analyses
+(with `group_by()` and `summarize()`).
+1. Know the difference between "long" and "wide" data 
+and how to convert between them by "pivotting" (with `pivot_longer()`
+and `pivot_wider()`).
+1. Write "tidier" and more readable code by using the pipe (`%>%`) operator.
 
-
-1. To learn the difference between "messy" and "tidy" data and see the
-advantages of using data that are consistently structured.
-1. To perform simple data transformations and create summaries.
-1. To get to know the tools that help tidying up and reshaping the data.
-    
-**At the end of this session you will be able:**
-
-1. To write code using the `%>%` operator.
-1. To perform simple data transformations using `mutate()`.
-1. To select variables and observations to work with using `filter()`and `select()`.
-1. To order data by variable using `arrange()`.
-1. To provide a simple data summary using `group_by()` and `summarise()`.
-1. To change the structure of the data using `gather()` (and optionally `spread()`).
 
 ### Expected learning
 
