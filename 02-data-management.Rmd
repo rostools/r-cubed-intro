@@ -20,82 +20,135 @@ and how to convert between them by "pivotting" (with `pivot_longer()`
 and `pivot_wider()`).
 1. Write "tidier" and more readable code by using the pipe (`%>%`) operator.
 
+## "Messy" vs. "tidy" data
 
-### Expected learning
+Before we begin this section, 
+**take 5 min to read through this *"Messy" vs "tidy" data* section**.
+Afterward, we'll go through it together and discuss it.
 
-For the final exercise of this session, you will try to get the data from the
-original data (using NHANES) to the table below. By using the code in this
-session, you will have acheived our learning expectations.
+The concept of "tidy" data was popularized in an [article] by Hadley Wickham
+and described in more detail in the [Tidy Data chapter] of the R for Data Science online
+book. A tidy dataset is when:
 
-The final exercise will be to get this data:
+- Each variable has its own column (e.g. "Body Weight")
+- Each observation has its own row (e.g. "Person")
+- Each value has its own cell (e.g. "Body weight for a person at a specific date")
 
-```{r nhanes-data}
-NHANES
+[article]: http://www.jstatsoft.org/v59/i10/paper.
+[Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
+
+Looking at these example datasets, think about why each is "tidy" or "messy". 
+What do you notice between the tidy versions and the messier versions?
+
+```{r}
+# Datasets come from tidyr
+# Tidy:
+table1
+# Partly tidy:
+table2
+# Messier:
+table3
+# Messy:
+table4a
+# Messy:
+table4b
 ```
 
-To look like this:
+The "most" tidy version is `table1` which has columns that describe their values
+(e.g. population is population size), each row is unique (e.g. first row is for 
+values from Afghanistan from 1999), and each cell is an explicit value
+representative of its column and row. 
+`table2` is a "long" version of `table1` so it is partly "tidy", 
+but it doesn't satisfy the rule that each variable has a column,
+since `count` represents both cases and population size.
+On the other hand, `table3` is messy
+because the `rate` column values are a composite of two other column values
+(cases and population), when it should be a single number (a percent). Both
+`table4a` and `table4b` have columns with ambiguous values inside; what does
+values in the `1999` column contain? You can't tell from the data.
 
-```{r nhanes-output, echo=FALSE}
-NHANES %>% 
-    mutate(MoreThan5DaysActive = if_else(PhysActiveDays >= 5, TRUE, FALSE)) %>% 
-    select(SurveyYr, Gender, Age, Poverty, BMI, BPSysAve, BPDiaAve, TotChol,
-           DiabetesAge, nBabies, MoreThan5DaysActive, AlcoholDay) %>% 
-    rename(TotalCholesterol = TotChol, 
-           NumberOfBabies = nBabies, 
-           DrinksOfAlcoholInDay = AlcoholDay, 
-           AgeDiabetesDiagnosis = DiabetesAge) %>% 
-    filter(Age >= 18, Age <= 75) %>% 
-    gather(Measure, Value, -SurveyYr, -Gender) %>% 
-    group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(Mean = round(mean(Value, na.rm = TRUE), 2)) %>% 
-    arrange(Measure, Gender, SurveyYr) %>% 
-    spread(SurveyYr, Mean) %>% 
-    kable(caption = "Mean values of characteristics for women and men between 18-75 years of age at each of the two survey years.")
-```
+Tidy data has a few notable benefits:
+
+1. Time spent preparing your data to be tidy from the beginning can save days
+of frustration in the long run.
+2. "Tidy data" is a conceptual framework that allows you to easy build off and
+wrangle (i.e. "manipulate", "clean up", "manage") data in simpler 
+and easy to interpret ways, especially when using the tidyverse packages 
+(which are an ecosystem of related packages that share similar designs and work
+well together).
+
+The concept of tidy data also gives rise to the concept of tidy code. By using
+"verbs" (R functions), chaining them together in "sentences" (in a sequential
+pipeline), you can construct meaningful and readable code that, in more plain
+English, describes what you are doing to the data.
 
 ## Managing and working with data in R
 
-Recall that:
+**Take 5 min and read through this section**, then we'll go through it together.
+When working with data, there are a few principles to follow:
 
-- You should **never** edit your raw data (should be in `data-raw/` folder)
-- Only work with your raw data using R code 
-- Save the edited data as another dataset (should be in `data/` folder)
-- Document and comment as best you can to help you remember
-    - But, let the code speak for itself (e.g. keep it simple, have intermediate and descriptive steps)
-    
-In data "wrangling"/"munging"/managing, most tasks can be broken down into only
-a few simple "verbs" (actions), as listed in the table.
+- **Never** edit raw data and save it in a separate location 
+(could put in the `data-raw/` folder)
+    - *Note*: Saving to `data-raw/` depends on how you collected the data 
+    and how many collaborators are on your team. 
+    You may end up storing and processing the data in another folder as a project
+    of its own.
+- Only work with your raw data using R code, *don't manually edit it*.
+Manual editing doesn't leave a history of what you've done to it,
+so you can't go back and see what you've done. 
+Always keep a history of any changes you've made to the data,
+preferably by using R code.
+- Save the edited data as another dataset and store it in the `data/` folder.
 
-```{r, echo=FALSE}
+When wrangling your data with R code make sure to:
+
+- Document and comment as best you can what you did to your data and why you did
+it to help you remember
+- Write the code itself to be as descriptive as you can
+and to readable enough to understand what is being done to the data.
+Keep the code simple: Don't be clever, be clear.
+Clear code is easier to understand than some clever code.
+
+In data wrangling, 
+most tasks can be expressed by a few simple "verbs" (actions), 
+listed in the table below:
+
+```{r table-wrangling-verbs, echo=FALSE}
 tibble::tribble(
-    ~Tasks, ~Examples, ~Function,
-    "Choosing columns", "Remove columns related to data entry, such as name of person entering data.", "select()",
-    "Renaming columns", "Changing a column name from 'Q1' to 'ParticipantName'.", "rename()",
-    "Transforming or modifying columns", "Multiplying a column's values; taking the log.", "mutate()",
-    "Subsetting/filtering out rows/observations", "Keeping rows with glucose values above 4.", "filter()",
-    "Sorting/re-arranging rows", "Show rows with the smallest value at the top.", "arrange()",
-    "Converting from wide to long form", "One row per participant to multiple participants per row (repeated measures).", "pivot_longer()",
-    "Converting from long to wide form", "Multiple rows per participant (repeated measures) to one participant per row.", "pivot_wider()",
-    "Calculating summaries on the data", "Calculating the maximum, median, and minimum age.", "summarise()",
-    "Running analyses by group", "Calculate means of age by males and females.", "group_by() with summarise()"
+    ~Task, ~Example, ~Function,
+    "Select columns", "Remove data entry columns such as person's name who entered the data.", "`select()`",
+    "Rename columns", "Changing a column name from 'Q1' to 'ParticipantName'.", "`rename()`",
+    "Transform or modify columns", "Multiplying a column's values or taking the log.", "`mutate()`",
+    "Subset/filter rows", "Keeping rows with glucose values above 4.", "`filter()`",
+    "Sort rows", "Show rows with the smallest value at the top.", "`arrange()`",
+    "Convert data from wide to long", "One row per participant to multiple participants per row (repeated measures).", "`pivot_longer()`",
+    "Convert data from long to wide", "Multiple rows per participant (repeated measures) to one participant per row.", "`pivot_wider()`",
+    "Calculate summaries of the data", "Calculating the maximum, median, and minimum age.", "`summarise()`",
+    "Run an analysis by a group", "Calculate means of age by males and females.", "`group_by()` with `summarise()`"
 ) %>% 
-    kable(caption = "Data wrangling task, an example of the task, and the functions to use for data wrangling.")
+    knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
 ```
 
 Wrangling here is used in the sense of maneuvering, managing, controlling, and
 turning your data around to better understand it and to prepare it for later
-analyses. The packages dplyr and tidyr provide easy tools for most common data
-manipulation tasks. For dplyr, it is built to work directly with data frames and
-has an additional feature to interact directly with data stored in an external
-database, such as in SQL. Working with databases is powerful as you can work
-with massive datasets (100s of GB), more than your computer could normally
-handle. This won't be covered, but see this [resources from Data
-Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
+analyses. The packages [dplyr] and [tidyr] provide easy tools for most common data
+manipulation tasks. For dplyr, it is built to work directly with data frames 
+(i.e. rectangular data like those found in spreadsheets)
+and has an additional feature to interact directly with data stored in an external
+database, such as in SQL. Working with databases is a powerful way to work
+with massive datasets (100s of GB), more than what your computer could normally
+handle. Working with massive data won't be covered in this course,
+but see this [resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
 to learn more.
 
-A **tip** when doing complicated wrangling and you get the data to a form that you
-like and will use often: Save it as an "output" dataset in the `data/` folder so
-you can easily use it again later rather than run the wrangling code everytime.
+[dplyr]: https://dplyr.tidyverse.org/
+[tidyr]: https://tidyr.tidyverse.org/
+
+**Tip**: When doing complicated wrangling 
+and you finally get the data into a form that you will use often,
+save the wrangled data as an "output" dataset in the `data/` folder.
+That way, you can easily use it again later rather 
+than having to run the wrangling code every time you want to work with the data.
 
 ## Loading the packages and dataset
 
@@ -171,56 +224,102 @@ summary(NHANES)
 </p>
 </details>
 
-## "Messy" vs. "tidy" data
+## `select()`: Select specific data by the variables
 
-The concept of "tidy" data was popularized in an [article] by Hadley Wickham
-and described more in the [Tidy Data chapter] of the R for Data Science online
-book. A tidy dataset is when:
-
-- Each variable has its own column.
-- Each observation has its own row
-- Each value has its own cell
-
-[article]: http://www.jstatsoft.org/v59/i10/paper.
-
-Looking at these example datasets, think about why each is "tidy" or "messy". 
-What do you notice between the tidy versions and the messier versions?
+Sometimes you only need certain variables from a dataset, not all of them. Or
+maybe you want to remove certain ones or select variables that match a pattern.
+This is when you use `select()`.
 
 ```{r}
-# Datasets come from tidyr
-# Tidy:
-table1
-# Tidy:
-table2
-# Messier:
-table3
-# Messy:
-table4a
-# Messy:
-table4b
+# Select columns/variables by name, without quotes
+NHANES %>%
+    select(Age, Gender, BMI)
+
+# To *not* select a variable, us minus (-)
+NHANES %>%
+    select(-HeadCirc)
+
+# When you have many variables with similar names, use "matching" functions
+NHANES %>%
+    select(starts_with("BP"), contains("Vol"))
 ```
 
-In the tidy versions, `table1` and `table2` have columns that describe their values
-(e.g. population is population size), each row is unique (e.g. first row is for 
-values from Afghanistan from 1999), and each cell is an explicit value
-representative of its column and row. On the other hand, `table3` is not tidy 
-because the `rate` column values are a composite of two other column values
-(cases and population), when it should be a single number (a percent). Both
-`table4a` and `table4b` have columns with ambiguous values inside... what does
-values in the `1999` column contain? You can't tell from the data.
+For more information on using the pattern functions such as `starts_with()`,
+check `?select_helpers`. If you are familiar with [regular expressions], you can
+use `matches()`.
 
-Tidy data has a few notable benefits:
+[regular expressions]: https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf
 
-1. Time spent preparing your data to be tidy from the beginning can save days
-of frustration in the long run.
-2. "Tidy data" is a conceptual framework that allows you to easy build off and
-wrangle data in simpler and easy to interpret ways, especially when using the
-tidyverse packages.
+## `rename()`: Rename specific columns
 
-From the concept of tidy data also comes the concept of tidy code. By using
-"verbs" (R functions), chaining them together in "sentences" (in a sequential
-pipeline), you can construct meaningful and readable code that, in more plain
-English, describes what you are doing to the data.
+If you need to rename a column, that's super easy! Use the `rename()` function!
+
+```{r}
+# rename using the form "newname = oldname"
+NHANES %>% 
+    rename(NumberBabies = nBabies)
+```
+
+## `filter()`: Filtering/subsetting the data by row
+
+Subsetting/filtering data is a very common activity in data analysis, for example,
+keeping only those older than 30 years. Using the `filter()` function lets you
+do this. Filtering uses logic for conditions, so refer to the table above for the
+logic operators.
+
+**A warning**: Filtering using logic. Humans are really bad at logic. Make sure
+that you are very certain that what you think your logic is doing is what the
+code is actually doing. Confirm the findings! Lots of mistakes can be made at
+this stage, especially with complex logic conditions and filtering. 
+
+```{r}
+# when gender is equal to
+NHANES %>%
+    filter(Gender == "female")
+
+# when gender is *not* equal to
+NHANES %>%
+    filter(Gender != "female")
+
+# when BMI is equal to
+NHANES %>%
+    filter(BMI == 25)
+
+# when BMI is equal to or more than
+NHANES %>%
+    filter(BMI >= 25)
+
+# when BMI is 25 *and* Gender is female
+NHANES %>%
+    filter(BMI == 25 & Gender == "female")
+
+# when BMI is 25 *or* gender is female
+NHANES %>%
+    filter(BMI == 25 | Gender == "female")
+```
+
+## `arrange()`: Sorting/(re)arranging your data by column
+
+Arranging/sorting your rows is fairly simple with dplyr. Just use `arrange()`!
+
+```{r}
+# ascending order by age
+NHANES %>%
+    arrange(Age) %>% 
+    select(Age)
+
+# Other arrange (for reference)
+# descending order by rate
+NHANES %>%
+    arrange(desc(Age)) %>% 
+    select(Age)
+
+# ascending order by Age and Gender
+NHANES %>%
+    arrange(Age, Gender) %>% 
+    select(Age, Gender)
+```
+
 
 ## `%>%`: The pipe operator
 
@@ -348,102 +447,6 @@ This is something to be careful about. So always check your calculations!
 
 </p>
 </details>
-
-## `select()`: Select specific data by the variables
-
-Sometimes you only need certain variables from a dataset, not all of them. Or
-maybe you want to remove certain ones or select variables that match a pattern.
-This is when you use `select()`.
-
-```{r}
-# Select columns/variables by name, without quotes
-NHANES %>%
-    select(Age, Gender, BMI)
-
-# To *not* select a variable, us minus (-)
-NHANES %>%
-    select(-HeadCirc)
-
-# When you have many variables with similar names, use "matching" functions
-NHANES %>%
-    select(starts_with("BP"), contains("Vol"))
-```
-
-For more information on using the pattern functions such as `starts_with()`,
-check `?select_helpers`. If you are familiar with [regular expressions], you can
-use `matches()`.
-
-[regular expressions]: https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf
-
-## `rename()`: Rename specific columns
-
-If you need to rename a column, that's super easy! Use the `rename()` function!
-
-```{r}
-# rename using the form "newname = oldname"
-NHANES %>% 
-    rename(NumberBabies = nBabies)
-```
-
-## `filter()`: Filtering/subsetting the data by row
-
-Subsetting/filtering data is a very common activity in data analysis, for example,
-keeping only those older than 30 years. Using the `filter()` function lets you
-do this. Filtering uses logic for conditions, so refer to the table above for the
-logic operators.
-
-**A warning**: Filtering using logic. Humans are really bad at logic. Make sure
-that you are very certain that what you think your logic is doing is what the
-code is actually doing. Confirm the findings! Lots of mistakes can be made at
-this stage, especially with complex logic conditions and filtering. 
-
-```{r}
-# when gender is equal to
-NHANES %>%
-    filter(Gender == "female")
-
-# when gender is *not* equal to
-NHANES %>%
-    filter(Gender != "female")
-
-# when BMI is equal to
-NHANES %>%
-    filter(BMI == 25)
-
-# when BMI is equal to or more than
-NHANES %>%
-    filter(BMI >= 25)
-
-# when BMI is 25 *and* Gender is female
-NHANES %>%
-    filter(BMI == 25 & Gender == "female")
-
-# when BMI is 25 *or* gender is female
-NHANES %>%
-    filter(BMI == 25 | Gender == "female")
-```
-
-## `arrange()`: Sorting/(re)arranging your data by column
-
-Arranging/sorting your rows is fairly simple with dplyr. Just use `arrange()`!
-
-```{r}
-# ascending order by age
-NHANES %>%
-    arrange(Age) %>% 
-    select(Age)
-
-# Other arrange (for reference)
-# descending order by rate
-NHANES %>%
-    arrange(desc(Age)) %>% 
-    select(Age)
-
-# ascending order by Age and Gender
-NHANES %>%
-    arrange(Age, Gender) %>% 
-    select(Age, Gender)
-```
 
 ### Exercise: Filtering and logic, arranging, and selecting
 
@@ -625,6 +628,30 @@ nhanes_long %>%
 
 Note that summarising by mean can only be done with continuous variables.
 Anyway, with the long form, you can do more with less code `r emo::ji("relaxed")`
+
+```{r nhanes-data}
+NHANES
+```
+
+To look like this:
+
+```{r nhanes-output, echo=FALSE}
+NHANES %>% 
+    mutate(MoreThan5DaysActive = if_else(PhysActiveDays >= 5, TRUE, FALSE)) %>% 
+    select(SurveyYr, Gender, Age, Poverty, BMI, BPSysAve, BPDiaAve, TotChol,
+           DiabetesAge, nBabies, MoreThan5DaysActive, AlcoholDay) %>% 
+    rename(TotalCholesterol = TotChol, 
+           NumberOfBabies = nBabies, 
+           DrinksOfAlcoholInDay = AlcoholDay, 
+           AgeDiabetesDiagnosis = DiabetesAge) %>% 
+    filter(Age >= 18, Age <= 75) %>% 
+    gather(Measure, Value, -SurveyYr, -Gender) %>% 
+    group_by(SurveyYr, Gender, Measure) %>% 
+    summarise(Mean = round(mean(Value, na.rm = TRUE), 2)) %>% 
+    arrange(Measure, Gender, SurveyYr) %>% 
+    spread(SurveyYr, Mean) %>% 
+    kable(caption = "Mean values of characteristics for women and men between 18-75 years of age at each of the two survey years.")
+```
 
 ## Why learn to reformat and reshape data?
 
