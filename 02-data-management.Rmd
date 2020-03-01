@@ -112,8 +112,11 @@ Keep the code simple: Don't be clever, be clear.
 Clear code is easier to understand than some clever code.
 
 In data wrangling, 
-most tasks can be expressed by a few simple "verbs" (actions), 
-listed in the table below:
+most tasks can be expressed by a few simple "verbs" (actions).
+Wrangling here is used in the sense of maneuvering, managing, controlling, and
+turning your data around to clean it up, to better understand it,
+and to prepare it for later analyses. 
+The table below lists some common "verbs":
 
 ```{r table-wrangling-verbs, echo=FALSE}
 tibble::tribble(
@@ -131,10 +134,9 @@ tibble::tribble(
     knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
 ```
 
-Wrangling here is used in the sense of maneuvering, managing, controlling, and
-turning your data around to better understand it and to prepare it for later
-analyses. The packages [dplyr] and [tidyr] provide easy tools for most common data
-manipulation tasks. For dplyr, it is built to work directly with data frames 
+The functions above come from the packages [dplyr] and [tidyr].
+Thes packages provide easy tools for most common data manipulation tasks. 
+For dplyr, it is built to work directly with data frames 
 (i.e. rectangular data like those found in spreadsheets)
 and has an additional feature to interact directly with data stored in an external
 database, such as in SQL. Working with databases is a powerful way to work
