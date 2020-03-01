@@ -228,16 +228,16 @@ summary(NHANES)
 </p>
 </details>
 
-## `select()`: Select specific data by the variables
+## Select specific columns in a dataset
 
-Sometimes you only need certain variables from a dataset, not all of them. Or
-maybe you want to remove certain ones or select variables that match a pattern.
-This is when you use `select()`.
+Sometimes you only need certain columns from a dataset and not all of them. 
+Or maybe you want to remove certain ones.
+The `select()` function extracts specific columns from a dataset.
+
 
 ```{r}
-# Select columns/variables by name, without quotes
-NHANES %>%
-    select(Age, Gender, BMI)
+# Select columns by name, without quotes
+select(NHANES, Age)
 
 # To *not* select a variable, us minus (-)
 NHANES %>%
