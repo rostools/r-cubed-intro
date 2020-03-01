@@ -500,7 +500,7 @@ Time: 15 min.
 
 For each member of the group:
 
-- Complete item 1. of the [group assignment](assignment)
+- Complete item 1 of the [group assignment](assignment)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
     - Name the project based on your group name.
