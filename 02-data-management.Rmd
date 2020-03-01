@@ -551,7 +551,7 @@ NHANES %>%
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
-## `gather()`: Converting from wide to long form
+## Convert data from wide to long form
 
 The tidyr package is a companion package to dplyr and allows for a wide range of
 manipulations of the data structure data. For example, sometimes we have data
