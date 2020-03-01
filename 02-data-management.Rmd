@@ -902,18 +902,27 @@ value will be column that will make up the values of the new columns.
 
 ## Final exercise: Group work
 
-Time: Until end of the session.
+Time: ~30 min
 
-This is time to 
+This exercise has two aims: to get working on and completing the group project, 
+and to get you practicing using the dplyr and tidyr functions we covered today.
+First, take maximum 10 min to:
 
-In your project
+- *As a group*, complete item 2 of the [group assignment](assignment)
+(to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
+- *Individually*, open your group R project
+and complete item 3 of the group assignment.
+Follow the appropriate filenaming conventions as we learned in the Project Management
+session for the dataset (e.g. don't use spaces, instead use either `-` or `_`).
 
-In the `exercise-wrangling.R` file, copy the code below to get the data into the
-form needed. Using everything you learned in this session, try to recreate the
-table below from the dataset given here.
+With the remaining time:
 
-```{r nhanes-data}
-```
+- *As a group*, complete item 4 of the [group assignment](assignment).
+Explore the data and *use all the functions* we've covered in this session to
+better understand the data you'll work with. 
+You can (and probably should) divide exploratory tasks between group members,
+so that you have a good understand *as a group* of the data.
 
-```{r nhanes-output, echo=FALSE}
-```
+
+
