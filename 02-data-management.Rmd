@@ -37,7 +37,9 @@ book. A tidy dataset is when:
 [article]: http://www.jstatsoft.org/v59/i10/paper.
 [Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
 
-Looking at these example datasets, think about why each is "tidy" or "messy". 
+Take a look at the example "tidy" and "messy" data frames
+(also called "tibbles" in the tidyverse) below.
+Think about why each is "tidy" or "messy". 
 What do you notice between the tidy versions and the messier versions?
 
 ```{r}
