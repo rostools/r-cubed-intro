@@ -168,9 +168,7 @@ usethis::use_r("visualization-session")
 
 As you may tell, the usethis package can be quite handy.
 
-## Writing code in RStudio
-
-### RStudio layout and usage
+## RStudio layout and usage
 
 Open up the `R/project-session.R` file and type out the code in that file for 
 the code-along parts. 
@@ -188,7 +186,7 @@ there is a "Document Outline" button (top right beside the "Run" button)
 that shows you the headers or "Sections" (more on that later). 
 Click it to enable the outline from now on.
 
-### Basics of using R
+## Basics of using R
 
 In R, everything is an object and every action is a function. A function is an
 object, but an object isn't always a function. To create an object, also called
@@ -256,7 +254,7 @@ Then hit TAB. You should see a list of functions to use.
 Hit TAB again to finish with `colnames()`. 
 This simple tool can save so much time and can prevent spelling mistakes.
 
-### R object naming practices
+## R object naming practices
 
 If you've ever seen some old R code,
 you may notice that functions and objects are usually short.
@@ -286,7 +284,7 @@ write correctly so others can understand, *and read*, what you are trying to
 say. In coding, brainstorming is fine, but eventually you need to code in a
 readable way. That's why using a [style guide] is really important.
 
-### Exercise: Make code more readable
+## Exercise: Make code more readable
 
 Time: 15 min
 
@@ -379,7 +377,7 @@ if (y < 0 && debug) {
 </p>
 </details>
 
-### Automatic styling in RStudio
+## Automatic styling in RStudio
 
 You may have organised the exercise by hand, 
 however it is possible to do it automatically. 
@@ -393,7 +391,7 @@ The tidyverse [style guide] also has package called
 With styler you can fix styling on multiple files at once.
 We won't cover styler, so this is more as a future tool to try out.
 
-### Packages, data, and file paths
+## Packages, data, and file paths
 
 A major strength of R is in its ability for others to easily create packages
 that simplify doing complex tasks (e.g. running mixed effects models with the
@@ -448,7 +446,7 @@ to the project root (where the `.Rproj` file is found) and then use that file
 path. This simple function can make your work more reproducible and easier for
 you to use later on.
 
-### Encountering problems and finding help
+## Encountering problems and finding help
 
 You **will** encounter problems and issues and errors when working with R... 
 and you will encounter then **all the time**. This is a fact of life. How you 
