@@ -1,11 +1,12 @@
-# Data management, wrangling, and best practices {#wrangling}
+# Data management and wrangling {#wrangling}
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
-## Session details
+> When in RStudio, quickly jump to this page using `r3::open_data_wrangling()`.
 
-### Objectives
+**Session objectives**:
 
+1. 
 1. To know how to apply the `pivot_wider()` and `pivot_longer()` tidyr functions to
 restructure your data between long and wide formats (and vice versa).
 2. To use the `group_by()` and `summarize()` dplyr functions with the
