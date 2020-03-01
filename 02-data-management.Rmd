@@ -175,7 +175,7 @@ library(NHANES)
 glimpse(NHANES)
 ```
 
-### Exercise: Become familiar with the dataset
+## Exercise: Become familiar with the dataset
 
 Time: 10 min
 
