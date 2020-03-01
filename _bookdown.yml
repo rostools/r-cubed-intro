@@ -13,6 +13,7 @@ rmd_files:
     - "00-pre-course.Rmd"
     - "00-conduct.Rmd"
     - "00-assignment.Rmd"
+    - "00-slides.Rmd"
     - "01-project-management.Rmd"
     - "02-data-management.Rmd"
     - "03-version-control.Rmd"

@@ -1,0 +1,10 @@
+# Course slides {#slides}
+
+- [Introduction to the course](slides/introduction.html)
+
+```{r}
+
+```
+
+
+- [Introduction to the course](slides/introduction.html)
