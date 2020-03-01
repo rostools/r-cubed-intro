@@ -2,12 +2,12 @@ Date and time,Session topic,Type
 **Day 1**,,
 ,Arrival; coffee and snacks,
 10:00,Introduction to the course,Lecture
-10:30,Project management and best practices (with short coffee break),Code-along
+10:30,Project management (with short coffee break),Code-along
 12:30,Lunch,
-13:30,"Data management, wrangling, and best practices",Code-along
+13:30,"Data management and wrangling",Code-along
 14:30,Coffee break and snacks,
 15:00,Finding and obtaining open datasets,Lecture
-15:30,"Data management, wrangling, and best practices (with short break)",Code-along
+15:30,"Data management and wrangling (with short break)",Code-along
 17:30,End of day short survey,
 **Day 2**,,
 ,Breakfast,
@@ -16,9 +16,9 @@ Date and time,Session topic,Type
 10:15,Coffee break and snacks,
 10:30,Version control and collaborative practices,Code-along
 12:15,Lunch,
-13:15,Data visualization and best practices,Code-along
+13:15,Data visualization,Code-along
 14:45,Coffee break and snacks,
-15:00,Data visualization and best practices,Code-along
+15:00,Data visualization,Code-along
 17:00,End of day short survey,
 **Day 3**,,
 ,Breakfast and checkout,
