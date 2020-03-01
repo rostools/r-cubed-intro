@@ -206,9 +206,12 @@ You can name an object in R almost anything you want, but it's best to stick to
 a [style guide]. For instance, use `snake_case` to name things.
 
 There are also several main "classes" (or types) of objects in R: lists,
-vectors, matrices, and data.frames. For now, the only two we will cover are
-*vectors* and *data.frames*. Vectors are a string of values put together while
-data.frames are multiple vectors put together as columns.
+vectors, matrices, and data frames. For now, the only two we will cover are
+*vectors* and *data frames*. Vectors are a string of values put together while
+data frames are multiple vectors put together as columns. 
+Data frames are a form of data that you'd typically see as a spreadsheet.
+This type of data is called "rectangular data" since it has two dimensions:
+columns and rows.
 
 ```{r vectors-dataframes, eval=FALSE}
 # These are vectors:
