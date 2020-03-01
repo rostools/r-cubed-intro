@@ -227,9 +227,19 @@ head(iris)
 ```
 
 Notice how we use the `#` to write comments or notes. Whatever we write after
-the "hash" (`#`) means that R will ignore it and not run it. The function `c()`
-combines values together and `head()` prints the first 6 rows. To get more
-information from data.frames, use:
+the "hash" (`#`) means that R will ignore it and not run it. 
+The `c()` command puts values together and `head()` prints the first 6 rows. 
+Both `c()` and `head()` are *functions*. 
+In R, a command is called a functions and are anything that does an *action* 
+and can be recognized by the `()` at the end.
+Functions take an *input* (known as *arguments*) and give back an *output*.
+Each argument is separated by a comma `,`.
+Some functions can take unlimited arguments if they have a `...` as an input
+(like `c()`). Others, like `head()` only can take a few.
+In the case of `head()`, the first argument is for the data frame.
+
+If we want to get more information from data frames, 
+we can use other functions like:
 
 ```{r examining-dataframes}
 # Column names
@@ -240,10 +250,10 @@ str(iris)
 summary(iris)
 ```
 
-### Using auto-completion in RStudio
+## Using auto-completion in RStudio
 
 To type out objects in R faster, use "Tab-completion" to finish a object name for you.
-As you type out a command, hit the TAB key to see a list of objects available.
+As you type out an object name, hit the TAB key to see a list of objects available.
 RStudio will not only list out the objects,
 but also shows the possible options and help associated with the object.
 
