@@ -9,11 +9,6 @@ contributions from Maria Izabel Cavassim Alves
 ([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in 
 Bioinformatics.
 
-## Git session
-
-Many parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
-given while with the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
-
 ## Data management and wrangling session
 
 Parts of this lesson were modified from a
@@ -24,6 +19,13 @@ PhD student at AU in Clinical Epidemiology, as well as from the
 dplyr sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse).
 Much inspiration was also taken from the [R for Data Science] book.
 And also from the [AU CRU intermediate dplyr and tidyr session](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/)
+
+Also taken from Merely Useful.
+
+## Git session
+
+Many parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
+given while with the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
 
 ## Data visualization session
 
