@@ -947,5 +947,8 @@ better understand the data you'll work with.
 You can (and probably should) divide exploratory tasks between group members,
 so that you have a good understand *as a group* of the data.
 
-
-
+> *Tip*: Make use of TAB auto-completion when typing out the dplyr and tidyr
+functions for wrangling the data to speed up your coding and to get help if needed.
+For instance, type out `sel`, hit TAB, and see the list of possible functions.
+Choose the right item in the menu and hit TAB again to finish the function.
+If you want to see a list of other functions in dplyr, type out `dplyr::` 
