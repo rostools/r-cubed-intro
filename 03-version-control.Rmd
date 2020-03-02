@@ -75,40 +75,41 @@ hosting service)
 - Many open scientific projects use Git
 - RStudio has great integration with Git and a really nice interface
 
+1. To know that learning version control is an investment and is *very worth it*
+to learn as it pays off *very well* in the future
+
 [GitHub]: https://github.com/
 
-## Using Git
+## Basics of Git
 
-### Setting up your Git configuration
+Let's do a quick check to see that everyone has Git properly set up. 
+Run this function in your RStudio Console:
 
-Since Git tracks who did what to your files, it needs to know who you are. So
-let's get you set up! Open your R Project and open a terminal using `Alt-Shift-T`
-(or `"Tools->Terminal->New Terminal"`). Then start typing:
-
-```{bash, eval=FALSE}
-git config --global user.name "Your Name"
-git config --global user.email "you@some.domain"
-git config --global core.editor "nano"
+```{r, eval=FALSE}
+r3::check_git_config()
 ```
 
-We'll mostly work in RStudio with Git, but sometimes you may have to use the 
-terminal and interact with Git using the [nano] text editor.
+You shouldn't get an error and it should show your email and name.
 
-### Four (or five) concepts in Git (and ~11 main commands)
+- Set up a Git repository in your project
+- Tell Git to track a file by preparing it to be saved to the history
+- Record a message on what you are preparing to save to the history and then save it
+- 
 
-- **Start repository**: `git init`, `git clone` (from GitHub or [GitLab])
-- **Check activity**: `git status`, `git log`, `git diff`
-- **Save to history**: `git add`, `git commit`
-- **Move through the history**: `git checkout`, `git branch` (may be covered)
-- **Using with GitHub (or GitLab)**: `git push`, `git pull` (may be covered)
+Other things you'd do with Git:
 
-[GitLab]: https://gitlab.com/
+- Check what's been changed or added in files since the last save
+- Check the history for what was previously changed or add
 
-Almost all of these Git commands can be used through the RStudio Git interface!
-For those commands that can't, we'll use the built-in terminal in RStudio
-(*note*, *not* the R Console) to access the Git commands.
+When working with GitHub, there are extra things you'd do:
 
-### Setting up a Git repository
+- Synchronize your Git repository on your computer with the repository on your GitHub,
+called "push" (upload) and "pull" (download).
+
+Set up a Git repository. (e.g. by checking box to start a Git repo when creating an R project,
+automatically with prodigenr or with `usethis::use_git()`).
+
+## Setting up a Git repository
 
 First off, *what is the Git repository?* Remember how your project folder is set
 up. There are actually several hidden files for Mac or Linux users or files
@@ -116,13 +117,13 @@ starting with `.` for Windows users. There are two important files/folders that
 relate to Git, the `.gitignore` file and the `.git/` folder:
 
 ```
-learning-r
+LearningR
 ├── .git/ <-- Here
 ├── R/
 ├── data/
 ├── doc/
 ├── .gitignore <-- Here
-├── learning-r.Rproj
+├── LearningR.Rproj
 └── README.md
 ```
 
@@ -158,6 +159,7 @@ We won't be using the Git commands listed in the image. They are there for
 reference.
 
 ```{r git-stages, eval=FALSE, echo=FALSE}
+source(here::here("resources/diagrammer.R"))
 # Need to generate manually
 git_stages <- mermaid("
 sequenceDiagram
@@ -172,7 +174,12 @@ sequenceDiagram
     H->>W: git checkout
 ") 
 html_print(git_stages, viewer = NULL) %>% 
-    webshot("static/img/git-stages.png", vwidth = 850, vheight = 550, cliprect = "viewport")
+    webshot(
+        here::here("images/git-stages.png"),
+        vwidth = 850,
+        vheight = 550,
+        cliprect = "viewport"
+    )
 ```
 
 <img src="/img/git-stages.png" alt="Stages of Git tracking" />
@@ -187,6 +194,15 @@ remote can be anywhere, including on other version control services like GitLab.
 
 ```{r git-remotes, eval=FALSE, echo=FALSE}
 # Need to generate manually
+
+mermaid("
+graph TB
+  A(GitHub) --> B('Local':<br>Your computer)
+  B --> A
+  A --> C('Local':<br>Collaborator's<br>computer)
+  C --> A
+")
+
 git_remotes <- mermaid("
 sequenceDiagram
     participant W as Working
@@ -205,3 +221,10 @@ html_print(git_remotes, viewer = NULL) %>%
 ```
 
 <img src="/img/git-remotes.png" alt="Remotes and the links between repositories." />
+
+```{r}
+source(here::here("resources/diagrammer.R"))
+grViz("
+      ")
+```
+
