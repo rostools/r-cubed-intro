@@ -97,3 +97,12 @@ Markdown uses [pandoc])
 - [RStudio helpful cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 - [R Markdown cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) (downloads a pdf file)
 - [R Markdown reference cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+## Resources and further reading
+- Best practices see [@Wilson2014a; @Eglen2016a]
+- [Case studies](https://www.practicereproducibleresearch.org/) and lessons for doing reproducibility
+- Case study in Bioinformatics see [@Kim2018a]
+
+
+- Combining auto-completion with `::`. 
+Using this method can help you find functions
