@@ -518,29 +518,6 @@ NHANES %>%
 ```
 
 
-## `%>%`: The pipe operator
-
-A key component of the tidy data and tidy code concept is the use of the `%>%`
-operator. This operator allows you to "pipe" the output from one function to the
-input of another function, thus allowing you to easily chain functions together
-into "sentences". So, instead of nesting functions (reading from the inside to
-the outside), the idea of piping is to read the functions from left to right.
-This can help clarify and break down complex data processing workflows.
-
-```{r}
-# These two ways are the same
-colnames(NHANES)
-NHANES %>% 
-    colnames()
-
-# Standard R way of "chaining" functions together
-glimpse(head(NHANES))
-
-# The pipe way of chaining
-NHANES %>% 
-    head() %>% 
-    glimpse()
-```
 
 ## `mutate()`: Transforming or adding variables
 
