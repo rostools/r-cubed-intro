@@ -235,51 +235,229 @@ summary(NHANES)
 
 ## Select specific columns in a dataset
 
-Sometimes you only need certain columns from a dataset and not all of them. 
-Or maybe you want to remove certain ones.
-The `select()` function extracts specific columns from a dataset.
-
+Selecting columns of a dataset is a very common data wrangling task.
+The function for this task is appropriately called `select()`.
+For the input arguments, it takes the dataset as the first argument 
+(first position after the `(`)
+and then takes the names of the columns you want to select.
+Because the argument after the data argument is `...`, 
+it means that you can add as many columns as you want, separated by a `,`.
 
 ```{r}
-# Select columns by name, without quotes
+# Select one column by its name, without quotes
 select(NHANES, Age)
 
-# To *not* select a variable, us minus (-)
-NHANES %>%
-    select(-HeadCirc)
+# Select two or more columns by name, without quotes
+select(NHANES, Age, Weight, BMI)
 
-# When you have many variables with similar names, use "matching" functions
-NHANES %>%
-    select(starts_with("BP"), contains("Vol"))
+# To *exclude* a column, use minus (-)
+select(NHANES, -HeadCirc)
 ```
 
-For more information on using the pattern functions such as `starts_with()`,
-check `?select_helpers`. If you are familiar with [regular expressions], you can
-use `matches()`.
 
-[regular expressions]: https://www.rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf
+If some of your columns have similar patterns at the beginning, within, or end,
+you can use the helper functions to choose these columns.
+Use `?select_helpers` (choose the first option in the menu that pops up)
+to read more about these functions and to get help on them. 
+Some more useful helpers are:
+
+- `starts_with()`: Select columns that begin with a pattern.
+- `ends_with()`: Select columns that end with a pattern.
+- `contains()`: Select columns that contain a pattern.
+
+```{r}
+# All columns starting with letters "BP" (blood pressure)
+select(NHANES, starts_with("BP"))
+# All columns ending in letters "Day"
+select(NHANES, ends_with("Day"))
+# All columns containing letters "Age"
+select(NHANES, contains("Age"))
+```
+
+
+For more information on using the pattern functions such as `starts_with()`,
+check `?select_helpers`. 
+
+You'll notice that running these functions doesn't actually change the data itself.
+When you run a function without assigning it using `<-`,
+the only action the function does is to send the output to your screen.
+But if you want to create a new dataset with only the columns you selected,
+you'll need to assign it to a new object.
+
+```{r}
+# Recall the style guide for naming objects
+nhanes_blood_pressure <- select(NHANES, starts_with("BP"))
+nhanes_blood_pressure
+```
 
 ## `rename()`: Rename specific columns
 
-If you need to rename a column, that's super easy! Use the `rename()` function!
+Depending on how your data was collected, 
+it may have column names that aren't very descriptive.
+So you'll probably want to rename them to something more explanatory.
+As with `select()`, the rename you use the function called `rename()`.
+Like `select()`, `rename()` takes the dataset as the first argument
+(first position) and then takes as many renaming arguments as you want
+(because the second argument position is `...`).
+Renaming takes the form of `newname = oldname`.
 
 ```{r}
-# rename using the form "newname = oldname"
+rename(NHANES, NumberBabies = nBabies)
+```
+
+You can't really see what was changed. Let's make a new object of only `nBabies`.
+
+```{r}
+nhanes_number_babies <- select(NHANES, nBabies)
+rename(nhanes_number_babies, NumberBabies = nBabies)
+```
+
+You can now see how it changes the name.
+What if you want to select some columns and then rename some of them,
+do you have to create a new data object every time? No! 
+We can make use of a very powerful tool called piping (with the `%>%` function).
+
+## `%>%`: The pipe operator
+
+**Take 5 minutes and read this section** before we go over it together.
+
+A key component of the tidy data and tidy code concept is making use of the `%>%` operator.
+This operator allows you to "pipe" the output from one function to the
+input of another function, like a plumbing pipe would do for water.
+This allows you to easily chain functions together into "sentences".
+Let's use an example based on English words for some action. 
+This is the English sentence:
+
+> We need some eggs. Drive to the grocery store
+and buy up some eggs before coming home from work.
+
+There are basically two actions here ("drive" and "buy")
+and four "inputs" ("work", "grocery store", "eggs", "home"),
+that are all based on the previous action.
+Since an action in R is a function, 
+the functions would be `drive()` and `buy()`.
+In regular R, if we wanted to chain these functions together, 
+we would have to nest them like this:
+
+```{r, eval=FALSE}
+drive(buy(drive(at_work, "grocery store"), "eggs"), "home")
+```
+
+This is difficult to read. We could also create temporary objects:
+
+```{r, eval=FALSE}
+at_grocery_store <- drive(at_work, "grocery store")
+got_eggs <- buy(at_grocery_store, "eggs")
+at_home <- drive(got_eggs, "home")
+```
+
+But this still isn't too "readable". The pipe `%>%` operator can really simplify this:
+
+```{r, eval=FALSE}
+at_work %>% 
+    drive("grocery store") %>% 
+    buy("eggs") %>% 
+    drive("home")
+```
+
+Do you find this more readable and understandable?
+We read it like how it would actually be done, in order of the steps taken.
+
+Instead of nesting functions (reading from the inside to the outside), 
+the idea of piping is to read the functions from left to right.
+This can help clarify and break down complex data processing workflows,
+and is the basis for all tidyverse and many other packages.
+This is a basic design philosophy of interacting with data when using the tidyverse.
+
+The pipe `%>%` takes the output from the object or function on the left hand side
+and puts it into the function of the right hand side.
+All input goes into the first position argument of the function.
+So with tidyverse packages,
+the first position always takes the data,
+to make the function usable with the pipe.
+
+**Ok, let's return back together and try this out**.
+
+```{r}
+# These two ways are the same
+colnames(NAMES)
 NHANES %>% 
+    colnames()
+```
+
+Because the pipe automatically takes NHANES
+and puts it into the first position, 
+we don't need to type out `NHANES` inside `colnames()` when piping.
+
+Let's try the pipe on the `select()` and `rename()` function from the previous section.
+Remember, both `select()` and `rename()` take a dataset as the first position,
+which makes them pipe-able.
+
+```{r}
+NHANES %>% 
+    select(nBabies) %>% 
     rename(NumberBabies = nBabies)
 ```
 
+We can now "read" these actions as:
+
+> Take the NHANES dataset *and then* select the nBabies column 
+*and then* rename the nBabies column to NumberBabies.
+
+Nice eh? :)
+
+### Exercise: Practicing with the pipe
+
+Time: 6 min
+
+In the `exercise-wrangling.R` file, complete these tasks:
+
+1. Re-write this bit of code to use the pipe:
+
+    ```r
+    select(NHANES, BMI, contains("Age"))
+    ```
+
+1. Read aloud (under your breath or in your head) the below code.
+How intuitive is it to read?
+Now re-write this code so you don't need to create the temporary `drug_use` object,
+then re-read the revised version. Which do you feel is easier to "read"?
+
+    ```r
+    drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
+    rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
+    ```
+
 ## `filter()`: Filtering/subsetting the data by row
 
-Subsetting/filtering data is a very common activity in data analysis, for example,
-keeping only those older than 30 years. Using the `filter()` function lets you
-do this. Filtering uses logic for conditions, so refer to the table above for the
+Subsetting/filtering data by row is a very common activity in data analysis, 
+for example, to get rid of outliers or to subset by a group.
+As with the previous functions, the function to subset/filter is called `filter()`.
+The `filter()` function takes a logic condition (`TRUE` or `FALSE`).
+
+Filtering uses logic for conditions, so refer to the table above for the
 logic operators.
 
-**A warning**: Filtering using logic. Humans are really bad at logic. Make sure
-that you are very certain that what you think your logic is doing is what the
-code is actually doing. Confirm the findings! Lots of mistakes can be made at
-this stage, especially with complex logic conditions and filtering. 
+The function to filter rows of a tibble is `filter()`.  Like `arrange()` and `select()`, its first argument is a tibble.  
+The remaining arguments describe which rows to **keep**.  
+The rows to keep are specified with a logical expression - something that is either `TRUE` or `FALSE`. The rows where this expression is `TRUE` will be returned.
+
+**A warning**: Filtering using logical conditions. 
+Humans are really really bad at logic.
+If your filter logical condition starts getting even a little complex,
+double and triple check that you know your logic code is doing what you think it is.
+It's very easy to make mistakes at this stage.
+
+
+One of the simplest kinds of logical expression is a test for equality with the `==` operator.  For example, to keep the rows where `animal_name` is `BRUNO` you could do:
+
+You could read this code aloud as:
+
+> Take the dog_licenses data, **and then**
+> filter for only rows when `animal_name` is equal to "BRUNO"
+
+
+The logical expression, `animal_name == "BRUNO"`, will be `TRUE` when the value of the `animal_name` column is exactly equal to the character string `"BRUNO"` - any differences in characters, case, or whitespace will result in `FALSE`.
 
 ```{r}
 # when gender is equal to
