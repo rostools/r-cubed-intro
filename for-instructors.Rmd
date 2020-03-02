@@ -13,11 +13,19 @@ instructors (~1 instructors for every 1-2 sessions). If there are more instructo
 then less helpers are needed. The recommended combined total number of helpers
 and instructors is about 6 for a smooth workflow experience for the learners.
 
-### First day
+### Before course begins
+
+Setting up groups:
 
 Before the introduction session (maybe the day before),
 assign people into groups and create GitHub teams for them using the [ghclass] package.
-Then in the room, arrange the tables into groups for each of the groups.
+
+Generate random names for groups based on tidytext::parts_of_speech$pos and
+praise::praise_parts$adjective
+
+### First day
+
+In the room, arrange the tables into groups for each of the groups.
 As participants come in, get them to sit in their assigned group number.
 
 Some time during the session, get them to stand in line and arrange themselves from 
@@ -30,3 +38,21 @@ Before the lunch break, get the groups to have lunch together and
 to introduce each other. Get them to tell the others their name, 
 program, one thing they are excited or 
 most interested to learn about R and/or data analysis.
+
+### About the slides
+
+The slides 
+
+In the [remark.js] slides, generated from [xaringan], 
+there are additional Notes
+
+See the remark.js list of [keyword shortcuts] for using the slides to better
+make use of them.
+
+## Session specific instructions
+
+### Data management and wrangling
+
+For the first section on "messy" vs "tidy" data, 
+get the learners to read the text themselves, 
+then walk through what it means and why to do it.
