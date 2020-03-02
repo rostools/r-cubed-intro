@@ -485,6 +485,16 @@ NHANES %>%
     filter(BMI == 25 | Gender == "female")
 ```
 
+The operator, `==` (you can read as "is equal to", or simply "equals"), is a specific kind of comparison.  Other comparisons include:
+
+| Operator | Meaning |
+|:--|:--|
+| `<` | less than |
+| `>` | greater than |
+|  `<=` | less than or equal to |
+| `>=` | greater than or equal to |
+| `!=` | not equal to |
+
 ## `arrange()`: Sorting/(re)arranging your data by column
 
 Arranging/sorting your rows is fairly simple with dplyr. Just use `arrange()`!
