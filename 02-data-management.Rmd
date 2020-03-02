@@ -179,12 +179,15 @@ glimpse(NHANES)
 
 Time: 10 min
 
-Take the time to get familiar with the NHANES dataset. Create a new R script
-by typing in the console `usethis::use_r("exercises-wrangling")`. Then copy the
-code below into the file and replace the `___` with the `NHANES` dataset. Run
-each line of code by typing `Ctrl-Enter`.
+Take the time to get familiar with the NHANES dataset.
 
-```{r, eval=FALSE}
+1. Create a new R script by typing in the RStudio Console
+`usethis::use_r("exercises-wrangling")`. 
+1. Copy the code below and paste into the new exercise file.
+1. Replace the `___` with the `NHANES` dataset. 
+1. Run each line of code by typing `Ctrl-Enter`.
+
+```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
 library(tidyverse)
 library(NHANES)
@@ -203,7 +206,7 @@ summary(___)
 ?___
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
+<details><summary><strong>Click for the solution</strong></summary>
 <p>
 
 ```{r, eval=FALSE}
