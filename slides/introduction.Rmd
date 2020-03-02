@@ -1,11 +1,8 @@
 ---
 title: "Introduction to the course"
-subtitle: "Reproducibilty and open science"  
-author: 
-    - "Luke Johnston"
 output:
   xaringan::moon_reader:
-    self_contained: true
+    self_contained: false
     lib_dir: libs
     css: ["xaringan-themer.css", "../../resources/custom.css"]
     nature:
@@ -19,7 +16,7 @@ layout: true
 
 <div class="my-footer">
 <span>
-<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
+<img src=`r here::here("images/au_logo_black.png")` alt="Aarhus University", width="140">
 <img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
 </span>
 </div> 
@@ -37,7 +34,7 @@ BibOptions(
     max.names = 2
     # hyperlink = FALSE,
 )
-bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -55,17 +52,20 @@ mono_accent(
 
 # Outline
 
+- Don't get too comfortable yet
+    - Introduce myself and instructors/helpers
+    - 
+- Course introduction
+    - What it is (and isn't)
+    - Layout and website
+    - Expected learning outcome 
+    - Code of Conduct
 - What is reproducibility
 - What is open science
     - Open access
     - Open data
     - Open source (code)
 - What is R and why learn it
-- Course introduction
-    - What it is (and isn't)
-    - Layout and website
-    - Expected learning outcome 
-    - Code of Conduct
 
 ---
 
@@ -73,7 +73,7 @@ class: center, middle
 
 # Question: 
 
-## How many know or have heard or know about <u>reproducibility</u>?
+## How many know or have heard about <u>reproducibility</u>?
 
 ---
 
@@ -81,7 +81,7 @@ class: center, middle
 
 # Question: 
 
-## How many know or have heard or know about <u>open science</u>?
+## How many know or have heard about <u>open science</u>?
 
 ---
 
@@ -89,7 +89,7 @@ class: center, middle
 
 # Question: 
 
-## ...or even <u>open access, open data, or open source</u>?
+## ...or even <u>open access, open data, open methods/protocols, or open source</u>?
 
 ---
 
@@ -104,12 +104,6 @@ Because you are trying to do the same or similar?
 ---
 
 ## Often, (way) more is done than shown in "Methods"
-
-.center[
-```{r, out.height="45%", out.width="45%"}
-knitr::include_graphics("../img/more-than-methods-small.png")
-```
-]
 
 .footnote[Source: `r Citet(bib, "Kim2018a")`]
 
@@ -175,13 +169,14 @@ to replicate it?
     - 21 (24%) did not report how analysis was conducted
     - 0 made code available in any way
 
---
+???
 
-- *Why*? Likely due to:
-    - Lack of awareness and training
-    - Difficulty of adoption
-    - No incentive or reward
-    - Little to no culture to do it
+*Why*? Likely due to:
+
+- Lack of awareness and training
+- Difficulty of adoption
+- No incentive or reward
+- Little to no culture to do it
 
 ---
 
@@ -191,14 +186,20 @@ to replicate it?
 
 | **Term** | **Meaning** |
 |:------------|:---------------|
-| Open science | Freely available, openly licensed .red.bold[*] material for all things related to scientific activity |
+| Open science | Freely available, openly licensed material for all things related to scientific activity |
 | Open access | Free, unrestricted, publicly available **published articles** |
 | Open data | Freely available, re-usable, openly licensed **data** |
 | Open source/code | Freely available, re-usable, openly licensed **scientific code** used in generating results |
+| Open methods/protocol | Freely available, re-usable, openly licensed **methods and protocols** used to create the data |
+
 
 ]
 
 .footnote[.red.bold[*] We'll cover licenses later.]
+
+??? 
+
+This is mainly for reference, don't need to go over a lot of it.
 
 ---
 
@@ -208,82 +209,69 @@ class: middle, center
 
 ---
 
-## Course website and layout:
-
-- True to our mission, material publicly accessible and [openly licensed](https://dda-rcourse.lwjohnst.com/license/index.html)
-    - <https://dda-rcourse.lwjohnst.com/>
-- Course is mix of "code-alongs" and lectures
-    - Interspersed with hands-on exercises
-    - Combined with final group-work [assignment](https://dda-rcourse.lwjohnst.com/course/assignment/)
-    (more on this later)
-
---
-
-.pull-left[
-
-### What we aim to teach (and you learn)
-
-- Recognize importance of reproducibility and open science
-- Know and be aware of (some of) the modern tools to use
-- Know a general workflow for doing analyses
-- Know in general how to navigate and code in R
-- How to generally think about data
-
-]
-
---
-
-.pull-right[
-
-### What you won't learn
-
-- No (or minimal) statistics or modelling
-- No writing skills
-- No study or experimental design
-- No spreadsheet or large databases (e.g. SQL)
-
-]
-
----
-
-## Other considerations
-
-- We have a [Code of Conduct](https://dda-rcourse.lwjohnst.com/code-of-conduct/)
-- Asking for help is as easy as using a sticky on your laptop
-    - We have lots of helpers!
-- We're all learning here, this is a supportive and safe environment
-
---
-
-## Resources and further reading
-
-- Best practices see `r Cite(bib, c("Wilson2014a", "Eglen2016a"))`
-- [Case studies](https://www.practicereproducibleresearch.org/) and lessons for doing reproducibility
-- Case study in Bioinformatics see `r Cite(bib, "Kim2018a")`
-
----
-
-## References 1
-
-```{r refs1, results='asis', echo=FALSE}
-PrintBibliography(bib, start = 1, end = 7)
-```
-
----
-
-## Stand and arrange
-
-Find some way to use the "stand and arrange based on range" technique (like agree-disagree line). This could be done to order everyone by "novice-advanced", etc.
-
-### Groups
-
-Can skip first intro part during in-class. Get them into groups right away, do exercises together, etc.
-
-## What is R and why learn it?
+## So why are we using R and why learn it?
 
 Include more "why's, reasons, etc" for using R and for doing reproducibility. Have more lectures in the first section where the previous "intro" material was (after adding the pre-workshop assignment).
 
 Make comment about tidyverse vs base and why teaching this first.
 
-Lastly, please make sure to bring a laptop to the course, 
-since we do hands-on learning
+---
+
+## Course website and layout:
+
+- Use r3 package to help with learning in course
+
+- True to our mission, material publicly accessible and [openly licensed](https://dda-rcourse.lwjohnst.com/license/index.html)
+    - <https://dda-rcourse.lwjohnst.com/>
+
+- Course is mix of "code-alongs" and lectures
+    - Interspersed with hands-on exercises
+    - Combined with final group [assignment](assignment)
+
+???
+
+With the final group project, you'll be in the same group for the course,
+working together on it and on the final exercises.
+As a team, you'll help each other out with learning and overcoming any struggles,
+with of course our help too!
+
+---
+
+## Asking for help
+
+- Asking for help is as easy as using a sticky on your laptop
+    - We have lots of helpers!
+
+- We're all learning here
+    - This is a supportive and safe environment
+    - Remember our [Code of Conduct](conduct)
+
+---
+
+class: middle, center
+
+## Activity: Stand and arrange based on question
+
+???
+
+We're going to do a "stand and re-arrange yourself" activity based on some questions I ask.
+
+
+Questions:
+
+- Who's has not yet used R?
+    - For those that have, who has had some type of formal training in "coding in R"?
+    - Who has had struggles with it?
+- Experience with using R
+- Experience with using 
+
+Find some way to use the "stand and arrange based on range" technique (like agree-disagree line). This could be done to order everyone by "novice-advanced", etc.
+
+## Get into your groups
+
+- Quickly introd
+
+???
+
+Here we will switch over to the next instructor, get setup, and do the next session.
+
