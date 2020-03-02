@@ -2,35 +2,31 @@
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
-## Session details
+> When in RStudio, quickly jump to this page using `r3::open_version_control()`.
 
-### Objectives
+**Session objectives**:
 
-1. To become aware of what "formal" version control is and looks like.
-1. To learn about the tools integrated into RStudio to make use of Git.
-1. To know the basic, and most commonly used, tools for Git.
-1. To recognize that using Git and version control requires a paradigm shift in 
-thinking, which makes it often difficult to learn and use. 
-1. To know that learning version control is an investment and is *very worth it*
-to learn as it pays off *very well* in the future.
-
-*Given the difficulty with version control, we don't expect you to actually start
-using it yet... It took me (Luke) months after I learned about it before I
-actually started using it.* :smile:
-
-**At the end of this session you will be able:**
-
-- Generally, just knowing how to navigate the Git interface in RStudio.
-- Since you now know Git and version control exists, you now know that there
-are better ways of managing your files and changes.
+1. Learn about "formal" version control and its importance.
+1. Learn about Git for version control and apply RStudio's integrated Git tools.
+1. Learn and apply the basic workflow of Git version control: 
+View changes to files, record and save those changes to a history, 
+and synchronize those changes to an online repository (GitHub).
+1. Use GitHub to collaborate with others on a project.
 
 ## What is version control?
 
-TODO: Add image
 
-Common "version control" image /img/phd-comics-versions-small.jpg
+**Take 5 min and read through this section**, then we'll go through it together.
 
-Version control is a system that manages changes to a file or files. These
+![Most common and simplest "version control". Image source from [PhD Comics](http://phdcomics.com/comics/archive_print.php?comicid=1531)](http://phdcomics.com/comics/archive/phd101212s.gif)
+
+While the above image is teasing a bit,
+it is the most commonly used "version control" most people use.
+How familiar are you with this way of saving your files and keeping track of versions?
+
+This form of version control is fairly primitive, informal, and very manual.
+However, there are other formal version control systems 
+that automatically manage changes to a file or files. These
 changes are kept as logs in a history, with detailed information on what file(s)
 was changed, what was changed within the file, who changed it, and a message on
 why the change was made.  This is extremely useful, especially when working in
