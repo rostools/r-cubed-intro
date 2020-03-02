@@ -1122,3 +1122,4 @@ functions for wrangling the data to speed up your coding and to get help if need
 For instance, type out `sel`, hit TAB, and see the list of possible functions.
 Choose the right item in the menu and hit TAB again to finish the function.
 If you want to see a list of other functions in dplyr, type out `dplyr::` 
+and then hit TAB. You'll now have a list of functions inside the dplyr package.
