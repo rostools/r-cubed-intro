@@ -418,7 +418,8 @@ In the `exercise-wrangling.R` file, complete these tasks:
 
 1. Read aloud (under your breath or in your head) the below code.
 How intuitive is it to read?
-Now re-write this code so you don't need to create the temporary `drug_use` object,
+Now re-write this code so you don't need to create the temporary `drug_use` object
+by using the pipe,
 then re-read the revised version. Which do you feel is easier to "read"?
 
     ```r
@@ -426,54 +427,97 @@ then re-read the revised version. Which do you feel is easier to "read"?
     rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
     ```
 
-## `filter()`: Filtering/subsetting the data by row
+## Filter the data by row
 
-Subsetting/filtering data by row is a very common activity in data analysis, 
-for example, to get rid of outliers or to subset by a group.
+Filtering data by row is a very common activity in data analysis, 
+for example, to get rid of outliers or to subset by a categorical group.
 As with the previous functions, the function to subset/filter is called `filter()`.
 The `filter()` function takes a logic condition (`TRUE` or `FALSE`).
+As with the other functions, the first position argument is the dataset,
+and all others are logic conditions to use.
+With `filter()`, when the logic conditions equals `TRUE`,
+that means it **keeps** the rows that equal `TRUE` 
+and *drop* those that are `FALSE`.
 
-Filtering uses logic for conditions, so refer to the table above for the
-logic operators.
-
-The function to filter rows of a tibble is `filter()`.  Like `arrange()` and `select()`, its first argument is a tibble.  
-The remaining arguments describe which rows to **keep**.  
-The rows to keep are specified with a logical expression - something that is either `TRUE` or `FALSE`. The rows where this expression is `TRUE` will be returned.
-
-**A warning**: Filtering using logical conditions. 
-Humans are really really bad at logic.
-If your filter logical condition starts getting even a little complex,
+*A warning*: Since `filter()` uses logical conditions,
+you need to be really careful when writing the logic.
+As you probably know, humans are really really bad at logic.
+So if your logical condition starts getting even a little complex,
 double and triple check that you know your logic code is doing what you think it is.
-It's very easy to make mistakes at this stage.
+It's very easy to make mistakes at this stage, even for advanced R users.
 
-
-One of the simplest kinds of logical expression is a test for equality with the `==` operator.  For example, to keep the rows where `animal_name` is `BRUNO` you could do:
-
-You could read this code aloud as:
-
-> Take the dog_licenses data, **and then**
-> filter for only rows when `animal_name` is equal to "BRUNO"
-
-
-The logical expression, `animal_name == "BRUNO"`, will be `TRUE` when the value of the `animal_name` column is exactly equal to the character string `"BRUNO"` - any differences in characters, case, or whitespace will result in `FALSE`.
+The simplest kind of logic condition is to test for "equality". 
+In R, "equal to" is represented by `==`.
+For example, if we want to keep only females in the dataset it would be:
 
 ```{r}
-# when gender is equal to
 NHANES %>%
     filter(Gender == "female")
+```
 
-# when gender is *not* equal to
+We'd "read" this code as:
+
+> Take the NHANES dataset, *and then* 
+filter so that only rows where `Gender` is equal to "female" are kept.
+
+So, when a row in the `Gender` column has the value "female", that row is kept.
+Otherwise, it is dropped.
+There are other logic comparisons to use.
+Use Table below as a reference for logical conditions in R.
+
+TODO: Check about referencing tables.
+
+```{r logic-operators, echo=FALSE}
+tibble::tribble(
+    ~Operator, ~ Description,
+    "<", "less than",
+    "<=", "less than or equal to",
+    ">", "greater than",
+    ">=", "greater than or equal to",
+    "==", "equal to",
+    "!=", "not equal to",
+    "!x", "Not x (if x is true or false)",
+    "x | y", "x OR y",
+    "x & y", "x AND y"
+) %>% 
+    kable(caption = "Logical operators in R.")
+```
+
+Let's try out a few of these logic conditions with `filter()`.
+
+```{r}
+# When rows *don't* have female
 NHANES %>%
     filter(Gender != "female")
 
-# when BMI is equal to
+# when BMI is equal to 25
 NHANES %>%
     filter(BMI == 25)
 
-# when BMI is equal to or more than
+# when BMI is equal to or more than 25
 NHANES %>%
     filter(BMI >= 25)
+```
 
+We use the `|` ("or") and `&` ("and") when we want to combine conditions across columns.
+Be especially careful with these operators and whenever combining logic conditions,
+as they can sometimes work differently than our human brains interpret them
+(speaking from experience).
+For `&`, both sides must be `TRUE` in order for the combination to be `TRUE`.
+For `|`, only one side needs to be `TRUE` in order for the combination to be `TRUE`.
+To see how they work try these:
+
+```{r}
+TRUE & TRUE
+TRUE & FALSE
+FALSE & FALSE
+TRUE | TRUE
+TRUE | FALSE
+FALSE | FALSE
+```
+
+
+```{r}
 # when BMI is 25 *and* Gender is female
 NHANES %>%
     filter(BMI == 25 & Gender == "female")
@@ -483,18 +527,9 @@ NHANES %>%
     filter(BMI == 25 | Gender == "female")
 ```
 
-The operator, `==` (you can read as "is equal to", or simply "equals"), is a specific kind of comparison.  Other comparisons include:
+## (Re)Arranging the rows of your data by column
 
-| Operator | Meaning |
-|:--|:--|
-| `<` | less than |
-| `>` | greater than |
-|  `<=` | less than or equal to |
-| `>=` | greater than or equal to |
-| `!=` | not equal to |
-
-## `arrange()`: Sorting/(re)arranging your data by column
-
+You may want to 
 Arranging/sorting your rows is fairly simple with dplyr. Just use `arrange()`!
 
 ```{r}
@@ -539,25 +574,6 @@ NHANES %>%
 # Create new variable with existing variables and save the changes
 NHANES_update <- NHANES %>%
     mutate(UrineVolAverage = (UrineVol1 + UrineVol2) / 2)
-```
-
-Use the table below as a reference for logical conditions you can use in the
-`if_else` function.
-
-```{r logic-operators, echo=FALSE}
-tibble::tribble(
-    ~Operator, ~ Description,
-    "<", "less than",
-    "<=", "less than or equal to",
-    ">", "greater than",
-    ">=", "greater than or equal to",
-    "==", "equal to",
-    "!=", "not equal to",
-    "!x", "Not x",
-    "x | y", "x OR y",
-    "x & y", "x AND y"
-) %>% 
-    kable(caption = "Logical operators in R.")
 ```
 
 ### Exercise: Piping, transforming, and adding
