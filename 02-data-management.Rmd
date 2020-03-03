@@ -179,7 +179,7 @@ glimpse(NHANES)
 
 ## Exercise: Become familiar with the dataset
 
-Time: 10 min
+Time: 5 min
 
 Take the time to get familiar with the NHANES dataset.
 
@@ -412,7 +412,7 @@ In the `exercise-wrangling.R` file, complete these tasks:
 
 1. Copy and paste the below code into the exercise file.
 In the `select()` function, 
-type in the columns "HomeOwn", "TVHrsDay", and "Diabetes"
+type in the columns `HomeOwn`, `TVHrsDay`, and `Diabetes`
 where the blank space is.
 
     ```r
@@ -421,7 +421,7 @@ where the blank space is.
     ```
     
 1. Copy and paste the below code and fill out the blanks.
-Rename "DiabetesAge" to be "DiabetesAgeOfDiagnosis" and "Gender" to be "Sex" 
+Rename `DiabetesAge` to be `DiabetesAgeOfDiagnosis` and `Gender` to be `Sex` 
 (gender is the social construct, while sex is biological).
 
     ```r
@@ -592,122 +592,104 @@ NHANES %>%
 
 ## Transform or add columns
 
-When you need to add a new column or modify an existing one, you can use the
-`mutate()` function. Get it, mutate as in to change :wink:
+To "transform" (modify) an existing column or to add a new one,
+the function to use is called `mutate()`.
+Unfortunately, unlike the other functions, 
+the name is not as obvious about what it does.
+The meaning of mutate though is to change or modify, so it kind of makes sense.
+Like the other functions, the first input is the data 
+and the other arguments are columns to add or modify.
 
-```{r}
-# Modify an existing variable
-NHANES %>%
-    mutate(Height = Height / 100)
+The form that `mutate()` uses is similar to normal R assignment:
+For instance, since the height's values are in centimeters, 
+maybe we'd rather want them in meters. So, in `mutate()` we'd type out:
 
-# Or create a new variable based on a condition
-NHANES %>%
-    mutate(HighlyActive = if_else(PhysActiveDays >= 5, "yes", "no"))
-
-# Create or replace multiple variables by using the ","
-NHANES %>%
-    mutate(new_column = "only one value",
-           Height = Height / 100)
-
-# Create new variable with existing variables and save the changes
-NHANES_update <- NHANES %>%
-    mutate(UrineVolAverage = (UrineVol1 + UrineVol2) / 2)
+```
+Height = Height / 100
 ```
 
-### Exercise: Piping, transforming, and adding
+This form is similar to how math works. 
+The action that happens on the right hand side 
+is put into the variable of the left hand side.
+With using `mutate()` itself:
 
-Time: 10 min
+```{r}
+NHANES %>%
+    mutate(Height = Height / 100)
+```
 
-Here's a chance to practise. Again, using the `exercises-wrangling.R` script in
-the `R` folder, take the code below and replace the `___` with the appropriate
-variable names. Complete the tasks below. (Suggestion: Create a new "Section"
-in the script for this exercise via `Ctrl-Shift-R`).
+Or we can create a new column (maybe log transforming height):
 
-1. Create a new variable called "UrineVolAverage" by calculating the average
-urine volumne (from "UrineVol1" and "UrineVol2").
-2. Modify/replace the "Pulse" variable to beats per second (currently is beats per minute).
-3. Create a new variable called "YoungChild" when age is less than 6 years.
+```{r}
+NHANES %>% 
+    mutate(LoggedHeight = log(Height))
+```
+
+We can also add multiple modifications 
+or additions with mutate by separating with `,`.
+So if we first wanted to have height as meters and then take the log, 
+it would be:
+
+```{r}
+NHANES %>% 
+    mutate(Height = Height / 100,
+           LoggedHeight = log(Height))
+```
+
+We can also have different values based on a logic conditions using `if_else()`.
+Use Table to help with creating the logic condition.
+
+TODO: Add table ref.
+
+```{r}
+NHANES %>%
+    mutate(HighlyActive = if_else(PhysActiveDays >= 5, "yes", "no"))
+```
+
+Recall that the original dataset doesn't change. 
+If we want the added variable to be included we must assign it to something with `<-`.
+So putting it all together:
+
+```{r}
+NHANES_update <- NHANES %>%
+    mutate(Height = Height / 100,
+           LoggedHeight = log(Height),
+           HighlyActive = if_else(PhysActiveDays >= 5, "Yes", "No"))
+```
+
+## Exercise: Piping, filtering, and mutating
+
+Time: 15 min
+
+Copy and paste the code below into the script `exercises-wrangling.R`. 
+Then start replacing the `___` with the appropriate
+code to complete the tasks below.
+(*Suggestion*: Create a new "Section"
+in the R script for this exercise by using `Ctrl-Shift-R`).
+
+1. Filter NHANES so only those with BMI more than or equalt to 20 
+*and* less than or equal to 40 *and* keep those who have diabetes.
+1. Create a new variable called `UrineVolAverage` by calculating the average
+urine volumne (from `UrineVol1` and `UrineVol2`).
+    - *Comment*: After creating the `UrineVolAverage` column, 
+    check out values. What do you nothice? Compare with the original urine columns.
+1. Create a new variable called `YoungChild` when age is less than 6 years.
 
 ```{r, eval=FALSE}
-# Check the names of the variables
-colnames(NHANES)
+# 1. BMI between 20 and 40 and who have diabetes
+NHANES %>%
+    # format: variable >= number or character
+    filter(___ >= ___ & ___ <= ___ & ___ == ___)
 
 # Pipe the data into mutate function and:
 NHANES_modified <- ___ %>% # dataset
     mutate(
-        # 1. Calculate average urine volume
-        ___ = ___,
-        # 2. Modify Pulse variable
+        # 2. Calculate average urine volume
         ___ = ___,
         # 3. Create YoungChild variable using a condition
-        ___ = if_else(___, TRUE, FALSE)
+        ___ = if_else(___, "Yes", "No")
     )
 NHANES_modified
-```
-
-Notice something about the "UrineVolAverage" values?
-
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r, eval=FALSE}
-# Check the names of the variables
-colnames(NHANES)
-
-# Pipe the data into mutate function and:
-NHANES_modified <- NHANES %>% # dataset
-    mutate(
-        # 1. Calculate average urine volume
-        UrineVolAverage = (UrineVol1 + UrineVol2) / 2,
-        # 2. Modify Pulse variable
-        Pulse = Pulse / 60,
-        # 3. Create YoungChild variable using a condition
-        YoungChild = if_else(Age < 6, TRUE, FALSE)
-    )
-```
-
-For the "UrineVolAverage" values, they are probably almost entirely `NA` (aka
-missing). That's because `NA` values are infectious. See how "UrineVol2" has mostly
-`NA` values too? When you calculate something that has `NA`, you get another `NA`.
-This is something to be careful about. So always check your calculations!
-
-</p>
-</details>
-
-### Exercise: Filtering and logic, arranging, and selecting
-
-Time: 10 min
-
-Copy and paste the code below into the script `exercises-wrangling.R` (in a new
-Section, `Ctrl-Shift-R`). Then start replacing the `___` with the appropriate
-code to complete the tasks below:
-
-1. Filter so only those with BMI more than 20 *and* less than 40 *and* keep only
-those with diabetes.
-2. Filter to keep those who are working ("Work") *or* those who are renting
-("HomeOwn") *and* those who do not have diabetes. Select the variables age,
-gender, work status, home ownership, and diabetes status.
-3. Using sorting and selecting, find out who has had the most number of babies
-and how old they are.
-
-```{r, eval=FALSE}
-# To see values of categorical data
-summary(NHANES)
-
-# 1. BMI between 20 and 40 and who have diabetes
-NHANES %>%
-    # format: variable >= number
-    filter(___ >= ___ & ___ <= ___ & ___ == ___)
-
-# 2. Working or renting, and not diabetes
-___ %>%
-    filter(___ == ___ | ___ == ___ & ___ == ___) %>% 
-    select(___)
-
-# 3. How old is person with most number of children.
-___ %>%
-    ___(___) %>% 
-    ___(___) 
 ```
 
 <details><summary><strong>Click for a possible solution</strong></summary>
@@ -719,16 +701,20 @@ NHANES %>%
     # format: variable >= number
     filter(BMI >= 20 & BMI <= 40 & Diabetes == "Yes")
 
-# 2. Working or renting, and not diabetes
-NHANES %>%
-    filter(Work == "Working" | HomeOwn == "Rent" & Diabetes == "Yes") %>% 
-    select(Age, Gender, Work, HomeOwn, Diabetes)
-
-# 3. How old is person with most number of children.
-NHANES %>%
-    arrange(desc(nBabies)) %>% 
-    select(Age, nBabies) 
+# Pipe the data into mutate function and:
+NHANES_modified <- NHANES %>% # dataset
+    mutate(
+        # 2. Calculate average urine volume
+        UrineVolAverage = (UrineVol1 + UrineVol2) / 2,
+        # 3. Create YoungChild variable using a condition
+        YoungChild = if_else(Age < 6, "Yes", "No")
+    )
 ```
+
+For the "UrineVolAverage" values, they are probably almost entirely `NA` (aka
+missing). That's because `NA` values are infectious. See how "UrineVol2" has mostly
+`NA` values too? When you calculate something that has `NA`, you get another `NA`.
+This is something to be careful about. So always check your calculations!
 
 </p>
 </details>
@@ -879,106 +865,9 @@ NHANES %>%
     kable(caption = "Mean values of characteristics for women and men between 18-75 years of age at each of the two survey years.")
 ```
 
-## Why learn to reformat and reshape data?
-
-Often we receive databases that have been created by others, and in which information is organized in a "messy" way. Some other times, we simply need to reorder the structure of the data to be able to carry out certain data analysis or data visualization that require a specific data structure. 
-
-The tidyverse provides some very powerful packages (e.g. dplyr, tidyr) that can allow for complete reorganization of our data in a few lines of code. Using these packages and their functions have several advantages:
-
-- It makes our lives easier and our work faster because we can jump between different 
-formats of our data in an agile and easy-to-track way;
-
-- It makes our work reproducible.
-
-### Wide and long formats
-
-One of the most common operations that we may need to do is to change the way our data is organized from a long (few columns, many rows) to a wide (few rows, many columns) format.
-
-The illustrations below shows how the same information can be represented in a long and a wide format. Notice that the value (a-f) of each variable/key (x,y,z) can be read for each id (1, 2) in both formats.
-
-![*Img: https://github.com/gadenbuie/tidyexplain*](https://github.com/gadenbuie/tidyexplain/raw/master/images/static/png/original-dfs-tidy.png){width=60%}
-
-The functions we want to use for these operations are `pivot_longer()` and `pivot_wider()` from the tidyr package. Those of you already familiar with this package may know the older functions as `spread()` and `gather()`. Although these two functions still work, they are being slowly replaced by the `pivot_**` functions.
-
-### Get familiar with the data
-
-Using the function `View()`, inspect the dataframe `population`, which shows the population census in different countries across multiple years.
-
-Let's load tidyverse:
-
-```{r}
-library(tidyverse)
-```
-
-
-```{r, eval = FALSE}
-View(population)
-```
-
-
-### Reshape a dataframe from a long to a wide format with `pivot_wider()`
-
-Say that we want to explore how the population varies across years in each country. 
-To do this we may want to show each single country as a separate variable (i.e. column). 
-
-This requires reshaping the data so that each single country now listed under the variable `country` 
-becomes an individual variable (i.e. column), under which the population numbers, 
-now listed under the variable `population`, are listed.
-
-To do so, we will use the function `pivot_wider()` because we want to create 
-a wider dataframe with more columns (the single countries), and fewer rows.
-
-We will call this new dataframe `population_wide`.
-In the function `pivot_wider()` we want to specify three arguments: 
-
-- the dataframe to work on,
-- the argument `names_from`: where we indicate the name of the "long" variable that we will use to create the new "wide" variables 
-- the argument `values_from`: the values that we will use to fill the rows of the new variable we created
-
-```{r}
-population_wide <- 
-  pivot_wider(population, names_from = country, values_from = population) 
-population_wide
-```
-
-We can run the exact same operation taking advantage of the pipe operator `%>%`
-that we showed in the intro session. If the memory is foggy, imagine this operator as an
-arrow that connects consecutive functions in a smooth way. 
-
-When using the pipe operator we are indicating that the functions will be applied to the 
-dataframe `population`, so we do not need to indicate that into the `pivot_wider()` function arguments.
-
-```{r}
-population_wide <- population %>% 
-  pivot_wider(names_from = country, values_from = population) 
-population_wide
-```
-
-
-#### Exercise 1: Reshaping a dataframe from long to wide format
-Use the dataframe `us_rent_income` for this exercise. This dataframe shows the estimated value and the 90%
-margin of error for yearly income and monthly rent of each state in the US.
-
-In this case, you want to display the data in wide form to see how estimated income varies across states.
-To do so, each state will become a variable (i.e. column) to which the estimated income will be associated
-
-```{r, eval=FALSE}
-us_income_wide <- us_rent_income %>% 
-  # We are only interested in income and not in rent, 
-  # so we will extract these variables of interest from our database
-  filter(variable == "income") %>% 
-  # We select only the variables of interest to remain in our dataframe
-  select(NAME, variable, estimate) %>% 
-  pivot_wider(names_from = ______, values_from = _____)
-us_income_wide
-```
-
-> Advanced: Try selecting both `estimate` and `moe`, and include both in the pivot. Make the name indicate whether the value is the estimate or the moe (e.g. 'moe_Alabama'). 
-### Reshape a dataframe from a wide to a long format using `pivot_longer()`
+## Reshape a dataframe from a wide to a long format using `pivot_longer()`
 
 We can also do the opposite: a shift from a dataframe in wide format to a dataframe in long format. 
-Let's consider the `population_wide` dataframe that we just created as the starting point. 
-Let's say that we want to reshape this data to a format in which all countries are listed under a single variable, e.g. `country_name`, and the population data are listed under a variable called `population_data`. For this operation, we need to use the function `pivot_longer()`.
 
 In this case, we want to specify:
 
@@ -1016,108 +905,16 @@ We use the `-` here for `year` to tell `pivot_longer()` to *not* include (to *ex
 **Notice that** in the function `pivot_longer()` the arguments `names_to` and `values_to` require "" because we are providing names of variables that need to be created. 
 Instead, in the function `pivot_wider()` we are giving the arguments `names_from` and `values_from` variables that already exist, hence  the "" are not needed.
 
-#### Exercise 2: Reshaping a dataframe from wide to long format
 
-We will use again the `us_rent_income` dataframe for this exercise.
-In this case we want the values of `estimate` and `moe` to be stacked in one single column called `value`, 
-while the respective categories of `estimate` and `moe` should be described in a variable called `calculation`
+### Wide and long formats
 
-```{r, eval = FALSE}
-us_rent_income_long <- us_rent_income %>% 
-  # this variable is a nuisance and is not giving information useful to us, 
-  # so we will remove it 
-  select(-GEOID) %>% 
-  # When we want multiple variables, we combine them with `c()`.
-  pivot_longer(c(______, ______), names_to = ________, values_to = _________)
-us_rent_income_long
-```
+The illustrations below shows how the same information can be represented in a long and a wide format. Notice that the value (a-f) of each variable/key (x,y,z) can be read for each id (1, 2) in both formats.
 
-### `pivot_**` with `group_by()` and `summarize()`
+![*Img: https://github.com/gadenbuie/tidyexplain*](https://github.com/gadenbuie/tidyexplain/raw/master/images/static/png/original-dfs-tidy.png){width=60%}
 
-For this example we are going to use the built-in dataframe `storms`
+The functions we want to use for these operations are `pivot_longer()` and `pivot_wider()` from the tidyr package.
 
-Once again, explore the data using the function `View()`
-
-```{r, eval = FALSE}
-View(storms)
-```
-
-In this dataframe, information about storms are classified in long format. 
-Storms are categorized across years and information on wind, latitude, longitude and pressure 
-are presented as columns.
-
-Let's say that we want to see how mean wind speed vary across 
-different storm categories (`status`) and across years. 
-
-This means that we want to apply the function `pivot_wider()` to visualize each storm category as a separate variable.
-
-However, before reshaping the dataframe in long form, we need to do some extra work. 
-Take another look at the `storms` dataframe. Variables are measured multiple times within each year. 
-So if we want to have a mean value of wind speed for each year, we need to use the functions `group_by()` and `summarize()` that we showed in the intro session. 
-
-We are going to call this new dataframe `storm_wide`
-
-First we will calculate the mean value of wind speed for each storm, across years 
-and discriminating across storm status
-
-```{r}
-storms_sum <- storms %>% 
-  #first we select the variable of interest to avoid an overcrowded dataframe
-  select(status, year, wind, pressure) %>% 
-  #second we tell R according to which criteria we want to summarize our data, i.e. we want to know the mean value of wind speed for each storm according to storm status and year
-  group_by(status, year) %>% 
-  summarize(mean_wind = mean(wind)) 
-storms_sum
-```
-
-Now we can reshape the data into a wide format:
-
-```{r}
-storms_wide <- storms_sum %>% 
-  pivot_wider(names_from = status, values_from = mean_wind)  
-storms_wide
-```
-
-#### Exercise 3: using `group_by()` and `summarize()` in combination with `pivot_**()` functions to reshape a data frame
-
-Using the dataframe `diamonds` use the functions `group_by()` and `summarize()` in combination with
-`pivot_longer()`, `pivot_wider()` to reshape a database in which different values of cut correspond to mean values of x, y, z (tip: you need to use both pivot_longer and pivot_wider!)
-
-The reshaped dataframe should look like this:
-
-```{r, echo = FALSE}
-diamonds_means <- diamonds %>% 
-  select(cut, x, y, z) %>% 
-  group_by(cut) %>% 
-  summarize(x_mean = mean(x),
-            y_mean = mean(y),
-            z_mean = mean(z))
-diamonds_long <- diamonds_means %>% 
-  pivot_longer(-cut, names_to = "coordinate", values_to = "mean_coord")
-diamonds_wide <-  diamonds_long %>% 
-    pivot_wider(names_from = cut, values_from = mean_coord)
-  
-diamonds_wide
-```
-
-```{r, eval = FALSE}
-diamonds_means <- diamonds %>% 
-  select(cut, x, y, z) %>% 
-  group_by(___) %>% 
-  summarize(x_mean = ____,
-            y_mean = ____,
-            z_mean = ____)
-diamonds_reshaped <- diamonds_means %>% 
-  pivot_ ______(____, names_ ___ = __________, values_ ___ = ___________) %>% 
-  pivot_ ________(names_ ____ = ________, values_ ____ = __________)
-  
-diamonds_reshaped
-```
-
-> Advanced: Try creating the same dataframe without using `summarize()`. Instead, apply the `mean()` function using the `values_fn` parameter in `pivot_wider()`. How does this work?
-
-
-## `spread()`: (If time) Converting from long to wide form
+## Reshape a dataframe from a long to a wide format with `pivot_wider()`
 
 You can also convert to wide from long. This is not as commonly done, since most
 analyses are better in the long form. But sometimes you may need to have a wide
@@ -1144,6 +941,81 @@ table2 %>%
 
 The key is the discrete value that will make up the new column names, while the
 value will be column that will make up the values of the new columns.
+
+In the function `pivot_wider()` we want to specify three arguments: 
+
+- the dataframe to work on,
+- the argument `names_from`: where we indicate the name of the "long" variable that we will use to create the new "wide" variables 
+- the argument `values_from`: the values that we will use to fill the rows of the new variable we created
+
+```{r}
+population_wide <- population %>% 
+  pivot_wider(names_from = country, values_from = population) 
+population_wide
+```
+
+## Exercise 1: Reshaping a dataframe from long to wide format
+
+Use the dataframe `us_rent_income` for this exercise. This dataframe shows the estimated value and the 90%
+margin of error for yearly income and monthly rent of each state in the US.
+
+In this case, you want to display the data in wide form to see how estimated income varies across states.
+To do so, each state will become a variable (i.e. column) to which the estimated income will be associated
+
+
+## Exercise 2: Reshaping a dataframe from wide to long format
+
+We will use again the `us_rent_income` dataframe for this exercise.
+In this case we want the values of `estimate` and `moe` to be stacked in one single column called `value`, 
+while the respective categories of `estimate` and `moe` should be described in a variable called `calculation`
+
+```{r, eval = FALSE}
+us_rent_income_long <- us_rent_income %>% 
+  # this variable is a nuisance and is not giving information useful to us, 
+  # so we will remove it 
+  select(-GEOID) %>% 
+  # When we want multiple variables, we combine them with `c()`.
+  pivot_longer(c(______, ______), names_to = ________, values_to = _________)
+us_rent_income_long
+```
+
+### `pivot_**` with `group_by()` and `summarize()`
+
+For this example we are going to use the built-in dataframe `storms`
+
+In this dataframe, information about storms are classified in long format. 
+Storms are categorized across years and information on wind, latitude, longitude and pressure 
+are presented as columns.
+
+Let's say that we want to see how mean wind speed vary across 
+different storm categories (`status`) and across years. 
+
+This means that we want to apply the function `pivot_wider()` to visualize each storm category as a separate variable.
+
+However, before reshaping the dataframe in long form, we need to do some extra work. 
+Take another look at the `storms` dataframe. Variables are measured multiple times within each year. 
+So if we want to have a mean value of wind speed for each year, we need to use the functions `group_by()` and `summarize()` that we showed in the intro session. 
+
+We are going to call this new dataframe `storm_wide`
+
+First we will calculate the mean value of wind speed for each storm, across years 
+and discriminating across storm status
+
+Now we can reshape the data into a wide format:
+
+```{r}
+storms_wide <- storms_sum %>% 
+  pivot_wider(names_from = status, values_from = mean_wind)  
+storms_wide
+```
+
+## Exercise 3: using `group_by()` and `summarize()` in combination with `pivot_**()` functions to reshape a data frame
+
+Using the dataframe `diamonds` use the functions `group_by()` and `summarize()` in combination with
+`pivot_longer()`, `pivot_wider()` to reshape a database in which different values of cut correspond to mean values of x, y, z (tip: you need to use both pivot_longer and pivot_wider!)
+
+The reshaped dataframe should look like this:
+
 
 ## Final exercise: Group work
 
