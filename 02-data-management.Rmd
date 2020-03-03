@@ -380,7 +380,7 @@ to make the function usable with the pipe.
 
 ```{r}
 # These two ways are the same
-colnames(NAMES)
+colnames(NHANES)
 NHANES %>% 
     colnames()
 ```
