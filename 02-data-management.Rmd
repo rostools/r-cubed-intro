@@ -404,9 +404,7 @@ We can now "read" these actions as:
 > Take the NHANES dataset *and then* select the nBabies column 
 *and then* rename the nBabies column to NumberBabies.
 
-Nice eh? :)
-
-### Exercise: Practicing with the pipe
+## Exercise: Practice what we've learned
 
 Time: 6 min
 
