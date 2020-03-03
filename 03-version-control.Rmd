@@ -18,7 +18,7 @@ and synchronize those changes to an online repository (GitHub).
 
 **Take 5 min and read through this section**, then we'll go through it together.
 
-![Most common and simplest "version control". Image source from [PhD Comics](http://phdcomics.com/comics/archive_print.php?comicid=1531)](http://phdcomics.com/comics/archive/phd101212s.gif)
+![Most common and simplest "version control". Image source from [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)](https://phdcomics.com/comics/archive/phd101212s.gif)
 
 While the above image is teasing a bit,
 it is the most commonly used "version control" most people use.
