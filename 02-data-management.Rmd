@@ -290,7 +290,7 @@ nhanes_blood_pressure <- select(NHANES, starts_with("BP"))
 nhanes_blood_pressure
 ```
 
-## `rename()`: Rename specific columns
+## Rename specific columns
 
 Depending on how your data was collected, 
 it may have column names that aren't very descriptive.
