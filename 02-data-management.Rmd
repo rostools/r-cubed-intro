@@ -862,7 +862,7 @@ NHANES %>%
     summarise(Mean = round(mean(Value, na.rm = TRUE), 2)) %>% 
     arrange(Measure, Gender, SurveyYr) %>% 
     spread(SurveyYr, Mean) %>% 
-    kable(caption = "Mean values of characteristics for women and men between 18-75 years of age at each of the two survey years.")
+    knitr::kable(caption = "Mean values of characteristics for women and men between 18-75 years of age at each of the two survey years.")
 ```
 
 ## Reshape a dataframe from a wide to a long format using `pivot_longer()`
@@ -876,7 +876,7 @@ In this case, we want to specify:
 
 We run this function...
 
-```{r, error=TRUE}
+```
 population_wide %>%
   pivot_longer(names_to = "Country", values_to = "Population")
 ```
@@ -888,14 +888,14 @@ This is because we did not specify which columns to shift into a long format.
   > In `pivot_wider()`, if no argument is given to `id_cols` it defaults to select all columns. However, `pivot_longer` has no default for `cols`, and will throw an error if no argument is given.
 We could select every column, with the [tidyselect](https://r4ds.had.co.nz/transform.html#select) helper function `everything()`. This function tells `pivot_longer()` to use all the columns in the dataset when converting to long form.
 
-```{r}
+```
 population_wide %>%
   pivot_longer(everything(), names_to = "Country", values_to = "Population")
 ```
 
 This breaks the row-wise relation between year and population, and is clearly not what we want. Instead, we specify that the variable `year` is not to be involved in the reshaping. Columns not involved in the reshape will be copied, to preserve the row-wise relations in the data. 
 
-```{r}
+```
 population_wide %>%
   pivot_longer(-year, names_to = "country_name", values_to = "population_data")
 ```
@@ -948,7 +948,7 @@ In the function `pivot_wider()` we want to specify three arguments:
 - the argument `names_from`: where we indicate the name of the "long" variable that we will use to create the new "wide" variables 
 - the argument `values_from`: the values that we will use to fill the rows of the new variable we created
 
-```{r}
+```
 population_wide <- population %>% 
   pivot_wider(names_from = country, values_from = population) 
 population_wide
@@ -1003,7 +1003,7 @@ and discriminating across storm status
 
 Now we can reshape the data into a wide format:
 
-```{r}
+```
 storms_wide <- storms_sum %>% 
   pivot_wider(names_from = status, values_from = mean_wind)  
 storms_wide
