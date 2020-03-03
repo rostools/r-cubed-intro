@@ -222,7 +222,7 @@ html_print(git_remotes, viewer = NULL) %>%
 
 <img src="/img/git-remotes.png" alt="Remotes and the links between repositories." />
 
-```{r}
+```{r, eval=FALSE}
 source(here::here("resources/diagrammer.R"))
 grViz("
       ")
