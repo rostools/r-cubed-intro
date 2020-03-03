@@ -317,7 +317,7 @@ What if you want to select some columns and then rename some of them,
 do you have to create a new data object every time? No! 
 We can make use of a very powerful tool called piping (with the `%>%` function).
 
-## `%>%`: The pipe operator
+## Chaining functions with the pipe
 
 **Take 5 minutes and read this section** before we go over it together.
 
@@ -719,42 +719,94 @@ This is something to be careful about. So always check your calculations!
 </p>
 </details>
 
-## `group_by()`, `summarise()`: Create a summary of the data, alone or by a group(s)
+## Split-apply-combine: Summarizing data
 
-Using `group_by()` on its own does nothing. But, combine it with other functions
-like `summarise()` and you can do some very powerful data processing. This
-particular combination of commands allows for the [split-apply-combine]
-technique to be easily used. Many data analysis tasks can be approached using
-this paradigm: split the data into groups, apply some analysis to each group,
-and then combine the results together. Using `group_by()` splits the data up and
-`summarise()` then applies an analysis and then combines it back together. The
-arguments to `group_by()` are the column names that contain the **categorical**
-variables for what you want to calculate the summary statistics.
+**Take 5 min to read through parts of this section**, 
+before we go through it together.
+
+Summarizing or applying simple (or complex) statistics to data is 
+(obviously) a key component of any analysis.
+Simple summaries or statistics can be done either on all the data 
+or on groups of it.
+There are many data analysis tasks that can be approached 
+using the [split-apply-combine] method:
+split the data into groups, apply some analysis to each group,
+and then combine the results together. 
 
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
 
-Let's first explore using `summarise()` on it's own, which outputs a single value
-(e.g. a max or mean). Like `mutate()`, you can add multiple "summaries" by adding
-new variables separated by commas.
+In dplyr, to summarize on all the data, you would use the function `summarize()`.
+If you want to do a split-apply-combine 
+(e.g. find the max height of females and males) analysis,
+you would use the functions `group_by()` and then `summarize()`.
+Using `group_by()` splits the data up and
+`summarise()` then applies an analysis 
+and immediately combines it back together. 
+
+The first position arguments to `group_by()` is, as usual, the dataset.
+The next arguments are the columns that contain the values you want to group by.
+These columns must contain **categorical** data (e.g. Sex).
+On its own, `group_by()` does nothing but instead works with other functions.
+
+As with the other functions, 
+`summarise()` takes the data as the first position argument.
+The next arguments work similar to `mutate()` with one difference:
+the output must create a single value (e.g. a max or a mean).
+Like `mutate()`, 
+you can add multiple "summaries" by adding new columns separated by comma `,`.
+
+Simple statistics include: `min()`, `max()`, `mean()`, `median()`,
+`sd()`.
+
+**Ok, let's get back together and try this out**.
+Let's calculate the max age. Because `NA` values "propogate" 
+(if there is one missing, then a max or mean will be missing),
+we need to tell `max()` to exclude `NA` using `na.rm = TRUE`.
 
 ```{r}
 NHANES %>%
-    summarise(MaxAge = max(Age, na.rm = TRUE),
+    summarize(MaxAge = max(Age, na.rm = TRUE))
+```
+
+Add another summary column with `,`.
+
+```{r}
+NHANES %>%
+    summarize(MaxAge = max(Age, na.rm = TRUE),
+              MinAge = min(Age, na.rm = TRUE))
+```
+
+This is partly useful. But it really shines when combined with `group_by()`.
+Let's find out the mean age and BMI between those with and without Diabetes.
+
+```{r}
+NHANES %>%
+    group_by(Diabetes) %>% 
+    summarise(MeanAge = max(Age, na.rm = TRUE),
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
-Combine it with `group_by()`.
+We get a warning about there being missing values in Diabetes, 
+so let's first remove rows that have missing Diabetes status.
 
 ```{r}
-# Grouped by gender
 NHANES %>%
-    group_by(Gender) %>% 
-    summarise(MaxAge = max(Age, na.rm = TRUE),
+    # Recall ! is "NOT", so !is.na means "is not missing"
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes) %>% 
+    summarise(MeanAge = mean(Age, na.rm = TRUE),
               MeanBMI = mean(BMI, na.rm = TRUE))
+```
 
-# Grouped by gender and diabetes
+Cool! But we can add more columns to the grouping. 
+Let's compare mean age and BMI by sex and diabetes status.
+We should probably also rename gender to sex.
+
+```{r}
 NHANES %>%
-    group_by(Gender, Diabetes) %>% 
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) %>% 
     summarise(MeanAge = mean(Age, na.rm = TRUE),
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
