@@ -70,3 +70,8 @@ When you are done, put the 'all good' sticky up."
 "Please complete the exercise. When you are done,
 please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
+
+## Other comments
+
+For the exercises, make sure to get the learners helping each other out in the
+groups.
