@@ -548,30 +548,49 @@ NHANES %>%
 
 ## (Re)Arranging the rows of your data by column
 
-You may want to 
-Arranging/sorting your rows is fairly simple with dplyr. Just use `arrange()`!
+You may want to sort your rows by a specific column so that rows
+are arranged so that bigger (or smaller) values are at the top.
+Arranging is done by using `arrange()`.
+As again, `arrange()` takes the dataset as the first argument
+and anything else it uses as the columns to order by.
+By default, arrange orders in ascending order.
 
 ```{r}
 # ascending order by age
 NHANES %>%
-    arrange(Age) %>% 
-    select(Age)
-
-# Other arrange (for reference)
-# descending order by rate
-NHANES %>%
-    arrange(desc(Age)) %>% 
-    select(Age)
-
-# ascending order by Age and Gender
-NHANES %>%
-    arrange(Age, Gender) %>% 
-    select(Age, Gender)
+    select(Age) %>% 
+    arrange(Age)
 ```
 
+We're selecting age first so we can show what is happening. 
+It also arranges characters alphabetically.
 
+```{r}
+NHANES %>% 
+    select(HealthGen) %>% 
+    arrange(HealthGen)
+```
 
-## `mutate()`: Transforming or adding variables
+We can do this also in descending order with `desc()`.
+
+```{r}
+# descending order
+NHANES %>%
+    select(Age) %>% 
+    arrange(desc(Age))
+```
+
+You can also arrange by multiple columns. For instance,
+first arrange by `Gender` and then by `Age`.
+
+```{r}
+# ascending order by Gender and Age
+NHANES %>%
+    select(Gender, Age) %>% 
+    arrange(Gender, Age)
+```
+
+## Transform or add columns
 
 When you need to add a new column or modify an existing one, you can use the
 `mutate()` function. Get it, mutate as in to change :wink:
