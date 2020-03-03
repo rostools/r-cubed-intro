@@ -406,9 +406,28 @@ We can now "read" these actions as:
 
 ## Exercise: Practice what we've learned
 
-Time: 6 min
+Time: 8 min
 
 In the `exercise-wrangling.R` file, complete these tasks:
+
+1. Copy and paste the below code into the exercise file.
+In the `select()` function, 
+type in the columns "HomeOwn", "TVHrsDay", and "Diabetes"
+where the blank space is.
+
+    ```r
+    NHANES %>% 
+        select(___)
+    ```
+    
+1. Copy and paste the below code and fill out the blanks.
+Rename "DiabetesAge" to be "DiabetesAgeOfDiagnosis" and "Gender" to be "Sex" 
+(gender is the social construct, while sex is biological).
+
+    ```r
+    NHANES %>% 
+        rename(___ = ___, ___ = ____)
+    ```
 
 1. Re-write this bit of code to use the pipe:
 
