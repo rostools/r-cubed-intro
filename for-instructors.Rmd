@@ -56,3 +56,17 @@ make use of them.
 For the first section on "messy" vs "tidy" data, 
 get the learners to read the text themselves, 
 then walk through what it means and why to do it.
+
+## Making use of the stickies
+
+- Check in with the learners to see where they are at by asking something like:
+"Do you see the same thing as is on the screen? 
+If yes, put the 'all good' sticky on your laptop. 
+If no, use the 'need help' sticky."
+- For the reading activities, before starting, ask:
+"Please read this section as instructed. 
+When you are done, put the 'all good' sticky up."
+- For exercises, before starting, ask:
+"Please complete the exercise. When you are done,
+please put the 'all good' sticky up.
+If you need help, put the 'need help' sticky up."
