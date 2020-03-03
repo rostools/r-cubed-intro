@@ -9,10 +9,12 @@ worked. As you complete the tasks, take notes on what could be improved and what
 you liked. I'll use these to make this pre-course assignment better next time!
 Thanks :)
 
+Complete everything in this pre-course tasks chapter and complete the survey
+at the end.
 The deadline for these tasks is 3 days before the course starts (end of day
 **March 7**).
 
-## Initial tasks
+## Installing programs
 
 The very first things to do are to:
 
