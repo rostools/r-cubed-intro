@@ -813,8 +813,19 @@ NHANES %>%
 
 ## Convert data from wide to long form
 
-The tidyr package is a companion package to dplyr and allows for a wide range of
-manipulations of the data structure data. For example, sometimes we have data
+We've now covered the basic "verbs" (functions) of the dplyr package.
+We'll now cover the "pivot" functions from dplyr's companion package, tidyr. 
+There are many useful functions in the tidyr package, 
+but the pivot functions (`pivot_longer()` and `pivot_winder()`) are key ones.
+The simple action that pivoting does is to move columns over as rows, 
+or rows as columns.
+Another way to say this is that pivoting converts wide data into long data
+or vice versa.
+
+Wide data is data where values may repeat across columns. 
+For repeated measurements, often it is easier to enter data in wide form,
+
+A For example, sometimes we have data
 in the wide form as it is often easier to enter data in wide form. Wide form can
 be useful when presenting as tables. But there are usually problems with wide
 form data, especially when it comes to analysing it. Look at the table below,
@@ -823,7 +834,7 @@ form. For instance, what do the values in the `1999` column mean? Unless you had
 a data dictionary, you would not know what those values mean.
 
 ```{r table-example-wide-data, echo=FALSE}
-kable(table4b, caption = "Example wide form dataset.")
+knitr::kable(table4b, caption = "Example wide form dataset.")
 ```
 
 The long form on the other hand is usually better suited for analyses and
@@ -843,15 +854,11 @@ We can get to this from the wide form through wrangling the data like so:
 # include_graphics("https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png")
 ```
 
-To go from wide to long we use `gather` to sweep up a set of columns into one
-key-value pair. The **arguments** for `gather` are:
+In this case, we want to specify:
 
-1. The name of a *new* column that contains the original column names
-2. The name of a *new* column that contains the values from the original columns
-3. The original columns we either want or do not want "gathered" up.
+- the argument `names_to`: the name of the new variable under which we want to group our columns, 
+- the argument `values_to`: the name of the new variable under which we want to group the values of our variables.
 
-Compare how `table4b` looks normally and then after converting to the long form
-with `gather()`.
 
 ```{r}
 # Original data
@@ -901,30 +908,13 @@ To look like this:
 
 ```{r nhanes-output, echo=FALSE}
 NHANES %>% 
-    mutate(MoreThan5DaysActive = if_else(PhysActiveDays >= 5, TRUE, FALSE)) %>% 
-    select(SurveyYr, Gender, Age, Poverty, BMI, BPSysAve, BPDiaAve, TotChol,
-           DiabetesAge, nBabies, MoreThan5DaysActive, AlcoholDay) %>% 
-    rename(TotalCholesterol = TotChol, 
-           NumberOfBabies = nBabies, 
-           DrinksOfAlcoholInDay = AlcoholDay, 
-           AgeDiabetesDiagnosis = DiabetesAge) %>% 
-    filter(Age >= 18, Age <= 75) %>% 
+    select(SurveyYr, Gender, starts_with("BP")) %>% 
     gather(Measure, Value, -SurveyYr, -Gender) %>% 
     group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(Mean = round(mean(Value, na.rm = TRUE), 2)) %>% 
+    summarise(Mean = mean(Value, na.rm = TRUE)) %>% 
     arrange(Measure, Gender, SurveyYr) %>% 
-    spread(SurveyYr, Mean) %>% 
-    knitr::kable(caption = "Mean values of characteristics for women and men between 18-75 years of age at each of the two survey years.")
+    spread(SurveyYr, Mean) 
 ```
-
-## Reshape a dataframe from a wide to a long format using `pivot_longer()`
-
-We can also do the opposite: a shift from a dataframe in wide format to a dataframe in long format. 
-
-In this case, we want to specify:
-
-- the argument `names_to`: the name of the new variable under which we want to group our columns, 
-- the argument `values_to`: the name of the new variable under which we want to group the values of our variables.
 
 We run this function...
 
@@ -1006,31 +996,6 @@ population_wide <- population %>%
 population_wide
 ```
 
-## Exercise 1: Reshaping a dataframe from long to wide format
-
-Use the dataframe `us_rent_income` for this exercise. This dataframe shows the estimated value and the 90%
-margin of error for yearly income and monthly rent of each state in the US.
-
-In this case, you want to display the data in wide form to see how estimated income varies across states.
-To do so, each state will become a variable (i.e. column) to which the estimated income will be associated
-
-
-## Exercise 2: Reshaping a dataframe from wide to long format
-
-We will use again the `us_rent_income` dataframe for this exercise.
-In this case we want the values of `estimate` and `moe` to be stacked in one single column called `value`, 
-while the respective categories of `estimate` and `moe` should be described in a variable called `calculation`
-
-```{r, eval = FALSE}
-us_rent_income_long <- us_rent_income %>% 
-  # this variable is a nuisance and is not giving information useful to us, 
-  # so we will remove it 
-  select(-GEOID) %>% 
-  # When we want multiple variables, we combine them with `c()`.
-  pivot_longer(c(______, ______), names_to = ________, values_to = _________)
-us_rent_income_long
-```
-
 ### `pivot_**` with `group_by()` and `summarize()`
 
 For this example we are going to use the built-in dataframe `storms`
@@ -1068,6 +1033,29 @@ Using the dataframe `diamonds` use the functions `group_by()` and `summarize()` 
 
 The reshaped dataframe should look like this:
 
+## Exercise 1: Reshaping a dataframe from long to wide format
+
+Use the dataframe `us_rent_income` for this exercise. This dataframe shows the estimated value and the 90%
+margin of error for yearly income and monthly rent of each state in the US.
+
+In this case, you want to display the data in wide form to see how estimated income varies across states.
+To do so, each state will become a variable (i.e. column) to which the estimated income will be associated
+
+## Exercise 2: Reshaping a dataframe from wide to long format
+
+We will use again the `us_rent_income` dataframe for this exercise.
+In this case we want the values of `estimate` and `moe` to be stacked in one single column called `value`, 
+while the respective categories of `estimate` and `moe` should be described in a variable called `calculation`
+
+```{r, eval = FALSE}
+us_rent_income_long <- us_rent_income %>% 
+  # this variable is a nuisance and is not giving information useful to us, 
+  # so we will remove it 
+  select(-GEOID) %>% 
+  # When we want multiple variables, we combine them with `c()`.
+  pivot_longer(c(______, ______), names_to = ________, values_to = _________)
+us_rent_income_long
+```
 
 ## Final exercise: Group work
 
