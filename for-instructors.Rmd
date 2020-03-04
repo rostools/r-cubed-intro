@@ -23,6 +23,16 @@ assign people into groups and create GitHub teams for them using the [ghclass] p
 Generate random names for groups based on tidytext::parts_of_speech$pos and
 praise::praise_parts$adjective
 
+### Before your session
+
+- Have an RStudio theme that uses a white background with black text.
+This setting is easier to read on projectors.
+- In "Global Options -> Appearance", 
+put a higher Zoom value and increase the font size (maybe around 14). 
+Exact zoom and font size depends on the projector.
+- Put the Console and Script panes side by side rather than stacked. 
+This can be changed in the "Global Options -> Pane Layout" 
+
 ### First day
 
 In the room, arrange the tables into groups for each of the groups.
