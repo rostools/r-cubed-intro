@@ -908,108 +908,87 @@ Because they don't exist yet as columns, we need to use the quotes.
 
 ### Pivot from long to wide
 
-You can also convert to wide from long. This is not as commonly done, since most
-analyses are better in the long form. But sometimes you may need to have a wide
-form. Here you can use `spread()`, which takes three arguments: 1) the data, 2)
-the *key* column (or column with identifying information), 3) the *value*
-column (the one with the numbers/values). We'll use a pipe so we can ignore the
-data argument.
+You can also convert from long to wide, though this is less commonly done,
+as most analyses either work better or require the long form. 
+It can also be much more tricky to convert over to.
+But sometimes you may need to have a wide form for your data. 
+Here you can use `pivot_wider()` function. Like its opposite,
+the first position argument is the data and the other necessary arguments are:
+
+1. `id_cols`: This is optional as it will default to all column names. 
+This argument tells `pivot_wider()` to use the given columns as the identifiers
+for when converting. 
+This is where the tricky part comes in, 
+because 
+1. `names_from`: Similar to the `pivot_longer()`, 
+this is the name of the column that will make up the new columns.
+Unlike in `pivot_longer()`, 
+the column name given is *unquoted* since the column 
+*must already exist* in the dataset.
+1. `values_from`: As with above, this is the column name 
+(that exists and must be given *unquoted*) 
+for the values that will be in the new columns.
+
+Unfortunately, 
+NHANES as it is doesn't have a structure that allows us to easily convert to wide form.
+So we'll use the `table2` example from the beginning of the pivot section:
 
 ```{r}
-# Using a small dataset:
 table2
+```
 
-# Convert to wide form
+This data frame is in a very long format. 
+So we could pivot `type` and `count` into the wide format:
+
+```{r}
 table2 %>% 
-    spread(key = type, value = count)
+    pivot_wider(names_from = type, values_from = count)
 ```
 
-The key is the discrete value that will make up the new column names, while the
-value will be column that will make up the values of the new columns.
+If we wanted to make it even wider, 
+we could include `year` and `type` in the pivoting by wrapping them with `c()`
+in the `names_from` argument:
 
-In the function `pivot_wider()` we want to specify three arguments: 
-
-- the dataframe to work on,
-- the argument `names_from`: where we indicate the name of the "long" variable that we will use to create the new "wide" variables 
-- the argument `values_from`: the values that we will use to fill the rows of the new variable we created
-
+```{r}
+table2 %>% 
+    pivot_wider(names_from = c(year, type), values_from = count)
 ```
-population_wide <- population %>% 
-  pivot_wider(names_from = country, values_from = population) 
-population_wide
-```
+
+The key to using `pivot_wider()` is that there are uniquely identifying rows
+that allow pivoting that maintains the integrity of the data.
+Since the NHANES dataset we use is for teaching purposes,
+there are some cases where the same person is recorded multiple times in one survey year,
+which doesn't make sense and prevents us from adequately pivoting wider.
 
 ## Pivot, then split-apply-combine
 
-For this example we are going to use the built-in dataframe `storms`
+The real strength of pivoting is when you use it with the [split-apply-combine] method.
+For instance, if we wanted to find some simple statistics of all the columns
+by survey year and sex. 
+In this case, we would use `pivot_longer()` to convert to a long form
+and then use `group_by()` and `summarize()` to find the simple statistics.
+So let's find the mean values of some continuous variables.
 
-In this dataframe, information about storms are classified in long format. 
-Storms are categorized across years and information on wind, latitude, longitude and pressure 
-are presented as columns.
-
-Let's say that we want to see how mean wind speed vary across 
-different storm categories (`status`) and across years. 
-
-This means that we want to apply the function `pivot_wider()` to visualize each storm category as a separate variable.
-
-However, before reshaping the dataframe in long form, we need to do some extra work. 
-Take another look at the `storms` dataframe. Variables are measured multiple times within each year. 
-So if we want to have a mean value of wind speed for each year, we need to use the functions `group_by()` and `summarize()` that we showed in the intro session. 
-
-We are going to call this new dataframe `storm_wide`
-
-First we will calculate the mean value of wind speed for each storm, across years 
-and discriminating across storm status
-
-Now we can reshape the data into a wide format:
-
-```
-storms_wide <- storms_sum %>% 
-  pivot_wider(names_from = status, values_from = mean_wind)  
-storms_wide
-```
 ```{r}
-# Keep only variables of interest
-nhanes_chars <- NHANES %>% 
-    select(SurveyYr, Gender, Age, Weight, Height, BMI, BPSysAve)
-nhanes_chars
-
-# Convert to long form, excluding year and gender
-nhanes_long <- nhanes_chars %>% 
-    gather(Measure, Value, -SurveyYr, -Gender)
-nhanes_long
-
-# Calculate mean on each measure, by gender and year
-nhanes_long %>% 
-    group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(MeanValue = mean(Value, na.rm = TRUE))
+nhanes_mean_values <- NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age, starts_with("BP")) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>% 
+    summarize(MeanValues = mean(Values, na.rm = TRUE))
+nhanes_mean_values
 ```
 
-Note that summarising by mean can only be done with continuous variables.
-Anyway, with the long form, you can do more with less code `r emo::ji("relaxed")`
+We could now use `pivot_wider()` since the structure allows for it:
 
-Let's try an example
-situation when you may use `gather()`. Let's say you wanted to find out the
-means of several characteristics of a population. You could use the `group_by()`
-and `summarise()` combination on their own, but another method is using `gather()`
-to group by and summarise all the variables at once.
-
-```{r nhanes-data}
-NHANES
+```{r}
+nhanes_mean_values %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues)
 ```
 
-To look like this:
-
-```{r nhanes-output, echo=FALSE}
-NHANES %>% 
-    select(SurveyYr, Gender, starts_with("BP")) %>% 
-    gather(Measure, Value, -SurveyYr, -Gender) %>% 
-    group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(Mean = mean(Value, na.rm = TRUE)) %>% 
-    arrange(Measure, Gender, SurveyYr) %>% 
-    spread(SurveyYr, Mean) 
-```
-
+Which now gives us the mean values of the variables by sex and survey year!
 
 ## Final exercise: Group work
 
