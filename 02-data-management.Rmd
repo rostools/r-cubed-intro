@@ -811,152 +811,102 @@ NHANES %>%
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
-## Convert data from wide to long form
+## Converting between wide and long data
 
-We've now covered the basic "verbs" (functions) of the dplyr package.
-We'll now cover the "pivot" functions from dplyr's companion package, tidyr. 
+We've covered the basic "verbs" (functions) of the dplyr package.
+Now we'll get into the "pivot" functions from dplyr's companion package, tidyr. 
 There are many useful functions in the tidyr package, 
 but the pivot functions (`pivot_longer()` and `pivot_winder()`) are key ones.
-The simple action that pivoting does is to move columns over as rows, 
-or rows as columns.
-Another way to say this is that pivoting converts wide data into long data
-or vice versa.
+Pivoting converts wide data into long data or vice versa.
+So what is wide or long date?
 
 Wide data is data where values may repeat across columns. 
-For repeated measurements, often it is easier to enter data in wide form,
+With repeated measurements, it is often easier to enter data in wide form
+or to use wide data to present in tables.
+But there are problems with wide data, especially when it comes to analysing it. 
+For instance, wide data may look like:
 
-A For example, sometimes we have data
-in the wide form as it is often easier to enter data in wide form. Wide form can
-be useful when presenting as tables. But there are usually problems with wide
-form data, especially when it comes to analysing it. Look at the table below,
-which is in wide form. Wide form data also tends to be a bit "messier" then long
-form. For instance, what do the values in the `1999` column mean? Unless you had
-a data dictionary, you would not know what those values mean.
+```{r table-example-wide, echo=FALSE}
+example_wide <- tribble(
+    ~PersonID, ~Glucose_0, ~Glucose_30, ~Glucose_60,
+    1, 5.6, 7.8, 4.5,
+    2, 4.7, 9.5, 5.3,
+    3, 5.1, 10.2, 4.2
+) 
 
-```{r table-example-wide-data, echo=FALSE}
-knitr::kable(table4b, caption = "Example wide form dataset.")
+example_wide %>% 
+    knitr::kable(caption = "Example **wide** dataset that is useful for data entry.")
 ```
 
-The long form on the other hand is usually better suited for analyses and
-visualizing, especially when doing [split-apply-combine] techniques. Long form
-data also tends to be more *tidy* compared to wide form.
+However, this type of data is not *tidy* for a few reasons:
 
-```{r table-example-long-data, echo=FALSE}
-kable(table1 %>% select(-cases), caption = "Example long form dataset.")
+1. We don't know precisely what the values represent in the glucose columns
+(though in this case we could guess, but this isn't always the case).
+Often in the wide form you need to rely a lot more on either very descriptive names
+or have a detailed data dictionary to refer to.
+1. The glucose columns all represent the same value type (glucose concentration) 
+so there is some duplication *of meaning* between columns.
+1. The column names include data in them as well (time of glucose measurement). 
+
+On the other hand, a long data form is usually better suited for almost any type of analysis
+and for visualizing, especially when doing [split-apply-combine] techniques. 
+Long form data also tends to be more *tidy* compared to wide form.
+
+```{r table-example-long, echo=FALSE}
+example_wide %>% 
+    pivot_longer(-PersonID, names_to = "MeasurementTime", values_to = "GlucoseConcentration", 
+                 names_prefix = "Glucose_") %>% 
+    mutate(MeasurementTime = as.numeric(MeasurementTime)) %>% 
+    knitr::kable(caption = "Example **long** dataset that is more usable for analyses and visualizing.")
 ```
 
-We can get to this from the wide form through wrangling the data like so:
+### Pivot from wide to long
 
-(ref:wide-long) Convert from wide to long. Taken from [R for Data Science](https://r4ds.had.co.nz/tidy-data.html).
+How, when, and why to pivot your data can be conceptually challenging to grasp at first. 
+Let's try out some examples and use `pivot_longer()`. 
+Like all the other functions, the first position argument to `pivot_longer()` is the data.
+The other necessary arguments (in order) are:
 
-```{r image-wide-long, echo=FALSE, fig.cap="(ref:wide-long)"}
-# TODO: fix this. Get image directly.
-# include_graphics("https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png")
-```
+1. `cols`: The columns to use to convert to long form. 
+The input is a vector made using `c()` that contains the column names,
+like you would use in `select()` (e.g. can use the `select_helpers` like `starts_with()`,
+or `-` minus to exclude).
+1. `names_to`: The name of the newly created column (as a quoted character) 
+that contains the original column names.
+1. `values_to`: The name of the newly created column (as a quoted character)
+that contains the original cells of the original columns.
 
-In this case, we want to specify:
-
-- the argument `names_to`: the name of the new variable under which we want to group our columns, 
-- the argument `values_to`: the name of the new variable under which we want to group the values of our variables.
-
+As with everything, using an example would help clarify things.
+In the NHANES dataset, there are several columns that would be suitable for pivoting,
+because they are "messy". These are the `BP` blood pressure columns.
+Let's select the required `ID` and `SurveyYr` and the `BP` columns
+(we'll exclude the `Ave` ones for now), then we'll use `pivot_longer()`.
+Because we only want to pivot the `BP`, we need to exclude `ID` and `SurveyYr`
+from pivoting by using `-`.
 
 ```{r}
-# Original data
-table4b
-
-# Convert to long form by stacking population by each year
-# Use minue to exclude a variable (country) from being "gathered"
-table4b %>% 
-    gather(year, population, -country)
-
-# This does the same:
-table4b %>%
-    gather(year, population, `1999`, `2000`)
+NHANES %>%
+    # Recall that - (minus) is used to exclude
+    select(ID, SurveyYr, starts_with("BP"), -ends_with("Ave")) %>% 
+    pivot_longer(c(-ID, -SurveyYr), names_to = "BPTypeAndNumber", values_to = "BloodPressure")
 ```
 
-This can be challenging to conceptually grasp at first. Let's try an example
-situation when you may use `gather()`. Let's say you wanted to find out the
-means of several characteristics of a population. You could use the `group_by()`
-and `summarise()` combination on their own, but another method is using `gather()`
-to group by and summarise all the variables at once.
+We use `-` here to tell `pivot_longer()` to *not* include 
+(to *exclude*) the columns from being converted to long form.
+We could even use `starts_with()`:
 
 ```{r}
-# Keep only variables of interest
-nhanes_chars <- NHANES %>% 
-    select(SurveyYr, Gender, Age, Weight, Height, BMI, BPSysAve)
-nhanes_chars
-
-# Convert to long form, excluding year and gender
-nhanes_long <- nhanes_chars %>% 
-    gather(Measure, Value, -SurveyYr, -Gender)
-nhanes_long
-
-# Calculate mean on each measure, by gender and year
-nhanes_long %>% 
-    group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(MeanValue = mean(Value, na.rm = TRUE))
+NHANES %>%
+    # Recall that - (minus) is used to exclude
+    select(ID, SurveyYr, starts_with("BP"), -ends_with("Ave")) %>% 
+    pivot_longer(starts_with("BP"), names_to = "BPTypeAndNumber", values_to = "BloodPressure")
 ```
 
-Note that summarising by mean can only be done with continuous variables.
-Anyway, with the long form, you can do more with less code `r emo::ji("relaxed")`
+The reason that the arguments `names_to` 
+and `values_to` require quoting `""` is that these are the column names that we *will* create.
+Because they don't exist yet as columns, we need to use the quotes.
 
-```{r nhanes-data}
-NHANES
-```
-
-To look like this:
-
-```{r nhanes-output, echo=FALSE}
-NHANES %>% 
-    select(SurveyYr, Gender, starts_with("BP")) %>% 
-    gather(Measure, Value, -SurveyYr, -Gender) %>% 
-    group_by(SurveyYr, Gender, Measure) %>% 
-    summarise(Mean = mean(Value, na.rm = TRUE)) %>% 
-    arrange(Measure, Gender, SurveyYr) %>% 
-    spread(SurveyYr, Mean) 
-```
-
-We run this function...
-
-```
-population_wide %>%
-  pivot_longer(names_to = "Country", values_to = "Population")
-```
-
-... but we get an error message!
-
-This is because we did not specify which columns to shift into a long format.
-
-  > In `pivot_wider()`, if no argument is given to `id_cols` it defaults to select all columns. However, `pivot_longer` has no default for `cols`, and will throw an error if no argument is given.
-We could select every column, with the [tidyselect](https://r4ds.had.co.nz/transform.html#select) helper function `everything()`. This function tells `pivot_longer()` to use all the columns in the dataset when converting to long form.
-
-```
-population_wide %>%
-  pivot_longer(everything(), names_to = "Country", values_to = "Population")
-```
-
-This breaks the row-wise relation between year and population, and is clearly not what we want. Instead, we specify that the variable `year` is not to be involved in the reshaping. Columns not involved in the reshape will be copied, to preserve the row-wise relations in the data. 
-
-```
-population_wide %>%
-  pivot_longer(-year, names_to = "country_name", values_to = "population_data")
-```
-
-We use the `-` here for `year` to tell `pivot_longer()` to *not* include (to *exclude*) the column `year` from being converted to long form.
-
-**Notice that** in the function `pivot_longer()` the arguments `names_to` and `values_to` require "" because we are providing names of variables that need to be created. 
-Instead, in the function `pivot_wider()` we are giving the arguments `names_from` and `values_from` variables that already exist, hence  the "" are not needed.
-
-
-### Wide and long formats
-
-The illustrations below shows how the same information can be represented in a long and a wide format. Notice that the value (a-f) of each variable/key (x,y,z) can be read for each id (1, 2) in both formats.
-
-![*Img: https://github.com/gadenbuie/tidyexplain*](https://github.com/gadenbuie/tidyexplain/raw/master/images/static/png/original-dfs-tidy.png){width=60%}
-
-The functions we want to use for these operations are `pivot_longer()` and `pivot_wider()` from the tidyr package.
-
-## Reshape a dataframe from a long to a wide format with `pivot_wider()`
+### Pivot from long to wide
 
 You can also convert to wide from long. This is not as commonly done, since most
 analyses are better in the long form. But sometimes you may need to have a wide
@@ -964,13 +914,6 @@ form. Here you can use `spread()`, which takes three arguments: 1) the data, 2)
 the *key* column (or column with identifying information), 3) the *value*
 column (the one with the numbers/values). We'll use a pipe so we can ignore the
 data argument.
-
-(ref:long-wide) 'Spreading' from long to wide. Taken from the [R for Data Science book](https://r4ds.had.co.nz/tidy-data.html#spreading).
-
-```{r image-long-to-wide, echo=FALSE, fig.cap="(ref:long-wide)"}
-# TODO: fix this. Get image directly.
-# include_graphics("https://d33wubrfki0l68.cloudfront.net/8350f0dda414629b9d6c354f87acf5c5f722be43/bcb84/images/tidy-8.png")
-```
 
 ```{r}
 # Using a small dataset:
@@ -996,7 +939,7 @@ population_wide <- population %>%
 population_wide
 ```
 
-### `pivot_**` with `group_by()` and `summarize()`
+## Pivot, then split-apply-combine
 
 For this example we are going to use the built-in dataframe `storms`
 
@@ -1025,37 +968,48 @@ storms_wide <- storms_sum %>%
   pivot_wider(names_from = status, values_from = mean_wind)  
 storms_wide
 ```
+```{r}
+# Keep only variables of interest
+nhanes_chars <- NHANES %>% 
+    select(SurveyYr, Gender, Age, Weight, Height, BMI, BPSysAve)
+nhanes_chars
 
-## Exercise 3: using `group_by()` and `summarize()` in combination with `pivot_**()` functions to reshape a data frame
+# Convert to long form, excluding year and gender
+nhanes_long <- nhanes_chars %>% 
+    gather(Measure, Value, -SurveyYr, -Gender)
+nhanes_long
 
-Using the dataframe `diamonds` use the functions `group_by()` and `summarize()` in combination with
-`pivot_longer()`, `pivot_wider()` to reshape a database in which different values of cut correspond to mean values of x, y, z (tip: you need to use both pivot_longer and pivot_wider!)
-
-The reshaped dataframe should look like this:
-
-## Exercise 1: Reshaping a dataframe from long to wide format
-
-Use the dataframe `us_rent_income` for this exercise. This dataframe shows the estimated value and the 90%
-margin of error for yearly income and monthly rent of each state in the US.
-
-In this case, you want to display the data in wide form to see how estimated income varies across states.
-To do so, each state will become a variable (i.e. column) to which the estimated income will be associated
-
-## Exercise 2: Reshaping a dataframe from wide to long format
-
-We will use again the `us_rent_income` dataframe for this exercise.
-In this case we want the values of `estimate` and `moe` to be stacked in one single column called `value`, 
-while the respective categories of `estimate` and `moe` should be described in a variable called `calculation`
-
-```{r, eval = FALSE}
-us_rent_income_long <- us_rent_income %>% 
-  # this variable is a nuisance and is not giving information useful to us, 
-  # so we will remove it 
-  select(-GEOID) %>% 
-  # When we want multiple variables, we combine them with `c()`.
-  pivot_longer(c(______, ______), names_to = ________, values_to = _________)
-us_rent_income_long
+# Calculate mean on each measure, by gender and year
+nhanes_long %>% 
+    group_by(SurveyYr, Gender, Measure) %>% 
+    summarise(MeanValue = mean(Value, na.rm = TRUE))
 ```
+
+Note that summarising by mean can only be done with continuous variables.
+Anyway, with the long form, you can do more with less code `r emo::ji("relaxed")`
+
+Let's try an example
+situation when you may use `gather()`. Let's say you wanted to find out the
+means of several characteristics of a population. You could use the `group_by()`
+and `summarise()` combination on their own, but another method is using `gather()`
+to group by and summarise all the variables at once.
+
+```{r nhanes-data}
+NHANES
+```
+
+To look like this:
+
+```{r nhanes-output, echo=FALSE}
+NHANES %>% 
+    select(SurveyYr, Gender, starts_with("BP")) %>% 
+    gather(Measure, Value, -SurveyYr, -Gender) %>% 
+    group_by(SurveyYr, Gender, Measure) %>% 
+    summarise(Mean = mean(Value, na.rm = TRUE)) %>% 
+    arrange(Measure, Gender, SurveyYr) %>% 
+    spread(SurveyYr, Mean) 
+```
+
 
 ## Final exercise: Group work
 
