@@ -990,6 +990,38 @@ nhanes_mean_values %>%
 
 Which now gives us the mean values of the variables by sex and survey year!
 
+## Saving datasets as files
+
+This will be a very short section. 
+Sometimes you'll need or want to save the dataset you've been working on,
+maybe because you've done a lot of cleaning to it, 
+preparing it for later analyses, 
+or because you've ran an analysis and want to save the results.
+Either way, 
+a recommended way of saving your dataset is to use the `usethis::use_data()` function.
+Let's do a very simple example:
+
+```{r, eval=FALSE}
+nhanes_bmi_only <- NHANES %>% 
+    select(BMI)
+usethis::use_data(nhanes_bmi_only, overwrite = TRUE)
+```
+
+The `usethis::use_data()` function outputs some information, 
+the last of which ("Document your data") we won't cover in this course.
+The function takes any number of datasets 
+and saves each individually as a `.rda` R dataset file in the `data/` folder.
+You load the dataset and use it again, 
+but before we do, let's restart the R session with either `Ctrl-Shift-F10`
+or with the menu item "Session -> Restart R". Now, type out and run this:
+
+```{r, eval=FALSE}
+load(here::here("data/nhanes_bmi_only.rda"))
+```
+
+You should see this dataset in the Environment tab. 
+This is how you save and load data.
+
 ## Final exercise: Group work
 
 Time: ~30 min
