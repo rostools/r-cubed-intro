@@ -1,17 +1,15 @@
-# Data visualization and best practices {#visualization}
+# Data visualization {#visualization}
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
-## Session details
+> When in RStudio, quickly jump to this page using `r3::open_data_visualization()`.
 
-### Objectives
+**Session objectives**:
 
 1. To learn how to create common research plots with ggplot2.
 1. To become aware of the other powerful features of ggplot2.
 2. To learn about some of the fundamentals of easily creating amazing graphics.
 3. To know what resources to use for help and for continued learning.
-
-**At the end of this session you will be able:**
 
 - Create commonly used graphs such as:
     - Bar plots (when to use and when *not* to use)
@@ -20,53 +18,26 @@
     - Dot/jitter plots by one or more groups
     - Plotting by a group (e.g. male vs female)
 
-### Expected learning 
+## Basic principles for creating graphs
 
-By the end of this you will try to get the data from `NHANES` to look like the
-below figures. We don't expect you to get it exactly, but try to get close to
-them. By (getting relatively close to) replicating these figures, you will have
-achieved our learning expectations.
+**Please take 5 min to read through this section and the next one** 
+before we go over it together.
 
-```{r final-exercise-plot1, warning=FALSE, message=FALSE, echo=FALSE}
-NHANES %>% 
-    filter(!is.na(Diabetes)) %>% 
-    ggplot(aes(y = BMI, x = Poverty, colour = Diabetes)) +
-    geom_point(alpha = 0.4) +
-    geom_smooth(size = 2, method = "gam") +
-    facet_grid(cols = vars(SurveyYr), rows = vars(Gender)) +
-    theme_classic() +
-    scale_color_viridis_d(end = 0.8) +
-    theme(strip.background = element_blank(),
-          panel.background = element_rect(fill = "grey95"),
-          axis.line = element_line(colour = "grey80"))
-```
-
-```{r final-exercise-plot2, warning=FALSE, message=FALSE, echo=FALSE}
-NHANES %>% 
-    filter(!is.na(Diabetes), !is.na(Education)) %>% 
-    ggplot(aes(x = Education, colour = Diabetes, y = TotChol)) +
-    geom_boxplot(fill = "grey90", outlier.size = 0.5, size = 0.75) +
-    theme_minimal() +
-    scale_color_brewer(type = "qual") +
-    labs(y = "Total Cholesterol") +
-    facet_grid(cols = vars(Gender)) +
-    coord_flip()
-```
-
-## Best practices for creating graphs
-
-Making graphs in R is fairly easy with very little code... so easy in fact that
+Making graphs in R is surprisingly easy and can be done with very little code.
+But with somethso easy in fact that
 you can quickly do things that don't make sense or that might detract from what
 you are trying to communicate. So here are some tips to think about when making
 a graph (make sure to check the resources at the end of the page for more detail
 on these tips):
 
 - If you can, show the raw data values rather than summaries
-- Though commonly used, *[avoid barplots]* with error bars
-- Reduce non-data ink or "chartjunk" (e.g. anything on plot that isn't relevant to the data)
-- Enhance the data ink (see [here](http://www.sealthreinhold.com/school/tuftes-rules/rule_one.php))
+- Though commonly used in scientific papers, *[avoid barplots]* with error bars
+(we'll cover why later)
+- Reduce non-data ink or "chartjunk" 
+(e.g. things on the plot that are not relevant to the data)
+- Enhance the data ink (see [here](https://www.sealthreinhold.com/school/tuftes-rules/rule_one.php))
 - Use colour to highlight and enhance your message, not just for visual beauty
-- Use a colour-blind friendly palette (more on this below)
+- Use a colour-blind friendly palette (more on this later)
 
 [avoid barplots]: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
 
@@ -94,6 +65,8 @@ autocompletion to find all possible options, geoms, etc. You can do this by
 typing, for instance, `geom_` and then hitting the TAB key to see a list of all
 the geoms. Or after typing `theme(`, hit TAB to see all the options inside
 theme.
+
+ggplot2 works best with tidy data and data in the long format.
 
 ## 1-dimensional plots
 
@@ -374,7 +347,7 @@ built-in colour schemes, or set your own. Let's stick to using builtin ones.
 There are two, the viridis and the [ColorBrewer] colour schemes. Both are well
 designed and are colour-blind friendly.
 
-[ColorBrewer]: http://colorbrewer2.org/
+[ColorBrewer]: https://colorbrewer2.org/
 
 ```{r changing_color_schemes}
 base_boxplot <- NHANES %>% 
@@ -519,16 +492,47 @@ plot_to_save <- NHANES %>%
 ggsave("plot_to_save.pdf", plot_to_save, width = 7, height = 5)
 ```
 
-## Final exercise: Putting it all together
-
-Time: Until end of session
-
-In the `exercises-visualizing.R` script, add a new Section for this exercise.
-Then using the NHANES dataset, try to replicate these figures. You very likely
-won't be able to get exactly the same, but try to get close! :smile:
-
-```{r final-exercise-plot1, echo=FALSE}
+```{r final-exercise-plot1, warning=FALSE, message=FALSE, echo=FALSE}
+NHANES %>% 
+    filter(!is.na(Diabetes)) %>% 
+    ggplot(aes(y = BMI, x = Poverty, colour = Diabetes)) +
+    geom_point(alpha = 0.4) +
+    geom_smooth(size = 2, method = "gam") +
+    facet_grid(cols = vars(SurveyYr), rows = vars(Gender)) +
+    theme_classic() +
+    scale_color_viridis_d(end = 0.8) +
+    theme(strip.background = element_blank(),
+          panel.background = element_rect(fill = "grey95"),
+          axis.line = element_line(colour = "grey80"))
 ```
 
-```{r final-exercise-plot2, echo=FALSE}
+```{r final-exercise-plot2, warning=FALSE, message=FALSE, echo=FALSE}
+NHANES %>% 
+    filter(!is.na(Diabetes), !is.na(Education)) %>% 
+    ggplot(aes(x = Education, colour = Diabetes, y = TotChol)) +
+    geom_boxplot(fill = "grey90", outlier.size = 0.5, size = 0.75) +
+    theme_minimal() +
+    scale_color_brewer(type = "qual") +
+    labs(y = "Total Cholesterol") +
+    facet_grid(cols = vars(Gender)) +
+    coord_flip()
 ```
+
+## Final exercise: Group work
+
+Time: 30 min
+
+In your groups, start exploring your data by making ggplot2 graphs.
+Ultimately, your goal as a group is to complete item 6 of the [assignment](assignment).
+There are a few ways to do this, 
+but first it's a good idea to distribute exploration to each group member.
+So:
+
+- Each member create an R script in the `R/` to start creating visually exploring the data.
+Name these files for now with your name and `-exploring.R`.
+- Add, commit, and push these files to your GitHub repository.
+- Find out what are some visually interesting 
+and insightful plots you could show in the presentation and in the report.
+
+Then, as a group, decide what graphs to include in the report and presentation.
+Save these images in the `doc/images/` folder.
