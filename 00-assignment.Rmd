@@ -36,7 +36,7 @@ We'd recommend assigning one or two people to be the "presenters".
 For the group project, your specific tasks are to:
 
 1. Create a project using the "New Project" setup with the necessary files
-(covered in [Project Management](project-management.html)).
+(covered in [Project Management](r-project-management.html)).
 2. Find an "open" dataset to use for your analysis and report.
 The dataset can be on anything your group is interested in, 
 but *must* be from an open and online data archive.

@@ -1,8 +1,8 @@
-# Management of R projects {#project-management}
+# Management of R projects {#r-project-management}
 
 ![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
 
-> When in RStudio, quickly jump to this page using `r3::open_proj_management()`.
+> When in RStudio, quickly jump to this page using `r3::open_rproject_management()`.
 
 **Session objectives**:
 
