@@ -1,6 +1,6 @@
 # Additional resources
 
-- [R for Data Science](http://r4ds.had.co.nz/): Excellent open and online resource for using R for data analysis and data science.
+- [R for Data Science](https://r4ds.had.co.nz/): Excellent open and online resource for using R for data analysis and data science.
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): Excellent online resource for using ggplot2 and R graphics.
 - [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/): Great quick reference.
 
@@ -22,7 +22,7 @@
 
 For Git within RStudio:
 
-- [Happy Git and GitHub for the useR](http://happygitwithr.com/) (**highly recommended**)
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/) (**highly recommended**)
     - Specifically useful is the chapter on [Daily Workflows](https://happygitwithr.com/repeated-amend.html) using Git
 - [RStudio Git Interface](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
 - Video on using [Git in RStudio]
@@ -60,11 +60,11 @@ For Git in general:
 **For learning**:
 
 - [R for Data Science]
-    - [Data visualisation](http://r4ds.had.co.nz/data-visualisation.html) and
-    [Graphics for communication](http://r4ds.had.co.nz/graphics-for-communication.html)
+    - [Data visualisation](https://r4ds.had.co.nz/data-visualisation.html) and
+    [Graphics for communication](https://r4ds.had.co.nz/graphics-for-communication.html)
     chapters
 - [Best practices article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833)
-- [Data Visualization: A practical introduction](http://socviz.co/index.html#preface) (a free online book)
+- [Data Visualization: A practical introduction](https://socviz.co/index.html#preface) (a free online book)
 - [Fundamentals of Data Visualization] (another free online book)
 - [ggplot2 package documentation](https://ggplot2.tidyverse.org/)
 - [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
@@ -88,7 +88,7 @@ For Git in general:
 - [Online book for R Markdown](https://bookdown.org/yihui/rmarkdown/)
 - [Pandoc Markdown Manual](https://pandoc.org/MANUAL.html#pandocs-markdown) (R
 Markdown uses [pandoc])
-- [R for Data Science](http://r4ds.had.co.nz/)
+- [R for Data Science](https://r4ds.had.co.nz/)
     - [R Markdown chapter](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
 - [Adding citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 

@@ -112,10 +112,10 @@ Because you are trying to do the same or similar?
 ## Has anyone ever received confusing code? Or maybe have written your own confusing code?
 
 .center[
-![](http://phdcomics.com/comics/archive/phd031214s.gif)
+![](https://phdcomics.com/comics/archive/phd031214s.gif)
 ]
 
-.footnote[Source: [PhD Comics](http://phdcomics.com/comics/archive_print.php?comicid=1689)]
+.footnote[Source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1689)]
 
 ---
 

@@ -58,7 +58,7 @@ RStudio projects make it straightforward to divide your work into multiple conte
 each with their own working directory, workspace, history, and source documents.
 
 There are many ways one could organise a project folder. 
-We'll be setting up a project folder and file structure using [prodigenr](http://prodigenr.lukewjohnston.com/index.html):
+We'll be setting up a project folder and file structure using [prodigenr](https://prodigenr.lukewjohnston.com/index.html):
 
 ```{r prodigenr-setup, eval=FALSE}
 prodigenr::setup_project("LearningR")
@@ -400,7 +400,7 @@ Let's try out this styling by copy and pasting the exercise code again
 and running the reformatting on it. Cool eh?
 
 The tidyverse [style guide] also has package called 
-[styler](http://styler.r-lib.org/) that automates fixing code to fit the style guide.
+[styler](https://styler.r-lib.org/) that automates fixing code to fit the style guide.
 With styler you can fix styling on multiple files at once.
 We won't cover styler, so this is more as a future tool to try out.
 

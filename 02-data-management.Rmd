@@ -34,7 +34,7 @@ book. A tidy dataset is when:
 - Each observation has its own row (e.g. "Person")
 - Each value has its own cell (e.g. "Body weight for a person at a specific date")
 
-[article]: http://www.jstatsoft.org/v59/i10/paper.
+[article]: https://www.jstatsoft.org/v59/i10/paper.
 [Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
 
 Take a look at the example "tidy" and "messy" data frames

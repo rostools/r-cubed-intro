@@ -232,7 +232,7 @@ programming in R. So instead we have to use quotes instead and use the `_at()`
 combined with `vars()` version of dplyr functions. The tidyr functions `gather`
 and `spread` don't require these changes.
 
-[non-standard evaluation]: http://adv-r.had.co.nz/Computing-on-the-language.html
+[non-standard evaluation]: https://adv-r.had.co.nz/Computing-on-the-language.html
 
 ```{r add-function-arguments-error, error=TRUE}
 mean_sd_by_group <- function(.dataset, .groupvar) {
@@ -438,7 +438,7 @@ just that they loop over something.
 
 [purrr]: https://purrr.tidyverse.org/
 [vectorisation]: https://bookdown.org/rdpeng/rprogdatascience/vectorized-operations.html
-[functional]: http://adv-r.had.co.nz/Functionals.html
+[functional]: https://adv-r.had.co.nz/Functionals.html
 
 But functionals, like `map` and most functions inside purrr (or base R functions
 like `lapply`, `sapply`) let you ignore the tiny details and focus on doing your
@@ -728,12 +728,12 @@ and free book)
 book
 - [`map` section](https://r4ds.had.co.nz/iteration.html#the-map-functions) in
 the R for Data Science book.
-- [`R/` chapter in R Packages](http://r-pkgs.had.co.nz/r.html) book (online and
+- [`R/` chapter in R Packages](https://r-pkgs.had.co.nz/r.html) book (online and
 free).
-- [Documenting functions chapter](http://r-pkgs.had.co.nz/man.html) in R
+- [Documenting functions chapter](https://r-pkgs.had.co.nz/man.html) in R
 Packages book.
 - Very advanced (for those interested) details about functions from [Advanced
-R](http://adv-r.had.co.nz/Functions.html) book (again, online and free).
+R](https://adv-r.had.co.nz/Functions.html) book (again, online and free).
 - Follow the [principles of tidy tools] when making functions.
 
 [principles of tidy tools]: https://principles.tidyverse.org/

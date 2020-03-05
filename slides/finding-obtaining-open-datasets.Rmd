@@ -124,7 +124,7 @@ mono_accent(
 [Plan S]: https://www.coalition-s.org/
 [Foster Open Science]: https://www.fosteropenscience.eu/
 [NIH data repositories]: https://www.nlm.nih.gov/NIHbmic/nih_data_sharing_repositories.html
-[UK Data Archive]: http://data-archive.ac.uk/find/archive-catalogue
+[UK Data Archive]: https://data-archive.ac.uk/find/archive-catalogue
 [YODA project]: https://yoda.yale.edu/
 [Project Datasphere]: https://www.projectdatasphere.org/projectdatasphere/html/home
 [ClinicalStudyDataRequest]: https://www.clinicalstudydatarequest.com/

@@ -87,7 +87,7 @@ Collaboration can be organised at different levels:
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
+.footnote[Image source from [here](https://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
 
 ---
 ## Collaboration is widespread
@@ -96,7 +96,7 @@ Collaboration can be organised at different levels:
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
+.footnote[Image source from [here](https://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
 
 ---
 ## Collaboration is widespread
@@ -105,7 +105,7 @@ Collaboration can be organised at different levels:
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
+.footnote[Image source from [here](https://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
 
 ---
 ## Collaboration is based on agreement

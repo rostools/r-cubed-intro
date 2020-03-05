@@ -170,7 +170,7 @@ fight Markdown to do something it wasn't designed to do. You can do a lot with
 what Markdown has.
 
 [markup syntax]: https://en.wikipedia.org/wiki/Markup_language
-[pandoc]: http://pandoc.org/index.html
+[pandoc]: https://pandoc.org/index.html
 
 ### Headers 
 

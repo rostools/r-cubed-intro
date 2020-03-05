@@ -98,7 +98,7 @@ Live-coding is a technique used by [Software Carpentry](https://software-carpent
 Software Carpentry has lots of great resources explaining the why and how of live-coding:
 
 - [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html)
-- The Software Carpentry [instructor training manual](http://carpentries.github.io/instructor-training/) 
+- The Software Carpentry [instructor training manual](https://carpentries.github.io/instructor-training/) 
 includes many resources about programming education.
 
 ## Being a helper :raising_hand: 
