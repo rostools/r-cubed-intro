@@ -180,7 +180,7 @@ tabs.
 
 Code is written in the "Source" tab, where it saves the code and text as a file.
 You send code to the console from the opened file by typing `Ctrl-Enter` (or
-clicking the "Run"). 
+clicking the "Run" button). 
 In the "Source" tab (where R scripts and R Markdown files are shown), 
 there is a "Document Outline" button (top right beside the "Run" button) 
 that shows you the headers or "Sections" (more on that later). 
@@ -199,8 +199,8 @@ weight_kilos
 
 The new object now stores the value we assigned it. We can read it like:
 
-> - "weight kilos now contains the number 100", or
-> - "put 100 into the object weight kilos"
+> - "`weight_kilos` contains the number 100", or
+> - "put 100 into the object `weight_kilos`"
 
 You can name an object in R almost anything you want, but it's best to stick to
 a [style guide]. For instance, use `snake_case` to name things.
@@ -331,7 +331,7 @@ sqrt(x ^ 2 + y ^ 2)
 df $ z
 x <- 1 : 10
 
-# Indenting
+# Indenting and brackets
 if (y < 0 && debug)
 message("Y is negative")
 ```
@@ -344,7 +344,7 @@ The old code is in comments and the better code is below it.
 ```{r ex-wrong-code-naming-answer, eval=FALSE}
 # Object names
 
-# Should be camel case
+# Should be snake case
 # DayOne
 day_one
 # dayone
@@ -396,13 +396,15 @@ You may have organised the exercise by hand,
 however it is possible to do it automatically. 
 RStudio has an automatic styling tool, 
 found in the menu item `"Code -> Reformat Code"` (or with `Ctrl-Shift-A`). 
-Let's try out this styling by copy and pasting the exercise code again
-and running the reformatting on it. Cool eh?
+Let's try this styling out together by copy 
+and pasting the exercise code again
+and running the reformatting on it.
 
 The tidyverse [style guide] also has package called 
 [styler](https://styler.r-lib.org/) that automates fixing code to fit the style guide.
 With styler you can fix styling on multiple files at once.
-We won't cover styler, so this is more as a future tool to try out.
+We won't be covering styler though, 
+so this is just a reference to a possible future tool to try out.
 
 ## Packages, data, and file paths
 
@@ -440,7 +442,10 @@ source(here::here("R/package-loading.R"))
 ```
 
 There's a new thing `here`! The [here] package uses a function called `here()` 
-that makes it easier to manage file paths. What is a file path and why is this 
+that makes it easier to manage file paths. 
+The here package should already be installed.
+
+So, what is a file path and why is this 
 necessary? A file path is the list of folders a file is found in. For instance,
 your CV may be found in `/Users/Documents/personal_things/CV.docx`. The problem 
 with file paths in R is that when you run a script interactively (e.g. what we
@@ -462,7 +467,7 @@ you to use later on.
 ## Encountering problems and finding help
 
 You **will** encounter problems and issues and errors when working with R... 
-and you will encounter then **all the time**. This is a fact of life. How you 
+and you will encounter them **all the time**. This is a fact of life. How you 
 deal with the warnings and errors is the important part. Here are some steps:
 
 1. *First*, try to stay calm, problems happen to *everyone*, 
@@ -493,7 +498,7 @@ The [tidyverse] packages all have amazing documentation that you can use to help
 you with problems you may have.
 - Check [StackOverflow](https://stackoverflow.com/questions/tagged/r), 
 which is a coding-related question and answer website.
-- Google it[^nojoke]. No joke, 
+- Google it. No joke, 
 those who are "more expert" in coding languages like R are skilled mostly
 *because they know how to ask Google the right questions*.
 

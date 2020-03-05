@@ -24,7 +24,7 @@ The very first things to do are to:
 1. Install [Git](https://git-scm.com/downloads)
 
 For some Windows users, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/Rtools35.exe)
-in order for some R packages to be installed (which you'll shortly).
+in order for some R packages to be installed (which you'll do shortly).
 
 All these programs are required for the course, even Git.
 Git, which is a software program to formally manage file versions, 
