@@ -44,10 +44,11 @@ During the introduction, describe the assignment and what's the purpose of the g
 
 [ghclass]: https://rundel.github.io/ghclass
 
-Before the lunch break, get the groups to have lunch together and 
-to introduce each other. Get them to tell the others their name, 
-program, one thing they are excited or 
-most interested to learn about R and/or data analysis.
+Before the lunch break, get the groups to have lunch together 
+and introduce each other more. 
+Get them to say their program, if they've used R before, 
+some struggles they've had with R and with data analysis in general, 
+and why they want to learn R.
 
 ### About the slides
 
