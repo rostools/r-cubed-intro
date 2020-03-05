@@ -39,6 +39,7 @@ book. A tidy dataset is when:
 
 Take a look at the example "tidy" and "messy" data frames
 (also called "tibbles" in the tidyverse) below.
+These datasets come built in with the tidyr package to use for teaching purpose.
 Think about why each is "tidy" or "messy". 
 What do you notice between the tidy versions and the messier versions?
 
