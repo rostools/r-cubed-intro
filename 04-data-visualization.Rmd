@@ -492,32 +492,6 @@ plot_to_save <- NHANES %>%
 ggsave("plot_to_save.pdf", plot_to_save, width = 7, height = 5)
 ```
 
-```{r final-exercise-plot1, warning=FALSE, message=FALSE, echo=FALSE}
-NHANES %>% 
-    filter(!is.na(Diabetes)) %>% 
-    ggplot(aes(y = BMI, x = Poverty, colour = Diabetes)) +
-    geom_point(alpha = 0.4) +
-    geom_smooth(size = 2, method = "gam") +
-    facet_grid(cols = vars(SurveyYr), rows = vars(Gender)) +
-    theme_classic() +
-    scale_color_viridis_d(end = 0.8) +
-    theme(strip.background = element_blank(),
-          panel.background = element_rect(fill = "grey95"),
-          axis.line = element_line(colour = "grey80"))
-```
-
-```{r final-exercise-plot2, warning=FALSE, message=FALSE, echo=FALSE}
-NHANES %>% 
-    filter(!is.na(Diabetes), !is.na(Education)) %>% 
-    ggplot(aes(x = Education, colour = Diabetes, y = TotChol)) +
-    geom_boxplot(fill = "grey90", outlier.size = 0.5, size = 0.75) +
-    theme_minimal() +
-    scale_color_brewer(type = "qual") +
-    labs(y = "Total Cholesterol") +
-    facet_grid(cols = vars(Gender)) +
-    coord_flip()
-```
-
 ## Final exercise: Group work
 
 Time: 30 min
