@@ -526,13 +526,15 @@ In your groups, start exploring your data by making ggplot2 graphs.
 Ultimately, your goal as a group is to complete item 6 of the [assignment](assignment).
 It's a good idea to distribute exploration to each group member,
 so that each member gets practice making ggplot2 graphs.
-Take about 10-15 min and then do these tasks:
+Take about 10-15 min to do these tasks:
 
-- Each member create an R script in the `R/` to start creating visually exploring the data.
-Name these files for now with your name and `-exploring.R`.
+- Each member create an R script in the `R/` folder
+to start creating visually exploring the data.
+Name these new files with your name and `-exploring.R`.
 - Add, commit, and push these files to your GitHub repository.
-- Find out what are some visually interesting 
-and insightful plots you could show in the presentation and in the report.
+- Find out what some visually interesting
+and insightful plots are that you could show in the presentation 
+and in the report.
 
 Then with the remaining time, as a group:
 
