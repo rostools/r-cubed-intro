@@ -2,147 +2,200 @@
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
-> When in RStudio, quickly jump to this page using `r3::open_data_visualization()`.
+> When in RStudio, quickly jump to this page by using `r3::open_data_visualization()`.
 
 **Session objectives**:
 
-1. To learn how to create common research plots with ggplot2.
-1. To become aware of the other powerful features of ggplot2.
-2. To learn about some of the fundamentals of easily creating amazing graphics.
-3. To know what resources to use for help and for continued learning.
-
-- Create commonly used graphs such as:
-    - Bar plots (when to use and when *not* to use)
-    - Boxplots
-    - Line and other time graphs
-    - Dot/jitter plots by one or more groups
-    - Plotting by a group (e.g. male vs female)
+1. Learn and apply the basics of creating publication-quality graphs.
+1. Learn about the importance of considering the colours you use in your graphs,
+and apply tools that are colour-blind friendly.
+1. Learn about and avoid using certain commonly used, 
+but inappropriate graphs for presenting results.
+1. Create useful graphs such as boxplots, scatterplots, line graphs,
+jitter plots, (appropriate) barplots, and 
 
 ## Basic principles for creating graphs
 
-**Please take 5 min to read through this section and the next one** 
+**Please take 5 min to read through this section, as well as the next one**
 before we go over it together.
 
 Making graphs in R is surprisingly easy and can be done with very little code.
-But with somethso easy in fact that
-you can quickly do things that don't make sense or that might detract from what
-you are trying to communicate. So here are some tips to think about when making
-a graph (make sure to check the resources at the end of the page for more detail
-on these tips):
+Because of the ease with which to make them,
+this gives you time to reason about *why* you are making them,
+if the graph is the *most appropriate* for the data or results,
+and how you can design your graphs to be as accessible 
+and understandable as possible.
 
-- If you can, show the raw data values rather than summaries
-- Though commonly used in scientific papers, *[avoid barplots]* with error bars
+To start, here are some tips for making a graph 
+(there are excellent online books on this that are included in the 
+[resources](resources) chapter:
+
+- Whenever possible or reasonable, show raw data values rather than summaries 
+(e.g. means)
+- Though commonly used in scientific papers, 
+*[avoid barplots]* with means and error bars as they greatly misrepresent the data
 (we'll cover why later)
-- Reduce non-data ink or "chartjunk" 
-(e.g. things on the plot that are not relevant to the data)
-- Enhance the data ink (see [here](https://www.sealthreinhold.com/school/tuftes-rules/rule_one.php))
-- Use colour to highlight and enhance your message, not just for visual beauty
-- Use a colour-blind friendly palette (more on this later)
+- Use colour to 1) highlight and enhance your message 
+and 2) to make the plot visually appealing
+- Use a colour-blind friendly palette so the plot is more accessible to others
+(more on this later)
 
 [avoid barplots]: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
 
 ## Basic structure of using ggplot2
 
-ggplot2 uses the "Grammar of Graphics" (gg). This is a powerful approach to
-creating plots because it provides a consistent way of expressing how you actually
-make the graph. There are at least four aspects to using ggplot2 that relate to
-"a grammar":
+ggplot2 is an implementation of the ["Grammar of Graphics"](https://www.springer.com/gp/book/9780387245447) (gg). 
+This is a powerful approach to creating plots 
+because it provides a set of structured rules (a "grammar") 
+that allow you to expressively describe components (or "layers") of a graph.
+Because you are able to describe the components,
+it makes it easier to then implement those "descriptions" into creating a graph.
+There are at least four aspects to using ggplot2 that relate to its "grammar":
 
-- Aesthetics, `aes()`: How data should be mapped to the plot. For instance, what
-to put on x axis, on the y axis, whether to have colour based on a (discrete)
-variable, etc.
+- Aesthetics, `aes()`: How data is mapped to the plot, for instance, what
+data to put on the x axis, on the y axis, 
+and/or whether to use a colour for a variable.
 - Geometries, `geom_` functions: The visual representation of the data, as a
-layer. This tells ggplot2 how to show the aesthetics, for instance as points,
-lines, boxes, hexes, bins, or bars.
-- Scales, `scale_` functions: Controls the visual properties of the data mapped 
-to the geom layers (e.g. specific colors, point size).
-- Themes, `theme_` functions or `theme()`: How the plot overall should look
-like, such as the text, axis lines, background colours, or inclusion of the
-legend.
+layer. This tells ggplot2 how the aesthetics should be visualized.
+For instance should they be shown as points, lines, boxes, bins, or bars?
+- Scales, `scale_` functions: These control the visual properties of the `geom_` layers.
+For instance, to change the colour of dots from red to blue,
+or to use a different colour palette entirely.
+- Themes, `theme_` functions or `theme()`: 
+Directly controls all other aspects of the plot.
+For instance, control the size, font, and angle of axis text. 
+Or maybe change the thickness or colour of the axis lines.
 
-To maximise the power of ggplot2, we recommend to make heavy use of
-autocompletion to find all possible options, geoms, etc. You can do this by
-typing, for instance, `geom_` and then hitting the TAB key to see a list of all
-the geoms. Or after typing `theme(`, hit TAB to see all the options inside
-theme.
+There is a massive amount of features in ggplot2.
+Thankfully, ggplot2 was specifically designed to make it easy to find 
+and use its functions and settings using tab auto-completion.
+As an example, if you type out `geom_` and then hit tab, 
+you will get a list of all the geom's available.
+Likewise with `scale_` and all the options inside `theme()`
+(e.g. type out `theme(axis.` and then hit tab, 
+and a list of theme settings related to the axis will pop up).
+ggplot2 also works best with tidy data and with data in the long format.
 
-ggplot2 works best with tidy data and data in the long format.
+**Ok, now we'll go over this together**.
 
-## 1-dimensional plots
+## Graph individual variables
 
-Plots of 1 dimension are those that are showing only one variable (or column in 
-a dataset). Generally you create these plots to get a sense of the distribution 
-of the variable. There are several ways of plotting continuous (e.g. weight,
-height) variables in ggplot2. For discrete (e.g. terrain type: mountain, plains,
-or sex: woman, man) variables, there is really only one way. You can see all
-available "geoms" by starting to type `geom_` and then hit the Tab button to list
-all possible geoms. Open the previously used R Project, then open the
-`visualization-session.R` script in the `R/` folder. This script we will use for
-the code-along, but not for the exercises.
+Very often you want to get a sense of your data, 
+one variable (a column in a data frame) at a time.
+You create these plots to see the distribution of a variable
+and visually inspect the data for any problems.
+There are several ways of plotting continuous variables 
+(e.g. weight, height) in ggplot2. 
+For discrete variables (e.g. "male" and "female"), 
+there is really only one way. 
 
-```{r plot_1d}
-# tidyverse contains ggplot2
-library(tidyverse)
-library(NHANES)
+Ok, let's visually explore our data. 
+Open the previously used R Project, 
+then open the `visualization-session.R` script in the `R/` folder. 
+This script we will use for the code-along, but not for the exercises.
+First, let's add this to the top of the script:
 
-# Continuous
-# Good practice to have a new line after the "+"
+```{r}
+source(here::here("R/package-loading.R"))
+```
+
+Since BMI is a strong risk factor for diabetes, let's check out its distribution.
+To show distributions, there are two good geoms: 
+`geom_density()` and `geom_histogram()`.
+
+```{r plot-bmi, message=FALSE}
 ggplot(NHANES, aes(x = BMI)) +
     geom_density()
 ggplot(NHANES, aes(x = BMI)) +
     geom_histogram()
-# Discrete
-ggplot(NHANES, aes(x = Education)) +
+```
+
+It's good practice to always create a new line after the `+`.
+We can see that for the most part there is a good distribution with BMI,
+though there are several values that are quite large...
+some at 80 BMI!
+
+The plots above are for continuous variables, 
+but what about for discrete?
+Well, sadly, there's really only one: `geom_bar()`.
+This isn't a geom for a barplot though! 
+This shows the counts of a discrete variable.
+There are many discrete variables in NHANES.
+Sex is another good variable to examine
+and NHANES also has a diabetes variable, 
+so let's visualize those:
+
+```{r plot-gender-diabetes}
+ggplot(NHANES, aes(x = Gender)) +
+    geom_bar()
+ggplot(NHANES, aes(x = Diabetes)) +
     geom_bar()
 ```
 
-Here we created a bar plot. The only time you should create a bar plot is when
-the data is categorical and you want to show counts or proportions. That's it.
-A common use in scientific articles is to use bar plots to show the mean and have
-a error bar. But this type of plot hides the underlying distribution of the data 
-and deceives the reader into what the data is actually saying. For more information,
-see the article on why to [avoid barplots]. The image below, taken from that
-paper, shows why this plot type is not useful. Another thing you'll find out if
-you want to create a plot like this in ggplot2 is that it is very difficult to
-do... and that is by design because it is a bad plot choice.
+We can see that for the most part there is equal numbers of females and males.
+And for diabetes, it seems there are some missingness in the dataset.
 
-(ref:deceptive-barplots) Bars deceive what the data shows. Image source from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)
+Let's take a minute to talk about the commonly used barplots with mean and error bars.
+In all cases, bar plots should only be used for discrete (categorical) data
+and you want to show counts or proportions, not use it for continuous data.
+But the commonly used "bar with means and errors" 
+plot actually hides the underlying distribution of the data.
+To have a better explanation of this,
+you can read the article on why to [avoid barplots] after the course. 
+The image below, taken from that paper, 
+shows briefly why this plot type is not useful. 
+
+(ref:deceptive-barplots) Bars deceive what the data actually looks like. Image source from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).
 
 ```{r barplots-deceive, fig.cap="(ref:deceptive-barplots)", echo=FALSE}
-# TODO: Add image
-# include_graphics("/img/barplots-deceive.png")
+knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
-## 2-dimensional plots
+If you do want to create a barplot, 
+you'll quickly find out that it actually is quite hard to do in ggplot2.
+The reason it is difficult to create in ggplot2 is by design:
+it's a bad plot to use, so use something else.
 
-You can of course include data on the y axis too! This is usually what you use
-graphs for! There are many more types of "geoms" to use for having data on both
-axes, and which one you choose depends on what you are trying to show or to
-communicate, and what the data is like. Usually you put the variable that you
-can influence (the independent variable) on the x axis and the variable that
-responds (the dependent variable) on the y axis. 
+## Plotting two variables
 
-### Two continuous variables
+Next section is about plotting multiple variables at a time,
+in this case, two variables.
+There are many more types of "geoms" to use when plotting two variables.
+and which one you choose depends on what you are trying to show
+or to communicate, and what the data is. 
+Usually the variable that you "control or influence" 
+(the independent variable) in an experimental setting goes on the x-axis
+and the variable that "responds" (the dependent variable)
+goes on the y-axis.
 
-For two continuous variables, there are lots of options available.
+When you have *two continuous* variables, some geoms are:
 
-```{r plot_2d_nums}
+- `geom_point()`, which is to create a standard scatterplot
+- `geom_hex()`, which is used to replace `geom_point()` 
+when your data is *massive*, since creating points 
+for each value in a large dataset can take a long time to plot
+- `geom_smooth()`, which applies a "regression-type" line to the data
+(using LOESS regression)
+
+Let's check out how BMI may influence cholesterol using a basic scatterplot,
+hex plot, and a smoothing line plot:
+
+```{r plot-bmi-chol, message=FALSE}
 # Using 2 continuous 
-two_nums <- ggplot(NHANES, aes(x = Age, y = BPSysAve))
-
+bmi_chol <- ggplot(NHANES, aes(x = BMI, y = TotChol))
 # Standard scatter plot
-two_nums + 
+bmi_chol + 
     geom_point()
-# Connect all the data with a line
-two_nums + 
-    geom_line()
-# Put overlapping data into "hexes".. useful for massive datasets
-two_nums + 
+# Standard scatter plot, but with hexes
+bmi_chol + 
     geom_hex()
 # Runs a smoothing line with confidence interval
-two_nums + 
+bmi_chol + 
     geom_smooth()
 ```
+
+Notice how the hex plot changes the colour of the data 
+based on how many values are in the area of the plot.
 
 ### Two discrete variables
 
@@ -257,7 +310,10 @@ ggplot(NHANES, aes(x = Gender, y = Pulse)) +
 </p>
 </details>
 
-## 3 or more "dimensions" (variables)
+## Visualizing three or more variables
+
+- `geom_line()`, which is useful when showing data 
+that is some way related to a previous state (on the x-axis)
 
 You can also add an additional dimension to the data by using other elements
 (colours, size, transparency, etc) of the graph to represent another variable.
