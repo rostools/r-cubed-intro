@@ -16,7 +16,7 @@ jitter plots, (appropriate) barplots, and
 
 ## Basic principles for creating graphs
 
-**Please take 5 min to read through this section, as well as the next one**
+**Please take ~10 min to read through this section, as well as the next one**
 before we go over it together.
 
 Making graphs in R is surprisingly easy and can be done with very little code.
@@ -75,6 +75,40 @@ Likewise with `scale_` and all the options inside `theme()`
 (e.g. type out `theme(axis.` and then hit tab, 
 and a list of theme settings related to the axis will pop up).
 ggplot2 also works best with tidy data and with data in the long format.
+
+So, why do we teach ggplot2 and not base R plotting?
+Base R plotting functionality is quite good and you can make really nice,
+publication-quality graphs.
+However, there are several major limitations to base R plots from a beginner
+and a user-interface perspective. 
+These limitations are due to the fact that base R plotting was developed:
+
+- By different people over time periods of time
+- By people who were/are mostly in statistics and math
+- By people who (generally) don't have training in principles of
+software user-design, user-interface, or engineering
+- Without a strong "design philosophy"
+- During a time when auto-completion didn't really exist or was sub-optimal
+(so short function and object names were important)
+
+Because of this, base R graphics *generally*:
+
+- Have inconsistent in function and argument naming and documentation
+- Don't place priority on user-friendly documentation 
+that is accessible to a broad range of people
+- Don't have help documentation that is designed with beginners in mind
+- Are built similar to painting on a canvas: 
+If you make a mistake, you need to start over (e.g. restart R)
+
+One the other hand, ggplot2:
+
+- Has excellent documentation for help and learning
+- Has a strong design philosophy that makes it easier to use
+- Works in "layers", so you don't have to start over if you make a mistake
+- Works very well with auto-completion
+- Function and argument naming is consistent and *descriptive* (in plain English)
+
+These are the reasons we teach and use ggplot2.
 
 **Ok, now we'll go over this together**.
 
