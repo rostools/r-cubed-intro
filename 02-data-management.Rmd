@@ -90,16 +90,16 @@ Tidy data has a few notable benefits:
 
 1. Time spent preparing your data to be tidy from the beginning can save days
 of frustration in the long run.
-2. "Tidy data" is a conceptual framework that allows you to easy build off and
-wrangle (i.e. "manipulate", "clean up", "manage") data in simpler 
-and easy to interpret ways, especially when using the tidyverse packages 
-(which are an ecosystem of related packages that share similar designs and work
-well together).
+2. "Tidy data" is a conceptual framework that allows you to easy build off 
+and wrangle (i.e. "manipulate", "clean up", "manage") data in simpler 
+and easy to interpret ways, 
+especially when used within the framework of the tidyverse.
 
-The concept of tidy data also gives rise to the concept of tidy code. By using
-"verbs" (R functions), chaining them together in "sentences" (in a sequential
-pipeline), you can construct meaningful and readable code that, in more plain
-English, describes what you are doing to the data.
+The concept of tidy data also gives rise to "tidy code" for wrangling.
+By using "verbs" (R functions), 
+chaining them together in "sentences" (in a sequential pipeline), 
+you can construct meaningful and readable code that describes 
+in plainer English what you are doing to the data
 
 ## Managing and working with data in R
 
@@ -133,7 +133,8 @@ most tasks can be expressed by a few simple "verbs" (actions).
 Wrangling here is used in the sense of maneuvering, managing, controlling, and
 turning your data around to clean it up, to better understand it,
 and to prepare it for later analyses. 
-The table below lists some common "verbs":
+The table below lists some common "verbs" from the [dplyr] 
+and [tidyr] packages that come from the tidyverse:
 
 ```{r table-wrangling-verbs, echo=FALSE}
 tibble::tribble(
@@ -152,7 +153,10 @@ tibble::tribble(
 ```
 
 The functions above come from the packages [dplyr] and [tidyr].
-Thes packages provide easy tools for most common data manipulation tasks. 
+These packages provide easy tools for most common data manipulation tasks. 
+No other packages have developed such a "language" of wrangling,
+and is the reason we teach them. 
+Plus both packages have excellent documentation and tutorials on how to use them.
 For dplyr, it is built to work directly with data frames 
 (i.e. rectangular data like those found in spreadsheets)
 and has an additional feature to interact directly with data stored in an external
