@@ -87,6 +87,9 @@ If you need help, put the 'need help' sticky up."
 - For the exercises, make sure to get the learners helping each other out in the
 groups.
 
+- Exercise solutions do not need to be covered by the instructor,
+given the solution is provided already.
+
 - Try to keep the screen on your RStudio as much as possible 
 and don't switch applications often, 
 only when you need to go to the course material or to show an exercise.
