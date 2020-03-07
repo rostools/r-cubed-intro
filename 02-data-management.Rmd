@@ -27,8 +27,24 @@ Before we begin this section,
 Afterward, we'll go through it together and discuss it.
 
 The concept of "tidy" data was popularized in an [article] by Hadley Wickham
-and described in more detail in the [Tidy Data chapter] of the R for Data Science online
-book. A tidy dataset is when:
+and described in more detail in the [Tidy Data chapter] 
+of the R for Data Science online book. 
+
+But before we continue with tidy data,
+we need to cover something that is related to the concept of "tidy"
+and that will come up often in this course: the [tidyverse].
+The tidyverse is an ecosystem of R packages that are designed to work well together,
+that all follow a strong "[design philosophy]" and common [style guide].
+This makes them much easier to use together.
+These packages also tend to have excellent, beginner-friendly documentation
+and tutorials on learning and using the packages.
+We teach the tidyverse because of these reasons.
+
+[tidyverse]: https://www.tidyverse.org/
+[design philosophy]: https://design.tidyverse.org/
+[style guide]: https://style.tidyverse.org/
+
+Ok, back to "tidy data". A tidy dataset is when:
 
 - Each variable has its own column (e.g. "Body Weight")
 - Each observation has its own row (e.g. "Person")
@@ -39,7 +55,7 @@ book. A tidy dataset is when:
 
 Take a look at the example "tidy" and "messy" data frames
 (also called "tibbles" in the tidyverse) below.
-These datasets come built in with the tidyr package to use for teaching purpose.
+These datasets come built in with the tidyr package for teaching purpose.
 Think about why each is "tidy" or "messy". 
 What do you notice between the tidy versions and the messier versions?
 
