@@ -4,6 +4,10 @@
 
 > When in RStudio, quickly jump to this page by using `r3::open_data_visualization()`.
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+```
+
 **Session objectives**:
 
 1. Learn and apply the basics of creating publication-quality graphs.
@@ -152,7 +156,7 @@ Since BMI is a strong risk factor for diabetes, let's check out its distribution
 To show distributions, there are two good geoms: 
 `geom_density()` and `geom_histogram()`.
 
-```{r plot-bmi, message=FALSE}
+```{r, message=FALSE}
 ggplot(NHANES, aes(x = BMI)) +
     geom_density()
 ggplot(NHANES, aes(x = BMI)) +
@@ -244,7 +248,7 @@ for each value in a large dataset can take a long time to plot
 Let's check out how BMI may influence cholesterol using a basic scatterplot,
 hex plot, and a smoothing line plot:
 
-```{r plot-bmi-chol, message=FALSE}
+```{r, message=FALSE}
 # Using 2 continuous 
 bmi_chol <- ggplot(nhanes_tidied2, aes(x = BMI, y = TotChol))
 # Standard scatter plot
@@ -467,240 +471,247 @@ ggplot(nhanes_tidy, aes(x = Diabetes, y = Poverty)) +
 
 ## Visualizing three or more variables
 
-- `geom_line()`, which is useful when showing data 
-that is some way related to a previous state (on the x-axis)
+There are many many ways to visualize additional variables to a plot 
+and further explore your data.
+We can use ggplots colours, shapes, sizes, transparency ("alpha"), 
+and fill aesthetics, as well as "facets".
+Facets in ggplot2 are was of splitting the plot up into multiple plots 
+when the underlying aesthetics are the same or similar. 
+In this section, we'll be covering many of these capabilities in ggplot2.
 
-You can also add an additional dimension to the data by using other elements
-(colours, size, transparency, etc) of the graph to represent another variable.
-This is *NOT* the same thing as using 3-dimensional (e.g. with x, y, z axis)
-plots, which should be avoided unless absolutely necessary! Using colours to
-represent discrete groups is useful, or for using shading to represent a range
-in continuous values.
+The most common and "prettiest" way of adding a third variable is by using colour.
+Let's visualize a few examples. Let try to answer a few questions:
 
-```{r plot_3d_colour}
-# Continuous and discrete
-# Note, we can use the pipe %>% to put the data into ggplot
-colour_plot_nums <- NHANES %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = HomeOwn)) 
+*Question*: Is systolic blood pressure different in those with 
+or without diabetes in females and males. 
+In this case, we have one continuous variable (`BPSysAve`)
+and two discrete (`Sex` and `Diabetes`).
+For this plot, we'd maybe use `geom_boxplot()`. 
 
-# Scatter plot
-colour_plot_nums + 
-    geom_point()
-# Smoothing
-colour_plot_nums + 
-    geom_smooth()
-# Continuous and discrete
-colour_plot_mixed <- NHANES %>% 
-    ggplot(aes(x = Gender, y = BPSysAve, colour = HomeOwn)) 
-# Boxplot
-colour_plot_mixed + 
+```{r}
+nhanes_tidied2 %>% 
+    ggplot(aes(x = Sex, y = BPSysAve, colour = Diabetes)) +
     geom_boxplot()
 ```
 
-Or add a fourth variable.
+*Question*: How does BMI relate to systolic blood pressure 
+and how does age relate to these variables?
+Here we have three continuous variables (`BMI`, `BPSysAve`, and `Age`),
+so we could use something like `geom_point()`.
 
-```{r plot_4d_lines_shapes}
-# Scatter plot with alpha (transparency) or size
-colour_plot_nums + 
-    geom_point(aes(alpha = Age))
-colour_plot_nums + 
-    geom_point(aes(size = Age))
-# Smoothing plot
-colour_plot_nums + 
-    geom_smooth(aes(linetype = Diabetes))
+```{r}
+nhanes_tidied2 %>%
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    geom_point()
 ```
 
-You can also add another variable dimension by "facetting", which means splitting
-the data up by the variable and plot by that variable.
+*Question*: How does BMI relate to systolic blood pressure 
+and how does sex relate to these variables?
+In this case, we have two continuous and one discrete (`Sex`).
+We could use `geom_point()`:
 
-```{r plot_facet}
-colour_plot_mixed +
-    geom_boxplot() +
-    # Cols means to have them side by side (horizontal)
-    # vars() is necessary to access variable from dataset
-    facet_grid(cols = vars(SurveyYr))
-# Or by another variable
-colour_plot_mixed +
-    geom_boxplot() +
-    # Rows means to have them stacked vertically
-    facet_grid(cols = vars(SurveyYr), rows = vars(PhysActive))
+```{r}
+nhanes_tidied2 %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Sex)) +
+    geom_point()
 ```
 
-And you can add another geom as a layer on top of the previous one by adding
-(`+`) a geom to the next line.
+But with this plot, 
+it is difficult to make out how sex may be related to these two variables.
+We can add `geom_smooth()` to see how statistical curves differ between sexes.
+And, we can add this geom on top of `geom_point()` by adding another layer:
 
-```{r plot_more_layers}
-# Three layers
-colour_plot_nums + 
+```{r}
+nhanes_tidied2 %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Sex)) +
     geom_point() +
-    geom_smooth() +
-    facet_grid(cols = vars(SurveyYr))
+    geom_smooth()
 ```
 
-### Colours: Make your graph more accessible
+*Question*: How does BMI relate to systolic blood pressure 
+and what is different between those with and without diabetes?
 
-Colour blindness is common in the population, and red-green colour blindness in
-particular affects 8% of men and 0.5% of women. Making your graph more
-accessible to people affected by colour blindness will also usually improve the
-interpretability of your graphs for all people. For more detail on how colours
-look to those with colour-blindness, see this
+```{r}
+nhanes_tidied2 %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Diabetes)) +
+    geom_point()
+```
+
+This one is really hard to see what's different. 
+But there is another way of visualizing a third (or greater) variable:
+with "faceting".
+Faceting splits the plot up into multiple subplots
+and we do that with `facet_grid()`.
+To work, at least one of the first two arguments to `facet_grid()` are needed.
+The first two are:
+
+- `cols`: The discrete variable to use to facet the plot column-wise 
+(i.e. side-by-side)
+- `rows`: The discrete variable to use to facet the plot row-wise 
+(i.e. stacked on top of each other)
+
+For both `cols` and `rows`, the variable given must be wrapped by `vars()`
+(e.g. `vars(Diabetes)`).
+Let's try it with the previous example (instead of using `colour`).
+
+```{r}
+nhanes_tidied2 %>% 
+    ggplot(aes(x = BMI, y = BPSysAve)) +
+    geom_point() +
+    facet_grid(cols = vars(Diabetes))
+```
+
+We can also stack by `SurveyYr` and use `Age` as a colour:
+
+```{r}
+nhanes_tidied2 %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    geom_point() +
+    facet_grid(cols = vars(Diabetes),
+               rows = vars(SurveyYr))
+```
+
+## Colours: Make your graphs more accessible
+
+Colour blindness is common in the population, 
+with red-green colour blindness in particular affecting about 8% of men 
+and 0.5% of women. 
+So to make your graph more accessible to people with colour blindness,
+you need to consider the colours you use.
+For more detail on how colours look to those with colour-blindness, 
+check out this
 [documentation](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) 
-from the [viridis] package. The viridis colour scheme and R package was
-specifically designed to represent data well to all colour visions. There is
-also a really good, informative [talk on
-YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU) on this topic.
+on it from the [viridis] package. 
+The viridis colour scheme (also developed as an R package)
+was specifically designed to represent data to all colour visions
+(including as a grayscale, e.g. from black to white). 
+There is a really good, informative 
+[talk on YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU) on this topic.
 
 [viridis]: https://cran.r-project.org/packages=viridis
 
-When using colours, take time to think about what you are trying to convey in
-your figure and how your choice of colours will be interpreted. You can use
-built-in colour schemes, or set your own. Let's stick to using builtin ones.
-There are two, the viridis and the [ColorBrewer] colour schemes. Both are well
-designed and are colour-blind friendly.
+When using colours, think about what you are trying to convey in your figure 
+and how your choice of colours will be interpreted. 
+You can use built-in colour schemes or create your own. 
+For now, let's stick to using built-in ones.
+There are two: the viridis and the [ColorBrewer] colour schemes. 
+Both are well designed and are colour-blind friendly.
+Let's make a base plot object to work from that has two discrete variables:
 
 [ColorBrewer]: https://colorbrewer2.org/
 
-```{r changing_color_schemes}
-base_boxplot <- NHANES %>% 
-    ggplot(aes(x = HomeOwn, fill = Education)) +
-    geom_bar(position = position_dodge()) 
+```{r}
+base_barplot <- nhanes_tidied2 %>% 
+    ggplot(aes(x = Diabetes, fill = Sex)) +
+    geom_bar(position = position_dodge())
+```
 
-# Add the viridis scheme
-base_boxplot +
-    # _d() is for discrete. _c() is for continuous.
+We'll be using the `scale_` functions for this.
+There are many of these functions and they all have a consistent naming:
+`scale_AES_SETTING()`.
+For instance, 
+we are using `fill`, so it would be `scale_fill_`.
+And since we are using the viridis scheme,
+it would continue to: `scale_fill_viridis`.
+Lastly, because we have discrete variables, 
+we need to tell viridis by adding a `_d` (for discrete) to the end:
+`scale_fill_viridis_d()`.
+This function has several color schemes within it 
+and that we can change by using the `options` argument (it goes from `"A"` to `"E"`).
+
+If we use the ColorBrewer scheme, it would be: `scale_fill_brewer()`.
+This function also has several colour palettes,
+which are viewable by using `RColorBrewer::display.brewer.all()`. 
+The arguments `type` and `palette` in `scale_fill_brewer()` set the palette.
+
+```{r}
+base_barplot +
     scale_fill_viridis_d()
-# Use another viridis color scheme
-# Ranges from A to E
-base_boxplot +
+base_barplot +
     scale_fill_viridis_d(option = "A")
-# Or use the brewer scheme
-base_boxplot +
+base_barplot +
     scale_fill_brewer()
-base_boxplot +
+base_barplot +
     scale_fill_brewer(type = "qual")
+base_barplot +
+    scale_fill_brewer(type = "qual", palette = "Set2")
 ```
 
-See all colour palettes for the Brewer palette, use
-`RColorBrewer::display.brewer.all()`. If you use a `colour = VariableName` in
-`aes()`, you'll need to use `scale_colour_*` (either brewer or viridis).
+To use the colour schemes on a continuous variable, 
+we would have to do a few things.
+First, we'd most likely be using the `colour` aesthetic,
+which means the scale would be `scale_colour_`.
+To tell viridis to use the continuous scale,
+we'd add a `_c` so it would be: `scale_colour_viridis_c()`.
+For ColorBrewer,
+the only difference is using `_distiller` instead of `_brewer`.
+So it would be `scale_colour_distiller()`.
 
-### Exercise: Create a three (or more) variable plots
-
-Time: 10 min
-
-In the `exercises-visualizing.R` script, add a new Section (`Ctrl-Shift-R`) and
-copy the code below into the script. Then, create (with your own data or with
-NHANES) several plots with:
-
-1. Two continuous (x, y) and one discrete variables (colour), with another
-discrete variable as the facet. (Optionally include another layer, like
-smoothing).
-2. Three continuous variables (x, y, and colour), using the viridis colour
-palette for continuous data.
-3. Three discrete variables (x, fill, facet), using the brewer colour palette.
-
-```{r 3d-more-exercise, eval=FALSE}
-# 1. Two continuous, discrete, and one facet.
-ggplot(___, aes(x = ___, y = ___, colour = ___)) +
-    ___ +
-    facet_
-    # Optional: add another layer
-
-# 2. Three continuous, with viridis
-ggplot(___, aes(x = ___, y = ___, colour = ___)) +
-    ___ +
-    scale_
-
-# 3. Three discrete, with brewer
-ggplot(___, aes(x = ___, fill = ___)) +
-    ___ +
-    facet_ +
-    scale_
+```{r}
+base_scatterplot <- nhanes_tidied2 %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    geom_point()
+base_scatterplot +
+    scale_color_viridis_c()
+base_scatterplot +
+    scale_color_viridis_c(option = "C")
+base_scatterplot +
+    scale_color_distiller()
+base_scatterplot +
+    scale_color_distiller(palette = "Reds")
 ```
-
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-```{r 3d-more-answer, eval=FALSE}
-# 1. Two continuous, discrete, and one facet.
-ggplot(NHANES, aes(x = Height, y = Weight, colour = Gender)) +
-    geom_point() +
-    facet_grid(rows = vars(Diabetes))
-    # Optional: add another layer
-
-# 2. Three continuous, with viridis
-ggplot(NHANES, aes(x = Height, y = Weight, colour = Age)) +
-    geom_point() +
-    scale_colour_viridis_c()
-
-# 3. Three discrete, with brewer
-ggplot(NHANES, aes(x = Gender, fill = Education)) +
-    geom_bar(position = position_dodge()) +
-    facet_grid(cols = vars(Diabetes)) +
-    scale_fill_brewer()
-```
-
-</p>
-</details>
 
 ## Titles, axis labels, and themes
 
-There are so so so many options to modify the figure, and they are all basically
-contained in the `theme()` function. Search the help documentation using `?theme`
-or checking out the [ggplot2 website]. There are way too many customizations
-available to show in this session. So we'll instead cover a few of the options
-to give you a sense of how to customize, as well as showing some of the built-in
-themes (starting with `theme_`).
+There are so so so many options to modify a ggplot2 figure.
+Almost all of them are found in the `theme()` function. 
+We won't cover individual theme items,
+since the help with `?theme` 
+and the [ggplot2 theme webpage] already document `theme()` really well.
+So we'll instead cover a few of the built-in themes,
+as well as setting the axis labels and plot title.
+We'll build off of the previously created `base_scatterplot`.
+All built-in themes start with `theme_`.
 
-[ggplot2 website]: https://ggplot2.tidyverse.org/reference/theme.html
+[ggplot2 theme webpage]: https://ggplot2.tidyverse.org/reference/theme.html
 
-```{r plot_themes}
-basic_scatterplot <- NHANES %>% 
-    ggplot(aes(x = Height, y = Weight, colour = Age)) +
-    # use alpha (transparency) since there are so many dots
-    geom_point(alpha = 0.5) +
-    facet_grid(cols = vars(Gender)) +
+```{r}
+base_scatterplot2 <- base_scatterplot +
+    facet_grid(cols = vars(Diabetes),
+               rows = vars(Sex)) +
     scale_color_viridis_c()
 
 # Some pre-defined themes
-basic_scatterplot + theme_bw()
-basic_scatterplot + theme_minimal()
-basic_scatterplot + theme_classic()
-# Adding labels
-basic_scatterplot +
-    labs(title = "Height and weight by age and gender",
-         x = "Height (cm)",
-         y = "Weight (kg)")
-# Edit specific plot items
-basic_scatterplot +
-    # theme is good at warning you if something isn't right
-    # See ?theme for a full list of possible options
-    theme(
-        # background items must use element_rect
-        # panel is the base/bottom layer that all other layers add to
-        panel.background = element_rect(fill = "pink"),
-        # strip is the section showing the facets
-        strip.background = element_rect(fill = "red"),
-        # line items must use element_line
-        # axis is, well the axis
-        axis.line = element_line(colour = "grey50", size = 0.5),
-        # text items must use element_text
-        # legend is the key when using fill, colour, size, etc
-        legend.text = element_text(family = "sans", size = 20),
-        # use element_blank to remove
-        axis.ticks = element_blank()
-    )
+base_scatterplot2 + theme_bw()
+base_scatterplot2 + theme_minimal()
+base_scatterplot2 + theme_classic()
+```
+
+For adding titles to things, the function is `labs()`.
+To change the y-axis title, use the `y` argument in `labs()`.
+For the x-axis, it is `x`.
+For the whole plot, it is `title`:
+
+```{r}
+base_scatterplot2 +
+    labs(title = "BMI, systolic blood pressure, and age by diabetes and sex.",
+         y = "Systolic Blood Pressure (mmHg)",
+         x = "BMI (kg/m2)")
 ```
 
 ## Saving the plot
 
-Now, if you want to save the plot, you can do that like this:
+Finally, to save the plot you created, use the `ggsave()` function.
+The first argument says where to save the graph:
+Give the name of the newly created file,
+as well as the folder location (separate folders with `/`.
+The next argument is the plot you want to save.
+To set the dimensions of the figure, 
+use `width` and `height` arguments.
 
 ```{r, eval=FALSE}
-plot_to_save <- NHANES %>% 
-    ggplot(aes(x = Age, y = BMI)) +
-    geom_point()
-ggsave("plot_to_save.pdf", plot_to_save, width = 7, height = 5)
+ggsave(here::here("doc/images/scatterplot.pdf"), 
+       base_scatterplot2, width = 7, height = 5)
 ```
 
 ## Final exercise: Group work
