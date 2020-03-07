@@ -89,6 +89,21 @@ There are several ways of plotting continuous variables
 For discrete variables (e.g. "male" and "female"), 
 there is really only one way. 
 
+You may notice that since the [data wrangling chapter](wrangling),
+we used the word "column" to describe the columns in the data frame,
+but now we're saying "variable".
+There's a reason for this: ggplot2 really only works with tidy data.
+And if we recall from the definition of tidy data,
+it is made up of "variables" and "observations" for columns 
+and rows of a data frame.
+To us, a "variable" is some that we are interested analyzing or visualizing, 
+and that contains only values relevant to that measurement
+(e.g. a `Weight` variable must only contain values for weight).
+The NHANES dataset is already pretty tidy:
+Rows are participants at the survey year,
+columns are the variables that were measured.
+So, from now on, we called them "variables".
+
 Ok, let's visually explore our data. 
 Open the previously used R Project, 
 then open the `visualization-session.R` script in the `R/` folder. 
@@ -123,17 +138,32 @@ This shows the counts of a discrete variable.
 There are many discrete variables in NHANES.
 Sex is another good variable to examine
 and NHANES also has a diabetes variable, 
-so let's visualize those:
+so let's visualize those. 
+But first, let's fix the `Gender` column to be called `Sex`.
 
-```{r plot-gender-diabetes}
-ggplot(NHANES, aes(x = Gender)) +
+```{r fix-sex-column}
+nhanes_tidied <- NHANES %>% 
+    rename(Sex = Gender)
+```
+
+Now, let's visualize them:
+
+```{r}
+ggplot(nhanes_tidied, aes(x = Sex)) +
     geom_bar()
-ggplot(NHANES, aes(x = Diabetes)) +
+ggplot(nhanes_tidied, aes(x = Diabetes)) +
     geom_bar()
 ```
 
 We can see that for the most part there is equal numbers of females and males.
 And for diabetes, it seems there are some missingness in the dataset.
+Since diabetes status is an important variable for us,
+let's remove all missing values right now.
+
+```{r remove-missing-diabetes}
+nhanes_tidied2 <- nhanes_tidied %>% 
+    filter(!is.na(Diabetes))
+```
 
 Let's take a minute to talk about the commonly used barplots with mean and error bars.
 In all cases, bar plots should only be used for discrete (categorical) data
@@ -182,7 +212,7 @@ hex plot, and a smoothing line plot:
 
 ```{r plot-bmi-chol, message=FALSE}
 # Using 2 continuous 
-bmi_chol <- ggplot(NHANES, aes(x = BMI, y = TotChol))
+bmi_chol <- ggplot(nhanes_tidied2, aes(x = BMI, y = TotChol))
 # Standard scatter plot
 bmi_chol + 
     geom_point()
@@ -199,37 +229,67 @@ based on how many values are in the area of the plot.
 
 ### Two discrete variables
 
-For two discrete variables, there isn't as many options.
+Sadly, for two discrete data, 
+there are as many options available without major data wrangling. 
+The most useful geom for this is `geom_bar()` like before 
+but with an added variable.
+Because `geom_bar()` has a "fill" (coloured inside), 
+we can change that fill based on a variable.
+So let's see what the difference in diabetes status is between sexes.
 
-```{r plot_2d_discr}
+```{r}
 # 2 categorical/discrete
-two_categ <- ggplot(NHANES, aes(x = Education, fill = Diabetes)) 
+# (We can pipe data into ggplot)
+two_discrete <- nhanes_tidied2 %>% 
+    ggplot(aes(x = Diabetes, fill = Sex)) 
 
 # Stacked
-two_categ + 
+two_discrete + 
     geom_bar()
-# Side-by-side by using position_dodge for groupings (e.g. fill)
-two_categ + 
+```
+
+By default, `geom_bar()` will make fill groups stacked on top of each other.
+For this case, it isn't really that useful.
+So let's instead have them side by side. 
+For that, we need to use the `position` argument with a function called
+`position_dodge()`.
+This new function takes the fill grouping variable and "dodges" them 
+(moves them) to be side by side.
+
+```{r}
+two_discrete + 
     geom_bar(position = position_dodge())
 ```
 
 ### Discrete and continuous variables
 
-As with the two continuous variables, there are many options for plotting mixed
-data types.
+When the variable types are mixed (continuous and discrete),
+there are many more geoms available to use.
+A couple good ones are:
 
-```{r plot_2d_mix}
+- `geom_boxplot()`, which makes boxplots that show the median 
+and a measure of range in the data. 
+Boxplots are generally pretty good at showing the spread of data.
+- `geom_jitter()`, which makes a type of "scatter" plot, 
+but for discrete and continuous variables. 
+A useful argument to `geom_jitter()` is called `width`,
+which controls how wide the jittered points go out from the center line.
+This plot is much better than the boxplot since it shows the *actual data*,
+and not summaries like boxplot does.
+When you have lots of data however, it isn't very good.
+- `geom_violin()`, which shows a density distribution (like `geom_density()`).
+This geom is great when there is a lot of data 
+and `geom_jitter()` is just a mass of dots.
+
+Let's see how BMI differs between those with or without diabetes.
+
+```{r}
 # Using mixed data
-two_mixed <- ggplot(NHANES, aes(x = Diabetes, y = TotChol))
+two_mixed <- nhanes_tidied2 %>% 
+    ggplot(aes(x = Diabetes, y = BMI))
 
 # Standard boxplot
 two_mixed + 
-    geom_boxplot()
-# To remove NA, need to remove from data
-# Combine with dplyr:
-NHANES %>% 
-    filter(!is.na(Diabetes)) %>% 
-    ggplot(aes(x = Diabetes, y = TotChol)) +
     geom_boxplot()
 # Better than boxplot, show the actual data!
 two_mixed + 
@@ -237,74 +297,135 @@ two_mixed +
 # Give more distance between groups
 two_mixed + 
     geom_jitter(width = 0.2)
+# Show the distribution with a voilin plot
+two_mixed + 
+    geom_violin()
 ```
 
-### Exercise: Create plots with one or two variables
+The violin plot kind of looks like two stingrays, eh?
 
-Time: 10 min
+## Exercise: Create plots with one or two variables
 
-Create an exercise script by typing in the console
-`usethis::use_r("exercises-visualizing")`. Copy the code below into that script.
-Fill in and complete the code by using either your own data or using the NHANES
-dataset to create a plot with:
+Time: 15 min
 
-1. 1 continuous variable.
-1. 1 discrete variable.
-1. 2 continuous variables.
-1. 2 discrete variables.
-1. 1 continuous and 1 discrete variable.
+Create an exercise script by typing in the Console `usethis::use_r("exercises-visualizing")`.
+Copy and paste the below code into that script.
+Complete as many tasks as you can below.
 
-```{r 2d-exercise, eval=FALSE}
-# See the variables available
-names(___)
+1. Like we did above, remove rows that have missing diabetes 
+and rename `Gender` to `Sex`. 
+Reminder, use `!` to invert a logic condition 
+(from `TRUE` to `FALSE` and vice versa, e.g. for keeping non-missing).
+We do this again in this script to make the script self-contained.
+2. Using `geom_histogram()`, find out what the distribution is the below variables.
+What are most peoples ages for these two variables?
+    a. `Age` (participants age at collection)
+    b. `DiabetesAge` (age of diabetes diagnosis)
+3. Using `geom_bar()`, find out how many people are in each of these discrete variables.
+What can you say about most people for these variables?
+    a. `SmokeNow` (current smoking status)
+    b. `PhysActive` (does moderate to vigorous physical activity)
+4. Using `geom_hex()`, find out how BMI relates to the two blood pressure variables.
+For most people, how much BMI and blood pressure do they have? 
+Do you notice anything about the data from the plots?
+    a. `BPSysAve` (average systolic blood pressure)
+    b. `BPDiaAve` (average diastolic blood pressure)
+5. Using `geom_bar()`, find out how `PhysActive` those with or without `Diabetes` are.
+Put `Diabetes` on the x-axis.
+What can you say based on the data? 
+Note the differences in missingness between groups.
+Don't forget to use `position_dodge()` in the `position` argument.
+6. Using `geom_violin()`, 
+find how `Poverty` levels are different for those with or without `Diabetes`.
+Put `Diabetes` on the x-axis.
+Looking at the distributions, 
+what can you conclude about how poverty may influence diabetes status?
+    - `Poverty`, which is a ratio between income and a poverty threshold. 
+    Smaller numbers mean higher poverty.
 
-# 1 continuous
+```{r exercise-2-var-plots, eval=FALSE}
+# 1. Remove missing diabetes, rename to Sex
+nhanes_tidy <- NHANES %>% 
+    # Filter rows
+    ___(___(___)) %>% 
+    # Rename column
+    ___(___ = ___)
+
+# 2a. Distribution of Age
 ggplot(___, aes(x = ___)) +
-    ___
+    ___()
     
-# 1 discrete
+# 2b. Distribution of DiabetesAge
 ggplot(___, aes(x = ___)) +
-    ___
+    ___()
 
-# 2 continuous
+# 3a. Number of people who SmokeNow
+ggplot(___, aes(x = ___)) +
+    ___()
+
+# 3a. Number of people who are PhysActive
+ggplot(___, aes(x = ___)) +
+    ___()
+
+# 4a. BMI relation to systolic blood pressure
 ggplot(___, aes(x = ___, y = ___)) +
-    ___
+    ___()
+
+# 4b. BMI relation to diastolic blood pressure
+ggplot(___, aes(x = ___, y = ___)) +
+    ___()
     
-# 2 discrete
+# 5. Physically active people with or without diabetes
 ggplot(___, aes(x = ___, fill = ___)) +
-    ___
+    ___(___ = ___())
 
-# 1 continous and 1 discrete
+# 6. Poverty levels between those with or without diabetes
 ggplot(___, aes(x = ___, y = ___)) +
-    ___
+    ___()
 ```
 
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
 
-```{r 2d-answer, eval=FALSE}
-# See the variables available
-names(NHANES)
+```{r answer-2-var-plots, eval=FALSE}
+# 1. Remove missing diabetes, rename to Sex
+nhanes_tidy <- NHANES %>% 
+    # Filter rows
+    filter(!is.na(Diabetes)) %>% 
+    # Rename column
+    rename(Sex = Gender)
 
-# 1 continuous
-ggplot(NHANES, aes(x = Testosterone)) +
-    geom_density()
+# 2a. Distribution of Age
+ggplot(nhanes_tidy, aes(x = Age)) +
+    geom_histogram()
     
-# 1 discrete
-ggplot(NHANES, aes(x = HomeOwn)) +
+# 2b. Distribution of DiabetesAge
+ggplot(nhanes_tidy, aes(x = DiabetesAge)) +
+    geom_histogram()
+
+# 3a. Number of people who SmokeNow
+ggplot(nhanes_tidy, aes(x = SmokeNow)) +
     geom_bar()
 
-# 2 continuous
-ggplot(NHANES, aes(x = BMI, y = BPSysAve)) +
-    geom_point()
+# 3a. Number of people who are PhysActive
+ggplot(nhanes_tidy, aes(x = PhysActive)) +
+    geom_bar()
+
+# 4a. BMI relation to systolic blood pressure
+ggplot(nhanes_tidy, aes(x = BMI, y = BPSysAve)) +
+    geom_hex()
+
+# 4b. BMI relation to diastolic blood pressure
+ggplot(nhanes_tidy, aes(x = BMI, y = BPDiaAve)) +
+    geom_hex()
     
-# 2 discrete
-ggplot(NHANES, aes(x = SmokeNow, fill = Diabetes)) +
+# 5. Physically active people with or without diabetes
+ggplot(nhanes_tidy, aes(x = Diabetes, fill = PhysActive)) +
     geom_bar(position = position_dodge())
 
-# 1 continous and 1 discrete
-ggplot(NHANES, aes(x = Gender, y = Pulse)) +
-    geom_boxplot()
+# 6. Poverty levels between those with or without diabetes
+ggplot(nhanes_tidy, aes(x = Diabetes, y = Poverty)) +
+    geom_violin()
 ```
 
 </p>
