@@ -67,7 +67,9 @@ presurvey_tidy <- presurvey %>%
         expectations_match_syllabus = expectations_match_syllabus %>%
             str_to_sentence() %>%
             str_remove_all("\\.") %>%
-            str_replace(".*(Yes).*", "\\1")
+            str_replace(".*(Yes).*", "\\1"),
+        github_username = github_username %>%
+            str_remove("\\@")
           ) %>%
     filter(!str_detect(github_username, "helenejuel"))
 
