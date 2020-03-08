@@ -8,7 +8,7 @@ build:
     stage: build
     script:
         - R -e "remotes::install_deps(dependencies = TRUE)"
-        - R -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
+        - R -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook', quiet = TRUE)"
     artifacts:
         paths:
             - public
