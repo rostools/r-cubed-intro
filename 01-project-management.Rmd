@@ -15,7 +15,7 @@ and making files
 
 ## What is a project and why use it?
 
-**Take 5 min and read through this section**, then we'll go through it together.
+**Take 5 min and read through this section**.
 
 Before we create a project, we should first define what we mean by "project".
 What is a project? In this case, a project is a set of files that together
@@ -54,21 +54,32 @@ it also makes your life easier too!
 ### RStudio and R Projects
 
 RStudio is here to help us with that by using [R Projects]. 
-RStudio projects make it straightforward to divide your work into multiple contexts, 
-each with their own working directory, workspace, history, and source documents.
+RStudio projects make it easy to divide your work projects into a "container", 
+that have their own working directory, workspace, history, and source documents.
 
 There are many ways one could organise a project folder. 
-We'll be setting up a project folder and file structure using [prodigenr](https://prodigenr.lukewjohnston.com/index.html):
+We'll be setting up a project folder and file structure using [prodigenr](https://prodigenr.lukewjohnston.com/index.html).
+We'll use RStudio's New Project menu item under "File -> New Project".
+We'll call the new project **`LearningR`**.
+Save it on your `Desktop/`.
+See Figure \@ref(fig:prodigenr-project-creation) for the steps to do it:
 
-```{r prodigenr-setup, eval=FALSE}
-prodigenr::setup_project("LearningR")
+```{r prodigenr-project-creation, fig.cap="Creating a new analysis project in RStudio."}
+knitr::include_graphics(here::here("images/rstudio-prodigenr-projects.gif"))
 ```
 
-When we use the `::` colon here, we are saying:
+You can also use the Console, but we won't do that in this session.
+
+```{r prodigenr-setup, eval=FALSE}
+prodigenr::setup_project("~/Desktop/LearningR")
+```
+
+Just a reminder, when we use the `::` colon here, we are saying:
 
 > Hey R, from the prodigenr package use the setup_project function.
 
-This function will then create the following folders and files:
+After we've created a New Project in RStudio,
+we'll have a bunch of new files and folders.
 
 ```
 LearningR
@@ -84,7 +95,8 @@ LearningR
 ├── .gitignore
 ├── DESCRIPTION
 ├── learning-r.Rproj
-└── README.md
+├── README.md
+└── TODO.md
 ```
 
 This forces a specific, and consistent, folder structure to all your work. Think 
@@ -107,6 +119,7 @@ be put in the `doc/` directory (including [R Markdown] files which we will cover
 [later](reproducible-documents)).
 1. Data, raw data, and metadata should be in either the `data/` directory or
 in `data-raw/` for the raw data.
+We'll explain the `data-raw/` folder and creating it later in the lesson.
 1. All R files and code should be in the `R/` directory.
 1. Name all new files to reflect their content or function. Follow the tidyverse 
 [style guide for file naming](https://style.tidyverse.org/files.html).
@@ -117,6 +130,8 @@ For this course, we'll delete the files `fetch_data.R` and `setup.R` in the `R/`
 as well as the `.Rbuildignore` file. 
 For any project, it is **highly recommended** to use [version control],
 which we'll cover in more detail [later](version-control).
+
+[version control]: https://happygitwithr.com/big-picture.html#why-git
 
 ### Exercise: Reading the READMEs
 
@@ -129,7 +144,7 @@ Time: 5 min
 Time: 4 min
 
 Let's take some time to think about file naming. Look at the list of file names
-below. Which file names are good names and which shouldn't you use? We'll
+below. Which file names are good names and which ones shouldn't you use? We'll
 discuss afterwards why some are good names and others are not.
 
 ```
@@ -166,6 +181,7 @@ usethis::use_r("version-control-session")
 usethis::use_r("visualization-session")
 ```
 
+The `usethis::use_r()` command creates R scripts in the `R/` folder.
 As you may tell, the usethis package can be quite handy.
 
 ## RStudio layout and usage
@@ -230,8 +246,8 @@ Notice how we use the `#` to write comments or notes. Whatever we write after
 the "hash" (`#`) means that R will ignore it and not run it. 
 The `c()` command puts values together and `head()` prints the first 6 rows. 
 Both `c()` and `head()` are *functions*. 
-In R, a command is called a functions and are anything that does an *action* 
-and can be recognized by the `()` at the end.
+In R, a command is called a function and is anything that does an *action*.
+It can also be recognized by the `()` at the end of it.
 Functions take an *input* (known as *arguments*) and give back an *output*.
 Each argument is separated by a comma `,`.
 Some functions can take unlimited arguments if they have a `...` as an input
@@ -252,8 +268,8 @@ summary(iris)
 
 ## Using auto-completion in RStudio
 
-To type out objects in R faster, use "Tab-completion" to finish a object name for you.
-As you type out an object name, hit the TAB key to see a list of objects available.
+To type out objects in R faster, use "tab-completion" to finish a object name for you.
+As you type out an object name, hit the "tab" key to see a list of objects available.
 RStudio will not only list out the objects,
 but also shows the possible options and help associated with the object.
 
@@ -263,8 +279,8 @@ Try it out. In the RStudio Console, start typing:
 col
 ```
 
-Then hit TAB. You should see a list of functions to use. 
-Hit TAB again to finish with `colnames()`. 
+Then hit tab. You should see a list of functions to use. 
+Hit tab again to finish with `colnames()`. 
 This simple tool can save so much time and can prevent spelling mistakes.
 
 ## R object naming practices
@@ -286,9 +302,6 @@ So! Here's some tips for writing R code:
 - *Be descriptive* with your names!
 - As with natural languages like English, write as if someone will read your code.
 - Stick to a *[style guide]*.
-- Use Sections (`"Code->Insert Section"` or `Ctrl-Shift-R`) to separate content in
-scripts (like headers in documents).
-
 
 Even though R doesn't care about naming, spacing, and indenting, it really
 matters how your code looks. Coding is just like writing. Even though you may go
@@ -297,14 +310,22 @@ write correctly so others can understand, *and read*, what you are trying to
 say. In coding, brainstorming is fine, but eventually you need to code in a
 readable way. That's why using a [style guide] is really important.
 
+Another useful thing to do to make your R script more readable 
+and understandable is to use "Sections".
+They're like "headers" in Word and they split up an R script into sections,
+which then show up when you use the "Document Outline". 
+You can use sections through the menu item (`"Code->Insert Section"`)
+or with the keyboard shortcut (`Ctrl-Shift-R`).
+
 ## Exercise: Make code more readable
 
 Time: 15 min
 
 Briefly scan through the [style guide] in the link.
 Then try to make the below code more readable. 
-Copy and paste these text into the `R/project-session.R` file.
-**NOTE**: *Don't* run these code, just edit them to be better named.
+Copy and paste the code below into the `R/project-session.R` file.
+**NOTE**: *Don't* run this code, just edit it to improve the code style 
+and object naming.
 There are some tricks in here that we haven't covered yet,
 but will when we go through the exercise.
 
@@ -344,7 +365,7 @@ The old code is in comments and the better code is below it.
 ```{r ex-wrong-code-naming-answer, eval=FALSE}
 # Object names
 
-# Should be snake case
+# Should be snake case (looks like `snake_case`)
 # DayOne
 day_one
 # dayone
@@ -429,13 +450,14 @@ Then, in other files, source the package loading file in each R script. So:
 usethis::use_r("package-loading")
 ```
 
-In the `package-loading.R` file:
+This will create a new R script in the `R/` folder called `package-loading.R`.
+In this file, add this to the top:
 
 ```{r add-tidyverse-package-loading, eval=FALSE}
 library(tidyverse)
 ```
 
-In the `proj-management.R` file, put this at the top of the file.
+In the `project-session.R` file, put this at the top of the file.
 
 ```{r sourcing-top-of-file, eval=FALSE}
 source(here::here("R/package-loading.R"))
@@ -509,7 +531,7 @@ those who are "more expert" in coding languages like R are skilled mostly
 - Use a consistent [style guide] for code and files
 - Keep R scripts simple, focused, short
 - Use the `here()` function from the [here] package
-- Use Tab auto-completion when writing code
+- Use tab auto-completion when writing code
 - Use `?` to get help on an R object
 
 ## Final exercise: Group work
@@ -523,7 +545,7 @@ For each member of the group:
 run `r3::open_assignment()` in the RStudio Console).
     - Name the project based on your group name.
     - While everyone will create a new project, assign one person as the "coordinator".
-    In the [Version Control](version-control) session, 
+    In the [Version Control session](version-control), 
     this person will use their project folder as the base for the initial tasks 
     of the final exercise.
 - Open up the `README.md` file and write a few sentences about yourself.
@@ -536,7 +558,6 @@ and to create these files:
     usethis::use_r("generate-figures")
     ```
 
-[version control]: /courses/version-control/
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
 [R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 [style guide]: https://style.tidyverse.org/
