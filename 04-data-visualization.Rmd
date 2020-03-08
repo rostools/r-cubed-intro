@@ -148,7 +148,7 @@ then open the `visualization-session.R` script in the `R/` folder.
 This script we will use for the code-along, but not for the exercises.
 First, let's add this to the top of the script:
 
-```{r}
+```{r, eval=FALSE}
 source(here::here("R/package-loading.R"))
 ```
 
