@@ -59,9 +59,10 @@ and why they want to learn R.
 - For most of the sessions,
 there are sections that tell the participants to read on their own.
 Know beforehand where these sections are,
-get them to read over the section,
-and then briefly talk about the section overall.
-But no need to go into a lot of detail... they did just read it.
+get them to read over the section.
+Ask for any questions about what they read, 
+and if you want to elaborate you can, 
+but it's not necessary given they just read it.
 - For the exercises, 
 make sure to get the learners helping each other out in their groups.
 - Exercise solutions do not need to be covered by the instructor,
