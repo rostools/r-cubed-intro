@@ -2,26 +2,27 @@
 
 # For Instructors
 
-![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
+![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
 
 ## Workshop details
 
 ### Instructor and helper number
 
 Recommended number of instructors for a 25-35 class size is about 3-6
-instructors (~1 instructors for every 1-2 sessions). If there are more instructors,
-then less helpers are needed. The recommended combined total number of helpers
+instructors (~1 instructors for every 1-2 sessions). 
+If there are more instructors, then less helpers are needed. 
+The recommended combined total number of helpers
 and instructors is about 6 for a smooth workflow experience for the learners.
 
-### Before course begins
-
-Setting up groups:
+### Setting up teams
 
 Before the introduction session (maybe the day before),
-assign people into groups and create GitHub teams for them using the [ghclass] package.
+assign people into groups 
+and create GitHub teams for them using the [ghclass] package.
+Use the R script `R/create-teams.R` to generate random group names,
+and then assign people to these teams and to repositories.
 
-Generate random names for groups based on tidytext::parts_of_speech$pos and
-praise::praise_parts$adjective
+[ghclass]: https://rundel.github.io/ghclass
 
 ### Before your session
 
@@ -35,14 +36,17 @@ This can be changed in the "Global Options -> Pane Layout"
 
 ### First day
 
-In the room, arrange the tables into groups for each of the groups.
-As participants come in, get them to sit in their assigned group number.
+In the room, arrange the tables into groups for each of the teams.
+As participants come in, get them to sit in their assigned team.
 
-Some time during the session, get them to stand in line and arrange themselves from 
-"complete beginner" to "know a little bit" for R, data analysis, and programming.
-During the introduction, describe the assignment and what's the purpose of the groups.
+During the introduction, introduce all the instructors and helpers.
 
-[ghclass]: https://rundel.github.io/ghclass
+Some time during the introduction session, 
+get them to stand in line and arrange themselves from 
+"complete beginner" to "know a little bit" for R, 
+data analysis, and programming.
+During the introduction, 
+describe the assignment and what's the purposes of the teams.
 
 Before the lunch break, get the groups to have lunch together 
 and introduce each other more. 
@@ -50,50 +54,21 @@ Get them to say their program, if they've used R before,
 some struggles they've had with R and with data analysis in general, 
 and why they want to learn R.
 
-### About the slides
+### Throughout the sessions
 
-The slides 
-
-In the [remark.js] slides, generated from [xaringan], 
-there are additional Notes
-
-See the remark.js list of [keyword shortcuts] for using the slides to better
-make use of them.
-
-## Session specific instructions
-
-### Data management and wrangling
-
-For the first section on "messy" vs "tidy" data, 
-get the learners to read the text themselves, 
-then walk through what it means and why to do it.
-
-## Making use of the stickies
-
-- Check in with the learners to see where they are at by asking something like:
-"Do you see the same thing as is on the screen? 
-If yes, put the 'all good' sticky on your laptop. 
-If no, use the 'need help' sticky."
-- For the reading activities, before starting, ask:
-"Please read this section as instructed. 
-When you are done, put the 'all good' sticky up."
-- For exercises, before starting, ask:
-"Please complete the exercise. When you are done,
-please put the 'all good' sticky up.
-If you need help, put the 'need help' sticky up."
-
-## Other comments
-
-- For the exercises, make sure to get the learners helping each other out in the
-groups.
-
+- For most of the sessions,
+there are sections that tell the participants to read on their own.
+Know beforehand where these sections are,
+get them to read over the section,
+and then briefly talk about the section overall.
+But no need to go into a lot of detail... they did just read it.
+- For the exercises, 
+make sure to get the learners helping each other out in their groups.
 - Exercise solutions do not need to be covered by the instructor,
 given the solution is provided already.
-
 - Try to keep the screen on your RStudio as much as possible 
 and don't switch applications often, 
 only when you need to go to the course material or to show an exercise.
-
 - Be aware of how much space you have on the projector screen 
 and don't let R code go too long. 
 You will likely need to make a newline more often then you would normally typing code.
@@ -116,3 +91,33 @@ For instance, instead of:
 
     This is much more preferable than to have to scroll horizontally.
 
+
+### Making use of the stickies
+
+- Check in with the learners to see where they are at by asking something like:
+"Do you see the same thing as is on the screen? 
+If yes, put the 'all good' sticky on your laptop. 
+If no, use the 'need help' sticky."
+- For the reading activities, before starting, ask:
+"Please read this section as instructed. 
+When you are done, put the 'all good' sticky up."
+- For exercises, before starting, ask:
+"Please complete the exercise. When you are done,
+please put the 'all good' sticky up.
+If you need help, put the 'need help' sticky up."
+
+## Lesson material details
+
+### About the slides
+
+The slides are generated from the [xaringan] R package,
+which uses [remark.js].
+In the slides, there are Notes that you can read 
+either by going to the source `.Rmd` file 
+or by opening the slides and hitting the `p` key.
+To use the slides more efficiently, 
+check out the [remark.js keyword shortcuts].
+
+[remark.js]: https://remarkjs.com/#1
+[xaringan]: https://github.com/yihui/xaringan
+[remark.js keyword shortcuts]: https://github.com/gnab/remark/wiki/Keyboard-shortcuts
