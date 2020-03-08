@@ -10,18 +10,17 @@ knitr::opts_chunk$set(message = FALSE)
 
 **Session objectives**:
 
-1. Learn and apply the basics of creating publication-quality graphs.
+1. Learn and apply the basics of creating publication-quality graphs
 1. Learn about the importance of considering the colours you use in your graphs,
-and apply tools that are colour-blind friendly.
+and apply tools that are colour-blind friendly
 1. Learn about and avoid using certain commonly used, 
-but inappropriate graphs for presenting results.
+but inappropriate graphs for presenting results
 1. Create useful graphs such as boxplots, scatterplots, line graphs,
-jitter plots, (appropriate) barplots, and 
+jitter plots, and (appropriate) barplots
 
 ## Basic principles for creating graphs
 
-**Please take ~10 min to read through this section, as well as the next one**
-before we go over it together.
+**Please take ~10 min to read through this section, as well as the next one**.
 
 Making graphs in R is surprisingly easy and can be done with very little code.
 Because of the ease with which to make them,
@@ -56,14 +55,14 @@ Because you are able to describe the components,
 it makes it easier to then implement those "descriptions" into creating a graph.
 There are at least four aspects to using ggplot2 that relate to its "grammar":
 
-- Aesthetics, `aes()`: How data is mapped to the plot, for instance, what
+- Aesthetics, `aes()`: How data are mapped to the plot, for instance, what
 data to put on the x axis, on the y axis, 
 and/or whether to use a colour for a variable.
 - Geometries, `geom_` functions: The visual representation of the data, as a
 layer. This tells ggplot2 how the aesthetics should be visualized.
-For instance should they be shown as points, lines, boxes, bins, or bars?
+For instance, should they be shown as points, lines, boxes, bins, or bars?
 - Scales, `scale_` functions: These control the visual properties of the `geom_` layers.
-For instance, to change the colour of dots from red to blue,
+For instance, to modify the appearance of the axes, to change the colour of dots from red to blue,
 or to use a different colour palette entirely.
 - Themes, `theme_` functions or `theme()`: 
 Directly controls all other aspects of the plot.
@@ -87,8 +86,8 @@ However, there are several major limitations to base R plots from a beginner
 and a user-interface perspective. 
 These limitations are due to the fact that base R plotting was developed:
 
-- By different people over time periods of time
-- By people who were/are mostly in statistics and math
+- By different people over different periods of time
+- By people who were/are mostly in statistics and maths
 - By people who (generally) don't have training in principles of
 software user-design, user-interface, or engineering
 - Without a strong "design philosophy"
@@ -97,7 +96,7 @@ software user-design, user-interface, or engineering
 
 Because of this, base R graphics *generally*:
 
-- Have inconsistent in function and argument naming and documentation
+- Are inconsistent in function and argument naming and documentation
 - Don't place priority on user-friendly documentation 
 that is accessible to a broad range of people
 - Don't have help documentation that is designed with beginners in mind
@@ -114,12 +113,10 @@ One the other hand, ggplot2:
 
 These are the reasons we teach and use ggplot2.
 
-**Ok, now we'll go over this together**.
-
 ## Graph individual variables
 
 Very often you want to get a sense of your data, 
-one variable (a column in a data frame) at a time.
+one variable (i.e. one column in a data frame) at a time.
 You create these plots to see the distribution of a variable
 and visually inspect the data for any problems.
 There are several ways of plotting continuous variables 
@@ -132,15 +129,14 @@ we used the word "column" to describe the columns in the data frame,
 but now we're saying "variable".
 There's a reason for this: ggplot2 really only works with tidy data.
 And if we recall from the definition of tidy data,
-it is made up of "variables" and "observations" for columns 
-and rows of a data frame.
-To us, a "variable" is some that we are interested analyzing or visualizing, 
+it is made up of "variables" (columns) and "observations" (rows) of a data frame.
+To us, a "variable" is something that we are interested in analyzing or visualizing, 
 and that contains only values relevant to that measurement
 (e.g. a `Weight` variable must only contain values for weight).
 The NHANES dataset is already pretty tidy:
 Rows are participants at the survey year,
 columns are the variables that were measured.
-So, from now on, we called them "variables".
+So, from now on, we call them "variables".
 
 Ok, let's visually explore our data. 
 Open the previously used R Project, 
@@ -177,7 +173,7 @@ There are many discrete variables in NHANES.
 Sex is another good variable to examine
 and NHANES also has a diabetes variable, 
 so let's visualize those. 
-But first, let's fix the `Gender` column to be called `Sex`.
+But first, let's fix the `Gender` column to be called `Sex`, since it denotes biological sex (presence of a Y chromosome).
 
 ```{r fix-sex-column}
 nhanes_tidied <- NHANES %>% 
