@@ -20,9 +20,9 @@ During the presentation, you as a group will:
 - Explain anything you liked and would do more of in the future
 
 When your group isn't presenting, 
-you as an audience member will participate in the discuss by:
+you as an audience member will participate in the discussion by:
 
-- Asking questions to *clarify* any thing you may not understand or are confused about
+- Asking questions to *clarify* anything you may not understand or are confused about
 - Give *constructive* feedback on what they could have improved on
 - Give *concrete* suggestions on how they could handle the things they found challenging
 
@@ -33,17 +33,17 @@ especially the final exercise in each session. Before you do any tasks though,
 decide as a group who you want to present the project at the end. 
 We'd recommend assigning one or two people to be the "presenters".
 
-For the group project, your specific tasks are to:
+For the group project, your specific tasks (based on lesson order) are to:
 
 1. Create a project using the "New Project" setup with the necessary files
-(covered in [Project Management](r-project-management.html)).
+(covered in [Management of R Projects](r-project-management.html)).
 2. Find an "open" dataset to use for your analysis and report.
 The dataset can be on anything your group is interested in, 
 but *must* be from an open and online data archive.
-Choose a dataset that isn't too big (maybe *max* 4 Mb).
+Choose a dataset that isn't too big (maybe *max.* 4 Mb).
 3. Download the dataset and put it into the `data-raw/` folder of your project.
 4. Create an R script inside `data-raw/` that cleans up and prepares the raw dataset
-(as covered in [Data Management](data-management.html)).
+(as covered in [Data Management](wrangling.html)).
 Save the new dataset in a folder called `data/`.
 5. Put the project under Git version control, add and commit all the files. 
 Add your assigned GitHub group repository to your project 
@@ -52,12 +52,14 @@ and push ("upload") the repository up to GitHub
     - Update the README with the information from all of your team members 
     and with a short description of your project.
     - Make sure to add the open dataset to your Git repository and upload it to GitHub.
-6. Create an R script in your `R/` folder that generates and saves one or more figures that
-visualize the cleaned dataset (covered in [Data Visualization](data-visualization.html)). 
+6. Create an R script in your `R/` folder that generates 
+and saves one or more figures that visualize the cleaned dataset 
+(covered in [Data Visualization](visualization.html)). 
 Save the figures in a folder called `images/` inside the `doc/` folder.
-7. Create an R Markdown document called `report.Rmd` in the `doc/` folder of your project
+7. Create an R Markdown file named `report.Rmd` in the `doc/` folder of your project
 (covered in [Reproducible Documents](reproducible-documents.html)).
-Do some simple analyses of the dataset in this report file.
+Do some simple analyses of the dataset in this report file 
+and do these tasks:
     - Create section headers (e.g. "Introduction", "Methods", "Results", "Discussion")
     - Write up a basic description of what the dataset is and where you got it
     and what you did to process or analyze the data in a "Methods" section.
@@ -79,8 +81,8 @@ to complete the project over the three days.
 
 - Project on GitHub
 - Used Git
-- Has a good README describing the project and the team
-- Separate "raw data" from "cleaned data"
+- Included a good README describing the project and the team
+- Separated "raw data" from "cleaned data"
 - Used scripts to clean the data
 - Used scripts to generate figures
 - Included R code within an R Markdown file to show results
