@@ -22,10 +22,10 @@ team_suffix <- tidytext::parts_of_speech %>%
     pull(word) %>%
     str_to_sentence()
 
-team_names <- glue::glue("team-{team_prefix}{team_suffix}") %>%
+team_names <- glue::glue("Team{team_prefix}{team_suffix}") %>%
     as.character()
 # team_names_final <- team_names[c(6, 8, 11, 12, 13, 22, 29, 30)]
-team_names_final <- team_names[c(8, 11, 12, 13, 22, 30)]
+team_names_final <- team_names[c(6, 8, 11, 12, 13, 22, 30)]
 
 # Invite members to organization ------------------------------------------
 
