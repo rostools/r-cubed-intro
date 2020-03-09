@@ -543,8 +543,9 @@ For each member of the group:
 - Complete item 1 of the [group assignment](assignment)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
-    - Name the project based on your group name.
-    - While everyone will create a new project, assign one person as the "coordinator".
+    - Name the project the *same* as your team name (we will provide it for you).
+    - For this exercise, every team member should create a new project.
+    - Please assign one person as the "coordinator".
     In the [Version Control session](version-control), 
     this person will use their project folder as the base for the initial tasks 
     of the final exercise.
