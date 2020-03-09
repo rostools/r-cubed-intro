@@ -51,11 +51,11 @@ gh_teams_prep <- presurvey_tidy %>%
 # team_create("r-cubed-2020-03", team_names_final)
 
 library(randomizr)
+set.seed(145213)
 gh_teams_assigned <- gh_teams_prep %>%
     mutate(team = (perceived_skill_score > 1) %>%
                block_ra(conditions = team_names_final) %>%
-               as.character()) %>%
-    select(-perceived_skill_score)
+               as.character())
 
 # team_invite("r-cubed-2020-03",
 #             gh_teams_assigned$github_username,
@@ -64,4 +64,4 @@ gh_teams_assigned <- gh_teams_prep %>%
 # Create repos for teams --------------------------------------------------
 
 # gh_repos <- repo_create("r-cubed-2020-03", team_names_final)
-repo_add_team(gh_repos, gh_teams_assigned$team)
+# repo_add_team(gh_repos, gh_teams_assigned$team)
