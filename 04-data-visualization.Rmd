@@ -708,6 +708,14 @@ as well as the folder location (separate folders with `/`.
 The next argument is the plot you want to save.
 To set the dimensions of the figure, 
 use `width` and `height` arguments.
+But first, we need to create the `doc/images/` folder. 
+We can do this with the fs (for "filesystem") package:
+
+```{r, eval=FALSE}
+fs::dir_create("doc/images")
+```
+
+Ok, now let's save that figure! 
 
 ```{r, eval=FALSE}
 ggsave(here::here("doc/images/scatterplot.pdf"), 
