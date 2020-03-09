@@ -86,7 +86,8 @@ experimental to epidemiology).
 
 While we have these assumptions to help focus the content of the course, if you
 have an interest in learning R but don't fit any of the above assumptions, *you
-are still welcome to attend the course*!! We don't turn anyone away if we can.
+are still welcome to attend the course*! 
+We welcome everyone, up until the course capacity is reached that is.
 
 In addition to the assumptions, we also have a fairly focused scope for teaching
 and expectations for learning. So this may also help you decide if this course
