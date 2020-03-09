@@ -37,23 +37,6 @@ presurvey <- drive_get(id = PRE_SURVEY_ID) %>%
 # nrow(presurvey)
 # View(presurvey)
 
-# presurvey %>%
-#     select(email,
-#            name_from_survey = full_name) %>%
-#     mutate(email_from_survey = email) %>%
-#     full_join(participants %>%
-#                   separate(
-#                       emails,
-#                       into = c("name_from_list", "email"),
-#                       sep = " - "
-#                   )) %>%
-#     filter(
-#         name_from_survey != name_from_list |
-#             is.na(name_from_survey) |
-#             is.na(name_from_list)
-#     ) %>%
-#     View()
-
 presurvey_tidy <- presurvey %>%
     mutate(
         research_position = research_position %>%
@@ -74,4 +57,21 @@ presurvey_tidy <- presurvey %>%
     filter(!str_detect(github_username, "helenejuel"))
 
 # presurvey_tidy %>%
+#     View()
+#
+# presurvey_tidy %>%
+#     select(email,
+#            name_from_survey = full_name) %>%
+#     mutate(email_from_survey = email) %>%
+#     full_join(participants %>%
+#                   separate(
+#                       emails,
+#                       into = c("name_from_list", "email"),
+#                       sep = " - "
+#                   )) %>%
+#     filter(
+#         name_from_survey != name_from_list |
+#             is.na(name_from_survey) |
+#             is.na(name_from_list)
+#     ) %>%
 #     View()
