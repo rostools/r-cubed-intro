@@ -64,7 +64,7 @@ We'll call the new project **`LearningR`**.
 Save it on your `Desktop/`.
 See Figure \@ref(fig:prodigenr-project-creation) for the steps to do it:
 
-```{r prodigenr-project-creation, fig.cap="Creating a new analysis project in RStudio."}
+```{r prodigenr-project-creation, fig.cap="Creating a new analysis project in RStudio.", echo=FALSE}
 knitr::include_graphics(here::here("images/rstudio-prodigenr-projects.gif"))
 ```
 
