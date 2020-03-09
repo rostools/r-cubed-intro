@@ -285,6 +285,8 @@ This simple tool can save so much time and can prevent spelling mistakes.
 
 ## R object naming practices
 
+**Take 5 minutes and read this section**, and then complete the exercise.
+
 If you've ever seen some old R code,
 you may notice that functions and objects are usually short.
 For instance, `str()` is the function to see the `object_structure()`.
