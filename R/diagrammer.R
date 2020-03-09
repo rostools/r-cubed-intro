@@ -1,1 +1,2 @@
 library(DiagrammeR)
+library(magrittr)
