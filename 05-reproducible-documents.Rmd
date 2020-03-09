@@ -345,43 +345,29 @@ Markdown to HTML conversion.
 
 [^md-to-word]: If you really want to do it, the best way is to create your template in the `.odt`, and then convert to `.docx`. [Here](https://github.com/andrewheiss/Global-Pandoc-files) is a good place to start. 
 
-## Group exercise
+## Final exercise: Group work
 
-Time: Until the end of the session.
+Time: 30 min
 
-Create a group report of what you've done so far.
+It's now time to start putting things together as a report 
+and to present on it later in the afternoon.
 
-Open RStudio and create an `R Markdown` document:
+- As a team, 
+complete item 7 and its subtasks in the [group assignment](assignment.html)
+(to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
+- Distribute the tasks so each team member is (mostly) doing something different.
+- Frequently use the "Git workflow": 
+Add, commit, push, and pull the changes you've made.
+    - You'll likely deal with merge conflicts, 
+    which is a good chance to practice with Git more.
+- Try to "knit" your document to HTML often, 
+to make sure the analysis is reproducible.
+    - **Note**: For now, *don't* add and commit the HTML report.
 
-**File -> New File -> R Markdown**
-
-Save the file in `doc/` and name the file `assignment.Rmd`. In the R Markdown
-document, include the following "Header 1" `#` sections:
-
-- Abstract
-- Introduction
-- Material and Methods
-- Results
-- Discussion
-- Conclusion
-
-(You don't have to actually fill these out for the assignment.) Compile it by
-pressing the icon `Knit to HTML` or by typing `Ctrl-Shift-K`. Then:
-
-- Write some random words below the **Abstract section**, while using bold and
-italics.
-- Include an unnumbered list below **Introduction** listing two or three fake
-objectives.
-- Include a "Header 2" (`##`) called "Statistical analysis" below "Material and
-Methods".
-
-Compile ("knit") the document again and see what happens. 
-
-Then, add some R code chunks with code to wrangle your data and also to create a
-figure (you can copy and paste from previous sessions). Include these code chunks
-in the "Results" section. During the group work sessions, you can use this as a
-template for the assignment.
-
-## References
-
-Include this header to list the bibliography.
+Once you as a team are happy with the report, figures, and tables,
+make sure that everyone does a final add-commit-push to your GitHub repository.
+Then, designate someone to pull from GitHub, 
+knit the `.Rmd` document to create the HTML file,
+then add-commit-push that file to GitHub.
+You should now be ready to present your report!

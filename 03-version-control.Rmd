@@ -157,30 +157,6 @@ During the session we'll go over this image that goes over the different
 We won't be using the Git commands listed in the image. They are there for
 reference.
 
-```{r git-stages, eval=FALSE, echo=FALSE}
-source(here::here("resources/diagrammer.R"))
-# Need to generate manually
-git_stages <- mermaid("
-sequenceDiagram
-    participant U as Untracked
-    participant W as Working
-    participant S as Staged
-    participant H as History
-    U->>S: git add
-    W->>S: git add
-    W->>H: git commit filename
-    S->>H: git commit
-    H->>W: git checkout
-") 
-html_print(git_stages, viewer = NULL) %>% 
-    webshot(
-        here::here("images/git-stages.png"),
-        vwidth = 850,
-        vheight = 550,
-        cliprect = "viewport"
-    )
-```
-
 <img src="/img/git-stages.png" alt="Stages of Git tracking" />
  
 ### Git "remotes" (GitHub) overview
@@ -191,39 +167,37 @@ is a location for the Git repository other than the one you are working on. So
 in this case, the GitHub location of your repository is called the remote. A
 remote can be anywhere, including on other version control services like GitLab.
 
-```{r git-remotes, eval=FALSE, echo=FALSE}
-# Need to generate manually
+Steps:
 
-mermaid("
-graph TB
-  A(GitHub) --> B('Local':<br>Your computer)
-  B --> A
-  A --> C('Local':<br>Collaborator's<br>computer)
-  C --> A
-")
+1. RStudio create from GitHub
+2. Copy and paste folder contents into this newly created project
+3. Add, commit.
+4. Push to GitHub and confirm it pushed.
 
-git_remotes <- mermaid("
-sequenceDiagram
-    participant W as Working
-    participant S as Staged
-    participant H as History
-    participant R as GitHub
-    W->>S: git add
-    W->>H: git commit filename
-    S->>H: git commit
-    H->>W: git checkout
-    H->>R: git push
-    R->>W: git pull
-") 
-html_print(git_remotes, viewer = NULL) %>% 
-    webshot("static/img/git-remotes.png", vwidth = 850, vheight = 550, cliprect = "viewport")
-```
+For both "owners" and "collaborators"
 
-<img src="/img/git-remotes.png" alt="Remotes and the links between repositories." />
+## Final exercise: Group work
 
-```{r, eval=FALSE}
-source(here::here("resources/diagrammer.R"))
-grViz("
-      ")
-```
+Time: 30 min
 
+For this exercise, you as a group will upload your group project folder to GitHub.
+We've already created a team repository for you 
+(which you should already have access to).
+From this point on you'll use Git and GitHub to collaborate on your project.
+
+- During the R project session's final exercise on the first day, 
+you designated a "coordinator" in your group. 
+For this task, 
+the coordinator needs to link their project to the team's GitHub repository 
+and upload (push) their project files to GitHub.
+- After the coordinator has done this, 
+each team member must "clone" (download) 
+the updated project using RStudio's interface
+("File -> New Project -> Version Control -> Git").
+Then they need to take any files they worked on in their old project folder
+and move them into the newly created Git repository.
+Then add, commit, and push those file changes to GitHub.
+    - You'll likely have to deal with Merge Conflicts at this point. 
+    We'll be here to help out.
+- Then complete item 5 and its subtasks in the [group assignment](assignment.html)
+(to jump quickly to the assignment, 
