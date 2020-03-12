@@ -22,9 +22,8 @@ and `pivot_wider()`).
 
 ## "Messy" vs. "tidy" data
 
-Before we begin this section, 
-**take 5 min to read through this *"Messy" vs "tidy" data* section**.
-Afterward, we'll go through it together and discuss it.
+**Take 10 min to read through this *"Messy" vs "tidy" data* section
+and the *Managing and working with data in R* section**.
 
 The concept of "tidy" data was popularized in an [article] by Hadley Wickham
 and described in more detail in the [Tidy Data chapter] 
@@ -103,7 +102,7 @@ in plainer English what you are doing to the data
 
 ## Managing and working with data in R
 
-**Take 5 min and read through this section**, then we'll go through it together.
+**Take 5 min and read through this section**.
 When working with data, there are a few principles to follow:
 
 - **Never** edit raw data and save it in a separate location 
@@ -181,18 +180,24 @@ than having to run the wrangling code every time you want to work with the data.
 We're going to use the US [NHANES] dataset to demonstrate the wrangling functions. 
 There is an [NHANES package] that contains a teaching version of the original dataset, 
 so we'll use that for this lesson. 
-First, make sure the R Project you created previously is open. Then open
-the `R/wrangling-session.R` script to start typing out the next code. We'll use
-this file to write the code for this session (but not for the exercises).
+First, make sure the R Project you created previously is open. 
+Then open the `R/package-loading.R` script, add the dataset package to the file,
+so it looks like:
+
+```{r}
+library(tidyverse)
+library(NHANES)
+```
+
+Then open the `R/wrangling-session.R` script to start typing out the next code. 
+We'll use this file to write the code for this session (but not for the exercises).
 
 [NHANES]: https://www.cdc.gov/nchs/nhanes/index.htm
 [NHANES package]: https://CRAN.R-project.org/package=NHANES
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=-1:2}
 # Load up the packages
-# tidyverse contains the dplyr and tidyr packages
-library(tidyverse)
-library(NHANES)
+source(here::here("R/package-loading.R"))
 
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
@@ -340,7 +345,7 @@ We can make use of a very powerful tool called piping (with the `%>%` function).
 
 ## Chaining functions with the pipe
 
-**Take 5 minutes and read this section** before we go over it together.
+**Take 5 minutes and read this section** before we continue.
 
 A key component of the tidy data and tidy code concept is making use of the `%>%` operator.
 This operator allows you to "pipe" the output from one function to the
@@ -479,7 +484,6 @@ NHANES %>%
 # 2. Rename columns
 NHANES %>%
     rename(DiabetesAgeOfDiagnosis = DiabetesAge, Sex = Gender)
-
 
 # 3. Re-write with pipe
 NHANES %>% 
@@ -767,7 +771,7 @@ This is something to be careful about. So always check your calculations!
 ## Split-apply-combine: Summarizing data
 
 **Take 5 min to read through parts of this section**, 
-before we go through it together.
+before we continue.
 
 Summarizing or applying simple (or complex) statistics to data is 
 (obviously) a key component of any analysis.

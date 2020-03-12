@@ -283,8 +283,6 @@ bmi_chol +
     geom_smooth()
 ```
 
-
-
 ### Two discrete variables
 
 Sadly, for two discrete variables, 
@@ -624,7 +622,6 @@ we need to tell viridis by adding a `_d` (for discrete) to the end:
 `scale_fill_viridis_d()`.
 This function has several color schemes within it, which
 we can choose by using the `options` argument (it goes from `"A"` to `"E"`).
-
 
 ```{r}
 # change colors to a viridis color scheme
