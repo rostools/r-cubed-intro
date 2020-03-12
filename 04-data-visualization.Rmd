@@ -73,7 +73,7 @@ There is a massive amount of features in ggplot2.
 Thankfully, ggplot2 was specifically designed to make it easy to find 
 and use its functions and settings using tab auto-completion.
 As an example, if you type out `geom_` and then hit tab, 
-you will get a list of all the geom's available.
+you will get a list of all the geoms available.
 Likewise with `scale_` and all the options inside `theme()`
 (e.g. type out `theme(axis.` and then hit tab, 
 and a list of theme settings related to the axis will pop up).
@@ -93,7 +93,7 @@ but you can't tell from the name that it does that)
 is not much of a priority, 
 so often the help documentation isn't written with beginners in mind
 - Graphs are built similar to painting on a canvas:
-mMke a mistake and you need to start all over (e.g. restart R)
+Make a mistake and you need to start all over (e.g. restart R)
 
 These limitations are due to the fact that base R plotting was developed:
 
@@ -685,7 +685,7 @@ You can also set the theme for all subsequent plots, by using the `theme_set()` 
 theme_set(theme_bw())
 ```
 
-For adding lables to things, such as axis titles, the function is `labs()`.
+For adding labels to things, such as axis titles, the function is `labs()`.
 To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`.
 For the whole plot, it is `title`:
