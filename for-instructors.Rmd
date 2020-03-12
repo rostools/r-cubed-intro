@@ -8,7 +8,7 @@
 
 ### Instructor and helper number
 
-Recommended number of instructors for a 25-35 class size is about 3-6
+The recommended number of instructors for a 25-35 class size is about 3-6
 instructors (~1 instructors for every 1-2 sessions). 
 If there are more instructors, then less helpers are needed. 
 The recommended combined total number of helpers
@@ -72,7 +72,7 @@ and don't switch applications often,
 only when you need to go to the course material or to show an exercise.
 - Be aware of how much space you have on the projector screen 
 and don't let R code go too long. 
-You will likely need to make a newline more often then you would normally typing code.
+You will likely need to make a new line more often then you would normally typing code.
 For instance, instead of:
 
     ```r
@@ -113,7 +113,7 @@ If you need help, put the 'need help' sticky up."
 
 The slides are generated from the [xaringan] R package,
 which uses [remark.js].
-In the slides, there are Notes that you can read 
+In the slides, there are notes that you can read 
 either by going to the source `.Rmd` file 
 or by opening the slides and hitting the `p` key.
 To use the slides more efficiently, 
