@@ -83,27 +83,29 @@ So, why do we teach ggplot2 and not base R plotting?
 Base R plotting functionality is quite good and you can make really nice,
 publication-quality graphs.
 However, there are several major limitations to base R plots from a beginner
-and a user-interface perspective. 
+and a user-interface perspective: 
+
+- Function and argument naming and documentation are inconsistent 
+and opaque (e.g. the `cex` argument, in *certain but not all functions*, 
+magnifies text and symbols, 
+but you can't tell from the name that it does that)
+- User-friendly documentation that is accessible to a broad range of people
+is not much of a priority, 
+so often the help documentation isn't written with beginners in mind
+- Graphs are built similar to painting on a canvas:
+mMke a mistake and you need to start all over (e.g. restart R)
+
 These limitations are due to the fact that base R plotting was developed:
 
 - By different people over different periods of time
 - By people who were/are mostly in statistics and maths
 - By people who (generally) don't have training in principles of
 software user-design, user-interface, or engineering
-- Without a strong "design philosophy"
-- During a time when auto-completion didn't really exist or was sub-optimal
-(so short function and object names were important)
+- Without a strong "design philosophy" to guide development
+- During a time when auto-completion didn't really exist or was sub-optimal,
+so short function and object names were more important than they are today
 
-Because of this, base R graphics *generally*:
-
-- Are inconsistent in function and argument naming and documentation
-- Don't place priority on user-friendly documentation 
-that is accessible to a broad range of people
-- Don't have help documentation that is designed with beginners in mind
-- Are built similar to painting on a canvas: 
-If you make a mistake, you need to start over (e.g. restart R)
-
-One the other hand, ggplot2:
+On the other hand, ggplot2:
 
 - Has excellent documentation for help and learning
 - Has a strong design philosophy that makes it easier to use
@@ -598,6 +600,7 @@ You can use built-in colour schemes or create your own.
 For now, let's stick to using built-in ones.
 There are two: the viridis and the [ColorBrewer] colour schemes. 
 Both are well designed and are colour-blind friendly.
+For this course we will only cover the viridis package.
 Let's make a base plot object to work from, with two discrete variables:
 
 [ColorBrewer]: https://colorbrewer2.org/
@@ -632,32 +635,12 @@ base_barplot +
     scale_fill_viridis_d(option = "A")
 ```
 
-If we use the ColorBrewer scheme, it would be: `scale_fill_brewer()`.
-This function also has several colour palettes,
-which are viewable by using `RColorBrewer::display.brewer.all()`. 
-The arguments `type` and `palette` in `scale_fill_brewer()` set the palette.
-
-```{r}
-# change colors to a ColorBrewer color scheme
-base_barplot +
-    scale_fill_brewer()
-# change colors to another ColorBrewer color scheme
-base_barplot +
-    scale_fill_brewer(type = "qual")
-# change colors to yet another ColorBrewer color scheme
-base_barplot +
-    scale_fill_brewer(type = "qual", palette = "Set2")
-```
-
 To use the colour schemes on a continuous variable, 
 we would have to do a few things.
 First, we'd most likely be using the `colour` aesthetic,
 which means the scale would be `scale_colour_`.
 To tell viridis to use the continuous scale,
 we'd add a `_c` so it would be: `scale_colour_viridis_c()`.
-For ColorBrewer,
-the only difference is using `_distiller` instead of `_brewer`.
-So it would be `scale_colour_distiller()`.
 
 ```{r}
 # scatterplot to work from, with two continuous variables
@@ -670,12 +653,6 @@ base_scatterplot +
 # change colors to another viridis color scheme
 base_scatterplot +
     scale_color_viridis_c(option = "C")
-# change colors to a ColorBrewer color scheme
-base_scatterplot +
-    scale_color_distiller()
-# change colors to another ColorBrewer color scheme
-base_scatterplot +
-    scale_color_distiller(palette = "Reds")
 ```
 
 ## Titles, axis labels, and themes
@@ -706,7 +683,7 @@ base_scatterplot2 + theme_classic()
 ```
 You can also set the theme for all subsequent plots, by using the `theme_set()` function, specifying the theme you want in the parenthesis.
 
-```{r}
+```{r, eval=FALSE}
 # set the theme for all subsequent plots
 theme_set(theme_bw())
 ```
