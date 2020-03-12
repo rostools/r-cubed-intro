@@ -15,73 +15,120 @@ and synchronize those changes to an online repository (GitHub).
 
 ## What is version control?
 
-**Take 5 min and read through this section**, then we'll go through it together.
+**Take 5 min and read through this section**.
 
-![Most common and simplest "version control". Image source from [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)](images/phd-comics-version-control.png)
+!["Final" version of a document, using a common and simple "version control system". Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)](images/phd-comics-version-control.png)
 
-While the above image is teasing a bit,
-it is the most commonly used "version control" most people use.
-How familiar are you with this way of saving your files and keeping track of versions?
+![Filenaming used for the common "version control". Image source: [PhD Comics](https://phdcomics.com/comics.php?f=1323)](images/informal-version-control.gif)
 
-This form of version control is fairly primitive, informal, and very manual.
-However, there are other formal version control systems 
-that automatically manage changes to a file or files. These
-changes are kept as logs in a history, with detailed information on what file(s)
-was changed, what was changed within the file, who changed it, and a message on
-why the change was made.  This is extremely useful, especially when working in
-teams or for yourself 6 months in the future (because you *will* forget things)!
+Does this way of saving files and keeping track of versions look familiar?
+While the above images are teasing a bit,
+there is truth to is: it is the most commonly used "version control".
 
-To understand how incredibly powerful version control is, think about
-these questions (or refer to the comic above!): How many files of different
-versions of a manuscript or thesis do you have laying around after getting
-feedback from your supervisor or co-authors? Have you ever wanted to experiment
-with your code or your manuscript and need to make a new file so that the
-original is not touched? Have you ever deleted something and wish you hadn't?
-Have you ever forgotten what you were doing on a project?  All these problems
-are fixed by using version control (git)! There are so many good reasons to use
-version control:
+This form of version control, while common,
+is fairly primitive, informal, and very manual.
+It isn't ideal because it requires making multiple copies of the same file, 
+even if changes made are done to only one small part of the file. 
+This approach also makes it difficult to find specific changes done.
 
-- Claim to first discovery
-- Defend against fraud
-- Evidence of contributions and work
-- Easily keep track of changes to files
-- Easy collaboration
-- Organized files and folders
-- Less time findings things
+There are, however, formal version control systems 
+that automatically manage changes to a file or files. 
 
-In this session we are going to go over a typical workflow. This could be either
-a solo workflow or a collaborative workflow. It will also mostly entirely be
-done through RStudio.
+These formal version control systems take snapshots of changes done to files,
+which usually called "revisions" or "commits". 
+These "commits" record what was changed since the previous "commit".
+When you make these "commits",
+you have to create a short message on what or why you made change.
+These "commits" are stored as a log entry in a history.
+This history then has all this information,
+for each commit,
+on what file or files were changed, 
+what was changed within the file(s), 
+who changed it, and the short message about the change.
+This is extremely useful, 
+especially when working in teams 
+or for yourself 6 months in the future 
+(because you *will* forget things),
+since you can go back and quickly see what happened and why.
+
+To understand how incredibly powerful version control is, 
+think about these questions (or refer to the comic above!): 
+
+- How many files of different versions of a manuscript 
+or thesis do you have laying around after getting feedback from your supervisor 
+or co-authors? 
+- Have you ever wanted to experiment with your code 
+or your manuscript 
+and need to make a new file so that the original is not modified? 
+- Have you ever deleted something and wish you hadn't?
+- Have you ever forgotten what you were doing on a project?  
+
+All these problems can fixed by using formal version control! 
+There are so many good reasons to use version control, especially in science:
+
+- Transparency of work done (to demonstrate or substantiate your scientific claim)
+- Claim to first discovery (you have a timestamped history of your work)
+- Defend against fraud (because of the transparency)
+- Evidence of contributions and work (who does what is tracked)
+- Easily keep track of changes to files (by looking at the history of changes)
+- Easy collaboration (because you can work on a single file/folder rather than emailing versions around)
+- Organized files and folders (one single project folder and one single file, rather than multiple)
+- Less time findings things (because everything is organized)
+
+In this session we'll be covering a version control tool called [Git].
+While Git on its own can be quite difficult to use, 
+RStudio thankfully has an amazing and straight-forward integration to it.
+
+[Git]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
 ## What is Git?
 
-TODO: Add image.
+Git is one of several version control system tools available.
+It was developed to help the software programmers 
+to develop and manage their work on [Linux]
+(an operating system like Mac or Windows).
+Sadly, it was designed by and for software programmers 
+and not for non-programmer users (like us!).
+So why do we teach it? 
+Because there are so many great features of Git that fit with how science 
+and data analysis is done!
 
-From [xkcd](https://xkcd.com/1597/) here /img/xkcd-git.png
-
-Git is a version control system and program. It contains many commands that you
-can use to track and manage your files and changes to those files. It has many
-features that make it ideal at tracking changes and for use in collaborative
-settings. But because it was created by [Linux developers](https://en.wikipedia.org/wiki/Linus_Torvalds),
-it isn't always easy to understand or use. If it's so hard to learn, why should
-you learn Git? Well, because:
-
+- Like R, it is open source, so it's free and anyone can check that the code is correct
 - It is very popular
-- It has a very large online community that provide support, documentation, and
-tutorials
-- Most open source work is done with Git on [GitHub] (which is an online Git
-hosting service)
-- Many open scientific projects use Git
-- RStudio has great integration with Git and a really nice interface
-
-1. To know that learning version control is an investment and is *very worth it*
-to learn as it pays off *very well* in the future
+and so has a very large online community that provides support, 
+documentation, and tutorials on how to use it
+- The vast majority of open source work, like developing R packages,
+is done using Git and is hosted on [GitHub],
+which is a company that hosts Git "repositories" (i.e. projects) online
+    - All RStudio code and tidyverse packages are on GitHub
+- There are many open scientific projects that use Git and are hosted on GitHub,
+e.g. [rOpenSci](https://github.com/ropensci) organization,
+[MRC Integrated Epidemiology Unit](https://github.com/MRCIEU)
+- RStudio has an amazing interface and integration with Git
 
 [GitHub]: https://github.com/
 
+While learning Git and version control can be difficult 
+and have a steep learning curve,
+like learning R,
+it is ultimately an investment into your future productivity 
+and effectiveness as a researcher.
+It is *very much worth it* to learn and use it as often as you can.
+
 ## Basics of Git
 
-Let's do a quick check to see that everyone has Git properly set up. 
+How Git works is by tracking changes to files *at the project level* 
+(i.e. for every R Project).
+So you won't track your entire, for instance, `My Documents/` folder.
+When file changes are saved and put into the history,
+this history is called a "repository" (also called a "repo" for short). 
+We'll explain what a repository is more later.
+
+For every project we need to setup 
+and associate a Git repository with the project folder.
+Before you continue, 
+go into your `LearningR` R Project
+and do a quick check to make sure that everyone has Git properly set up. 
 Run this function in your RStudio Console:
 
 ```{r, eval=FALSE}
