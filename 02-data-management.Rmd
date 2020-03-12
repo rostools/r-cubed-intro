@@ -50,7 +50,7 @@ Ok, back to "tidy data". A tidy dataset is when:
 - Each observation has its own row (e.g. "Person")
 - Each value has its own cell (e.g. "Body weight for a person at a specific date")
 
-[article]: https://www.jstatsoft.org/v59/i10/paper.
+[article]: https://www.jstatsoft.org/v59/i10/paper
 [Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
 
 Take a look at the example "tidy" and "messy" data frames
@@ -90,14 +90,14 @@ Tidy data has a few notable benefits:
 
 1. Time spent preparing your data to be tidy from the beginning can save days
 of frustration in the long run.
-2. "Tidy data" is a conceptual framework that allows you to easy build off 
+2. "Tidy data" is a conceptual framework that allows you to easily build off 
 and wrangle (i.e. "manipulate", "clean up", "manage") data in simpler 
 and easy to interpret ways, 
 especially when used within the framework of the tidyverse.
 
 The concept of tidy data also gives rise to "tidy code" for wrangling.
-By using "verbs" (R functions), 
-chaining them together in "sentences" (in a sequential pipeline), 
+By using "verbs" (R functions)
+and chaining them together in "sentences" (in a sequential pipeline), 
 you can construct meaningful and readable code that describes 
 in plainer English what you are doing to the data
 
@@ -206,7 +206,7 @@ Take the time to get familiar with the NHANES dataset.
 
 1. Create a new R script by typing in the RStudio Console
 `usethis::use_r("exercises-wrangling")`. 
-1. Copy the code below and paste into the new exercise file.
+1. Copy the code below and paste it into the new exercise file.
 1. Replace the `___` with the `NHANES` dataset. 
 1. Run each line of code by typing `Ctrl-Enter`.
 
@@ -258,8 +258,8 @@ summary(NHANES)
 
 Selecting columns of a dataset is a very common data wrangling task.
 The function for this task is appropriately called `select()`.
-For the input arguments, it takes the dataset as the first argument 
-(first position after the `(`)
+For the input arguments, it takes the dataset as the first argument,
+which is the first input position right after the opening bracket `(`,
 and then takes the names of the columns you want to select.
 Because the argument after the data argument is `...`, 
 it means that you can add as many columns as you want, separated by a `,`.
@@ -278,7 +278,7 @@ select(NHANES, -HeadCirc)
 
 If some of your columns have similar patterns at the beginning, within, or end,
 you can use the helper functions to choose these columns.
-Use `?select_helpers` (choose the first option in the menu that pops up)
+Use `?select_helpers` (choose the "Select helpers" option in the menu that pops up)
 to read more about these functions and to get help on them. 
 Some more useful helpers are:
 
@@ -441,22 +441,23 @@ where the blank space is.
         select(___)
     ```
     
-1. Copy and paste the below code and fill out the blanks.
+2. Copy and paste the below code and fill out the blanks.
 Rename `DiabetesAge` to be `DiabetesAgeOfDiagnosis` and `Gender` to be `Sex` 
 (gender is the social construct, while sex is biological).
+*Tip*: Recall that renaming is in the form `new = old`.
 
     ```r
     NHANES %>% 
         rename(___ = ___, ___ = ____)
     ```
 
-1. Re-write this bit of code to use the pipe:
+3. Re-write this bit of code to use the pipe:
 
     ```r
     select(NHANES, BMI, contains("Age"))
     ```
 
-1. Read aloud (under your breath or in your head) the below code.
+4. Read aloud (under your breath or in your head) the below code.
 How intuitive is it to read?
 Now re-write this code so you don't need to create the temporary `drug_use` object
 by using the pipe,
@@ -466,6 +467,33 @@ then re-read the revised version. Which do you feel is easier to "read"?
     drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
     rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
     ```
+    
+<details><summary><strong>Click for the solution</strong></summary>
+<p>
+
+```{r, eval=FALSE}
+# 1. Select specific columns
+NHANES %>%
+    select(HomeOwn, TVHrsDay, Diabetes)
+
+# 2. Rename columns
+NHANES %>%
+    rename(DiabetesAgeOfDiagnosis = DiabetesAge, Sex = Gender)
+
+
+# 3. Re-write with pipe
+NHANES %>% 
+    select(BMI, contains("Age"))
+
+# 4. Re-write with pipe
+NHANES %>% 
+    select(Marijuana, AgeFirstMarij) %>% 
+    rename(AgeOfFirstMarijuanaUse = AgeFirstMarij)
+```
+
+</p>
+</details>
+
 
 ## Filter the data by row
 
@@ -503,9 +531,7 @@ filter so that only rows where `Gender` is equal to "female" are kept.
 So, when a row in the `Gender` column has the value "female", that row is kept.
 Otherwise, it is dropped.
 There are other logic comparisons to use.
-Use Table below as a reference for logical conditions in R.
-
-TODO: Check about referencing tables.
+Use Table \@ref(tab:logic-operators) as a reference for logical conditions in R.
 
 ```{r logic-operators, echo=FALSE}
 tibble::tribble(
@@ -526,7 +552,7 @@ tibble::tribble(
 Let's try out a few of these logic conditions with `filter()`.
 
 ```{r}
-# When rows *don't* have female
+# When rows don't have female
 NHANES %>%
     filter(Gender != "female")
 
@@ -558,11 +584,11 @@ FALSE | FALSE
 
 
 ```{r}
-# when BMI is 25 *and* Gender is female
+# when BMI is 25 AND Gender is female
 NHANES %>%
     filter(BMI == 25 & Gender == "female")
 
-# when BMI is 25 *or* gender is female
+# when BMI is 25 OR gender is female
 NHANES %>%
     filter(BMI == 25 | Gender == "female")
 ```
@@ -570,9 +596,9 @@ NHANES %>%
 ## (Re)Arranging the rows of your data by column
 
 You may want to sort your rows by a specific column so that rows
-are arranged so that bigger (or smaller) values are at the top.
+are arranged with bigger (or smaller) values on top.
 Arranging is done by using `arrange()`.
-As again, `arrange()` takes the dataset as the first argument
+Again, `arrange()` takes the dataset as the first argument
 and anything else it uses as the columns to order by.
 By default, arrange orders in ascending order.
 
@@ -658,9 +684,7 @@ NHANES %>%
 ```
 
 We can also have different values based on a logic conditions using `if_else()`.
-Use Table to help with creating the logic condition.
-
-TODO: Add table ref.
+Use Table \@ref(tab:logic-operators) to help with creating the logic condition.
 
 ```{r}
 NHANES %>%
@@ -688,7 +712,7 @@ code to complete the tasks below.
 (*Suggestion*: Create a new "Section"
 in the R script for this exercise by using `Ctrl-Shift-R`).
 
-1. Filter NHANES so only those with BMI more than or equalt to 20 
+1. Filter NHANES so only those with a BMI of more than or equal to 20 
 *and* less than or equal to 40 *and* keep those who have diabetes.
 1. Create a new variable called `UrineVolAverage` by calculating the average
 urine volumne (from `UrineVol1` and `UrineVol2`).
@@ -856,7 +880,8 @@ example_wide <- tribble(
 ) 
 
 example_wide %>% 
-    knitr::kable(caption = "Example **wide** dataset that is useful for data entry.")
+    knitr::kable(caption = "Example of a **wide** dataset that is useful for data entry.",
+                 align = "c")
 ```
 
 However, this type of data is not *tidy* for a few reasons:
@@ -878,7 +903,8 @@ example_wide %>%
     pivot_longer(-PersonID, names_to = "MeasurementTime", values_to = "GlucoseConcentration", 
                  names_prefix = "Glucose_") %>% 
     mutate(MeasurementTime = as.numeric(MeasurementTime)) %>% 
-    knitr::kable(caption = "Example **long** dataset that is more usable for analyses and visualizing.")
+    knitr::kable(caption = "Example of a **long** dataset that is more usable for analyses and visualizing.",
+                 align = "c")
 ```
 
 ### Pivot from wide to long
@@ -890,7 +916,7 @@ The other necessary arguments (in order) are:
 
 1. `cols`: The columns to use to convert to long form. 
 The input is a vector made using `c()` that contains the column names,
-like you would use in `select()` (e.g. can use the `select_helpers` like `starts_with()`,
+like you would use in `select()` (e.g. you can use the `select_helpers` like `starts_with()`,
 or `-` minus to exclude).
 1. `names_to`: The name of the newly created column (as a quoted character) 
 that contains the original column names.
@@ -1065,7 +1091,7 @@ With the remaining time:
 Explore the data and *use all the functions* we've covered in this session to
 better understand the data you'll work with. 
 You can (and probably should) divide exploratory tasks between group members,
-so that you have a good understand *as a group* of the data.
+so that you have a good understanding *as a group* of the data.
 
 > *Tip*: Make use of TAB auto-completion when typing out the dplyr and tidyr
 functions for wrangling the data to speed up your coding and to get help if needed.
