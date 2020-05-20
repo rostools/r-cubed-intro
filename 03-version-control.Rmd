@@ -13,6 +13,21 @@ View changes to files, record and save those changes to a history,
 and synchronize those changes to an online repository (GitHub).
 1. Use GitHub to collaborate with others on a project.
 
+# Outline
+
+- What is and why use
+- Git as version control, why Git?
+- Pic of workflow
+- RStudio and Git interface and using it
+- Git workflow (pic)
+    - Edit, Add, commit, check history/status
+    - States (working, staged, history)
+- Exercise to practice
+- Collaborating using GitHub and using RStudio to "clone" repo
+- Remotes, pushing, pulling (plus pic)
+- Exercise
+- Final exercise group work
+
 ## What is version control?
 
 **Take 5 min and read through this section**.
@@ -67,7 +82,7 @@ All these problems can fixed by using formal version control!
 There are so many good reasons to use version control, especially in science:
 
 - Transparency of work done (to demonstrate or substantiate your scientific claim)
-- Claim to first discovery (you have a timestamped history of your work)
+- Claim to first discovery (you have a time-stamped history of your work)
 - Defend against fraud (because of the transparency)
 - Evidence of contributions and work (who does what is tracked)
 - Easily keep track of changes to files (by looking at the history of changes)
@@ -140,8 +155,7 @@ You shouldn't get an error and it should show your email and name.
 - Set up a Git repository in your project
 - Tell Git to track a file by preparing it to be saved to the history
 - Record a message on what you are preparing to save to the history and then save it
-- 
-
+ 
 Other things you'd do with Git:
 
 - Check what's been changed or added in files since the last save
@@ -155,10 +169,22 @@ called "push" (upload) and "pull" (download).
 Set up a Git repository. (e.g. by checking box to start a Git repo when creating an R project,
 automatically with prodigenr or with `usethis::use_git()`).
 
+FORM MERELY USEFUL
+
+Some questions to think about as you practice making commits:
+
+- How often should you create new commits after making changes?
+    - It's best to create commits fairly frequently, so that you have a good snapshot of your progress. If changes need to take effect at the same time on a group of files, you should commit them together; if changes are unrelated, it's a good idea to separate them into their own commits.
+- What makes a good version control commit message?
+    - A good commit message is succinct but meaningful. While many
+developers can easily slip into commit messages like "@)#(*&#@)(*!", it's
+worth the extra few seconds to type something meaningful, especially for our
+next task: examining previous versions of files.
+
 ## Setting up a Git repository
 
-First off, *what is the Git repository?* Remember how your project folder is set
-up. There are actually several hidden files for Mac or Linux users or files
+First off, *what exactly is the Git repository?* 
+Remember how your project folder is set up. There are actually several hidden files for Mac or Linux users or files
 starting with `.` for Windows users. There are two important files/folders that
 relate to Git, the `.gitignore` file and the `.git/` folder:
 
@@ -197,16 +223,41 @@ During the session we'll go over this image that goes over the different
 "stages" in Git. There are basically four "stages" for files and changes:
 
 1. Untracked files in the working folder.
-2. Tracked (and possibled changed from previous version) files.
+2. Tracked (and possibly changed from previous version) files.
 3. Files that have been changed and have been put into the "staging" area.
 4. File changes stored in the history.
 
 We won't be using the Git commands listed in the image. They are there for
 reference.
 
-<img src="/img/git-stages.png" alt="Stages of Git tracking" />
- 
-### Git "remotes" (GitHub) overview
+```{r image-git-stages, echo=FALSE, fig.cap="The different stages of files and folders when using Git."}
+knitr::include_graphics(here::here("images/git-stages.png"))
+```
+
+## The Git workflow
+
+FROM MU
+
+In the previous section, we set up an online copy of our project repository.
+This wasn't too risky because our repository didn't have any large file or
+confidential information. However, for some projects, that will be the case,
+which is why it's important to think carefully before creating an online
+repository.
+
+Consider the following before you put it in an online repository:
+
+- Size
+    - GitHub has file size limits; you won't be *allowed* to upload files of
+    a certain size. Projects with large data files often store their data in
+    other places and then include directions of how to access it in the main
+    project repository.
+- Privacy
+        - If your data includes identifying information or other confidential
+    features, it should be placed in a location with the appropriate security.
+
+## Exercise: Add and commit changes to README
+
+## Git "remotes" (GitHub) overview
 
 When we cover GitHub, we'll need to go over some additional concepts and
 commands. When dealing with GitHub, we have the concept of "remotes". A remote
@@ -222,6 +273,160 @@ Steps:
 4. Push to GitHub and confirm it pushed.
 
 For both "owners" and "collaborators"
+
+FROM MERELY USEFUL
+
+
+To this point, we've used git features to track changes and compare versions
+of files in our project repository. An additional way to use git to manage our
+project is to create a duplicate of our project repository online. As we commit
+changes to the project on our computer, we can periodically update the online
+copy so that we have a backup. Sending changes from our computer to an online
+copy is called "pushing" and if we want to get changes from the online copy to
+our computer, the command is called "pulling." In what follows, we'll set up
+a blank online repository and push and pull changes to and from it.
+
+![remote-image](figures/py-version-control/tmp-remote.jpeg)
+
+We'll be using GitHub as the home for the online copy of the project repository.
+To start, create an empty repository on GitHub by going to the main Github
+page and clicking on the green "New" button on the left. You must be logged in
+for this to work!
+
+You'll be taken to a screen that gives you some options about
+your new repository - because we want it to be blank, leave all the options as
+they are. The only piece you need to fill in is a name for the repository. This
+doesn't have to be the same as the folder on your computer, but for clarity, it
+should be clear that they're related.
+
+
+## Exercise: Push your R files to GitHub
+
+## Downloading (cloning) GitHub repositories with RStudio
+
+## Exercise: Clone the instructor's repository
+
+## Dealing with conflicts
+
+FROM MERELY USEFUL
+
+Even the most careful person will end up making changes in two different copies
+of the same repository and then trying to sync them together. Sometimes git is
+able to resolve the differences on its own, but sometimes the two changes conflict
+and can't be automatically reconciled.
+
+We can create a conflict like this by making changes in our `README.md` file.
+First, make sure that your local repository and Github repository are synced
+up - that you have pushed all your local changes to Github and pulled all your
+Github changes to your local computer.
+
+Then, **on your computer**, make these changes to the `README.md` file:
+
+```
+## Meeting time
+
+- December 21, 2019
+- 18:00 UTC
+```
+
+Commit the changes as we've done before but do **not** push them to Github.
+
+Now, go to your repository on Github, click on the `README.md` file and edit
+it as follows:
+
+```
+## Meeting time
+
+- November 4, 2018
+- 18:00 UTC
+```
+
+Commit the changes.
+
+Now we have conflicting changes in our repository—one in the Github copy
+and one on our local computer copy.
+
+We want to sync our changes by either pushing from the copy on our computer to
+the Github copy or by pulling from the Github copy to our computer. It turns
+out that we can't do the first option (try it and see what happens), so we'll
+have to use the second option, of pulling from Github to our computer. When
+we try this, we should get a few red boxes that pop up saying "Pull failed"
+and/or "Merge failed".
+
+> Note that, when we try to push, we *do* have the option of using a "force
+push" to override whatever changes we made in Github. If you're absolutely
+sure that there's nothing in the Github copy you want, you can try this, but
+it's generally a good idea to pull down the changes and look at the conflict,
+just to make sure.
+
+Because of the conflicting changes we made, the update of our
+local repository failed. Git doesn't know
+which changes we really want and has pushed us into a temporary "conflict"
+state until we tell it specificallly which changes we want.
+
+To do this, click on "View conflict" (should be on the top right of the
+GitKraken window). Click on the file in conflict (`README.md`). This will
+open up a different view, where the two conflicting versions of the file
+are shown side by side. You can check the box picking one version, the other,
+or both, with the combined output shown in the window below. Once you've
+picked what you're happy with, click the "Save" button on the top right, close
+the file by clicking the "X" and finish the update by clicking on
+"Commit and merge" (Figure \@ref(fig:py-version-control-committing)).
+
+```{r py-version-control-committing, echo=FALSE, fig.cap="The Commit Process"}
+knitr::include_graphics("figures/FIXME.png")
+```
+
+## Outline
+
+Show how to create a new project with Git init.
+
+How to write messages.
+
+```{r image-git-stages, echo=FALSE, fig.cap="The three stages files and folders are in when using Git."}
+knitr::include_graphics(here::here("images/git-stages.png"))
+```
+
+### Exercise: Committing to history
+
+Time: 10 min
+
+- Practice the add-commit sequence by adding and 
+committing each of the remaining files in your R project one by one into the Git history.
+    - Make sure to write a meaningful and short message about what you added and why.
+- Once all the files have been added and committed, 
+add a new line to the `R/version-control-session.R` with an R comment (starts with a `#`).
+Type out something like "This will be used for testing out Git".
+
+### "Remotes": Storing your repository online
+
+```{r image-git-remotes, echo=FALSE, fig.cap="The 'remote' vs 'local' repository, or online vs on your computer."}
+knitr::include_graphics(here::here("images/git-remotes.png"))
+```
+
+### Exercise: Clone GitHub repository from RStudio
+
+- Practice 
+
+### Synchronizing with GitHub
+
+TODO: Image of remotes with push and pull
+
+TODO: Image of workflow and stages
+
+### Exercise: Push and pull
+
+### Collaborating using Git and GitHub 
+
+TODO: Image of remotes with collaborator
+
+TODO: Image of conflict
+
+### Exercise: Dealing with merge conflicts
+
+- Open up the 
+
+## Summary of session
 
 ## Final exercise: Group work
 
@@ -246,5 +451,6 @@ and move them into the newly created Git repository.
 Then add, commit, and push those file changes to GitHub.
     - You'll likely have to deal with Merge Conflicts at this point. 
     We'll be here to help out.
-- Then complete item 5 and its subtasks in the [group assignment](assignment.html)
+- Then complete item 5 and its sub-tasks in the [group assignment](assignment.html)
 (to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
