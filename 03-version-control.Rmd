@@ -395,7 +395,8 @@ Time: 10 min
 committing each of the remaining files in your R project one by one into the Git history.
     - Make sure to write a meaningful and short message about what you added and why.
 - Once all the files have been added and committed, 
-add a new line to the `R/version-control-session.R` with an R comment (starts with a `#`).
+add a new line to the `R/version-control-session.R` with an R comment 
+(starts with a `#`).
 Type out something like "This will be used for testing out Git".
 
 ### "Remotes": Storing your repository online
@@ -404,27 +405,65 @@ Type out something like "This will be used for testing out Git".
 knitr::include_graphics(here::here("images/git-remotes.png"))
 ```
 
+TODO: Gif or video of making new github repo
+
+TODO: Gif or video of cloning from RStudio
+
+TODO: Gif or video of pushing and pulling from RStudio.
+
 ### Exercise: Clone GitHub repository from RStudio
 
-- Practice 
+Time: 8 min
+
+- Create a new practice GitHub repository (name it `practice-repo`),
+and include a README file as well (see image above).
+- Create a new RStudio R project of the newly created GitHub repository.
+Clone it to your desktop.
 
 ### Synchronizing with GitHub
 
-TODO: Image of remotes with push and pull
+```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'Pushing' and 'pulling'."}
+knitr::include_graphics(here::here("images/git-remotes-synch.png"))
+```
 
-TODO: Image of workflow and stages
+```{r image-git-stages-with-github, echo=FALSE, fig.cap="Which stages get pushed and pulled."}
+knitr::include_graphics(here::here("images/git-stages-with-github.png"))
+```
+
+TODO: Gif of editing a file in Github
 
 ### Exercise: Push and pull
 
-### Collaborating using Git and GitHub 
+Time: 10 min
 
-TODO: Image of remotes with collaborator
+- Using the `practice-repo` project you just created, 
+open up the `README.md` file in RStudio.
+- Add a one or two sentence simple 
+and fake description of the project to the `README.md` file.
+Add and commit the change. 
+- Push the changes up to GitHub.
+- Confirm that the change was synchronized to your GitHub repository.
+- In the GitHub `practice-repo` repository, 
+directly edit your `README.md` file there.
+Commit the changes.
+- Open up your RStudio `practice-repo` project 
+and pull the changes you made on GitHub.
 
-TODO: Image of conflict
+### Dealing with file conflicts between the local and remote
+
+TODO: Image of conflict, indicating what part is from where.
 
 ### Exercise: Dealing with merge conflicts
 
-- Open up the 
+Time: 10 min
+
+- In your 
+
+### Collaborating using Git and GitHub 
+
+```{r image-git-remotes-collaborate, echo=FALSE, fig.cap="Collaborating with others using Git and Github by having a shared central GitHub repository."}
+knitr::include_graphics(here::here("images/git-remotes-collaborate.png"))
+```
 
 ## Summary of session
 
