@@ -32,6 +32,10 @@ and synchronize those changes to an online repository (GitHub).
 
 ## What is version control?
 
+> This session is more text and reading heavy compared to others sessions.
+This is mostly because this topic requires you to change your normal habits 
+of how you work more than how using R would change your habit.
+
 **Take 5 min and read through this section**.
 
 !["Final" version of a document, using a common and simple "version control system". Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)](images/phd-comics-version-control.png)
