@@ -112,6 +112,13 @@ If you need help, put the 'need help' sticky up."
 
 ## Lesson material details
 
+## Version control
+
+For the reading parts, let them read it first 
+and then walk through the material again, 
+to reinforce importance of version control 
+and doing it formally.
+
 ### About the slides
 
 The slides are generated from the [xaringan] R package,
