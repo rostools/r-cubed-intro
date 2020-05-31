@@ -104,6 +104,8 @@ RStudio thankfully has an amazing and straight-forward integration to it.
 
 ## What is Git?
 
+**Take 5 min and read through this section**.
+
 Git is one of several version control system tools available.
 It was developed to help the software programmers 
 to develop and manage their work on [Linux]
@@ -114,7 +116,8 @@ So why do we teach it?
 Because there are so many great features of Git that fit with how science 
 and data analysis is done!
 
-- Like R, it is open source, so it's free and anyone can check that the code is correct
+- Like R, it is open source, 
+so it's free and anyone can check that the code is correct
 - It is very popular
 and so has a very large online community that provides support, 
 documentation, and tutorials on how to use it
@@ -137,6 +140,8 @@ and effectiveness as a researcher.
 It is *very much worth it* to learn and use it as often as you can.
 
 ## Basics of Git
+
+**Take 5 min and read through this section**.
 
 How Git works is by tracking changes to files *at the project level* 
 (i.e. for every R Project).
