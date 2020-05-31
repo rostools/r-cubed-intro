@@ -1,5 +1,7 @@
 # Version control with Git {#version-control}
 
+TODO: Issue to list tasks to do for final editing pass (e.g. spell check, consistent periods at end of list, etc)
+
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
 > When in RStudio, quickly jump to this page using `r3::open_version_control()`.
