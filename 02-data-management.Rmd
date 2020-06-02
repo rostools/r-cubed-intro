@@ -195,7 +195,7 @@ We'll use this file to write the code for this session (but not for the exercise
 [NHANES]: https://www.cdc.gov/nchs/nhanes/index.htm
 [NHANES package]: https://CRAN.R-project.org/package=NHANES
 
-```{r, message=FALSE, warning=FALSE, eval=-1:2}
+```{r, message=FALSE, warning=FALSE, eval=-(1:2)}
 # Load up the packages
 source(here::here("R/package-loading.R"))
 
