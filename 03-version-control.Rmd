@@ -15,21 +15,6 @@ View changes to files, record and save those changes to a history,
 and synchronize those changes to an online repository (GitHub).
 1. Use GitHub to collaborate with others on a project.
 
-# Outline
-
-- What is and why use
-- Git as version control, why Git?
-- Pic of workflow
-- RStudio and Git interface and using it
-- Git workflow (pic)
-    - Edit, Add, commit, check history/status
-    - States (working, staged, history)
-- Exercise to practice
-- Collaborating using GitHub and using RStudio to "clone" repo
-- Remotes, pushing, pulling (plus pic)
-- Exercise
-- Final exercise group work
-
 ## What is version control?
 
 > This session is more text and reading heavy compared to others sessions.
