@@ -304,85 +304,89 @@ Type out something like "This will be used for testing out Git".
 
 ## "Remotes": Storing your repository online
 
-When we cover GitHub, we'll need to go over some additional concepts and
-commands. When dealing with GitHub, we have the concept of "remotes". A remote
-is a location for the Git repository other than the one you are working on. So 
-in this case, the GitHub location of your repository is called the remote. A
-remote can be anywhere, including on other version control services like GitLab.
+**Take 3 min and read through the next two paragraphs**.
 
-Steps:
+A version control system that didn't include a type of external backup
+wouldn't be a very good system, 
+because if something happened to your computer,
+you'd lose your Git repository.
+In Git, this "external" backup is called a "remote" 
+(meaning it is something that is separate from and in a different location,
+usually online, than the main repository).
+The remote repository is essentially a duplicate copy of the *history* 
+(the `.git/` folder) of your *local* repository (on your computer),
+so when you synchronise with the remote,
+it only copies over the changes made as commits in the history.
 
-1. RStudio create from GitHub
-2. Copy and paste folder contents into this newly created project
-3. Add, commit.
-4. Push to GitHub and confirm it pushed.
-
-For both "owners" and "collaborators"
-
-FROM MERELY USEFUL
-
-
-To this point, we've used git features to track changes and compare versions
-of files in our project repository. An additional way to use git to manage our
-project is to create a duplicate of our project repository online. As we commit
-changes to the project on our computer, we can periodically update the online
-copy so that we have a backup. Sending changes from our computer to an online
-copy is called "pushing" and if we want to get changes from the online copy to
-our computer, the command is called "pulling." In what follows, we'll set up
-a blank online repository and push and pull changes to and from it.
-
-![remote-image](figures/py-version-control/tmp-remote.jpeg)
-
-We'll be using GitHub as the home for the online copy of the project repository.
-To start, create an empty repository on GitHub by going to the main Github
-page and clicking on the green "New" button on the left. You must be logged in
-for this to work!
-
-You'll be taken to a screen that gives you some options about
-your new repository - because we want it to be blank, leave all the options as
-they are. The only piece you need to fill in is a name for the repository. This
-doesn't have to be the same as the folder on your computer, but for clarity, it
-should be clear that they're related.
-
+One of the biggest reasons why we teach Git is 
+because of the popularity of several Git repository hosting sites.
+The most popular one is [GitHub], with another being [GitLab] 
+(which this course is hosted on).
+In this session, we'll be covering GitHub not only because it is very popular,
+but also because the R community is almost entirely on GitHub.
 
 ```{r image-git-remotes, echo=FALSE, fig.cap="The 'remote' vs 'local' repository, or online vs on your computer."}
 knitr::include_graphics(here::here("images/git-remotes.png"))
 ```
 
+[GitHub]: https://github.com/
+[GitLab]: https://gitlab.com/
+
+**Ok, we'll go over this all together now.**
+
+Let's get familiar with GitHub.
+First, open up GitHub in a browser,
+make sure you are logged in, and create a new, 
+empty repository. 
+New repositories can be created by 
+either clicking the green "New" button on the left sidebar
+or by clicking the `+` symbol at the top right to open a menu 
+and selecting the "New repository" item.
+
+You'll be sent to a screen with some options for the new repository.
+For now, type out `learning-github` as a name for the repository
+and leave everything else blank.
+Make the repository "Private" for now.
+
 TODO: Gif or video of making new github repo
+
+Something to consider when using GitHub, 
+especially in relation to health research,
+is that you need to be careful what you save into the Git history
+and what you put up online. Some suggestions are:
+
+- Don't save any personal or sensitive data or files in your Git repository
+- Don't save very large files, like big image files or large datasets
+
+In both cases, it's better to use another tool to store files like that, 
+rather than through Git and GitHub.
+
+Ok, we now have a remote repository to work from.
+In order to get a local copy on your computer,
+you need to download (called "clone") it.
+The easiest way to do that is to use RStudio's 
+"Create Project from Version Control" interface.
+We'll do that now, by "cloning" the GitHub repository from RStudio,
+as detailed in the video below.
 
 TODO: Gif or video of cloning from RStudio
 
-TODO: Gif or video of pushing and pulling from RStudio.
-
-In the previous section, we set up an online copy of our project repository.
-This wasn't too risky because our repository didn't have any large file or
-confidential information. However, for some projects, that will be the case,
-which is why it's important to think carefully before creating an online
-repository.
-
-Consider the following before you put it in an online repository:
-
-- Size
-    - GitHub has file size limits; you won't be *allowed* to upload files of
-    a certain size. Projects with large data files often store their data in
-    other places and then include directions of how to access it in the main
-    project repository.
-- Privacy
-        - If your data includes identifying information or other confidential
-    features, it should be placed in a location with the appropriate security.
-
-
 ## Exercise: Clone GitHub repository from RStudio
 
-Time: 8 min
+Time: 5 min
+
+Get some practice with cloning from GitHub by doing it again with another repository.
 
 1. Create a new practice GitHub repository (name it `practice-repo`),
 and include a README file as well (see image above).
 2. Create a new RStudio R project of the newly created GitHub repository.
 Clone it to your desktop.
 
+TODO: Show image of GitHub and adding README in checklist
+
 ## Synchronizing with GitHub
+
+Making and cloning 
 
 ```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'Pushing' and 'pulling'."}
 knitr::include_graphics(here::here("images/git-remotes-synch.png"))
@@ -394,13 +398,16 @@ knitr::include_graphics(here::here("images/git-stages-with-github.png"))
 
 TODO: Gif of editing a file in Github
 
+TODO: Gif or video of pushing and pulling from RStudio.
+
+
 ## Exercise: Push and pull
 
 Time: 10 min
 
 1. Using the `practice-repo` project you just created, 
 open up the `README.md` file in RStudio.
-2. Add a one or two sentence simple 
+2. Add one or two sentences of a simple 
 and fake description of the project to the `README.md` file.
 Add and commit the change. 
 3. Push the changes up to GitHub.
