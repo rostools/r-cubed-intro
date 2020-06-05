@@ -205,6 +205,8 @@ LearningR
 
 Setting up a Git repository can be done several ways:
 
+TODO: Confirm this is right wording
+
 - When starting a new R Project, the "Initialize Git repository" option can be 
 selected from the "New Projects" setup instructions. 
 - For existing R Projects, you can type in the console `usethis::use_git()`.
@@ -214,41 +216,93 @@ When creating the project from prodigenr, Git is automatically set up.
 ## Using Git in RStudio
 
 Git was initially created to use in the terminal (i.e command-line). 
-However, RStudio has a very nice interface for working with Git,
-so we'll be using that interface for this session.
-While the RStudio interface doesn't provide as much power 
-and features as the terminal,
-it provides nearly all other uses.
+However, because RStudio has a very nice interface for working with Git,
+we'll be using that interface so we don't have to switch to another application.
+While the terminal provides full access to Git's power and features,
+the vast majority of use cases can be done through RStudio's interface.
 
-How to write messages.
+To access the Git interface in RStudio, 
+click the Git icon beside the "Go to" search bar 
+and then click the "Commit..." option (Ctrl-Alt-M).
+So far it should show a bunch of files that we've added 
+and used over the previous sessions.
 
-FORM MERELY USEFUL
+TODO: Image of where Git icon is located.
 
-Some questions to think about as you practice making commits:
+TODO: Image or video of Git interface and explanation.
 
-- How often should you create new commits after making changes?
-    - It's best to create commits fairly frequently, so that you have a good snapshot of your progress. If changes need to take effect at the same time on a group of files, you should commit them together; if changes are unrelated, it's a good idea to separate them into their own commits.
-- What makes a good version control commit message?
-    - A good commit message is succinct but meaningful. While many
-developers can easily slip into commit messages like "@)#(*&#@)(*!", it's
-worth the extra few seconds to type something meaningful, especially for our
-next task: examining previous versions of files.
+In the Git interface, select the `README.md` file. 
+You should see the text in the file, all in green.
+Green means the text has been added.
+Red, which you will see shortly, means text was removed.
+
+Click the "Staged" checkbox besides the `README.md` file 
+to get it ready to be saved into the history.
+The box on the right side is where you type out your "commit" message.
+"Commit" means you save something to the history of changes;
+You "commit" it to the history, like you "commit" something to your own memory.
+
+Before we move on, there are some things to know about how Git works.
+In Git, there are three "states" that a file can be in.
+
+1. The *working folder* state is where all files are, 
+whether they are "untracked" or "tracked".
+Untracked is when Git sees the file, but it has not yet entered the history.
+Tracked is when the file has been saved in the history 
+and Git "watches" it for changes.
+2. The *Staged* state is when a file a change
+compared to the version in the history,
+has been checked into the "Staged" area (by ticking the checkbox),
+3. The *History* or *committed* state is when a "commit" message has been written
+and the file and its changes has been saved into the repository history.
 
 ```{r image-git-stages, echo=FALSE, fig.cap="The three stages files and folders are in when using Git."}
 knitr::include_graphics(here::here("images/git-stages.png"))
 ```
 
-During the session we'll go over this image that goes over the different
-"stages" in Git. There are basically four "stages" for files and changes:
+This system allows us to keep a journal (a *log*) of what has been changed, 
+why it has been changed, who changed it, and when.
+The image below shows an example log of the history of this lesson,
+which makes it easy to get an overview of what is happening in a project.
 
-1. Untracked files in the working folder.
-2. Tracked (and possibly changed from previous version) files.
-3. Files that have been changed and have been put into the "staging" area.
-4. File changes stored in the history.
+TODO: Image of example log. Of r-cubed.
 
-```{r image-git-stages, echo=FALSE, fig.cap="The different stages of files and folders when using Git."}
-knitr::include_graphics(here::here("images/git-stages.png"))
-```
+You may notice that the messages in the log give a bit of detail 
+about why a change was made, though it's not always the case.
+Sometimes a message like "minor edit" is enough,
+because it was a minor edit.
+
+A general tip for writing an effective commit message is that it is 
+*concise but meaningful*.
+Writing down meaningful messages can save you a lot of time in
+the future when you come back to a project after some time
+and forget what you were doing.
+With a well written history you can get a quick idea 
+or reminder about the state of the project.
+
+Let's write a message like "Add initial README file"
+and commit the change.
+After committing, 
+you'll notice that the `README.md` file is no longer on the left side.
+That's because we've put the change into the history.
+We can view the history by clicking the "History" button in the top-left corner
+of the RStudio Git interface.
+Here you can see what has been done in previous commits.
+
+Next, open up the `README.md` file in RStudio using the Files tab.
+At the top of the file, write your name and your field of research.
+Open up the Git interface again (with the Git icon or with Ctrl-Alt-M).
+You should now see the added text in green.
+Alright, let's write a message like "added my name to README file" 
+and commit the change. 
+Go back to the history and see the two commits done in your repository.
+
+A question that may come up is how often should you commit?
+In general, it's better to commit fairly frequently 
+and to commit changes that are related to each other 
+and to the commit message.
+Following this basic principle will make your history easier for you to read
+and make it easier for others as well.
 
 ## Exercise: Committing to history
 
