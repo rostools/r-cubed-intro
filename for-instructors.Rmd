@@ -118,6 +118,8 @@ For the reading parts, let them read it first
 and then walk through the material again, 
 to reinforce importance of version control 
 and doing it formally.
+So give them a heads up that you'll be repeating things,
+specifically to reinforce the concepts.
 
 ### About the slides
 
