@@ -228,7 +228,8 @@ The box on the right side is where you type out your "commit" message.
 You "commit" it to the history, like you "commit" something to your own memory.
 
 Before we move on, there are some things to know about how Git works.
-In Git, there are three "states" that a file can be in.
+In Git, there are three "states" that a file can be in, 
+listed below and summarized in Figure \@ref(fig:image-git-stages).
 
 1. The *working folder* state is where all files are, 
 whether they are "untracked" or "tracked".
@@ -315,7 +316,8 @@ In Git, this "external" backup is called a "remote"
 usually online, than the main repository).
 The remote repository is essentially a duplicate copy of the *history* 
 (the `.git/` folder) of your *local* repository (on your computer),
-so when you synchronise with the remote,
+so when you synchronize with the remote,
+as illustrated in Figure \@ref(fig:image-git-remotes),
 it only copies over the changes made as commits in the history.
 
 One of the biggest reasons why we teach Git is 
