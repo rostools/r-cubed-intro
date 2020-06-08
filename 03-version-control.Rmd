@@ -428,26 +428,86 @@ TODO: Show image of GitHub and adding README in checklist
 
 ## Synchronizing with GitHub
 
-Making and cloning 
+**Take 3 min and read through the next two paragraphs**.
+
+Making and cloning a GitHub repository is the first step to linking a local
+repository to a remote one.
+After that, to keep your GitHub repository synchronized, 
+you need to "push" (upload) and "pull" (download) any changes you make
+to the repository on your computer,
+as demonstrated in Figure \@ref(fig:image-git-remotes-synch).
+It isn't done automatically because Git is designed with having control in mind,
+so you must do it manually.
+Pushing is when changes to the history are uploaded to GitHub 
+while pulling is when the history is downloaded from GitHub.
 
 ```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'Pushing' and 'pulling'."}
 knitr::include_graphics(here::here("images/git-remotes-synch.png"))
 ```
 
+So, when we put the concepts back into the framework of the "states",
+first introduced in section \@ref(basics-of-git),
+pushing and pulling *happen only to the history*.
+Things that you've changed and then saved to the history, 
+either on the remote or the local repository,
+are synchronized from or to GitHub.
+So, as shown in Figure \@ref(fig:image-git-stages-with-github),
+pushing copies the history over to GitHub
+and pulling copies the history from GitHub.
+Changes saved in the history also reflect the working folder
+(the files and folders you actually see and interact with),
+pulling also updates the files and folders.
+
 ```{r image-git-stages-with-github, echo=FALSE, fig.cap="Which stages get pushed and pulled."}
 knitr::include_graphics(here::here("images/git-stages-with-github.png"))
 ```
 
-TODO: Gif of editing a file in Github
+**Alright, let's go over this together and practice the concepts.**
+
+Make sure you are in the `LearningR` R project,
+which should tell you in the top right corner, above the Console pane.
+If you aren't, switch to it by clicking the button in the top right corner
+and selecting the `LearningR` project from the menu.
+Open up the `README.md` 
+and add a random sentence somewhere near the top of the file.
+Save, then open the Git interface (Ctrl-Alt-M or "Git button -> Commit")
+and add and commit the new change.
+Next, click the "Push" button in the top right corner of the Git interface.
+A pop-up will indicate that it's pushing and will tell you when it's done.
 
 TODO: Gif or video of pushing and pulling from RStudio.
+```{r video-rstudio-push-pull, echo=FALSE}
+htmltools::tags$video(src = here::here("images/git-stages.png"))
+```
 
+Now go to your `LearningR` GitHub repository.
+You should see the new change is also on the GitHub repository.
+Click the `README.md` file on the GitHub website
+and then click the "Edit" button (see the video below).
+Add another random sentence somewhere near the top of the file.
+Scroll down to the commit message box, type out a commit message,
+and click the "Commit" button.
+
+TODO: Gif of editing a file in Github
+```{r video-github-edit-file, echo=FALSE}
+htmltools::tags$video(src = here::here("images/git-stages.png"))
+```
+
+TODO: Image of location of commit message in GitHub.
+```{r image-github-edit-commit, echo=FALSE, fig.cap="Code to copy and paste from to link and upload an existing Git repository to GitHub."}
+knitr::include_graphics(here::here("images/git-stages.png"))
+```
+
+Go back to RStudio, open the Git interface 
+and now click the "Pull" button in the top right corner beside the "Push" button.
+Wait for it to finish pulling 
+and check your `README.md` file for the new change.
 
 ## Exercise: Push and pull
 
 Time: 10 min
 
-1. Using the `practice-repo` project you just created, 
+1. Using the `practice-repo` project you created in the previous, 
 open up the `README.md` file in RStudio.
 2. Add one or two sentences of a simple 
 and fake description of the project to the `README.md` file.
@@ -457,9 +517,6 @@ Add and commit the change.
 5. In the GitHub `practice-repo` repository, 
 directly edit your `README.md` file there.
 Commit the changes.
-
-TODO: Video or gif of making an edit to a file on GitHub
-
 6. Open up your RStudio `practice-repo` project 
 and pull the changes you made on GitHub.
 
