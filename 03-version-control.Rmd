@@ -346,32 +346,72 @@ or by clicking the `+` symbol at the top right to open a menu
 and selecting the "New repository" item.
 
 You'll be sent to a screen with some options for the new repository.
-For now, type out `learning-github` as a name for the repository
+For now, type out `learning-github` as a name for the repository, 
+to match your R project name,
 and leave everything else blank.
 Make the repository "Private" for now.
 
 TODO: Gif or video of making new github repo
 
-Something to consider when using GitHub, 
+A quick side note. When using GitHub,
 especially in relation to health research,
-is that you need to be careful what you save into the Git history
-and what you put up online. Some suggestions are:
+you need to be mindful of what you save into the Git history
+and what you put up online. Some things to think about are:
 
-- Don't save any personal or sensitive data or files in your Git repository
+- **Do not** save any personal or sensitive data or files in your Git repository
 - Don't save very large files, like big image files or large datasets
 
 In both cases, it's better to use another tool to store files like that, 
 rather than through Git and GitHub.
 
-Ok, we now have a remote repository to work from.
-In order to get a local copy on your computer,
-you need to download (called "clone") it.
-The easiest way to do that is to use RStudio's 
+Ok, we now have a remote repository to work with.
+The next step depends on whether you have an existing repository with a history
+or you are starting completely from new.
+
+If you haven't created a Git repository and saved to its history, 
+the easiest way of having your GitHub repository on your computer 
+as a local repository is to download it (or to "clone" it in Git terms).
+
+You can "clone" a GitHub repository easily from RStudio's
 "Create Project from Version Control" interface.
 We'll do that now, by "cloning" the GitHub repository from RStudio,
 as detailed in the video below.
 
 TODO: Gif or video of cloning from RStudio
+```{r video-clone-rstudio, echo=FALSE}
+htmltools::tags$video(src = here::here("images/git-stages.png"))
+```
+
+For *existing* repositories, 
+we need to link the GitHub repository to the existing one on your computer.
+Sadly, there is no RStudio interface (yet) for easily doing this,
+and it requires us to use the Terminal (found in RStudio).
+
+First, let's create another new GitHub repository,
+but this time call it `LearningR` to match the name of our existing repository.
+So repeat the process as we did above.
+Once the GitHub repository has been created, 
+copy and paste the code as shown in the image below 
+(Figure \@ref(fig:image-github-copy-paste)).
+
+```{r image-github-copy-paste, echo=FALSE, fig.cap="Code to copy and paste from to link and upload an existing Git repository to GitHub."}
+knitr::include_graphics(here::here("images/git-stages.png"))
+```
+
+TODO: Image of where to find the stuff to copy and paste
+
+Open up the `LearningR` RStudio R project
+and go to the Terminal tab beside the Console tab, 
+shown in Figure \@ref(fig:image-rstudio-terminal)).
+Paste the code into the Terminal and press Enter.
+You will likely need to type in your GitHub password.
+Wait for it to finish and then go to the `LearningR` GitHub repository.
+You should now have your project files on GitHub!
+
+TODO: Image of RStudio Terminal (or gif)
+```{r image-rstudio-terminal, echo=FALSE, fig.cap="Code to copy and paste from to link and upload an existing Git repository to GitHub."}
+knitr::include_graphics(here::here("images/git-stages.png"))
+```
 
 ## Exercise: Clone GitHub repository from RStudio
 
