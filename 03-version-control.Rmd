@@ -400,6 +400,11 @@ knitr::include_graphics(here::here("images/git-stages.png"))
 
 TODO: Image of where to find the stuff to copy and paste
 
+One new term here is the word `origin` when referring to remotes.
+The word origin is the default short name to refer to the location of the remote
+(the GitHub URL).
+It will come up again later on and whenever using remotes, like with GitHub.
+
 Open up the `LearningR` RStudio R project
 and go to the Terminal tab beside the Console tab, 
 shown in Figure \@ref(fig:image-rstudio-terminal)).
