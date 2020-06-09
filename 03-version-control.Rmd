@@ -687,23 +687,22 @@ We've already created a team repository for you
 (which you should already have access to).
 From this point on you'll use Git and GitHub to collaborate on your project.
 
-- During the project management session's final exercise on the first day, 
+1. During the project management session's final exercise on the first day, 
 you designated a "coordinator" in your group. 
 For this task, 
 the coordinator needs to link their project to the team's GitHub repository 
 and upload (push) their project files to GitHub.
-
-TODO: Add image of how to do this? Like a diagram?
-
-- After the coordinator has done this, 
+    - Use the process we did *for an existing repository*.
+2. After the coordinator has done this, 
 each team member must "clone" (download) 
 the updated project using RStudio's interface
 ("File -> New Project -> Version Control -> Git").
-Then they need to take any files they worked on in their old project folder
-and move them into the newly created Git repository.
+    - Use the process we did *for new repositories*.
+3. Then each team member needs to move any files they worked on in their old project folder
+and move them into the newly created Git repository R project.
 Then add, commit, and push those file changes to GitHub.
     - You'll likely have to deal with Merge Conflicts at this point. 
     We'll be here to help out.
-- Then complete item 5 and its sub-tasks in the [group assignment](assignment.html)
+4. Then complete item 5 and its sub-tasks in the [group assignment](assignment.html)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
