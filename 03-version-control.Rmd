@@ -507,12 +507,13 @@ Go back to RStudio, open the Git interface
 and now click the "Pull" button in the top right corner beside the "Push" button.
 Wait for it to finish pulling 
 and check your `README.md` file for the new change.
+You've now updated your project.
 
 ## Exercise: Push and pull
 
 Time: 10 min
 
-1. Using the `practice-repo` project you created in the previous, 
+1. Using the `practice-repo` project you created in the previous exercise, 
 open up the `README.md` file in RStudio.
 2. Add one or two sentences of a simple 
 and fake description of the project to the `README.md` file.
