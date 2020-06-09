@@ -636,11 +636,45 @@ Add the changes after you fixed them and click the commit button.
 
 ## Collaborating using Git and GitHub 
 
+While all of the previous Git tools we covered are extremely useful when working alone,
+we've been building up to using Git for it's main and biggest advantage:
+to easily collaborate with others on a project.
+
+Using the concept and structure of remote repositories like GitHub,
+combined with the idea of saving changes to files in a history,
+collaborating with others on a common project is much easier and more powerful.
+Think of it like Dropbox on steroids.
+
+Let's go back to the concept of remote repositories.
+Since a local repository is simply a copy of a remote repository,
+anyone else can collaborate on your project by copying the remote repository.
+When they want to contribute back,
+they make commits to their local copy and push up to the remote.
+Then you can pull to your local copy and do the same thing.
+This is illustrated in Figure \@ref(fig:image-git-remotes-collaborate).
+
 ```{r image-git-remotes-collaborate, echo=FALSE, fig.cap="Collaborating with others using Git and Github by having a shared central GitHub repository."}
 knitr::include_graphics(here::here("images/git-remotes-collaborate.png"))
 ```
 
+For public GitHub repositories, 
+anyone can copy your repository and contribute back,
+so working with collaborators is easy.
+When you have a private repository,
+you need to explicitly add collaborators in GitHub.
+
+You add someone by going to 
+"Settings -> Manage Access -> Invite a collaborator"
+(also shown in the video below)
+
 TODO: Gif or video of adding collaborators
+```{r video-clone-rstudio, echo=FALSE}
+htmltools::tags$video(src = here::here("images/git-stages.png"))
+```
+
+For this session, 
+you've all been added as collaborators to your group's repository,
+so you'll get practice working with others when doing the final exercise.
 
 ## Summary of session
 
