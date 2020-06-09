@@ -17,11 +17,17 @@ and synchronize those changes to an online repository (GitHub).
 
 ## What is version control?
 
-> This session is more text and reading heavy compared to others sessions.
-This is mostly because this topic requires you to change your normal habits 
-of how you work more than how using R would change your habit.
-
 **Take 5 min and read through this section**.
+
+> This session is more text and reading heavy compared to others sessions.
+This is mostly because this topic requires a paradigm shift in how you view files,
+and requires you to change your habits of how you normally work.
+While you may get more short-term use out of the R portion of this course,
+knowing and using version control concepts 
+and tools will fundamentally change how you work over the long-term.
+While the concepts are quite difficult,
+the tools to use the concepts aren't
+and using them often will make the concepts easier to understand.
 
 !["Final" version of a document, using a common and simple "version control system". Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)](images/phd-comics-version-control.png)
 
@@ -29,7 +35,7 @@ of how you work more than how using R would change your habit.
 
 Does this way of saving files and keeping track of versions look familiar?
 While the above images are teasing a bit,
-there is truth to is: it is the most commonly used "version control".
+there is truth to it: it is the most commonly used "version control".
 
 This form of version control, while common,
 is fairly primitive, informal, and very manual.
