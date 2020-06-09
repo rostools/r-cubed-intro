@@ -528,66 +528,86 @@ and pull the changes you made on GitHub.
 
 ## Dealing with file conflicts between the local and remote
 
-Even the most careful person will end up making changes in two different copies
-of the same repository and then trying to sync them together. Sometimes git is
-able to resolve the differences on its own, but sometimes the two changes conflict
-and can't be automatically reconciled.
+Normally Git is very good at synchronizing 
+and merging changes between a local repository
+and its remote repository.
+However, sometimes, 
+when it encounters a problem it doesn't know how to fix,
+it stops merging the two histories
+and lets you manually fix the problem.
+This is called a "merge conflict"
+and it is when one or more files have changes that conflict with one another.
 
-We can create a conflict like this by making changes in our `README.md` file.
-First, make sure that your local repository and Github repository are synced
-up - that you have pushed all your local changes to Github and pulled all your
-Github changes to your local computer.
+An example would be when you make a change to some code on your work computer,
+then on another day are working on the code on your home computer
+and make a slightly different edit to the same code.
+Normally, if you keep your repository synchronized,
+this wouldn't be a problem. 
+But sometimes you forget to synchronize,
+so when you do, Git may detect a conflict on the same lines in a file
+between the histories of the local and remote repositories.
+At this point, Git stops and gives you control to resolve it.
 
-Then, **on your computer**, make these changes to the `README.md` file:
+Let's force a conflict to happen.
+In your `LearningR` RStudio R project,
+open up the Git interface 
+and make sure that you don't see `R/version-control-session.R` anywhere in the list
+and that you've pushed and pulled already with your GitHub repository.
+Then, open up `R/version-control-session.R` 
+and add the text `# Here's an example of a conflict` to the very first line.
+In the Git interface, add and commit this change 
+but **don't push the changes**!
 
+Then, go to your GitHub repository 
+and open up the `version-control-session.R` file in the `R/` folder.
+Click the "Edit" button, as you learned previously in the session.
+In the first line of the file, 
+add the text `# When a conflict happens`.
+Write a simple commit message and commit the change.
+
+Now, go back to your RStudio project,
+open the Git interface and click "Pull".
+You can try to push first, 
+but when there are differences between your local and remote repository,
+Git will prevent you from pushing to GitHub until you first pull.
+Once you pull,
+Git will detect if a file conflict exists 
+and halt it's "merging" process.
+
+You should see something like the below:
+
+TODO: Confirm it looks like this.
+
+```text
+<<<<<<< HEAD
+# Here's an example of a conflict
+=======
+# When a conflict happens
+>>>>>>> origin/master
 ```
-## Meeting time
 
-- December 21, 2019
-- 18:00 UTC
-```
+The text on the top between `<<<<<<< HEAD` 
+and `=======` are the changes found on your *local* repository.
+The text on the bottom between `=======` 
+and `>>>>>>> origin/master` are the changes found on your *remote*
+(GitHub) repository.
+`HEAD` is the term to mean where your files are currently at.
+Think of `HEAD` as meaning the "top" of the history.
+`origin/master` indicates that the commit comes from the `master` branch
+of the `origin` remote.
+The concept and use of branches is a powerful feature of Git,
+but due to time we won't be covering them.
+You only need to know that every Git repository starts with the default
+`master` branch.
 
-Commit the changes as we've done before but do **not** push them to Github.
+At this point, 
+you decide what to keep and what to remove by deleting text.
+You'll need to also delete the lines with the `<<<<<<< HEAD`,
+`=======`, and `>>>>>>> origin/master`
 
-Now, go to your repository on Github, click on the `README.md` file and edit
-it as follows:
-
-```
-## Meeting time
-
-- November 4, 2018
-- 18:00 UTC
-```
-
-Commit the changes.
-
-Now we have conflicting changes in our repository—one in the Github copy
-and one on our local computer copy.
-
-We want to sync our changes by either pushing from the copy on our computer to
-the Github copy or by pulling from the Github copy to our computer. It turns
-out that we can't do the first option (try it and see what happens), so we'll
-have to use the second option, of pulling from Github to our computer. When
-we try this, we should get a few red boxes that pop up saying "Pull failed"
-and/or "Merge failed".
-
-> Note that, when we try to push, we *do* have the option of using a "force
-push" to override whatever changes we made in Github. If you're absolutely
-sure that there's nothing in the Github copy you want, you can try this, but
-it's generally a good idea to pull down the changes and look at the conflict,
-just to make sure.
-
-
-
-TODO: Side by side image of the two versions of the files, and the difference
-
-TODO: Image of merge conflict, indicating what part is from where.
-
-Because of the conflicting changes we made, the update of our
-local repository failed. Git doesn't know
-which changes we really want and has pushed us into a temporary "conflict"
-state until we tell it specificallly which changes we want.
-
+After deciding what to keep and removing all the left over merge conflict tags,
+add and commit the changes in the Git interface. 
+You don't need to write a commit message when resolving merge conflicts.
 
 ## Exercise: Dealing with merge conflicts
 
