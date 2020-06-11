@@ -51,6 +51,14 @@ branch on your fork. These will automatically be added to your pull request.
 
 *If you are creating slides*, use the R Markdown format [xaringan](https://github.com/yihui/xaringan).
 
+Making videos is done using [Peek](https://github.com/phw/peek),
+[OpenShot](https://www.openshot.org/),
+and the below command to reduce the video file size:
+
+```
+ffmpeg -i input.mp4 -crf 28 output.mp4
+```
+
 ## Teaching in class :information_desk_person: :speech_balloon:
 
 Here are some steps and guidelines when you instruct a class:
