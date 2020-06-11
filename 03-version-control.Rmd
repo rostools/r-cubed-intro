@@ -1,7 +1,5 @@
 # Version control with Git {#version-control}
 
-TODO: Issue to list tasks to do for final editing pass (e.g. spell check, consistent periods at end of list, etc)
-
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
 > When in RStudio, quickly jump to this page using `r3::open_version_control()`.
@@ -196,9 +194,7 @@ LearningR
 
 Setting up a Git repository can be done several ways:
 
-TODO: Confirm this is right wording
-
-- When starting a new R Project, the "Initialize Git repository" option can be 
+- When starting a new R Project, the "Create a git repository" option can be 
 selected from the "New Projects" setup instructions. 
 - For existing R Projects, you can type in the console `usethis::use_git()`.
 
