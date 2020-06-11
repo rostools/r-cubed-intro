@@ -214,14 +214,38 @@ the vast majority of use cases can be done through RStudio's interface.
 
 To access the Git interface in RStudio, 
 click the Git icon beside the "Go to" search bar 
+(see Figure \@ref(fig:image-rstudio-git-button)) 
 and then click the "Commit..." option (Ctrl-Alt-M).
+
+```{r image-rstudio-git-button, echo=FALSE, fig.cap="The Git button location in RStudio."}
+knitr::include_graphics(here::here("images/rstudio-git-button.png"))
+```
+
+The Git interface should look something like 
+Figure \@ref(fig:image-rstudio-git-interface) below.
+A short written description is given below the image.
+
+```{r image-rstudio-git-interface, echo=FALSE, fig.cap="The Git interface in RStudio."}
+knitr::include_graphics(here::here("images/rstudio-git-interface.png"))
+```
+
+1. The "Changes" and "History" buttons that allow you to switch between views.
+Changes is what is currently changed in your files relative to the last history item.
+History is the record of what was done, to what file, when, and by whom.
+2. The "Push" and "Pull" buttons are what synchronize with GitHub, 
+which we will cover later in the session.
+3. The panel that lists the file's that have been modified in some way.
+You add ("stage") files here that you want to be put into the history.
+4. The Commit Message box, 
+where you write the message about the changes that will be put into the history.
+5. The panel that shows what text has been modified, added, 
+or removed from the file selected in panel 3.
+Green highlight indicated something has been added,
+while red indicates a removal.
+Changes are detected at the line level (what line in the file).
+
 So far it should show a bunch of files that we've added 
 and used over the previous sessions.
-
-TODO: Image of where Git icon is located.
-
-TODO: Image or video of Git interface and explanation.
-
 In the Git interface, select the `README.md` file. 
 You should see the text in the file, all in green.
 Green means the text has been added.
@@ -254,10 +278,13 @@ knitr::include_graphics(here::here("images/git-stages.png"))
 
 This system allows us to keep a journal (a *log*) of what has been changed, 
 why it has been changed, who changed it, and when.
-The image below shows an example log of the history of this lesson,
+Figure \@ref(fig:image-rstudio-git-interface-log)
+below shows an example log of the history of this lesson,
 which makes it easy to get an overview of what is happening in a project.
 
-TODO: Image of example log. Of r-cubed.
+```{r image-rstudio-git-interface-log, echo=FALSE, fig.cap="An example of a history for this course's repository."}
+knitr::include_graphics(here::here("images/rstudio-git-interface-log.png"))
+```
 
 You may notice that the messages in the log give a bit of detail 
 about why a change was made, though it's not always the case.
@@ -356,8 +383,11 @@ For now, type out `learning-github` as a name for the repository,
 to match your R project name,
 and leave everything else blank.
 Make the repository "Private" for now.
+The video below can be used as a reference.
 
-TODO: Gif or video of making new github repo
+```{r video-github-new-repository, echo=FALSE}
+htmltools::tags$video(src = here::here("images/github-new-repository.mp4"))
+```
 
 A quick side note. When using GitHub,
 especially in relation to health research,
@@ -383,9 +413,8 @@ You can "clone" a GitHub repository easily from RStudio's
 We'll do that now, by "cloning" the GitHub repository from RStudio,
 as detailed in the video below.
 
-TODO: Gif or video of cloning from RStudio
-```{r video-clone-rstudio, echo=FALSE}
-htmltools::tags$video(src = here::here("images/git-stages.png"))
+```{r video-rstudio-clone-repository, echo=FALSE}
+htmltools::tags$video(src = here::here("images/rstudio-clone-repository.mp4"))
 ```
 
 For *existing* repositories, 
@@ -413,15 +442,14 @@ It will come up again later on and whenever using remotes, like with GitHub.
 
 Open up the `LearningR` RStudio R project
 and go to the Terminal tab beside the Console tab, 
-shown in Figure \@ref(fig:image-rstudio-terminal)).
+shown in Figure \@ref(fig:image-rstudio-terminal-tab)).
 Paste the code into the Terminal and press Enter.
 You will likely need to type in your GitHub password.
 Wait for it to finish and then go to the `LearningR` GitHub repository.
 You should now have your project files on GitHub!
 
-TODO: Image of RStudio Terminal (or gif)
-```{r image-rstudio-terminal, echo=FALSE, fig.cap="Code to copy and paste from to link and upload an existing Git repository to GitHub."}
-knitr::include_graphics(here::here("images/git-stages.png"))
+```{r image-rstudio-terminal-tab, echo=FALSE, fig.cap="Location of Terminal in RStudio."}
+knitr::include_graphics(here::here("images/rstudio-terminal-tab.png"))
 ```
 
 ## Exercise: Clone GitHub repository from RStudio
@@ -431,11 +459,13 @@ Time: 5 min
 Get some practice with cloning from GitHub by doing it again with another repository.
 
 1. Create a new practice GitHub repository (name it `practice-repo`),
-and include a README file as well (see image above).
+and include a README file as well (see image below).
 2. Create a new RStudio R project of the newly created GitHub repository.
 Clone it to your desktop.
 
-TODO: Show image of GitHub and adding README in checklist
+```{r image-github-add-readme, echo=FALSE, fig.cap="Checkmark to click to add a README to your new repository."}
+knitr::include_graphics(here::here("images/github-add-readme.png"))
+```
 
 ## Synchronizing with GitHub
 
@@ -580,9 +610,7 @@ Once you pull,
 Git will detect if a file conflict exists 
 and halt it's "merging" process.
 
-You should see something like the below:
-
-TODO: Confirm it looks like this.
+You should see something like the below text (may be slightly different):
 
 ```text
 <<<<<<< HEAD
