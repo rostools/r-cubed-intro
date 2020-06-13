@@ -382,7 +382,7 @@ Make the repository "Private" for now.
 The video below can be used as a reference.
 
 ```{r video-github-new-repository, echo=FALSE}
-htmltools::tags$video(src = here::here("images/github-new-repository.mp4"))
+insert_video(here::here("images/github-new-repository.mp4"))
 ```
 
 A quick side note. When using GitHub,
@@ -410,7 +410,7 @@ We'll do that now, by "cloning" the GitHub repository from RStudio,
 as detailed in the video below.
 
 ```{r video-rstudio-clone-repository, echo=FALSE}
-htmltools::tags$video(src = here::here("images/rstudio-clone-repository.mp4"))
+insert_video(here::here("images/rstudio-clone-repository.mp4"))
 ```
 
 For *existing* repositories, 
@@ -423,13 +423,11 @@ but this time call it `LearningR` to match the name of our existing repository.
 So repeat the process as we did above.
 Once the GitHub repository has been created, 
 copy and paste the code as shown in the image below 
-(Figure \@ref(fig:image-github-copy-paste)).
+(Figure \@ref(fig:image-github-link-existing-repository)).
 
-```{r image-github-copy-paste, echo=FALSE, fig.cap="Code to copy and paste from to link and upload an existing Git repository to GitHub."}
-knitr::include_graphics(here::here("images/git-stages.png"))
+```{r image-github-link-existing-repository, echo=FALSE, fig.cap="Code to copy and paste to link and upload an existing Git repository in GitHub."}
+knitr::include_graphics(here::here("images/github-link-existing-repository.png"))
 ```
-
-TODO: Image of where to find the stuff to copy and paste
 
 One new term here is the word `origin` when referring to remotes.
 The word origin is the default short name to refer to the location of the remote
@@ -509,13 +507,9 @@ Open up the `README.md`
 and add a random sentence somewhere near the top of the file.
 Save, then open the Git interface (Ctrl-Alt-M or "Git button -> Commit")
 and add and commit the new change.
-Next, click the "Push" button in the top right corner of the Git interface.
+Next, click the "Push" button in the top right corner of the Git interface
+(in box 2 of Figure \@ref(fig:image-rstudio-git-interface)).
 A pop-up will indicate that it's pushing and will tell you when it's done.
-
-TODO: Gif or video of pushing and pulling from RStudio.
-```{r video-rstudio-push-pull, echo=FALSE}
-htmltools::tags$video(src = here::here("images/git-stages.png"))
-```
 
 Now go to your `LearningR` GitHub repository.
 You should see the new change is also on the GitHub repository.
@@ -525,14 +519,8 @@ Add another random sentence somewhere near the top of the file.
 Scroll down to the commit message box, type out a commit message,
 and click the "Commit" button.
 
-TODO: Gif of editing a file in Github
-```{r video-github-edit-file, echo=FALSE}
-htmltools::tags$video(src = here::here("images/git-stages.png"))
-```
-
-TODO: Image of location of commit message in GitHub.
-```{r image-github-edit-commit, echo=FALSE, fig.cap="Code to copy and paste from to link and upload an existing Git repository to GitHub."}
-knitr::include_graphics(here::here("images/git-stages.png"))
+```{r video-github-edit-and-commit-file, echo=FALSE}
+insert_video(here::here("images/github-edit-and-commit-file.mp4"))
 ```
 
 Go back to RStudio, open the Git interface 
@@ -689,16 +677,15 @@ you need to explicitly add collaborators in GitHub.
 
 You add someone by going to 
 "Settings -> Manage Access -> Invite a collaborator"
-(also shown in the video below)
+(also shown in the video below).
 
-TODO: Gif or video of adding collaborators
-```{r video-clone-rstudio, echo=FALSE}
-htmltools::tags$video(src = here::here("images/git-stages.png"))
+```{r video-github-add-collaborator, echo=FALSE}
+insert_video(here::here("images/github-add-collaborator.mp4"))
 ```
 
-For this session, 
-you've all been added as collaborators to your group's repository,
-so you'll get practice working with others when doing the final exercise.
+We won't have you do this for this session, 
+since you've all been added as collaborators to your group's repository.
+But you will get practice collaborating on a Git project in the final exercise.
 
 ## Summary of session
 
