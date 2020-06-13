@@ -11,20 +11,23 @@ Depends:
     R (>= 3.5.3)
 Imports: 
     bookdown,
-    fs (>= 1.2.7),
     here (>= 0.1),
     NHANES (>= 2.1.0),
-    prodigenr (>= 0.4.0),
-    styler (>= 1.1.0),
-    tidyverse (>= 1.2.1),
-    usethis (>= 1.5.0),
-    xaringan (>= 0.10),
-    xaringanthemer (>= 0.2.0),
     RefManageR,
-    rversions,
     emo (>= 0.0.0.9000),
-    hexbin
+    hexbin,
+    dplyr,
+    tidyr,
+    ggplot2
 Encoding: UTF-8
 Remotes: 
     gadenbuie/xaringanthemer,
     hadley/emo
+Suggests: 
+    tidyverse,
+    usethis,
+    xaringan,
+    xaringanthemer,
+    styler,
+    prodigenr,
+    fs
