@@ -27,9 +27,13 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't
 and using them often will make the concepts easier to understand.
 
-!["Final" version of a document, using a common and simple "version control system". Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)](images/phd-comics-version-control.png)
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'. Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)"}
+knitr::include_graphics(here::here("images/phd-comics-version-control.png"))
+```
 
-![Filenaming used for the common "version control". Image source: [PhD Comics](https://phdcomics.com/comics.php?f=1323)](images/informal-version-control.gif)
+```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming used for the common 'version control'. Image source: [PhD Comics](https://phdcomics.com/comics.php?f=1323)"}
+knitr::include_graphics(here::here("images/informal-version-control.gif"))
+```
 
 Does this way of saving files and keeping track of versions look familiar?
 While the above images are teasing a bit,
