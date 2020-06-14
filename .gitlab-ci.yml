@@ -23,6 +23,6 @@ deploy:
     before_script:
         - npm i -g netlify-cli
     script:
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
+        - netlify deploy --prod --dir public
     dependencies:
         - build
