@@ -232,12 +232,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Formatting text with Markdown syntax
 
-Text formatting is done using special characters (like
-commands) to indicate what is bolded, a header, a list, and so on. Most features
-needed for writing a scientific document are available in Markdown, but not all.
-My suggestion is to try to fit your writing around Markdown, rather than force or
-fight Markdown to do something it wasn't designed to do. You can do a lot with
-what Markdown has.
+Formatting text in Markdown is done using characters that are considered "special"
+and act like commands.
+So these special characters indicate what text is bolded,
+what is a header, what is a list, and so on.
+Almost every feature you need to write a scientific document is available in Markdown,
+though not all.
+If you can't get Markdown to do what you want,
+my suggestion would be to try to fit your writing around Markdown, 
+rather than force or fight Markdown to do something it wasn't designed to do. 
+You might actually find that the simpler Markdown approach is easier 
+than what you wanted or were thinking of doing,
+and can actually do quite a lot with the basics that Markdown can do.
 
 ### Headers 
 
