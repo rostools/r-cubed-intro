@@ -70,12 +70,16 @@ and do these tasks:
     the tools you learned and a few sentences on some challenges you had in a
     "Discussion" section.
     Add your thoughts as a group.
-8. Generate an HTML of the report.
+8. Generate an HTML of the report (put don't commit it to Git).
 9. Include all the updated code and files on GitHub for the presentation.
 
 These tasks may seem like a lot, with a lot of new terminology and tools to use. 
 But don't worry! We will be going over many of these topics and you will have time
 to complete the project over the three days.
+
+At the end, the lead instructor will download each of the teams Git projects,
+knit the R Markdown documents, 
+and show them on the screen for each team to present on.
 
 ## Quick "checklist" for a "good" project
 
