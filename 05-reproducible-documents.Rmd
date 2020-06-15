@@ -345,6 +345,15 @@ Markdown to HTML conversion.
 
 [^md-to-word]: If you really want to do it, the best way is to create your template in the `.odt`, and then convert to `.docx`. [Here](https://github.com/andrewheiss/Global-Pandoc-files) is a good place to start. 
 
+## Collaborating on Rmd document
+
+Read but not cover
+
+    - Create multiple documents named differently
+    - At end put all pieces together into one document and delete the others
+        - Knitting at end to make sure it looks good.
+        - Delegate one person to do that
+
 ## Final exercise: Group work
 
 Time: 30 min
