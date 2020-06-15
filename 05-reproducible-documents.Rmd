@@ -17,20 +17,19 @@ or Word from an R Markdown document.
 
 ## Why try to be reproducible?
 
-- Why
-    - To use for exploration and documentation
-    - To easily update reports on analyses and then share to collaborators
-
-Well, first of all, reproducibility and replicability are cornerstones of doing
-rigorous and sound science. As we've learned, reproducibility in science is
-lacking. Being reproducible isn't just doing better science, it can also:
+Both reproducibility and replicability are cornerstones for doing rigorous 
+and sound science. 
+As we've learned, 
+reproducibility in science is fairly lacking, 
+which this course aims to fill. 
+But being reproducible isn't just about doing better science, it can also:
 
 1. Make you much more efficient and productive, as less time is spent between
-coding and putting your results in the document.
-1. Make you more confident in your results, as what you report and show as
-figures or tables will be exactly what you get from your analysis. No copying
-and pasting required!
-1. It's actually a lot of fun! :wink:
+coding and putting your results in the document (no need for copy and pasting).
+1. Make you more confident in your results, 
+since what you report 
+and show as figures or tables will be exactly what you get from your analysis. 
+Again, no copying and pasting required!
 
 Hopefully by the end of this session you'll try to start using R Markdown files
 for writing your manuscripts and other technical documents. Believe us, it can
@@ -63,6 +62,10 @@ for now we're going to focus on the main reason to use it:
 for including R code and output into a document!
 By using R code in a document, 
 you can have a seamless integration between document writing and analysis.
+
+- Why
+    - To use for exploration and documentation
+    - To easily update reports on analyses and then share to collaborators
 
 [markup syntax]: https://en.wikipedia.org/wiki/Markup_language
 [pandoc]: https://pandoc.org/index.html
