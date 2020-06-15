@@ -16,6 +16,7 @@ so that it will automatically insert the R output into the final document.
 or Word from an R Markdown document.
 
 ## Why try to be reproducible?
+
 - Why
     - To use for exploration and documentation
     - To easily update reports on analyses and then share to collaborators
@@ -41,15 +42,15 @@ journals is a breeze.
 
 ## Creating an R Markdown file
 
-R Markdown is a file format (though still plain text like R scripts or `.txt` files)
+R Markdown is a file format (though still plain text like R scripts or `.csv` files)
 that allows you to be more reproducible in your analysis 
-and more productive in general in your data analysis.
+and more productive in general in your work.
 R Markdown is a extension of [Markdown][pandoc] that combines R code 
 and Markdown formatting markup. 
 
 So what is Markdown? 
 It is a [markup syntax] and formatting tool, like HTML,
-that allows you write in plain text a document 
+that allows you write a document in plain text
 that can be converted to a vast range of other document types 
 (e.g. HTML, PDF, Word documents, slides, posters, websites).
 In fact, this website is built from R and Markdown! 
@@ -60,26 +61,25 @@ a very powerful and well-maintained software tool for document conversion.
 But, we'll get to Markdown a bit later,
 for now we're going to focus on the main reason to use it:
 for including R code and output into a document!
+By using R code in a document, 
+you can have a seamless integration between document writing and analysis.
 
 [markup syntax]: https://en.wikipedia.org/wiki/Markup_language
 [pandoc]: https://pandoc.org/index.html
 
-
-Output from R code gets inserted into the document for a seamless integration
-of document writing and analysis.
+Ok, let's create and save an R Markdown file. 
+Go to `File -> New File -> R Markdown`.
+A dialog box will pop up.
+Type in `Reproducible documents` in the title section 
+and your name in the author section. 
+Choose HTML as the output format.
+Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
 
 TODO: Video of making R Markdown file.
 
-
-
-- Creating R Markdown documents
-    - Thro RStudio
-
-First, let's create and save an R Markdown file. Go to `File -> New File -> R
-Markdown` and a dialog box will pop up. Type in `Reproducible documents` in the
-title section and your name in the author section. Choose the HTML output format.
-Save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
-
+We now have an R Markdown file.
+Inside the file is some basic content that gives a brief overview of how to use it.
+For now, let's ignore those.
 
 ## YAML header/metadata
 
