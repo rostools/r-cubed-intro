@@ -211,60 +211,39 @@ NHANES %>%
     kable(caption = "Table caption here")
 ```
 
-Or just print out a number to the document:
+If you want a code chunk to be invisible, code chunks to be 
 
 ````markdown
 `r ''````{r, echo=FALSE}
-cor(NHANES$Height, NHANES$Weight)
+2 + 2
 `r ''````
 ````
 
 ```{r, echo=FALSE}
-cor(iris$Sepal.Length, iris$Sepal.Width)
+2 + 2
 ```
 
-TODO: Add explanation about `setup` code chunk
+````markdown
+`r ''````{r setup}
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+`r ''````
+````
 
-### Inline R code
+## Formatting text with Markdown syntax
 
-You can also include R code within the text. You can use this to directly insert
-numbers into the text of the document. By using something like:
-
-> The mean of BMI is &#96;r round(mean(NHANES$BMI, na.rm = TRUE), 2)&#96;.
-
-Gives...
-
-The mean of BMI is `r round(mean(NHANES$BMI, na.rm = TRUE), 2)`.
-
-*Note*: Inline R code can *only* insert a single number or character value,
-nothing more.
-
-## Markdown syntax
-
-First, let's create and save an R Markdown file. Go to `File -> New File -> R
-Markdown` and a dialog box will pop up. Type in `Reproducible documents` in the
-title section and your name in the author section. Choose the HTML output format.
-Save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
-
-Markdown is a [markup syntax] and formatting tool that allows you write in plain
-text (like R code and scripts) a document that can convert to a vast range of
-other document types (e.g. HTML, PDF, Word documents, slides, posters, websites).
-In fact, this website is built from R and Markdown! (Plus many other things,
-like HTML.) The Markdown used in R Markdown is based on [pandoc] (pan means all
-and doc means document), a very powerful and well-maintained software tool for
-document conversion. Text formatting is done using special characters (like
+Text formatting is done using special characters (like
 commands) to indicate what is bolded, a header, a list, and so on. Most features
 needed for writing a scientific document are available in Markdown, but not all.
 My suggestion is to try to fit your writing around Markdown, rather than force or
 fight Markdown to do something it wasn't designed to do. You can do a lot with
 what Markdown has.
 
-[markup syntax]: https://en.wikipedia.org/wiki/Markup_language
-[pandoc]: https://pandoc.org/index.html
-
 ### Headers 
 
-Creating headers (like chapters or sections) is indicated by one or more `#`: 
+Creating headers (like chapters or sections) is done by using one 
+or more `#` at the beginning of a line 
+and should always be preceded and followed by an empty line: 
 
 ```markdown
 # Header 1
@@ -280,7 +259,7 @@ Paragraph.
 Paragraph.
 ```
 
-### Text formatting
+### General text formatting
 
 - `**bold**` gives **bold**. 
 - `*italics*` gives *italics*.
@@ -289,7 +268,10 @@ Paragraph.
 
 ### Lists
 
-Unnumbered list:
+Lists are created by adding either `- ` or `1.` to the beginning of a line
+and an empty line must be at the start and end of the list.
+
+For unnumbered lists, it looks like:
 
 ```markdown
 - item 1
@@ -297,13 +279,13 @@ Unnumbered list:
 - item 3
 ```
 
-gives...
+which gives...
 
 - item 1
 - item 2
 - item 3
 
-Numbered list:
+And numbered list look like:
 
 ```markdown
 1. item 1
@@ -311,7 +293,7 @@ Numbered list:
 3. item 3
 ```
 
-gives...
+which gives...
 
 1. item 1
 2. item 2
@@ -319,68 +301,62 @@ gives...
 
 ### Block quotes
 
-One can also create quotes:
+Block quotes are used when you want to emphasize a block of text,
+usually for quoting someone. 
+You create a block quote by putting a `>` at the beginning of the line,
+and as with the lists and headers, 
+needs empty lines before and after the text.
+So it looks like:
 
 ```markdown
 > Block quote 
 ```
 
-gives...
+which gives...
 
 > Block quote 
-
 
 ### Adding footnotes
 
-Footnotes can be done using the following command:
+Footnotes are added by enclosing a number or word in square brackets (`[]`)
+and beginning with an uptick (`^`). It looks like:
 
 ```markdown
-Footnote[^1]
+Footnote[^1] or this[^note].
 
 [^1]: Footnote content
+[^note]: Another footnote
 ```
 
-gives...
+which gives...
 
-Footnote[^1]
+Footnote[^1] or this[^note].
 
 [^1]: Footnote content
-
-### Inserting pictures
-
-
-A png, jpeg, or pdf image can be attached by doing (here, use an image of your own):
-
-```markdown
-![image caption](/img/code-sharing-steps.png)
-```
-
-gives...
-
-TODO: Add image.
-
-image caption /img/code-sharing-steps.png
-
-*Note*: Can also include links to images from the Internet, as a URL link.
+[^note]: Another footnote
 
 ### Adding links to websites
 
-And a link can be linked in the following format:
+Including a link to a website in your document is done by surrounding the link text
+with square brackets (`[]`) followed by the link URL in brackets (`()`).
+There must not be any space between the square brackets 
+and the regular brackets (should look like `[]()`).
 
 ```markdown
 [Link](https://google.com)
 ```
 
-gives...
+which gives...
 
 [Link](https://google.com)
 
 ### Inserting (simple) tables
 
-You can insert tables using Markdown too. I wouldn't recommend doing it for 
-complicated tables though, as it can get tedious fast! (My recommended approach
-for more complex or bigger tables is to make a data frame in R and then use create
-the table as shown in the section below.)
+While you can insert tables using Markdown too, 
+it isn't recommended to do that for complicated or large tables.
+Tables are created by separating columns with `|`,
+with the table header being separated by a line that looks like `|:--|`.
+A simple example is:
 
 ```
 |   | Fun | Serious |
@@ -399,11 +375,94 @@ gives...
 The `|---:|` or `|:---|` tell the table to left-align or right-align the values
 in the column. Center-align is `|:----:|`.
 
-**Break time.**
+So you can probably imagine,
+doing this for larger or even slightly more complicated tables is not practical.
+A good alternative approach is to create the table in a spreadsheet,
+importing that table into R within a code chunk,
+and using `knitr::kable()` to create the table after that.
 
-## Other features
+### Inline R code
 
-### Making your report prettier
+R Markdown also allows you to including numbers 
+(or other output) directly into a paragraph.
+For instance, if you want to add a mean into some text,
+it would look like:
+
+> The mean of BMI is &#96;r round(mean(NHANES$BMI, na.rm = TRUE), 2)&#96;.
+
+which gives...
+
+The mean of BMI is `r round(mean(NHANES$BMI, na.rm = TRUE), 2)`.
+
+But note that using inline R code can *only* insert a *single* number 
+or character value, nothing more.
+
+## Exercise: Practice using Markdown for writing text
+
+Time: 10 min
+
+1. Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
+1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
+1. Write one random short sentences under each header. 
+Bold (`**word**`) one word in each and italicize (`*word*`) another.
+1. Include an inline R code to calculate 10 divided by 2 in the "Analysis" section.
+1. Play around with adding some lists, tables, or anything else.
+
+## Inserting figures, as files or from R code
+
+You can insert plots by including a
+code chunk, like the one below. The options added to the code chunk tell it to
+add a caption, to set the height and width of the figure, and to prevent the code
+chunk from showing up in the final document (`echo=FALSE`). The `bmi-plot` label is
+the name of the code chunk (which you can see in the "Document Outline", found
+using `Ctrl-Shift-O`, if you have the options set in the `Tools -> Global
+Options -> R Markdown`).
+
+````markdown
+`r ''````{r bmi-plot, fig.cap="Add your figure title here.", fig.height=8, fig.width=8, echo=FALSE}
+ggplot(NHANES, aes(x = Height, fill = Gender)) +
+    geom_density(alpha = 0.4) +
+    scale_fill_brewer(type = "qual", palette = "Dark2") +
+    theme_minimal() +
+    theme(legend.position = c(0.2, 0.85))
+`r ''````
+````
+
+(ref:insert-plot) Add your figure title here.
+
+```{r bmi-plot, fig.cap="(ref:insert-plot)", fig.height=8, fig.width=8, echo=FALSE}
+ggplot(NHANES, aes(x = Height, fill = Gender)) +
+    geom_density(alpha = 0.4) +
+    scale_fill_brewer(type = "qual", palette = "Dark2") +
+    theme_minimal() +
+    theme(legend.position = c(0.2, 0.85))
+```
+
+- Inserting graphs
+    - From R and from image file
+    
+
+A png, jpeg, or pdf image can be attached by doing (here, use an image of your own):
+
+```markdown
+![image caption](/img/code-sharing-steps.png)
+```
+
+gives...
+
+TODO: Add image.
+
+image caption /img/code-sharing-steps.png
+
+*Note*: Can also include links to images from the Internet, as a URL link.
+
+
+## Exercise: Insert a graph using R code
+
+
+## Making your report prettier
+
+Read this, won't go over it.
 
 This part mostly applies to HTML-based and PDF[^tinytex] outputs, since
 programmatically modifying or setting templates Word documents is rather
