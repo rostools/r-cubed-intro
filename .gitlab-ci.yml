@@ -2,8 +2,8 @@ image: rocker/tidyverse
 
 stages:
   - build
-  - deploy-mr
-  - deploy-prod
+  - deploy_mr
+  - deploy_prod
 
 build:
     stage: build
@@ -18,9 +18,9 @@ build:
 # To produce a code coverage report as a GitLab page see
 # https://about.gitlab.com/2016/11/03/publish-code-coverage-report-with-gitlab-pages/
 
-deploy-mr:
+deploy_mr:
     image: node:latest
-    stage: deploy
+    stage: deploy_mr
     before_script:
         - npm i -g netlify-cli
     script:
@@ -30,9 +30,9 @@ deploy-mr:
     dependencies:
         - build
 
-deploy-prod:
+deploy_prod:
     image: node:latest
-    stage: deploy
+    stage: deploy_prod
     before_script:
         - npm i -g netlify-cli
     script:
