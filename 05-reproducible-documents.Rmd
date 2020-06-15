@@ -1,14 +1,24 @@
-# Creating dynamically generated, reproducible documents {#reproducible-documents}
+# Analytically reproducible documents {#reproducible-documents}
 
 ![](https://img.shields.io/badge/document%20status-in%20progress-orange?style=flat-square)
 
-> Session goal: To create your own document, with embedded code that
-automatically adds a figure, a table, and some text results.
+> When in RStudio, quickly jump to this page using `r3::open_reproducible_documents()`.
 
-See the [Additional Resources for R Markdown](#resources-rmd) page for recommended
-resources to use.
+**Session objectives**:
+
+1. Learn what a reproducible document is,
+how R Markdown achieves being reproducible, 
+and why it can save you time and effort
+1. Write and use R code within a document,
+so that it will automatically insert the R output into the final document.
+1. Learn about and use Markdown formatting and syntax for writing documents.
+1. Learn about and create different document types like HTML 
+or Word from an R Markdown document.
 
 ## Why try to be reproducible?
+- Why
+    - To use for exploration and documentation
+    - To easily update reports on analyses and then share to collaborators
 
 Well, first of all, reproducibility and replicability are cornerstones of doing
 rigorous and sound science. As we've learned, reproducibility in science is
