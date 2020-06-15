@@ -357,17 +357,21 @@ complete item 7 and its subtasks in the [group assignment](assignment.html)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
 - Distribute the tasks so each team member is (mostly) doing something different.
+    - Create one R Markdown file for each team member,
+    and each person works on their own file.
+    Later this file will be merged into the final report.
 - Frequently use the "Git workflow": 
 Add, commit, push, and pull the changes you've made.
     - You'll likely deal with merge conflicts, 
     which is a good chance to practice with Git more.
 - Try to "knit" your document to HTML often, 
 to make sure the analysis is reproducible.
-    - **Note**: For now, *don't* add and commit the HTML report.
+    - **Note**: For now, *do not* add and commit the HTML report.
 
 Once you as a team are happy with the report, figures, and tables,
 make sure that everyone does a final add-commit-push to your GitHub repository.
 Then, designate someone to pull from GitHub, 
-knit the `.Rmd` document to create the HTML file,
-then add-commit-push that file to GitHub.
+merge each R Markdown file into a single `report.Rmd` file in the `doc/` folder,
+and knit the `.Rmd` document to make sure it knits correctly. 
+Then add-commit-push the HTML report to GitHub.
 You should now be ready to present your report!
