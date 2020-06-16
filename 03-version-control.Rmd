@@ -101,7 +101,7 @@ RStudio thankfully has an amazing and straight-forward integration to it.
 
 Git is one of several version control system tools available.
 It was developed to help the software programmers 
-to develop and manage their work on [Linux]
+to develop and manage their work on [Linux](https://en.wikipedia.org/wiki/Linux)
 (an operating system like Mac or Windows).
 Sadly, it was designed by and for software programmers 
 and not for non-programmer users (like us!).
@@ -148,7 +148,7 @@ and associate a Git repository with the project folder.
 Before you continue, 
 go into your `LearningR` R Project
 and do a quick check to make sure that everyone has Git properly set up. 
-Run this function in your RStudio Console:
+Run this function in your RStudio Console 
 
 ```{r, eval=FALSE}
 r3::check_git_config()
@@ -266,9 +266,10 @@ whether they are "untracked" or "tracked".
 Untracked is when Git sees the file, but it has not yet entered the history.
 Tracked is when the file has been saved in the history 
 and Git "watches" it for changes.
-2. The *Staged* state is when a file a change
-compared to the version in the history,
-has been checked into the "Staged" area (by ticking the checkbox),
+2. The *Staged* state is when a file has a change that is different
+compared to the version in the history
+and it has been checked into the "Staged" area 
+(by ticking the checkbox beside the file in the Git interface).
 3. The *History* or *committed* state is when a "commit" message has been written
 and the file and its changes has been saved into the repository history.
 
@@ -309,12 +310,16 @@ of the RStudio Git interface.
 Here you can see what has been done in previous commits.
 
 Next, open up the `README.md` file in RStudio using the Files tab.
-At the top of the file, write your name and your field of research.
+At the top of the file, write your name and your field of research,
+and then save the file.
 Open up the Git interface again (with the Git icon or with Ctrl-Alt-M).
 You should now see the added text in green.
-Alright, let's write a message like "added my name to README file" 
+Alright, now stage the change (click the checkbox),
+write a message like "added my name to README file",
 and commit the change. 
-Go back to the history and see the two commits done in your repository.
+Go back to the history and you should see the two commits done in your repository.
+If you don't see it in the history, 
+you likely need to click the refresh button at the top.
 
 A question that may come up is how often should you commit?
 In general, it's better to commit fairly frequently 
