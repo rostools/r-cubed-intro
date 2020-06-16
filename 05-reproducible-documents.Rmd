@@ -96,11 +96,12 @@ Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
 TODO: Video of making R Markdown file.
 
 We now have an R Markdown file.
-Inside the file is some basic content that gives a brief overview of how to use it.
-For now, let's ignore those.
+Inside the file is some text that gives a brief overview of how to use it.
+For now, let's ignore the text.
 
 ## YAML header/metadata
 
+You may see 
 Most Markdown documents (especially for R Markdown) include [YAML] metadata at
 the top of the document, surrounded by `---` on the top and bottom. The YAML
 contains metadata and options for the entire document. For instance, the title
