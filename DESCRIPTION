@@ -10,15 +10,15 @@ Authors@R:
 URL: https://gitlab.com/rostools/r-cubed/issues,
     https://r-cubed.rostools.org
 Depends: 
-    R (>= 3.5.3)
+    R (>= 3.6.0)
 Imports: 
     bookdown,
     dplyr,
-    emo (>= 0.0.0.9000),
+    emo,
     ggplot2,
-    here (>= 0.1),
+    here,
     hexbin,
-    NHANES (>= 2.1.0),
+    NHANES,
     RefManageR,
     tidyr
 Suggests: 

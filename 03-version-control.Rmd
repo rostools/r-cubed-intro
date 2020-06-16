@@ -391,7 +391,7 @@ Make the repository "Private" for now.
 The video below can be used as a reference.
 
 ```{r video-github-new-repository, echo=FALSE}
-insert_video(here::here("images/github-new-repository.mp4"))
+insert_video("images/github-new-repository.mp4")
 ```
 
 A quick side note. When using GitHub,
@@ -419,7 +419,7 @@ We'll do that now, by "cloning" the GitHub repository from RStudio,
 as detailed in the video below.
 
 ```{r video-rstudio-clone-repository, echo=FALSE}
-insert_video(here::here("images/rstudio-clone-repository.mp4"))
+insert_video("images/rstudio-clone-repository.mp4")
 ```
 
 For *existing* repositories, 
@@ -435,7 +435,7 @@ copy and paste the code as shown in the image below
 (Figure \@ref(fig:image-github-link-existing-repository)).
 
 ```{r image-github-link-existing-repository, echo=FALSE, fig.cap="Code to copy and paste to link and upload an existing Git repository in GitHub."}
-knitr::include_graphics(here::here("images/github-link-existing-repository.png"))
+knitr::include_graphics("images/github-link-existing-repository.png")
 ```
 
 One new term here is the word `origin` when referring to remotes.
@@ -529,7 +529,7 @@ Scroll down to the commit message box, type out a commit message,
 and click the "Commit" button.
 
 ```{r video-github-edit-and-commit-file, echo=FALSE}
-insert_video(here::here("images/github-edit-and-commit-file.mp4"))
+insert_video("images/github-edit-and-commit-file.mp4")
 ```
 
 Go back to RStudio, open the Git interface 
@@ -689,7 +689,7 @@ You add someone by going to
 (also shown in the video below).
 
 ```{r video-github-add-collaborator, echo=FALSE}
-insert_video(here::here("images/github-add-collaborator.mp4"))
+insert_video("images/github-add-collaborator.mp4")
 ```
 
 We won't have you do this for this session, 
