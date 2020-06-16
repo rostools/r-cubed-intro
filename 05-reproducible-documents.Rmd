@@ -17,6 +17,8 @@ or Word from an R Markdown document.
 
 ## Why try to be reproducible?
 
+**Take about 5 min to read over this section**.
+
 Both reproducibility and replicability are cornerstones for doing rigorous 
 and sound science. 
 As we've learned, 
@@ -41,34 +43,47 @@ journals is a breeze.
 
 ## Creating an R Markdown file
 
-R Markdown is a file format (though still plain text like R scripts or `.csv` files)
+**Take about 5 min to read over the next few paragraphs**.
+
+R Markdown is a file format (a plain text format like R scripts or `.csv` files)
 that allows you to be more reproducible in your analysis 
-and more productive in general in your work.
-R Markdown is a extension of [Markdown][pandoc] that combines R code 
-and Markdown formatting markup. 
+and to be more productive in general in your work.
+R Markdown is a extension of [Markdown][pandoc] that integrates R code 
+with written text (as Markdown formatting).
 
 So what is Markdown? 
 It is a [markup syntax] and formatting tool, like HTML,
 that allows you write a document in plain text
-that can be converted to a vast range of other document types 
-(e.g. HTML, PDF, Word documents, slides, posters, websites).
+to then be able to convert to a vast range of other document types,
+e.g. HTML, PDF, Word documents, slides, posters, websites.
 In fact, this website is built from R and Markdown! 
 (Plus other things like HTML.) 
 The Markdown used in R Markdown is based on [pandoc] 
-(pan means all and doc means document, so "all documents"), 
-a very powerful and well-maintained software tool for document conversion. 
-But, we'll get to Markdown a bit later,
-for now we're going to focus on the main reason to use it:
-for including R code and output into a document!
+("pan" means all and "doc" means document, so "all documents"), 
+a very powerful, popular, and well-maintained software tool for document conversion. 
+But, we'll get to Markdown more a bit later.
+For now we're going to focus on the main reason to use it:
+for incorporating R code and output into a document!
 By using R code in a document, 
 you can have a seamless integration between document writing and analysis.
 
-- Why
-    - To use for exploration and documentation
-    - To easily update reports on analyses and then share to collaborators
+Why would you use this? There are many reasons, some of them being:
+
+- There is less time between exploring a new dataset or analysis
+and sharing your findings with collaborators,
+because the writing and documenting is woven in with your R analysis code.
+- If you finish an analysis and produce a report, 
+but later find out there are problems with the data or you get new data,
+updating your report is as easy as clicking a button to regenerate it.
+- How you got and show your results is based on the exact sequence of steps
+given in your R Markdown document,
+so showing or learning from others on how the analysis is done is easy 
+because the *how* is explicitly shown in the document.
 
 [markup syntax]: https://en.wikipedia.org/wiki/Markup_language
 [pandoc]: https://pandoc.org/index.html
+
+**Let's go over this together**.
 
 Ok, let's create and save an R Markdown file. 
 Go to `File -> New File -> R Markdown`.
