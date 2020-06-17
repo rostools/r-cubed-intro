@@ -415,7 +415,7 @@ as a local repository is to download it (or to "clone" it in Git terms).
 
 You can "clone" a GitHub repository easily from RStudio's
 "Create Project from Version Control" interface.
-We'll do that now, by "cloning" the GitHub repository from RStudio,
+We'll do that now, 
 as detailed in the video below.
 
 ```{r video-rstudio-clone-repository, echo=FALSE}
@@ -496,13 +496,13 @@ Things that you've changed and then saved to the history,
 either on the remote or the local repository,
 are synchronized from or to GitHub.
 So, as shown in Figure \@ref(fig:image-git-stages-with-github),
-pushing copies the history over to GitHub
-and pulling copies the history from GitHub.
+'pushing' copies the history over to GitHub
+and 'pulling' copies the history from GitHub.
 Changes saved in the history also reflect the working folder
 (the files and folders you actually see and interact with),
-pulling also updates the files and folders.
+'pulling' also updates the files and folders.
 
-```{r image-git-stages-with-github, echo=FALSE, fig.cap="Which stages get pushed and pulled."}
+```{r image-git-stages-with-github, echo=FALSE, fig.cap="Which states get pushed and pulled."}
 knitr::include_graphics(here::here("images/git-stages-with-github.png"))
 ```
 
@@ -514,7 +514,7 @@ If you aren't, switch to it by clicking the button in the top right corner
 and selecting the `LearningR` project from the menu.
 Open up the `README.md` 
 and add a random sentence somewhere near the top of the file.
-Save, then open the Git interface (Ctrl-Alt-M or "Git button -> Commit")
+Save, then open the Git interface (Ctrl+Alt+M or "Git button -> Commit")
 and add and commit the new change.
 Next, click the "Push" button in the top right corner of the Git interface
 (in box 2 of Figure \@ref(fig:image-rstudio-git-interface)).
@@ -628,7 +628,7 @@ You only need to know that every Git repository starts with the default
 `master` branch.
 
 At this point, 
-you decide what to keep and what to remove by deleting text.
+you decide what to keep and what to remove by deleting text within the "version-control-session.R" script in Rstudio.
 You'll need to also delete the lines with the `<<<<<<< HEAD`,
 `=======`, and `>>>>>>> origin/master`
 
