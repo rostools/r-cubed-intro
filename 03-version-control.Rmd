@@ -251,7 +251,7 @@ You should see the text in the file, all in green.
 Green means the text has been added.
 Red, which you will see shortly, means text was removed.
 
-Click the "Staged" checkbox besides the `README.md` file 
+Now click the "Staged" checkbox besides the `README.md` file 
 to get it ready to be saved into the history.
 The box on the right side is where you type out your "commit" message.
 "Commit" means you save something to the history of changes;
