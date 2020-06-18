@@ -253,6 +253,7 @@ Red, which you will see shortly, means text was removed.
 
 Now click the "Staged" checkbox besides the `README.md` file 
 to get it ready to be saved into the history.
+You've now "added" it to the staged area.
 The box on the right side is where you type out your "commit" message.
 "Commit" means you save something to the history of changes;
 You "commit" it to the history, like you "commit" something to your own memory.
@@ -268,7 +269,7 @@ Tracked is when the file has been saved in the history
 and Git "watches" it for changes.
 2. The *Staged* state is when a file has a change that is different
 compared to the version in the history
-and it has been checked into the "Staged" area 
+and it has been checked ("added") into the "Staged" area 
 (by ticking the checkbox beside the file in the Git interface).
 3. The *History* or *Committed* state is when a "commit" message has been written
 and the file and its changes has been saved into the repository history.
@@ -300,7 +301,7 @@ and forget what you were doing.
 With a well written history you can get a quick idea 
 or reminder about the state of the project.
 
-Let's write a message like "Add initial README file"
+Ok, now write something like "Add initial README file" in the commit message box
 and commit the change.
 After committing, 
 you'll notice that the `README.md` file is no longer on the left side.
@@ -332,10 +333,12 @@ and make it easier for others as well.
 
 Time: 10 min
 
-1. Practice the add-commit sequence by adding and 
-committing each of the remaining files in your R project one by one into the Git history.
+1. Practice the add-commit ("add to staging"-"committing to history") sequence by adding and 
+committing each of the remaining files in your R project one by one into the Git history
+(e.g. the `.gitignore`, the `.R` files, and the `.Rproj` file).
     - Make sure to write a meaningful 
     and short message about what you added and why.
+    In this case, the "why" is simply that you are saving the file into the history.
 2. Once all the files have been added and committed, 
 add a new line to the `R/version-control-session.R` with an R comment 
 (starts with a `#`).
