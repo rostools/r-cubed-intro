@@ -128,7 +128,7 @@ You can also create a word document with `output: word_document`.
 While PDF documents are also able to be created,
 they require installing LaTeX through the R package [tinytex],
 which can sometimes be complicated to install.
-So we will only cover HTML and Word documents.
+So we will only cover HTML and Word documents in this session.
 
 So how do we create an HTML (or Word) document from the R Markdown document?
 By "knitting" it! At the top of the pane near the save button,
@@ -165,15 +165,26 @@ or with the RStudio "Knit" button.
 key from `html_document` to `word_document`. Knit again.
 1. Open the Word file if it hasn't been opened already.
 
-## Inserting R code into the document
+## Inserting R code into your document
 
-- Using R in R Markdown and inserting the output
+Being able to insert R code directly into a document is one of the most 
+powerful characteristics of using R Markdown.
+This frees you from having to move back 
+and forth between writing text 
+and running R code to get output to then put into the document.
 
-One of the most powerful and useful features of R Markdown is its ability to
-combine text and R code in the same document! 
+Running and including R code in R Markdown is done through "R code chunks".
+You insert these chunks into the document by either typing "Ctrl+Alt+I" 
+or using the menu item "Code -> Insert Chunk", 
+with the cursor at the location you want the chunk to be.
+Before we do that,
+delete all the text in your R Markdown document (the `rmarkdown-session.Rmd` file),
+excluding the YAML header
+and make sure the YAML key `output:` is `html_document`.
 
-Insert R code chunk via "Ctrl-Alt-I" or with the menu item "Code -> Insert Chunk".
-You should get something that looks like this:
+Then, place your cursor two lines below the YAML header 
+and insert a code chunk ("Ctrl+Alt+I" or "Code -> Insert Chunk").
+The code chunk should look something like this:
 
 ````markdown
 `r ''````{r}
@@ -181,50 +192,133 @@ You should get something that looks like this:
 `r ''````
 ````
 
-- Code chunks
-    - Common options
+In the code chunk, type out `2 + 2`, so it looks like:
 
-- Creating a table
+````markdown
+`r ''````{r}
+2 + 2 
+`r ''````
+````
 
- Exercise: Create a table
+Knit the document and see what happens in the created document.
+The output `4` should appear below the code chunk in the HTML document.
+Like this:
 
+```{r}
+2 + 2
+```
 
-**NOTE**: Code [chunk labels] should be named without `_`, spaces, or `.` and 
-instead should be one word or be separated by `-`. While an error may not 
-necessarily occur, there can be some unintended side effects that will cause you
-some annoyance without knowing the reason.
+That is the simplest use of how code chunks work.
+Normally, things are more complicated then this though.
+And usually we have to load packages to use in the document.
+Create a new code chunk and then type `setup` right after the `r`.
+It should look like:
+
+````markdown
+`r ''````{r setup}
+
+`r ''````
+````
+
+This area where you typed is for code chunk labels.
+In this case, we labeled the code chunk with the name `setup`.
+Code [chunk labels] should be named without `_`, spaces, or `.` 
+and instead should be one word or be separated by `-`. 
+An error may not necessarily occur if you don't follow this rule,
+there can be unintended side effects that you may not find 
+or R may not tell you about 
+that will cause you quite a bit of annoyance,
+without really knowing the reason of what is going on.
 
 [chunk labels]: https://yihui.name/knitr/options/#chunk-options
 
-TODO: Add explanation about `setup` code chunk
+The name `setup` is also a special name for R Markdown.
+Whenever you run other code chunks in the document 
+and if you just opened up the document,
+R Markdown will first run the code in the `setup` chunk.
+This is a good place to put your `library()` calls.
+Let's add tidyverse and NHANES to the chunk:
 
 ````markdown
 `r ''````{r setup}
 library(tidyverse)
+library(NHANES)
 `r ''````
 ````
+
+Let's add another code chunk,
+and this time simply put `NHANES` in it:
 
 ````markdown
 `r ''````{r}
-2 + 2
+NHANES
 `r ''````
 ````
 
-```{r}
-2 + 2
+Now, let's knit ("Ctrl+Shift+K") the document and see what it looks like.
+When the HTML document opens,
+you should some text below the `setup` chunk that looks something like this:
+
+```{r setup, echo=FALSE}
+library(tidyverse)
+library(NHANES)
 ```
 
-Or just print out a number to the document:
+You probably don't want this text in your generated document.
+You can change how code chunks work by using [chunk options].
+They are available either by clicking on the gear in the top right corner of the chunk
+(shown in Figure \@ref(fig:image-code-chunk-gear))
+or by typing in the area after the chunk label section.
+
+[chunk options]: https://yihui.org/knitr/options/
+
+TODO: Image of gear for chunk options
+```{r image-code-chunk-gear, echo=FALSE, fig.cap="Changing the settings for the code chunk actions."}
+# knitr::include_graphics("images/code-chunk-gear.png")
+```
+
+So, if you want to run the code but not show those messages and warnings,
+you can add the options `message=FALSE` and `warning=FALSE`:
 
 ````markdown
-`r ''````{r}
-cor(NHANES$Height, NHANES$Weight)
+`r ''````{r setup, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(NHANES)
 `r ''````
 ````
 
-```{r}
-cor(iris$Sepal.Length, iris$Sepal.Width)
-```
+If you want to hide the code, the messages, the warnings, and the output,
+but still run the code,
+you use the option `include=FALSE`.
+
+````markdown
+`r ''````{r setup, include=FALSE}
+library(tidyverse)
+library(NHANES)
+`r ''````
+````
+
+Other common options are:
+
+- `echo`: To show the code. The default value to show is `TRUE`, to hide is `FALSE`.
+- `results`: To show the output results. The default is `'markup'`, to hide is `'hide'`.
+- `eval`: To evaluate (to run) the R code in the chunk. 
+The default value is `TRUE` and `FALSE` does not run the code.
+
+These options all work on the individual code chunk.
+If you want to set an option to all the code chunks,
+for instance to hide all the code but keep the output,
+you use the function `knitr::opts_chunk$set(echo = FALSE)`.
+We *won't* do this in this session, 
+but here is what it looks like:
+
+````markdown
+`r ''````{r setup}
+library(tidyverse)
+library(NHANES)
+knitr::opts_chunk$set(echo = FALSE)
+`r ''````
+````
 
 You can also create tables by using the `kable()` function from the knitr package:
 
@@ -240,34 +334,19 @@ NHANES %>%
 ````
 
 ```{r mean-bmi-table, echo=FALSE}
-library(knitr)
-NHANES %>% 
-    select(SurveyYr, BMI, Diabetes) %>% 
-    mutate_at(vars(Diabetes), forcats::fct_explicit_na) %>% 
-    group_by(SurveyYr, Diabetes) %>% 
-    summarise(MeanBMI = round(mean(BMI, na.rm = TRUE), 2)) %>% 
-    spread(SurveyYr, MeanBMI) %>% 
-    kable(caption = "Table caption here")
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    knitr::kable(caption = "Table caption here.")
 ```
 
-If you want a code chunk to be invisible, code chunks to be 
-
-````markdown
-`r ''````{r, echo=FALSE}
-2 + 2
-`r ''````
-````
-
-```{r, echo=FALSE}
-2 + 2
-```
-
-````markdown
-`r ''````{r setup}
-library(tidyverse)
-knitr::opts_chunk$set(echo = FALSE)
-`r ''````
-````
+## Exercise: Creating a table using R code
 
 ## Formatting text with Markdown syntax
 
