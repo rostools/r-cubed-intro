@@ -542,7 +542,7 @@ Time: 15 min.
 
 For each member of the group:
 
-- Complete item 1 of the [group assignment](assignment)
+1. Complete item 1 of the [group assignment](assignment)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
     - Name the project the *same* as your team name (we will provide it for you).
@@ -551,8 +551,8 @@ run `r3::open_assignment()` in the RStudio Console).
     In the [Version Control session](version-control), 
     this person will use their project folder as the base for the initial tasks 
     of the final exercise.
-- Open up the `README.md` file and write a few sentences about yourself.
-- Run these functions from the usethis package to setup the project 
+2. Open up the `README.md` file and write a few sentences about yourself.
+3. Run these functions from the usethis package to setup the project 
 and to create these files:
 
     ```r
