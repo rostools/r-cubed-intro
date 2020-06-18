@@ -220,21 +220,20 @@ It should look like:
 `r ''````
 ````
 
-This area where you typed is for code chunk labels.
-In this case, we labeled the code chunk with the name `setup`.
+This area that you typed in is for code chunk labels.
+In this case, we labelled the code chunk with the name `setup`.
 Code [chunk labels] should be named without `_`, spaces, or `.` 
 and instead should be one word or be separated by `-`. 
 An error may not necessarily occur if you don't follow this rule,
-there can be unintended side effects that you may not find 
-or R may not tell you about 
-that will cause you quite a bit of annoyance,
-without really knowing the reason of what is going on.
+but there can be unintended side effects that you may not realize
+and R will likely not tell you about it,
+probably causing you quite a bit of annoyance and frustration.
 
 [chunk labels]: https://yihui.name/knitr/options/#chunk-options
 
 The name `setup` is also a special name for R Markdown.
-Whenever you run other code chunks in the document 
-and if you just opened up the document,
+When you run other code chunks in the document,
+if the document was just opened up,
 R Markdown will first run the code in the `setup` chunk.
 This is a good place to put your `library()` calls.
 Let's add tidyverse and NHANES to the chunk:
@@ -320,16 +319,61 @@ knitr::opts_chunk$set(echo = FALSE)
 `r ''````
 ````
 
-You can also create tables by using the `kable()` function from the knitr package:
+A common results output that is included in documents are tables.
+So let's run some R code and get R Markdown to create one.
+First, create a new code chunk and name it `mean-bmi-table`.
+Then, let's copy the code from the Data Wrangling session,
+from Section \@ref(pivot-sac),
+and include the `pivot_wider()` continuation of the pipe.
+To keep the output smaller, 
+we'll only select `SurveyYr`, `Sex`, `BMI`, and `Age`.
 
 ````markdown
 `r ''````{r mean-bmi-table}
-NHANES %>% 
-    select(SurveyYr, BMI, Diabetes) %>% 
-    group_by(SurveyYr, Diabetes) %>% 
-    summarise(MeanBMI = mean(BMI, na.rm = TRUE)) %>% 
-    spread(SurveyYr, MeanBMI) %>% 
-    knitr::kable(caption = "Table caption here")
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
+    pivot_wider(names_from = Variables, values_from = MeanValues)
+`r ''````
+````
+
+```{r mean-bmi-pivoting, echo=FALSE}
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
+    pivot_wider(names_from = Variables, values_from = MeanValues)
+```
+
+This output is almost in a table format... 
+we have the columns that could be table columns and headers,
+and we have rows that would be meaningful table rows too.
+To convert it into a pretty table in the R Markdown HTML output document,
+we use the `kable()` function from the knitr package.
+Because we don't want to load all of the knitr functions,
+we'll use `knitr::kable()` instead.
+
+````markdown
+`r ''````{r mean-bmi-table}
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex by survey year.")
 `r ''````
 ````
 
@@ -343,10 +387,17 @@ NHANES %>%
     group_by(SurveyYr, Sex, Variables) %>%
     summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
     pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    knitr::kable(caption = "Table caption here.")
+    knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex by survey year.")
 ```
 
+Now, knit ("Ctrl+Shift+K") and view the output in the HTML document.
+Pretty eh!
+
 ## Exercise: Creating a table using R code
+
+Time: 10 min
+
+1. In the `doc/another-one.Rmd`
 
 ## Formatting text with Markdown syntax
 
