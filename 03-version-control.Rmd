@@ -260,7 +260,7 @@ You "commit" it to the history, like you "commit" something to your own memory.
 
 Before we move on, there are some things to know about how Git works.
 In Git, there are three "states" that a file can be in, 
-listed below and summarized in Figure \@ref(fig:image-git-stages).
+listed below and summarized in Figure \@ref(fig:image-git-states).
 
 1. The *Working folder* state is where all files are, 
 whether they are "untracked" or "tracked".
@@ -274,8 +274,8 @@ and it has been checked ("added") into the "Staged" area
 3. The *History* or *Committed* state is when a "commit" message has been written
 and the file and its changes has been saved into the repository history.
 
-```{r image-git-stages, echo=FALSE, fig.cap="The three stages files and folders are in when using Git."}
-knitr::include_graphics(here::here("images/git-stages.png"))
+```{r image-git-states, echo=FALSE, fig.cap="The three states files and folders are in when using Git."}
+knitr::include_graphics(here::here("images/git-states.png"))
 ```
 
 This system allows us to keep a journal (a *log*) of what has been changed, 
@@ -420,6 +420,8 @@ You can "clone" a GitHub repository easily from RStudio's
 "Create Project from Version Control" interface.
 We'll do that now, 
 as detailed in the video below.
+Where you save the new project doesn't matter,
+but to make things easy, save it to the Desktop.
 
 ```{r video-rstudio-clone-repository, echo=FALSE}
 insert_video("images/rstudio-clone-repository.mp4")
@@ -449,7 +451,8 @@ It will come up again later on and whenever using remotes, like with GitHub.
 Open up the `LearningR` RStudio R project
 and go to the Terminal tab beside the Console tab, 
 shown in Figure \@ref(fig:image-rstudio-terminal-tab)).
-Paste the code into the Terminal and press Enter.
+Paste the code into the Terminal by right-clicking and selecting "Paste"
+(*note*: "Ctrl+V" does *not* work) and press Enter.
 You will likely need to type in your GitHub password.
 Wait for it to finish and then go to the `LearningR` GitHub repository.
 You should now have your project files on GitHub!
@@ -498,15 +501,15 @@ pushing and pulling *happen only to the history*.
 Things that you've changed and then saved to the history, 
 either on the remote or the local repository,
 are synchronized from or to GitHub.
-So, as shown in Figure \@ref(fig:image-git-stages-with-github),
+So, as shown in Figure \@ref(fig:image-git-states-with-github),
 'pushing' copies the history over to GitHub
 and 'pulling' copies the history from GitHub.
 Changes saved in the history also reflect the working folder
 (the files and folders you actually see and interact with),
 'pulling' also updates the files and folders.
 
-```{r image-git-stages-with-github, echo=FALSE, fig.cap="Which states get pushed and pulled."}
-knitr::include_graphics(here::here("images/git-stages-with-github.png"))
+```{r image-git-states-with-github, echo=FALSE, fig.cap="Which states get pushed and pulled."}
+knitr::include_graphics(here::here("images/git-states-with-github.png"))
 ```
 
 **Alright, let's go over this together and practice the concepts.**
@@ -517,8 +520,10 @@ If you aren't, switch to it by clicking the button in the top right corner
 and selecting the `LearningR` project from the menu.
 Open up the `README.md` 
 and add a random sentence somewhere near the top of the file.
-Save, then open the Git interface (Ctrl+Alt+M or "Git button -> Commit")
-and add and commit the new change.
+Save, then open the Git interface,
+by typing "Ctrl+Alt+M" anywhere in the RStudio interface
+(but not when in the Terminal) or going to the "Git button -> Commit",
+and add to the staging and commit the new change.
 Next, click the "Push" button in the top right corner of the Git interface
 (in box 2 of Figure \@ref(fig:image-rstudio-git-interface)).
 A pop-up will indicate that it's pushing and will tell you when it's done.
@@ -526,7 +531,8 @@ A pop-up will indicate that it's pushing and will tell you when it's done.
 Now go to your `LearningR` GitHub repository.
 You should see the new change is also on the GitHub repository.
 Click the `README.md` file on the GitHub website
-and then click the "Edit" button (see the video below).
+and then click the "Edit" button 
+(see the video below, which shows it for the `learning-github` repository).
 Add another random sentence somewhere near the top of the file.
 Scroll down to the commit message box, type out a commit message,
 and click the "Commit" button.
@@ -631,13 +637,21 @@ You only need to know that every Git repository starts with the default
 `master` branch.
 
 At this point, 
-you decide what to keep and what to remove by deleting text within the "version-control-session.R" script in Rstudio.
+you decide what to keep 
+and what to remove by deleting text within the `version-control-session.R` script in RStudio.
 You'll need to also delete the lines with the `<<<<<<< HEAD`,
 `=======`, and `>>>>>>> origin/master`
 
 After deciding what to keep and removing all the left over merge conflict tags,
-add and commit the changes in the Git interface. 
-You don't need to write a commit message when resolving merge conflicts.
+open up the Git interface in RStudio.
+The files listed in the staging area will show the conflict file
+with a yellow/orange "U".
+When you've dealt with the conflict, you can click the file to be staged,
+which will change the colour to blue.
+Next you commit the changes in the Git interface,
+without writing a commit message (this is not necessary when resolving merge conflicts)
+Push the changes to GitHub, then open up the Git repository in GitHub,
+refresh the browser, and view that the changes have taken place.
 
 ## Exercise: Dealing with merge conflicts
 
@@ -652,11 +666,15 @@ Commit the change.
 replace the same word you did on the GitHub version of the `README.md` file,
 but instead use a different random word 
 (e.g. "ticktock" instead of "blahblah" from above).
-Add and commit the change with RStudio's Git interface.
+Add to the staging and commit the change with RStudio's Git interface.
 3. Using RStudio's Git interface, pull the changes from GitHub.
 There should be a warning about merge conflicts.
 Now you can practice dealing with and fixing merge conflicts.
-Add the changes after you fixed them and click the commit button.
+Add the changes to the staging after you fixed them and click the commit button
+(you don't need to type out a commit message).
+4. Push the changes up to GitHub 
+and view them there to make sure they have been synchronized
+(you may need to refresh the browser).
 
 ## Collaborating using Git and GitHub 
 
@@ -701,6 +719,27 @@ But you will get practice collaborating on a Git project in the final exercise.
 
 ## Summary of session
 
+- Use the version control system Git to track changes to your files,
+to more easily manage your project and to more easily collaborate with others.
+- Git tracks files in three states: "Working directory", "Staged", and "History".
+    - The Git repository contains the history.
+- The main actions to move between states are:
+    - "Add to staging"
+    - "Commit to history"
+- When committing to history, keep messages short and meaningful. 
+Focus more on why the change was made, not what.
+- "Remotes" are external storage locations for your Git repository. 
+GitHub is a popular remote Git repository hosting service.
+    - Downloading a Git repository from GitHub is called "cloning".
+- "Pushing" and "pulling" are actions to upload and download to the remote repository
+(usually given the name "origin").
+- When there are differences in changes to the same lines in a file,
+a merge conflict occurs that you must deal with manually.
+    - Decide on which text to keep between the tags: `<<<<<<< HEAD`, 
+    `=======`, and `>>>>>>> origin/master` 
+    (the last name may sometimes look different).
+- Almost all Git actions can be done using RStudio's Git interface.
+
 ## Final exercise: Group work
 
 Time: 30 min
@@ -723,7 +762,7 @@ the updated project using RStudio's interface
     - Use the process we did *for new repositories*.
 3. Then each team member needs to move any files they worked on in their old project folder
 and move them into the newly created Git repository R project.
-Then add, commit, and push those file changes to GitHub.
+Then add to the staging, commit, and push those file changes to GitHub.
     - You'll likely have to deal with Merge Conflicts at this point. 
     We'll be here to help out.
 4. Then complete item 5 and its sub-tasks in the [group assignment](assignment.html)
