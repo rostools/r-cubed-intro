@@ -5,7 +5,9 @@
 - [R for Data Science](https://r4ds.had.co.nz/): 
 Excellent open and online resource for using R for data analysis and data science.
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): 
-Excellent online resource for using ggplot2 and R graphics
+Excellent online resource for using ggplot2 and R graphics.
+Book mostly focused on concepts and theory of how to visualize, 
+rather than the practicalities (i.e. no coding involved).
 - [ModernDive: Statistical Inference via Data Science](https://moderndive.com/): 
 Great book on using statistics and data science methods in R
 - [Happy Git and GitHub for the useR](https://happygitwithr.com/) (**highly recommended**):
@@ -13,13 +15,8 @@ Specifically useful is the chapter on [Daily Workflows](https://happygitwithr.co
 - [Data Visualization: A practical introduction](https://socviz.co/index.html#preface):
 A book that goes into practical as well as conceptual detail on how 
 and why to make certain graphs, given your data.
-- [Fundamentals of Data Visualization]:
-Book mostly focused on concepts and theory of how to visualize, 
-rather than the practicalities (i.e. no coding involved).
 - [Online book for R Markdown](https://bookdown.org/yihui/rmarkdown/):
 The go-to reference for learning and using R Markdown
-
-[Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
 
 **Quick references**:
 
