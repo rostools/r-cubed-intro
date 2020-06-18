@@ -231,6 +231,12 @@ probably causing you quite a bit of annoyance and frustration.
 
 [chunk labels]: https://yihui.name/knitr/options/#chunk-options
 
+A nifty thing about using chunk labels is that you can see the name
+when using "Document Outline" 
+(found using "Ctrl+Shift+O", 
+if you have the option set in the 
+"Tools -> Global Options -> R Markdown -> Show in document outline").
+
 The name `setup` is also a special name for R Markdown.
 When you run other code chunks in the document,
 if the document was just opened up,
@@ -574,7 +580,7 @@ or character value, nothing more.
 
 ## Exercise: Practice using Markdown for writing text
 
-Time: 10 min
+Time: 8 min
 
 1. Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
 1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
@@ -585,13 +591,17 @@ Bold (`**word**`) one word in each and italicize (`*word*`) another.
 
 ## Inserting figures, as files or from R code
 
-You can insert plots by including a
-code chunk, like the one below. The options added to the code chunk tell it to
+Aside from tables,
+figures are the other most common form of output inserted into documents.
+And like tables, you can insert figures into the document with R code chunks.
+
+Let's create a new code chunk ("Ctrl+Alt+I").
+
+
+You can insert plots by including a code chunk, like the one below. 
+The options added to the code chunk tell it to
 add a caption, to set the height and width of the figure, and to prevent the code
 chunk from showing up in the final document (`echo=FALSE`). The `bmi-plot` label is
-the name of the code chunk (which you can see in the "Document Outline", found
-using `Ctrl-Shift-O`, if you have the options set in the `Tools -> Global
-Options -> R Markdown`).
 
 ````markdown
 `r ''````{r bmi-plot, fig.cap="Add your figure title here.", fig.height=8, fig.width=8, echo=FALSE}
