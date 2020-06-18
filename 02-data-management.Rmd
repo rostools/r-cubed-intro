@@ -1011,7 +1011,7 @@ Since the NHANES dataset we use is for teaching purposes,
 there are some cases where the same person is recorded multiple times in one survey year,
 which doesn't make sense and prevents us from adequately pivoting wider.
 
-## Pivot, then split-apply-combine
+## Pivot, then split-apply-combine {#pivot-sac}
 
 The real strength of pivoting is when you use it with the [split-apply-combine] method.
 For instance, if we wanted to find some simple statistics of all the columns
