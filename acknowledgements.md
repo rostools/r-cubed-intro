@@ -1,5 +1,10 @@
 # Acknowledgements
 
+Content from multiple sources were used as inspiration or
+were copied and modified. 
+Many pieces from the (in development) course [Merely Useful](https://github.com/merely-useful/merely-useful.github.io)
+were modified and used in many places throughout the r-cubed course.
+
 ## Project management session
 
 Parts of this lesson were modified from a
@@ -20,11 +25,9 @@ dplyr sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse)
 Much inspiration was also taken from the [R for Data Science] book.
 And also from the [AU CRU intermediate dplyr and tidyr session](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/)
 
-Also taken from Merely Useful.
-
 ## Git session
 
-Many parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
+Some parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
 given while with the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
 
 ## Data visualization session
@@ -36,6 +39,7 @@ the ggplot2 sessions of the [UofTCoders course](https://github.com/UofTCoders/rc
 Much inspiration was also taken from the [R for Data Science] book and the
 [Fundamentals of Data Visualization].
 
+[Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
 [R for Data Science]: https://r4ds.had.co.nz/
 
 ## R Markdown session
@@ -47,3 +51,4 @@ the [Aarhus University Open Coders](https://au-oc.github.io/main/), with
 contributions from Maria Izabel Cavassim Alves
 ([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in
 Bioinformatics.
+

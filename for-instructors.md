@@ -1,5 +1,3 @@
-# (APPENDIX) Appendix {-}
-
 # For Instructors
 
 ![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
