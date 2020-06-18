@@ -86,9 +86,9 @@ because the *how* is explicitly shown in the document.
 **Let's go over this together**.
 
 Ok, let's create and save an R Markdown file. 
-Go to `File -> New File -> R Markdown`.
+Go to "File -> New File -> R Markdown".
 A dialog box will pop up.
-Type in `Reproducible documents` in the title section 
+Type in "Reproducible documents" in the title section 
 and your name in the author section. 
 Choose HTML as the output format.
 Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
@@ -99,37 +99,57 @@ We now have an R Markdown file.
 Inside the file is some text that gives a brief overview of how to use it.
 For now, let's ignore the text.
 
-## YAML header/metadata
-
-You may see 
-Most Markdown documents (especially for R Markdown) include [YAML] metadata at
-the top of the document, surrounded by `---` on the top and bottom. The YAML
-contains metadata and options for the entire document. For instance, the title
-or author but also the output format you want to use, such as Word, HTML, or PDF
-(if you want to create a beautiful PDF, you need to install the R package
-[tinytex]). There are many more output formats, but these are the most common.
-
-[YAML]: https://bookdown.org/yihui/rmarkdown/html-document.html
-[tinytex]: https://yihui.name/tinytex/
+At the top of the R Markdown,
+you will see something that looks a bit like this:
 
 ```yaml
 ---
-title: "Document title"
-author: Your Name
-output: word_document
+title: "Reproducible documents"
+author: "Your Name"
+date: "6/18/2020"
+output: html_document
 ---
 ```
 
-There are additional options you can set in the output field, which we will show
-later below.
+This section is called the **[YAML] header**
+and it contains commands and metadata about the document.
+Most Markdown documents have this YAML header at the top of the document
+and they are always surrounded by `---` on the top and bottom of the section.
+YAML is a data format that has the form of a `key: value` pairing to store data.
+The keys in this case are `title`, `author`, `date`, and `output`.
+The values are those that follow the key (e.g. "Your Name" for `author`).
+In the case of R Markdown, these `key` data are used to store the settings 
+that R Markdown will use to create the `output` document.
+The keys listed above are some of many settings that R Markdown has available to use.
 
-- YAML header
+In the case of this YAML header, 
+the R Markdown document will generate an HTML file because of the `output: html_document` setting.
+You can also create a word document with `output: word_document`.
+While PDF documents are also able to be created,
+they require installing LaTeX through the R package [tinytex],
+which can sometimes be complicated to install.
+So we will only cover HTML and Word documents.
 
-- Generating the document
-    - HTML
-    - Word
-    - Comment about PDF
+So how do we create an HTML (or Word) document from the R Markdown document?
+By "knitting" it! At the top of the pane near the save button,
+there is a button with yarn and the word "Knit", 
+as shown in Figure \@ref(fig:TODO). 
+To knit, you either click that button 
+or by typing "Ctrl+Shift+K" anywhere in the R Markdown document.
 
+TODO: Image of location of knit button
+
+TODO: Video of knitting a document
+
+When you click it, a bunch of commands should pop up in a new pane called "R Markdown",
+followed by a new window popping up with the newly created document.
+Alternatively, the HTML document may pop up in the "Viewer" pane.
+Cool, you've now created a HTML document!
+Let's try making a Word document.
+Change the YAML value in the key `output:` from `html_document` to `word_document`.
+Then knit the document again (with the "Knit" button or with "Ctrl-Shift-K").
+Now, a Word document should open up.
+This is the basic approach to creating documents from R Markdown.
 
 ## Exercise: Create another R Markdown document. 
 
