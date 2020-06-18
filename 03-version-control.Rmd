@@ -17,14 +17,14 @@ and synchronize those changes to an online repository (GitHub).
 
 **Take 5 min and read through this section**.
 
-> This session is more text and reading heavy compared to others sessions.
+> This session is more text and reading heavy compared to other sessions.
 This is mostly because this topic requires a paradigm shift in how you view files,
 and requires you to change your habits of how you normally work.
 While you may get more short-term use out of the R portion of this course,
 knowing and using version control concepts 
-and tools will fundamentally change how you work over the long-term.
+and tools will fundamentally change how you work over the long term.
 While the concepts are quite difficult,
-the tools to use the concepts aren't
+the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
 ```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'. Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)"}
@@ -42,17 +42,17 @@ there is truth to it: it is the most commonly used "version control".
 This form of version control, while common,
 is fairly primitive, informal, and very manual.
 It isn't ideal because it requires making multiple copies of the same file, 
-even if changes made are done to only one small part of the file. 
-This approach also makes it difficult to find specific changes done.
+even if changes are made to only one small part of the file. 
+This approach also makes it difficult to find specific changes.
 
 There are, however, formal version control systems 
 that automatically manage changes to a file or files. 
 
 These formal version control systems take snapshots of changes done to files,
-which usually called "revisions" or "commits". 
+which are usually called "revisions" or "commits". 
 These "commits" record what was changed since the previous "commit".
 When you make these "commits",
-you have to create a short message on what or why you made change.
+you have to create a short message on what or why you made a change.
 These "commits" are stored as a log entry in a history.
 This history then has all this information,
 for each commit,
@@ -60,7 +60,7 @@ on what file or files were changed,
 what was changed within the file(s), 
 who changed it, and the short message about the change.
 This is extremely useful, 
-especially when working in teams 
+especially when working in teams, 
 or for yourself 6 months in the future 
 (because you *will* forget things),
 since you can go back and quickly see what happened and why.
@@ -75,7 +75,7 @@ or co-authors?
 or your manuscript 
 and need to make a new file so that the original is not modified? 
 - Have you ever deleted something and wish you hadn't?
-- Have you ever forgotten what you were doing on a project?  
+- Have you ever forgotten what you were doing on a project, or why you chose a particular strategy?  
 
 All these problems can fixed by using formal version control! 
 There are so many good reasons to use version control, especially in science:
@@ -100,7 +100,7 @@ RStudio thankfully has an amazing and straight-forward integration to it.
 **Take 5 min and read through this section**.
 
 Git is one of several version control system tools available.
-It was developed to help the software programmers 
+It was developed to help software programmers 
 to develop and manage their work on [Linux](https://en.wikipedia.org/wiki/Linux)
 (an operating system like Mac or Windows).
 Sadly, it was designed by and for software programmers 
@@ -126,7 +126,7 @@ e.g. [rOpenSci](https://github.com/ropensci) organization,
 [GitHub]: https://github.com/
 
 While learning Git and version control can be difficult 
-and have a steep learning curve,
+and has a steep learning curve,
 like learning R,
 it is ultimately an investment into your future productivity 
 and effectiveness as a researcher.
@@ -141,9 +141,9 @@ How Git works is by tracking changes to files *at the project level*
 So you won't track your entire, for instance, `My Documents/` folder.
 When file changes are saved and put into the history,
 this history is called a "repository" (also called a "repo" for short). 
-We'll explain what a repository is more later.
+We'll explain more about what a repository is later.
 
-For every project we need to setup 
+For every project we need to set up 
 and associate a Git repository with the project folder.
 Before you continue, 
 go into your `LearningR` R Project
@@ -157,16 +157,16 @@ r3::check_git_config()
 It should run without any error and it should show your email and name.
 What you do with Git is more or less to:
 
-- Setup Git in your project or folder by starting it as a "repository"
+- Set up Git in your project or folder by starting it as a "repository"
 - Tell Git to track a file by preparing it to be saved to the history
 - Save changes to files in the history with a message you recorded about the change
  
-Other things you'd do with Git:
+Other things you can do with Git:
 
 - Check what's been changed or added in files since the last save
-- Check the history for what was previously changed or add
+- Check the history for what was previously changed or added
 
-When working with GitHub, there are extra things you'd do (more on this later):
+When working with GitHub, there are extra things you can do (more on this later):
 
 - Synchronize the Git repository on your computer with the repository on your GitHub,
 called "push" (upload) and "pull" (download).
@@ -196,7 +196,7 @@ LearningR
 └── README.md
 ```
 
-Setting up a Git repository can be done several ways:
+Setting up a Git repository can be done in several ways:
 
 - When starting a new R Project, the "Create a git repository" option can be 
 selected from the "New Projects" setup instructions. 
@@ -210,12 +210,12 @@ Git was initially created to use in the terminal (i.e command-line).
 However, because RStudio has a very nice interface for working with Git,
 we'll be using that interface so we don't have to switch to another application.
 While the terminal provides full access to Git's power and features,
-the vast majority of use cases can be done through RStudio's interface.
+the vast majority of daily use can be done through RStudio's interface.
 
 To access the Git interface in RStudio, 
 click the Git icon beside the "Go to" search bar 
 (see Figure \@ref(fig:image-rstudio-git-button)) 
-and then click the "Commit..." option (Ctrl-Alt-M).
+and then click the "Commit..." option (Ctrl+Alt+M).
 
 ```{r image-rstudio-git-button, echo=FALSE, fig.cap="The Git button location in RStudio."}
 knitr::include_graphics(here::here("images/rstudio-git-button.png"))
@@ -234,17 +234,17 @@ Changes is what is currently changed in your files relative to the last history 
 History is the record of what was done, to what file, when, and by whom.
 2. The "Push" and "Pull" buttons are what synchronize with GitHub, 
 which we will cover later in the session.
-3. The panel that lists the file's that have been modified in some way.
+3. The panel that lists the files that have been modified in some way.
 You add ("stage") files here that you want to be put into the history.
 4. The Commit Message box, 
 where you write the message about the changes that will be put into the history.
 5. The panel that shows what text has been modified, added, 
 or removed from the file selected in panel 3.
-Green highlight indicated something has been added,
+Green highlight indicates that something has been added,
 while red indicates a removal.
 Changes are detected at the line level (what line in the file).
 
-So far it should show a bunch of files that we've added 
+So far, it should show a bunch of files that we've added 
 and used over the previous sessions.
 In the Git interface, select the `README.md` file. 
 You should see the text in the file, all in green.
@@ -261,7 +261,7 @@ Before we move on, there are some things to know about how Git works.
 In Git, there are three "states" that a file can be in, 
 listed below and summarized in Figure \@ref(fig:image-git-stages).
 
-1. The *working folder* state is where all files are, 
+1. The *Working folder* state is where all files are, 
 whether they are "untracked" or "tracked".
 Untracked is when Git sees the file, but it has not yet entered the history.
 Tracked is when the file has been saved in the history 
@@ -270,7 +270,7 @@ and Git "watches" it for changes.
 compared to the version in the history
 and it has been checked into the "Staged" area 
 (by ticking the checkbox beside the file in the Git interface).
-3. The *History* or *committed* state is when a "commit" message has been written
+3. The *History* or *Committed* state is when a "commit" message has been written
 and the file and its changes has been saved into the repository history.
 
 ```{r image-git-stages, echo=FALSE, fig.cap="The three stages files and folders are in when using Git."}
@@ -280,7 +280,7 @@ knitr::include_graphics(here::here("images/git-stages.png"))
 This system allows us to keep a journal (a *log*) of what has been changed, 
 why it has been changed, who changed it, and when.
 Figure \@ref(fig:image-rstudio-git-interface-log)
-below shows an example log of the history of this lesson,
+below shows an example log of the history of a previous version of this lesson,
 which makes it easy to get an overview of what is happening in a project.
 
 ```{r image-rstudio-git-interface-log, echo=FALSE, fig.cap="An example of a history for this course's repository."}
