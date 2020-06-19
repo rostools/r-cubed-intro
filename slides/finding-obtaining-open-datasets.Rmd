@@ -1,12 +1,12 @@
 ---
 title: "Finding and obtaining open datasets"
 author: 
-    - "Daniel Witte"
+    - "Daniel R. Witte"
 output:
   xaringan::moon_reader:
     self_contained: true
     lib_dir: libs
-    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    css: ["xaringan-themer.css", "../resources/custom.css"]
     nature:
       ratio: "16:9"
       highlightStyle: github
@@ -18,8 +18,9 @@ layout: true
 
 <div class="my-footer">
 <span>
-<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
-<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
+<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
 </span>
 </div> 
 
@@ -36,7 +37,7 @@ BibOptions(
     max.names = 2
     # hyperlink = FALSE,
 )
-bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -51,6 +52,20 @@ mono_accent(
 ```
 
 ---
+## Where is Open Data in the Open Science Universe?
+
+- Open data is not primarily about what you can download from the internet
+
+.center[
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/OpenUniverse.png")
+```
+]
+
+.footnote[Image source from [here](https://www.fosteropenscience.eu/resources).]
+
+---
+
 
 ## There are different types of open data
 

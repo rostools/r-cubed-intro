@@ -88,36 +88,57 @@ Collaboration can be organised at different levels:
 -   Working together can be more motivating than solitary work
 
 
+
 ---
 ## Collaboration is widespread
 
 .center[
-```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../img/Resnet1.png")
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/Resnet1.png")
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
+.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
+
 
 ---
 ## Collaboration is widespread
+
 .center[
-```{r, out.height="55%", out.width="55%"}
-knitr::include_graphics("../img/Resnet2.png")
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/Resnet2.png")
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
+.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
+
 
 ---
 ## Collaboration is widespread
+
 .center[
-```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../img/Resnet3.png")
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/Resnet3.png")
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2011/01/23/map-of-scientific-collaboration-between-researchers/).]
+.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
+
+
+---
+## Collaboration is widespread
+
+.center[
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/Resnet4.png")
+```
+]
+
+.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
+
+
+
+
 
 ---
 ## Collaboration is based on agreement
@@ -152,7 +173,7 @@ Agreement is needed on:
 
 .center[
 ```{r, out.height="60%", out.width="60%"}
-knitr::include_graphics("../img/workflow.png")
+knitr::include_graphics("../images/workflow.png")
 ```
 ]
 
@@ -171,7 +192,7 @@ class: center, middle
 
 .center[
 ```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../img/elife.png")
+knitr::include_graphics("../images/elife.png")
 ```
 ]
 
