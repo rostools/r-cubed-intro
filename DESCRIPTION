@@ -20,7 +20,8 @@ Imports:
     hexbin,
     NHANES,
     RefManageR,
-    tidyr
+    tidyr,
+    r3 (>= 0.0.0.9000)
 Suggests: 
     fs,
     prodigenr,
@@ -29,7 +30,8 @@ Suggests:
     usethis,
     xaringan,
     xaringanthemer
-Remotes: 
+Remotes:  
     gadenbuie/xaringanthemer,
-    hadley/emo
+    hadley/emo,
+    gitlab::rostools/r3
 Encoding: UTF-8
