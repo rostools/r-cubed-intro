@@ -19,8 +19,9 @@ layout: true
 
 <div class="my-footer">
 <span>
-<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
-<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
+<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
 </span>
 </div> 
 
@@ -37,7 +38,7 @@ BibOptions(
     max.names = 2
     # hyperlink = FALSE,
 )
-bib <- ReadBib("../../resources/refs.bib", check = FALSE)
+bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -82,13 +83,13 @@ We are in the middle of an exponential growth curve:
 
 .pull-left[
 ```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../img/Cottage_industry.png")
+knitr::include_graphics("../images/Cottage_industry.png")
 ```
 ]
 
 .pull-right[
 ```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../img/Powerloom.jpg")
+knitr::include_graphics("../images/Powerloom.jpg")
 ```
 ]
 
@@ -98,7 +99,7 @@ knitr::include_graphics("../img/Powerloom.jpg")
 
 .center[
 ```{r, out.height="55%", out.width="55%"}
-knitr::include_graphics("../img/biobank.jpg")
+knitr::include_graphics("../images/biobank.jpg")
 ```
 ]
 
