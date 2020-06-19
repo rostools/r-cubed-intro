@@ -17,6 +17,9 @@ A book that goes into practical as well as conceptual detail on how
 and why to make certain graphs, given your data.
 - [Online book for R Markdown](https://bookdown.org/yihui/rmarkdown/):
 The go-to reference for learning and using R Markdown
+- [Course material for a statistics class](https://stat545.com/):
+Excellent course material for teaching statistics and R.
+    
 
 **Quick references**:
 
@@ -44,9 +47,10 @@ An article listing and describing some practices to use when writing code
 Markdown uses [pandoc])
 - [Adding citations in R Markdown](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 
-**Package websites**:
+**Interactive sites or resources for hands-on learning**:
 
-- [tidyverse packages](https://www.tidyverse.org/packages/)
+- [Interactive tutorials for using R, within R](https://swirlstats.com/)
+- [RStudio's Learning Primers](https://rstudio.cloud/learn/primers)
 
 **Videos**:
 
@@ -62,3 +66,8 @@ Markdown uses [pandoc])
 - Tip: Combine auto-completion with `::` to find new functions 
 and documentation on the functions 
 (e.g. try typing `base::` and then hitting Tab to show a list of all functions found in base R)
+
+```{r}
+knitr::kable(r3::useful_packages_list, caption = "Useful and common packages to use in data analysis.")
+```
+
