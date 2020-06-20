@@ -1,5 +1,3 @@
-# (APPENDIX) Appendix {-}
-
 # For Instructors
 
 ![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
@@ -111,6 +109,15 @@ please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
 
 ## Lesson material details
+
+## Version control
+
+For the reading parts, let them read it first 
+and then walk through the material again, 
+to reinforce importance of version control 
+and doing it formally.
+So give them a heads up that you'll be repeating things,
+specifically to reinforce the concepts.
 
 ### About the slides
 

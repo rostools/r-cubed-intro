@@ -2,5 +2,9 @@ sequenceDiagram
     participant W as Working folder
     participant S as Staged
     participant H as History
+    participant R as GitHub
     W->>S: Add
     S->>H: Commit
+    H->>R: Push
+    R->>H: Pull
+    R->>W: Pull

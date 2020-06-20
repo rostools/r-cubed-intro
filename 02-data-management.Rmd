@@ -1081,17 +1081,17 @@ This exercise has two aims: to get working on and completing the group project,
 and to get you practicing using the dplyr and tidyr functions we covered today.
 First, take maximum 10 min to:
 
-- *As a group*, complete item 2 of the [group assignment](assignment)
+1. *As a group*, complete item 2 of the [group assignment](assignment)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
-- *Individually*, open your group R project
+2. *Individually*, open your group R project
 and complete item 3 of the group assignment.
 Follow the appropriate filenaming conventions as we learned in the Project Management
 session for the dataset (e.g. don't use spaces, instead use either `-` or `_`).
 
 With the remaining time:
 
-- *As a group*, complete item 4 of the [group assignment](assignment).
+3. *As a group*, complete item 4 of the [group assignment](assignment).
 Explore the data and *use all the functions* we've covered in this session to
 better understand the data you'll work with. 
 You can (and probably should) divide exploratory tasks between group members,
