@@ -27,19 +27,19 @@ which this course aims to fill.
 But being reproducible isn't just about doing better science, it can also:
 
 1. Make you much more efficient and productive, as less time is spent between
-coding and putting your results in the document (no need for copy and pasting).
+coding and putting your results in a document (e.g. no need to copy and paste).
 1. Make you more confident in your results, 
 since what you report 
 and show as figures or tables will be exactly what you get from your analysis. 
 Again, no copying and pasting required!
 
 Hopefully by the end of this session you'll try to start using R Markdown files
-for writing your manuscripts and other technical documents. Believe us, it can
-save soooo much time in the end, after you've learned how to incorporate text
-with R code, and make your analysis and work more reproducible. Plus you can create
-some beautifully formatting reports, waaayyyy more easily than you can if you did
-it all in Word. As a bonus, switching between citation formats for different
-journals is a breeze.
+for writing your manuscripts and other technical documents. Believe us, 
+after you've learned how to incorporate text with R code, 
+it can save so much time in the end,
+and make your analysis and work more reproducible. Plus you can create
+some very aesthetically appealing reports, 
+way more easily than you could if you did it in Word. 
 
 ## Creating an R Markdown file
 
@@ -54,18 +54,20 @@ with written text (as Markdown formatting).
 So what is Markdown? 
 It is a [markup syntax] and formatting tool, like HTML,
 that allows you write a document in plain text
-to then be able to convert to a vast range of other document types,
-e.g. HTML, PDF, Word documents, slides, posters, websites.
+that can then be converted into a vast range of other document types,
+e.g. HTML, PDF, Word documents, slides, posters, or websites.
 In fact, this website is built from R and Markdown! 
 (Plus other things like HTML.) 
 The Markdown used in R Markdown is based on [pandoc] 
-("pan" means all and "doc" means document, so "all documents"), 
-a very powerful, popular, and well-maintained software tool for document conversion. 
+("pan" means all and "doc" means document, so "all documents").
+Pandoc is a very powerful, popular, 
+and well-maintained software tool for document conversion. 
 But, we'll get to Markdown more a bit later.
 For now we're going to focus on the main reason to use it:
 for incorporating R code and output into a document!
 By using R code in a document, 
-you can have a seamless integration between document writing and analysis.
+you can have a seamless integration between document writing 
+and doing your analysis.
 
 Why would you use this? There are many reasons, some of them being:
 
@@ -75,10 +77,13 @@ because the writing and documenting is woven in with your R analysis code.
 - If you finish an analysis and produce a report, 
 but later find out there are problems with the data or you get new data,
 updating your report is as easy as clicking a button to regenerate it.
-- How you got and show your results is based on the exact sequence of steps
+- How you got and present your results is based on the exact sequence of steps
 given in your R Markdown document,
-so showing or learning from others on how the analysis is done is easy 
+so showing others on how the analysis is done is easy 
 because the *how* is explicitly shown in the document.
+- Likewise, by reading others' R Markdown documents,
+it is easier to learn what was done in their analysis
+because the logic and sequence is shown in the document itself.
 
 [markup syntax]: https://en.wikipedia.org/wiki/Markup_language
 [pandoc]: https://pandoc.org/index.html
@@ -86,20 +91,22 @@ because the *how* is explicitly shown in the document.
 **Let's go over this together**.
 
 Ok, let's create and save an R Markdown file. 
-Go to "File -> New File -> R Markdown".
-A dialog box will pop up.
+Go to "File -> New File -> R Markdown",
+and a dialog box will then pop up.
 Type in "Reproducible documents" in the title section 
 and your name in the author section. 
 Choose HTML as the output format.
 Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
 
-TODO: Video of making R Markdown file.
+```{r video-rstudio-create-rmarkdown, echo=FALSE}
+insert_video("images/rstudio-create-rmarkdown.mp4")
+```
 
 We now have an R Markdown file.
-Inside the file is some text that gives a brief overview of how to use it.
+Inside the file, there is some text that gives a brief overview of how to use it.
 For now, let's ignore the text.
 
-At the top of the R Markdown,
+At the top of the R Markdown file,
 you will see something that looks a bit like this:
 
 ```yaml
@@ -111,7 +118,7 @@ output: html_document
 ---
 ```
 
-This section is called the **[YAML] header**
+This section is called the *[YAML] header*
 and it contains commands and metadata about the document.
 Most Markdown documents have this YAML header at the top of the document
 and they are always surrounded by `---` on the top and bottom of the section.
@@ -121,6 +128,8 @@ The values are those that follow the key (e.g. "Your Name" for `author`).
 In the case of R Markdown, these `key` data are used to store the settings 
 that R Markdown will use to create the `output` document.
 The keys listed above are some of many settings that R Markdown has available to use.
+
+[YAML]: https://en.wikipedia.org/wiki/YAML
 
 In the case of this YAML header, 
 the R Markdown document will generate an HTML file because of the `output: html_document` setting.
@@ -134,19 +143,20 @@ So we will only cover HTML and Word documents in this session.
 
 So how do we create an HTML (or Word) document from the R Markdown document?
 By "knitting" it! At the top of the pane near the save button,
-there is a button with yarn and the word "Knit", 
-as shown in Figure \@ref(fig:TODO). 
+there is a button with the word "Knit" and yarn beside it, 
+as shown in Figure \@ref(fig:image-rstudio-knit-button). 
 To knit, you either click that button 
 or by typing "Ctrl+Shift+K" anywhere in the R Markdown document.
 
-TODO: Image of location of knit button
-
-TODO: Video of knitting a document
+```{r image-rstudio-knit-button, echo=FALSE, fig.cap="Location of the Knit button in RStudio."}
+knitr::include_graphics(here::here("images/rstudio-knit-button.png"))
+```
 
 When you click it, a bunch of commands should pop up in a new pane called "R Markdown",
 followed by a new window popping up with the newly created document.
 Alternatively, the HTML document may pop up in the "Viewer" pane.
-Cool, you've now created a HTML document!
+
+Cool, so now you've created an HTML document!
 Let's try making a Word document.
 Change the YAML value in the key `output:` from `html_document` to `word_document`.
 Then knit the document again (with the "Knit" button or with "Ctrl-Shift-K").
@@ -155,7 +165,7 @@ This is the basic approach to creating documents from R Markdown.
 
 ## Exercise: Create another R Markdown document. 
 
-Time: 10 min
+Time: 5 min
 
 1. Create another R Markdown document using RStudio's interface.
     - Write the title as "Trying out R Markdown".
@@ -171,9 +181,9 @@ key from `html_document` to `word_document`. Knit again.
 
 Being able to insert R code directly into a document is one of the most 
 powerful characteristics of using R Markdown.
-This frees you from having to move back 
-and forth between writing text 
-and running R code to get output to then put into the document.
+This frees you from having to switch between programs when writing text
+and when running R code in order to obtain an output 
+that you'd then put into the document.
 
 Running and including R code in R Markdown is done through "R code chunks".
 You insert these chunks into the document by either typing "Ctrl+Alt+I" 
@@ -181,8 +191,8 @@ or using the menu item "Code -> Insert Chunk",
 with the cursor at the location you want the chunk to be.
 Before we do that,
 delete all the text in your R Markdown document (the `rmarkdown-session.Rmd` file),
-excluding the YAML header
-and make sure the YAML key `output:` is `html_document`.
+excluding the YAML header.
+Make sure that the YAML key `output:` is set to `html_document`.
 
 Then, place your cursor two lines below the YAML header 
 and insert a code chunk ("Ctrl+Alt+I" or "Code -> Insert Chunk").
@@ -202,23 +212,24 @@ In the code chunk, type out `2 + 2`, so it looks like:
 `r ''````
 ````
 
-You can run R code inside the code chunk same as you would when in an R script.
+You can run R code inside the code chunk the same as you would when in an R script.
 Typing "Ctrl+Enter" on the line will send the code `2 + 2` to the console,
 putting the output directly below the code chunk in the R Markdown document.
 This output though is temporary.
 
 To get it inserted into the HTML document,
-knit ("Ctrl+Shift+K") the document and see what happens in the created document.
+knit ("Ctrl+Shift+K") the document and see what happens in the created HTML document.
 The output `4` should appear below the code chunk in the HTML document.
-Like this:
+Something like this:
 
 ```{r}
 2 + 2
 ```
 
-That is the simplest use of how code chunks work.
-Normally, things are more complicated then this though.
-And usually we have to load packages to use in the document.
+This is a very simple example of how code chunks work.
+Normally, things are more complicated than this though.
+Usually we have to load R packages to use for running R,
+and this is no different in an R Markdown document.
 Create a new code chunk and then type `setup` right after the `r`.
 It should look like:
 
@@ -241,9 +252,9 @@ probably causing you quite a bit of annoyance and frustration.
 
 A nifty thing about using chunk labels is that you can see the name
 when using "Document Outline" 
-(found using "Ctrl+Shift+O", 
-if you have the option set in the 
-"Tools -> Global Options -> R Markdown -> Show in document outline").
+(found using "Ctrl+Shift+O"), 
+but only if you have the option set in the 
+"Tools -> Global Options -> R Markdown -> Show in document outline".
 
 The name `setup` is also a special name for R Markdown.
 When you run other code chunks in the document,
@@ -272,24 +283,30 @@ You can run this code normally, with the cursor over the code
 and typing "Ctrl+Enter".
 Or we can knit ("Ctrl+Shift+K") the document and see what it looks like.
 When the HTML document opens,
-you should some text below the `setup` chunk that looks something like this:
+you should see some text below the `setup` chunk that might look something like this:
 
-```{r setup, echo=FALSE}
-library(tidyverse)
-library(NHANES)
+```
+Registered S3 methods overwritten by 'dbplyr':
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ─────────────────────────────────────────── tidyverse 1.3.0 ──
+✓ ggplot2 3.3.2          ✓ purrr   0.3.4     
+✓ tibble  3.0.1          ✓ dplyr   1.0.0.9000
+✓ tidyr   1.1.0          ✓ stringr 1.4.0     
+✓ readr   1.3.1          ✓ forcats 0.5.0     
 ```
 
 You probably don't want this text in your generated document.
 You can change how code chunks work by using [chunk options].
 They are available either by clicking on the gear in the top right corner of the chunk
-(shown in Figure \@ref(fig:image-code-chunk-gear))
+(shown in Figure \@ref(fig:image-rstudio-code-chunk-gear))
 or by typing in the area after the chunk label section.
 
 [chunk options]: https://yihui.org/knitr/options/
 
-TODO: Image of gear for chunk options
-```{r image-code-chunk-gear, echo=FALSE, fig.cap="Changing the settings for the code chunk actions."}
-# knitr::include_graphics("images/code-chunk-gear.png")
+```{r image-rstudio-code-chunk-gear, echo=FALSE, fig.cap="Changing the settings for the code chunk actions."}
+knitr::include_graphics("images/rstudio-code-chunk-gear.png")
 ```
 
 So, if you want to run the code but not show those messages and warnings,
@@ -372,8 +389,8 @@ NHANES %>%
     pivot_wider(names_from = Variables, values_from = MeanValues)
 ```
 
-This output is almost in a table format... 
-we have the columns that could be table columns and headers,
+This output is almost in a table format.
+We have the columns that could be the table headers,
 and we have rows that would be meaningful table rows too.
 To convert it into a pretty table in the R Markdown HTML output document,
 we use the `kable()` function from the knitr package.
@@ -415,7 +432,22 @@ Pretty eh!
 
 Time: 10 min
 
-1. In the `doc/another-one.Rmd`
+1. In the `doc/another-one.Rmd`,
+create a new code chunk and call it `setup`.
+Include the `library()` functions to load tidyverse and NHANES.
+1. Create another code chunk and call it `prettier-table`.
+Copy the code from above that calculates the mean BMI and Age
+and paste the code into the new chunk.
+1. Using the function `round()` around the `mean()` function,
+round the values to 1 digit.
+1. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
+1. After the `rename()` function,
+use `mutate()` to modify the `Sex` column so that male and female get capitalized.
+Use `str_to_sentence(Sex)` to capitalize the first letter of the word.
+1. Inside the previous `mutate()` function, modify the `Year` column to
+replace the `_` with `-` by using `str_replace(Year, "_", "-")`.
+1. Run the code chunk to make sure the code works, then knit the document. 
+Don't forget about including the `knitr::kable()` function at the end of the pipe.
 
 ## Formatting text with Markdown syntax
 
@@ -427,10 +459,10 @@ Almost every feature you need to write a scientific document is available in Mar
 though not all.
 If you can't get Markdown to do what you want,
 my suggestion would be to try to fit your writing around Markdown, 
-rather than force or fight Markdown to do something it wasn't designed to do. 
+rather than force or fight with Markdown to do something it wasn't designed to do. 
 You might actually find that the simpler Markdown approach is easier 
 than what you wanted or were thinking of doing,
-and can actually do quite a lot with the basics that Markdown can do.
+and that you can actually do quite a lot Markdown's capabilities.
 
 ### Headers 
 
@@ -478,7 +510,7 @@ which gives...
 - item 2
 - item 3
 
-And numbered list look like:
+And numbered lists look like:
 
 ```markdown
 1. item 1
@@ -533,7 +565,7 @@ Footnote[^1] or this[^note].
 Including a link to a website in your document is done by surrounding the link text
 with square brackets (`[]`) followed by the link URL in brackets (`()`).
 There must not be any space between the square brackets 
-and the regular brackets (should look like `[]()`).
+and the regular brackets (it should look like `[]()`).
 
 ```markdown
 [Link](https://google.com)
@@ -558,7 +590,7 @@ A simple example is:
 | **Sad** | 123 | 456 |
 ```
 
-gives...
+which gives...
 
 |   | Fun | Serious |
 |:--|:---:|:-------:|
@@ -596,7 +628,7 @@ Time: 8 min
 
 1. Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
 1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
-1. Write one random short sentences under each header. 
+1. Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
 1. Include an inline R code to calculate 10 divided by 2 in the "Analysis" section.
 1. Play around with adding some lists, tables, or anything else.
@@ -614,7 +646,7 @@ Open a browser and search for a picture to use
 Download the image, create a folder in `doc/` called `images`,
 and save the image in that folder.
 Then in your R Markdown document,
-use the Markdown syntax for images: `![Caption text](path/to/image.png).
+use the Markdown syntax for images: `![Caption text](path/to/image.png)`.
 The image can be png, jpeg, or pdf.
 If you download an image and intend to use it in an official document,
 you will need to add text on the source and author of the image.
@@ -632,9 +664,9 @@ You can also directly include a link to a picture instead of downloading the ima
 though this may only work in HTML documents
 and only if you have internet access.
 
-However, Markdown syntax to control the image can be a bit limiting.
+Markdown syntax to control the image is limited.
 If you want to change the size of the image,
-it can be a bit difficult. 
+it can be difficult. 
 However, using R code chunks can simplify this!
 
 First, let's create a new code chunk ("Ctrl+Alt+I"),
@@ -661,19 +693,20 @@ along with adding a figure caption.
 We do this with these code chunk options:
 
 - `fig.cap`: For writing the figure caption.
-- `fig.width`: Sets the width of the figure. Default is a value of 7.
-- `fig.height`: Sets the height of the figure. Default is a value of 7.
+- `out.width` and `out.height`: Sets the image width 
+and height for external images (not created by R).
+Can use percent to set the size, e.g. `"75%"`.
 
-Change the width and height to 3,
-along with add a caption like `"Kittens attacking flowers!"`:
+Change the width and height to `"50%"`,
+along with adding a caption like `"Kittens attacking flowers!"`:
 
 ````markdown
-`r ''````{r kitten-image, fig.width=3, fig.height=3, fig.cap="Kittens attacking flowers!"}
+`r ''````{r kitten-image, out.width="50%", out.height="50%", fig.cap="Kittens attacking flowers!"}
 knitr::include_graphics(here::here("images/kitten.jpg"))
 `r ''````
 ````
 
-```{r kitten-image-small, fig.width=3, fig.height=3, fig.cap="Kittens attacking flowers!", echo=FALSE}
+```{r kitten-image-small, out.width="50%", out.height="50%", fig.cap="Kittens attacking flowers!", echo=FALSE}
 knitr::include_graphics(here::here("images/kitten.jpg"))
 ```
 
@@ -722,9 +755,14 @@ knit the document again to see how the figure gets inserted into the HTML docume
 You might also notice that you get a warning below the code chunk too.
 Let's get rid of that warning message,
 make the figure bigger, and add a caption.
-Like with the other code chunk,
-add `fig.width`, `fig.height`, and `fig.cap`, 
-along with the `warning=FALSE`.
+When you create a figure with R code, 
+you need to use different options instead of `out.width` and `out.height`:
+
+- `fig.width` and `fig.height`: Sets the width 
+and height of the figure, where the default value is 7.
+
+Add the chunk options `fig.width`, `fig.height`, and `fig.cap`, 
+along with the `warning=FALSE` to the code chunk.
 
 ````markdown
 `r ''````{r exploring-plot, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE}
@@ -760,14 +798,14 @@ Cool! You've just made an easily reproducible figure in a document!
 
 ## Other R Markdown features
 
-**Take 8 min to read these sections below before proceeding to the final exercise**.
+**Take 5 min to read these sections below before proceeding to the final exercise**.
 
 ### Making your report prettier
 
 For HTML documents, customizing the appearance (e.g. fonts) is pretty easy,
 since settings to change the theme can be used directly in the YAML header.
-There's a setting under `html_document` to change the `theme`.
-An example of changing the theme is:
+For instance, there's a setting within `html_document` called `theme`.
+It would look like this:
 
 ```yaml
 ---
@@ -778,12 +816,14 @@ output:
 ---
 ```
 
-Notice the indentation. 
-Indentation in YAML indicates that `theme` is a setting of `html_document`,
-which is a setting of `output`.
+Notice the indentations. 
+Indentation tells YAML what key is related to another key,
+i.e. if it is a sub-key.
+The key `theme` is a sub-key (an option) of `html_document`,
+which is a sub-key (an option) of `output`.
 Check out the R Markdown [documentation] to see other themes you can use.
-The HTML themes are all based on [Bootswatch] themes
-and most of them are available for use when converting from R Markdown to HTML.
+The themes are all [Bootswatch] themes,
+with most of them being available for use in HTML documents.
 
 [documentation]: https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style
 [Bootswatch]: https://bootswatch.com/3/
@@ -792,8 +832,10 @@ Modifying the theme and appearance of Word documents,
 on the other hand, is much more difficult.
 Since Word can't easily be programmatically modified like HTML can,
 changing the appearance of the document itself requires 
-that you manually create a Word template file first 
-and link to that template file with the `reference_docx` setting in the YAML header.
+that you manually create a Word template file first,
+manually modify the appearance,
+and then link to that template file with the `reference_docx` 
+option in the YAML header (as a sub-key of `word_document`).
 More detail on this can be found in the [documentation](https://bookdown.org/yihui/rmarkdown/word-document.html).
 
 ### Collaborating on R Markdown documents
@@ -802,7 +844,7 @@ There are multiple ways in general of collaborating on a document:
 
 1. One person has the primary task of writing up the report 
 and then gets feedback from other collaborators through the use of
-"Track Changes" or inserting comments in Word.
+"Track Changes" or by inserting comments in Word.
 2. Multiple people are responsible for writing the report
 and probably use different documents that they will end up merging later on.
 Or they email back and forth 
@@ -814,8 +856,8 @@ Instead, you'd use a workflow that probably resembles how peer reviews are done,
 i.e. reading the document
 and making comments in a separate file to upload to the journal later.
 Or you'd use a workflow that revolves around GitHub and Git,
-tried and tested by tens of thousands of teams 
-in tens of hundreds of companies globally.
+an efficient workflow that has been tried 
+and tested by tens of thousands of teams in tens of hundreds of companies globally.
 The goal of this course is to slowly move researchers more into the modern era,
 based on modern technology, tools, and workflows.
 
@@ -832,7 +874,7 @@ It's now time to start putting things together as a report
 and to present on it later in the afternoon.
 
 - As a team, 
-complete item 7 and its subtasks in the [group assignment](assignment.html)
+complete item 7 and its sub-tasks in the [group assignment](assignment.html)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
 - Distribute the tasks so each team member is (mostly) doing something different.
