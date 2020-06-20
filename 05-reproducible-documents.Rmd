@@ -130,6 +130,8 @@ they require installing LaTeX through the R package [tinytex],
 which can sometimes be complicated to install.
 So we will only cover HTML and Word documents in this session.
 
+[tinytex]: https://yihui.name/tinytex/r/
+
 So how do we create an HTML (or Word) document from the R Markdown document?
 By "knitting" it! At the top of the pane near the save button,
 there is a button with yarn and the word "Knit", 
@@ -200,7 +202,13 @@ In the code chunk, type out `2 + 2`, so it looks like:
 `r ''````
 ````
 
-Knit the document and see what happens in the created document.
+You can run R code inside the code chunk same as you would when in an R script.
+Typing "Ctrl+Enter" on the line will send the code `2 + 2` to the console,
+putting the output directly below the code chunk in the R Markdown document.
+This output though is temporary.
+
+To get it inserted into the HTML document,
+knit ("Ctrl+Shift+K") the document and see what happens in the created document.
 The output `4` should appear below the code chunk in the HTML document.
 Like this:
 
@@ -260,7 +268,9 @@ NHANES
 `r ''````
 ````
 
-Now, let's knit ("Ctrl+Shift+K") the document and see what it looks like.
+You can run this code normally, with the cursor over the code 
+and typing "Ctrl+Enter".
+Or we can knit ("Ctrl+Shift+K") the document and see what it looks like.
 When the HTML document opens,
 you should some text below the `setup` chunk that looks something like this:
 
@@ -311,6 +321,8 @@ Other common options are:
 The default value is `TRUE` and `FALSE` does not run the code.
 
 These options all work on the individual code chunk.
+*Note*, that all the chunk options *must* be on *one* line,
+after the `{r` tag.
 If you want to set an option to all the code chunks,
 for instance to hide all the code but keep the output,
 you use the function `knitr::opts_chunk$set(echo = FALSE)`.
@@ -604,7 +616,7 @@ and save the image in that folder.
 Then in your R Markdown document,
 use the Markdown syntax for images: `![Caption text](path/to/image.png).
 The image can be png, jpeg, or pdf.
-If you download an image and intent to use it in an official document,
+If you download an image and intend to use it in an official document,
 you will need to add text on the source and author of the image.
 
 ```markdown
@@ -616,15 +628,62 @@ Which gives...
 ![Image by <a href="https://pixabay.com/users/Dimhou-5987327/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Dimitri Houtteman</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Pixabay</a>](images/kitten.jpg)
 
 
-You can also directly include a link instead of downloading Can also include links to images from the Internet, as a URL link.
+You can also directly include a link to a picture instead of downloading the image,
+though this may only work in HTML documents
+and only if you have internet access.
 
+However, Markdown syntax to control the image can be a bit limiting.
+If you want to change the size of the image,
+it can be a bit difficult. 
+However, using R code chunks can simplify this!
 
-Let's create a new code chunk ("Ctrl+Alt+I")
+First, let's create a new code chunk ("Ctrl+Alt+I"),
+name the code chunk `kitten-image`,
+and add the function `knitr::include_graphics()`.
+To make it easier to find the image, 
+use `here::here()` to point to the picture.
+It should look like this:
+
+````markdown
+`r ''````{r kitten-image}
+knitr::include_graphics(here::here("doc/images/kitten.jpg"))
+`r ''````
+````
+
+```{r kitten-image, echo=FALSE}
+knitr::include_graphics(here::here("images/kitten.jpg"))
+```
+
+Knit the document again ("Ctrl+Shift+K") 
+and view the HTML document with the new picture.
+Now, let's change the width and height of the image,
+along with adding a figure caption.
+We do this with these code chunk options:
+
+- `fig.cap`: For writing the figure caption.
+- `fig.width`: Sets the width of the figure. Default is a value of 7.
+- `fig.height`: Sets the height of the figure. Default is a value of 7.
+
+Change the width and height to 3,
+along with add a caption like `"Kittens attacking flowers!"`:
+
+````markdown
+`r ''````{r kitten-image, fig.width=3, fig.height=3, fig.cap="Kittens attacking flowers!"}
+knitr::include_graphics(here::here("images/kitten.jpg"))
+`r ''````
+````
+
+```{r kitten-image-small, fig.width=3, fig.height=3, fig.cap="Kittens attacking flowers!", echo=FALSE}
+knitr::include_graphics(here::here("images/kitten.jpg"))
+```
+
+Knit again to see how the image changed.
+Great! But the real fun comes by inserting figures directly from R code.
+Let's create another code chunk ("Ctrl+Alt+I")
 and name the code chunk `exploring-plot`.
 We'll copy and paste the visualization code we used in Section \@ref(visualization)
 into the code chunk.
 You can copy and paste this code as well:
-
 
 ````markdown
 `r ''````{r exploring-plot}
@@ -654,33 +713,61 @@ nhanes_tidied %>%
     theme_minimal()
 ```
 
+Run the code in the code chunk to make sure it runs properly,
+by typing "Ctrl+Enter" 
+(or "Ctrl+Shift+Enter" to run all the code in the code chunk at once).
+Once it creates the figure below the code chunk,
+knit the document again to see how the figure gets inserted into the HTML document.
 
-You can insert plots by including a code chunk, like the one below. 
-The options added to the code chunk tell it to
-add a caption, to set the height and width of the figure, and to prevent the code
-chunk from showing up in the final document (`echo=FALSE`). The `bmi-plot` label is
+You might also notice that you get a warning below the code chunk too.
+Let's get rid of that warning message,
+make the figure bigger, and add a caption.
+Like with the other code chunk,
+add `fig.width`, `fig.height`, and `fig.cap`, 
+along with the `warning=FALSE`.
 
-- Inserting graphs
-    - From R and from image file
-    
+````markdown
+`r ''````{r exploring-plot, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE}
+nhanes_tidied <- NHANES %>% 
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes))
+nhanes_tidied %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    geom_point() +
+    facet_grid(cols = vars(Diabetes),
+               rows = vars(Sex)) +
+    scale_color_viridis_c() +
+    theme_minimal()
+`r ''````
+````
 
+```{r exploring-plot-bigger, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE, echo=FALSE}
+nhanes_tidied <- NHANES %>% 
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes))
+nhanes_tidied %>% 
+    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    geom_point() +
+    facet_grid(cols = vars(Diabetes),
+               rows = vars(Sex)) +
+    scale_color_viridis_c() +
+    theme_minimal()
+```
 
+Knit the document again
+and view the generated HTML document.
+Cool! You've just made an easily reproducible figure in a document!
 
-## Exercise: Insert a graph using R code
+## Other R Markdown features
 
+**Take 8 min to read these sections below before proceeding to the final exercise**.
 
-## Making your report prettier
+### Making your report prettier
 
-Read this, won't go over it.
-
-This part mostly applies to HTML-based and PDF[^tinytex] outputs, since
-programmatically modifying or setting templates Word documents is rather
-difficult[^md-to-word]. Knitting to PDF requires that you install LaTeX using
-the [tinytex](https://yihui.name/tinytex/r/) R package.
-After you install LaTeX you can create truly beautifully typeset PDF documents,
-however installing LaTeX can often be quite difficult. So we won't be doing it.
-Changing broad features of a document can be done by setting the
-"theme" of the document. Add an option in the YAML metadata like:
+For HTML documents, customizing the appearance (e.g. fonts) is pretty easy,
+since settings to change the theme can be used directly in the YAML header.
+There's a setting under `html_document` to change the `theme`.
+An example of changing the theme is:
 
 ```yaml
 ---
@@ -691,26 +778,51 @@ output:
 ---
 ```
 
-Check out the R Markdown [documentation] for more types of themes you can use
-for HTML documents, and advanced topics such as parameterized R Markdown documents. 
-Most of the [Bootswatch] themes are available for use in R
-Markdown to HTML conversion.
+Notice the indentation. 
+Indentation in YAML indicates that `theme` is a setting of `html_document`,
+which is a setting of `output`.
+Check out the R Markdown [documentation] to see other themes you can use.
+The HTML themes are all based on [Bootswatch] themes
+and most of them are available for use when converting from R Markdown to HTML.
 
 [documentation]: https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style
 [Bootswatch]: https://bootswatch.com/3/
 
-[^tinytex]: Knitting to PDF will require that you install LaTeX using the [tinytex](https://yihui.name/tinytex/r/) R package. After you install LaTeX you can create truly beautifully typeset PDF documents.
+Modifying the theme and appearance of Word documents,
+on the other hand, is much more difficult.
+Since Word can't easily be programmatically modified like HTML can,
+changing the appearance of the document itself requires 
+that you manually create a Word template file first 
+and link to that template file with the `reference_docx` setting in the YAML header.
+More detail on this can be found in the [documentation](https://bookdown.org/yihui/rmarkdown/word-document.html).
 
-[^md-to-word]: If you really want to do it, the best way is to create your template in the `.odt`, and then convert to `.docx`. [Here](https://github.com/andrewheiss/Global-Pandoc-files) is a good place to start. 
+### Collaborating on R Markdown documents
 
-## Collaborating on Rmd document
+There are multiple ways in general of collaborating on a document:
 
-Read but not cover
+1. One person has the primary task of writing up the report 
+and then gets feedback from other collaborators through the use of
+"Track Changes" or inserting comments in Word.
+2. Multiple people are responsible for writing the report
+and probably use different documents that they will end up merging later on.
+Or they email back and forth 
+(or use something like Dropbox or shared folders)
+and work on a single document.
 
-    - Create multiple documents named differently
-    - At end put all pieces together into one document and delete the others
-        - Knitting at end to make sure it looks good.
-        - Delegate one person to do that
+The first workflow is not possible in an R Markdown document.
+Instead, you'd use a workflow that probably resembles how peer reviews are done,
+i.e. reading the document
+and making comments in a separate file to upload to the journal later.
+Or you'd use a workflow that revolves around GitHub and Git,
+tried and tested by tens of thousands of teams 
+in tens of hundreds of companies globally.
+The goal of this course is to slowly move researchers more into the modern era,
+based on modern technology, tools, and workflows.
+
+The second workflow is pretty similar.
+You might split up a document into sections that each collaborator may work on,
+and then later on merge them together.
+This last approach is what we will get you to do for the group project.
 
 ## Final exercise: Group work
 
@@ -728,7 +840,7 @@ run `r3::open_assignment()` in the RStudio Console).
     and each person works on their own file.
     Later this file will be merged into the final report.
 - Frequently use the "Git workflow": 
-Add, commit, push, and pull the changes you've made.
+Add to staging, commit, push, and pull the changes you've made.
     - You'll likely deal with merge conflicts, 
     which is a good chance to practice with Git more.
 - Try to "knit" your document to HTML often, 
