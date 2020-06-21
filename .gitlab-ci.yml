@@ -36,7 +36,7 @@ deploy_prod:
     before_script:
         - npm i -g netlify-cli
     script:
-        - netlify deploy --prod --dir public
+        - netlify deploy --prod --dir public@2.54.0
     only:
         - master
     dependencies:
