@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Customized theme
 library(xaringanthemer)
-mono_accent(
+style_mono_accent(
     base_color = "#2a2e44",
     header_font_google = google_font("Fira Sans"),
     text_font_google = google_font("Crimson Text"),
