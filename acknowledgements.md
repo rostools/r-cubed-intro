@@ -1,54 +1,24 @@
 # Acknowledgements
 
 Content from multiple sources were used as inspiration or
-were copied and modified. 
+were copied and modified,
+including the [R for Data Science] book 
+and the [Fundamentals of Data Visualization].
 Many pieces from the (in development) course [Merely Useful](https://github.com/merely-useful/merely-useful.github.io)
 were modified and used in many places throughout the r-cubed course.
+Other parts were modified from:
 
-## Project management session
+- The [Aarhus University Community of Research Software Users] sessions on
+[project management](https://au-cru.github.io/content/workflow-setup.html),
+[data management and wrangling](https://au-cru.github.io/content/intro-dplyr.html),
+[intermediate dplyr and tidyr usage](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/),
+[data visualization](https://au-cru.github.io/content/intro-ggplot2.html),
+and [R Markdown](https://au-cru.github.io/content/intro-rmarkdown.html).
 
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/workflow-setup.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from Maria Izabel Cavassim Alves
-([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in 
-Bioinformatics.
+- [A Git session](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
+given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
+- The [UofTCoders Intro to R course for Ecology students](https://uoftcoders.github.io/rcourse/).
 
-## Data management and wrangling session
-
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/intro-dplyr.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from [Elena Dudukina](https://pure.au.dk/portal/en/persons/id(4b0465d2-08f2-4966-bc55-0d48e66eda12).html), 
-PhD student at AU in Clinical Epidemiology, as well as from the 
-dplyr sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse).
-Much inspiration was also taken from the [R for Data Science] book.
-And also from the [AU CRU intermediate dplyr and tidyr session](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/)
-
-## Git session
-
-Some parts of this were taken from my [lessons](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
-given while with the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
-
-## Data visualization session
-
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/intro-ggplot2.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), as well as from
-the ggplot2 sessions of the [UofTCoders course](https://github.com/UofTCoders/rcourse). 
-Much inspiration was also taken from the [R for Data Science] book and the
-[Fundamentals of Data Visualization].
-
+[Aarhus University Community of Research Software Users]: https://au-cru.github.io/
 [Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
 [R for Data Science]: https://r4ds.had.co.nz/
-
-## R Markdown session
-
-Parts of this lesson were modified from the [UofTCoders R
-Course](https://uoftcoders.github.io/rcourse/lec16-rmarkdown.html#exercise) and
-from a [session](https://au-oc.github.io/content/intro-rmarkdown.html) taught at
-the [Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from Maria Izabel Cavassim Alves
-([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in
-Bioinformatics.
-
