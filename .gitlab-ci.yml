@@ -34,9 +34,9 @@ deploy_prod:
     image: node:latest
     stage: deploy_prod
     before_script:
-        - npm i -g netlify-cli
+        - npm i -g netlify-cli@2.54.0
     script:
-        - netlify deploy --prod --dir public@2.54.0
+        - netlify deploy --prod --dir public
     only:
         - master
     dependencies:
