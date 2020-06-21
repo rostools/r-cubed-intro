@@ -1,15 +1,15 @@
 ---
-title: "Welcome to the course!"
+title: "Welcome to the R^3^ course!"
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    css: ['xaringan-themer.css', 
-          '../resources/custom.css']
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+    xaringan::moon_reader:
+        self_contained: false
+        lib_dir: libs
+        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        nature:
+            ratio: "16:9"
+            highlightStyle: github
+            highlightLines: true
+            countIncrementalSlides: false
 ---
 
 layout: true
@@ -21,34 +21,24 @@ source(here::here("R/slide-setup.R"))
 <div class="my-footer">
 <span>
 <img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/sdca_logo.jpg" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
 <img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
 
----
-
-# Outline
-
-- Course introduction
-    - What it is (and isn't)
-    - Layout and website
-    - Expected learning outcome 
-    - Code of Conduct
-- What is reproducibility
-- What is open science
-    - Open access
-    - Open data
-    - Open source (code)
-- What is R and why learn it
-
-???
-
-Introduce instructors and helpers.
+<!-- Introduce instructors and helpers. -->
 
 ---
 
-# 
+# Please do these as we get ready:
+
+- `r emo::ji("check")` Go to your assigned table and group (see list)
+
+- `r emo::ji("check")` Introduce yourself to your group members
+
+- `r emo::ji("check")` Re-install r3 `remotes::install_gitlab("rostools/r3")`
+
+- `r emo::ji("check")` Accept the GitHub Organization invite by going to https://github.com/r-cubed-2020-06
 
 ---
 
@@ -59,6 +49,10 @@ class: center, middle
 ## Before this course...
 
 ## How many knew or have heard about <u>reproducibility</u>?
+
+???
+
+Raise your hands.
 
 ---
 
@@ -82,9 +76,13 @@ class: center, middle
 
 ---
 
-class: center, middle
+class: middle, center
 
 # How many have read a method in a paper and wondered how they <u>actually</u> did it? 
+
+--
+
+## ... you've probably realize by now, way more is done than shown in the "Methods"
 
 ???
 
@@ -92,15 +90,15 @@ Because you are trying to do the same or similar?
 
 ---
 
-## Often, (way) more is done than shown in "Methods"
-
-.footnote[Source: `r Citet(bib, "Kim2018a")`]
-
----
-
 class: center, middle
 
-## Has anyone ever received confusing code? Or maybe have written your own confusing code?
+# Have you ever received confusing code? Or maybe have written your own confusing code?
+
+???
+
+I definitely have in my research career.
+We want to change the culture around code by encouraging 
+and teaching how to share code and to write better code in general.
 
 ---
 
@@ -115,7 +113,7 @@ class: center, middle
 
 - Repeating a study by *independently* performing another identical study
 - Difficult, usually needs funding
-- Linked to the "irreproducibility crisis"<sup>2</sup> (covered later)
+- Linked to the "irreproducibility crisis"<sup>2</sup>
 ]
 
 --
@@ -130,27 +128,22 @@ to replicate it?
 ]
 
 .footnote[
-1. Also from a American Statistical Association [statement](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).  
+1. Also from an American Statistical Association [statement](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).  
 2. Or rather "irreplicability crisis".
 ]
     
 ---
 
-## Biomedical studies almost entirely don't publish code with the published paper
+class: middle, center
 
-- Very few papers provide code `r Cite(bib, c("Leek2017a", "Considine2017a"))`
-    - Except bioinformatics, about 60% of studies do
-
---
-
-- Example: In epidemiology, of 90 articles reviewed `r Cite(bib, "Peng2006a")`:
-    - 43 (48%) did not report how data was processed
-    - 21 (24%) did not report how analysis was conducted
-    - 0 made code available in any way
+# Biomedical studies almost entirely don't publish code with the published paper
 
 ???
 
-*Why*? Likely due to:
+Very few papers provide code `r Cite(bib, c("Leek2017a", "Considine2017a"))`.
+Except maybe bioinformatics, where about 60% of studies do.
+
+Why? Likely due to:
 
 - Lack of awareness and training
 - Difficulty of adoption
@@ -167,11 +160,11 @@ class: middle, center
 
 class: middle, center
 
-# Goal of this course? Start changing the culture by providing the training.
+# Goal of this course? Start changing the culture by providing the training
 
 ---
 
-## So why are we using R and why learn it?
+## Often asked: So why are we using R and why learn it?
 
 .pull-left[
 - Open source, free
@@ -185,7 +178,6 @@ class: middle, center
 ]
     
 .pull-right[
-
 - Recent push to improve teaching, usability
     - e.g. with tidyverse, RStudio
 - One of best visualization tools available
@@ -197,7 +189,8 @@ class: middle, center
 
 ???
 
-Regarding free, means that you take that knowledge and skills anywhere you go.
+Regarding it being free, that means that you can take the knowledge 
+and skills for using R anywhere you go.
 
 ---
 
@@ -209,7 +202,6 @@ Regarding free, means that you take that knowledge and skills anywhere you go.
     - Final group work for [assignment](assignment.html)
 
 - Use r3 package to help with learning
-    - Please re-install: `remotes::install_gitlab("rostools/r3")`
 
 - True to our mission, material publicly accessible and [openly licensed](https://r-cubed.rostools.org/license.html)
     - <https://r-cubed.rostools.org/>
@@ -225,13 +217,24 @@ with of course our help too!
 
 ## Getting or asking for help `r emo::ji("raising_hand_woman")`
 
-- Use your sticky on your laptop to get help
-    - There're lots of helpers
+.pull-left[
+- Put the sticky on your laptop to get help
+    - There are lots of helpers
     - Team members, try to help out too
+]
 
+.pull-right[
 - We're all learning here!
     - This is a supportive and safe environment
     - Remember our [Code of Conduct](conduct.html)
+]
+
+
+---
+
+class: middle, center
+
+## Practice using stickies: Have you re-installed r3 and joined the GitHub Organization?
 
 ---
 
@@ -243,24 +246,75 @@ class: middle, center
 
 We're going to do a "stand and re-arrange yourself" activity based on some questions I ask.
 
+---
 
-Questions:
+class: middle, center
 
-- Who's has not yet used R?
-    - For those that have, who has had some type of formal training in "coding in R"?
-    - Who has had struggles with it?
-- Experience with using R
-- Experience with using 
-
-Find some way to use the "stand and arrange based on range" technique (like agree-disagree line). This could be done to order everyone by "novice-advanced", etc.
-
-## Get into your groups
-
-- Quickly introd
+## Who has not yet used R?
 
 ???
 
-Here we will switch over to the next instructor, get setup, and do the next session.
+Go into different corners for "yes" and "no".
+
+---
+
+class: middle, center
+
+## Those who've used R, arrange for how you feel your skill is.
+
+???
+
+Along the wall, arrange to one side is "novice/basic" and other side is "advanced".
+
+---
+
+---
+
+class: middle, center
+
+## Those who've used R, have you had formal training in "coding" in R or in general?
+
+???
+
+Raise hands.
+
+---
+
+class: middle, center
+
+## Who has struggled with using R?
+
+???
+
+Raise hands.
+
+---
+
+class: middle, center
+
+## Re-arrange: What do you feel your skill in data analysis is in general?
+
+???
+
+Along the wall, arrange from "novice/basic" to "advanced".
+
+---
+
+## Get back into your groups and get to know each other a bit more
+
+???
+
+I've tried to organize the groups to include a range of skills 
+and experiences, so there is a mix of novice and more experienced users.
+
+So, as we prepare for the next session, introduce yourselves to the group
+and get to know each other more.
+You'll be relying on them for help,
+so find out who is the "more experienced" R user.
+
+---
+
+# References
 
 ```{r refs, resutls="asis", echo=FALSE}
 PrintBibliography(bib, start = 1, end = 7)
