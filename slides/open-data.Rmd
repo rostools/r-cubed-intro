@@ -45,10 +45,12 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 ## Different types of open data
 
+.pull-left[
 - Open data is not only about datasets you can download from the internet
 
 - Accessibility is only one part of Openness
 
+]
 
 
 .footnote[
@@ -57,24 +59,27 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 
 ---
+
 ## Different types of open data
 
+.pull-left[
 - Open data is not only about datasets you can download from the internet
 
 - Accessibility is only one part of Openness
-.pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/gofair.png")
-```
-]
 
-.pull-left[
 - Open data should be FAIR[1]:
   - Findable
   - Accessible
   - Interoperable
   - Reusable
 ]
+
+.pull-right[
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/gofair.png")
+```
+]
+
 
 .footnote[
 [1] Go FAIR Initiative (https://www.go-fair.org/fair-principles/)
@@ -83,16 +88,17 @@ knitr::include_graphics("../images/gofair.png")
 ---
 
 ## FAIR data[1]
-- Findable:
+
+- **Findable**:
   The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers.
 
-- Accessible:
+- **Accessible**:
   Once the user finds the required data, she/he needs to know **how** can they be accessed, possibly including authentication and authorisation.
 
-- Interoperable:
+- **Interoperable**:
   The data usually need to interoperate with applications or workflows for analysis, storage, and processing. (Meta)data should use a formal, accessible, shared language or format
 
-- Reusable:
+- **Reusable**:
   Data and metadata should be well-described so that they can be replicated and/or combined in different settings.
 
 
@@ -102,19 +108,25 @@ knitr::include_graphics("../images/gofair.png")
 
 
 ---
+
 ## Finding Open data
+
 - Starting points:
     - Data Resources known in your network
     - Publication with link to data source / repository
     - Search in public repositories
 
 ---
+
 ## Known data resources
+
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 
 ---
+
 ## Known data resources
+
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
@@ -126,16 +138,19 @@ knitr::include_graphics("../images/CPRD.png")
         - e.g. [(CPRD)](https://www.cprd.com/)
 
 ---
+
 ## Known data resources
+
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
     - Commercial / Paid access 
         - e.g. [(CPRD)](https://www.cprd.com/)
     - Data sharing within a project/collaboration (restricted)
-
     
 ---
+
 ## Known data resources
+
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
@@ -150,7 +165,9 @@ knitr::include_graphics("../images/whitehall.png")
         - e.g. Whitehall II Study [(Whitehall II Study)](https://www.ucl.ac.uk/epidemiology-health-care/research/epidemiology-and-public-health/research/whitehall-ii/data-sharing)
 
 ---
+
 ## Known data resources
+
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
@@ -166,9 +183,10 @@ knitr::include_graphics("../images/ELSA.png")
     - Only registration required
         - e.g. English Longitudinal Study of Ageing [(ELSA)](https://www.elsa-project.ac.uk/data-and-documentation) accessible via the [(UK Data Service)](https://ukdataservice.ac.uk/)
 
-    
 ---
+
 ## Known data resources
+
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
@@ -187,26 +205,32 @@ knitr::include_graphics("../images/NHANES.png")
         - e.g. [(NHANES)](https://wwwn.cdc.gov/nchs/nhanes/)
 
 ---
+
 ## Finding Open data
+
 - Starting points:
     - Data Resource known in your network
     - Publication with link to data source / repository
     - Search in public repositories
 
 ---
+
 ## Publications with links to data
+
 Journals increasingly encourage publication of (links to) data
 
-Let's have a look at the PLOS journals
+Let's have a look at the PLOS journals:
 
 - Policy requiring researchers to share the data underlying their results or to state why this is not possible
 - But: Are authors complying with these requirements? [(PLOS Medicine: Diabetes)](https://journals.plos.org/plosmedicine/search?filterJournals=PLoSMedicine&filterSubjects=Medicine+and%20health%20sciences&filterArticleTypes=Research%20Article&q=diabetes&page=1)
 
 ---
+
 ## Publications with links to data
+
 Journals increasingly encourage publication of (links to) data
 
-Let's have a look at the PLOS journals
+Let's have a look at the PLOS journals:
 
 - Policy requiring researchers to share the data underlying their results or to state why this is not possible
 - But: Are authors complying with these requirements? [(Review by Federer et al)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194768)
@@ -216,24 +240,27 @@ knitr::include_graphics("../images/FedererPLOSONE.png")
 ```
 ]
 
-
 ---
+
 ## Review of PLOS data statements (Federer 2018)
 
 .center[
 ![](https://journals.plos.org/plosone/article/figure/image?id=10.1371/journal.pone.0194768.t001&size=medium)
 ]
 
-
 ---
+
 ## Finding Open data
+
 - Starting points:
     - Data Resource known in your network
     - Publication with link to data source / repository
     - Search in public repositories
 
 ---
+
 ## Figshare
+
 [Figshare: Diabetes](https://figshare.com/search?q=diabetes&sortBy=posted_date&sortType=desc&licenses=1,2,47,52,3,40,49&itemTypes=3&categories=7,48)
 .center[
 ```{r, out.height="90%", out.width="90%"}
@@ -242,7 +269,9 @@ knitr::include_graphics("../images/Figshare.png")
 ]
 
 ---
+
 ## Dryad
+
 [Dryad: Diabetes](https://datadryad.org/search?utf8=%E2%9C%93&q=diabetes)
 .center[
 ```{r, out.height="90%", out.width="90%"}
@@ -251,15 +280,20 @@ knitr::include_graphics("../images/Dryad.png")
 ]
 
 ---
+
 ## Github Collection 
+
 [Github: Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
 .center[
 ```{r, out.height="90%", out.width="90%"}
 knitr::include_graphics("../images/Github.png")
 ```
 ]
+
 ---
+
 ## Rigsarkivet (Overview and access info)
+
 [Rigsarkivet: Sundhed](https://www.sa.dk/da/forskning-rigsarkivet/rigsarkivet-sundhed/)
 .center[
 ```{r, out.height="90%", out.width="90%"}
@@ -268,7 +302,9 @@ knitr::include_graphics("../images/Rigsarkivet.png")
 ]
 
 ---
+
 ## Open Neuro (MRI and fMRI images)
+
 [Openneuro: Diabetes](https://openneuro.org/search/diabetes)
 .center[
 ```{r, out.height="90%", out.width="90%"}
@@ -276,9 +312,8 @@ knitr::include_graphics("../images/OpenNeuro.png")
 ```
 ]
 
-
-
 ---
+
 ## How are you allowed to use data you find?
 
 - First important step: know who 'owns' the data and what they allow you to do with it
@@ -300,10 +335,12 @@ knitr::include_graphics("../images/CClicense_range.png")
 ]
 
 ---
+
 ## Different Open Licenses
 
 .pull-left[
 For any type of 'work', including databases:
+
 - Creative Commons:
     - CC BY-NC (Attribution-NonCommercial)
     - CC BY-ND (Attribution-NoDerivatives)
@@ -316,14 +353,15 @@ For any type of 'work', including databases:
 ]
 .pull-right[
 Mostly for Open Source Software:
+
 - GNU
 - MIT
-    ]
+]
 
 Finding a suitable license for your data: [(Choose a license)](https://choosealicense.com/) or [(Creative Commons Chooser)](https://chooser-beta.creativecommons.org/)
 
-
 ---
+
 ## Summary
 
 - Open Data is only a part of the Open Science Universe
@@ -332,6 +370,7 @@ Finding a suitable license for your data: [(Choose a license)](https://chooseali
 - Be mindful of the licence attached to a dataset
 
 ---
+
 ## Links and references
 
 .pull-left[
@@ -356,7 +395,10 @@ Finding a suitable license for your data: [(Choose a license)](https://chooseali
 ]
 
 ---
-## .center[Thank you!]
+
+class: center
+
+# Thank you!
 
 [Open Science Framework]: https://osf.io/
 [European Data Portal]: https://www.europeandataportal.eu/
