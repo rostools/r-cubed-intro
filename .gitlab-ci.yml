@@ -19,10 +19,12 @@ build:
 # https://about.gitlab.com/2016/11/03/publish-code-coverage-report-with-gitlab-pages/
 
 deploy_mr:
-    image: node:10
+    image: node:latest
     stage: deploy_mr
     before_script:
-        - npm i -g netlify-cli@2.40.0
+        - mkdir ~/.npm-global
+        - NPM_CONFIG_PREFIX=~/.npm-global
+        - npm install -g netlify-cli
     script:
         - netlify deploy --dir public
     except:
@@ -31,10 +33,12 @@ deploy_mr:
         - build
 
 deploy_prod:
-    image: node:10
+    image: node:latest
     stage: deploy_prod
     before_script:
-        - npm i -g netlify-cli@2.40.0
+        - mkdir ~/.npm-global
+        - NPM_CONFIG_PREFIX=~/.npm-global
+        - npm install -g netlify-cli
     script:
         - netlify deploy --prod --dir public
     only:
