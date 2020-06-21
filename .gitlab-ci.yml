@@ -22,9 +22,9 @@ deploy_mr:
     image: node:latest
     stage: deploy_mr
     before_script:
-        - npm i -g netlify-cli
+        - npm install netlify-cli
     script:
-        - netlify deploy --dir public
+        - npx netlify deploy --dir public
     except:
         - master
     dependencies:
@@ -34,9 +34,9 @@ deploy_prod:
     image: node:latest
     stage: deploy_prod
     before_script:
-        - npm i -g netlify-cli@2.54.0
+        - npm install netlify-cli
     script:
-        - netlify deploy --prod --dir public
+        - npx netlify deploy --prod --dir public
     only:
         - master
     dependencies:
