@@ -238,7 +238,7 @@ summary(___)
 <p>
 
 ```{r, eval=FALSE}
-# load the packages
+# Load the packages
 library(tidyverse)
 library(NHANES)
 
