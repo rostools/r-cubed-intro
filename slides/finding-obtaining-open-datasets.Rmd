@@ -4,7 +4,7 @@ author:
     - "Daniel R. Witte"
 output:
   xaringan::moon_reader:
-    self_contained: true
+    self_contained: false
     lib_dir: libs
     css: ["xaringan-themer.css", "../resources/custom.css"]
     nature:
