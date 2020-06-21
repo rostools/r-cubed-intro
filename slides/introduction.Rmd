@@ -290,7 +290,7 @@ Raise hands.
 
 class: middle, center
 
-## What do you feel your skill in data analysis is in general?
+## How do you perceive your general skill in data analysis?
 
 ???
 

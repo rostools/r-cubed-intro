@@ -1,4 +1,4 @@
-# Lecture slides {#slides}
+# Lecture slides {#lecture-slides}
 
 ### [Introduction to the course](slides/introduction.html) {-}
 
