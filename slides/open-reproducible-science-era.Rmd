@@ -1,56 +1,30 @@
 ---
 title: "Data analysis in the era of reproducible and open science"
-author: 
-    - "Daniel Witte"
-    - "Luke Johnston"
 output:
-  xaringan::moon_reader:
-    self_contained: false
-    lib_dir: libs
-    css: ["xaringan-themer.css", "../resources/custom.css"]
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+    xaringan::moon_reader:
+        self_contained: false
+        lib_dir: libs
+        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        nature:
+            ratio: "16:9"
+            highlightStyle: github
+            highlightLines: true
+            countIncrementalSlides: false
 ---
 
 layout: true
 
+```{r setup, include=FALSE}
+source(here::here("R/slide-setup.R"))
+```
+
 <div class="my-footer">
 <span>
-<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 <img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
-
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
 
 ---
 
@@ -135,3 +109,110 @@ knitr::include_graphics("../images/biobank.jpg")
 class: middle
 
 ## Current scientific culture not prepared for analytic and computation era
+
+---
+
+class: middle
+
+## Open science debates and initiatives don't recognize role of software
+
+.footnote[E.g. [EU H2020 Open Science Mandate] only mentions data and publications.]
+
+[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
+
+---
+
+## Little to no training in software or programming
+
+.center[
+```{r self-taught-comic, echo=FALSE, out.width="100%", out.height="100%"}
+knitr::include_graphics("../img/code-quality.png")
+```
+]
+
+.footnote[Source from [xkcd](https://www.xkcd.com/1513/).]
+
+---
+
+## But, data analysis in science is evolving quickly
+
+- Interactive manuscripts and analyses
+    - "[Explorable Multiverse Analysis]" and [example]
+    and [twitter thread](https://twitter.com/mjskay/status/1106742607420497921)
+- More demands for reproducibility
+    - Which requires training
+    
+[Explorable Multiverse Analysis]: https://explorablemultiverse.github.io/
+
+[example]: https://explorablemultiverse.github.io/examples/likert/
+
+---
+
+## What does it mean for you?
+
+- Need to stay updated: Keep learning
+    - Do courses on [DataCamp](https://www.datacamp.com/) (paid)
+    - Read [bookdown](https://bookdown.org/) books (most free)
+    - Ask (and answer!) questions on [StackOverflow](https://stackoverflow.com/)
+    - Teach others!! Great way to learn `r emo::ji("relaxed")`
+    - Read e.g. [Open Science Handbook](https://open-science-training-handbook.gitbook.io/book/)
+
+--
+
+- Find and collaborate with those familiar with these concepts (online and/or in real life)
+
+--
+
+- Cite research that is or tries to be more reproducible
+
+--
+
+- Keep the principles of reproducibility in mind, then find the tools
+
+--
+
+- Practice reproducible and open science
+    - More on this later in session
+
+---
+
+## Recognize importance of code and data: Cite them!
+
+--
+
+```{r cite-packages, echo=TRUE}
+# Example:
+citation("dplyr")
+```
+
+---
+
+## Comment: True reproducibility is very difficult
+
+- Requires self-contained virtual environment
+- With exact package versions and operating system used
+- Tools to do this include:
+    - [Docker] virtual containers [1]
+    - Continuous intergration with [Travis] [2]
+
+--
+
+**...but this is not the goal, nor should it be**
+
+- Tools to simplify this are being developed
+    - Keep eye out
+
+[Docker]: https://github.com/rocker-org/rocker
+[Travis]: https://travis-ci.org/
+
+.footnote[
+[1] Want more info, see [this tutorial](https://colinfay.me/docker-r-reproducibility/).  
+]
+
+---
+
+class: middle
+
+# This is or will be the future. Be prepared.
+
+.footnote[(...i hope...)]

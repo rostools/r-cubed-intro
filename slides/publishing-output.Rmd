@@ -292,7 +292,6 @@ to journals! Lots of great journals out there that don't do that.
 [Open Data Commons]: https://opendatacommons.org/index.html
 [CC-BY]: https://creativecommons.org/licenses/by/4.0/
 [Open Science Framework]: https://osf.io/
-[licensing data]: http://help.osf.io/m/bestpractices/l/611430-licensing
 
 ---
 
@@ -334,7 +333,6 @@ Question: How many intend to stay in academia?
 .footnote[
 [1] See [here](https://www.the-scientist.com/careers/addressing-biomedical-sciences-phd-problem-32258),
 [here](https://smartsciencecareer.com/become-a-professor/), and 
-[here](http://www.sgs.utoronto.ca/Documents/SGS_Overview_10KPhDsProject.pdf).
 ]
         
     

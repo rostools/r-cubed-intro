@@ -1,8 +1,7 @@
 --- 
 title: "Reproducible Research in R"
 subtitle: "An introductory workshop on modern data analyses and workflows"
-author: "Luke W. Johnston"
-date: "`r Sys.Date()`"
+date: "Created: `r format(Sys.time(), '%B %d %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
@@ -12,24 +11,27 @@ apple-touch-icon: "images/apple-touch-icon.png"
 apple-touch-icon-size: 180
 favicon: "images/favicon.ico"
 url: 'https\://r-cubed.rostools.org'
-#gitlab-repo: "rostools/r-cubed"
 ---
 
 # Syllabus
 
-```{r include=FALSE}
+```{r, include=FALSE}
 # automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), here::here('resources/packages.bib'))
+knitr::write_bib(
+    c(.packages(), "bookdown", "knitr", "rmarkdown"),
+    here::here('resources/packages.bib')
+)
 ```
 
-> NOTE: This content is still being updated.
+![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+
+> Note: You'll see several of these "badges" (image above) throughout the course material.
+This badge indicates whether the material is completed or is still being developed.
 
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
 analysis has not kept up with demand. With this course, we hope to begin meeting
-that demand. Using a very practical approach bases mostly on code-along sessions
+that demand. Using a very practical approach based mostly on code-along sessions
 (instructor and learner coding together), the course will:
 
 1. Explain what an open and reproducible data analysis workflow is, what it
@@ -83,7 +85,8 @@ experimental to epidemiology).
 
 While we have these assumptions to help focus the content of the course, if you
 have an interest in learning R but don't fit any of the above assumptions, *you
-are still welcome to attend the course*!! We don't turn anyone away if we can.
+are still welcome to attend the course*! 
+We welcome everyone, up until the course capacity is reached that is.
 
 In addition to the assumptions, we also have a fairly focused scope for teaching
 and expectations for learning. So this may also help you decide if this course
@@ -96,11 +99,6 @@ perspective (i.e. by including a collaborative group project that uses a transpa
 and reproducible analysis workflow).
 - We *do* teach using practical, applied, and hands-on lessons and exercises, 
 with a few short lectures that introduce a topic.
-
-To further develop your R skills and knowledge, we are having an advanced R
-course from September 8-9, 2020 that will build off of this course (though it
-isn't dependent on this course). Keep on eye on DDA announcements to register
-and learn more about it!
 
 ## General schedule
 

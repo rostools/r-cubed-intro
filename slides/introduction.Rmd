@@ -1,71 +1,44 @@
 ---
-title: "Introduction to the course"
-subtitle: "Reproducibilty and open science"  
-author: 
-    - "Luke Johnston"
+title: "Welcome to the R^3^ course!"
 output:
-  xaringan::moon_reader:
-    self_contained: true
-    lib_dir: libs
-    css: ["xaringan-themer.css", "../../resources/custom.css"]
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+    xaringan::moon_reader:
+        self_contained: false
+        lib_dir: libs
+        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        nature:
+            ratio: "16:9"
+            highlightStyle: github
+            highlightLines: true
+            countIncrementalSlides: false
 ---
 
 layout: true
 
+```{r setup, include=FALSE}
+source(here::here("R/slide-setup.R"))
+```
+
 <div class="my-footer">
 <span>
-<img src="../img/au_logo_black.png" alt="Aarhus University", width="140">
-<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib("../../resources/refs.bib", check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
+<!-- Introduce instructors and helpers. -->
 
 ---
 
-# Outline
+# Please do these as we get ready:
 
-- What is reproducibility
-- What is open science
-    - Open access
-    - Open data
-    - Open source (code)
-- What is R and why learn it
-- Course introduction
-    - What it is (and isn't)
-    - Layout and website
-    - Expected learning outcome 
-    - Code of Conduct
+- `r emo::ji("check")` Go to your assigned table and group (see list)
+
+- `r emo::ji("check")` Introduce yourself to your group members
+
+- `r emo::ji("check")` Re-install r3 `remotes::install_gitlab("rostools/r3")`
+
+- `r emo::ji("check")` Accept the GitHub Organization invite by going to https://github.com/r-cubed-2020-06
 
 ---
 
@@ -73,7 +46,13 @@ class: center, middle
 
 # Question: 
 
-## How many know or have heard or know about <u>reproducibility</u>?
+## Before this course...
+
+## How many knew or have heard about <u>reproducibility</u>?
+
+???
+
+Raise your hands.
 
 ---
 
@@ -81,7 +60,9 @@ class: center, middle
 
 # Question: 
 
-## How many know or have heard or know about <u>open science</u>?
+## Before this course...
+
+## How many knew or have heard about <u>open science</u>?
 
 ---
 
@@ -89,13 +70,19 @@ class: center, middle
 
 # Question: 
 
-## ...or even <u>open access, open data, or open source</u>?
+## Before this course...
+
+## ...or even <u>open access, open data, open methods/protocols, or open source</u>?
 
 ---
 
-class: center, middle
+class: middle, center
 
 # How many have read a method in a paper and wondered how they <u>actually</u> did it? 
+
+--
+
+## ... you've probably realize by now, way more is done than shown in the "Methods"
 
 ???
 
@@ -103,31 +90,15 @@ Because you are trying to do the same or similar?
 
 ---
 
-## Often, (way) more is done than shown in "Methods"
+class: center, middle
 
-.center[
-```{r, out.height="45%", out.width="45%"}
-knitr::include_graphics("../img/more-than-methods-small.png")
-```
-]
+# Have you ever received confusing code? Or maybe have written your own confusing code?
 
-.footnote[Source: `r Citet(bib, "Kim2018a")`]
+???
 
----
-
-## Has anyone ever received confusing code? Or maybe have written your own confusing code?
-
-.center[
-![](http://phdcomics.com/comics/archive/phd031214s.gif)
-]
-
-.footnote[Source: [PhD Comics](http://phdcomics.com/comics/archive_print.php?comicid=1689)]
-
----
-
-class: middle, center
-
-# These issues can be fixed by creating and nurturing a culture of openness
+I definitely have in my research career.
+We want to change the culture around code by encouraging 
+and teaching how to share code and to write better code in general.
 
 ---
 
@@ -142,7 +113,7 @@ class: middle, center
 
 - Repeating a study by *independently* performing another identical study
 - Difficult, usually needs funding
-- Linked to the "irreproducibility crisis"<sup>2</sup> (covered later)
+- Linked to the "irreproducibility crisis"<sup>2</sup>
 ]
 
 --
@@ -157,114 +128,194 @@ to replicate it?
 ]
 
 .footnote[
-1. Also from a American Statistical Association [statement](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).  
+1. Also from an American Statistical Association [statement](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).  
 2. Or rather "irreplicability crisis".
 ]
     
 ---
 
-## Biomedical studies almost entirely don't publish code with the published paper
+class: middle, center
 
-- Very few papers provide code `r Cite(bib, c("Leek2017a", "Considine2017a"))`
-    - Except bioinformatics, about 60% of studies do
+# Biomedical studies almost entirely don't publish code with the published paper
 
---
+???
 
-- Example: In epidemiology, of 90 articles reviewed `r Cite(bib, "Peng2006a")`:
-    - 43 (48%) did not report how data was processed
-    - 21 (24%) did not report how analysis was conducted
-    - 0 made code available in any way
+Very few papers provide code `r Cite(bib, c("Leek2017a", "Considine2017a"))`.
+Except maybe bioinformatics, where about 60% of studies do.
 
---
+Why? Likely due to:
 
-- *Why*? Likely due to:
-    - Lack of awareness and training
-    - Difficulty of adoption
-    - No incentive or reward
-    - Little to no culture to do it
-
----
-
-## Open science: Terms and meanings
-
-.center[
-
-| **Term** | **Meaning** |
-|:------------|:---------------|
-| Open science | Freely available, openly licensed .red.bold[*] material for all things related to scientific activity |
-| Open access | Free, unrestricted, publicly available **published articles** |
-| Open data | Freely available, re-usable, openly licensed **data** |
-| Open source/code | Freely available, re-usable, openly licensed **scientific code** used in generating results |
-
-]
-
-.footnote[.red.bold[*] We'll cover licenses later.]
+- Lack of awareness and training
+- Difficulty of adoption
+- No incentive or reward
+- Little to no culture to do it
 
 ---
 
 class: middle, center
 
-# Goal of this course? Start changing the culture by providing the training.
+# These issues can be fixed by creating and nurturing a culture of openness
 
 ---
 
-## Course website and layout:
+class: middle, center
 
-- True to our mission, material publicly accessible and [openly licensed](https://dda-rcourse.lwjohnst.com/license/index.html)
-    - <https://dda-rcourse.lwjohnst.com/>
-- Course is mix of "code-alongs" and lectures
-    - Interspersed with hands-on exercises
-    - Combined with final group-work [assignment](https://dda-rcourse.lwjohnst.com/course/assignment/)
-    (more on this later)
+# Goal of this course? Start changing the culture by providing the training
 
---
+---
+
+## Often asked: So why are we using R and why learn it?
 
 .pull-left[
-
-### What we aim to teach (and you learn)
-
-- Recognize importance of reproducibility and open science
-- Know and be aware of (some of) the modern tools to use
-- Know a general workflow for doing analyses
-- Know in general how to navigate and code in R
-- How to generally think about data
-
+- Open source, free
+- Very large online community
+    - Learning resources, support, help
+- Massive selection of packages
+    - Latest statistical methods
+    - Productivity tools
+    - Report writing
+    - Visualization
 ]
+    
+.pull-right[
+- Recent push to improve teaching, usability
+    - e.g. with tidyverse, RStudio
+- One of best visualization tools available
+- Powerful capabilities
+    - Big Data
+    - Programming
+    - Reproducibility
+]    
 
---
+???
+
+Regarding it being free, that means that you can take the knowledge 
+and skills for using R anywhere you go.
+
+---
+
+## Course setup and layout
+
+- Course is mix of:
+    - "Code-alongs" (we type and explain, you type along)
+    - Hands-on exercises
+    - Final group work for [assignment](assignment.html)
+
+- Use r3 package to help with learning
+
+- True to our mission, material publicly accessible and [openly licensed](https://r-cubed.rostools.org/license.html)
+    - <https://r-cubed.rostools.org/>
+
+???
+
+With the final group project, you'll be in the same group for the course,
+working together on it and on the final exercises.
+As a team, you'll help each other out with learning and overcoming any struggles,
+with of course our help too!
+
+---
+
+## Getting or asking for help `r emo::ji("raising_hand_woman")`
+
+.pull-left[
+- Put the sticky on your laptop to get help
+    - There are lots of helpers
+    - Team members, try to help out too
+]
 
 .pull-right[
-
-### What you won't learn
-
-- No (or minimal) statistics or modelling
-- No writing skills
-- No study or experimental design
-- No spreadsheet or large databases (e.g. SQL)
-
+- We're all learning here!
+    - This is a supportive and safe environment
+    - Remember our [Code of Conduct](conduct.html)
 ]
 
----
-
-## Other considerations
-
-- We have a [Code of Conduct](https://dda-rcourse.lwjohnst.com/code-of-conduct/)
-- Asking for help is as easy as using a sticky on your laptop
-    - We have lots of helpers!
-- We're all learning here, this is a supportive and safe environment
-
---
-
-## Resources and further reading
-
-- Best practices see `r Cite(bib, c("Wilson2014a", "Eglen2016a"))`
-- [Case studies](https://www.practicereproducibleresearch.org/) and lessons for doing reproducibility
-- Case study in Bioinformatics see `r Cite(bib, "Kim2018a")`
 
 ---
 
-## References 1
+class: middle, center
 
-```{r refs1, results='asis', echo=FALSE}
-PrintBibliography(bib, start = 1, end = 7)
+## Practice using stickies: Have you re-installed r3 and joined the GitHub Organization?
+
+---
+
+class: middle, center
+
+## Activity: Stand and arrange based on question
+
+???
+
+We're going to do a "stand and re-arrange yourself" activity based on some questions I ask.
+
+---
+
+class: middle, center
+
+## Who has not yet used R?
+
+???
+
+Go into different corners for "yes" and "no".
+
+---
+
+class: middle, center
+
+## Those who've used R, how do you perceive your skill in R?
+
+???
+
+Along the wall, arrange to one side is "novice/basic" and other side is "advanced".
+
+---
+
+class: middle, center
+
+## Those who've used R, have you had formal training in "coding" in R or in general?
+
+???
+
+Raise hands.
+
+---
+
+class: middle, center
+
+## Who has struggled with using R?
+
+???
+
+Raise hands.
+
+---
+
+class: middle, center
+
+## How do you perceive your general skill in data analysis?
+
+???
+
+Along the wall, arrange from "novice/basic" to "advanced".
+
+---
+
+class: middle, center
+
+## Get back into your groups and get to know each other a bit more
+
+???
+
+I've tried to organize the groups to include a range of skills 
+and experiences, so there is a mix of novice and more experienced users.
+
+So, as we prepare for the next session, introduce yourselves to the group
+and get to know each other more.
+You'll be relying on them for help,
+so find out who is the "more experienced" R user.
+
+---
+
+# References
+
+```{r refs, results="asis", echo=FALSE}
+PrintBibliography(bib)
 ```

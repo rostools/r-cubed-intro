@@ -1,14 +1,11 @@
 ---
 title: "Collaboration and teamwork in research"
 subtitle: "Why is reproducibility important when working in teams?"  
-author: 
-    - "Daniel R. Witte"
-date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
     self_contained: false
     lib_dir: libs
-    css: ["xaringan-themer.css", "../resources/custom.css"]
+    css: ['../resources/xaringan-themer.css', '../resources/custom.css']
     nature:
       ratio: "16:9"
       highlightStyle: github
@@ -18,6 +15,10 @@ output:
 
 layout: true
 
+```{r setup, include=FALSE}
+source(here::here("R/slide-setup.R"))
+```
+
 <div class="my-footer">
 <span>
 <img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
@@ -26,34 +27,8 @@ layout: true
 </span>
 </div> 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
-
 ---
+
 ## What is collaboration?
 
 -   Multiple people working on the same problem and exchanging ideas
@@ -66,12 +41,14 @@ For example:
 -   Multi-site clinical studies in several countries
 
 Collaboration can be organised at different levels:
+
 -   Individuals
 -   Departments
 -   Institutions
 -   Countries
 
 ---
+
 ## Why collaborate?
 
 -   Sharing and discussing different perspectives and ideas leads to solutions more rapidly
@@ -88,9 +65,8 @@ Collaboration can be organised at different levels:
 
 -   Working together can be more motivating than solitary work
 
-
-
 ---
+
 ## Collaboration is widespread
 
 .center[
@@ -113,8 +89,8 @@ knitr::include_graphics("../images/Resnet2.png")
 
 .footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
-
 ---
+
 ## Collaboration is widespread
 
 .center[
@@ -125,8 +101,8 @@ knitr::include_graphics("../images/Resnet3.png")
 
 .footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
-
 ---
+
 ## Collaboration is widespread
 
 .center[
@@ -137,14 +113,12 @@ knitr::include_graphics("../images/Resnet4.png")
 
 .footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
-
-
-
-
 ---
+
 ## Collaboration is based on agreement
 
 Agreement is needed on:
+
 -   Goals
 -   Participants, their roles and responsibilities
 -   Timing and deadlines
@@ -154,22 +128,12 @@ Agreement is needed on:
 -   Intellectual property rights
 -   Publication of results and authorships
 
----
-## Collaboration is based on agreement
-
-Agreement is needed on:
--   Goals
--   Participants, their roles and responsibilities
--   Timing and deadlines
--   Commitment of time and resources
--   Expectations on quality
--   Data sharing, ownership, access
--   Intellectual property rights
--   Publication of results and authorships
+--
 
 ==> *How to communicate about these issues*
 
 ---
+
 ## Collaboration happens at different places in the research workflow
 
 .center[
@@ -189,6 +153,7 @@ class: center, middle
 # Exercise: giving clear instructions
 
 ---
+
 ## Example: The first computationally reproducible manuscript
 
 .center[
@@ -200,5 +165,5 @@ knitr::include_graphics("../images/elife.png")
 .footnote[Source from https://elifesciences.org/articles/30274]
 
 ---
-## Questions?
 
+## Questions?

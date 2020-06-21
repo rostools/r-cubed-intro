@@ -1,27 +1,37 @@
 Package: rcubed
-Title: "Reproducible Research in R: An Introductory Workshop on Modern Data Analysis using R"
+Title: "Reproducible Research in R: An Introductory Workshop on
+    Modern Data Analysis using R"
 Version: 1.0.0.9000
 Authors@R: 
     person(given = "Luke",
            family = "Johnston",
            role = c("aut", "cre"),
            email = "lwjohnst@gmail.com")
-URL: https://gitlab.com/rostools/r-cubed/issues, https://r-cubed.rostools.org
+URL: https://gitlab.com/rostools/r-cubed/issues,
+    https://r-cubed.rostools.org
 Depends: 
-    R (>= 3.5.3)
+    R (>= 3.6.0)
 Imports: 
     bookdown,
-    fs (>= 1.2.7),
-    furrr (>= 0.1.0),
-    here (>= 0.1),
-    NHANES (>= 2.1.0),
-    prodigenr (>= 0.4.0),
-    styler (>= 1.1.0),
-    tidyverse (>= 1.2.1),
-    usethis (>= 1.5.0),
-    xaringan (>= 0.10),
-    xaringanthemer (>= 0.2.0),
-    RefManageR
+    dplyr,
+    emo,
+    ggplot2,
+    here,
+    hexbin,
+    NHANES,
+    RefManageR,
+    tidyr,
+    r3 (>= 0.0.0.9000)
+Suggests: 
+    fs,
+    prodigenr,
+    styler,
+    tidyverse,
+    usethis,
+    xaringan,
+    xaringanthemer
+Remotes:  
+    gadenbuie/xaringanthemer,
+    hadley/emo,
+    gitlab::rostools/r3
 Encoding: UTF-8
-Remotes: 
-    gadenbuie/xaringanthemer

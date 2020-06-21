@@ -1,0 +1,116 @@
+# Group project assignment {#assignment}
+
+![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+
+To maximize how much you learn and how much you will retain, 
+you as a group will take what you learn in the course 
+and apply it to create a reproducible project (as a GitHub repository) 
+and report (as an HTML file) based on a (simple) data analysis of a dataset of your choice. 
+The dataset **cannot be the same** as the one we used in class,
+and must be an open dataset obtained from an online archive.
+
+On the last day of the course, 
+you as a group will give a ~10 min presentation of your analysis and report.
+During the presentation, you as a group will:
+
+- Show your project on GitHub
+- Show your generated HTML report
+- Describe what you did and the reasons for why you did them
+- Explain any challenges you encountered or things you would do differently
+- Explain anything you liked and would do more of in the future
+
+When your group isn't presenting, 
+you as an audience member will participate in the discussion by:
+
+- Asking questions to *clarify* anything you may not understand or are confused about
+- Give *constructive* feedback on what they could have improved on
+- Give *concrete* suggestions on how they could handle the things they found challenging
+
+## Specific tasks
+
+Throughout the course, you will work together as a group on some exercises, 
+especially the final exercise in each session. Before you do any tasks though,
+decide as a group who you want to present the project at the end. 
+We'd recommend assigning one or two people to be the "presenters".
+
+For the group project, your specific tasks (based on lesson order) are to:
+
+1. Create a project using the "New Project" setup with the necessary files
+(covered in [Management of R Projects](r-project-management.html)).
+2. Find an "open" dataset to use for your analysis and report.
+The dataset can be on anything your group is interested in, 
+but *must* be from an open and online data archive.
+Choose a dataset that isn't too big (maybe *max.* 4 Mb).
+3. Download the dataset and put it into the `data-raw/` folder of your project.
+4. Create an R script inside `data-raw/` that cleans up and prepares the raw dataset
+(as covered in [Data Management](wrangling.html)).
+Save the new dataset in a folder called `data/`.
+5. Put the project under Git version control, add and commit all the files. 
+Add your assigned GitHub group repository to your project 
+and push ("upload") the repository up to GitHub
+(covered in [Version Control](version-control.html)).
+    - Update the README with the information from all of your team members 
+    and with a short description of your project.
+    - Make sure to add the open dataset to your Git repository and upload it to GitHub.
+6. Create an R script in your `R/` folder that generates 
+and saves one or more figures that visualize the cleaned dataset 
+(covered in [Data Visualization](visualization.html)). 
+Save the figures in a folder called `images/` inside the `doc/` folder.
+7. Create an R Markdown file named `report.Rmd` in the `doc/` folder of your project
+(covered in [Reproducible Documents](reproducible-documents.html)).
+Do some simple analyses of the dataset in this report file 
+and do these tasks:
+    - Create section headers (e.g. "Introduction", "Methods", "Results", "Discussion")
+    - Write up a basic description of what the dataset is and where you got it
+    and what you did to process or analyze the data in a "Methods" section.
+    - Create a table in the report that is generated from the data in a "Results"
+    section.
+    - Insert the generated figure into the report in a "Results" section.
+    - Write up a few sentences on some things you liked about doing the project with
+    the tools you learned and a few sentences on some challenges you had in a
+    "Discussion" section.
+    Add your thoughts as a group.
+8. Generate an HTML of the report (put don't commit it to Git).
+9. Include all the updated code and files on GitHub for the presentation.
+
+These tasks may seem like a lot, with a lot of new terminology and tools to use. 
+But don't worry! We will be going over many of these topics and you will have time
+to complete the project over the three days.
+
+At the end, the lead instructor will download each of the teams Git projects,
+knit the R Markdown documents, 
+and show them on the screen for each team to present on.
+
+## Quick "checklist" for a "good" project
+
+- Project on GitHub
+- Used Git
+- Included a good README describing the project and the team
+- Separated "raw data" from "cleaned data"
+- Used scripts to clean the data
+- Used scripts to generate figures
+- Included R code within an R Markdown file to show results
+- Written about your methods, datasets
+- Written about your challenges and general experiences
+- Generated an HTML file from an R Markdown file
+
+## Expectations for the project
+
+What we expect you to do for the group project:
+
+- Use Git and GitHub throughout your work.
+- Work collaboratively as a group and share responsibilities and tasks.
+- Use as much of what we covered in the course to practice what you learned.
+
+What we don't expect:
+
+- Complicated analysis or coding. 
+The simpler it is the easier is to for you to do the coding 
+and understand what is going on
+and it helps us to see that you've practiced what you learned.
+- Clever or overly concise code. 
+Clearly written and readable code is *always* better than clever or concise code.
+Keep it simple and understandable!
+
+Essentially, the group project is a way to reinforce what you learned during the course,
+but in a more relaxed and collaborative setting.

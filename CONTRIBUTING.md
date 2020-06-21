@@ -11,23 +11,22 @@ There are a few ways that you can contribute:
 
 Helping to contribute can be as simple as giving feedback or suggestions or thoughts
 about a topic or issue. You'll need a GitLab account to add your comments on
-the course development in the [`dda-rcourse` repository](https://gitlab.com/lwjohnst/dda-rcourse/issues). 
+the course development in the [`r-cubed` repository](https://gitlab.com/rostools/r-cubed/issues). 
 In particular, check the
-[`Brainstorm` :speech_balloon:](https://gitlab.com/lwjohnst/dda-rcourse/issues?label_name%5B%5D=Brainstorm)
+[`Brainstorm`](https://gitlab.com/rostools/r-cubed/issues?label_name%5B%5D=Brainstorm)
 label to find topics that are specifically to get your feedback and thoughts. As 
 always, make sure to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Adding to lesson material :pencil: :computer:
 
-The lesson material and website are created using [blogdown](https://bookdown.org/yihui/blogdown/),
+The lesson material and website are created using [bookdown](https://bookdown.org/yihui/bookdown/),
 which renders the R Markdown documents and converts the source material into 
 a static website. A few things to consider when contributing to the lesson 
 material:
 
 1. All lesson material that contains R code chunks needs to be in R Markdown
-format. **NOTE: Normally R Markdown files end in `.Rmd`, but the website
-generator requires the files to end in `.Rmarkdown`.**
-2. All lessons follow the template: {{TODO: complete this later}}
+format (`.Rmd`).
+1. Every lesson "chapter" starts with and has only one first level "header" (`#`).
 3. Lessons include a mix of code chunks and text, organized using Markdown
 headers.
 4. Participants should be able to follow the contents of the lesson from the
@@ -46,11 +45,19 @@ Please use [the GitHub flow style][github-flow] to manage changes:
 [branch][branch-explanation].
 3. Commit your changes to that branch.
 4. Push the edits on that branch to your fork of the course repository.
-5. Submit a pull request to the master repository (`lwjohnst/dda-rcourse`).
+5. Submit a pull request to the master repository (`lwjohnst/r-cubed`).
 7. If you receive feedback on your pull request, make further commits to the new
 branch on your fork. These will automatically be added to your pull request.
 
 *If you are creating slides*, use the R Markdown format [xaringan](https://github.com/yihui/xaringan).
+
+Making videos is done using [Peek](https://github.com/phw/peek),
+[OpenShot](https://www.openshot.org/),
+and the below command to reduce the video file size:
+
+```
+ffmpeg -i input.mp4 -crf 28 output.mp4
+```
 
 ## Teaching in class :information_desk_person: :speech_balloon:
 
@@ -99,7 +106,7 @@ Live-coding is a technique used by [Software Carpentry](https://software-carpent
 Software Carpentry has lots of great resources explaining the why and how of live-coding:
 
 - [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html)
-- The Software Carpentry [instructor training manual](http://carpentries.github.io/instructor-training/) 
+- The Software Carpentry [instructor training manual](https://carpentries.github.io/instructor-training/) 
 includes many resources about programming education.
 
 ## Being a helper :raising_hand: 

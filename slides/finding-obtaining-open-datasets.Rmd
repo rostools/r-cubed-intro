@@ -1,57 +1,33 @@
 ---
 title: "Finding and obtaining open datasets"
-author: 
-    - "Daniel R. Witte"
 output:
-  xaringan::moon_reader:
-    self_contained: false
-    lib_dir: libs
-    css: ["xaringan-themer.css", "../resources/custom.css"]
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+    xaringan::moon_reader:
+        self_contained: false
+        lib_dir: libs
+        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        nature:
+            ratio: "16:9"
+            highlightStyle: github
+            highlightLines: true
+            countIncrementalSlides: false
 ---
 
 layout: true
 
+```{r setup, include=FALSE}
+source(here::here("R/slide-setup.R"))
+```
+
 <div class="my-footer">
 <span>
-<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 <img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
-
 ---
+
 ## Where is Open Data in the Open Science Universe?
 
 - Open data is only a small part of the open science movement
@@ -66,6 +42,7 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 
 ---
+
 ## Different types of open data
 
 - Open data is not only about datasets you can download from the internet
@@ -394,7 +371,7 @@ Finding a suitable license for your data: [(Choose a license)](https://chooseali
 [Plan S]: https://www.coalition-s.org/
 [Foster Open Science]: https://www.fosteropenscience.eu/
 [NIH data repositories]: https://www.nlm.nih.gov/NIHbmic/nih_data_sharing_repositories.html
-[UK Data Archive]: http://data-archive.ac.uk/find/archive-catalogue
+[UK Data Archive]: https://data-archive.ac.uk/find/archive-catalogue
 [YODA project]: https://yoda.yale.edu/
 [Project Datasphere]: https://www.projectdatasphere.org/projectdatasphere/html/home
 [ClinicalStudyDataRequest]: https://www.clinicalstudydatarequest.com/

@@ -1,92 +1,88 @@
-# Project management and best practices {#proj-management}
+# Management of R projects {#r-project-management}
 
-## Session details
+![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
 
-### Objectives
+> When in RStudio, quickly jump to this page using `r3::open_rproject_management()`.
 
-1. Learning how to find help, autocompletion, further learning.
-1. To become aware of and learn some "best practices" (or "good enough
-practices") for project organization.
-1. To use RStudio to create and manage projects with a consistent structure and
-a consistent way.
-1. To get a basic orientation to RStudio and to what R is.
+**Session objectives**:
 
-**At the end of this session you will be able**:
+1. Create self-contained projects that allow for easier reproducibility
+1. Use built-in tools in RStudio to make it easier to manage R projects
+1. Become familiar with the very basics of R
+1. Apply tools to use a consistent "grammar" and "styling" when writing R code 
+and making files
+1. Know of and use different approaches to getting and finding help
 
-- To apply the best practices in using R for data analysis.
-- To create a new RStudio project with a consistent folder structure.
-- To use a style guide for formatting your code.
-- To organise folders in a consistent, structured, and systematic way.
+## What is a project and why use it?
 
-### Summary
+**Take 5 min and read through this section**.
 
-- Use R Projects in RStudio
-- Use a standard folder and file structure
-- Use a consistent [style guide] for code and files
-- Use [version control]
-- Keep R scripts simple, focused, short
-- Use the `here()` function from the [here] package
-- Save data in the `data/` folder as csv
-- Don't repeat yourself in code (or try not to) by using functions
+Before we create a project, we should first define what we mean by "project".
+What is a project? In this case, a project is a set of files that together
+lead to some type of scientific "output" (for instance a manuscript).
+Use data for your output? That's part of the project. 
+Do any analysis on the data to give some results? Also part of the project.
+Write a document, e.g. a manuscript, based on the data and results? 
+Have figures inserted into the output document? 
+These are also part of the project.
 
-[version control]: /courses/version-control/
+More and more *how we make a claim* in a scientific product is just as important
+as the output describing the claim. 
+This includes not only the written description of the methods 
+but also the exact steps taken, i.e. the code used.
+So, using a project setup can help with keeping things self-contained
+and easier to track and link with the scientific output. 
+Here is some things to consider when doing projects:
 
-## Project management
-
-### Best practices overview
-
-The ability to read, understand, modify, and write simple pieces of code is an
-essential skill for modern data analysis tasks and projects. Here we introduce
-you to some of the best practices one should have while writing their code.
-Many of the best practices were taken from the "best practices" articles listed
-in the ["Resources"](#resources-for-learning-and-help) section below.
-
-- Organise all R scripts and files in the same directory (use a common and
-consistent folder and file structure).
-- Use [version control] (to track changes to files).
+- Organise all R scripts and files in the same folder (also called "directory")
+so it is more "self-contained"
+- Use a common and consistent folder and file structure for your projects
+- Use [version control] (to track changes to files)
 - Make raw data "read-only" (don't edit it directly) and use code to show what
 was done.
-- Write and describe code for people to read (be descriptive and use a [style guide]).
-- Think of code as part of your manuscript/thesis/report: Write for an audience 
-or other reader.
-- Don't repeat yourself (use and create functions[^funcs]).
 - Whenever possible, use code to create output (figures, tables) rather than
 manualling creating or editing them.
+- Think of your code and project like you do with your manuscript or thesis:
+that other people will eventually look at it and review it, 
+that it will be published.
 
-[^funcs]: Functions are units of action in R. Everything that does something is a function. You can also create your own. We'll cover that in [later sessions](/course/efficient-coding/).
+These simple steps can also be huge steps toward being reproducible in your analysis.
+And by managing your projects in a reproducible fashion,
+you'll not only make your science better and more rigorous, 
+it also makes your life easier too! 
 
-Managing your projects in a reproducible fashion doesn't just make your science
-reproducible, it also makes your life easier! RStudio is here to help us with
-that by using [R Projects]. RStudio projects make it straightforward to divide your
-work into multiple contexts, each with their own working directory, workspace,
-history, and source documents.
+### RStudio and R Projects
 
-[R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
+RStudio is here to help us with that by using [R Projects]. 
+RStudio projects make it easy to divide your work projects into a "container", 
+that have their own working directory, workspace, history, and source documents.
 
-It is strongly recommended that you store *all* the necessary files that will be
-used in your code in the **same parent directory**[^dir]. You can then use
-relative file paths to access them (we'll talk about file paths below). This
-makes the directory and R Project a "product" or "bundle/package". Like a tiny
-machine, that needs to have all its parts in the same place.
+There are many ways one could organise a project folder. 
+We'll be setting up a project folder and file structure using [prodigenr](https://prodigenr.lukewjohnston.com/index.html).
+We'll use RStudio's New Project menu item under "File -> New Project".
+We'll call the new project **`LearningR`**.
+Save it on your `Desktop/`.
+See Figure \@ref(fig:prodigenr-project-creation) for the steps to do it:
 
-[^dir]: Directory also means folder.
-
-### Creating your first project
-
-There are many ways one could organise a project folder. We'll set up a project
-directory folder using [prodigenr](http://prodigenr.lukewjohnston.com/index.html):
-
-```{r, eval=FALSE}
-# prodigenr::setup_project("ProjectName")
-prodigenr::setup_project("learning-r")
+```{r prodigenr-project-creation, fig.cap="Creating a new analysis project in RStudio.", echo=FALSE}
+knitr::include_graphics(here::here("images/rstudio-prodigenr-projects.gif"))
 ```
 
-When we use the `::` colon here, we are telling R "from the prodigenr package use
-the setup_project function". This function will then create the following
-folders and files:
+You can also use the Console, but we won't do that in this session.
+
+```{r prodigenr-setup, eval=FALSE}
+prodigenr::setup_project("~/Desktop/LearningR")
+```
+
+Just a reminder, when we use the `::` colon here, we are saying:
+
+> Hey R, from the prodigenr package use the setup_project function.
+
+After we've created a New Project in RStudio,
+we'll have a bunch of new files and folders.
 
 ```
-learning-r
+LearningR
 ├── R
 │   ├── README.md
 │   ├── fetch_data.R
@@ -99,7 +95,8 @@ learning-r
 ├── .gitignore
 ├── DESCRIPTION
 ├── learning-r.Rproj
-└── README.md
+├── README.md
+└── TODO.md
 ```
 
 This forces a specific, and consistent, folder structure to all your work. Think 
@@ -119,28 +116,36 @@ briefly:
 
 1. Documents like manuscripts, abstracts, and exploration type documents should 
 be put in the `doc/` directory (including [R Markdown] files which we will cover
-[later](/course/reproducible-documents/)).
+[later](reproducible-documents)).
 1. Data, raw data, and metadata should be in either the `data/` directory or
 in `data-raw/` for the raw data.
+We'll explain the `data-raw/` folder and creating it later in the lesson.
 1. All R files and code should be in the `R/` directory.
 1. Name all new files to reflect their content or function. Follow the tidyverse 
 [style guide for file naming](https://style.tidyverse.org/files.html).
 
 [R Markdown]: https://rmarkdown.rstudio.com/
 
-For the course, we'll delete all files except for the `R/`, `data/`, and `doc/`
-folders as well as the `learning-r.Rproj` and `.gitignore` file. For any
-project, it is **highly recommended** to use [version control]. We'll be
-covering version control in more detail [later](/courses/version-control/) in
-the course.
+For this course, we'll delete the files `fetch_data.R` and `setup.R` in the `R/` folder,
+as well as the `.Rbuildignore` file. 
+For any project, it is **highly recommended** to use [version control],
+which we'll cover in more detail [later](version-control).
+
+[version control]: https://happygitwithr.com/big-picture.html#why-git
+
+### Exercise: Reading the READMEs
+
+Time: 5 min
+
+1. Briefly read through each of the `README.md` files by opening them up in RStudio.
 
 ### Exercise: Better file naming
 
 Time: 4 min
 
 Let's take some time to think about file naming. Look at the list of file names
-below. Which file names are good names and which shouldn't you use? We'll
-discuss after why some are good names and others are not.
+below. Which file names are good names and which ones shouldn't you use? We'll
+discuss afterwards why some are good names and others are not.
 
 ```
 fit models.R
@@ -161,69 +166,76 @@ code.R
 
 Now that we've created a project and associated folders, let's add some more
 options to the project. One option to set is to ensure that every R session you 
-start is a "blank slate", by typing and running in the Console:
+start with is a "blank slate", by typing and running in the Console:
 
-```{r, eval=FALSE}
+```{r blank-slate, eval=FALSE}
 usethis::use_blank_slate()
 ```
 
 Now, let's add some R scripts that we will use in later sessions of the course.
 
-```{r, eval=FALSE}
+```{r add-r-files, eval=FALSE}
 usethis::use_r("project-session")
 usethis::use_r("wrangling-session")
 usethis::use_r("version-control-session")
 usethis::use_r("visualization-session")
 ```
 
-## Writing code
+The `usethis::use_r()` command creates R scripts in the `R/` folder.
+As you may tell, the usethis package can be quite handy.
 
-### RStudio layout and usage
+## RStudio layout and usage
 
 Open up the `R/project-session.R` file and type out the code in that file for 
-the code-along parts. For an overview of the RStudio layout, see their
-[cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide) on using it.
+the code-along parts. 
+You've already gotten a bit familiar with RStudio in the pre-course tasks,
+but if you want more details, RStudio has a great 
+[cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide) on how to use RStudio.
 The items to know right now are the "Console", "Files"/"Help", and "Source"
 tabs.
 
 Code is written in the "Source" tab, where it saves the code and text as a file.
 You send code to the console from the opened file by typing `Ctrl-Enter` (or
-clicking the "Run"). When you type code, you can use "Tab-completion" to finish
-a code. By using the tab key as you type out a command, RStudio will list out
-possible options of commands you are trying to type. If you need help with a
-command, type in the "Console" `?codename`. We'll use this more later. In the
-"Source" tab (where R scripts and R Markdown files are shown), there is a
-"Document Outline" button (top right beside the "Run" button) that shows you the
-headers or "Sections" (more on that later).
+clicking the "Run" button). 
+In the "Source" tab (where R scripts and R Markdown files are shown), 
+there is a "Document Outline" button (top right beside the "Run" button) 
+that shows you the headers or "Sections" (more on that later). 
+Click it to enable the outline from now on.
 
-### Basics of using R
+## Basics of using R
 
 In R, everything is an object and every action is a function. A function is an
 object, but an object isn't always a function. To create an object, also called
 a variable, we use the `<-` assignment operator:
 
-```{r}
+```{r using-assignment-operator}
 weight_kilos <- 100
 weight_kilos
 ```
 
 The new object now stores the value we assigned it. We can read it like:
 
-> - "weight kilos now contains the number 100", or
-> - "put 100 into the object weight kilos"
+> - "`weight_kilos` contains the number 100", or
+> - "put 100 into the object `weight_kilos`"
 
 You can name an object in R almost anything you want, but it's best to stick to
 a [style guide]. For instance, use `snake_case` to name things.
 
 There are also several main "classes" (or types) of objects in R: lists,
-vectors, matrices, and data.frames. For now, the only two we will cover are
-*vectors* and *data.frames*. Vectors are a string of values put together while
-data.frames are multiple vectors put together as columns.
+vectors, matrices, and data frames. For now, the only two we will cover are
+*vectors* and *data frames*. Vectors are a string of values put together while
+data frames are multiple vectors put together as columns. 
+Data frames are a form of data that you'd typically see as a spreadsheet.
+This type of data is called "rectangular data" since it has two dimensions:
+columns and rows.
 
-```{r, eval=FALSE}
+```{r vectors-dataframes, eval=FALSE}
 # These are vectors:
+# Character vector
 c("a", "b", "c")
+# Logic vector
 c(TRUE, FALSE, FALSE)
+# Numeric vector
 c(1, 5, 6)
 
 # This is a dataframe:
@@ -231,11 +243,21 @@ head(iris)
 ```
 
 Notice how we use the `#` to write comments or notes. Whatever we write after
-the "hash" (`#`) means that R will ignore it and not run it. The function `c()`
-combines values together and `head()` prints the first 6 rows. To get more
-information from data.frames, use:
+the "hash" (`#`) means that R will ignore it and not run it. 
+The `c()` command puts values together and `head()` prints the first 6 rows. 
+Both `c()` and `head()` are *functions*. 
+In R, a command is called a function and is anything that does an *action*.
+It can also be recognized by the `()` at the end of it.
+Functions take an *input* (known as *arguments*) and give back an *output*.
+Each argument is separated by a comma `,`.
+Some functions can take unlimited arguments if they have a `...` as an input
+(like `c()`). Others, like `head()` only can take a few.
+In the case of `head()`, the first argument is for the data frame.
 
-```{r}
+If we want to get more information from data frames, 
+we can use other functions like:
+
+```{r examining-dataframes}
 # Column names
 colnames(iris)
 # Structure
@@ -244,18 +266,44 @@ str(iris)
 summary(iris)
 ```
 
-Some tips to use when working in R:
+## Using auto-completion in RStudio
 
-- Think of writing code as if writing in a language
-    - Imagine other people will read your code
-- Keep it clear, simple, and *readable*
-- Stick to a *[style guide]*
-- Use full and descriptive words when typing and creating objects
-- Use white space to separate concepts (empty lines between, spaces, and/or tabs)
-- Use Sections (`"Code->Insert Section"` or `Ctrl-Shift-R`) to separate content in
-scripts.
+To type out objects in R faster, use "tab-completion" to finish a object name for you.
+As you type out an object name, hit the "tab" key to see a list of objects available.
+RStudio will not only list out the objects,
+but also shows the possible options and help associated with the object.
 
-[style guide]: https://style.tidyverse.org/
+Try it out. In the RStudio Console, start typing:
+
+```r
+col
+```
+
+Then hit tab. You should see a list of functions to use. 
+Hit tab again to finish with `colnames()`. 
+This simple tool can save so much time and can prevent spelling mistakes.
+
+## R object naming practices
+
+**Take 5 minutes and read this section**, and then complete the exercise.
+
+If you've ever seen some old R code,
+you may notice that functions and objects are usually short.
+For instance, `str()` is the function to see the `object_structure()`.
+Back then, there were no tab-completion tools, 
+so typing out long names was painful. 
+Now we have powerful auto-completion tools.
+So this also means that you should write out descriptive names instead of short ones.
+For instance, in the past, the object `weight_kilo` would have been named something like `x`.
+But this doesn't tell us what that is and doesn't help us write better code.
+
+The ability to read, understand, modify, and write simple pieces of code is an
+essential skill for modern data analysis tasks and projects.
+So! Here's some tips for writing R code:
+
+- *Be descriptive* with your names!
+- As with natural languages like English, write as if someone will read your code.
+- Stick to a *[style guide]*.
 
 Even though R doesn't care about naming, spacing, and indenting, it really
 matters how your code looks. Coding is just like writing. Even though you may go
@@ -264,23 +312,35 @@ write correctly so others can understand, *and read*, what you are trying to
 say. In coding, brainstorming is fine, but eventually you need to code in a
 readable way. That's why using a [style guide] is really important.
 
-### Exercise: Make code more readable
+Another useful thing to do to make your R script more readable 
+and understandable is to use "Sections".
+They're like "headers" in Word and they split up an R script into sections,
+which then show up when you use the "Document Outline". 
+You can use sections through the menu item (`"Code->Insert Section"`)
+or with the keyboard shortcut (`Ctrl-Shift-R`).
 
-Time: 10 min
+## Exercise: Make code more readable
 
-Using the [style guide] in the link, try to make these code more readable. Copy
-and paste these text into the `R/project-session.R` file. The code below is in
-some way either *wrong* or incorrectly written. Edit the code so it follows the
-correct style and so it's easier to understand and read. You don't need to
-understand what the code does, just follow the guide.
+Time: 15 min
 
-```{r, eval=FALSE}
+Briefly scan through the [style guide] in the link.
+Then try to make the below code more readable. 
+Copy and paste the code below into the `R/project-session.R` file.
+**NOTE**: *Don't* run this code, just edit it to improve the code style 
+and object naming.
+There are some tricks in here that we haven't covered yet,
+but will when we go through the exercise.
+
+The code below is in some way either *wrong* or incorrectly written. Edit the
+code so it follows the correct style and so it's easier to understand and read.
+You don't need to understand what the code does, just follow the guide.
+
+```{r ex-wrong-code-naming, eval=FALSE}
 # Object names
 DayOne
 dayone
 T <- FALSE
 c <- 9
-mean <- function(x) sum(x)
 
 # Spacing
 x[,1]
@@ -288,15 +348,13 @@ x[ ,1]
 x[ , 1]
 mean (x, na.rm = TRUE)
 mean( x, na.rm = TRUE )
-function (x) {}
-function(x){}
 height<-feet*12+inches
 mean(x, na.rm=10)
 sqrt(x ^ 2 + y ^ 2)
 df $ z
 x <- 1 : 10
 
-# Indenting
+# Indenting and brackets
 if (y < 0 && debug)
 message("Y is negative")
 ```
@@ -306,10 +364,10 @@ message("Y is negative")
 
 The old code is in comments and the better code is below it.
 
-```{r, eval=FALSE}
+```{r ex-wrong-code-naming-answer, eval=FALSE}
 # Object names
 
-# Should be camel case
+# Should be snake case (looks like `snake_case`)
 # DayOne
 day_one
 # dayone
@@ -322,9 +380,6 @@ false <- FALSE
 # c is a function name already. Plus c is not descriptive
 # c <- 9
 number_value <- 9
-# mean is a function, plus does not describe the function which is sum
-# mean <- function(x) sum(x)
-sum_vector <- function(x) sum(x)
 
 # Spacing
 # Commas should be in correct place
@@ -336,9 +391,6 @@ x[, 1]
 # mean (x, na.rm = TRUE)
 # mean( x, na.rm = TRUE )
 mean(x, na.rm = TRUE)
-# function (x) {}
-# function(x){}
-function(x) {}
 # height<-feet*12+inches
 height <- feet * 12 + inches
 # mean(x, na.rm=10)
@@ -353,78 +405,31 @@ x <- 1:10
 # Indenting should be done after if, for, else functions
 # if (y < 0 && debug)
 # message("Y is negative")
-if (y < 0 && debug)
+if (y < 0 && debug) {
     message("Y is negative")
+}
 ```
 
 </p>
 </details>
 
-### Automatic styling with styler
+## Automatic styling in RStudio
 
-You may have organised the exercise by hand, however it is possible to do it
-automatically. The tidyverse [style guide] has been implemented into the
-[styler](http://styler.r-lib.org/) package to automate the process of following
-the guide by re-styling selected code. The styler snippets can be found in the
-Addins function on the top of your R document after you have installed it.
+You may have organised the exercise by hand, 
+however it is possible to do it automatically. 
+RStudio has an automatic styling tool, 
+found in the menu item `"Code -> Reformat Code"` (or with `Ctrl-Shift-A`). 
+Let's try this styling out together by copy 
+and pasting the exercise code again
+and running the reformatting on it.
 
-Take from styler website? /img/styler_0.1.gif
+The tidyverse [style guide] also has package called 
+[styler](https://styler.r-lib.org/) that automates fixing code to fit the style guide.
+With styler you can fix styling on multiple files at once.
+We won't be covering styler though, 
+so this is just a reference to a possible future tool to try out.
 
-RStudio also has its own automatic styling ability, through the menu item `"Code ->
-Reformat Code"` (or `Ctrl-Shift-A`). Try both methods of styling on the exercise
-code above. There are slight differences in how each method works and they both
-aren't always perfect.
-
-### DRY and describing your code
-
-DRY or "don't repeat yourself" is another way of saying, "make your own
-functions"! That way you don't need to copy and paste code you've used multiple
-times. Using functions also can make your code more readable and descriptive,
-since a function is a bundle of code that does a specific task... and usually
-the function name should describe what you are doing. We'll be covering functions
-more in the [Efficient Coding](/course/efficient-coding/) section of the course,
-but we'll talk about it briefly here. 
-
-What does a "function" mean? A function is, as mentioned, a bundled sequence of
-code that does a specific thing. Imagine it as a machine, like a microwave or
-oven. Each has a bunch of parts that work together to do something (e.g. cook
-food). Same with functions. And like machines, you can look at the contents of
-functions, like so:
-
-```{r}
-# Inside standard deviation function
-sd
-```
-
-It is very important for your future self, and for any person that will be
-reading/using your code to be able to understand what the code *does* and what
-it will *create* (or output). So it's crucial to describe what the code does
-through code comments, documentation, and descriptive naming of the function and
-other objects. For instance, if your function name is decriptive, then you don't
-need to spend much time describing what the code does and remember how to use
-it. Also, use code comment (anything after a `#`) to provide more detailed
-explanations of your code if the code is complicated or long (these of course are
-a bit subjective).
-
-Example:
-
-```{r}
-# The following function outputs the sum of two numeric objects (a and b). 
-# usage: summing(a = 2, b = 3)
-summing <- function(a, b) {
-    return(a + b)
-}
-
-summing(a = 2, b = 3)
-```
-
-The example above is summing up two different numeric objects. Note that the
-name for this function was chosen as **summing**, instead of **sum**. This is
-because R already has a built-in function called **sum** and so we don't want to
-overwrite it! We'll go over more of writing functions in the [Efficient
-Coding](/course/efficient-coding/) section.
-
-### Packages, data, and file paths
+## Packages, data, and file paths
 
 A major strength of R is in its ability for others to easily create packages
 that simplify doing complex tasks (e.g. running mixed effects models with the
@@ -433,39 +438,47 @@ easily install and use that package. So make use of packages!
 
 You load a package by writing:
 
-```{r, eval=FALSE}
+```{r loading-packages, eval=FALSE}
 library(tidyverse)
 ```
 
 Working with multiple R scripts and files, it quickly gets tedious to always
-write out each library function at the top of each script. A better way of
-managing this is to create a new file, keep all package loading code in that
-file, and sourcing that file in each R script. So:
+write out each library function at the top of each script. 
+One better way of managing this is by creating a new file 
+and keeping all package loading code in that file.
+Then, in other files, source the package loading file in each R script. So:
 
-```{r, eval=FALSE}
+```{r create-package-loading-script, eval=FALSE}
 usethis::use_r("package-loading")
 ```
 
-In the `package-loading.R` file:
+This will create a new R script in the `R/` folder called `package-loading.R`.
+In this file, add this to the top:
 
-```{r, eval=FALSE}
+```{r add-tidyverse-package-loading, eval=FALSE}
 library(tidyverse)
 ```
 
-In any other `.R` file:
+In the `project-session.R` file, put this at the top of the file.
 
-```{r, eval=FALSE}
+```{r sourcing-top-of-file, eval=FALSE}
 source(here::here("R/package-loading.R"))
 ```
 
 There's a new thing `here`! The [here] package uses a function called `here()` 
-that makes it easier to manage file paths. What is a file path and why is this 
+that makes it easier to manage file paths. 
+The here package should already be installed.
+
+So, what is a file path and why is this 
 necessary? A file path is the list of folders a file is found in. For instance,
 your CV may be found in `/Users/Documents/personal_things/CV.docx`. The problem 
 with file paths in R is that when you run a script interactively (e.g. what we
-do in class and normally), the file path is located at the Project level (where 
-the `.Rproj` file is found). You can see the file path by looking at the top of
-the "Console". But! When you `source()` an R script, it may likely run *in the
+do in class and normally), 
+the file path and "working directory" is located at the Project level 
+(where the `.Rproj` file is found).
+You can see the working directory by looking at the top of the RStudio Console.
+
+But! When you `source()` an R script, it may likely run *in the
 folder it is saved in*, e.g. in the `R/` folder. So your file path
 `R/packages-loading.R` won't work because there isn't a folder called R in the
 `R/` folder. Often people use the function `setwd()`, but this is *never* a good
@@ -475,71 +488,80 @@ to the project root (where the `.Rproj` file is found) and then use that file
 path. This simple function can make your work more reproducible and easier for
 you to use later on.
 
-[here]: https://here.r-lib.org/
-
-We also use the `here()` function when we import a dataset. Let's save a dataset
-as a [csv] file. In the `project-session.R` file, add this to the top of the file:
-
-[csv]: https://en.wikipedia.org/wiki/Comma-separated_values
-
-```{r, eval=FALSE}
-source(here::here("R/package-loading.R"))
-```
-
-Then, let's add these lines to the end of the file:
-
-```{r, eval=FALSE}
-write_csv(iris, here::here("data/iris.csv"))
-imported_iris <- read_csv(here::here("data/iris.csv"))
-head(imported_iris)
-```
-
-## Encountering problems
+## Encountering problems and finding help
 
 You **will** encounter problems and issues and errors when working with R... 
-and you will encounter then **all the time**. This is a fact of life. How you 
+and you will encounter them **all the time**. This is a fact of life. How you 
 deal with the warnings and errors is the important part. Here are some steps:
 
-1. *First*, don't get stressed (or try not to), this happens to *everyone*, no
-matter their skill level.
-1. Take a breath and go over the code again, checking for mistakes.
-1. Check that you haven't forgotten a comma or bracket somewhere.
-1. Break code up into sections and run each section individually to see what is
-causing problems.
-1. Restart the R session (`"Session -> Restart R"` or `Ctrl-Shift-F10`).
-1. Run the code again from the top of the file to the place where the error
-occurred.
-1. (Rarely need to do) Close and re-open RStudio.
+1. *First*, try to stay calm, problems happen to *everyone*, 
+no matter their skill level. You *can fix it*! `r emo::ji("smile")`
+1. Go over the code again and check for any mistakes:
+    - Any missing commas?
+    - Any missing end brackets like `]`, `)`, or `}`?
+    - Is the object name spelled correctly?
+1. Go back in the code a bit and run each one at a time to see where the problem occurs.
+1. Restart the R session (`"Session -> Restart R"` or `Ctrl-Shift-F10`) 
+and run the code from beginning again, tracking what objects get created and if
+the proper object name is used later on.
+1. (Rarely need to do) Close and re-open RStudio and try again.
 
-Search for help (every session in this course has a "Resources" section, try
-there first) by using the `?` help function, using Google[^nojoke], checking
-[StackOverflow](https://stackoverflow.com/questions/tagged/r), checking the
-[RStudio cheatsheets], checking package documentation, tutorials, or from online
-books (like [R for Data Science]).
+If these don't work, try to find help by:
 
-[^nojoke]: No joke, most of the skill in programming comes from learning how to ask Google the right way for your problem.
+- Using `?` to get help on a function. When you run this function on an object,
+it will open up the help in the "Help" tab of RStudio. Try it out:
+
+    ```{r using-help, eval=FALSE}
+    ?colnames
+    ```
+
+- Check out the [RStudio cheatsheets], which are printable PDF files that are 
+great sources of help and learning.
+- If the problem relates to a specific package, check out its website. 
+The [tidyverse] packages all have amazing documentation that you can use to help
+you with problems you may have.
+- Check [StackOverflow](https://stackoverflow.com/questions/tagged/r), 
+which is a coding-related question and answer website.
+- Google it. No joke, 
+those who are "more expert" in coding languages like R are skilled mostly
+*because they know how to ask Google the right questions*.
+
+## Summary of session
+
+- Use R Projects in RStudio (e.g. with prodigenr)
+- Use a standard folder and file structure
+- Use a consistent [style guide] for code and files
+- Keep R scripts simple, focused, short
+- Use the `here()` function from the [here] package
+- Use tab auto-completion when writing code
+- Use `?` to get help on an R object
+
+## Final exercise: Group work
+
+Time: 15 min.
+
+For each member of the group:
+
+1. Complete item 1 of the [group assignment](assignment)
+(to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
+    - Name the project the *same* as your team name (we will provide it for you).
+    - For this exercise, every team member should create a new project.
+    - Please assign one person as the "coordinator".
+    In the [Version Control session](version-control), 
+    this person will use their project folder as the base for the initial tasks 
+    of the final exercise.
+2. Open up the `README.md` file and write a few sentences about yourself.
+3. Run these functions from the usethis package to setup the project 
+and to create these files:
+
+    ```r
+    usethis::use_blank_slate()
+    usethis::use_data_raw("original-data")
+    usethis::use_r("generate-figures")
+    ```
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
-
-## Resources for learning and help
-
-**For learning**:
-
-- [Good enough practicies in scientific computing](https://doi.org/10.1371/journal.pcbi.1005510) article
-- [Best practices in scientific computing](https://doi.org/10.1371/journal.pbio.1001745) article
-- [Organizing R Source Code](https://www.r-bloggers.com/r-best-practices-r-you-writing-the-r-way/)
-- [An example of a well organised folder project](https://github.com/hadley/data-baby-names)
-
-**For help**:
-
-- [RStudio support](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-- [Tidyverse style guide](https://style.tidyverse.org/)
-
-## Acknowledgements
-
-Parts of this lesson were modified from a
-[session](https://au-oc.github.io/content/workflow-setup.html) taught at the
-[Aarhus University Open Coders](https://au-oc.github.io/main/), with
-contributions from Maria Izabel Cavassim Alves
-([\@izabelcavassim](https://github.com/izabelcavassim)), PhD student at AU in 
-Bioinformatics.
+[R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
+[style guide]: https://style.tidyverse.org/
+[here]: https://here.r-lib.org/

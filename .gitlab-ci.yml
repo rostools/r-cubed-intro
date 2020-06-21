@@ -2,13 +2,14 @@ image: rocker/tidyverse
 
 stages:
   - build
-  - deploy
+  - deploy_mr
+  - deploy_prod
 
 build:
     stage: build
     script:
-        - R -e "remotes::install_deps(dependencies = TRUE)"
-        - R -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
+        - R -e "remotes::install_deps(dependencies = c('Depends', 'Imports'))"
+        - Rscript _build.R
     artifacts:
         paths:
             - public
@@ -17,13 +18,25 @@ build:
 # To produce a code coverage report as a GitLab page see
 # https://about.gitlab.com/2016/11/03/publish-code-coverage-report-with-gitlab-pages/
 
-deploy:
+deploy_mr:
     image: node:latest
-    stage: deploy
+    stage: deploy_mr
     before_script:
-        - npm i -g netlify-cli
+        - npm install netlify-cli
     script:
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+        - npx netlify deploy --dir public
+    except:
+        - master
+    dependencies:
+        - build
+
+deploy_prod:
+    image: node:latest
+    stage: deploy_prod
+    before_script:
+        - npm install netlify-cli
+    script:
+        - npx netlify deploy --prod --dir public
     only:
         - master
     dependencies:

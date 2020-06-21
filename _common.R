@@ -26,8 +26,18 @@ BibOptions(
     # hyperlink = FALSE,
 )
 
-options(knitr.table.format = "html")
-
-bib <- ReadBib("resources/references.bib", check = FALSE)
+options(knitr.table.format = "html",
+        dplyr.summarise.inform = FALSE)
 
 set.seed(12345)
+
+insert_video <- function(video_file) {
+    htmltools::tags$video(
+        htmltools::tags$source(
+            src = video_file,
+            type = "video/mp4"
+        ),
+        controls = NA,
+        width = "100%"
+    )
+}

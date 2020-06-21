@@ -1,0 +1,1112 @@
+# Data management and wrangling {#wrangling}
+
+![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
+
+> When in RStudio, quickly jump to this page using `r3::open_data_wrangling()`.
+
+**Session objectives**:
+
+1. Learn the difference between "messy" and "tidy" data 
+and how to create tidy data to simplify your analysis.
+1. Perform simple transformations and subsetting of datasets, such as:
+    - Subset specific columns and rows of a dataset (with `filter()`and `select()`).
+    - Sort rows of a dataset by a specific column (with `arrange()`).
+    - Create new or transform existing columns in a dataset (with `mutate()`).
+    - Calculate simple data summaries (with `summarize()`).
+1. Learn about and apply the "split-apply-combine" method for doing analyses
+(with `group_by()` and `summarize()`).
+1. Know the difference between "long" and "wide" data 
+and how to convert between them by "pivotting" (with `pivot_longer()`
+and `pivot_wider()`).
+1. Write "tidier" and more readable code by using the pipe (`%>%`) operator.
+
+## "Messy" vs. "tidy" data
+
+**Take 10 min to read through this *"Messy" vs "tidy" data* section
+and the *Managing and working with data in R* section**.
+
+The concept of "tidy" data was popularized in an [article] by Hadley Wickham
+and described in more detail in the [Tidy Data chapter] 
+of the R for Data Science online book. 
+
+But before we continue with tidy data,
+we need to cover something that is related to the concept of "tidy"
+and that will come up often in this course: the [tidyverse].
+The tidyverse is an ecosystem of R packages that are designed to work well together,
+that all follow a strong "[design philosophy]" and common [style guide].
+This makes them much easier to use together.
+These packages also tend to have excellent, beginner-friendly documentation
+and tutorials on learning and using the packages.
+We teach the tidyverse because of these reasons.
+
+[tidyverse]: https://www.tidyverse.org/
+[design philosophy]: https://design.tidyverse.org/
+[style guide]: https://style.tidyverse.org/
+
+Ok, back to "tidy data". A tidy dataset is when:
+
+- Each variable has its own column (e.g. "Body Weight")
+- Each observation has its own row (e.g. "Person")
+- Each value has its own cell (e.g. "Body weight for a person at a specific date")
+
+[article]: https://www.jstatsoft.org/v59/i10/paper
+[Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
+
+Take a look at the example "tidy" and "messy" data frames
+(also called "tibbles" in the tidyverse) below.
+These datasets come built in with the tidyr package for teaching purpose.
+Think about why each is "tidy" or "messy". 
+What do you notice between the tidy versions and the messier versions?
+
+```{r}
+# Datasets come from tidyr
+# Tidy:
+table1
+# Partly tidy:
+table2
+# Messier:
+table3
+# Messy:
+table4a
+# Messy:
+table4b
+```
+
+The "most" tidy version is `table1` which has columns that describe their values
+(e.g. population is population size), each row is unique (e.g. first row is for 
+values from Afghanistan from 1999), and each cell is an explicit value
+representative of its column and row. 
+`table2` is a "long" version of `table1` so it is partly "tidy", 
+but it doesn't satisfy the rule that each variable has a column,
+since `count` represents both cases and population size.
+On the other hand, `table3` is messy
+because the `rate` column values are a composite of two other column values
+(cases and population), when it should be a single number (a percent). Both
+`table4a` and `table4b` have columns with ambiguous values inside; what does
+values in the `1999` column contain? You can't tell from the data.
+
+Tidy data has a few notable benefits:
+
+1. Time spent preparing your data to be tidy from the beginning can save days
+of frustration in the long run.
+2. "Tidy data" is a conceptual framework that allows you to easily build off 
+and wrangle (i.e. "manipulate", "clean up", "manage") data in simpler 
+and easy to interpret ways, 
+especially when used within the framework of the tidyverse.
+
+The concept of tidy data also gives rise to "tidy code" for wrangling.
+By using "verbs" (R functions)
+and chaining them together in "sentences" (in a sequential pipeline), 
+you can construct meaningful and readable code that describes 
+in plainer English what you are doing to the data
+
+## Managing and working with data in R
+
+**Take 5 min and read through this section**.
+When working with data, there are a few principles to follow:
+
+- **Never** edit raw data and save it in a separate location 
+(could put in the `data-raw/` folder)
+    - *Note*: Saving to `data-raw/` depends on how you collected the data 
+    and how many collaborators are on your team. 
+    You may end up storing and processing the data in another folder as a project
+    of its own.
+- Only work with your raw data using R code, *don't manually edit it*.
+Manual editing doesn't leave a history of what you've done to it,
+so you can't go back and see what you've done. 
+Always keep a history of any changes you've made to the data,
+preferably by using R code.
+- Save the edited data as another dataset and store it in the `data/` folder.
+
+When wrangling your data with R code make sure to:
+
+- Document and comment as best you can what you did to your data and why you did
+it to help you remember
+- Write the code itself to be as descriptive as you can
+and to readable enough to understand what is being done to the data.
+Keep the code simple: Don't be clever, be clear.
+Clear code is easier to understand than some clever code.
+
+In data wrangling, 
+most tasks can be expressed by a few simple "verbs" (actions).
+Wrangling here is used in the sense of maneuvering, managing, controlling, and
+turning your data around to clean it up, to better understand it,
+and to prepare it for later analyses. 
+The table below lists some common "verbs" from the [dplyr] 
+and [tidyr] packages that come from the tidyverse:
+
+```{r table-wrangling-verbs, echo=FALSE}
+tibble::tribble(
+    ~Task, ~Example, ~Function,
+    "Select columns", "Remove data entry columns such as person's name who entered the data.", "`select()`",
+    "Rename columns", "Changing a column name from 'Q1' to 'ParticipantName'.", "`rename()`",
+    "Transform or modify columns", "Multiplying a column's values or taking the log.", "`mutate()`",
+    "Subset/filter rows", "Keeping rows with glucose values above 4.", "`filter()`",
+    "Sort rows", "Show rows with the smallest value at the top.", "`arrange()`",
+    "Convert data from wide to long", "One row per participant to multiple participants per row (repeated measures).", "`pivot_longer()`",
+    "Convert data from long to wide", "Multiple rows per participant (repeated measures) to one participant per row.", "`pivot_wider()`",
+    "Calculate summaries of the data", "Calculating the maximum, median, and minimum age.", "`summarise()`",
+    "Run an analysis by a group", "Calculate means of age by males and females.", "`group_by()` with `summarise()`"
+) %>% 
+    knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
+```
+
+The functions above come from the packages [dplyr] and [tidyr].
+These packages provide easy tools for most common data manipulation tasks. 
+No other packages have developed such a "language" of wrangling,
+and is the reason we teach them. 
+Plus both packages have excellent documentation and tutorials on how to use them.
+For dplyr, it is built to work directly with data frames 
+(i.e. rectangular data like those found in spreadsheets)
+and has an additional feature to interact directly with data stored in an external
+database, such as in SQL. Working with databases is a powerful way to work
+with massive datasets (100s of GB), more than what your computer could normally
+handle. Working with massive data won't be covered in this course,
+but see this [resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
+to learn more.
+
+[dplyr]: https://dplyr.tidyverse.org/
+[tidyr]: https://tidyr.tidyverse.org/
+
+**Tip**: Sometimes you need to do some complicated wrangling to get your data 
+in appropriate "shape" to use for later analyses.
+To help save some time,
+you could save the wrangled data as an "output" dataset in the `data/` folder.
+That way, you can easily use it again later rather 
+than having to run the wrangling code every time you want to work with the data.
+
+## Load the packages and dataset
+
+We're going to use the US [NHANES] dataset to demonstrate the wrangling functions. 
+There is an [NHANES package] that contains a teaching version of the original dataset, 
+so we'll use that for this lesson. 
+First, make sure the R Project you created previously is open. 
+Then open the `R/package-loading.R` script, add the dataset package to the file,
+so it looks like:
+
+```{r}
+library(tidyverse)
+library(NHANES)
+```
+
+Then open the `R/wrangling-session.R` script to start typing out the next code. 
+We'll use this file to write the code for this session (but not for the exercises).
+
+[NHANES]: https://www.cdc.gov/nchs/nhanes/index.htm
+[NHANES package]: https://CRAN.R-project.org/package=NHANES
+
+```{r, message=FALSE, warning=FALSE, eval=-(1:2)}
+# Load up the packages
+source(here::here("R/package-loading.R"))
+
+# Briefly glimpse contents of dataset
+glimpse(NHANES)
+```
+
+## Exercise: Become familiar with the dataset
+
+Time: 5 min
+
+Take the time to get familiar with the NHANES dataset.
+
+1. Create a new R script by typing in the RStudio Console
+`usethis::use_r("exercises-wrangling")`. 
+1. Copy the code below and paste it into the new exercise file.
+1. Replace the `___` with the `NHANES` dataset. 
+1. Run each line of code by typing `Ctrl-Enter`.
+
+```{r exercise-familiar-with-data, eval=FALSE}
+# Load the packages
+library(tidyverse)
+library(NHANES)
+
+# Check column names
+colnames(___)
+
+# Look at contents
+str(___)
+glimpse(___)
+
+# See summary
+summary(___)
+
+# Look over the dataset documentation
+?___
+```
+
+<details><summary><strong>Click for the solution</strong></summary>
+<p>
+
+```{r, eval=FALSE}
+# Load the packages
+library(tidyverse)
+library(NHANES)
+
+# Check column names
+colnames(NHANES)
+
+# Look at contents
+str(NHANES)
+glimpse(NHANES)
+
+# See summary
+summary(NHANES)
+
+# Look over the dataset documentation
+?NHANES
+```
+
+</p>
+</details>
+
+## Select specific columns in a dataset
+
+Selecting columns of a dataset is a very common data wrangling task.
+The function for this task is appropriately called `select()`.
+For the input arguments, it takes the dataset as the first argument,
+which is the first input position right after the opening bracket `(`,
+and then takes the names of the columns you want to select.
+Because the argument after the data argument is `...`, 
+it means that you can add as many columns as you want, separated by a `,`.
+
+```{r}
+# Select one column by its name, without quotes
+select(NHANES, Age)
+
+# Select two or more columns by name, without quotes
+select(NHANES, Age, Weight, BMI)
+
+# To *exclude* a column, use minus (-)
+select(NHANES, -HeadCirc)
+```
+
+
+If some of your columns have similar patterns at the beginning, within, or end,
+you can use the helper functions to choose these columns.
+Use `?select_helpers` (choose the "Select helpers" option in the menu that pops up)
+to read more about these functions and to get help on them. 
+Some more useful helpers are:
+
+- `starts_with()`: Select columns that begin with a pattern.
+- `ends_with()`: Select columns that end with a pattern.
+- `contains()`: Select columns that contain a pattern.
+
+```{r}
+# All columns starting with letters "BP" (blood pressure)
+select(NHANES, starts_with("BP"))
+# All columns ending in letters "Day"
+select(NHANES, ends_with("Day"))
+# All columns containing letters "Age"
+select(NHANES, contains("Age"))
+```
+
+
+For more information on using the pattern functions such as `starts_with()`,
+check `?select_helpers`. 
+
+You'll notice that running these functions doesn't actually change the data itself.
+When you run a function without assigning it using `<-`,
+the only action the function does is to send the output to your screen.
+But if you want to create a new dataset with only the columns you selected,
+you'll need to assign it to a new object.
+
+```{r}
+# Recall the style guide for naming objects
+nhanes_blood_pressure <- select(NHANES, starts_with("BP"))
+nhanes_blood_pressure
+```
+
+## Rename specific columns
+
+Depending on how your data was collected, 
+it may have column names that aren't very descriptive.
+So you'll probably want to rename them to something more explanatory.
+As with `select()`, the rename you use the function called `rename()`.
+Like `select()`, `rename()` takes the dataset as the first argument
+(first position) and then takes as many renaming arguments as you want
+(because the second argument position is `...`).
+Renaming takes the form of `newname = oldname`.
+
+```{r}
+rename(NHANES, NumberBabies = nBabies)
+```
+
+You can't really see what was changed. Let's make a new object of only `nBabies`.
+
+```{r}
+nhanes_number_babies <- select(NHANES, nBabies)
+rename(nhanes_number_babies, NumberBabies = nBabies)
+```
+
+You can now see how it changes the name.
+What if you want to select some columns and then rename some of them,
+do you have to create a new data object every time? No! 
+We can make use of a very powerful tool called piping (with the `%>%` function).
+
+## Chaining functions with the pipe
+
+**Take 5 minutes and read this section** before we continue.
+
+A key component of the tidy data and tidy code concept is making use of the `%>%` operator.
+This operator allows you to "pipe" the output from one function to the
+input of another function, like a plumbing pipe would do for water.
+This allows you to easily chain functions together into "sentences".
+Let's use an example based on English words for some action. 
+This is the English sentence:
+
+> We need some eggs. Drive to the grocery store
+and buy up some eggs before coming home from work.
+
+There are basically two actions here ("drive" and "buy")
+and four "inputs" ("work", "grocery store", "eggs", "home"),
+that are all based on the previous action.
+Since an action in R is a function, 
+the functions would be `drive()` and `buy()`.
+In regular R, if we wanted to chain these functions together, 
+we would have to nest them like this:
+
+```{r, eval=FALSE}
+drive(buy(drive(at_work, "grocery store"), "eggs"), "home")
+```
+
+This is difficult to read. We could also create temporary objects:
+
+```{r, eval=FALSE}
+at_grocery_store <- drive(at_work, "grocery store")
+got_eggs <- buy(at_grocery_store, "eggs")
+at_home <- drive(got_eggs, "home")
+```
+
+But this still isn't too "readable". The pipe `%>%` operator can really simplify this:
+
+```{r, eval=FALSE}
+at_work %>% 
+    drive("grocery store") %>% 
+    buy("eggs") %>% 
+    drive("home")
+```
+
+Do you find this more readable and understandable?
+We read it like how it would actually be done, in order of the steps taken.
+
+Instead of nesting functions (reading from the inside to the outside), 
+the idea of piping is to read the functions from left to right.
+This can help clarify and break down complex data processing workflows,
+and is the basis for all tidyverse and many other packages.
+This is a basic design philosophy of interacting with data when using the tidyverse.
+
+The pipe `%>%` takes the output from the object or function on the left hand side
+and puts it into the function of the right hand side.
+All input goes into the first position argument of the function.
+So with tidyverse packages,
+the first position always takes the data,
+to make the function usable with the pipe.
+
+**Ok, let's return back together and try this out**.
+
+```{r}
+# These two ways are the same
+colnames(NHANES)
+NHANES %>% 
+    colnames()
+```
+
+Because the pipe automatically takes NHANES
+and puts it into the first position, 
+we don't need to type out `NHANES` inside `colnames()` when piping.
+
+Let's try the pipe on the `select()` and `rename()` function from the previous section.
+Remember, both `select()` and `rename()` take a dataset as the first position,
+which makes them pipe-able.
+
+```{r}
+NHANES %>% 
+    select(nBabies) %>% 
+    rename(NumberBabies = nBabies)
+```
+
+We can now "read" these actions as:
+
+> Take the NHANES dataset *and then* select the nBabies column 
+*and then* rename the nBabies column to NumberBabies.
+
+## Exercise: Practice what we've learned
+
+Time: 8 min
+
+In the `exercise-wrangling.R` file, complete these tasks:
+
+1. Copy and paste the below code into the exercise file.
+In the `select()` function, 
+type in the columns `HomeOwn`, `TVHrsDay`, and `Diabetes`
+where the blank space is.
+
+    ```r
+    NHANES %>% 
+        select(___)
+    ```
+    
+2. Copy and paste the below code and fill out the blanks.
+Rename `DiabetesAge` to be `DiabetesAgeOfDiagnosis` and `Gender` to be `Sex` 
+(gender is the social construct, while sex is biological).
+*Tip*: Recall that renaming is in the form `new = old`.
+
+    ```r
+    NHANES %>% 
+        rename(___ = ___, ___ = ____)
+    ```
+
+3. Re-write this bit of code to use the pipe:
+
+    ```r
+    select(NHANES, BMI, contains("Age"))
+    ```
+
+4. Read aloud (under your breath or in your head) the below code.
+How intuitive is it to read?
+Now re-write this code so you don't need to create the temporary `drug_use` object
+by using the pipe,
+then re-read the revised version. Which do you feel is easier to "read"?
+
+    ```r
+    drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
+    rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
+    ```
+    
+<details><summary><strong>Click for the solution</strong></summary>
+<p>
+
+```{r, eval=FALSE}
+# 1. Select specific columns
+NHANES %>%
+    select(HomeOwn, TVHrsDay, Diabetes)
+
+# 2. Rename columns
+NHANES %>%
+    rename(DiabetesAgeOfDiagnosis = DiabetesAge, Sex = Gender)
+
+# 3. Re-write with pipe
+NHANES %>% 
+    select(BMI, contains("Age"))
+
+# 4. Re-write with pipe
+NHANES %>% 
+    select(Marijuana, AgeFirstMarij) %>% 
+    rename(AgeOfFirstMarijuanaUse = AgeFirstMarij)
+```
+
+</p>
+</details>
+
+
+## Filter the data by row
+
+Filtering data by row is a very common activity in data analysis, 
+for example, to get rid of outliers or to subset by a categorical group.
+As with the previous functions, the function to subset/filter is called `filter()`.
+The `filter()` function takes a logic condition (`TRUE` or `FALSE`).
+As with the other functions, the first position argument is the dataset,
+and all others are logic conditions to use.
+With `filter()`, when the logic conditions equals `TRUE`,
+that means it **keeps** the rows that equal `TRUE` 
+and *drop* those that are `FALSE`.
+
+*A warning*: Since `filter()` uses logical conditions,
+you need to be really careful when writing the logic.
+As you probably know, humans are really really bad at logic.
+So if your logical condition starts getting even a little complex,
+double and triple check that you know your logic code is doing what you think it is.
+It's very easy to make mistakes at this stage, even for advanced R users.
+
+The simplest kind of logic condition is to test for "equality". 
+In R, "equal to" is represented by `==`.
+For example, if we want to keep only females in the dataset it would be:
+
+```{r}
+NHANES %>%
+    filter(Gender == "female")
+```
+
+We'd "read" this code as:
+
+> Take the NHANES dataset, *and then* 
+filter so that only rows where `Gender` is equal to "female" are kept.
+
+So, when a row in the `Gender` column has the value "female", that row is kept.
+Otherwise, it is dropped.
+There are other logic comparisons to use.
+Use Table \@ref(tab:logic-operators) as a reference for logical conditions in R.
+
+```{r logic-operators, echo=FALSE}
+tibble::tribble(
+    ~Operator, ~ Description,
+    "<", "less than",
+    "<=", "less than or equal to",
+    ">", "greater than",
+    ">=", "greater than or equal to",
+    "==", "equal to",
+    "!=", "not equal to",
+    "!x", "Not x (if x is true or false)",
+    "x | y", "x OR y",
+    "x & y", "x AND y"
+) %>% 
+    kable(caption = "Logical operators in R.")
+```
+
+Let's try out a few of these logic conditions with `filter()`.
+
+```{r}
+# When rows don't have female
+NHANES %>%
+    filter(Gender != "female")
+
+# when BMI is equal to 25
+NHANES %>%
+    filter(BMI == 25)
+
+# when BMI is equal to or more than 25
+NHANES %>%
+    filter(BMI >= 25)
+```
+
+We use the `|` ("or") and `&` ("and") when we want to combine conditions across columns.
+Be especially careful with these operators and whenever combining logic conditions,
+as they can sometimes work differently than our human brains interpret them
+(speaking from experience).
+For `&`, both sides must be `TRUE` in order for the combination to be `TRUE`.
+For `|`, only one side needs to be `TRUE` in order for the combination to be `TRUE`.
+To see how they work try these:
+
+```{r}
+TRUE & TRUE
+TRUE & FALSE
+FALSE & FALSE
+TRUE | TRUE
+TRUE | FALSE
+FALSE | FALSE
+```
+
+
+```{r}
+# when BMI is 25 AND Gender is female
+NHANES %>%
+    filter(BMI == 25 & Gender == "female")
+
+# when BMI is 25 OR gender is female
+NHANES %>%
+    filter(BMI == 25 | Gender == "female")
+```
+
+## (Re)Arranging the rows of your data by column
+
+You may want to sort your rows by a specific column so that rows
+are arranged with bigger (or smaller) values on top.
+Arranging is done by using `arrange()`.
+Again, `arrange()` takes the dataset as the first argument
+and anything else it uses as the columns to order by.
+By default, arrange orders in ascending order.
+
+```{r}
+# ascending order by age
+NHANES %>%
+    select(Age) %>% 
+    arrange(Age)
+```
+
+We're selecting age first so we can show what is happening. 
+It also arranges characters alphabetically.
+
+```{r}
+NHANES %>% 
+    select(HealthGen) %>% 
+    arrange(HealthGen)
+```
+
+We can do this also in descending order with `desc()`.
+
+```{r}
+# descending order
+NHANES %>%
+    select(Age) %>% 
+    arrange(desc(Age))
+```
+
+You can also arrange by multiple columns. For instance,
+first arrange by `Gender` and then by `Age`.
+
+```{r}
+# ascending order by Gender and Age
+NHANES %>%
+    select(Gender, Age) %>% 
+    arrange(Gender, Age)
+```
+
+## Transform or add columns
+
+To "transform" (modify) an existing column or to add a new one,
+the function to use is called `mutate()`.
+Unfortunately, unlike the other functions, 
+the name is not as obvious about what it does.
+The meaning of mutate though is to change or modify, so it kind of makes sense.
+Like the other functions, the first input is the data 
+and the other arguments are columns to add or modify.
+
+The form that `mutate()` uses is similar to normal R assignment:
+For instance, since the height's values are in centimeters, 
+maybe we'd rather want them in meters. So, in `mutate()` we'd type out:
+
+```
+Height = Height / 100
+```
+
+This form is similar to how math works. 
+The action that happens on the right hand side 
+is put into the variable of the left hand side.
+With using `mutate()` itself:
+
+```{r}
+NHANES %>%
+    mutate(Height = Height / 100)
+```
+
+Or we can create a new column (maybe log transforming height):
+
+```{r}
+NHANES %>% 
+    mutate(LoggedHeight = log(Height))
+```
+
+We can also add multiple modifications 
+or additions with mutate by separating with `,`.
+So if we first wanted to have height as meters and then take the log, 
+it would be:
+
+```{r}
+NHANES %>% 
+    mutate(Height = Height / 100,
+           LoggedHeight = log(Height))
+```
+
+We can also have different values based on a logic conditions using `if_else()`.
+Use Table \@ref(tab:logic-operators) to help with creating the logic condition.
+
+```{r}
+NHANES %>%
+    mutate(HighlyActive = if_else(PhysActiveDays >= 5, "yes", "no"))
+```
+
+Recall that the original dataset doesn't change. 
+If we want the added variable to be included we must assign it to something with `<-`.
+So putting it all together:
+
+```{r}
+NHANES_update <- NHANES %>%
+    mutate(Height = Height / 100,
+           LoggedHeight = log(Height),
+           HighlyActive = if_else(PhysActiveDays >= 5, "Yes", "No"))
+```
+
+## Exercise: Piping, filtering, and mutating
+
+Time: 15 min
+
+Copy and paste the code below into the script `exercises-wrangling.R`. 
+Then start replacing the `___` with the appropriate
+code to complete the tasks below.
+(*Suggestion*: Create a new "Section"
+in the R script for this exercise by using `Ctrl-Shift-R`).
+
+1. Filter NHANES so only those with a BMI of more than or equal to 20 
+*and* less than or equal to 40 *and* keep those who have diabetes.
+1. Create a new variable called `UrineVolAverage` by calculating the average
+urine volumne (from `UrineVol1` and `UrineVol2`).
+    - *Comment*: After creating the `UrineVolAverage` column, 
+    check out values. What do you nothice? Compare with the original urine columns.
+1. Create a new variable called `YoungChild` when age is less than 6 years.
+
+```{r, eval=FALSE}
+# 1. BMI between 20 and 40 and who have diabetes
+NHANES %>%
+    # format: variable >= number or character
+    filter(___ >= ___ & ___ <= ___ & ___ == ___)
+
+# Pipe the data into mutate function and:
+NHANES_modified <- ___ %>% # dataset
+    mutate(
+        # 2. Calculate average urine volume
+        ___ = ___,
+        # 3. Create YoungChild variable using a condition
+        ___ = if_else(___, "Yes", "No")
+    )
+NHANES_modified
+```
+
+<details><summary><strong>Click for a possible solution</strong></summary>
+<p>
+
+```{r}
+# 1. BMI between 20 and 40 and who have diabetes
+NHANES %>%
+    # format: variable >= number
+    filter(BMI >= 20 & BMI <= 40 & Diabetes == "Yes")
+
+# Pipe the data into mutate function and:
+NHANES_modified <- NHANES %>% # dataset
+    mutate(
+        # 2. Calculate average urine volume
+        UrineVolAverage = (UrineVol1 + UrineVol2) / 2,
+        # 3. Create YoungChild variable using a condition
+        YoungChild = if_else(Age < 6, "Yes", "No")
+    )
+```
+
+For the "UrineVolAverage" values, they are probably almost entirely `NA` (aka
+missing). That's because `NA` values are infectious. See how "UrineVol2" has mostly
+`NA` values too? When you calculate something that has `NA`, you get another `NA`.
+This is something to be careful about. So always check your calculations!
+
+</p>
+</details>
+
+## Split-apply-combine: Summarizing data
+
+**Take 5 min to read through parts of this section**, 
+before we continue.
+
+Summarizing or applying simple (or complex) statistics to data is 
+(obviously) a key component of any analysis.
+Simple summaries or statistics can be done either on all the data 
+or on groups of it.
+There are many data analysis tasks that can be approached 
+using the [split-apply-combine] method:
+split the data into groups, apply some analysis to each group,
+and then combine the results together. 
+
+[split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
+
+In dplyr, to summarize on all the data, you would use the function `summarize()`.
+If you want to do a split-apply-combine 
+(e.g. find the max height of females and males) analysis,
+you would use the functions `group_by()` and then `summarize()`.
+Using `group_by()` splits the data up and
+`summarise()` then applies an analysis 
+and immediately combines it back together. 
+
+The first position arguments to `group_by()` is, as usual, the dataset.
+The next arguments are the columns that contain the values you want to group by.
+These columns must contain **categorical** data (e.g. Sex).
+On its own, `group_by()` does nothing but instead works with other functions.
+
+As with the other functions, 
+`summarise()` takes the data as the first position argument.
+The next arguments work similar to `mutate()` with one difference:
+the output must create a single value (e.g. a max or a mean).
+Like `mutate()`, 
+you can add multiple "summaries" by adding new columns separated by comma `,`.
+
+Simple statistics include: `min()`, `max()`, `mean()`, `median()`,
+`sd()`.
+
+**Ok, let's get back together and try this out**.
+Let's calculate the max age. Because `NA` values "propogate" 
+(if there is one missing, then a max or mean will be missing),
+we need to tell `max()` to exclude `NA` using `na.rm = TRUE`.
+
+```{r}
+NHANES %>%
+    summarize(MaxAge = max(Age, na.rm = TRUE))
+```
+
+Add another summary column with `,`.
+
+```{r}
+NHANES %>%
+    summarize(MaxAge = max(Age, na.rm = TRUE),
+              MinAge = min(Age, na.rm = TRUE))
+```
+
+This is partly useful. But it really shines when combined with `group_by()`.
+Let's find out the mean age and BMI between those with and without Diabetes.
+
+```{r}
+NHANES %>%
+    group_by(Diabetes) %>% 
+    summarise(MeanAge = mean(Age, na.rm = TRUE),
+              MeanBMI = mean(BMI, na.rm = TRUE))
+```
+
+*Quick note*: If you are using dplyr version 1.0.0 (the latest),
+you'll get a message informing you that it is `regrouping output`.
+This is simply a message and can be ignored.
+If you don't want the message displayed,
+write `options(dplyr.summarise.inform = FALSE)` at the top of your script
+and run it.
+
+We get a warning about there being missing values in Diabetes, 
+so let's first remove rows that have missing Diabetes status.
+
+```{r}
+NHANES %>%
+    # Recall ! is "NOT", so !is.na means "is not missing"
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes) %>% 
+    summarise(MeanAge = mean(Age, na.rm = TRUE),
+              MeanBMI = mean(BMI, na.rm = TRUE))
+```
+
+Cool! But we can add more columns to the grouping. 
+Let's compare mean age and BMI by sex and diabetes status.
+We should probably also rename gender to sex.
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) %>% 
+    summarise(MeanAge = mean(Age, na.rm = TRUE),
+              MeanBMI = mean(BMI, na.rm = TRUE))
+```
+
+## Converting between wide and long data
+
+We've covered the basic "verbs" (functions) of the dplyr package.
+Now we'll get into the "pivot" functions from dplyr's companion package, tidyr. 
+There are many useful functions in the tidyr package, 
+but the pivot functions (`pivot_longer()` and `pivot_wider()`) are key ones.
+Pivoting converts wide data into long data or vice versa.
+So what is wide or long date?
+
+Wide data is data where values may repeat across columns. 
+With repeated measurements, it is often easier to enter data in wide form
+or to use wide data to present in tables.
+But there are problems with wide data, especially when it comes to analysing it. 
+For instance, wide data may look like:
+
+```{r table-example-wide, echo=FALSE}
+example_wide <- tribble(
+    ~PersonID, ~Glucose_0, ~Glucose_30, ~Glucose_60,
+    1, 5.6, 7.8, 4.5,
+    2, 4.7, 9.5, 5.3,
+    3, 5.1, 10.2, 4.2
+) 
+
+example_wide %>% 
+    knitr::kable(caption = "Example of a **wide** dataset that is useful for data entry.",
+                 align = "c")
+```
+
+However, this type of data is not *tidy* for a few reasons:
+
+1. We don't know precisely what the values represent in the glucose columns
+(though in this case we could guess, but this isn't always the case).
+Often in the wide form you need to rely a lot more on either very descriptive names
+or have a detailed data dictionary to refer to.
+1. The glucose columns all represent the same value type (glucose concentration) 
+so there is some duplication *of meaning* between columns.
+1. The column names include data in them as well (time of glucose measurement). 
+
+On the other hand, a long data form is usually better suited for almost any type of analysis
+and for visualizing, especially when doing [split-apply-combine] techniques. 
+Long form data also tends to be more *tidy* compared to wide form.
+
+```{r table-example-long, echo=FALSE}
+example_wide %>% 
+    pivot_longer(-PersonID, names_to = "MeasurementTime", values_to = "GlucoseConcentration", 
+                 names_prefix = "Glucose_") %>% 
+    mutate(MeasurementTime = as.numeric(MeasurementTime)) %>% 
+    knitr::kable(caption = "Example of a **long** dataset that is more usable for analyses and visualizing.",
+                 align = "c")
+```
+
+### Pivot from wide to long
+
+How, when, and why to pivot your data can be conceptually challenging to grasp at first. 
+Let's try out some examples and use `pivot_longer()`. 
+Like all the other functions, the first position argument to `pivot_longer()` is the data.
+The other necessary arguments (in order) are:
+
+1. `cols`: The columns to use to convert to long form. 
+The input is a vector made using `c()` that contains the column names,
+like you would use in `select()` (e.g. you can use the `select_helpers` like `starts_with()`,
+or `-` minus to exclude).
+1. `names_to`: The name of the newly created column (as a quoted character) 
+that contains the original column names.
+1. `values_to`: The name of the newly created column (as a quoted character)
+that contains the original cells of the original columns.
+
+As with everything, using an example would help clarify things.
+In the NHANES dataset, there are several columns that would be suitable for pivoting,
+because they are "messy". These are the `BP` blood pressure columns.
+Let's select the required `ID` and `SurveyYr` and the `BP` columns
+(we'll exclude the `Ave` ones for now), then we'll use `pivot_longer()`.
+Because we only want to pivot the `BP`, we need to exclude `ID` and `SurveyYr`
+from pivoting by using `-`.
+
+```{r}
+NHANES %>%
+    # Recall that - (minus) is used to exclude
+    select(ID, SurveyYr, starts_with("BP"), -ends_with("Ave")) %>% 
+    pivot_longer(c(-ID, -SurveyYr), names_to = "BPTypeAndNumber", values_to = "BloodPressure")
+```
+
+We use `-` here to tell `pivot_longer()` to *not* include 
+(to *exclude*) the columns from being converted to long form.
+We could even use `starts_with()`:
+
+```{r}
+NHANES %>%
+    # Recall that - (minus) is used to exclude
+    select(ID, SurveyYr, starts_with("BP"), -ends_with("Ave")) %>% 
+    pivot_longer(starts_with("BP"), names_to = "BPTypeAndNumber", values_to = "BloodPressure")
+```
+
+The reason that the arguments `names_to` 
+and `values_to` require quoting `""` is that these are the column names that we *will* create.
+Because they don't exist yet as columns, we need to use the quotes.
+
+### Pivot from long to wide
+
+You can also convert from long to wide, though this is less commonly done,
+as most analyses either work better or require the long form. 
+It can also be much more tricky to convert over to.
+But sometimes you may need to have a wide form for your data. 
+Here you can use `pivot_wider()` function. Like its opposite,
+the first position argument is the data and the other necessary arguments are:
+
+1. `id_cols`: This is optional as it will default to all column names. 
+This argument tells `pivot_wider()` to use the given columns as the identifiers
+for when converting. 
+This is where the tricky part comes in, 
+because 
+1. `names_from`: Similar to the `pivot_longer()`, 
+this is the name of the column that will make up the new columns.
+Unlike in `pivot_longer()`, 
+the column name given is *unquoted* since the column 
+*must already exist* in the dataset.
+1. `values_from`: As with above, this is the column name 
+(that exists and must be given *unquoted*) 
+for the values that will be in the new columns.
+
+Unfortunately, 
+NHANES as it is doesn't have a structure that allows us to easily convert to wide form.
+So we'll use the `table2` example from the beginning of the wrangling section:
+
+```{r}
+table2
+```
+
+This data frame is in a very long format. 
+So we could pivot `type` and `count` into the wide format:
+
+```{r}
+table2 %>% 
+    pivot_wider(names_from = type, values_from = count)
+```
+
+If we wanted to make it even wider, 
+we could include `year` and `type` in the pivoting by wrapping them with `c()`
+in the `names_from` argument:
+
+```{r}
+table2 %>% 
+    pivot_wider(names_from = c(year, type), values_from = count)
+```
+
+The key to using `pivot_wider()` is that there are uniquely identifying rows
+that allow pivoting that maintains the integrity of the data.
+Since the NHANES dataset we use is for teaching purposes,
+there are some cases where the same person is recorded multiple times in one survey year,
+which doesn't make sense and prevents us from adequately pivoting wider.
+
+## Pivot, then split-apply-combine {#pivot-sac}
+
+The real strength of pivoting is when you use it with the [split-apply-combine] method.
+For instance, if we wanted to find some simple statistics of all the columns
+by survey year and sex. 
+In this case, we would use `pivot_longer()` to convert to a long form
+and then use `group_by()` and `summarize()` to find the simple statistics.
+So let's find the mean values of some continuous variables.
+
+```{r}
+nhanes_mean_values <- NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age, starts_with("BP")) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>% 
+    summarize(MeanValues = mean(Values, na.rm = TRUE))
+nhanes_mean_values
+```
+
+We could now use `pivot_wider()` since the structure allows for it:
+
+```{r}
+nhanes_mean_values %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues)
+```
+
+Which now gives us the mean values of the variables by sex and survey year!
+
+## Saving datasets as files
+
+This will be a very short section. 
+Sometimes you'll need or want to save the dataset you've been working on,
+maybe because you've done a lot of cleaning to it, 
+preparing it for later analyses, 
+or because you've ran an analysis and want to save the results.
+Either way, 
+a recommended way of saving your dataset is to use the `usethis::use_data()` function.
+Let's do a very simple example:
+
+```{r, eval=FALSE}
+nhanes_bmi_only <- NHANES %>% 
+    select(BMI)
+usethis::use_data(nhanes_bmi_only, overwrite = TRUE)
+```
+
+The `usethis::use_data()` function outputs some information, 
+the last of which ("Document your data") we won't cover in this course.
+The function takes any number of datasets 
+and saves each individually as a `.rda` R dataset file in the `data/` folder.
+You load the dataset and use it again, 
+but before we do, let's restart the R session with either `Ctrl-Shift-F10`
+or with the menu item "Session -> Restart R". Now, type out and run this:
+
+```{r, eval=FALSE}
+load(here::here("data/nhanes_bmi_only.rda"))
+```
+
+You should see this dataset in the Environment tab. 
+This is how you save and load data.
+
+## Final exercise: Group work
+
+Time: ~30 min
+
+This exercise has two aims: to get working on and completing the group project, 
+and to get you practicing using the dplyr and tidyr functions we covered today.
+First, take maximum 10 min to:
+
+1. *As a group*, complete item 2 of the [group assignment](assignment)
+(to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
+2. *Individually*, open your group R project
+and complete item 3 of the group assignment.
+Follow the appropriate filenaming conventions as we learned in the Project Management
+session for the dataset (e.g. don't use spaces, instead use either `-` or `_`).
+
+With the remaining time:
+
+3. *As a group*, complete item 4 of the [group assignment](assignment).
+Explore the data and *use all the functions* we've covered in this session to
+better understand the data you'll work with. 
+You can (and probably should) divide exploratory tasks between group members,
+so that you have a good understanding *as a group* of the data.
+
+> *Tip*: Make use of TAB auto-completion when typing out the dplyr and tidyr
+functions for wrangling the data to speed up your coding and to get help if needed.
+For instance, type out `sel`, hit TAB, and see the list of possible functions.
+Choose the right item in the menu and hit TAB again to finish the function.
+If you want to see a list of other functions in dplyr, type out `dplyr::` 
+and then hit TAB. You'll now have a list of functions inside the dplyr package.
