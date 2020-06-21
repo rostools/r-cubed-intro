@@ -1,55 +1,35 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Finding and obtaining open datasets</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Daniel R. Witte" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="../resources/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Finding and obtaining open datasets
+### Daniel R. Witte
+
 ---
-title: "Finding and obtaining open datasets"
-author: 
-    - "Daniel R. Witte"
-output:
-  xaringan::moon_reader:
-    self_contained: false
-    lib_dir: libs
-    css: ["xaringan-themer.css", "../resources/custom.css"]
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
+
 
 layout: true
 
-<div class="my-footer">
-<span>
-<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
-<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
-</span>
-</div> 
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;img src="../images/au_logo_black.png" alt="Aarhus University", width="140"&gt;
+&lt;img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90"&gt;
+&lt;img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70"&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
 
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
 
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
+
 
 ---
 ## Where is Open Data in the Open Science Universe?
@@ -57,9 +37,7 @@ mono_accent(
 - Open data is only a small part of the open science movement
 
 .center[
-```{r, out.height="80%", out.width="80%"}
-knitr::include_graphics("../images/OpenUniverse.png")
-```
+&lt;img src="../images/OpenUniverse.png" width="80%" height="80%" /&gt;
 ]
 
 .footnote[Image source from Foster Open Science [(www.fosteropenscience.eu/resources)](https://www.fosteropenscience.eu/resources).]
@@ -86,9 +64,7 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 - Accessibility is only one part of Openness
 .pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/gofair.png")
-```
+&lt;img src="../images/gofair.png" width="90%" height="90%" /&gt;
 ]
 
 .pull-left[
@@ -141,9 +117,7 @@ knitr::include_graphics("../images/gofair.png")
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/CPRD.png")
-```
+&lt;img src="../images/CPRD.png" width="90%" height="90%" /&gt;
 ]
     - Commercial / Paid access 
         - e.g. [(CPRD)](https://www.cprd.com/)
@@ -162,9 +136,7 @@ knitr::include_graphics("../images/CPRD.png")
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/whitehall.png")
-```
+&lt;img src="../images/whitehall.png" width="90%" height="90%" /&gt;
 ]
     - Commercial / Paid access 
         - e.g. [(CPRD)](https://www.cprd.com/)
@@ -177,9 +149,7 @@ knitr::include_graphics("../images/whitehall.png")
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/ELSA.png")
-```
+&lt;img src="../images/ELSA.png" width="90%" height="90%" /&gt;
 ]
     - Commercial / Paid access 
         - e.g. [(CPRD)](https://www.cprd.com/)
@@ -195,9 +165,7 @@ knitr::include_graphics("../images/ELSA.png")
 - Wide range of options between fully closed and fully open (FAIR)
     - Closed
 .pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/NHANES.png")
-```
+&lt;img src="../images/NHANES.png" width="90%" height="90%" /&gt;
 ]
     - Commercial / Paid access 
         - e.g. [(CPRD)](https://www.cprd.com/)
@@ -223,7 +191,7 @@ Journals increasingly encourage publication of (links to) data
 Let's have a look at the PLOS journals
 
 - Policy requiring researchers to share the data underlying their results or to state why this is not possible
-- But: Are authors complying with these requirements? [(PLOS Medicine: Diabetes)](https://journals.plos.org/plosmedicine/search?filterJournals=PLoSMedicine&filterSubjects=Medicine+and%20health%20sciences&filterArticleTypes=Research%20Article&q=diabetes&page=1)
+- But: Are authors complying with these requirements? [(PLOS Medicine: Diabetes)](https://journals.plos.org/plosmedicine/search?filterJournals=PLoSMedicine&amp;filterSubjects=Medicine+and%20health%20sciences&amp;filterArticleTypes=Research%20Article&amp;q=diabetes&amp;page=1)
 
 ---
 ## Publications with links to data
@@ -234,9 +202,7 @@ Let's have a look at the PLOS journals
 - Policy requiring researchers to share the data underlying their results or to state why this is not possible
 - But: Are authors complying with these requirements? [(Review by Federer et al)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194768)
 .center[
-```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../images/FedererPLOSONE.png")
-```
+&lt;img src="../images/FedererPLOSONE.png" width="85%" height="85%" /&gt;
 ]
 
 
@@ -244,7 +210,7 @@ knitr::include_graphics("../images/FedererPLOSONE.png")
 ## Review of PLOS data statements (Federer 2018)
 
 .center[
-![](https://journals.plos.org/plosone/article/figure/image?id=10.1371/journal.pone.0194768.t001&size=medium)
+![](https://journals.plos.org/plosone/article/figure/image?id=10.1371/journal.pone.0194768.t001&amp;size=medium)
 ]
 
 
@@ -257,46 +223,36 @@ knitr::include_graphics("../images/FedererPLOSONE.png")
 
 ---
 ## Figshare
-[Figshare: Diabetes](https://figshare.com/search?q=diabetes&sortBy=posted_date&sortType=desc&licenses=1,2,47,52,3,40,49&itemTypes=3&categories=7,48)
+[Figshare: Diabetes](https://figshare.com/search?q=diabetes&amp;sortBy=posted_date&amp;sortType=desc&amp;licenses=1,2,47,52,3,40,49&amp;itemTypes=3&amp;categories=7,48)
 .center[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/Figshare.png")
-```
+&lt;img src="../images/Figshare.png" width="90%" height="90%" /&gt;
 ]
 
 ---
 ## Dryad
-[Dryad: Diabetes](https://datadryad.org/search?utf8=%E2%9C%93&q=diabetes)
+[Dryad: Diabetes](https://datadryad.org/search?utf8=%E2%9C%93&amp;q=diabetes)
 .center[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/Dryad.png")
-```
+&lt;img src="../images/Dryad.png" width="90%" height="90%" /&gt;
 ]
 
 ---
 ## Github Collection 
 [Github: Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets)
 .center[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/Github.png")
-```
+&lt;img src="../images/Github.png" width="90%" height="90%" /&gt;
 ]
 ---
 ## Rigsarkivet (Overview and access info)
 [Rigsarkivet: Sundhed](https://www.sa.dk/da/forskning-rigsarkivet/rigsarkivet-sundhed/)
 .center[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/Rigsarkivet.png")
-```
+&lt;img src="../images/Rigsarkivet.png" width="90%" height="90%" /&gt;
 ]
 
 ---
 ## Open Neuro (MRI and fMRI images)
 [Openneuro: Diabetes](https://openneuro.org/search/diabetes)
 .center[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/OpenNeuro.png")
-```
+&lt;img src="../images/OpenNeuro.png" width="90%" height="90%" /&gt;
 ]
 
 
@@ -311,15 +267,11 @@ knitr::include_graphics("../images/OpenNeuro.png")
 - Different Open Licenses
 
 .pull-left[
-```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../images/CC_licenses.png")
-```
+&lt;img src="../images/CC_licenses.png" width="70%" height="70%" /&gt;
 ]
 
 .pull-right[
-```{r, out.height="30%", out.width="30%"}
-knitr::include_graphics("../images/CClicense_range.png")
-```
+&lt;img src="../images/CClicense_range.png" width="30%" height="30%" /&gt;
 ]
 
 ---
@@ -399,5 +351,127 @@ Finding a suitable license for your data: [(Choose a license)](https://chooseali
 [Project Datasphere]: https://www.projectdatasphere.org/projectdatasphere/html/home
 [ClinicalStudyDataRequest]: https://www.clinicalstudydatarequest.com/
 [Nature recommended data repositories]: https://www.nature.com/sdata/policies/repositories
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
 
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
 
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
