@@ -831,7 +831,7 @@ Let's find out the mean age and BMI between those with and without Diabetes.
 ```{r}
 NHANES %>%
     group_by(Diabetes) %>% 
-    summarise(MeanAge = max(Age, na.rm = TRUE),
+    summarise(MeanAge = mean(Age, na.rm = TRUE),
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
@@ -872,7 +872,7 @@ NHANES %>%
 We've covered the basic "verbs" (functions) of the dplyr package.
 Now we'll get into the "pivot" functions from dplyr's companion package, tidyr. 
 There are many useful functions in the tidyr package, 
-but the pivot functions (`pivot_longer()` and `pivot_winder()`) are key ones.
+but the pivot functions (`pivot_longer()` and `pivot_wider()`) are key ones.
 Pivoting converts wide data into long data or vice versa.
 So what is wide or long date?
 
@@ -989,7 +989,7 @@ for the values that will be in the new columns.
 
 Unfortunately, 
 NHANES as it is doesn't have a structure that allows us to easily convert to wide form.
-So we'll use the `table2` example from the beginning of the pivot section:
+So we'll use the `table2` example from the beginning of the wrangling section:
 
 ```{r}
 table2
