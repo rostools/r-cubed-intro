@@ -22,11 +22,9 @@ deploy_mr:
     image: node:latest
     stage: deploy_mr
     before_script:
-        - mkdir ~/.npm-global
-        - NPM_CONFIG_PREFIX=~/.npm-global
-        - npm install -g netlify-cli
+        - npm install netlify-cli
     script:
-        - netlify deploy --dir public
+        - npx netlify deploy --dir public
     except:
         - master
     dependencies:
@@ -36,11 +34,9 @@ deploy_prod:
     image: node:latest
     stage: deploy_prod
     before_script:
-        - mkdir ~/.npm-global
-        - NPM_CONFIG_PREFIX=~/.npm-global
-        - npm install -g netlify-cli
+        - npm install netlify-cli
     script:
-        - netlify deploy --prod --dir public
+        - npx netlify deploy --prod --dir public
     only:
         - master
     dependencies:
