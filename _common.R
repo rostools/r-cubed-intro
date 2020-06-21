@@ -26,7 +26,8 @@ BibOptions(
     # hyperlink = FALSE,
 )
 
-options(knitr.table.format = "html")
+options(knitr.table.format = "html",
+        dplyr.summarise.inform = FALSE)
 
 set.seed(12345)
 

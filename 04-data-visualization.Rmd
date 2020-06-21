@@ -179,7 +179,8 @@ There are many discrete variables in NHANES.
 Sex is another good variable to examine
 and NHANES also has a diabetes variable, 
 so let's visualize those. 
-But first, let's fix the `Gender` column to be called `Sex`, since it denotes biological sex (presence of a Y chromosome).
+But first, let's fix the `Gender` column to be called `Sex`, 
+since it denotes biological sex (presence of a Y chromosome).
 
 ```{r fix-sex-column}
 # fix sex column header

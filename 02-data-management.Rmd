@@ -835,6 +835,13 @@ NHANES %>%
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
+*Quick note*: If you are using dplyr version 1.0.0 (the latest),
+you'll get a message informing you that it is `regrouping output`.
+This is simply a message and can be ignored.
+If you don't want the message displayed,
+write `options(dplyr.summarise.inform = FALSE)` at the top of your script
+and run it.
+
 We get a warning about there being missing values in Diabetes, 
 so let's first remove rows that have missing Diabetes status.
 
@@ -1011,7 +1018,7 @@ Since the NHANES dataset we use is for teaching purposes,
 there are some cases where the same person is recorded multiple times in one survey year,
 which doesn't make sense and prevents us from adequately pivoting wider.
 
-## Pivot, then split-apply-combine
+## Pivot, then split-apply-combine {#pivot-sac}
 
 The real strength of pivoting is when you use it with the [split-apply-combine] method.
 For instance, if we wanted to find some simple statistics of all the columns
