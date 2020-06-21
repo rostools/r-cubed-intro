@@ -5,3 +5,9 @@
 ```{r, echo=FALSE}
 knitr::include_url("slides/introduction.html", height = "375px")
 ```
+
+### [Finding and obtaining open datasets](slides/open-data.html) {-}
+
+```{r, echo=FALSE}
+knitr::include_url("slides/open-data.html", height = "375px")
+```

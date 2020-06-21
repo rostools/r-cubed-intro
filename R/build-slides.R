@@ -5,3 +5,8 @@ rmarkdown::render(
     quiet = TRUE
 )
 
+rmarkdown::render(
+    input = here::here("slides/open-data.Rmd"),
+    # knit_root_dir = here::here("."),
+    quiet = TRUE
+)
