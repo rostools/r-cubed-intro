@@ -29,8 +29,9 @@ Suggests:
     tidyverse,
     usethis,
     xaringan,
-    xaringanthemer
-Remotes:  
+    xaringanthemer,
+    showtext
+Remotes: 
     gadenbuie/xaringanthemer,
     hadley/emo,
     gitlab::rostools/r3
