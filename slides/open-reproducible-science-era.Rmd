@@ -232,7 +232,6 @@ citation("dplyr")
 
 .footnote[
 [1] Want more info, see [this tutorial](https://colinfay.me/docker-r-reproducibility/).  
-[2] For easier integration and use of Travis in R, see the [travis](https://ropenscilabs.github.io/travis/) package.
 ]
 
 ---

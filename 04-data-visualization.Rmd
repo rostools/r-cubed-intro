@@ -591,7 +591,7 @@ was specifically designed to represent data to all colour visions
 There is a really good, informative 
 [talk on YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU) on this topic.
 
-[viridis]: https://cran.r-project.org/packages=viridis
+[viridis]: https://cran.r-project.org/package=viridis
 
 When using colours, think about what you are trying to convey in your figure 
 and how your choice of colours will be interpreted. 

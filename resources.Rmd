@@ -56,7 +56,7 @@ Markdown uses [pandoc])
 
 - Video on using [Git in RStudio]
 
-[Git in RStudio]: https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-part-2/
+[Git in RStudio]: https://rstudio.com/resources/webinars/managing-part-2-github-and-rstudio/
 
 **Getting help**:
     
