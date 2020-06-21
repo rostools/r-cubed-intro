@@ -1,10 +1,7 @@
-# Course slides {#slides}
+# Lecture slides {#lecture-slides}
 
-- [Introduction to the course](slides/introduction.html)
+### [Introduction to the course](slides/introduction.html) {-}
 
-```{r}
-
+```{r, echo=FALSE}
+knitr::include_url("slides/introduction.html", height = "375px")
 ```
-
-
-- [Introduction to the course](slides/introduction.html)
