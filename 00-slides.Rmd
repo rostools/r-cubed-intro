@@ -1,10 +1,9 @@
-# Course slides {#slides}
+# (Slides) Introduction to the course {#intro-slides}
 
-- [Introduction to the course](slides/introduction.html)
+![](https://img.shields.io/badge/document%20status-rough%20draft-red?style=flat-square)
+
+## [Introduction to the course](slides/introduction.html) {-}
 
 ```{r}
-
+knitr::include_url("slides/introduction.html", height = "300px")
 ```
-
-
-- [Introduction to the course](slides/introduction.html)

@@ -1,13 +1,14 @@
 new_session: yes
 output_dir: "public"
 book_filename: "r-cubed"
-include: "slides/*"
+include:
+    - "slides/*.html"
 delete_merged_file: true
 view: https://gitlab.com/rostools/r-cubed/blob/master/%s
 edit: https://gitlab.com/rostools/r-cubed/edit/master/%s
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""
 rmd_files:
     - "index.Rmd"
     - "00-pre-course.Rmd"
@@ -19,11 +20,12 @@ rmd_files:
     - "03-version-control.Rmd"
     - "04-data-visualization.Rmd"
     - "05-reproducible-documents.Rmd"
-    - "appendix.md"
     - "resources.Rmd"
-    - "acknowledgements.md"
-    - "for-instructors.md"
+    - "acknowledgements.Rmd"
+    - "for-instructors.Rmd"
     - "LICENSE.md"
-    - "references.Rmd"
+    - "06-references.Rmd"
 before_chapter_script: "_common.R"
-clean: "resources/packages.bib"
+clean:
+    - "resources/packages.bib"
+    - "r-cubed.rds"

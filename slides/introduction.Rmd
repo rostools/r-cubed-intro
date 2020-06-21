@@ -1,10 +1,10 @@
 ---
-title: "Introduction to the course"
+title: "Welcome to the course!"
 output:
   xaringan::moon_reader:
-    self_contained: false
     lib_dir: libs
-    css: ["xaringan-themer.css", "../../resources/custom.css"]
+    css: ['xaringan-themer.css', 
+          '../resources/custom.css']
     nature:
       ratio: "16:9"
       highlightStyle: github
@@ -14,47 +14,22 @@ output:
 
 layout: true
 
+```{r setup, include=FALSE}
+source(here::here("R/slide-setup.R"))
+```
+
 <div class="my-footer">
 <span>
-<img src=`r here::here("images/au_logo_black.png")` alt="Aarhus University", width="140">
-<img src="../img/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/sdca_logo.jpg" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
-
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
 
 ---
 
 # Outline
 
-- Don't get too comfortable yet
-    - Introduce myself and instructors/helpers
-    - 
 - Course introduction
     - What it is (and isn't)
     - Layout and website
@@ -67,13 +42,23 @@ mono_accent(
     - Open source (code)
 - What is R and why learn it
 
+???
+
+Introduce instructors and helpers.
+
+---
+
+# 
+
 ---
 
 class: center, middle
 
 # Question: 
 
-## How many know or have heard about <u>reproducibility</u>?
+## Before this course...
+
+## How many knew or have heard about <u>reproducibility</u>?
 
 ---
 
@@ -81,13 +66,17 @@ class: center, middle
 
 # Question: 
 
-## How many know or have heard about <u>open science</u>?
+## Before this course...
+
+## How many knew or have heard about <u>open science</u>?
 
 ---
 
 class: center, middle
 
 # Question: 
+
+## Before this course...
 
 ## ...or even <u>open access, open data, open methods/protocols, or open source</u>?
 
@@ -109,19 +98,9 @@ Because you are trying to do the same or similar?
 
 ---
 
+class: center, middle
+
 ## Has anyone ever received confusing code? Or maybe have written your own confusing code?
-
-.center[
-![](https://phdcomics.com/comics/archive/phd031214s.gif)
-]
-
-.footnote[Source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1689)]
-
----
-
-class: middle, center
-
-# These issues can be fixed by creating and nurturing a culture of openness
 
 ---
 
@@ -180,26 +159,9 @@ to replicate it?
 
 ---
 
-## Open science: Terms and meanings
+class: middle, center
 
-.center[
-
-| **Term** | **Meaning** |
-|:------------|:---------------|
-| Open science | Freely available, openly licensed material for all things related to scientific activity |
-| Open access | Free, unrestricted, publicly available **published articles** |
-| Open data | Freely available, re-usable, openly licensed **data** |
-| Open source/code | Freely available, re-usable, openly licensed **scientific code** used in generating results |
-| Open methods/protocol | Freely available, re-usable, openly licensed **methods and protocols** used to create the data |
-
-
-]
-
-.footnote[.red.bold[*] We'll cover licenses later.]
-
-??? 
-
-This is mainly for reference, don't need to go over a lot of it.
+# These issues can be fixed by creating and nurturing a culture of openness
 
 ---
 
@@ -211,22 +173,46 @@ class: middle, center
 
 ## So why are we using R and why learn it?
 
-Include more "why's, reasons, etc" for using R and for doing reproducibility. Have more lectures in the first section where the previous "intro" material was (after adding the pre-workshop assignment).
+.pull-left[
+- Open source, free
+- Very large online community
+    - Learning resources, support, help
+- Massive selection of packages
+    - Latest statistical methods
+    - Productivity tools
+    - Report writing
+    - Visualization
+]
+    
+.pull-right[
 
-Make comment about tidyverse vs base and why teaching this first.
+- Recent push to improve teaching, usability
+    - e.g. with tidyverse, RStudio
+- One of best visualization tools available
+- Powerful capabilities
+    - Big Data
+    - Programming
+    - Reproducibility
+]    
+
+???
+
+Regarding free, means that you take that knowledge and skills anywhere you go.
 
 ---
 
-## Course website and layout:
+## Course setup and layout
 
-- Use r3 package to help with learning in course
+- Course is mix of:
+    - "Code-alongs" (we type and explain, you type along)
+    - Hands-on exercises
+    - Final group work for [assignment](assignment.html)
 
-- True to our mission, material publicly accessible and [openly licensed](https://dda-rcourse.lwjohnst.com/license/index.html)
-    - <https://dda-rcourse.lwjohnst.com/>
+- Use r3 package to help with learning
+    - Please re-install: `remotes::install_gitlab("rostools/r3")`
 
-- Course is mix of "code-alongs" and lectures
-    - Interspersed with hands-on exercises
-    - Combined with final group [assignment](assignment)
+- True to our mission, material publicly accessible and [openly licensed](https://r-cubed.rostools.org/license.html)
+    - <https://r-cubed.rostools.org/>
 
 ???
 
@@ -237,14 +223,15 @@ with of course our help too!
 
 ---
 
-## Asking for help
+## Getting or asking for help `r emo::ji("raising_hand_woman")`
 
-- Asking for help is as easy as using a sticky on your laptop
-    - We have lots of helpers!
+- Use your sticky on your laptop to get help
+    - There're lots of helpers
+    - Team members, try to help out too
 
-- We're all learning here
+- We're all learning here!
     - This is a supportive and safe environment
-    - Remember our [Code of Conduct](conduct)
+    - Remember our [Code of Conduct](conduct.html)
 
 ---
 
@@ -275,3 +262,6 @@ Find some way to use the "stand and arrange based on range" technique (like agre
 
 Here we will switch over to the next instructor, get setup, and do the next session.
 
+```{r refs, resutls="asis", echo=FALSE}
+PrintBibliography(bib, start = 1, end = 7)
+```
