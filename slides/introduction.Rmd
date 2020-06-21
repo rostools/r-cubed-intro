@@ -260,13 +260,11 @@ Go into different corners for "yes" and "no".
 
 class: middle, center
 
-## Those who've used R, arrange for how you feel your skill is.
+## Those who've used R, how do you perceive your skill in R?
 
 ???
 
 Along the wall, arrange to one side is "novice/basic" and other side is "advanced".
-
----
 
 ---
 
@@ -292,13 +290,15 @@ Raise hands.
 
 class: middle, center
 
-## Re-arrange: What do you feel your skill in data analysis is in general?
+## What do you feel your skill in data analysis is in general?
 
 ???
 
 Along the wall, arrange from "novice/basic" to "advanced".
 
 ---
+
+class: middle, center
 
 ## Get back into your groups and get to know each other a bit more
 
@@ -316,6 +316,6 @@ so find out who is the "more experienced" R user.
 
 # References
 
-```{r refs, resutls="asis", echo=FALSE}
-PrintBibliography(bib, start = 1, end = 7)
+```{r refs, results="asis", echo=FALSE}
+PrintBibliography(bib)
 ```
