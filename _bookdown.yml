@@ -3,6 +3,7 @@ output_dir: "public"
 book_filename: "r-cubed"
 include:
     - "slides/*.html"
+    - "resources/*.css"
 delete_merged_file: true
 view: https://gitlab.com/rostools/r-cubed/blob/master/%s
 edit: https://gitlab.com/rostools/r-cubed/edit/master/%s
