@@ -44,7 +44,7 @@ gh_teams_prep <- presurvey_tidy %>%
 
 # org_invite("r-cubed-2020-06", gh_teams_prep$github_username)
 # org_members("r-cubed-2020-06")
-# org_pending("r-cubed-2020-06")
+org_pending("r-cubed-2020-06")
 
 # Create GitHub teams -----------------------------------------------------
 
@@ -52,17 +52,19 @@ gh_teams_prep <- presurvey_tidy %>%
 
 library(randomizr)
 
-set.seed(7648967)
+set.seed(732477)
 gh_teams_assigned <- gh_teams_prep %>%
     mutate(team = (perceived_skill_score > 1) %>%
                block_ra(conditions = team_names_final) %>%
                as.character())
+write_csv(gh_teams_assigned, "teams.csv")
 
-# team_invite("r-cubed-2020-06",
-#             gh_teams_assigned$github_username,
-#             gh_teams_assigned$team)
+
+team_invite("r-cubed-2020-06",
+            gh_teams_assigned$github_username,
+            gh_teams_assigned$team)
 
 # Create repos for teams --------------------------------------------------
 
 # gh_repos <- repo_create("r-cubed-2020-06", team_names_final)
-# repo_add_team(gh_repos, gh_teams_assigned$team)
+# repo_add_team(sort(gh_repos), sort(unique(gh_teams_assigned$team)))
