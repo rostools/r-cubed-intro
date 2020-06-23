@@ -2,55 +2,33 @@
 title: "Collaboration and teamwork in research"
 subtitle: "Reproducibility working in teams"  
 output:
-  xaringan::moon_reader:
-    self_contained: false
-    lib_dir: libs
-    css: ["xaringan-themer.css", "../resources/custom.css"]
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+    xaringan::moon_reader:
+        self_contained: false
+        lib_dir: libs
+        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        nature:
+            ratio: "16:9"
+            highlightStyle: github
+            highlightLines: true
+            countIncrementalSlides: false
 ---
 
 layout: true
 
+```{r setup, include=FALSE}
+source(here::here("R/slide-setup.R"))
+```
+
 <div class="my-footer">
 <span>
-<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 <img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-
-# Insert references
-library(RefManageR)
-BibOptions(
-    check.entries = FALSE,
-    bib.style = "numeric",
-    cite.style = "numeric",
-    style = "markdown",
-    max.names = 2
-    # hyperlink = FALSE,
-)
-bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-mono_accent(
-    base_color = "#2a2e44",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro")
-)
-```
-
 ---
+
 ## What is collaboration?
 
 -   Multiple people working on the same problem and exchanging ideas
@@ -64,6 +42,7 @@ For example:
 ]
 
 ---
+
 ## What is collaboration?
 
 -   Multiple people working on the same problem and exchanging ideas
@@ -93,6 +72,7 @@ knitr::include_graphics("../images/LHC.jpg")
 
 
 ---
+
 ## Why collaborate?
 
 -   Sharing and discussing different perspectives and ideas leads to solutions more rapidly
@@ -111,6 +91,7 @@ knitr::include_graphics("../images/LHC.jpg")
 
 
 ---
+
 ## Collaboration is widespread
 
 .center[
@@ -123,6 +104,7 @@ knitr::include_graphics("../images/Resnet4.png")
 
 
 ---
+
 ## Collaboration is widespread
 
 .center[
@@ -134,6 +116,7 @@ knitr::include_graphics("../images/Resnet3.png")
 .footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
 ---
+
 ## Collaboration in the research workflow
 
 .center[
@@ -146,6 +129,7 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 
 
 ---
+
 ## Collaboration is based on agreement
 
 Agreement is needed on:
@@ -159,6 +143,7 @@ Agreement is needed on:
 -   Publication of results and authorships
 
 ---
+
 ## Collaboration is based on agreement
 
 Agreement is needed on:
@@ -176,6 +161,7 @@ Agreement is needed on:
 ==> **Need to clearly document agreements and expectations**
 
 ---
+
 ## Collaboration in the research workflow
 
 .center[
@@ -188,6 +174,7 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 
 
 ---
+
 ## Collaboration in the research workflow
 
 .center[
@@ -200,6 +187,7 @@ knitr::include_graphics("../images/workflow.png")
 
 
 ---
+
 ## Collaboration in the research workflow
 
 .center[
@@ -212,6 +200,7 @@ knitr::include_graphics("../images/datacycle.png")
 
 
 ---
+
 ## Summary
 - Collaboration is central to modern science
 - Enormous variation in scale and scope
@@ -220,8 +209,6 @@ knitr::include_graphics("../images/datacycle.png")
 
 - Central tools: good communication and structured documentation
 
-
-
 ---
-## Questions?
 
+## Questions?
