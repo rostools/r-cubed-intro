@@ -1,16 +1,16 @@
 ---
 title: "Collaboration and teamwork in research"
-subtitle: "Why is reproducibility important when working in teams?"  
+subtitle: "Reproducibility working in teams"  
 output:
-  xaringan::moon_reader:
-    self_contained: false
-    lib_dir: libs
-    css: ['../resources/xaringan-themer.css', '../resources/custom.css']
-    nature:
-      ratio: "16:9"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+    xaringan::moon_reader:
+        self_contained: false
+        lib_dir: libs
+        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        nature:
+            ratio: "16:9"
+            highlightStyle: github
+            highlightLines: true
+            countIncrementalSlides: false
 ---
 
 layout: true
@@ -21,9 +21,9 @@ source(here::here("R/slide-setup.R"))
 
 <div class="my-footer">
 <span>
-<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 <img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
+<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
 </span>
 </div> 
 
@@ -35,17 +35,41 @@ source(here::here("R/slide-setup.R"))
 -   People pooling expertise, time and resources to achieve a common goal
 
 For example:
-
+.pull-left[
 -   Two researchers jointly writing a paper
 -   Several labs working on a problem together
 -   Multi-site clinical studies in several countries
+]
 
+---
+
+## What is collaboration?
+
+-   Multiple people working on the same problem and exchanging ideas
+-   People pooling expertise, time and resources to achieve a common goal
+
+For example:
+.pull-left[
+-   Two researchers jointly writing a paper
+-   Several labs working on a problem together
+-   Multi-site clinical studies in several countries
+---
 Collaboration can be organised at different levels:
-
 -   Individuals
 -   Departments
 -   Institutions
 -   Countries
+
+]
+
+.pull-right[
+```{r, out.height="80%", out.width="80%"}
+knitr::include_graphics("../images/LHC.jpg")
+```
+]
+
+.footnote[[Image from CERN](https://cds.cern.ch/images/CERN-EX-0510029-03).]
+
 
 ---
 
@@ -65,41 +89,6 @@ Collaboration can be organised at different levels:
 
 -   Working together can be more motivating than solitary work
 
----
-
-## Collaboration is widespread
-
-.center[
-```{r, out.height="80%", out.width="80%"}
-knitr::include_graphics("../images/Resnet1.png")
-```
-]
-
-.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
-
-
----
-## Collaboration is widespread
-
-.center[
-```{r, out.height="80%", out.width="80%"}
-knitr::include_graphics("../images/Resnet2.png")
-```
-]
-
-.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
-
----
-
-## Collaboration is widespread
-
-.center[
-```{r, out.height="80%", out.width="80%"}
-knitr::include_graphics("../images/Resnet3.png")
-```
-]
-
-.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
 ---
 
@@ -113,12 +102,37 @@ knitr::include_graphics("../images/Resnet4.png")
 
 .footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
+
+---
+
+## Collaboration is widespread
+
+.center[
+```{r, out.height="75%", out.width="75%"}
+knitr::include_graphics("../images/Resnet3.png")
+```
+]
+
+.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
+
+---
+
+## Collaboration in the research workflow
+
+.center[
+```{r, out.height="60%", out.width="60%"}
+knitr::include_graphics("../images/collaboration_cycle.png")
+```
+]
+
+.footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
+
+
 ---
 
 ## Collaboration is based on agreement
 
 Agreement is needed on:
-
 -   Goals
 -   Participants, their roles and responsibilities
 -   Timing and deadlines
@@ -128,41 +142,72 @@ Agreement is needed on:
 -   Intellectual property rights
 -   Publication of results and authorships
 
---
+---
 
-==> *How to communicate about these issues*
+## Collaboration is based on agreement
+
+Agreement is needed on:
+-   Goals
+-   Participants, their roles and responsibilities
+-   Timing and deadlines
+-   Commitment of time and resources
+-   Expectations on quality
+-   Data sharing, ownership, access
+-   Intellectual property rights
+-   Publication of results and authorships
+
+==> **Need to communicate clearly about these issues**
+
+==> **Need to clearly document agreements and expectations**
 
 ---
 
-## Collaboration happens at different places in the research workflow
+## Collaboration in the research workflow
 
 .center[
 ```{r, out.height="60%", out.width="60%"}
+knitr::include_graphics("../images/collaboration_cycle.png")
+```
+]
+
+.footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
+
+
+---
+
+## Collaboration in the research workflow
+
+.center[
+```{r, out.height="70%", out.width="70%"}
 knitr::include_graphics("../images/workflow.png")
 ```
 ]
 
---
+.footnote[[Diagram by Pilip Guo](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext).]
 
-Where in this research workflow can collaborative research methods be relevant?
-
----
-
-class: center, middle
-
-# Exercise: giving clear instructions
 
 ---
 
-## Example: The first computationally reproducible manuscript
+## Collaboration in the research workflow
 
 .center[
 ```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../images/elife.png")
+knitr::include_graphics("../images/datacycle.png")
 ```
 ]
 
-.footnote[Source from https://elifesciences.org/articles/30274]
+.footnote[[Diagram Source](https://data.library.virginia.edu/data-management/lifecycle/).]
+
+
+---
+
+## Summary
+- Collaboration is central to modern science
+- Enormous variation in scale and scope
+
+- Central point: efficient coordination
+
+- Central tools: good communication and structured documentation
 
 ---
 

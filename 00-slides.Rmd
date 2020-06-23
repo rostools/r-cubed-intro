@@ -1,13 +1,19 @@
 # Lecture slides {#lecture-slides}
 
-### [Introduction to the course](slides/introduction.html) {-}
+## [Introduction to the course](slides/introduction.html) {-}
 
 ```{r, echo=FALSE}
 knitr::include_url("slides/introduction.html", height = "375px")
 ```
 
-### [Finding and obtaining open datasets](slides/open-data.html) {-}
+## [Finding and obtaining open datasets](slides/open-data.html) {-}
 
 ```{r, echo=FALSE}
 knitr::include_url("slides/open-data.html", height = "375px")
+```
+
+## [Collaboration and teamwork](slides/collaboration-teamwork.html) {-}
+
+```{r, echo=FALSE}
+knitr::include_url("slides/collaboration-teamwork.html", height = "375px")
 ```
