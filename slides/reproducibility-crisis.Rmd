@@ -1,9 +1,6 @@
 ---
 title: "Science in the era of (ir)reproducibility"
 subtitle: "How do we move past the reproducibility crisis?"  
-author: 
-    - "Daniel R. Witte"
-date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
     self_contained: true

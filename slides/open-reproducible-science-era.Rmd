@@ -1,85 +1,113 @@
 ---
-title: "Data analysis in the era of reproducible and open science"
+title: "Research in the era of (ir)reproducibility and Open Science"
 output:
-    xaringan::moon_reader:
-        self_contained: false
-        lib_dir: libs
-        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
-        nature:
-            ratio: "16:9"
-            highlightStyle: github
-            highlightLines: true
-            countIncrementalSlides: false
+  xaringan::moon_reader:
+    self_contained: false
+    lib_dir: libs
+    css: ["xaringan-themer.css", "../resources/custom.css"]
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
 layout: true
 
-```{r setup, include=FALSE}
-source(here::here("R/slide-setup.R"))
-```
-
 <div class="my-footer">
 <span>
-<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
 <img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
+<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
+<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="70">
 </span>
 </div> 
 
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# Insert references
+library(RefManageR)
+BibOptions(
+    check.entries = FALSE,
+    bib.style = "numeric",
+    cite.style = "numeric",
+    style = "markdown",
+    max.names = 2
+    # hyperlink = FALSE,
+)
+bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_accent(
+    base_color = "#2a2e44",
+    header_font_google = google_font("Fira Sans"),
+    text_font_google = google_font("Crimson Text"),
+    code_font_google = google_font("Source Code Pro")
+)
+```
+
 ---
 
-## Reproducible Research is part of several large trends (1)
+## Open Science is part of several large trends (1)
 
-- Openness
-- Transparency
-- Quality: reproducibility
-- Collaboration / Team work
-- Communication
+- Openness / Transparency
+- Quality: reproducibility and replicability
+- Collaboration / Team work / Remote work
+- Communication / Public Engagement / Social Media
 
 ---
 
-## Reproducible Research is part of several large trends (2)
+## Open Science is part of several large trends (2)
 
-We are in the middle of an exponential growth curve:
+We are in the middle of several exponential growth curves:
 
 - Data production
 - Data storage and transfer
 - Computing power
 - Published research
-- Complexity of methods
+- Complexity of methods (e.g. AI)
 
 ---
 
-## Reproducible Research is part of several large trends (3)
+## Open Science is part of several large trends (3)
 
 - Industrialisation of the research work flow
 - Specialisation in research tasks
 
 .pull-left[
-```{r, out.height="70%", out.width="70%"}
+```{r, out.height="75%", out.width="75%"}
 knitr::include_graphics("../images/Cottage_industry.png")
 ```
 ]
 
 .pull-right[
-```{r, out.height="70%", out.width="70%"}
+```{r, out.height="90%", out.width="90%"}
 knitr::include_graphics("../images/Powerloom.jpg")
 ```
 ]
 
 ---
 
-## Reproducible Research is part of several large trends (4)
+## Open Science is part of several large trends (4)
 
-.center[
-```{r, out.height="55%", out.width="55%"}
+.pull-left[
+```{r, out.height="95%", out.width="95%"}
+knitr::include_graphics("../images/UKBB.png")
+```
+]
+
+.pull-right[
+```{r, out.height="85%", out.width="85%"}
 knitr::include_graphics("../images/biobank.jpg")
 ```
 ]
 
 ---
 
-## Reproducible Research is part of several large trends (5)
+## Open Science is part of several large trends (5)
 
 - Changes in the way we work:
 	- Remote work
@@ -88,21 +116,108 @@ knitr::include_graphics("../images/biobank.jpg")
 
 - Research on research:
 	- Meta analysis (your output is somebody else's input)
-	- Metaresearch: evidence based development of research methods
+	- Metaresearch: evidence-based evaluation and development of research methods
+
+---
+## How do we move towards reproducibility?
+
+.center[
+```{r, out.height="85%", out.width="85%"}
+knitr::include_graphics("../images/reproducibility_spectrum.jpg")
+```
+]
+
+
+.footnote[[Peng RD. Science 2011. DOI: 10.1126/science.1213847](https://science.sciencemag.org/content/334/6060/1226).]
+
+---
+## First computationally reproducible paper (eLife - 2018)
+
+.center[
+```{r, out.height="65%", out.width="65%"}
+knitr::include_graphics("../images/elife.png")
+```
+]
+
+
+.footnote[[Lewis LM. eLife 2018;7:e30274 DOI: 10.7554/eLife.30274](https://elifesciences.org/articles/30274).]
+
+---
+## Some journals are moving in this direction
+
+PLOS Computational Biology is running a pilot:
+
+*"We will soon be able to offer expert technical peer review specifically checking that submitted systems biology or physiology-based models run according to the results presented in the manuscript submitted to the journal. The peer review will be delivered in addition to our usual scientific assessment.."*
+
+
+.center[
+```{r, out.height="60%", out.width="60%"}
+knitr::include_graphics("../images/PLOSblog.png")
+```
+]
 
 ---
 
-## There are still very strong barriers
+## Developments in making manuscripts interactive
 
-- Tools needed
+
+
+
+- "[Explorable Multiverse Analysis]" and [example Likert scales]
+
+.center[
+```{r, out.height="60%", out.width="60%"}
+knitr::include_graphics("../images/expmultiverse.png")
+```
+]
+
+
+
+    
+[Explorable Multiverse Analysis]: https://explorablemultiverse.github.io/
+
+[example Likert scales]: https://explorablemultiverse.github.io/examples/likert/
+
+
+
+---
+## There are still very strong barriers
+--
+
+- Lack of awareness
 - Tradition, culture and common practices need to change
-- Researchers need to see the value in adopting an open, reproducible workflow
-- Training and reward systems need to be adapted:
-	- Publication
+- 'Business as usual' seems the shortest route to success
+
+--
+
+- Tools and training in specific skills needed
+- Takes time and dedicated funding
+
+--
+
+- Researchers need to see the value in adopting an open reproducible workflow
+- Funding and reward systems need to be adapted:
+	- Peer review and Publication
 	- Academic recognition / careers
 	- Research funding mechanisms
+
+--
+
 - Law: privacy concerns about sharing data, IP protection, patents, etc
 
+
+---
+## Personal barriers
+
+Fear of:
+- Scooping or ideas being stolen
+- Not being credited for ideas
+- Errors and public humiliation
+- Risk to reputation
+- Reduced scientific quality
+- Information overload
+
+.footnote[[Tennant (2017)](https://doi.org/10.6084/m9.figshare.5383711.v1)]
 
 ---
 
@@ -126,35 +241,32 @@ class: middle
 
 .center[
 ```{r self-taught-comic, echo=FALSE, out.width="100%", out.height="100%"}
-knitr::include_graphics("../img/code-quality.png")
+knitr::include_graphics("../images/code-quality.png")
 ```
 ]
 
 .footnote[Source from [xkcd](https://www.xkcd.com/1513/).]
 
----
-
-## But, data analysis in science is evolving quickly
-
-- Interactive manuscripts and analyses
-    - "[Explorable Multiverse Analysis]" and [example]
-    and [twitter thread](https://twitter.com/mjskay/status/1106742607420497921)
-- More demands for reproducibility
-    - Which requires training
-    
-[Explorable Multiverse Analysis]: https://explorablemultiverse.github.io/
-
-[example]: https://explorablemultiverse.github.io/examples/likert/
 
 ---
+## Knowing the space and finding an efficient workflow
 
+.center[
+```{r, out.height="90%", out.width="90%"}
+knitr::include_graphics("../images/tools-workflow.png")
+```
+]
+
+.footnote[Figure from [Innovations in Scholarly Communication](https://101innovations.wordpress.com/workflows/).]
+
+---
 ## What does it mean for you?
 
 - Need to stay updated: Keep learning
     - Do courses on [DataCamp](https://www.datacamp.com/) (paid)
     - Read [bookdown](https://bookdown.org/) books (most free)
     - Ask (and answer!) questions on [StackOverflow](https://stackoverflow.com/)
-    - Teach others!! Great way to learn `r emo::ji("relaxed")`
+    - Teach others!! Great way to learn
     - Read e.g. [Open Science Handbook](https://open-science-training-handbook.gitbook.io/book/)
 
 --
@@ -176,7 +288,7 @@ knitr::include_graphics("../img/code-quality.png")
 
 ---
 
-## Recognize importance of code and data: Cite them!
+## Recognise importance of code and data: Cite them!
 
 --
 
@@ -185,34 +297,5 @@ knitr::include_graphics("../img/code-quality.png")
 citation("dplyr")
 ```
 
----
 
-## Comment: True reproducibility is very difficult
 
-- Requires self-contained virtual environment
-- With exact package versions and operating system used
-- Tools to do this include:
-    - [Docker] virtual containers [1]
-    - Continuous intergration with [Travis] [2]
-
---
-
-**...but this is not the goal, nor should it be**
-
-- Tools to simplify this are being developed
-    - Keep eye out
-
-[Docker]: https://github.com/rocker-org/rocker
-[Travis]: https://travis-ci.org/
-
-.footnote[
-[1] Want more info, see [this tutorial](https://colinfay.me/docker-r-reproducibility/).  
-]
-
----
-
-class: middle
-
-# This is or will be the future. Be prepared.
-
-.footnote[(...i hope...)]
