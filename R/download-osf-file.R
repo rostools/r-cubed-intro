@@ -29,16 +29,16 @@
 #
 # [1] "The file has been downloaded to your working directory as: Study_48_Meta_Analysis.csv"
 
-download.OSF.file <- function(GUID,Access_Token=NULL,file_name)
+download_osf_file <- function(GUID, Access_Token=NULL, file_name)
 {
   require(httr)
   require(rjson)
-  
+
   #search for file private/public status
   GETurl <- paste0("https://api.osf.io/v2/files/",GUID)
   req <- GET(GETurl, write_disk("test",overwrite=T))
   json_data <- fromJSON(file = "test")
-  
+
   if (length(json_data$data) > 0){
           req1 <- GET(json_data$data$links$download,
                       write_disk(file_name, overwrite = TRUE))
