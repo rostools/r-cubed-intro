@@ -90,11 +90,7 @@ in March, 2019:
 
 ### Contributions
 
-Current contributors are Luke Johnston and Daniel Witte. Past contributors were
-João Santiago, Anna Schritz. Omar Silverman also proofread and provided feedback
-on the material for several sessions.
-
-Specific contributions were:
+Contributors for [version 1](https://gitlab.com/lwjohnst/dda-rcourse/-/tags/v1.0.0) were:
 
 - Luke Johnston: Brainstormed most of the course material and structure; set up
 the website; organized and coordinated the course; wrote, prepared, and taught
@@ -104,6 +100,18 @@ laytout; prepared and taught most of the lectures.
 - João Santiago: Taught and edited the R Markdown code-along session material.
 - Anna Schritz: Taught and edited the Data Management and Wrangling code-along
 session material.
+- Omar Silverman (helper) proofread and provided feedback on the material for several
+sessions.
+
+Specific contributions for version 2 (this repository) were:
+
+- Luke Johnston: Coordinated the course, developed the material,
+set up the website, and taught multiple sessions.
+- Daniel Witte: Prepared and taught most of the lectures.
+- Helene Baek Juel: Edited and taught the Data Visualization code-along session material,
+as well as reviewed multiple other sections.
+- Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
+session material, as well as reviewed multiple other sections.
 
 <!--
 ### How to cite the material
