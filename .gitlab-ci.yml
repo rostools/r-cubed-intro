@@ -24,7 +24,7 @@ deploy_mr:
     before_script:
         - npm install netlify-cli
     script:
-        - npx netlify deploy --dir public
+        - npx netlify deploy --alias v2 --dir public
     except:
         - master
     dependencies:
