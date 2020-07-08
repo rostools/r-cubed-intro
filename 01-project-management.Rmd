@@ -237,6 +237,8 @@ c("a", "b", "c")
 c(TRUE, FALSE, FALSE)
 # Numeric vector
 c(1, 5, 6)
+# Factor vector
+c("low", "high", "medium", "high")
 
 # This is a dataframe:
 head(iris)
