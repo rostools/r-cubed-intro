@@ -66,7 +66,7 @@ remotes::install_deps()
 
 If you are interested in contributing to the course material, please refer to
 the [contributing guidelines](CONTRIBUTING.md). Please note that the
-'rqawr-rcourse' project is released with a [Contributor Code of
+project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to
 abide by its terms.
 
