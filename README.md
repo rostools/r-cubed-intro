@@ -1,5 +1,4 @@
-
-# Introduction to Reproducible Research in R course <img src="images/apple-touch-icon.png" align="right" height=140/>
+# Introduction to Reproducible Research in R course <img src="images/apple-touch-icon.png" align="right" height=100/>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -50,7 +49,7 @@ so follows the file and folder structure
 conventions from that package.
 
 [xaringan]: https://github.com/yihui/xaringan
-[blogdown]: https://bookdown.org/yihui/bookdown/
+[bookdown]: https://bookdown.org/yihui/bookdown/
 
 ## Installing necessary packages
 
@@ -67,7 +66,7 @@ remotes::install_deps()
 
 If you are interested in contributing to the course material, please refer to
 the [contributing guidelines](CONTRIBUTING.md). Please note that the
-'rqawr-rcourse' project is released with a [Contributor Code of
+project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to
 abide by its terms.
 
