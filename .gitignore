@@ -7,3 +7,5 @@ public/*
 resources/packages.bib
 *.rds
 R/ignore.R
+.Rbuildignore
+_ignore

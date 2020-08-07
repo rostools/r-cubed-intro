@@ -1,8 +1,8 @@
-
-# Introduction to Reproducible Research in R course <img src="images/apple-touch-icon.png" align="right" height=140/>
+# Introduction to Reproducible Research in R course <img src="images/apple-touch-icon.png" align="right" height=100/>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921894.svg)](https://doi.org/10.5281/zenodo.3921894)
 
 ## Description
 
@@ -49,7 +49,7 @@ so follows the file and folder structure
 conventions from that package.
 
 [xaringan]: https://github.com/yihui/xaringan
-[blogdown]: https://bookdown.org/yihui/bookdown/
+[bookdown]: https://bookdown.org/yihui/bookdown/
 
 ## Installing necessary packages
 
@@ -66,7 +66,7 @@ remotes::install_deps()
 
 If you are interested in contributing to the course material, please refer to
 the [contributing guidelines](CONTRIBUTING.md). Please note that the
-'rqawr-rcourse' project is released with a [Contributor Code of
+project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to
 abide by its terms.
 
@@ -113,33 +113,30 @@ as well as reviewed multiple other sections.
 - Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
 session material, as well as reviewed multiple other sections.
 
-<!--
 ### How to cite the material
-
-TODO: Update this after course
 
 Please cite the material as:
 
-> Luke W Johnston, Daniel R Witte, João Santiago, Anna Schritz. Reproducible
-Quantitative Methods: Data analysis workflow using R. March 2019.
-doi:[10.5281/zenodo.2603311].
-
-[10.5281/zenodo.2603311]: https://doi.org/10.5281/zenodo.2603310
+> Luke W. Johnston, Helene Bæk Juel, Bettina Lengger, & Daniel R. Witte. (2020,
+June). rostools/r-cubed: Reproducible Research in R - An introductory workshop
+on modern data analyses and workflows (Version v2.0). Zenodo.
+http://doi.org/10.5281/zenodo.3921894
 
 Or as BibTeX:
 
 ```
-@misc{luke_w_johnston_2019_2603311,
-  author       = {Luke W Johnston and
-                  Daniel R Witte and
-                  João Santiago and
-                  Anna Schritz},
-  title        = {{Reproducible Quantitative Methods: Data analysis 
-                   workflow using R}},
-  month        = mar,
-  year         = 2019,
-  doi          = {10.5281/zenodo.2603311},
-  url          = {https://doi.org/10.5281/zenodo.2603311}
-}
-```
--->
+@misc{luke_w_johnston_2020_3921894,
+  author       = {Luke W. Johnston and
+                  Helene Bæk Juel and
+                  Bettina Lengger and
+                  Daniel R. Witte},
+  title        = {{rostools/r-cubed: Reproducible Research in R - An 
+                   introductory workshop on modern data analyses and
+                   workflows}},
+  month        = jun,
+  year         = 2020,
+  publisher    = {Zenodo},
+  version      = {v2.0},
+  doi          = {10.5281/zenodo.3921894},
+  url          = {https://doi.org/10.5281/zenodo.3921894}
+}```

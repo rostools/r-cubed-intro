@@ -37,17 +37,23 @@ use of the pipe `%>%` operator.
 6. We follow the tidyverse [*way of writing and styling R code*](https://style.tidyverse.org/).
 
 Anyone can contribute to the course repository via [merge requests][merge-requests].
-Please use [the GitHub flow style][github-flow] to manage changes:
+You can contribute either directly on GitLab through their editing interface
+or you can create a clone of the repository and edit through RStudio.
+If you go the clone-RStudio route, please use [the GitHub flow
+style][github-flow] to manage changes. Here are some steps to follow:
 
-1. Create a [fork][fork-explanation] of this repository, and
-[clone][clone-explanation] it to your local computer.
+1. [Clone][clone-explanation] the repository to your local computer.
 2. In your local copy of this repository, create a new
-[branch][branch-explanation].
-3. Commit your changes to that branch.
-4. Push the edits on that branch to your fork of the course repository.
-5. Submit a pull request to the master repository (`lwjohnst/r-cubed`).
-7. If you receive feedback on your pull request, make further commits to the new
-branch on your fork. These will automatically be added to your pull request.
+[branch][branch-explanation] that will address one or two Issues.
+3. Make edits to files and content that is specific to only a few Issues.
+Smaller changes made as a Merge Request are easier to review and merge than 
+bigger changes. The more targeted and specific the changes are, the better.
+3. As you make edits, commit your changes to that branch.
+4. Push the edits on that branch to the course repository.
+5. Submit a merge request of the branch into the master branch.
+7. If you receive feedback on your pull request, make further commits to the
+branch on your cloned local copy. These will automatically be added to your merge
+request after you commit and push.
 
 *If you are creating slides*, use the R Markdown format [xaringan](https://github.com/yihui/xaringan).
 
@@ -139,7 +145,6 @@ contributing guidelines.
 [tidyverse]: https://www.tidyverse.org/
 [branch-explanation]: https://help.github.com/articles/about-branches/
 [clone-explanation]: https://help.github.com/articles/cloning-a-repository/
-[fork-explanation]: https://help.github.com/articles/fork-a-repo/
 [github-flow]: https://guides.github.com/introduction/flow/
 [glossary]: https://help.github.com/articles/github-glossary/
 [merge-requests]: https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html
