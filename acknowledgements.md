@@ -22,3 +22,7 @@ given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
 [Aarhus University Community of Research Software Users]: https://au-cru.github.io/
 [Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
 [R for Data Science]: https://r4ds.had.co.nz/
+
+![Danish Diabetes Academy](../images/dda_logo.png){width=90px}
+![Steno Diabetes Center Aarhus](../images/SDCA_logo.png){width=55px}
+![Aarhus University](../images/au_logo_black.png){width=140px}
