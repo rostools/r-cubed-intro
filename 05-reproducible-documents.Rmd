@@ -304,7 +304,7 @@ or by typing in the area after the chunk label section.
 [chunk options]: https://yihui.org/knitr/options/
 
 ```{r image-rstudio-code-chunk-gear, echo=FALSE, fig.cap="Changing the settings for the code chunk actions."}
-knitr::include_graphics("images/rstudio-code-chunk-gear.png")
+knitr::include_graphics(here::here("images/rstudio-code-chunk-gear.png"))
 ```
 
 So, if you want to run the code but not show those messages and warnings,
