@@ -1,12 +1,5 @@
 # Pre-course tasks {#pre-course}
 
-> Note: This is the first time I've had participants do some pre-course tasks,
-so some things may not work or may not make sense. At the end of this assignment
-there is a survey that has a question about what could be improved and what
-worked. As you complete the tasks, take notes on what could be improved and what
-you liked. I'll use these to make this pre-course assignment better next time!
-Thanks :)
-
 Complete everything in this pre-course tasks chapter and complete the survey
 at the end.
 The deadline for these tasks is (at least) 3 days before the course starts.
