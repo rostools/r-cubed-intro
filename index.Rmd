@@ -1,7 +1,8 @@
 --- 
 title: "Reproducible Research in R"
 subtitle: "An introductory workshop on modern data analyses and workflows"
-date: "Created: `r format(Sys.time(), '%B %d %Y')`"
+author: "[Contributors: Instructors, helpers, and participants of the course](#contributors)"
+date: "Updated: `r format(Sys.time(), '%B %d %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
