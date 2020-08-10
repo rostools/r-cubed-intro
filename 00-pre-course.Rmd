@@ -34,11 +34,17 @@ especially the "Why Git" section, for an understanding on why we are teaching Gi
 Windows users tend to have more trouble with installing Git than macOS or Linux users.
 See the section on [Installing Git for Windows](https://happygitwithr.com/install-git.html#install-git-windows) for help.
 
-If you have administrative issues with updating R or RStudio to the latest version,
-and you have at least 3.6.0 for R and at least 1.2.5001 for RStudio, 
-it should be fine. Unfortunately, work computers may not have Git installed and
-it *is required* for the course, so please ask your IT for help if you need
-administrative permissions to installing it.
+> *A note to those who have or use work laptops with 
+restrictive administrative privileges*: 
+You may encounter problems installing software due to administrative reasons
+(e.g. you don't have permission to install things).
+For issues with updating to the latest version of R or RStudio, 
+if you have at least 3.6.0 for R and at least 1.2.5001 for RStudio, 
+that should be fine. If you have versions of R and RStudio older than that,
+it is necessary for you to request IT update your software if you can't yourself.
+Unfortunately, given that Git is not a commonly used software for some organizations,
+you may not have it installed and you *will* need to ask IT to install it.
+We *require* it for the course, so please make sure to give enough time 
 
 Once R, RStudio, and Git have been installed, open RStudio. 
 *If you at any point during these pre-course tasks have any troubles*, 
