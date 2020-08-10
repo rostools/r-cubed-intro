@@ -1,7 +1,5 @@
 # Group project assignment {#assignment}
 
-![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
-
 To maximize how much you learn and how much you will retain, 
 you as a group will take what you learn in the course 
 and apply it to create a reproducible project (as a GitHub repository) 
