@@ -1,4 +1,4 @@
-# Syllabus
+# Syllabus 
 
 ```{r, include=FALSE}
 # automatically create a bib database for R packages

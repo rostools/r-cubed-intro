@@ -15,7 +15,7 @@ url: 'https\://r-cubed.rostools.org'
 
 # Overview
 
-In this course, we'll be addressing the following questions:
+In this course, we'll be addressing the following questions: 
 
 - What is [R], why should I use it, and how do I use it?
 - What does a modern data analysis setup and workflow look like?
