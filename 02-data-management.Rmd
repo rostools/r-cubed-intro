@@ -1086,7 +1086,7 @@ We've been so far using a teaching dataset that we load from a package, mainly t
 
 There are several ways to load in a dataset. The most common ways are:
 
-1. Using the RStudio menu - Click on File --> Import Dataset --> From Text/Excel/SPSS/SAS/Stata (depending on your file type)
+1. Using the RStudio menu "File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata" (depending on your file type you want to import).
 
 2. Copying the file into your local folder, then "pushing"/"pulling" (which you will learn later in the course) to see your file in RStudio - Remember that the raw dataset should always be placed in the data-raw/ folder
 
