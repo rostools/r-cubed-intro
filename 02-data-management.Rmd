@@ -1092,7 +1092,7 @@ There are several ways to load in a dataset. The most common ways are:
 
 You will then need to load the dataset as an object, just like you did with NHANES above. You can check that the dataset has been loaded as an object by looking in your Environment pane to see whether it is listed (as whatever dataset name you gave it).
 
-One final way to load in a dataset is to import the data programmatically by using the read functions. Depending on the file type, you can enter a command that also saves the dataset as an object: datasetname <- read.csv("filepath")
+One final way to load in a dataset is to import the data programmatically by using the read functions. Depending on the file type, you can enter a command that also saves the dataset as an object: `datasetname <- read.csv("filepath")`
 
 ## Final exercise: Group work
 
