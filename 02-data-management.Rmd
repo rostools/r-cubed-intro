@@ -1078,6 +1078,22 @@ load(here::here("data/nhanes_bmi_only.rda"))
 You should see this dataset in the Environment tab. 
 This is how you save and load data.
 
+## Loading in a dataset
+
+**Take ~5 mins to read through this section. You will get to practice loading in a dataset in your group work session.**
+
+So far, we have been using a teaching dataset that we loaded from a package, for the purposes of getting familiar with data wrangling. However, there may come a time when you'd like to practice data wrangling with your own datasets. 
+
+There are many ways to load in a dataset. The most common ways are:
+
+1. Using the RStudio menu - Click on File --> Import Dataset --> From Text/Excel/SPSS/SAS/Stata (depending on your file type)
+
+2. Copying the file into your local folder, then "pushing"/"pulling" (which you will learn later in the course) to see your file in RStudio - Remember that the raw dataset should always be placed in the data-raw/ folder
+
+You will then need to load the dataset as an object, just like you did with NHANES above. You can check that the dataset has been loaded as an object by looking in your Environment pane to see whether it is listed (as whatever dataset name you gave it).
+
+One final way to load in a dataset is to import the data programmatically by using the read functions. Depending on the file type, you can enter a command that also saves the dataset as an object: datasetname <- read.csv("filepath")
+
 ## Final exercise: Group work
 
 Time: ~30 min
