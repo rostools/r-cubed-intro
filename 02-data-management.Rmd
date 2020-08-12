@@ -1080,7 +1080,7 @@ This is how you save and load data.
 
 ## Loading in a dataset
 
-**Take ~5 mins to read through this section. You will get to practice loading in a dataset in your group work session.**
+**Take ~5 mins to read through this section**. You will get to practice loading in a dataset in your group work session.
 
 So far, we have been using a teaching dataset that we loaded from a package, for the purposes of getting familiar with data wrangling. However, there may come a time when you'd like to practice data wrangling with your own datasets. 
 
