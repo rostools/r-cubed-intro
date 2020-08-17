@@ -14,34 +14,9 @@ favicon: "images/favicon.ico"
 url: 'https\://r-cubed.rostools.org'
 ---
 
-# Syllabus
+# Overview
 
-```{r, include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(
-    c(.packages(), "bookdown", "knitr", "rmarkdown"),
-    here::here('resources/packages.bib')
-)
-```
-
-Reproducibility and open scientific practices are increasingly demanded of
-scientists and researchers. Training on how to apply these practices in data
-analysis has not kept up with demand. With this course, we hope to begin meeting
-that demand. Using a very practical approach based mostly on code-along sessions
-(instructor and learner coding together), the course will:
-
-1. Explain what an open and reproducible data analysis workflow is, what it
-looks like, and why it is important.
-1. Explain and demonstrate why R is rapidly becoming the standard program of
-choice for doing modern data analysis in science.
-1. Demonstrate and apply collaborative tools and techniques when working in team
-settings (including working with your future self).
-1. Show and apply the fundamental tools and skills for conducting a
-reproducible and modern analysis for a research project.
-1. Show where to go to get help and to continue learning modern data analysis
-skills.
-
-We'll be addressing the following questions:
+In this course, we'll be addressing the following questions: 
 
 - What is [R], why should I use it, and how do I use it?
 - What does a modern data analysis setup and workflow look like?
