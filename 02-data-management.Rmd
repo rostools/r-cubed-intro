@@ -1078,6 +1078,16 @@ load(here::here("data/nhanes_bmi_only.rda"))
 You should see this dataset in the Environment tab. 
 This is how you save and load data.
 
+## Summary of session
+
+- In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
+- Use the R package tidyverse to load in multiple packages to tidy up data 
+- Never edit raw data - instead, save the changes in a separate folder or even file based on a code, and don't manually edit the data
+- Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
+- Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
+- Make your tables longer with `pivot_longer()`, suited for the split-apply-combine technique - but take care with `pivot_wider()`, which might make the table wide but less tidy
+
+
 ## Final exercise: Group work
 
 Time: ~30 min
