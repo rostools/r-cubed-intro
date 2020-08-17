@@ -1079,7 +1079,7 @@ You should see this dataset in the Environment tab.
 This is how you save and load data.
 
 ## Summary of session
-- In tidy data, each variable has its now column, each observation has its own row and each value has its own cell
+- In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
 - Use the R package `tidyverse` to tidy up data 
 - Never edit raw data - instead, save the changes in a separate folder or even file based on a code, nor manual editing 
 - Use functions from the `tidyverse`-package to `select()`, `rename()`, `filter()`, change or `mutate()`, `arrange()` and `summarise()` your data
