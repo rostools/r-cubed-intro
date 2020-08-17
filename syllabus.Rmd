@@ -1,10 +1,5 @@
 # Syllabus 
 
-![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
-
-> Note: You'll see several of these "badges" (image above) throughout the course material.
-This badge indicates whether the material is completed or is still being developed.
-
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
 analysis has not kept up with demand. With this course, we hope to begin meeting
@@ -22,3 +17,71 @@ reproducible and modern analysis for a research project.
 1. Show where to go to get help and to continue learning modern data analysis
 skills.
 
+In this course, we'll be addressing the following questions: 
+
+- What is [R], why should I use it, and how do I use it?
+- What does a modern data analysis setup and workflow look like?
+- What is reproducibility and how is it different from replicability?
+- How can I ensure my data analysis project is reproducible?
+- How can I import and work with my data in R?
+- How can I visualize my data and make publication-quality figures?
+- Why should I and how can I keep track of changes to my analysis files?
+- How can I write reports to document, describe, and present analyses in a
+reproducible way?
+
+By the end of the course, participants will have a basic level of proficiency in
+using the [R] statistical computing language, enabling them to improve their data
+and code literacy, and to conduct a modern and reproducible data analysis. The
+course will place particular emphasis on research in diabetes and metabolism; it
+will be taught by instructors working in this field and it will
+use relevant examples where possible.
+
+[R]: https://www.r-project.org/
+
+## Is this course for you?
+
+To help manage expectations and develop the material for this course, we make a
+few assumptions about *who you are* as a participant in the course:
+
+- You are a researcher, likely working in the biomedical field (ranging from
+experimental to epidemiology).
+- You currently or will soon do some quantitative data analysis.
+- You: 
+    - know *nothing* or *little* about R (or computing in general); 
+    - *haven't* used coding programs for doing data analysis (e.g. used SPSS); 
+    - *have* used coding programs before (e.g. used SAS or Stata), but not R;
+    - know how to use R, but *haven't* used the [tidyverse] or [RStudio].
+
+[tidyverse]: https://www.tidyverse.org/
+[RStudio]: https://rstudio.com/
+
+While we have these assumptions to help focus the content of the course, if you
+have an interest in learning R but don't fit any of the above assumptions, *you
+are still welcome to attend the course*! 
+We welcome everyone, up until the course capacity is reached that is.
+
+In addition to the assumptions, we also have a fairly focused scope for teaching
+and expectations for learning. So this may also help you decide if this course
+is for you.
+
+- We *do* teach how to use R, starting from the very basics and targeted to beginners.
+- We *do not* teach statistics (these are already covered by most university curriculums).
+- We *do* teach from a team science, reproducible research, and open scientific
+perspective (i.e. by including a collaborative group project that uses a transparent
+and reproducible analysis workflow).
+- We *do* teach using practical, applied, and hands-on lessons and exercises, 
+with a few short lectures that introduce a topic.
+
+## General schedule
+
+The workshop is structured as a series of participatory live-coding sessions
+(instructor and learner coding together) interspersed with hands-on exercises
+and group work, using either a practice dataset or some other real-world dataset.
+There are some lectures given, mainly at the start and end of the workshop.
+The general schedule outline is shown in the below table.
+
+```{r schedule-table, echo=FALSE, message=FALSE, warning=FALSE}
+options(knitr.kable.NA = "")
+schedule <- readr::read_csv(here::here("resources/schedule.csv"))
+knitr::kable(schedule, align = "l", caption = "General schedule for the 3 days of the course.")
+```
