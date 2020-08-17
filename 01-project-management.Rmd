@@ -92,7 +92,7 @@ LearningR
 ├── .Rbuildignore
 ├── .gitignore
 ├── DESCRIPTION
-├── learning-r.Rproj
+├── LearningR.Rproj
 ├── README.md
 └── TODO.md
 ```
