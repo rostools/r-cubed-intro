@@ -9,6 +9,7 @@ language:
     chapter_name: ""
 rmd_files:
     - "index.Rmd"
+    - "00-syllabus.Rmd"
     - "00-pre-course.Rmd"
     - "00-conduct.Rmd"
     - "00-assignment.Rmd"
