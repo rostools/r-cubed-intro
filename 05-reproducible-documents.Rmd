@@ -865,13 +865,14 @@ and then later on merge them together.
 This last approach is what we will get you to do for the group project.
 
 ## Summary of session
-- Make reproducible research to become more efficient, productive and get more confident results
-- Use R Markdown to construct files that can easily be turned into a variety of files as HTML or Word
-- Insert r chucks in R Markdown document and chose to show actual code or just result in final document 
+
+- Making your research reproducible not only improves your science, but also makes you more efficient, productive, and have more confidence in your results
+- Use R Markdown to construct files that can easily be turned into a variety of files such as HTML or Word
+- Insert R code chucks in R Markdown and automatically include the results in the final document 
 - Make tables by using `knitr::kable()`
-- Apply headers ( `# Header 1`), text formatting (`**bold**`), lists (`-`), quotes (`<`), links `([Link](www))` and footnotes `([^1])` directly in R Markdown file 
-- Insert pictures directly in file (`![Caption text](path/to/image.png)`) or `knitr::include_graphics(path/to/image.png))`, including `here::here()` in pathname
-- Select topic to personalise your R Markdown  
+- Apply headers ( `# Header 1`), text formatting (`**bold**`), lists (`-`), blockquotes (`>`), links `([Link](www))` and footnotes `[^1]` directly in the R Markdown file 
+- Insert pictures directly in R Markdown with `![Caption text](path/to/image.png)` or `knitr::include_graphics("path/to/image.png"))`
+- For HTML, choose different themes for appearance to personalise your R Markdown output document
 
 
 ## Final exercise: Group work

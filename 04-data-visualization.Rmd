@@ -722,14 +722,15 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
 ```
 
 ## Summary of session
-- Use “Grammar off Graphics” ggplot2 to plot your data wrangled with `tidyverse` 
-- Prioritise to plot raw data data instead of summaries
-- Define 4 levels of grammar: `aes()` (what data to plot), `geom_` (e.g. `geom_bar()` what kind of plot), `scale_` (making ht plot pretty) and `theme_` (controls the surroundings of the plotting area)
+
+- Use the "Grammar of Graphics" with the ggplot2 package within the tidyverse to plot your data
+- Prioritise plotting raw data data instead of summaries whenever possible or if able to
+- ggplot2 has 4 levels of grammar: `aes()` (what data to plot), `geom_` (e.g. `geom_bar()` what kind of plot), `scale_` (making the plot pretty) and `theme()` (controls the surroundings of the plotting area)
 - Only use bar plots for discrete values - if applying them on continuous variables, it hides the distribution of the data  
 - Use `position_dogde()` to get bar plots next to rather than on top of each other 
 - Use both colour, X and Y axis to plot three dimensions - or `facet_grid()` to plot more dimensions
 - Use colourblind-friendly colours, e.g. by using the colour palettes `viridis` or `ColorBrewer`
- Save plots by `ggsave()`
+- Save plots by `ggsave()`
 
 ## Final exercise: Group work
 
