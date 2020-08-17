@@ -392,7 +392,7 @@ Make the repository "Private" for now.
 The video below can be used as a reference.
 
 ```{r video-github-new-repository, echo=FALSE}
-insert_video("images/github-new-repository.mp4")
+insert_video("videos/github-new-repository.mp4")
 ```
 
 A quick side note. When using GitHub,
@@ -422,7 +422,7 @@ Where you save the new project doesn't matter,
 but to make things easy, save it to the Desktop.
 
 ```{r video-rstudio-clone-repository, echo=FALSE}
-insert_video("images/rstudio-clone-repository.mp4")
+insert_video("videos/rstudio-clone-repository.mp4")
 ```
 
 For *existing* repositories, 
@@ -536,7 +536,7 @@ Scroll down to the commit message box, type out a commit message,
 and click the "Commit" button.
 
 ```{r video-github-edit-and-commit-file, echo=FALSE}
-insert_video("images/github-edit-and-commit-file.mp4")
+insert_video("videos/github-edit-and-commit-file.mp4")
 ```
 
 Go back to RStudio, open the Git interface 
@@ -708,7 +708,7 @@ You add someone by going to
 (also shown in the video below).
 
 ```{r video-github-add-collaborator, echo=FALSE}
-insert_video("images/github-add-collaborator.mp4")
+insert_video("videos/github-add-collaborator.mp4")
 ```
 
 We won't have you do this for this session, 
