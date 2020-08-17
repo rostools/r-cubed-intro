@@ -14,7 +14,70 @@ favicon: "images/favicon.ico"
 url: 'https\://r-cubed.rostools.org'
 ---
 
-# Overview
+# Welcome!
+
+```{r, include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(
+    c(.packages(), "bookdown", "knitr", "rmarkdown"),
+    here::here('resources/packages.bib')
+)
+```
+
+[![GitLab repository](https://img.shields.io/badge/Repository-Source%20material-blue?style=flat&logo=gitlab)](https://gitlab.com/rostools/r-cubed)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921894.svg)](https://doi.org/10.5281/zenodo.3921894)
+
+The course is designed as a series of participatory live-coding lessons, where
+the instructor and learner code together, has hands-on
+exercises interspersed throughout the course, 
+and has a final group assignment of doing a simple data analysis project.
+This website contains all of the
+material for the course, from reading material to exercises, to images. It is
+structured as a book, with "chapters" as lessons, given in order of appearance.
+We make heavy use of the website throughout the course
+where code-along sessions follow the material on the website nearly exactly
+(with slight modifications for time or more detailed explanations).
+
+The course material was created using [rmarkdown] to write the lessons,
+[bookdown] to create the book format, [GitLab] to host the [Git] 
+repository of the material, and [GitLab CI] with [Netlify] to create the website.
+The original source material for this course is found on the 
+[`r-cubed`] GitLab repository.
+
+[rmarkdown]: https://rmarkdown.rstudio.com/
+[bookdown]: https://bookdown.org/yihui/bookdown/
+[GitLab]: https://gitlab.com/
+[Git]: https://git-scm.com/
+[GitLab CI]: https://docs.gitlab.com/ee/ci/
+[Netlify]: https://www.netlify.com/
+[`r-cubed`]: https://gitlab.com/rostools/r-cubed
+
+Want to contribute to this course? 
+Check out the [README] file as well as the [CONTRIBUTING] file
+on the GitLab repository for more details.
+
+[README]: https://gitlab.com/rostools/r-cubed/-/blob/master/README.md
+[CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/master/CONTRIBUTING.md
+
+## Re-use and licensing {#licensing}
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+
+The course material is licensed under the
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+and the course code is licensed under a 
+[MIT License](https://gitlab.com/rostools/r-cubed/-/blob/master/LICENSE-MIT.md),
+so the material can be used, re-used, and modified, 
+as long as there is attribution to this source.
+
+## Previous versions
+
+There have been two previous "formal" versions of the course given so far:
+
+- [Version 1](https://v1--dda-rcourse.netlify.app/) taught in March 2019.
+- [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
 
 In this course, we'll be addressing the following questions: 
 
