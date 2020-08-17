@@ -73,6 +73,8 @@ which we'll cover more later.
 - Panel "D" has the Files, Plots, Packages, Help, Build, and Viewer tabs.
 For the course we'll only be going over the Files, Plots, Packages, and Help tabs.
 
+For this course, you will spend most of your time using R script files to write in and play around with code. However, we will also be learning and using R Markdown (`.Rmd`) files later in the course. R Markdown is a dynamic and invaluable tool that will help your analysis be reproducible. Whereas scripts are a blank slate for entering endless lines of code, R Markdown allows you to enter code chunks surrounded by text/images, that can then be converted into MS Word, PDF, or HTML to produce a report. Some researchers write and manage entire papers using R Markdown, as it can make things easier to organize and maintain.
+
 ## Installing R packages
 
 Now that you have RStudio and R on your computer, 
