@@ -79,6 +79,34 @@ There have been two previous "formal" versions of the course given so far:
 - [Version 1](https://v1--dda-rcourse.netlify.app/) taught in March 2019.
 - [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
 
+## Contributors {#contributors}
+
+Contributors for [version 1](https://gitlab.com/lwjohnst/dda-rcourse/-/tags/v1.0.0) were:
+
+- Luke Johnston: Brainstormed most of the course material and structure; set up
+the website; organized and coordinated the course; wrote, prepared, and taught
+most of the code-along sessions, as well as several lectures.
+- Daniel Witte: Participated in brainstorming on the course structure and
+laytout; prepared and taught most of the lectures.
+- João Santiago: Taught and edited the R Markdown code-along session material.
+- Anna Schritz: Taught and edited the Data Management and Wrangling code-along
+session material.
+- Omar Silverman (helper) proofread and provided feedback on the material for several
+sessions.
+
+Contributors for [version 2](https://gitlab.com/rostools/r-cubed/-/tags/v2.0) were:
+
+- Luke Johnston: Same as with version 1.
+- Daniel Witte: Prepared and taught most of the lectures.
+- Helene Baek Juel: Edited and taught the Data Visualization code-along session material,
+as well as reviewed multiple other sections.
+- Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
+session material, as well as reviewed multiple other sections.
+
+Contributors for version 2.1 were:
+
+TODO: Add this once done.
+
 In this course, we'll be addressing the following questions: 
 
 - What is [R], why should I use it, and how do I use it?
