@@ -20,7 +20,6 @@ rmd_files:
     - "05-reproducible-documents.Rmd"
     - "appendix.md"
     - "resources.Rmd"
-    - "acknowledgements.md"
     - "for-instructors.md"
     - "LICENSE.md"
     - "references.Rmd"

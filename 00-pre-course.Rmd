@@ -1,18 +1,8 @@
 # Pre-course tasks {#pre-course}
 
-![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
-
-> Note: This is the first time I've had participants do some pre-course tasks,
-so some things may not work or may not make sense. At the end of this assignment
-there is a survey that has a question about what could be improved and what
-worked. As you complete the tasks, take notes on what could be improved and what
-you liked. I'll use these to make this pre-course assignment better next time!
-Thanks :)
-
 Complete everything in this pre-course tasks chapter and complete the survey
 at the end.
-The deadline for these tasks is 3 days before the course starts (end of day
-**June 18th**).
+The deadline for these tasks is (at least) 3 days before the course starts.
 
 ## Installing programs
 
@@ -35,11 +25,18 @@ especially the "Why Git" section, for an understanding on why we are teaching Gi
 Windows users tend to have more trouble with installing Git than macOS or Linux users.
 See the section on [Installing Git for Windows](https://happygitwithr.com/install-git.html#install-git-windows) for help.
 
-If you have administrative issues with updating R or RStudio to the latest version,
-and you have at least 3.6.0 for R and at least 1.2.5001 for RStudio, 
-it should be fine. Unfortunately, work computers may not have Git installed and
-it *is required* for the course, so please ask your IT for help if you need
-administrative permissions to installing it.
+> *A note to those who have or use work laptops with 
+restrictive administrative privileges*: 
+You may encounter problems installing software due to administrative reasons
+(e.g. you don't have permission to install things).
+For issues with updating to the latest version of R or RStudio, 
+if you have at least 3.6.0 for R and at least 1.2.5001 for RStudio, 
+that should be fine. If you have versions of R and RStudio older than that,
+it is necessary for you to request IT update your software if you can't yourself.
+Unfortunately, given that Git is not a commonly used software for some organizations,
+you may not have it installed and you *will* need to ask IT to install it.
+We *require* it for the course, so please make sure to give IT enough time to
+be able to install it for you.
 
 Once R, RStudio, and Git have been installed, open RStudio. 
 *If you at any point during these pre-course tasks have any troubles*, 
@@ -76,6 +73,8 @@ which we'll cover more later.
 - Panel "D" has the Files, Plots, Packages, Help, Build, and Viewer tabs.
 For the course we'll only be going over the Files, Plots, Packages, and Help tabs.
 
+For this course, you will spend most of your time using R script files to write in and play around with code. However, we will also be learning and using R Markdown (`.Rmd`) files later in the course. R Markdown is a dynamic and invaluable tool that will help your analysis be reproducible. Whereas scripts are a blank slate for entering endless lines of code, R Markdown allows you to enter code chunks surrounded by text/images, that can then be converted into MS Word, PDF, or HTML to produce a report. Some researchers write and manage entire papers using R Markdown, as it can make things easier to organize and maintain.
+
 ## Installing R packages
 
 Now that you have RStudio and R on your computer, 
@@ -90,7 +89,7 @@ Alright, you'll need to install the remotes package.
 See the GIF in Figure \@ref(fig:rstudio-installing-remotes) below for how to do that:
 
 ```{r rstudio-installing-remotes, echo=FALSE, fig.cap="Installing the remotes package in RStudio."}
-knitr::include_graphics(here::here("images/rstudio-installing-remotes.gif"))
+knitr::include_graphics(here::here("videos/rstudio-installing-remotes.gif"))
 ```
 
 Then type in the RStudio Console the commands below. 
@@ -103,7 +102,7 @@ remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 ```
 
 ```{r console-installing-r3, echo=FALSE, fig.cap="Using the RStudio Console to install the r3 helper package."}
-knitr::include_graphics(here::here("images/console-install-r3.gif"))
+knitr::include_graphics(here::here("videos/console-install-r3.gif"))
 ```
 
 *Note*: When you see a command like `something::something()`,
@@ -150,7 +149,7 @@ There is sometimes confusion about these two things since they both say "Git".
 It's important to distinguish that they are two *separate* things.
 
 ```{r github-account-creation, echo=FALSE, fig.cap="Creating a GitHub account."}
-knitr::include_graphics(here::here("images/github-account-creation.gif"))
+knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 ```
 
 ## Course introduction

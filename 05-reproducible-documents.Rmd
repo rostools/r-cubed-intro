@@ -1,7 +1,5 @@
 # Analytically reproducible documents {#reproducible-documents}
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 > When in RStudio, quickly jump to this page using `r3::open_reproducible_documents()`.
 
 **Session objectives**:
@@ -99,7 +97,7 @@ Choose HTML as the output format.
 Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
 
 ```{r video-rstudio-create-rmarkdown, echo=FALSE}
-insert_video("images/rstudio-create-rmarkdown.mp4")
+insert_video("videos/rstudio-create-rmarkdown.mp4")
 ```
 
 We now have an R Markdown file.
@@ -306,7 +304,7 @@ or by typing in the area after the chunk label section.
 [chunk options]: https://yihui.org/knitr/options/
 
 ```{r image-rstudio-code-chunk-gear, echo=FALSE, fig.cap="Changing the settings for the code chunk actions."}
-knitr::include_graphics("images/rstudio-code-chunk-gear.png")
+knitr::include_graphics(here::here("images/rstudio-code-chunk-gear.png"))
 ```
 
 So, if you want to run the code but not show those messages and warnings,

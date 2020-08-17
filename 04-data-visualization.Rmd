@@ -1,7 +1,5 @@
 # Data visualization {#visualization}
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 > When in RStudio, quickly jump to this page by using `r3::open_data_visualization()`.
 
 ```{r setup, include=FALSE}
@@ -576,6 +574,8 @@ nhanes_tidied2 %>%
 
 ## Colours: Make your graphs more accessible
 
+**Please take ~5 min to read through this section, as well as the next one.**
+
 Colour blindness is common in the population, 
 with red-green colour blindness in particular affecting about 8% of men 
 and 0.5% of women. 
@@ -599,8 +599,15 @@ You can use built-in colour schemes or create your own.
 For now, let's stick to using built-in ones.
 There are two: the viridis and the [ColorBrewer] colour schemes. 
 Both are well designed and are colour-blind friendly.
-For this course we will only cover the viridis package.
-Let's make a base plot object to work from, with two discrete variables:
+For this course, we will only cover the viridis package.
+
+## Exercise: Playing around with colour schemes
+
+Time: 10 mins
+
+Try changing a bar plot into 1-2 different colours to see how the functions work.
+
+1. Let's make a base plot object to work from, with two discrete variables. Copy and paste the code below into your script file.
 
 [ColorBrewer]: https://colorbrewer2.org/
 
@@ -611,18 +618,7 @@ base_barplot <- nhanes_tidied2 %>%
     geom_bar(position = position_dodge())
 ```
 
-We'll be using the `scale_` functions for this.
-There are many of these functions and they all have a consistent naming:
-`scale_AES_SETTING()`.
-For instance, 
-we are using `fill`, so it would be `scale_fill_`.
-And since we are using the viridis scheme,
-it would continue to: `scale_fill_viridis`.
-Lastly, because we have discrete variables, 
-we need to tell viridis by adding a `_d` (for discrete) to the end:
-`scale_fill_viridis_d()`.
-This function has several color schemes within it, which
-we can choose by using the `options` argument (it goes from `"A"` to `"E"`).
+2. Now, use the `scale_fill_` function to add the colour scheme. Remember to use the `help()` or `?` functions in RStudio if you are wanting more information or documentation about  various `scale_` functions. We will use the viridis scheme to account for colour-blindness. We would need to indicate that we have discrete variables by adding a `_d` to the end of the function, and then we can choose from one of the colour schemes by entering a selection from `"A"` to `"E"` as an option. Copy and paste the code below into your script file.
 
 ```{r}
 # change colors to a viridis color scheme
@@ -633,12 +629,9 @@ base_barplot +
     scale_fill_viridis_d(option = "A")
 ```
 
-To use the colour schemes on a continuous variable, 
-we would have to do a few things.
-First, we'd most likely be using the `colour` aesthetic,
-which means the scale would be `scale_colour_`.
-To tell viridis to use the continuous scale,
-we'd add a `_c` so it would be: `scale_colour_viridis_c()`.
+3. Try changing the colour scheme by entering another selection (e.g., `"B"`, `"C"`, or `"D"`).
+
+4. Let's practice using the colour schemes on a plot using continuous variables. First, we'd most likely be using the `colour` aesthetic, which means that the scale function would be `scale_colour_`. We'd also need to add a `_c` to indicate that we have continuous variables. Copy and paste the code below into your script file.
 
 ```{r}
 # scatterplot to work from, with two continuous variables
@@ -652,6 +645,8 @@ base_scatterplot +
 base_scatterplot +
     scale_color_viridis_c(option = "C")
 ```
+
+5. You can modify ggplot2 colour schemes using many other pre-defined palettes by installing new R packages, including scientific journal colour palettes ("ggsci") and even a Wes Anderson colour palette ("wesanderson")! Feel free to take some time after today's course to search online for other colour palettes that you think would suit your own work better. Remember to refer to the Data Visualization book in the [resources](resources) chapter.
 
 ## Titles, axis labels, and themes
 
