@@ -341,6 +341,7 @@ committing each of the remaining files in your R project one by one into the Git
 add a new line to the `R/version-control-session.R` with an R comment 
 (starts with a `#`).
 Type out something like "This will be used for testing out Git".
+Add and commit that new line you've written.
 
 ## "Remotes": Storing your repository online
 
