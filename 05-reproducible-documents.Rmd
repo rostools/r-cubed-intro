@@ -97,7 +97,7 @@ Choose HTML as the output format.
 Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
 
 ```{r video-rstudio-create-rmarkdown, echo=FALSE}
-insert_video("images/rstudio-create-rmarkdown.mp4")
+insert_video("videos/rstudio-create-rmarkdown.mp4")
 ```
 
 We now have an R Markdown file.

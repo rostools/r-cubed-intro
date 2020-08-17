@@ -89,7 +89,7 @@ Alright, you'll need to install the remotes package.
 See the GIF in Figure \@ref(fig:rstudio-installing-remotes) below for how to do that:
 
 ```{r rstudio-installing-remotes, echo=FALSE, fig.cap="Installing the remotes package in RStudio."}
-knitr::include_graphics(here::here("images/rstudio-installing-remotes.gif"))
+knitr::include_graphics(here::here("videos/rstudio-installing-remotes.gif"))
 ```
 
 Then type in the RStudio Console the commands below. 
@@ -102,7 +102,7 @@ remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 ```
 
 ```{r console-installing-r3, echo=FALSE, fig.cap="Using the RStudio Console to install the r3 helper package."}
-knitr::include_graphics(here::here("images/console-install-r3.gif"))
+knitr::include_graphics(here::here("videos/console-install-r3.gif"))
 ```
 
 *Note*: When you see a command like `something::something()`,
@@ -149,7 +149,7 @@ There is sometimes confusion about these two things since they both say "Git".
 It's important to distinguish that they are two *separate* things.
 
 ```{r github-account-creation, echo=FALSE, fig.cap="Creating a GitHub account."}
-knitr::include_graphics(here::here("images/github-account-creation.gif"))
+knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 ```
 
 ## Course introduction
