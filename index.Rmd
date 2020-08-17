@@ -124,10 +124,22 @@ given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
 - The [UofTCoders Intro to R course for Ecology students](https://uoftcoders.github.io/rcourse/).
 
 [Aarhus University Community of Research Software Users]: https://au-cru.github.io/
+
+Content from multiple sources were used as inspiration for this course,
+including the [R for Data Science] book 
+and the [Fundamentals of Data Visualization].
+
 [Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
 [R for Data Science]: https://r4ds.had.co.nz/
 
-![Danish Diabetes Academy](../images/dda_logo.png" alt="Danish Diabetes Academy){width=90px}
-![Steno Diabetes Center Aarhus](../images/SDCA_logo.png){width=55px}
-![Aarhus University](../images/au_logo_black.png){width=140px}
+The [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/) hosted,
+organized, and sponsored versions 1 and 2 of the course. A huge thanks to them
+for their involvement, support, and sponsorship! 
+Both [Steno Diabetes Center Aarhus](https://www.stenoaarhus.dk/)
+and [Aarhus University](https://www.au.dk/) were employers of Luke Johnston
+and Daniel Witte (the initial founders and creators).
+
+![Danish Diabetes Academy](images/dda_logo.png){width=90px}
+![Steno Diabetes Center Aarhus](images/SDCA_logo.png){width=55px}
+![Aarhus University](images/au_logo_black.png){width=140px}
 
