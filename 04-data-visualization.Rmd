@@ -618,7 +618,7 @@ base_barplot <- nhanes_tidied2 %>%
     geom_bar(position = position_dodge())
 ```
 
-2. Now, use the `scale_fill_` function to add the colour scheme. Remember to use the help() or ? functions in RStudio if you are wanting more information or documentation about  various `scale_` functions. We will use the viridis scheme to account for colour-blindness. We would need to indicate that we have discrete variables by adding a `_d` to the end of the function, and then we can choose from one of the colour schemes by entering a selection from `"A"` to `"E"` as an option. Copy and paste the code below into your script file.
+2. Now, use the `scale_fill_` function to add the colour scheme. Remember to use the `help()` or `?` functions in RStudio if you are wanting more information or documentation about  various `scale_` functions. We will use the viridis scheme to account for colour-blindness. We would need to indicate that we have discrete variables by adding a `_d` to the end of the function, and then we can choose from one of the colour schemes by entering a selection from `"A"` to `"E"` as an option. Copy and paste the code below into your script file.
 
 ```{r}
 # change colors to a viridis color scheme
@@ -629,9 +629,9 @@ base_barplot +
     scale_fill_viridis_d(option = "A")
 ```
 
-3. Try changing the colour scheme by entering another selection (e.g., B, C, or D).
+3. Try changing the colour scheme by entering another selection (e.g., `"B"`, `"C"`, or `"D"`).
 
-4. Let's practice using the colour schemes on a plot using continuous variables. First, we'd most likely be using the `colour` aesthetic, which means that the scale function would be `scale_colour_`. We'd also need to add a `_c` to indicate that we have continuous variables. sCopy and paste the code below into your script file.
+4. Let's practice using the colour schemes on a plot using continuous variables. First, we'd most likely be using the `colour` aesthetic, which means that the scale function would be `scale_colour_`. We'd also need to add a `_c` to indicate that we have continuous variables. Copy and paste the code below into your script file.
 
 ```{r}
 # scatterplot to work from, with two continuous variables
@@ -646,7 +646,7 @@ base_scatterplot +
     scale_color_viridis_c(option = "C")
 ```
 
-5. You can modify ggplot colour schemes using many other pre-defined palettes by installing new R packages, including scientific journal colour palettes ("ggsci") and even a Wes Anderson colour palette ("wesanderson")! Feel free to take some time after today's course to search online for other colour palettes that you think would suit your own work better. Remember to refer to the Data Visualization book in the [resources](resources) chapter.
+5. You can modify ggplot2 colour schemes using many other pre-defined palettes by installing new R packages, including scientific journal colour palettes ("ggsci") and even a Wes Anderson colour palette ("wesanderson")! Feel free to take some time after today's course to search online for other colour palettes that you think would suit your own work better. Remember to refer to the Data Visualization book in the [resources](resources) chapter.
 
 ## Titles, axis labels, and themes
 
