@@ -35,7 +35,8 @@ that should be fine. If you have versions of R and RStudio older than that,
 it is necessary for you to request IT update your software if you can't yourself.
 Unfortunately, given that Git is not a commonly used software for some organizations,
 you may not have it installed and you *will* need to ask IT to install it.
-We *require* it for the course, so please make sure to give enough time 
+We *require* it for the course, so please make sure to give IT enough time to
+be able to install it for you.
 
 Once R, RStudio, and Git have been installed, open RStudio. 
 *If you at any point during these pre-course tasks have any troubles*, 
