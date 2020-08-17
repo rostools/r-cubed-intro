@@ -37,7 +37,8 @@ and is designed to be completed in RStudio using the R Markdown format.
 
 The teaching material is found mainly in the main project folder:
 
-- `index.Rmd`: Contains the syllabus and the schedule files.
+- `index.Rmd`: Contains the overview of the course.
+- `00-syllabus.Rmd`: Contains the syllabus and the schedule files.
 - Files starting with a number: 
 Contains the code-along teaching material, as well as
 associated links to the lecture slides. 
