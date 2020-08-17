@@ -239,7 +239,7 @@ c(1, 5, 6)
 factor(c("low", "high", "medium", "high"))
 
 # This is a dataframe:
-head(iris)
+head(CO2)
 ```
 
 Notice how we use the `#` to write comments or notes. Whatever we write after
@@ -259,11 +259,11 @@ we can use other functions like:
 
 ```{r examining-dataframes}
 # Column names
-colnames(iris)
+colnames(CO2)
 # Structure
-str(iris)
+str(CO2)
 # Summary statistics
-summary(iris)
+summary(CO2)
 ```
 
 ## Using auto-completion in RStudio
