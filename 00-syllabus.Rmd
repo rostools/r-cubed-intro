@@ -1,4 +1,4 @@
-# Syllabus 
+# Syllabus {#syllabus}
 
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
