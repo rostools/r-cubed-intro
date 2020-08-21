@@ -53,8 +53,12 @@ by using the prodigenr package.
         usethis::use_r("generate-figures")
         ```
 
-2. **Find an "open" dataset** to use for your analysis and report. You have two options here: 1) choose from one of the example datasets provided below; or 2) search for another dataset from an online data archive (e.g., FigShare). If you choose the latter option, be sure to select a dataset that isn't too big (maybe *max.* 4 Mb) and contains some *basic* quantitative data that you can test some basic functions on. We don't want you to spend too much time on this task. 
-
+2. **Find an "open" dataset** to use for your analysis and report. You have two
+options here: 1) choose from one of the datasets provided below; or 2) search
+for another dataset from an online data archive (e.g., FigShare). If you choose
+the second option, make sure to select a dataset that isn't too big (maybe
+*max.* 4 Mb) and contains some *basic* quantitative data that you can test some
+basic functions on. We don't want you to spend too much time on this task.
 Here are some example datasets:
     - [Zika Virus Data](https://github.com/BuzzFeedNews/zika-data/blob/master/data/raw/paho-who/paho-who-cases-reported-latest.csv)
     - [FBI Firearm Stats](https://github.com/hchats/nics-firearm-background-checks/blob/master/data/nics-firearm-background-checks.csv)
@@ -68,7 +72,7 @@ Here are some example datasets:
 (as covered in [Data Management](wrangling.html)).
 Save the new dataset in a folder called `data/`.
 
-5. **Put the project under Git version control, add and commit all the files**. 
+5. **Put the project under Git version control, then add and commit all the files**. 
 Add your assigned GitHub group repository to your project 
 and push ("upload") the repository up to GitHub
 (covered in [Version Control](version-control.html)).
