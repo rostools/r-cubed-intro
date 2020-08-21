@@ -117,6 +117,11 @@ and doing it formally.
 So give them a heads up that you'll be repeating things,
 specifically to reinforce the concepts.
 
+It's important in this session to go **slowly**. Version control is a challenging
+topic and isn't something most people have ever learned about or dealt with.
+So take it slow and make sure everyone is on the same page. Make use of stickies
+frequently to assess how everyone is doing.
+
 ### About the slides
 
 The slides are generated from the [xaringan] R package,
