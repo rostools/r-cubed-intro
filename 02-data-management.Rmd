@@ -1080,19 +1080,33 @@ This is how you save and load data.
 
 ## Loading in a dataset
 
-**Take ~5 mins to read through this section**. You will get to practice loading in a dataset in your group work session.
+**Take ~5 mins to read through this section**. You will get to practice loading
+in a dataset in your group work session.
 
-We've been so far using a teaching dataset that we load from a package, mainly to focus on getting familiar with data wrangling. However, there will come a time when you'd want to wrangle your own data.
+We've been so far using a teaching dataset that we load from a package, mainly
+to focus on getting familiar with data wrangling. However, there will come a
+time when you'd want to wrangle your own data.
 
 There are several ways to load in a dataset. The most common ways are:
 
-1. Using the RStudio menu "File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata" (depending on your file type you want to import).
+1. Using the RStudio menu "File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata" 
+(depending on your file type you want to import). Copy and paste the R code given
+for importing into the R script you are working in.
 
-2. Copying the file into your local folder, then "pushing"/"pulling" (which you will learn later in the course) to see your file in RStudio - Remember that the raw dataset should always be placed in the data-raw/ folder
+2. If the file is a `.csv` file, use `readr::read_csv()` to import the dataset:
 
-You will then need to load the dataset as an object, just like you did with NHANES above. You can check that the dataset has been loaded as an object by looking in your Environment pane to see whether it is listed (as whatever dataset name you gave it).
+    ```r
+    dataset_name <- readr::read_csv(here::here("data/dataset_name.csv"))
+    ```
 
-One final way to load in a dataset is to import the data programmatically by using the read functions. Depending on the file type, you can enter a command that also saves the dataset as an object: `datasetname <- read.csv("filepath")`
+3. If the dataset is a `.rda` file, use `load()`:
+
+    ```r
+    load(here::here("data/dataset_name.rda"))    
+    ```
+
+For SAS, SPSS, or Stata files, you can use the package 
+[`haven`](https://haven.tidyverse.org/) to import those datasets into R.
 
 ## Final exercise: Group work
 
