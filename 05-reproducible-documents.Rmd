@@ -630,7 +630,7 @@ Time: 5 min
 1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
 1. Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
-1. Enter a code chunk to make a simple calculation.
+1. Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
 
 ## Inserting figures, as files or from R code
 
