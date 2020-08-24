@@ -20,6 +20,8 @@ and then assign people to these teams and to repositories.
 
 [ghclass]: https://rundel.github.io/ghclass
 
+Once teams are created, assign one instructor or helper to each group.
+
 ### Before your session
 
 - Have an RStudio theme that uses a white background with black text.
@@ -33,7 +35,7 @@ This can be changed in the "Global Options -> Pane Layout"
 ### First day
 
 In the room, arrange the tables into groups for each of the teams.
-As participants come in, get them to sit in their assigned team.
+As participants come in, get them to sit in their assigned team by referring to the team lists placed in the middle of each table.
 
 During the introduction, introduce all the instructors and helpers.
 
