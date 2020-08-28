@@ -19,8 +19,7 @@ in order for some R packages to be installed (which you'll do shortly).
 
 All these programs are required for the course, even Git. 
 Git, which is a software program to formally manage file versions, 
-is used because of it's popularity and the amount of documentation available for it.
-Check out the online book [Happy Git with R](https://happygitwithr.com/),
+is used because of it's popularity and the amount of documentation available for it. During the course, you will be using Git and GitHub to manage your group assignment. Check out the online book [Happy Git with R](https://happygitwithr.com/),
 especially the "Why Git" section, for an understanding on why we are teaching Git.
 Windows users tend to have more trouble with installing Git than macOS or Linux users.
 See the section on [Installing Git for Windows](https://happygitwithr.com/install-git.html#install-git-windows) for help.
