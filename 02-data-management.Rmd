@@ -788,7 +788,7 @@ and immediately combines it back together.
 
 The first position arguments to `group_by()` is, as usual, the dataset.
 The next arguments are the columns that contain the values you want to group by.
-These columns must contain **categorical** data (e.g. Sex). `group_by()` tells RStudio to compute the summary operation that follows on a certain variable of interest. On its own, `group_by()` does nothing but instead works with other functions. For example, `group_by()` works in combination with `mutate()` too.
+These columns must contain **categorical** data (e.g. Sex). `group_by()` tells R to compute the summary operation that follows on a certain variable of interest. On its own, `group_by()` does nothing but instead works with other functions. For example, `group_by()` works in combination with `mutate()` too.
 
 As with the other functions, 
 `summarise()` takes the data as the first position argument.
