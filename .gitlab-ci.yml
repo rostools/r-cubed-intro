@@ -14,8 +14,10 @@ build:
     artifacts:
         paths:
             - public
+        expire_in:
+            - 1 hr
 
-deploy_prod:
+deploy:
     image: node:latest
     stage: deploy
     before_script:
