@@ -1,6 +1,6 @@
-# R Markdown Style Guides
+# Continued learning {#post-course}
 
-## Additional tips for formatting text with Markdown syntax
+## More formatting syntax in Markdown {#post-course-markdown}
 
 ### Lists
 
