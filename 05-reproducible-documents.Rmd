@@ -453,6 +453,11 @@ Don't forget about including the `knitr::kable()` function at the end of the pip
 
 ## Formatting text with Markdown syntax
 
+**Take about 8 min to read over the first few parts of this section, then move
+to the next exercise. You can also access a quick guide using the RStudio menu:
+"Help -> Cheatsheets -> R Markdown Cheat Sheet"**. For learning more formatting
+features of Markdown, check out Appendix \@ref(post-course-markdown).
+
 Formatting text in Markdown is done using characters that are considered "special"
 and act like commands.
 So these special characters indicate what text is bolded,
@@ -493,120 +498,7 @@ Paragraph.
 - `super^script^` gives super^script^.
 - `sub~script~` gives sub~script~.
 
-### Lists
 
-Lists are created by adding either `- ` or `1.` to the beginning of a line
-and an empty line must be at the start and end of the list.
-
-For unnumbered lists, it looks like:
-
-```markdown
-- item 1
-- item 2
-- item 3
-```
-
-which gives...
-
-- item 1
-- item 2
-- item 3
-
-And numbered lists look like:
-
-```markdown
-1. item 1
-2. item 2
-3. item 3
-```
-
-which gives...
-
-1. item 1
-2. item 2
-3. item 3
-
-### Block quotes
-
-Block quotes are used when you want to emphasize a block of text,
-usually for quoting someone. 
-You create a block quote by putting a `>` at the beginning of the line,
-and as with the lists and headers, 
-needs empty lines before and after the text.
-So it looks like:
-
-```markdown
-> Block quote 
-```
-
-which gives...
-
-> Block quote 
-
-### Adding footnotes
-
-Footnotes are added by enclosing a number or word in square brackets (`[]`)
-and beginning with an uptick (`^`). It looks like:
-
-```markdown
-Footnote[^1] or this[^note].
-
-[^1]: Footnote content
-[^note]: Another footnote
-```
-
-which gives...
-
-Footnote[^1] or this[^note].
-
-[^1]: Footnote content
-[^note]: Another footnote
-
-### Adding links to websites
-
-Including a link to a website in your document is done by surrounding the link text
-with square brackets (`[]`) followed by the link URL in brackets (`()`).
-There must not be any space between the square brackets 
-and the regular brackets (it should look like `[]()`).
-
-```markdown
-[Link](https://google.com)
-```
-
-which gives...
-
-[Link](https://google.com)
-
-### Inserting (simple) tables
-
-While you can insert tables using Markdown too, 
-it isn't recommended to do that for complicated or large tables.
-Tables are created by separating columns with `|`,
-with the table header being separated by a line that looks like `|:--|`.
-A simple example is:
-
-```
-|   | Fun | Serious |
-|:--|----:|--------:|
-| **Happy** | 1234 | 5678 |
-| **Sad** | 123 | 456 |
-```
-
-which gives...
-
-|   | Fun | Serious |
-|:--|:---:|:-------:|
-| **Happy** | 1234 | 5678 |
-| **Sad** | 123 | 456 |
-
-The `|---:|` or `|:---|` tell the table to left-align or right-align the values
-in the column. Center-align is `|:----:|`.
-
-So you can probably imagine,
-doing this for larger or even slightly more complicated tables is not practical.
-A good alternative approach is to create the table in a spreadsheet,
-importing that table into R within a code chunk,
-and using `knitr::kable()` to create the table after that.
 
 ### Inline R code
 
@@ -626,14 +518,13 @@ or character value, nothing more.
 
 ## Exercise: Practice using Markdown for writing text
 
-Time: 8 min
+Time: 5 min
 
 1. Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
 1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
 1. Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
-1. Include an inline R code to calculate 10 divided by 2 in the "Analysis" section.
-1. Play around with adding some lists, tables, or anything else.
+1. Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
 
 ## Inserting figures, as files or from R code
 
