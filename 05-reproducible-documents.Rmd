@@ -449,7 +449,10 @@ Don't forget about including the `knitr::kable()` function at the end of the pip
 
 ## Formatting text with Markdown syntax
 
-**Take about 8 min to read over the first few parts of this section, then move to the next exercise. You can also access a quick guide using the RStudio menu: "Help -> Cheatsheets -> R Markdown Cheat Sheet"**.
+**Take about 8 min to read over the first few parts of this section, then move
+to the next exercise. You can also access a quick guide using the RStudio menu:
+"Help -> Cheatsheets -> R Markdown Cheat Sheet"**. For learning more formatting
+features of Markdown, check out Appendix \@ref(post-course-markdown).
 
 Formatting text in Markdown is done using characters that are considered "special"
 and act like commands.
