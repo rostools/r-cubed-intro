@@ -68,7 +68,7 @@ given the solution is provided already.
 - Try to keep the screen on your RStudio as much as possible 
 and don't switch applications often, 
 only when you need to go to the course material or to show an exercise.
-- For the "Project Management and Best Practices" session, talk through the basics of R in rproj including how to troubleshoot/get help. Check for participants' understanding using the stickies (see next section).
+- For the "Project Management and Best Practices" session (Section \@ref(r-project-management)), talk through the basics of R, including how to troubleshoot or get help. Check for participants' understanding using the stickies (see next section).
 - For code-along sessions, narrate what you are doing as you are coding by providing explanations of what you hope to achieve with each function/piece of code. This is particularly important for the wrangling sessions, where you should explain what each function does and examples of instances where you would use each function.
 - Be aware of how much space you have on the projector screen 
 and don't let R code go too long. 
