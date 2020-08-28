@@ -20,7 +20,7 @@ rmd_files:
     - "04-data-visualization.Rmd"
     - "05-reproducible-documents.Rmd"
     - "appendix.md"
-    - "post-course.Rmd"
+    - "06-post-course.Rmd"
     - "resources.Rmd"
     - "for-instructors.md"
     - "LICENSE.md"
