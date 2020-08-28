@@ -59,9 +59,13 @@ In fact, this website is built from R and Markdown!
 The Markdown used in R Markdown is based on [pandoc] 
 ("pan" means all and "doc" means document, so "all documents").
 Pandoc is a very powerful, popular, 
-and well-maintained software tool for document conversion. 
-But, we'll get to Markdown more a bit later.
-For now we're going to focus on the main reason to use it:
+and well-maintained software tool for document conversion. You can use R Markdown in conjunction with other packages (e.g., [bookdown](https://bookdown.org/yihui/bookdown/)) to do any number of things. Here are some examples:
+    - Blogging (e.g., [Yihui Xie's blog](https://yihui.org/), creator of many commonly-used R packages like rmarkdown) with the [blogdown](https://bookdown.org/yihui/blogdown/) package
+    - Writing your thesis (e.g., [Tyson Barrett's](https://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/) experience of using pure R Markdown versus [Ed Cherry's](https://eddjberry.netlify.app/post/writing-your-thesis-with-bookdown/) experience of using R Markdown with the Bookdown package)
+    - Writing and [formatting](https://bookdown.org/yihui/rmarkdown/journals.html) journal articles (e.g., a [reproducibility project](https://www.collabra.org/article/10.1525/collabra.71/))
+    - Writing book chapters (including the guide to [bookdown](https://github.com/rstudio/bookdown/blob/master/inst/examples/01-introduction.Rmd)!)
+
+For now, we're going to focus on the main reason to use it:
 for incorporating R code and output into a document!
 By using R code in a document, 
 you can have a seamless integration between document writing 
