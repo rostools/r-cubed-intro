@@ -14,8 +14,7 @@ build:
     artifacts:
         paths:
             - public
-        expire_in:
-            - 1 hr
+        expire_in: 1 hr
 
 deploy:
     image: node:latest
