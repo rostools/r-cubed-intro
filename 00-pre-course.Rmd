@@ -17,7 +17,7 @@ The very first things to do are to:
 For some Windows users, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/Rtools35.exe)
 in order for some R packages to be installed (which you'll do shortly).
 
-All these programs are required for the course, even Git.
+All these programs are required for the course, even Git. 
 Git, which is a software program to formally manage file versions, 
 is used because of it's popularity and the amount of documentation available for it.
 Check out the online book [Happy Git with R](https://happygitwithr.com/),
@@ -157,8 +157,9 @@ knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 Most of the description of the course is found in the [syllabus](index.html).
 For quickly going to the syllabus from RStudio, 
 run the command `r3::open_syllabus()`.
-Or click it from the menu bar on the side.
-If you haven't read it, **please read it now**.
+Or click it from the menu bar on the side. While you may have signed up to this course to learn more about R, you should know that conducting reproducible research goes beyond R and RStudio. As such, we will be spending a lot of time exploring other tools that are used in conjunction with R, to improve the structure and transparency of your work. So, while it may feel like you are not doing so much "coding" straight away, just know that all of the readings and exercises are designed to set you up for success in doing reproducible research.
+
+If you haven't read the syllabus, **please read it now**.
 Read over what the course will cover, 
 what we expect you to learn at the end of it,
 and what our basic assumptions are about who you are and what you know.
