@@ -301,7 +301,7 @@ The ability to read, understand, modify, and write simple pieces of code is an
 essential skill for modern data analysis tasks and projects.
 So! Here's some tips for writing R code:
 
-- *Be descriptive* with your names!
+- *Be descriptive* with your names.
 - As with natural languages like English, write as if someone will read your code.
 - Stick to a *[style guide]*.
 
@@ -323,7 +323,13 @@ or with the keyboard shortcut (`Ctrl-Shift-R`).
 
 Time: 15 min
 
-Briefly scan through the [style guide] in the link.
+Read through these specific sections of the [style guide]:
+
+- [Object naming](https://style.tidyverse.org/syntax.html#object-names)
+- [Spacing](https://style.tidyverse.org/syntax.html#spacing)
+- [Function calls](https://style.tidyverse.org/syntax.html#function-calls)
+- [Control Flow: Indenting](https://style.tidyverse.org/syntax.html#indenting)
+
 Then try to make the below code more readable. 
 Copy and paste the code below into the `R/project-session.R` file.
 **NOTE**: *Don't* run this code, just edit it to improve the code style 
@@ -338,19 +344,15 @@ You don't need to understand what the code does, just follow the guide.
 ```{r ex-wrong-code-naming, eval=FALSE}
 # Object names
 DayOne
-dayone
 T <- FALSE
 c <- 9
 
 # Spacing
 x[,1]
 x[ ,1]
-x[ , 1]
 mean (x, na.rm = TRUE)
 mean( x, na.rm = TRUE )
 height<-feet*12+inches
-mean(x, na.rm=10)
-sqrt(x ^ 2 + y ^ 2)
 df $ z
 x <- 1 : 10
 
@@ -370,8 +372,6 @@ The old code is in comments and the better code is below it.
 # Should be snake case (looks like `snake_case`)
 # DayOne
 day_one
-# dayone
-day_one
 
 # Should not over write existing function names
 # T = TRUE, so don't name anything T
@@ -385,7 +385,6 @@ number_value <- 9
 # Commas should be in correct place
 # x[,1]
 # x[ ,1]
-# x[ , 1]
 x[, 1]
 # Spaces should be in correct place
 # mean (x, na.rm = TRUE)
@@ -393,10 +392,6 @@ x[, 1]
 mean(x, na.rm = TRUE)
 # height<-feet*12+inches
 height <- feet * 12 + inches
-# mean(x, na.rm=10)
-mean(x, na.rm = 10)
-# sqrt(x ^ 2 + y ^ 2)
-sqrt(x^2 + y^2)
 # df $ z
 df$z
 # x <- 1 : 10
