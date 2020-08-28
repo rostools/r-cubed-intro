@@ -960,7 +960,7 @@ You can also convert from long to wide, though this is less commonly done,
 as most analyses either work better or require the long form. 
 It can also be much more tricky to convert over to.
 But sometimes you may need to have a wide form for your data.
-Here you can use `pivot_wider()` function. Others have used `pivot_wider()` for creating summary tables for presentation or to capture data in a format needed by others tools. Like its opposite,
+Here you can use `pivot_wider()` function. Others have used `pivot_wider()` for creating summary tables for presentation or to capture data in a format needed by other tools. Like its opposite,
 the first position argument is the data and the other necessary arguments are:
 
 1. `id_cols`: This is optional as it will default to all column names. 
