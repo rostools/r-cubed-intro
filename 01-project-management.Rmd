@@ -504,6 +504,7 @@ no matter their skill level. You *can fix it*! `r emo::ji("smile")`
     - Object or column name misspelled?
     - Forgot to load your data before working on it?
     - Forgot to load or re-load your packages? Packages are automatically unload when you exit out of RStudio and R. So you need to load them in each new session with the `library()` function.
+1. **Go back to the start of the code and run each line or part one at a time**, to see where the problem occurs. You will get an opportunity to practice this later, once you are working with bigger chunks of code.
 
 ## Exercise: Quick fixes and troubleshooting
 
@@ -518,51 +519,6 @@ x < y
 
 library(tidyvrese)
 ```
-
-## Exercise: Where have we gone wrong?
-
-You may have combed through your piece of code and not been able to find any small fixes. The next step is to go back to the start of the code and **run each line or part one at a time**, to see where the problem occurs.
-
-Here is a piece of code that you will see again later in the course. When it is run in RStudio, it returns an error message. However, we can’t immediately see the problem and need a hint to locate where in the code the issue lies. We are going to try the one-line-at-a-time approach. Please note that, again, you don’t need to understand what the code does just yet.
-
-```{r, eval=FALSE}
-at_work %>% 
-    drive("grocery store") %>% 
-    buy("eggs") %>% 
-    drive("home")
-```
-
-When you are working with pieces of code that uses pipes (%>%), you should highlight from one pipe up until (but excluding) the next pipe. Watch as each line of code is entered separately.
-
-```{r, eval=FALSE}
-at_work
-```
-
-No problems there!
-
-```{r, eval=FALSE}
-at_work %>% 
-    drive("grocery store")
-```
-
-No problems there either!
-
-```{r, eval=FALSE}
-at_work %>% 
-    drive("grocery store") %>% 
-    buy("eggs")
-```
-
-Again, no problems!
-
-```{r, eval=FALSE}
-at_work %>% 
-    drive("grocery store") %>% 
-    buy("eggs") %>% 
-    drive("home")
-```
-
-Here is where the error occurs, which indicates that the issues lies somewhere between eggs and home. If we take a closer look, you can see that the pipe was left off after the “buy” function.
 
 ## Final troubleshooting tips
 
