@@ -74,7 +74,7 @@ abide by its terms.
 ## Acknowledgements
 
 Much of the lesson material was taken and modified from multiple sources (most
-of which I've created, been involved in, or contributed to), including:
+of which Luke Johnston has created, been involved in, or contributed to), including:
 
 - [UofTCoders Reproducible Quantitative Methods for EEB](https://uoftcoders.github.io/rcourse/) 
 (which I helped develop and is the inspiration and basis for this course)
@@ -85,7 +85,7 @@ from the peer led and contributed lessons of each
 - [Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/)
 course template
 
-Most of the material comes from a course I taught to the Danish Diabetes Academy 
+Most of the material comes from a course we taught for the Danish Diabetes Academy 
 in March, 2019:
 [*"Reproducible Quantitative Methods: Data analysis workflow using R"*](https://v1--dda-rcourse.netlify.com/).
 
