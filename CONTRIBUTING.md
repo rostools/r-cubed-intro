@@ -7,7 +7,7 @@ There are a few ways in which you can contribute:
 - Instructing a lesson.
 - Helping during the course.
 
-## Participating in Issue discussions :thought_balloon: :question:
+## Participating in issue discussions :thought_balloon: :question:
 
 Helping to contribute can be as simple as giving feedback or suggestions or thoughts
 about a topic or issue. You'll need a GitLab account to add your comments on
