@@ -1,13 +1,13 @@
 # Want to contribute? Great! :tada: 
 
-There are a few ways that you can contribute:
+There are a few ways in which you can contribute:
 
-- Participating in the discussions on Issues.
+- Participating in the discussions on issues.
 - Adding to lesson material.
 - Instructing a lesson.
 - Helping during the course.
 
-## Participating in Issue discussions :thought_balloon: :question:
+## Participating in issue discussions :thought_balloon: :question:
 
 Helping to contribute can be as simple as giving feedback or suggestions or thoughts
 about a topic or issue. You'll need a GitLab account to add your comments on
@@ -128,7 +128,7 @@ like dplyr, tidyr, rmarkdown, ggplot2, and so on.
 - Be kind, and remember, your words and how you help *matter a lot*. They can 
 make participants feel better or worse. So be kind, considerate, and understanding!
 
-Before coming to help, I would recommend taking a look at the tidyverse style
+Before coming to help, we would recommend taking a look at the tidyverse style
 guide as well a quick skim through of the [R for Data Science book](https://r4ds.had.co.nz/).
 
 ## Code of Conduct

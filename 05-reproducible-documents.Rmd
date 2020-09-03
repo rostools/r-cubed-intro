@@ -465,7 +465,7 @@ what is a header, what is a list, and so on.
 Almost every feature you need to write a scientific document is available in Markdown,
 though not all.
 If you can't get Markdown to do what you want,
-my suggestion would be to try to fit your writing around Markdown, 
+our suggestion would be to try to fit your writing around Markdown, 
 rather than force or fight with Markdown to do something it wasn't designed to do. 
 You might actually find that the simpler Markdown approach is easier 
 than what you wanted or were thinking of doing,
