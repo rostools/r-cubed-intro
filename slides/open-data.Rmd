@@ -35,7 +35,7 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 ---
 
-## Different types of open data
+## Open Data Principles
 
 .pull-left[
 - Open data is not only about datasets you can download from the internet
@@ -52,7 +52,7 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 ---
 
-## Different types of open data
+## Open Data Principles
 
 .pull-left[
 - Open data is not only about datasets you can download from the internet
