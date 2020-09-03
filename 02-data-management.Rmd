@@ -863,7 +863,7 @@ We are going to take a pitstop here to practice what you learned earlier \@ref(0
 
 Here is a piece of code similar to the one we were just using. When it is run in RStudio, it returns an error message. However, we can’t immediately see the problem and need a hint to locate where in the code the issue lies. We are going to try the one-line-at-a-time approach.
 
-```{r}
+```{r, error = TRUE}
 NHANES %>%
     rename(Sex = Gender) %>% 
     filter(!is.na(Diabetes)) %>% 
