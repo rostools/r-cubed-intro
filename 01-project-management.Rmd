@@ -558,7 +558,7 @@ great sources of help and learning. You can access cheatsheets by select "Help -
 
 ## Final exercise: Group work
 
-Time: 15 min.
+Time: 30 min.
 
 For each member of the group:
 
