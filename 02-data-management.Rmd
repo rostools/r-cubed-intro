@@ -857,6 +857,56 @@ NHANES %>%
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
 
+## Exercise: Where have we gone wrong?
+
+We are going to take a pitstop here to practice what you learned earlier \@ref(01-project-management.Rmd) about troubleshooting errors, including going back to the start of the code and running each line or part one at a time until you find where the problem occurs.
+
+Here is a piece of code similar to the one we were just using. When it is run in RStudio, it returns an error message. However, we can’t immediately see the problem and need a hint to locate where in the code the issue lies. We are going to try the one-line-at-a-time approach.
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) 
+    summarise(MeanAge = mean(Age, na.rm = TRUE))
+```
+
+When you are working with pieces of code that uses pipes (%>%), you should highlight from one pipe up until (but excluding) the next pipe. Watch as each line of code is entered separately.
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender)
+```
+
+No problems there!
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes))
+```
+
+No problems there either!
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) 
+```
+
+Again, no problems!
+
+```{r, error = TRUE}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) 
+    summarise(MeanAge = mean(Age, na.rm = TRUE))
+```
+
+Here is where the error occurs, which indicates that the issues lies somewhere between the `group_by()` and `summarise()` functions. If we take a closer look, you can see that the pipe was left off after the `group_by()` function line.
+
 ## Saving datasets as files
 
 This will be a very short section. 
