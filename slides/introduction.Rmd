@@ -18,14 +18,6 @@ layout: true
 source(here::here("R/slide-setup.R"))
 ```
 
-<div class="my-footer">
-<span>
-<img src="../images/dda_logo.png" alt="Danish Diabetes Academy", width="90">
-<img src="../images/SDCA_logo.png" alt="Steno Diabetes Center Aarhus", width="55">
-<img src="../images/au_logo_black.png" alt="Aarhus University", width="140">
-</span>
-</div> 
-
 <!-- Introduce instructors and helpers. -->
 
 ---

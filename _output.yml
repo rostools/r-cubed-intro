@@ -1,5 +1,11 @@
 bookdown::gitbook:
-  css: style.css
+  css:
+    - "resources/style.css"
+  includes:
+    in_header:
+      - "resources/hypothesis.html"
+    before_body:
+      - "resources/contribute.html"
   config:
     toc:
       before: |

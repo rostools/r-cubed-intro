@@ -1,4 +1,3 @@
-new_session: yes
 output_dir: "public"
 book_filename: "r-cubed"
 delete_merged_file: true
