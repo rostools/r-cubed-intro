@@ -528,6 +528,8 @@ Bold (`**word**`) one word in each and italicize (`*word*`) another.
 
 ## Inserting figures, as files or from R code
 
+**Take about 7-10 mins to read over and work through the next few sections**.
+
 Aside from tables,
 figures are the other most common form of output inserted into documents.
 And like tables, you can insert figures into the document 
