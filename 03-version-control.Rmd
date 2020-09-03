@@ -335,7 +335,7 @@ and make it easier for others as well.
 
 ## Exercise: Committing to history
 
-Time: 10 min
+Time: 12 min
 
 1. Practice the add-commit ("add to staging"-"committing to history") sequence by adding and 
 committing each of the remaining files in your R project one by one into the Git history
@@ -468,7 +468,7 @@ knitr::include_graphics(here::here("images/rstudio-terminal-tab.png"))
 
 ## Exercise: Clone GitHub repository from RStudio
 
-Time: 5 min
+Time: 10 min
 
 Get some practice with cloning from GitHub by doing it again with another repository.
 
@@ -554,7 +554,7 @@ You've now updated your project.
 
 ## Exercise: Push and pull
 
-Time: 10 min
+Time: 15 min
 
 1. Using the `practice-repo` project you created in the previous exercise, 
 open up the `README.md` file in RStudio.
@@ -660,7 +660,7 @@ refresh the browser, and view that the changes have taken place.
 
 ## Exercise: Dealing with merge conflicts
 
-Time: 10 min
+Time: 12 min
 
 1. In your GitHub `practice-repo` repository, 
 edit the `README.md` file by replacing one word with a random word 
@@ -747,7 +747,7 @@ a merge conflict occurs that you must deal with manually.
 
 ## Final exercise: Group work
 
-Time: 30 min
+Time: 1 hour
 
 For this exercise, you as a group will upload your group project folder to GitHub.
 We've already created a team repository for you 

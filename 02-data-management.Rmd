@@ -203,7 +203,7 @@ glimpse(NHANES)
 
 ## Exercise: Become familiar with the dataset
 
-Time: 5 min
+Time: 10 min
 
 Take the time to get familiar with the NHANES dataset.
 
@@ -431,7 +431,7 @@ We can now "read" these actions as:
 
 ## Exercise: Practice what we've learned
 
-Time: 8 min
+Time: 10 min
 
 In the `exercise-wrangling.R` file, complete these tasks:
 
@@ -702,7 +702,7 @@ NHANES_update <- NHANES %>%
 
 ## Exercise: Piping, filtering, and mutating
 
-Time: 15 min
+Time: 20 min
 
 Copy and paste the code below into the script `exercises-wrangling.R`. 
 Then start replacing the `___` with the appropriate
@@ -981,7 +981,7 @@ For SAS, SPSS, or Stata files, you can use the package
 
 ## Final exercise: Group work
 
-Time: ~30 min
+Time: 1 hour
 
 This exercise has two aims: to get working on and completing the group project, 
 and to get you practicing using the dplyr and tidyr functions we covered today.

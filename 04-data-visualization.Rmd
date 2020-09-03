@@ -731,7 +731,7 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
 
 ## Final exercise: Group work
 
-Time: 30 min
+Time: 45 min
 
 In your groups, start exploring your data by making ggplot2 graphs.
 Ultimately, your goal as a group is to complete item 6 of the [assignment](assignment).
