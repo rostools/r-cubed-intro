@@ -132,12 +132,8 @@ It is *very much worth it* to learn and use it as often as you can.
 
 While many people may use Git to manage their R Projects, you can also work with other non-code file types in Git. In the previous section, you learned that you can load in datasets of many file types, including `.csv` and `.rda` files. You can also import image files, `.zip` files, Word documents, and PDFs. Version control is useful for any project as any type of documentation can be saved in the Git history, which allows for the ability to revert to an earlier version if necessary. You can save files either by adding and committing them or by uploading them to your repository on GitHub, as pictured below.
 
-```{r image-git-upload-file-github, echo=FALSE, fig.cap="GitLab: Select Upload filea from the Add files drop-down menu."}
-knitr::include_graphics(here::here("images/image-git-upload-file-github.png"))
-```
-
-```{r image-git-upload-file-gitlab, echo=FALSE, fig.cap="GitLab: Select Upload file from the + drop-down menu."}
-knitr::include_graphics(here::here("images/image-git-upload-file-gitlab.png"))
+```{r image-git-upload-file-github, echo=FALSE, fig.cap="GitHub: Select Upload filea from the Add files drop-down menu."}
+knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 ```
 
 ## Basics of Git
