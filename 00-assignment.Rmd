@@ -72,10 +72,13 @@ Here are some example datasets:
     - [Zika Virus Data](https://github.com/BuzzFeedNews/zika-data/blob/master/data/raw/paho-who/paho-who-cases-reported-latest.csv)
     - [FBI Firearm Stats](https://github.com/hchats/nics-firearm-background-checks/blob/master/data/nics-firearm-background-checks.csv)
     - [New York Squirrel Census Date](https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-29/nyc_squirrels.csv)
+    - [Zindi.africa: Sea Turtle Rescue] (https://gitlab.com/rostools/r-cubed/-/blob/master/datasets/turtles.zip)
+    - [Zindi.africa: Busara Mental Health] (https://gitlab.com/rostools/r-cubed/-/blob/master/datasets/rural_kenya.zip)
+    - [Zindi.africa: Female-Headed Households in South Africa](https://gitlab.com/rostools/r-cubed/-/blob/master/datasets/rsa_wards.zip)
     - [Starbucks Menu Item Data](https://www.kaggle.com/starbucks/starbucks-menu) (May be required to create a Kaggle account)
-    - [Female-Headed Households in South Africa](https://zindi.africa/competitions/womxn-in-big-data-south-africa-female-headed-households-in-south-africa/data) (May be required to create a Zindi account)
 
 4. **Download the dataset** and put it into the `data-raw/` folder of your project. For the GitHub-linked datasets above, you should be able to click on "Raw" or "Download" buttons, then use the keyboard shortcut (`Ctrl-S`) to save the page (as a .csv file). It is advised that you push/pull appropriately and check that all team members can "see" the dataset.
+If you have documentation on the dataset, e.g. variable definitions, put those files in the `data-raw/` folder as well.
 
 4. **Create an R script inside `data-raw/` that cleans up and prepares the raw dataset**
 (as covered in [Data Management](wrangling.html)).
