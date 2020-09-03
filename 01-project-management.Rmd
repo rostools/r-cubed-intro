@@ -1,7 +1,5 @@
 # Management of R projects {#r-project-management}
 
-![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
-
 > When in RStudio, quickly jump to this page using `r3::open_rproject_management()`.
 
 **Session objectives**:
@@ -65,7 +63,7 @@ Save it on your `Desktop/`.
 See Figure \@ref(fig:prodigenr-project-creation) for the steps to do it:
 
 ```{r prodigenr-project-creation, fig.cap="Creating a new analysis project in RStudio.", echo=FALSE}
-knitr::include_graphics(here::here("images/rstudio-prodigenr-projects.gif"))
+knitr::include_graphics(here::here("videos/rstudio-prodigenr-projects.gif"))
 ```
 
 You can also use the Console, but we won't do that in this session.
@@ -94,7 +92,7 @@ LearningR
 ├── .Rbuildignore
 ├── .gitignore
 ├── DESCRIPTION
-├── learning-r.Rproj
+├── LearningR.Rproj
 ├── README.md
 └── TODO.md
 ```
@@ -241,7 +239,7 @@ c(1, 5, 6)
 factor(c("low", "high", "medium", "high"))
 
 # This is a dataframe:
-head(iris)
+head(CO2)
 ```
 
 Notice how we use the `#` to write comments or notes. Whatever we write after
@@ -261,11 +259,11 @@ we can use other functions like:
 
 ```{r examining-dataframes}
 # Column names
-colnames(iris)
+colnames(CO2)
 # Structure
-str(iris)
+str(CO2)
 # Summary statistics
-summary(iris)
+summary(CO2)
 ```
 
 ## Using auto-completion in RStudio
@@ -303,7 +301,7 @@ The ability to read, understand, modify, and write simple pieces of code is an
 essential skill for modern data analysis tasks and projects.
 So! Here's some tips for writing R code:
 
-- *Be descriptive* with your names!
+- *Be descriptive* with your names.
 - As with natural languages like English, write as if someone will read your code.
 - Stick to a *[style guide]*.
 
@@ -325,7 +323,13 @@ or with the keyboard shortcut (`Ctrl-Shift-R`).
 
 Time: 15 min
 
-Briefly scan through the [style guide] in the link.
+Read through these specific sections of the [style guide]:
+
+- [Object naming](https://style.tidyverse.org/syntax.html#object-names)
+- [Spacing](https://style.tidyverse.org/syntax.html#spacing)
+- [Function calls](https://style.tidyverse.org/syntax.html#function-calls)
+- [Control Flow: Indenting](https://style.tidyverse.org/syntax.html#indenting)
+
 Then try to make the below code more readable. 
 Copy and paste the code below into the `R/project-session.R` file.
 **NOTE**: *Don't* run this code, just edit it to improve the code style 
@@ -340,19 +344,15 @@ You don't need to understand what the code does, just follow the guide.
 ```{r ex-wrong-code-naming, eval=FALSE}
 # Object names
 DayOne
-dayone
 T <- FALSE
 c <- 9
 
 # Spacing
 x[,1]
 x[ ,1]
-x[ , 1]
 mean (x, na.rm = TRUE)
 mean( x, na.rm = TRUE )
 height<-feet*12+inches
-mean(x, na.rm=10)
-sqrt(x ^ 2 + y ^ 2)
 df $ z
 x <- 1 : 10
 
@@ -372,8 +372,6 @@ The old code is in comments and the better code is below it.
 # Should be snake case (looks like `snake_case`)
 # DayOne
 day_one
-# dayone
-day_one
 
 # Should not over write existing function names
 # T = TRUE, so don't name anything T
@@ -387,7 +385,6 @@ number_value <- 9
 # Commas should be in correct place
 # x[,1]
 # x[ ,1]
-# x[ , 1]
 x[, 1]
 # Spaces should be in correct place
 # mean (x, na.rm = TRUE)
@@ -395,10 +392,6 @@ x[, 1]
 mean(x, na.rm = TRUE)
 # height<-feet*12+inches
 height <- feet * 12 + inches
-# mean(x, na.rm=10)
-mean(x, na.rm = 10)
-# sqrt(x ^ 2 + y ^ 2)
-sqrt(x^2 + y^2)
 # df $ z
 df$z
 # x <- 1 : 10
@@ -492,41 +485,66 @@ you to use later on.
 
 ## Encountering problems and finding help
 
-You **will** encounter problems and issues and errors when working with R... 
-and you will encounter them **all the time**. This is a fact of life. How you 
-deal with the warnings and errors is the important part. Here are some steps:
+**Please take 5-10 mins to read this section.**
 
-1. *First*, try to stay calm, problems happen to *everyone*, 
+You *will* encounter problems and errors when working with R, 
+and you will encounter them *all the time*. In fact, most of your time in R will be spent figuring out solutions to these errors ("debugging"). Error messages will appear in red text in your Console and start with "Error:". Warning messages that are sometimes harmless are also usually in red, so make sure to read if it says "Error" or not. This section is designed to give you some tips for how to work around problems, as you won't always have stickies and helpers in the room to come over to your computer, and help you work through things! Here are some initial steps to take when you encounter an error:
+
+1. **First, try to stay calm**; problems happen to everyone, 
 no matter their skill level. You *can fix it*! `r emo::ji("smile")`
-1. Go over the code again and check for any mistakes:
-    - Any missing commas?
-    - Any missing end brackets like `]`, `)`, or `}`?
-    - Is the object name spelled correctly?
-1. Go back in the code a bit and run each one at a time to see where the problem occurs.
-1. Restart the R session (`"Session -> Restart R"` or `Ctrl-Shift-F10`) 
-and run the code from beginning again, tracking what objects get created and if
+1. **Stop to read through the error message and understand what RStudio is telling you.** Some common error messages are:
+    - "Could not find function" -- Usually means that you have misspelled the function, or an R package has not loaded properly
+    - "Object not found" -- Usually means that you have not initialized (saved) the object, or the object is initialized but empty 
+    - "Error in..." -- Usually means that you are referring to an object that doesn’t exist 
+    - "Unexpected symbol in..." -- Usually is because you misspelled a variable or object name, so R can't find it
+1. **Go over the code again and carefully check for any mistakes:**
+    - Missing commas or pipes?
+    - Missing end brackets like `]`, `)`, or `}`?
+    - Capitalized something that didn't need to be?
+    - Object or column name misspelled?
+    - Forgot to load your data before working on it?
+    - Forgot to load or re-load your packages? Packages are automatically unload when you exit out of RStudio and R. So you need to load them in each new session with the `library()` function.
+1. **Go back to the start of the code and run each line or part one at a time**, to see where the problem occurs. You will get an opportunity to practice this later, once you are working with bigger chunks of code.
+
+## Exercise: Quick fixes and troubleshooting
+
+**Time: ~5 min**
+
+The pieces of code below will return an error message due to one of the mistakes noted above. You don’t need to run this code in RStudio, but you can copy and paste the code into RStudio so that you can play around with it. Look at the code, identify the mistake, and provide the corrected code. You don’t need to understand what the code does.
+
+```{r exercise-errors, error=TRUE}
+Library()
+
+x < y
+
+library(tidyvrese)
+```
+
+## Final troubleshooting tips
+
+1. **Restart the R session (`"Session -> Restart R"` or `Ctrl-Shift-F10`)**. 
+Then run the code from beginning again and track what objects get created, and if
 the proper object name is used later on.
-1. (Rarely need to do) Close and re-open RStudio and try again.
-
-If these don't work, try to find help by:
-
-- Using `?` to get help on a function. When you run this function on an object,
-it will open up the help in the "Help" tab of RStudio. Try it out:
+1. (Rarely need to do) **Close/ re-open RStudio and try again.**
+1. **Use `help()` or `?` to access built-in documentation about a function or package.** When you run this function on an object,
+it will open the relevant documentation in the "Help" pane of RStudio (bottom right-hand corner). **Try it out:** Enter either of the following commands into your console and Run.
 
     ```{r using-help, eval=FALSE}
     ?colnames
+
+    help(colnames)
     ```
 
-- Check out the [RStudio cheatsheets], which are printable PDF files that are 
-great sources of help and learning.
-- If the problem relates to a specific package, check out its website. 
-The [tidyverse] packages all have amazing documentation that you can use to help
-you with problems you may have.
-- Check [StackOverflow](https://stackoverflow.com/questions/tagged/r), 
-which is a coding-related question and answer website.
-- Google it. No joke, 
-those who are "more expert" in coding languages like R are skilled mostly
-*because they know how to ask Google the right questions*.
+Sometimes, this documentation can be hard to read and seem overly complex for a beginner. Instead, you can try finding the website for the package you are having trouble with, as they often have guides that are a little easier to understand. The [tidyverse](https://www.tidyverse.org/packages/) packages all have amazing documentation that you can use to help you with problems you may have.
+
+1. **Check out the [RStudio cheatsheets](https://rstudio.com/resources/cheatsheets/)**, which are printable PDF files that are 
+great sources of help and learning. You can access cheatsheets by select "Help -> Cheatsheets" from the top menu bar. 
+1. **Consider explaining the problem out loud to a colleague or friend.** You might find that, in stepping through the problem and explaining what it is that you are trying to do/solve, you will come up with the solution yourself.
+1. **Take a break and come back to it!**
+1. **Google it.** Chances are that someone has already encountered that error and has asked about it online. In fact, those who are "more expert" in coding languages like R are skilled mostly because they are strategic and know how ask Google the right questions. Sometimes, Googling the error message will be enough, but sometimes you will need to include "R" or "rstats" and the relevant package or function as a keyword in your search.
+1. If all else fails, you can always turn to the trusty **online R community**. Check [StackOverflow](https://stackoverflow.com/questions/tagged/r), a coding-related question and answer website, to see whether your issue has already been asked about and solved by others. If it hasn’t and you are considering submitting a question, make sure to read the posting guides beforehand to ensure that you are asking the question in a helpful way. 
+
+**Final words:** It is important to always work towards writing "better" and "neater" code, as this can make it easier to break down pieces of code and troubleshoot problems. Ways to integrate this into your practice are to review documents like the tidyverse style guides regularly and perhaps join an online coding community.  
 
 ## Summary of session
 
@@ -547,21 +565,6 @@ For each member of the group:
 1. Complete item 1 of the [group assignment](assignment)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
-    - Name the project the *same* as your team name (we will provide it for you).
-    - For this exercise, every team member should create a new project.
-    - Please assign one person as the "coordinator".
-    In the [Version Control session](version-control), 
-    this person will use their project folder as the base for the initial tasks 
-    of the final exercise.
-2. Open up the `README.md` file and write a few sentences about yourself.
-3. Run these functions from the usethis package to setup the project 
-and to create these files:
-
-    ```r
-    usethis::use_blank_slate()
-    usethis::use_data_raw("original-data")
-    usethis::use_r("generate-figures")
-    ```
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
 [R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects

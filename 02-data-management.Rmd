@@ -1,7 +1,5 @@
 # Data management and wrangling {#wrangling}
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 > When in RStudio, quickly jump to this page using `r3::open_data_wrangling()`.
 
 **Session objectives**:
@@ -261,8 +259,8 @@ summary(NHANES)
 
 ## Select specific columns in a dataset
 
-Selecting columns of a dataset is a very common data wrangling task.
-The function for this task is appropriately called `select()`.
+Selecting columns of a dataset is a very common data wrangling task. The function for this task is appropriately called `select()`. You would use `select()` to extract one or more variables in a dataset, to have a closer look at or save as a new data frame to work with. It may be that you wish to explore the clinical characteristics of your study sample, so you may select some basic demographic variables (e.g., `Age` column) and clinical variables (e.g., `Weight` and `Height` columns) to perform these analyses. 
+
 For the input arguments, it takes the dataset as the first argument,
 which is the first input position right after the opening bracket `(`,
 and then takes the names of the columns you want to select.
@@ -320,7 +318,7 @@ nhanes_blood_pressure
 
 Depending on how your data was collected, 
 it may have column names that aren't very descriptive.
-So you'll probably want to rename them to something more explanatory.
+So you'll probably want to rename them to something more explanatory, which is particularly important if you're sharing your work with others or in an environment where multiple people are working on the same data.
 As with `select()`, the rename you use the function called `rename()`.
 Like `select()`, `rename()` takes the dataset as the first argument
 (first position) and then takes as many renaming arguments as you want
@@ -347,7 +345,8 @@ We can make use of a very powerful tool called piping (with the `%>%` function).
 
 **Take 5 minutes and read this section** before we continue.
 
-A key component of the tidy data and tidy code concept is making use of the `%>%` operator.
+A key component of the tidy data and tidy code concept is making use of the `%>%` operator. You would use the "pipe" operator when you are writing a piece of code with multiple operations/intermediate steps that require you to save/overwrite each step as an object (see below). One advantage of the "pipe" operator is that it will help to ensure that your code is less cluttered with unimportant object names.
+
 This operator allows you to "pipe" the output from one function to the
 input of another function, like a plumbing pipe would do for water.
 This allows you to easily chain functions together into "sentences".
@@ -377,7 +376,7 @@ got_eggs <- buy(at_grocery_store, "eggs")
 at_home <- drive(got_eggs, "home")
 ```
 
-But this still isn't too "readable". The pipe `%>%` operator can really simplify this:
+But this still isn't too "readable", and we are having to re-name each intermediate object with reference to the object before it. The pipe `%>%` operator can really simplify this:
 
 ```{r, eval=FALSE}
 at_work %>% 
@@ -502,8 +501,8 @@ NHANES %>%
 ## Filter the data by row
 
 Filtering data by row is a very common activity in data analysis, 
-for example, to get rid of outliers or to subset by a categorical group.
-As with the previous functions, the function to subset/filter is called `filter()`.
+for example, to get rid of outliers or to subset by a categorical group. 
+As with the previous functions, the function to subset/filter is called `filter()`. `filter()` is distinct from `select()` in the sense that it operates on rows whereas `select()` operates on columns. 
 The `filter()` function takes a logic condition (`TRUE` or `FALSE`).
 As with the other functions, the first position argument is the dataset,
 and all others are logic conditions to use.
@@ -534,6 +533,7 @@ filter so that only rows where `Gender` is equal to "female" are kept.
 
 So, when a row in the `Gender` column has the value "female", that row is kept.
 Otherwise, it is dropped.
+
 There are other logic comparisons to use.
 Use Table \@ref(tab:logic-operators) as a reference for logical conditions in R.
 
@@ -643,13 +643,7 @@ NHANES %>%
 
 ## Transform or add columns
 
-To "transform" (modify) an existing column or to add a new one,
-the function to use is called `mutate()`.
-Unfortunately, unlike the other functions, 
-the name is not as obvious about what it does.
-The meaning of mutate though is to change or modify, so it kind of makes sense.
-Like the other functions, the first input is the data 
-and the other arguments are columns to add or modify.
+To "transform" (modify) an existing column or to add a new one, the function to use is called `mutate()`. Unfortunately, unlike the other functions, the name is not as obvious about what it does. The meaning of mutate though is to change or modify, so it kind of makes sense. You would use `mutate()` if you wanted to compute a new variable using existing columns in your dataset, such as calculating BMI using `Height` and `Weight` columns. It may be that you want to multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the data and the other arguments are columns to add or modify.
 
 The form that `mutate()` uses is similar to normal R assignment:
 For instance, since the height's values are in centimeters, 
@@ -794,18 +788,14 @@ and immediately combines it back together.
 
 The first position arguments to `group_by()` is, as usual, the dataset.
 The next arguments are the columns that contain the values you want to group by.
-These columns must contain **categorical** data (e.g. Sex).
-On its own, `group_by()` does nothing but instead works with other functions.
+These columns must contain **categorical** data (e.g. Sex). `group_by()` tells R to compute the summary operation that follows on a certain variable of interest. On its own, `group_by()` does nothing but instead works with other functions. For example, `group_by()` works in combination with `mutate()` too.
 
 As with the other functions, 
 `summarise()` takes the data as the first position argument.
 The next arguments work similar to `mutate()` with one difference:
 the output must create a single value (e.g. a max or a mean).
 Like `mutate()`, 
-you can add multiple "summaries" by adding new columns separated by comma `,`.
-
-Simple statistics include: `min()`, `max()`, `mean()`, `median()`,
-`sd()`.
+you can add multiple "summaries" by adding new columns separated by comma `,`. You would use `summarize()` to derive basic descriptive statistics of a certain variable, including `min()`, `max()`, `mean()`, `median()`, `sd()`.
 
 **Ok, let's get back together and try this out**.
 Let's calculate the max age. Because `NA` values "propogate" 
@@ -866,6 +856,56 @@ NHANES %>%
     summarise(MeanAge = mean(Age, na.rm = TRUE),
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
+
+## Exercise: Where have we gone wrong?
+
+We are going to take a pitstop here to practice what you learned earlier \@ref(01-project-management.Rmd) about troubleshooting errors, including going back to the start of the code and running each line or part one at a time until you find where the problem occurs.
+
+Here is a piece of code similar to the one we were just using. When it is run in RStudio, it returns an error message. However, we can’t immediately see the problem and need a hint to locate where in the code the issue lies. We are going to try the one-line-at-a-time approach.
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) 
+    summarise(MeanAge = mean(Age, na.rm = TRUE))
+```
+
+When you are working with pieces of code that uses pipes (%>%), you should highlight from one pipe up until (but excluding) the next pipe. Watch as each line of code is entered separately.
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender)
+```
+
+No problems there!
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes))
+```
+
+No problems there either!
+
+```{r}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) 
+```
+
+Again, no problems!
+
+```{r, error = TRUE}
+NHANES %>%
+    rename(Sex = Gender) %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) 
+    summarise(MeanAge = mean(Age, na.rm = TRUE))
+```
+
+Here is where the error occurs, which indicates that the issues lies somewhere between the `group_by()` and `summarise()` functions. If we take a closer look, you can see that the pipe was left off after the `group_by()` function line.
 
 ## Converting between wide and long data
 
@@ -969,8 +1009,8 @@ Because they don't exist yet as columns, we need to use the quotes.
 You can also convert from long to wide, though this is less commonly done,
 as most analyses either work better or require the long form. 
 It can also be much more tricky to convert over to.
-But sometimes you may need to have a wide form for your data. 
-Here you can use `pivot_wider()` function. Like its opposite,
+But sometimes you may need to have a wide form for your data.
+Here you can use `pivot_wider()` function. Others have used `pivot_wider()` for creating summary tables for presentation or to capture data in a format needed by other tools. Like its opposite,
 the first position argument is the data and the other necessary arguments are:
 
 1. `id_cols`: This is optional as it will default to all column names. 
@@ -1079,6 +1119,46 @@ load(here::here("data/nhanes_bmi_only.rda"))
 
 You should see this dataset in the Environment tab. 
 This is how you save and load data.
+
+## Loading in a dataset
+
+**Take ~5 mins to read through this section**. You will get to practice loading
+in a dataset in your group work session.
+
+We've been so far using a teaching dataset that we load from a package, mainly
+to focus on getting familiar with data wrangling. However, there will come a
+time when you'd want to wrangle your own data.
+
+There are several ways to load in a dataset. The most common ways are:
+
+1. Using the RStudio menu "File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata" 
+(depending on your file type you want to import). Copy and paste the R code given
+for importing into the R script you are working in.
+
+2. If the file is a `.csv` file, use `readr::read_csv()` to import the dataset:
+
+    ```r
+    dataset_name <- readr::read_csv(here::here("data/dataset_name.csv"))
+    ```
+
+3. If the dataset is a `.rda` file, use `load()`:
+
+    ```r
+    load(here::here("data/dataset_name.rda"))    
+    ```
+
+For SAS, SPSS, or Stata files, you can use the package 
+[`haven`](https://haven.tidyverse.org/) to import those datasets into R.
+
+## Summary of session
+
+- In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
+- Use the R package tidyverse to load in multiple packages to tidy up data 
+- Never edit raw data - instead, save the changes in a separate folder or even file based on a code, and don't manually edit the data
+- Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
+- Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
+- Make your tables longer with `pivot_longer()`, suited for the split-apply-combine technique - but take care with `pivot_wider()`, which might make the table wide but less tidy
+
 
 ## Final exercise: Group work
 

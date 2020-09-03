@@ -1,7 +1,8 @@
 --- 
 title: "Reproducible Research in R"
 subtitle: "An introductory workshop on modern data analyses and workflows"
-date: "Created: `r format(Sys.time(), '%B %d %Y')`"
+author: "[Contributors: Instructors, helpers, and participants of the course](#contributors)"
+date: "Updated: `r format(Sys.time(), '%B %d %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
@@ -13,7 +14,7 @@ favicon: "images/favicon.ico"
 url: 'https\://r-cubed.rostools.org'
 ---
 
-# Syllabus
+# Welcome!
 
 ```{r, include=FALSE}
 # automatically create a bib database for R packages
@@ -23,93 +24,122 @@ knitr::write_bib(
 )
 ```
 
-![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
+[![GitLab repository](https://img.shields.io/badge/Repository-Source%20material-blue?style=flat&logo=gitlab)](https://gitlab.com/rostools/r-cubed)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921894.svg)](https://doi.org/10.5281/zenodo.3921894)
 
-> Note: You'll see several of these "badges" (image above) throughout the course material.
-This badge indicates whether the material is completed or is still being developed.
+The course is designed as a series of participatory live-coding lessons, where
+the instructor and learner code together, has hands-on
+exercises interspersed throughout the course, 
+and has a final group assignment of doing a simple data analysis project.
+This website contains all of the
+material for the course, from reading material to exercises, to images. It is
+structured as a book, with "chapters" as lessons, given in order of appearance.
+We make heavy use of the website throughout the course
+where code-along sessions follow the material on the website nearly exactly
+(with slight modifications for time or more detailed explanations).
 
-Reproducibility and open scientific practices are increasingly demanded of
-scientists and researchers. Training on how to apply these practices in data
-analysis has not kept up with demand. With this course, we hope to begin meeting
-that demand. Using a very practical approach based mostly on code-along sessions
-(instructor and learner coding together), the course will:
+The course material was created using [rmarkdown] to write the lessons,
+[bookdown] to create the book format, [GitLab] to host the [Git] 
+repository of the material, and [GitLab CI] with [Netlify] to create the website.
+The original source material for this course is found on the 
+[`r-cubed`] GitLab repository.
 
-1. Explain what an open and reproducible data analysis workflow is, what it
-looks like, and why it is important.
-1. Explain and demonstrate why R is rapidly becoming the standard program of
-choice for doing modern data analysis in science.
-1. Demonstrate and apply collaborative tools and techniques when working in team
-settings (including working with your future self).
-1. Show and apply the fundamental tools and skills for conducting a
-reproducible and modern analysis for a research project.
-1. Show where to go to get help and to continue learning modern data analysis
-skills.
+[rmarkdown]: https://rmarkdown.rstudio.com/
+[bookdown]: https://bookdown.org/yihui/bookdown/
+[GitLab]: https://gitlab.com/
+[Git]: https://git-scm.com/
+[GitLab CI]: https://docs.gitlab.com/ee/ci/
+[Netlify]: https://www.netlify.com/
+[`r-cubed`]: https://gitlab.com/rostools/r-cubed
 
-We'll be addressing the following questions:
+Want to contribute to this course? 
+Check out the [README] file as well as the [CONTRIBUTING] file
+on the GitLab repository for more details.
 
-- What is [R], why should I use it, and how do I use it?
-- What does a modern data analysis setup and workflow look like?
-- What is reproducibility and how is it different from replicability?
-- How can I ensure my data analysis project is reproducible?
-- How can I import and work with my data in R?
-- How can I visualize my data and make publication-quality figures?
-- Why should I and how can I keep track of changes to my analysis files?
-- How can I write reports to document, describe, and present analyses in a
-reproducible way?
+[README]: https://gitlab.com/rostools/r-cubed/-/blob/master/README.md
+[CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/master/CONTRIBUTING.md
 
-By the end of the course, participants will have a basic level of proficiency in
-using the [R] statistical computing language, enabling them to improve their data
-and code literacy, and to conduct a modern and reproducible data analysis. The
-course will place particular emphasis on research in diabetes and metabolism; it
-will be taught by instructors working in this field and it will
-use relevant examples where possible.
+## Re-use and licensing {#licensing}
 
-[R]: https://www.r-project.org/
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
 
-## Is this course for you?
+The course material is licensed under the
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+and the course code is licensed under a 
+[MIT License](https://gitlab.com/rostools/r-cubed/-/blob/master/LICENSE-MIT.md),
+so the material can be used, re-used, and modified, 
+as long as there is attribution to this source.
 
-To help manage expectations and develop the material for this course, we make a
-few assumptions about *who you are* as a participant in the course:
+## Previous versions
 
-- You are a researcher, likely working in the biomedical field (ranging from
-experimental to epidemiology).
-- You currently or will soon do some quantitative data analysis.
-- You: 
-    - know *nothing* or *little* about R (or computing in general); 
-    - *haven't* used coding programs for doing data analysis (e.g. used SPSS); 
-    - *have* used coding programs before (e.g. used SAS or Stata), but not R;
-    - know how to use R, but *haven't* used the [tidyverse] or [RStudio].
+There have been two previous "formal" versions of the course given so far:
 
-[tidyverse]: https://www.tidyverse.org/
-[RStudio]: https://rstudio.com/
+- [Version 1](https://v1--dda-rcourse.netlify.app/) taught in March 2019.
+- [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
 
-While we have these assumptions to help focus the content of the course, if you
-have an interest in learning R but don't fit any of the above assumptions, *you
-are still welcome to attend the course*! 
-We welcome everyone, up until the course capacity is reached that is.
+## Contributors {#contributors}
 
-In addition to the assumptions, we also have a fairly focused scope for teaching
-and expectations for learning. So this may also help you decide if this course
-is for you.
+Contributors for [version 1](https://gitlab.com/lwjohnst/dda-rcourse/-/tags/v1.0.0) were:
 
-- We *do* teach how to use R, starting from the very basics and targeted to beginners.
-- We *do not* teach statistics (these are already covered by most university curriculums).
-- We *do* teach from a team science, reproducible research, and open scientific
-perspective (i.e. by including a collaborative group project that uses a transparent
-and reproducible analysis workflow).
-- We *do* teach using practical, applied, and hands-on lessons and exercises, 
-with a few short lectures that introduce a topic.
+- Luke Johnston: Brainstormed most of the course material and structure; set up
+the website; organized and coordinated the course; wrote, prepared, and taught
+most of the code-along sessions, as well as several lectures.
+- Daniel Witte: Participated in brainstorming on the course structure and
+laytout; prepared and taught most of the lectures.
+- João Santiago: Taught and edited the R Markdown code-along session material.
+- Anna Schritz: Taught and edited the Data Management and Wrangling code-along
+session material.
+- Omar Silverman (helper) proofread and provided feedback on the material for several
+sessions.
 
-## General schedule
+Contributors for [version 2](https://gitlab.com/rostools/r-cubed/-/tags/v2.0) were:
 
-The workshop is structured as a series of participatory live-coding sessions
-(instructor and learner coding together) interspersed with hands-on exercises
-and group work, using either a practice dataset or some other real-world dataset.
-There are some lectures given, mainly at the start and end of the workshop.
-The general schedule outline is shown in the below table.
+- Luke Johnston: Same as with version 1.
+- Daniel Witte: Prepared and taught most of the lectures.
+- Helene Baek Juel: Edited and taught the Data Visualization code-along session material,
+as well as reviewed multiple other sections.
+- Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
+session material, as well as reviewed multiple other sections.
 
-```{r schedule-table, echo=FALSE, message=FALSE, warning=FALSE}
-options(knitr.kable.NA = "")
-schedule <- readr::read_csv(here::here("resources/schedule.csv"))
-knitr::kable(schedule, align = "l", caption = "General schedule for the 3 days of the course.")
-```
+Contributors for version 2.1 were:
+
+TODO: Add this once done.
+
+## Acknowledgements
+
+Many pieces from the (in development) course [Merely Useful](https://github.com/merely-useful/merely-useful.github.io)
+were modified and used in several places throughout the r-cubed course.
+Other parts were taken and modified from:
+
+- The [Aarhus University Community of Research Software Users] sessions on
+[project management](https://au-cru.github.io/content/workflow-setup.html),
+[data management and wrangling](https://au-cru.github.io/content/intro-dplyr.html),
+[intermediate dplyr and tidyr usage](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/),
+[data visualization](https://au-cru.github.io/content/intro-ggplot2.html),
+and [R Markdown](https://au-cru.github.io/content/intro-rmarkdown.html).
+- [A Git session](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
+given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
+- The [UofTCoders Intro to R course for Ecology students](https://uoftcoders.github.io/rcourse/).
+
+[Aarhus University Community of Research Software Users]: https://au-cru.github.io/
+
+Content from multiple sources were used as inspiration for this course,
+including the [R for Data Science] book 
+and the [Fundamentals of Data Visualization].
+
+[Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
+[R for Data Science]: https://r4ds.had.co.nz/
+
+The [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/) hosted,
+organized, and sponsored versions 1 and 2 of the course. A huge thanks to them
+for their involvement, support, and sponsorship! 
+Both [Steno Diabetes Center Aarhus](https://www.stenoaarhus.dk/)
+and [Aarhus University](https://www.au.dk/) were employers of Luke Johnston
+and Daniel Witte (the initial founders and creators).
+
+![Danish Diabetes Academy](images/dda_logo.png){width=90px}
+![Steno Diabetes Center Aarhus](images/SDCA_logo.png){width=55px}
+![Aarhus University](images/au_logo_black.png){width=140px}
+

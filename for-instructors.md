@@ -1,7 +1,5 @@
 # For Instructors
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 ## Workshop details
 
 ### Instructor and helper number
@@ -22,6 +20,8 @@ and then assign people to these teams and to repositories.
 
 [ghclass]: https://rundel.github.io/ghclass
 
+Once teams are created, assign one instructor or helper to each group.
+
 ### Before your session
 
 - Have an RStudio theme that uses a white background with black text.
@@ -35,7 +35,7 @@ This can be changed in the "Global Options -> Pane Layout"
 ### First day
 
 In the room, arrange the tables into groups for each of the teams.
-As participants come in, get them to sit in their assigned team.
+As participants come in, get them to sit in their assigned team by referring to the team lists placed in the middle of each table.
 
 During the introduction, introduce all the instructors and helpers.
 
@@ -68,6 +68,8 @@ given the solution is provided already.
 - Try to keep the screen on your RStudio as much as possible 
 and don't switch applications often, 
 only when you need to go to the course material or to show an exercise.
+- For the "Project Management and Best Practices" session (Section \@ref(r-project-management)), talk through the basics of R, including how to troubleshoot or get help. Check for participants' understanding using the stickies (see next section).
+- For code-along sessions, narrate what you are doing as you are coding by providing explanations of what you hope to achieve with each function/piece of code. This is particularly important for the wrangling sessions, where you should explain what each function does and examples of instances where you would use each function.
 - Be aware of how much space you have on the projector screen 
 and don't let R code go too long. 
 You have two options to take so that all code stays on the screen
@@ -118,6 +120,11 @@ to reinforce importance of version control
 and doing it formally.
 So give them a heads up that you'll be repeating things,
 specifically to reinforce the concepts.
+
+It's important in this session to go **slowly**. Version control is a challenging
+topic and isn't something most people have ever learned about or dealt with.
+So take it slow and make sure everyone is on the same page. Make use of stickies
+frequently to assess how everyone is doing.
 
 ### About the slides
 
