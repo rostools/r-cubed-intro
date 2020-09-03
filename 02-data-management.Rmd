@@ -797,7 +797,10 @@ the output must create a single value (e.g. a max or a mean).
 Like `mutate()`, 
 you can add multiple "summaries" by adding new columns separated by comma `,`. You would use `summarize()` to derive basic descriptive statistics of a certain variable, including `min()`, `max()`, `mean()`, `median()`, `sd()`.
 
-**Ok, let's get back together and try this out**.
+The `group_by()` function doesn't do anything by itself so should always be used in combination with a `summarize()`, `mutate()`, `arrange()`, or other function. However, the `summarize()` function can be used on its own. Let's take a look.
+
+# `summarize()` function
+
 Let's calculate the max age. Because `NA` values "propogate" 
 (if there is one missing, then a max or mean will be missing),
 we need to tell `max()` to exclude `NA` using `na.rm = TRUE`.
@@ -815,7 +818,22 @@ NHANES %>%
               MinAge = min(Age, na.rm = TRUE))
 ```
 
-This is partly useful. But it really shines when combined with `group_by()`.
+# Exercise: Try using the `summarize()` function on your own
+
+Time: 5 mins 
+
+Select another variable from NHANES to derive a summary statistic from, perhaps something other than min or max as we have just done). If you are unsure which summary staistics you can compute, consider using the `help()` or `?` functions to access documentation find help. Remember to use your `colnames()` and/or `str()`/`glimpse()` functions to take a quick look at the NHANES dataset and its variables.
+
+Here's another example, if you get stuck:
+
+```{r}
+NHANES %>%
+    summarize(AverageWeight = mean(Weight, na.rm = TRUE))
+```
+
+# `group_by()` function
+
+While the `summarize()` function is partly useful, it really shines when combined with `group_by()`.
 Let's find out the mean age and BMI between those with and without Diabetes.
 
 ```{r}
@@ -856,6 +874,18 @@ NHANES %>%
     summarise(MeanAge = mean(Age, na.rm = TRUE),
               MeanBMI = mean(BMI, na.rm = TRUE))
 ```
+
+Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
+
+# Exercise: Try using the `group_by()` and `summarize()` functions on your own
+
+Time: 5-7 mins
+
+To complete this exericse, we would like you to:
+1. Select a new demographic and clinical variable from the NHANES dataset. Try to pick variables that we haven't used previously.
+2. Compare diabetes status groups on these variables, using summary statistics of your choice. 
+
+Note: You are likely to come across some errors in this exercise, so be sure to refer to your troubleshooting and help-finding materials.
 
 ## Exercise: Where have we gone wrong?
 
