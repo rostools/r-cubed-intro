@@ -29,7 +29,9 @@ you as an audience member will participate in the discussion by:
 Throughout the course, you will work together as a group on some exercises, 
 especially the final exercise in each session. Before you do any tasks though,
 decide as a group who you want to present the project at the end. 
-We'd recommend assigning one or two people to be the "presenters".
+We'd recommend assigning one or two people to be the "presenters". 
+
+It is important to note that you will be using Git and GitHub to manage your group assignment, so you should take care to set this up correctly prior to jumping in to the exercises. You are likely to push and pull a lot of content, so you will need to maintain regular and open communication with your team members.
 
 For the group project, your specific tasks (based on lesson order) are to:
 
@@ -53,7 +55,14 @@ by using the prodigenr package.
         usethis::use_r("generate-figures")
         ```
 
-2. **Find an "open" dataset** to use for your analysis and report. You have two
+2. **Put the project under Git version control, then add and commit all the files**. 
+Add your assigned GitHub group repository to your project 
+and push ("upload") the repository up to GitHub
+(covered in [Version Control](version-control.html)).
+    - Update the README with the information from all of your team members 
+    and with a short description of your project.
+
+3. **Find an "open" dataset** to use for your analysis and report. You have two
 options here: 1) choose from one of the datasets provided below; or 2) search
 for another dataset from an online data archive (e.g., FigShare). If you choose
 the second option, make sure to select a dataset that isn't too big (maybe
@@ -68,19 +77,12 @@ Here are some example datasets:
     - [Zindi.africa: Female-Headed Households in South Africa](https://gitlab.com/rostools/r-cubed/-/blob/master/datasets/rsa_wards.zip)
     - [Starbucks Menu Item Data](https://www.kaggle.com/starbucks/starbucks-menu) (May be required to create a Kaggle account)
 
-3. **Download the dataset** and put it into the `data-raw/` folder of your project. For the GitHub-linked datasets above, you should be able to click on "Raw" or "Download" buttons, then use the keyboard shortcut (`Ctrl-S`) to save the page (as a .csv file). If you have documentation on the dataset, e.g. variable definitions, put those files in the `data-raw/` folder as well.
+4. **Download the dataset** and put it into the `data-raw/` folder of your project. For the GitHub-linked datasets above, you should be able to click on "Raw" or "Download" buttons, then use the keyboard shortcut (`Ctrl-S`) to save the page (as a .csv file). It is advised that you push/pull appropriately and check that all team members can "see" the dataset.
+If you have documentation on the dataset, e.g. variable definitions, put those files in the `data-raw/` folder as well.
 
 4. **Create an R script inside `data-raw/` that cleans up and prepares the raw dataset**
 (as covered in [Data Management](wrangling.html)).
-Save the new dataset in a folder called `data/`.
-
-5. **Put the project under Git version control, then add and commit all the files**. 
-Add your assigned GitHub group repository to your project 
-and push ("upload") the repository up to GitHub
-(covered in [Version Control](version-control.html)).
-    - Update the README with the information from all of your team members 
-    and with a short description of your project.
-    - Make sure to add the open dataset to your Git repository and upload it to GitHub.
+Save the new dataset in a folder called `data/`. Again, use your version control software to make and manage these changes. 
 
 6. **Create an R script in your `R/` folder that generates 
 and saves one or more figures** that visualize the cleaned dataset 
