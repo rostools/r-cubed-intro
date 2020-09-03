@@ -167,7 +167,7 @@ This is the basic approach to creating documents from R Markdown.
 
 ## Exercise: Create another R Markdown document. 
 
-Time: 5 min
+Time: 7 min
 
 1. Create another R Markdown document using RStudio's interface.
     - Write the title as "Trying out R Markdown".
@@ -432,7 +432,7 @@ Pretty eh!
 
 ## Exercise: Creating a table using R code
 
-Time: 10 min
+Time: 12 min
 
 1. In the `doc/another-one.Rmd`,
 create a new code chunk and call it `setup`.
@@ -772,7 +772,7 @@ This last approach is what we will get you to do for the group project.
 
 ## Final exercise: Group work
 
-Time: 30 min
+Time: 1 hour
 
 It's now time to start putting things together as a report 
 and to present on it later in the afternoon.

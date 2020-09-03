@@ -133,13 +133,13 @@ which we'll cover in more detail [later](version-control).
 
 ### Exercise: Reading the READMEs
 
-Time: 5 min
+Time: 7 min
 
 1. Briefly read through each of the `README.md` files by opening them up in RStudio.
 
 ### Exercise: Better file naming
 
-Time: 4 min
+Time: 10 min
 
 Let's take some time to think about file naming. Look at the list of file names
 below. Which file names are good names and which ones shouldn't you use? We'll
@@ -321,7 +321,7 @@ or with the keyboard shortcut (`Ctrl-Shift-R`).
 
 ## Exercise: Make code more readable
 
-Time: 15 min
+Time: 20 min
 
 Read through these specific sections of the [style guide]:
 
@@ -485,7 +485,7 @@ you to use later on.
 
 ## Encountering problems and finding help
 
-**Please take 5-10 mins to read this section.**
+**Please take 5 mins to read this section.**
 
 You *will* encounter problems and errors when working with R, 
 and you will encounter them *all the time*. In fact, most of your time in R will be spent figuring out solutions to these errors ("debugging"). Error messages will appear in red text in your Console and start with "Error:". Warning messages that are sometimes harmless are also usually in red, so make sure to read if it says "Error" or not. This section is designed to give you some tips for how to work around problems, as you won't always have stickies and helpers in the room to come over to your computer, and help you work through things! Here are some initial steps to take when you encounter an error:
@@ -508,7 +508,7 @@ no matter their skill level. You *can fix it*! `r emo::ji("smile")`
 
 ## Exercise: Quick fixes and troubleshooting
 
-**Time: ~5 min**
+**Time: 10 min**
 
 The pieces of code below will return an error message due to one of the mistakes noted above. You don’t need to run this code in RStudio, but you can copy and paste the code into RStudio so that you can play around with it. Look at the code, identify the mistake, and provide the corrected code. You don’t need to understand what the code does.
 
