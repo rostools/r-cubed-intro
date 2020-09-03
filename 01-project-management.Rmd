@@ -202,6 +202,13 @@ Click it to enable the outline from now on.
 
 ## Basics of using R
 
+One useful thing to do to make your R script more readable 
+and understandable is to use "Sections".
+They're like "headers" in Word and they split up an R script into sections,
+which then show up when you use the "Document Outline". 
+You can use sections through the menu item (`"Code->Insert Section"`)
+or with the keyboard shortcut (`Ctrl-Shift-R`).
+
 In R, everything is an object and every action is a function. A function is an
 object, but an object isn't always a function. To create an object, also called
 a variable, we use the `<-` assignment operator:
@@ -311,13 +318,6 @@ through a brainstorming note-taking stage of writing, you eventually need to
 write correctly so others can understand, *and read*, what you are trying to
 say. In coding, brainstorming is fine, but eventually you need to code in a
 readable way. That's why using a [style guide] is really important.
-
-Another useful thing to do to make your R script more readable 
-and understandable is to use "Sections".
-They're like "headers" in Word and they split up an R script into sections,
-which then show up when you use the "Document Outline". 
-You can use sections through the menu item (`"Code->Insert Section"`)
-or with the keyboard shortcut (`Ctrl-Shift-R`).
 
 ## Exercise: Make code more readable
 
