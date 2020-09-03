@@ -897,7 +897,7 @@ NHANES %>%
 
 Again, no problems!
 
-```{r}
+```{r, error = TRUE}
 NHANES %>%
     rename(Sex = Gender) %>% 
     filter(!is.na(Diabetes)) %>% 
