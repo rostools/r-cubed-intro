@@ -10,6 +10,8 @@ If there are more instructors, then less helpers are needed.
 The recommended combined total number of helpers
 and instructors is about 6 for a smooth workflow experience for the learners.
 
+Once you have confirmed your team of instructors and helpers, use WhatsApp or another preferred messenger app to set up a group message that supports easy communication.
+
 ### Setting up teams
 
 Before the introduction session (maybe the day before),
@@ -109,6 +111,7 @@ When you are done, put the 'all good' sticky up."
 "Please complete the exercise. When you are done,
 please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
+- Throughout the exercises and code-along sessions, reinforce the use of troubleshooting techniques including finding help from othe resources.
 
 ## Lesson material details
 
