@@ -46,6 +46,18 @@ repository of the material, and [GitLab CI] with [Netlify] to create the website
 The original source material for this course is found on the 
 [`r-cubed`] GitLab repository.
 
+Want to contribute to this course? 
+Check out the [README] file as well as the [CONTRIBUTING] file
+on the GitLab repository for more details.
+The two main and easiest ways to contribute are by using:
+
+1. [hypothes.is], a web annotating tool. 
+Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
+comments directly on this website.
+2. [GitLab] and creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+to make comments and give feedback for the material.
+
+[hypothes.is]: https://web.hypothes.is/
 [rmarkdown]: https://rmarkdown.rstudio.com/
 [bookdown]: https://bookdown.org/yihui/bookdown/
 [GitLab]: https://gitlab.com/

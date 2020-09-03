@@ -36,11 +36,19 @@ packages like dplyr, tidyr, rmarkdown, ggplot2, and so on. This also means makin
 use of the pipe `%>%` operator.
 6. We follow the tidyverse [*way of writing and styling R code*](https://style.tidyverse.org/).
 
-Anyone can contribute to the course repository via [merge requests][merge-requests].
-You can contribute either directly on GitLab through their editing interface
-or you can create a clone of the repository and edit through RStudio.
-If you go the clone-RStudio route, please use [the GitHub flow
-style][github-flow] to manage changes. Here are some steps to follow:
+Anyone can contribute to the course repository by two main ways:
+
+1. Using [hypothes.is], a web annotating tool. 
+Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
+comments directly on this website. This is the easiest approach.
+2. Through Git and [GitLab] by creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+to make comments and give feedback for the material or via [merge
+requests][merge-requests]. This is the harder but preferred approach.
+
+Through the GitLab approach, you can contribute either directly on GitLab
+through their editing interface or you can create a clone of the repository and
+edit through RStudio. If you go the clone-RStudio route, please use [the GitHub
+flow style][github-flow] to manage changes. Here are some steps to follow:
 
 1. [Clone][clone-explanation] the repository to your local computer.
 2. In your local copy of this repository, create a new
