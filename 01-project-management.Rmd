@@ -120,7 +120,7 @@ R Project contains your R scripts and data files, and it is this folder location
 that the R session opens in.
 
 Back to the project we created. There are README files in each folder that
-explains a bit about what should be placed there. Briefly:
+explain a bit about what should be placed there. Briefly:
 
 1. Documents like manuscripts, abstracts, and exploration type documents should 
 be put in the `doc/` directory (including [R Markdown] files which we will cover
