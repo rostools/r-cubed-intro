@@ -11,11 +11,11 @@ A showcase of how the reproducible workflow we've gone over in the course is pos
 
 ### Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
 
-### What is the deal?
+##### What is the deal?
 You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
 Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like github or the online archive where R packages are normally installed from with `install.packages()`.
 
-### Requirements
+##### Requirements
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
 Contact your system administrator and ask them if R and git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
@@ -24,7 +24,7 @@ knitr::include_graphics(here::here("images/dst_desktop.jpg"))
 ```
 
 
-### Packages are accessible!
+##### Packages are accessible!
 To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to access any package from there with the `library()` command.
 
 While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab will slow your session down a lot). See Figure \@ref(fig:dst-packages):
@@ -32,33 +32,71 @@ While we won't be able to use packages from sources other than CRAN (like the r3
 knitr::include_graphics(here::here("images/dst_packages.jpg"))
 ```
 
-### The prodigenr package is available to help us set up our research project within our Statistics Denmark project directory:
+##### The prodigenr package is available to help us set up our research project within our Statistics Denmark project directory:
 We'll get a message, nudging us to set up our git config and not just use the defaults. The defaults should be based on your log-on ID here, but we'll set them ourselves just for good measure (since we don't have access to the r3 package, we'll set it with the git2r package here):
 ```{r dst_git_config, eval=FALSE}
 git2r::config(user.name = "My Name Here, user.email = "mynamehere@mymailhere.com"")
 ```
 
-### We will not be able to access a remote git repository like github, since we have no internet access from the virtual desktop, but don't worry!
+##### We will not be able to access a remote git repository like github, since we have no internet access from the virtual desktop, but don't worry!
 We can still use git with a local repository on the virtual desktop and get all the functionality of git, except pushing/pulling to a remote repository. So let's set up git inside the project:
 
 ```{r dst_git_setup, eval=FALSE}
 usethis::use_git()
 ```
 
-### And that's it! Now you have your version control.
+##### And that's it! Now you have your version control.
 See Figure \@ref(fig:dst-git-works)
 ```{r dst-git-works, echo=FALSE, fig.cap="It works."}
 knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
 ```
 
-### Are we missing out on much by not having access to github?
+##### Are we missing out on much by not having access to github?
 
-Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the local repository here serves the same purpose as a remote repository like github normally would: 
-- A platform for collaboration, where all team members can keep their edits synchronized.
-- A secure remote back-up in case the dog eats our laptops.
+Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the local repository here serves the same purpose as a remote repository like github normally would:  
+- A platform for collaboration, where all team members can keep their edits synchronized and work in parallel.
+- A secure remote back-up of the entire history of the project in case the dog eats our laptops.
 
-However, Github can be a useful tool for communication in a collaboration, and We'll have to use something else for that.
+##### Are there drawbacks to this sort of virtual environment?
+Yes:  
+- In addition to being a repository, github can also be used as a forum for communicating about the project workflow. For this purpose, we will have to use a different tool.  
+- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
+- You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
+- Folder structures are often uneditable and maze-like. However, when using R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
+- Sometimes, these types of servers will be using a specific software and data file format. In the case of DST, all raw data and formatting tables are provided in SAS-formats. Luckily for us, with the haven package, we can open pretty much any data format. And with a few functions, we can automate the file conversion process. The intermediate course will go much more into functional programming and lists, but this is a sneak peek of how it can make your our lives much easier:
 
-### Are there other drawbacks to this sort of virtual environment?
-Yes:
-- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again: if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases.
+```{r sneak_peek_conversion, eval=FALSE}
+raw_folder <- "E:/Users/long/uneditable/maze/of/folders/to/get/to/your/project/directory/raw_data/"
+work_folder <- "E:/Users/long/uneditable/maze/of/folders/to/get/to/your/project/directory/project/data/"
+file_list <- list.files(path = raw_folder)
+```
+File names can be specified with the pattern argument: e.g. `pattern = ".sas7bdat$"` to select only the SAS data files in the folder. Or `pattern = "^medicine"` to only convert files starting with "medicine".  
+Now, we make a custom function to do the file conversion and saving, and we feed it all the file names we stored in file_list with a "for loop",:
+
+```{r sneak_peek_conversion_2, eval=FALSE}
+my_automatic_conversion_function <- function(filename) {
+dataset <- read_sas(paste(raw_folder, filename, sep = '') )
+# It is possible to add code to filter the data here, if you want to trim the dataset during conversion
+saveRDS(dataset, paste(work_folder, filename, '.rds', sep = ''))
+remove(dataset)
+}
+
+for (filename in file_list) {
+  my_automatic_conversion_function(filename)
+}
+```
+
+We can also merge the datasets at the end process if your raw data is spread across several files and you need to have it in one file, e.g. if each year is a separate file.  
+Say we have many years/files with raw data on medicine, all with "medicine" in the beginning of their file names. We'll want to merge all those - and we can use `list.files()` again to help us out:
+
+```{r sneak_peek_conversion_3, eval=FALSE}
+file_list <- list.files(path = work_folder, full.names = TRUE, pattern = "^medicine")
+opened_data <- lapply(file_list, readRDS)
+merged_data <- rbindlist(opened_data, use.names = TRUE, fill = TRUE)
+saveRDS(merged_data, paste(work_folder, 'all_medicine_in_one_file', '.rds', sep = '') )
+```
+
+With R, you're very flexible in terms of data formats, so if you end up in an environment like this, just remember Figure \@ref(fig:no-sas-no-problem)
+```{r no-sas-no-problem, echo=FALSE, fig.cap="No SAS. No Problem."}
+knitr::include_graphics(here::here("images/i-got-99-problems-but-sas-aint-one.jpg"))
+```
