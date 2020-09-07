@@ -1,118 +1,64 @@
 # Continued learning {#post-course}
 
-## More formatting syntax in Markdown {#post-course-markdown}
+## What next?
 
-### Lists
+### First part
+should be something about what they can do to plan/visualize this sort of workflow, and how to implement it into their research institutes and environments.
 
-Lists are created by adding either `- ` or `1.` to the beginning of a line
-and an empty line must be at the start and end of the list.
 
-For unnumbered lists, it looks like:
+## Reproducible Research with R in the Real World
+A showcase of how the reproducible workflow we've gone over in the course is possible in a restricted virtual environment.
 
-```markdown
-- item 1
-- item 2
-- item 3
+### Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
+
+### What is the deal?
+You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
+Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like github or the online archive where R packages are normally installed from with `install.packages()`.
+
+### Requirements
+The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
+Contact your system administrator and ask them if R and git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
+In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
+```{r dst-desktop, echo=FALSE, fig.cap="Git, R & RStudio are already installed."}
+knitr::include_graphics(here::here("images/dst_desktop.jpg"))
 ```
 
-which gives...
 
-- item 1
-- item 2
-- item 3
+### Packages are accessible!
+To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to access any package from there with the `library()` command.
 
-And numbered lists look like:
-
-```markdown
-1. item 1
-2. item 2
-3. item 3
+While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab will slow your session down a lot). See Figure \@ref(fig:dst-packages):
+```{r dst-packages, echo=FALSE, fig.cap="CRAN packages are already installed."}
+knitr::include_graphics(here::here("images/dst_packages.jpg"))
 ```
 
-which gives...
-
-1. item 1
-2. item 2
-3. item 3
-
-### Block quotes
-
-Block quotes are used when you want to emphasize a block of text,
-usually for quoting someone. 
-You create a block quote by putting a `>` at the beginning of the line,
-and as with the lists and headers, 
-needs empty lines before and after the text.
-So it looks like:
-
-```markdown
-> Block quote 
+### The prodigenr package is available to help us set up our research project within our Statistics Denmark project directory:
+We'll get a message, nudging us to set up our git config and not just use the defaults. The defaults should be based on your log-on ID here, but we'll set them ourselves just for good measure (since we don't have access to the r3 package, we'll set it with the git2r package here):
+```{r dst_git_config, eval=FALSE}
+git2r::config(user.name = "My Name Here, user.email = "mynamehere@mymailhere.com"")
 ```
 
-which gives...
+### We will not be able to access a remote git repository like github, since we have no internet access from the virtual desktop, but don't worry!
+We can still use git with a local repository on the virtual desktop and get all the functionality of git, except pushing/pulling to a remote repository. So let's set up git inside the project:
 
-> Block quote 
-
-### Adding footnotes
-
-Footnotes are added by enclosing a number or word in square brackets (`[]`)
-and beginning with an uptick (`^`). It looks like:
-
-```markdown
-Footnote[^1] or this[^note].
-
-[^1]: Footnote content
-[^note]: Another footnote
+```{r dst_git_setup, eval=FALSE}
+usethis::use_git()
 ```
 
-which gives...
-
-Footnote[^1] or this[^note].
-
-[^1]: Footnote content
-[^note]: Another footnote
-
-### Adding links to websites
-
-Including a link to a website in your document is done by surrounding the link text
-with square brackets (`[]`) followed by the link URL in brackets (`()`).
-There must not be any space between the square brackets 
-and the regular brackets (it should look like `[]()`).
-
-```markdown
-[Link](https://google.com)
+### And that's it! Now you have your version control.
+See Figure \@ref(fig:dst-git-works)
+```{r dst-git-works, echo=FALSE, fig.cap="It works."}
+knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
 ```
 
-which gives...
+### Are we missing out on much by not having access to github?
 
-[Link](https://google.com)
+Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the local repository here serves the same purpose as a remote repository like github normally would: 
+- A platform for collaboration, where all team members can keep their edits synchronized.
+- A secure remote back-up in case the dog eats our laptops.
 
-### Inserting (simple) tables
+However, Github can be a useful tool for communication in a collaboration, and We'll have to use something else for that.
 
-While you can insert tables using Markdown too, 
-it isn't recommended to do that for complicated or large tables.
-Tables are created by separating columns with `|`,
-with the table header being separated by a line that looks like `|:--|`.
-A simple example is:
-
-```
-|   | Fun | Serious |
-|:--|----:|--------:|
-| **Happy** | 1234 | 5678 |
-| **Sad** | 123 | 456 |
-```
-
-which gives...
-
-|   | Fun | Serious |
-|:--|:---:|:-------:|
-| **Happy** | 1234 | 5678 |
-| **Sad** | 123 | 456 |
-
-The `|---:|` or `|:---|` tell the table to left-align or right-align the values
-in the column. Center-align is `|:----:|`.
-
-So you can probably imagine,
-doing this for larger or even slightly more complicated tables is not practical.
-A good alternative approach is to create the table in a spreadsheet,
-importing that table into R within a code chunk,
-and using `knitr::kable()` to create the table after that.
+### Are there other drawbacks to this sort of virtual environment?
+Yes:
+- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again: if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases.
