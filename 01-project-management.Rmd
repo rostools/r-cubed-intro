@@ -474,7 +474,7 @@ There's a new thing `here`! The [here] package uses a function called `here()`
 that makes it easier to manage *file paths* within an R Project. 
 The here package should already be installed.
 
-So, what is a file path and why is this here package
+So, what is a file path and why is this `here` package
 necessary? A file path is the list of folders a file is found in. For instance,
 your CV may be found in `/Users/Documents/personal_things/CV.docx`. The problem 
 with file paths in R is that when you run a script interactively (e.g. what we
