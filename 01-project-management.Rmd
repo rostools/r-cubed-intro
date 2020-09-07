@@ -110,7 +110,7 @@ are taken:
 - RStudio project options are loaded.
 
 Let's learn a bit more about how R works, and what the "R session" means. An R
-session is the way you normally interact with R, where you would send or write
+session is the way you normally interact with R, where you would write
 code in the Console to tell R to do something. Normally, when you open an R
 session without an R Project, the session defaults to assuming you will be
 working in the `~/Desktop` or `~` (your Home folder) location. But this location
