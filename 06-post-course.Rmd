@@ -2,8 +2,8 @@
 
 ## What next?
 
-### First part
-should be something about what they can do to plan/visualize this sort of workflow, and how to implement it into their research institutes and environments.
+### First part (placeholder)
+Should be about some of the points mentioned in issue 111, e.g. what can the participants do to plan/visualize this sort of workflow, and how to implement it into their research institutes and environments.
 
 
 ## Reproducible Research with R in the Real World
