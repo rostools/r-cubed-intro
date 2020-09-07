@@ -67,7 +67,7 @@ Yes:
 
 ```{r sneak_peek_conversion, eval=FALSE}
 raw_folder <- "E:/Users/long/uneditable/maze/of/folders/to/get/to/your/project/directory/raw_data/"
-work_folder <- "E:/Users/long/uneditable/maze/of/folders/to/get/to/your/project/directory/project/data/"
+work_folder <- here::here("data/")
 file_list <- list.files(path = raw_folder)
 ```
 File names can be specified with the pattern argument: e.g. `pattern = ".sas7bdat$"` to select only the SAS data files in the folder. Or `pattern = "^medicine"` to only convert files starting with "medicine".  
