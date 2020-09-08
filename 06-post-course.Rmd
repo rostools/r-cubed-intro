@@ -1,21 +1,17 @@
 # Continued learning {#post-course}
 
-## What next?
-
-### First part (placeholder)
+## What next? First part (placeholder)
 Should be about some of the points mentioned in issue 111, e.g. what can the participants do to plan/visualize this sort of workflow, and how to implement it into their research institutes and environments.
 
 
-## Reproducible Research with R in the Real World
-A showcase of how the reproducible workflow we've gone over in the course is possible in a restricted virtual environment.
+## Reproducible Research with R - in the Real World
+A showcase of how the reproducible workflow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
 
-### Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
-
-##### What is the deal?
+**What is the deal?**
 You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
 Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like github or the online archive where R packages are normally installed from with `install.packages()`.
 
-##### Requirements
+**Requirements**
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
 Contact your system administrator and ask them if R and git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
@@ -24,48 +20,57 @@ knitr::include_graphics(here::here("images/dst_desktop.jpg"))
 ```
 
 
-##### Packages are accessible!
+**Packages are accessible!**
 To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to access any package from there with the `library()` command.
 
 While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab will slow your session down a lot). See Figure \@ref(fig:dst-packages):
 ```{r dst-packages, echo=FALSE, fig.cap="CRAN packages are already installed."}
 knitr::include_graphics(here::here("images/dst_packages.jpg"))
 ```
-
-##### The prodigenr package is available to help us set up our research project within our Statistics Denmark project directory:
-We'll get a message, nudging us to set up our git config and not just use the defaults. The defaults should be based on your log-on ID here, but we'll set them ourselves just for good measure (since we don't have access to the r3 package, we'll set it with the git2r package here):
+### Setting up our project.
+**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation))**  
+We'll get a message nudging us to set up our git config and not just use the defaults. The defaults should be based on your log-on ID (and somewhat sensible) here, but we'll set them ourselves just for good measure (since we don't have access to the r3 package, we'll set it with the git2r package here):
 ```{r dst_git_config, eval=FALSE}
 git2r::config(user.name = "My Name Here, user.email = "mynamehere@mymailhere.com"")
 ```
 
-##### We will not be able to access a remote git repository like github, since we have no internet access from the virtual desktop, but don't worry!
-We can still use git with a local repository on the virtual desktop and get all the functionality of git, except pushing/pulling to a remote repository. So let's set up git inside the project:
+**We will not be able to access an online remote git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**
+We can still use git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote and get all the functionality of git!  
+But first, let's set up git in the project:
 
 ```{r dst_git_setup, eval=FALSE}
 usethis::use_git()
 ```
-
-##### And that's it! Now you have your version control.
-See Figure \@ref(fig:dst-git-works)
+**And it works: See Figure \@ref(fig:dst-git-works)**
 ```{r dst-git-works, echo=FALSE, fig.cap="It works."}
 knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
 ```
+### Setting up a git remote repository in the virtual environment
+If we're working in a team, we will to want to have a remote repository for keeping the latest versions available to everybody on the team.
+If you recall Figure \@ref(fig:image-github-link-existing-repository), you can create a remote repository from an existing repository by pushing it from the terminal command line. The only difference here is that the location of the remote is not a github-URL. Instead, we create it in a folder on the virtual desktop, that everyone can access and clone from:
 
-##### Are we missing out on much by not having access to github?
+> `mkdir -p E:/project_directory/git-remote/` # to create the folder for the remote directly from the command line (you can also do this through the File Explorer in Windows)
+> `git remote add origin E:/project_directory/git-remote/remote.git`  
+> `git push -u origin master`
 
-Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the local repository here serves the same purpose as a remote repository like github normally would:  
-- A platform for collaboration, where all team members can keep their edits synchronized and work in parallel.
-- A secure remote back-up of the entire history of the project in case the dog eats our laptops.
+**And that's it! Now we have version control!**
+  
+**Are we missing out by not having access to GitHub?**
+Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the repositories here serve the same function as a remote repository like github normally would:  
+- A platform for collaboration, where all team members can keep their edits synchronized and work in parallel without losing track of changes.  
+- A secure back-up of the entire history of the project in case the dog eats our laptops.
 
-##### Are there drawbacks to this sort of virtual environment?
-Yes:  
-- In addition to being a repository, github can also be used as a forum for communicating about the project workflow. For this purpose, we will have to use a different tool.  
-- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
-- You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
-- Folder structures are often uneditable and maze-like. However, when using R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
-- Sometimes, these types of servers will be using a specific software and data file format. In the case of DST, all raw data and formatting tables are provided in SAS-formats. Luckily for us, with the haven package, we can open pretty much any data format. And with a few functions, we can automate the file conversion process. The intermediate course will go much more into functional programming and lists, but this is a sneak peek of how it can make your our lives much easier:
+## How R can help us deal with common issues in restricted environments:
+### Keeping track of file paths
+The preset folder structures are often ugly, long, and maze-like. While they can't be edited, using a workflow that takes advantage of R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
+  
+- Sometimes, these types of servers will be using a specific software and data file format. Perhaps the data is in a different format, or it is stored in a relational database, e.g SQL.
+
+### Quickly converting raw data from foreign formats and separate files:
+In the case of DST, all raw data and formatting tables are provided in SAS-formats. Luckily for us, with the haven package, we can open pretty much any data format. And with a few functions, we can automate the file conversion process. The intermediate course will go much more into functional programming and lists, but this is a sneak peek of how it can make your our lives much easier:
 
 ```{r sneak_peek_conversion, eval=FALSE}
+library(haven)
 raw_folder <- "E:/Users/long/uneditable/maze/of/folders/to/get/to/your/project/directory/raw_data/"
 work_folder <- here::here("data/")
 file_list <- list.files(path = raw_folder)
@@ -100,3 +105,74 @@ With R, you're very flexible in terms of data formats, so if you end up in an en
 ```{r no-sas-no-problem, echo=FALSE, fig.cap="No SAS. No Problem."}
 knitr::include_graphics(here::here("images/i-got-99-problems-but-sas-aint-one.jpg"))
 ```
+
+### Accessing, wrangling and extracting data from databases
+Even if the data is stored in a database format, e.g. SQL Server, Oracle Database or other formats, you can still access it with R. This means that you don't have to use a separate program to interact with the raw data, so you can keep your work-flow in the R project where it's clearly documented and reproducible. The tidyverse includes the dbplyr-package that can translate the wrangling functions from dplyr into SQL queries, so you won't have to learn a new syntax, you can just stick with what you've already learned!  
+This is big field with many different databases, each with their own quirks. A good reference to keep in hand along the way is the [database guide by RStudio](https://db.rstudio.com/getting-started/)  
+**We'll have to set up a DSN connection to the database first, which is a bit tedious - but stay with us!**
+First, type in "odbc" in the taskbar and choose the right architecture for your database, see figure \@ref(fig:odbc-admin-1)
+```{r odbc-admin-1, echo=FALSE, fig.cap="Setting up the DSN connection drivers. Depending on the type of database, choose the 32-bit or 64-bit option."}
+knitr::include_graphics(here::here("images/odbc-admin-1.jpg"))
+```
+
+Next, we have to set up the connection driver, that is: We have to name it and specify the address of the database we want it to connect to. Figure \@ref(fig:odbc-admin-2)
+```{r odbc-admin-2, echo=FALSE, fig.cap="Add the relevant driver in either the user or system tab. A setup wizard will pop up and take you through the rest of the setup process."}
+knitr::include_graphics(here::here("images/odbc-admin-2.jpg"))
+```
+** Alright, back to R**
+If we need to connect to a 32-bit database, we'll have to switch to the 32-bit version of R first (Go to `Tools -> Global Options -> General Tab -> R Version -> change -> use default 32-bit version of R` and restart R). Remember to switch back to the 64-bit version when you're finished interacting with the database, as the 64-bit version is much more powerful.  
+Now, we can load the required packages and connect to the data:
+
+```{r odbc-connect, eval=FALSE}
+library(DBI)
+library(dplyr)
+library(dbplyr)
+library(odbc)
+
+# Use dbConnect() to activate the DSN connection driver we set up earlier (this will connect us to the database that we linked the driver to, when we set it up):
+connection <- dbConnect(odbc::odbc(), "DSN name")
+
+# Now, we're connected to the database, and can inspect (and wrangle) the data with the dbGetQuery() function.
+
+# We can use SQL syntax
+my_data_sql <- dbGetQuery(connection,  "SELECT ID, Age, Sex, District FROM Households")
+
+# or dplyr syntax:
+my_data_dplyr <- tbl(connection, "Households")
+
+my_data_dplyr %>%
+  select(Id, Age, Sex, District) %>%
+  collect() # collect is a nice helper function to turn messy data structures into pretty tibbles.
+
+# This example returns a data frame with all rows from the columns "Id", "Age", "Sex" and "District" in the table named "Households" in the database we've connected to.
+
+
+# It might not seem obvious in this simply query, but the dplyr syntax is far superior to SQL. especially if we're going to do more complex queries.
+
+# For example, compare this query using dplyr syntax:
+complex_query_dplyr <- tbl(connection, "Households") %>%
+    select(Id, Age, Sex, District) %>%
+  filter(Sex == "Male") %>%
+  group_by(District) %>%
+  summarise(
+    mean_male_age = mean(Age),
+    male_population = n())
+
+# To the corresponding query in SQL syntax: 
+complex_query_sql <- show_query(complex_query_dplyr)
+
+complex_query_sql
+<SQL>
+SELECT `District`, AVG(`Age`) AS `mean_male_age`, COUNT(*) AS `male_population`
+FROM (SELECT `Id`, `Age`, `Sex`, `District`
+FROM `Tabel1`) `dbplyr_001`
+WHERE (`Sex` = 'Male')
+GROUP BY `District`
+```
+**It's pretty clear which one is easier to read, extend or make changes to without making mistakes, isn't it?**
+
+### Other drawbacks to working in a virtual environment
+**There are a lot, but to name a few:**  
+- In addition to being a repository, github can also be used as a forum for communicating about the project work-flow (and get feedback/contributions from the public if using a public repository).  
+- You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
+- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
