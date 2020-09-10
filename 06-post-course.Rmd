@@ -1,17 +1,17 @@
 # Continued learning {#post-course}
 
 ## What next? First part (placeholder)
-Should be about some of the points mentioned in issue 111, e.g. what can the participants do to plan/visualize this sort of workflow, and how to implement it into their research institutes and environments.
+Should be about some of the points mentioned in issue 111, e.g. what can the participants do to plan/visualize this sort of work-flow, and how to implement it into their research institutes and environments.
 
 
 ## Reproducible Research with R - in the Real World
-A showcase of how the reproducible workflow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
+A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
 
-**What is the deal?**
+**What is the deal?**  
 You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
 Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like github or the online archive where R packages are normally installed from with `install.packages()`.
 
-**Requirements**
+### Requirements
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
 Contact your system administrator and ask them if R and git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
@@ -20,7 +20,7 @@ knitr::include_graphics(here::here("images/dst_desktop.jpg"))
 ```
 
 
-**Packages are accessible!**
+### Packages are accessible!
 To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to access any package from there with the `library()` command.
 
 While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab will slow your session down a lot). See Figure \@ref(fig:dst-packages):
@@ -29,31 +29,45 @@ knitr::include_graphics(here::here("images/dst_packages.jpg"))
 ```
 ### Setting up our project.
 **The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation))**  
-We'll get a message nudging us to set up our git config and not just use the defaults. The defaults should be based on your log-on ID (and somewhat sensible) here, but we'll set them ourselves just for good measure (since we don't have access to the r3 package, we'll set it with the git2r package here):
+We may get a message nudging us to set up our Git config and not just use the defaults. The defaults should be based on your log-on ID (and be somewhat sensible) here, but we can set them ourselves later.
+
+### Activating Git for the project
+Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`. See Figure \@ref(fig:dst-git-setup)
+```{r dst-git-setup, echo=FALSE, fig.cap="It works."}
+knitr::include_graphics(here::here("images/dst-git-setup.jpg"))
+```
+After restarting RStudio, you should see the Git icons and tabs.
+
+Now we can set our Git config (since we don't have access to the r3 package, we'll set it with the git2r package here):
 ```{r dst_git_config, eval=FALSE}
-git2r::config(user.name = "My Name Here, user.email = "mynamehere@mymailhere.com"")
+git2r::config(user.name = "My Name Here", user.email = "mynamehere@mymailhere.com")
 ```
 
-**We will not be able to access an online remote git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**
-We can still use git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote and get all the functionality of git!  
-But first, let's set up git in the project:
-
-```{r dst_git_setup, eval=FALSE}
-usethis::use_git()
-```
-**And it works: See Figure \@ref(fig:dst-git-works)**
+**And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works)**
 ```{r dst-git-works, echo=FALSE, fig.cap="It works."}
 knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
 ```
+**We will not be able to access an online remote git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
+We can still use git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
+
 ### Setting up a git remote repository in the virtual environment
 If we're working in a team, we will to want to have a remote repository for keeping the latest versions available to everybody on the team.
-If you recall Figure \@ref(fig:image-github-link-existing-repository), you can create a remote repository from an existing repository by pushing it from the terminal command line. The only difference here is that the location of the remote is not a github-URL. Instead, we create it in a folder on the virtual desktop, that everyone can access and clone from:
+If you recall Figure \@ref(fig:image-github-link-existing-repository), you can create a remote repository from an existing repository by pushing it from the terminal command line. The only difference here is that the location of the remote is not a GitHub-URL, and we're not using the GitHub website to create the remote repository. Instead, we create it in a folder on the virtual desktop, that everyone can access and clone from.
 
-> `mkdir -p E:/project_directory/git-remote/` # to create the folder for the remote directly from the command line (you can also do this through the File Explorer in Windows)
-> `git remote add origin E:/project_directory/git-remote/remote.git`  
-> `git push -u origin master`
+**Remember: git is operated through the terminal, not the console, so we go to the terminal tab and type:**
 
-**And that's it! Now we have version control!**
+`mkdir -p E:/project_directory/git-remote # Creates the folder for the remote (you can also do this through the File Explorer in Windows of course)`  
+`cd E:/project_directory/git-remote/ # Changes the git directory to the remote folder.`  
+`git init --bare # Creates an empty remote repository in the remote folder.`  
+`cd E:/project_directory/LearningR # Changes the git directory back to the R project folder.`  
+`git remote add origin E:/project_directory/git-remote # Links the project to the remote repository`  
+> `git push -u origin master # Pushes the local repository to the remote`
+
+**Notice in Figure \@ref(fig:dst-git-remote) how the Pull and Push icons now have colours:**
+```{r dst-git-remote, echo=FALSE, fig.cap="It works."}
+knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
+```
+**And that's it! Now we have version control!**  
   
 **Are we missing out by not having access to GitHub?**
 Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the repositories here serve the same function as a remote repository like github normally would:  
@@ -62,7 +76,7 @@ Not in regards to version control. Since we're already working on a remote virtu
 
 ## How R can help us deal with common issues in restricted environments:
 ### Keeping track of file paths
-The preset folder structures are often ugly, long, and maze-like. While they can't be edited, using a workflow that takes advantage of R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
+The preset folder structures are often ugly, long, and maze-like. While they can't be edited, using a work-flow that takes advantage of R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
   
 - Sometimes, these types of servers will be using a specific software and data file format. Perhaps the data is in a different format, or it is stored in a relational database, e.g SQL.
 
