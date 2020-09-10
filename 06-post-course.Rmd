@@ -62,9 +62,9 @@ In the end, the only difference here is that the location of the remote is not a
 **Remember: Git is operated through the terminal, not the console, so we go to the terminal tab and type:**
 
 `mkdir -p E:/project_directory/git-remote # Creates the folder for the remote (you can also do this through the File Explorer in Windows of course)`  
-`cd E:/project_directory/git-remote/ # Changes the Git directory to the remote folder.`  
+`cd E:/project_directory/git-remote/ # Changes the Git working directory to the remote folder.`  
 `git init --bare # Creates an empty remote repository in the remote folder.`  
-`cd E:/project_directory/LearningR # Changes the Git directory back to the R project folder.`  
+`cd E:/project_directory/LearningR # Changes the Git working directory back to the R project folder.`  
 `git remote add origin E:/project_directory/git-remote # Links the project to the remote repository`  
 `git push -u origin master # Pushes the local repository to the remote`
 
