@@ -5,15 +5,15 @@ Should be about some of the points mentioned in issue 111, e.g. what can the par
 
 
 ## Reproducible Research with R - in the Real World
-A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark's researcher services
+A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services
 
 **What is the deal?**  
 You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
-Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like github or the online archive where R packages are normally installed from with `install.packages()`.
+Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like GitHub or the online archive where R packages are normally installed from with `install.packages()`.
 
 ### Requirements
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
-Contact your system administrator and ask them if R and git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
+Contact your system administrator and ask them if R and Git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
 ```{r dst-desktop, echo=FALSE, fig.cap="Git, R & RStudio are already installed."}
 knitr::include_graphics(here::here("images/dst_desktop.jpg"))
@@ -32,45 +32,50 @@ knitr::include_graphics(here::here("images/dst_packages.jpg"))
 We may get a message nudging us to set up our Git config and not just use the defaults. The defaults should be based on your log-on ID (and be somewhat sensible) here, but we can set them ourselves later.
 
 ### Activating Git for the project
-Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`. See Figure \@ref(fig:dst-git-setup)
-```{r dst-git-setup, echo=FALSE, fig.cap="It works."}
+Normally, we would activate Git with the `usethis::use_Git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`. See Figure \@ref(fig:dst-git-setup)
+```{r dst-git-setup, echo=FALSE, fig.cap="Setting up Git for the project."}
 knitr::include_graphics(here::here("images/dst-git-setup.jpg"))
 ```
 After restarting RStudio, you should see the Git icons and tabs.
 
 Now we can set our Git config (since we don't have access to the r3 package, we'll set it with the git2r package here):
-```{r dst_git_config, eval=FALSE}
+```{r dst_Git_config, eval=FALSE}
 git2r::config(user.name = "My Name Here", user.email = "mynamehere@mymailhere.com")
 ```
 
 **And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works)**
-```{r dst-git-works, echo=FALSE, fig.cap="It works."}
-knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
+```{r dst-git-works, echo=FALSE, fig.cap="Initial commit to local remote."}
+knitr::include_graphics(here::here("images/dst_Git_Works.jpg"))
 ```
-**We will not be able to access an online remote git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
-We can still use git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
+**We will not be able to access an online remote Git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
+We can still use Git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
 
-### Setting up a git remote repository in the virtual environment
+### Setting up a Git remote repository in the virtual environment
 If we're working in a team, we will to want to have a remote repository for keeping the latest versions available to everybody on the team.
-If you recall Figure \@ref(fig:image-github-link-existing-repository), you can create a remote repository from an existing repository by pushing it from the terminal command line. The only difference here is that the location of the remote is not a GitHub-URL, and we're not using the GitHub website to create the remote repository. Instead, we create it in a folder on the virtual desktop, that everyone can access and clone from.
+In the version-control session, we created a remote repository through GitHub's website, and then created a local repository from it by cloning it.  This time, we'll do it all from the terminal, and since we've already set up a local repository, we'll do it the other way round:  
+1. Create a blank remote repository in a local folder that all team members have access to.
+2. Connect our local repository to it.
+3. Push the commits from our local repository to it.
 
-**Remember: git is operated through the terminal, not the console, so we go to the terminal tab and type:**
+In the end, the only difference here is that the location of the remote is not a GitHub-URL, functionally it is the same.
 
-`mkdir -p E:/project_directory/git-remote # Creates the folder for the remote (you can also do this through the File Explorer in Windows of course)`  
-`cd E:/project_directory/git-remote/ # Changes the git directory to the remote folder.`  
-`git init --bare # Creates an empty remote repository in the remote folder.`  
-`cd E:/project_directory/LearningR # Changes the git directory back to the R project folder.`  
-`git remote add origin E:/project_directory/git-remote # Links the project to the remote repository`  
-> `git push -u origin master # Pushes the local repository to the remote`
+**Remember: Git is operated through the terminal, not the console, so we go to the terminal tab and type:**
 
-**Notice in Figure \@ref(fig:dst-git-remote) how the Pull and Push icons now have colours:**
-```{r dst-git-remote, echo=FALSE, fig.cap="It works."}
-knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
+`mkdir -p E:/project_directory/Git-remote # Creates the folder for the remote (you can also do this through the File Explorer in Windows of course)`  
+`cd E:/project_directory/Git-remote/ # Changes the Git directory to the remote folder.`  
+`Git init --bare # Creates an empty remote repository in the remote folder.`  
+`cd E:/project_directory/LearningR # Changes the Git directory back to the R project folder.`  
+`Git remote add origin E:/project_directory/Git-remote # Links the project to the remote repository`  
+`Git push -u origin master # Pushes the local repository to the remote`
+
+**Notice in Figure \@ref(fig:dst-git-remote) how the Pull and Push icons now have colors:**
+```{r dst-git-remote, echo=FALSE, fig.cap="Remote repository works."}
+knitr::include_graphics(here::here("images/dst-git-remote.jpg"))
 ```
 **And that's it! Now we have version control!**  
   
 **Are we missing out by not having access to GitHub?**
-Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the repositories here serve the same function as a remote repository like github normally would:  
+Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the repositories here serve the same function as a remote repository like GitHub normally would:  
 - A platform for collaboration, where all team members can keep their edits synchronized and work in parallel without losing track of changes.  
 - A secure back-up of the entire history of the project in case the dog eats our laptops.
 
@@ -187,6 +192,6 @@ GROUP BY `District`
 
 ### Other drawbacks to working in a virtual environment
 **There are a lot, but to name a few:**  
-- In addition to being a repository, github can also be used as a forum for communicating about the project work-flow (and get feedback/contributions from the public if using a public repository).  
+- In addition to being a repository, GitHub can also be used as a forum for communicating about the project work-flow (and get feedback/contributions from the public if using a public repository).  
 - You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
 - The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
