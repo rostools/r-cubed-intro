@@ -258,7 +258,7 @@ Red, which you will see shortly, means text was removed.
 Now click the "Staged" checkbox besides the `README.md` file 
 to get it ready to be saved into the history.
 You've now "added" it to the staged area.
-Tip: If you have a lot of files to stage, simply click the box of the top file, scroll to the bottom, and SHIFT-click the box of the last file to stage all the files in one click. 
+Tip: If you have a lot of files to stage and you don't need to review each change: You can stage them all in a single click by pressing CTRL-A to select all files (⌘-A for Mac users) and then clicking the "Staged" checkbox one of the files. 
 The box on the right side is where you type out your "commit" message.
 "Commit" means you save something to the history of changes;
 You "commit" it to the history, like you "commit" something to your own memory.
