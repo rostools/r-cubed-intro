@@ -39,7 +39,7 @@ so it is more "self-contained"
 - Make raw data "read-only" (don't edit it directly) and use code to show what
 was done.
 - Whenever possible, use code to create output (figures, tables) rather than
-manualling creating or editing them.
+manually creating or editing them.
 - Think of your code and project like you do with your manuscript or thesis:
 that other people will eventually look at it and review it, 
 that it will be published.
