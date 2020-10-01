@@ -62,7 +62,7 @@ the default layout is how the panels are shown.
 
 - Panel "A" is the panel that shows the "scripts", which we will cover in the class.
 You *may or may not see this panel* when you open RStudio for the first time.
-This panel is where your write R code that will be saved as a file.
+This panel is where you write R code that will be saved as a file.
 - Panel "B" is the Console. This is where R commands are sent and evaluated by R.
 This is the "engine". No R code written here is saved.
 Almost all of the tasks below will be entered through the Console.
