@@ -129,6 +129,12 @@ topic and isn't something most people have ever learned about or dealt with.
 So take it slow and make sure everyone is on the same page. Make use of stickies
 frequently to assess how everyone is doing.
 
+## Data visualization
+
+For the section on the bar and error plots, make sure to go over the problems
+and major flaws with using this type of plot. Really try to reinforce the concept
+here.
+
 ### About the slides
 
 The slides are generated from the [xaringan] R package,
