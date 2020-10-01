@@ -39,7 +39,7 @@ so it is more "self-contained"
 - Make raw data "read-only" (don't edit it directly) and use code to show what
 was done.
 - Whenever possible, use code to create output (figures, tables) rather than
-manualling creating or editing them.
+manually creating or editing them.
 - Think of your code and project like you do with your manuscript or thesis:
 that other people will eventually look at it and review it, 
 that it will be published.
@@ -106,11 +106,21 @@ make life easier. Once a project is opened within RStudio the following actions
 are taken:
 
 - A new R session (process) is started.
-- The current working directory is set to the project directory.
+- The R session's working directory is set to the project directory.
 - RStudio project options are loaded.
 
-The README in each folder explains a bit about what should be placed there. But
-briefly:
+Let's learn a bit more about how R works, and what the "R session" means. An R
+session is the way you normally interact with R, where you would write
+code in the Console to tell R to do something. Normally, when you open an R
+session without an R Project, the session defaults to assuming you will be
+working in the `~/Desktop` or `~` (your Home folder) location. But this location
+isn't where you actually work... you would work in the folder that has your R
+scripts or data files. With R Projects, this assumption is implicit because the
+R Project contains your R scripts and data files, and it is this folder location
+that the R session opens in.
+
+Back to the project we created. There are README files in each folder that
+explain a bit about what should be placed there. Briefly:
 
 1. Documents like manuscripts, abstracts, and exploration type documents should 
 be put in the `doc/` directory (including [R Markdown] files which we will cover
@@ -461,22 +471,42 @@ source(here::here("R/package-loading.R"))
 ```
 
 There's a new thing `here`! The [here] package uses a function called `here()` 
-that makes it easier to manage file paths. 
+that makes it easier to manage *file paths* within an R Project. 
 The here package should already be installed.
 
-So, what is a file path and why is this 
+So, what is a file path and why is this `here` package
 necessary? A file path is the list of folders a file is found in. For instance,
 your CV may be found in `/Users/Documents/personal_things/CV.docx`. The problem 
 with file paths in R is that when you run a script interactively (e.g. what we
 do in class and normally), 
-the file path and "working directory" is located at the Project level 
-(where the `.Rproj` file is found).
+the file path and "working directory" (the R session) are located at the Project
+level (where the `.Rproj` file is found).
 You can see the working directory by looking at the top of the RStudio Console.
 
-But! When you `source()` an R script, it may likely run *in the
+But! When you `source()` an R script, the R code may likely run *in the
 folder it is saved in*, e.g. in the `R/` folder. So your file path
 `R/packages-loading.R` won't work because there isn't a folder called R in the
-`R/` folder. Often people use the function `setwd()`, but this is *never* a good
+`R/` folder. 
+
+```
+LearningR <--- R session working directory starts here.
+├── R
+│   ├── README.md
+│   ├── fetch_data.R <--- Working directory when running from source()
+│   └── setup.R
+├── data
+│   └── README.md
+├── doc
+│   └── README.md
+├── .Rbuildignore
+├── .gitignore
+├── DESCRIPTION
+├── LearningR.Rproj <--- here() moves file path to start in this file's folder
+├── README.md
+└── TODO.md
+```
+
+Often people use the function `setwd()`, but this is *never* a good
 idea since using it makes your script *runnable only on your computer*... which
 makes it no longer reproducible. We use the `here()` function to tell R to go
 to the project root (where the `.Rproj` file is found) and then use that file

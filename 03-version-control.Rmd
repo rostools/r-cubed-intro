@@ -25,12 +25,12 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
-```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'. Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)"}
-knitr::include_graphics(here::here("images/phd-comics-version-control.png"))
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'."}
+knitr::include_graphics(here::here("images/version-control.jpg"))
 ```
 
-```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming used for the common 'version control'. Image source: [PhD Comics](https://phdcomics.com/comics.php?f=1323)"}
-knitr::include_graphics(here::here("images/informal-version-control.gif"))
+```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming used for the common 'version control'."}
+knitr::include_graphics(here::here("images/informal-version-control.jpg"))
 ```
 
 Does this way of saving files and keeping track of versions look familiar?
@@ -258,6 +258,7 @@ Red, which you will see shortly, means text was removed.
 Now click the "Staged" checkbox besides the `README.md` file 
 to get it ready to be saved into the history.
 You've now "added" it to the staged area.
+Tip: If you have a lot of files to stage and you don't need to review each change: You can stage them all in a single click by pressing CTRL-A to select all files (⌘-A for Mac users) and then clicking the "Staged" checkbox one of the files. 
 The box on the right side is where you type out your "commit" message.
 "Commit" means you save something to the history of changes;
 You "commit" it to the history, like you "commit" something to your own memory.

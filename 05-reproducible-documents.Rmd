@@ -451,6 +451,94 @@ replace the `_` with `-` by using `str_replace(Year, "_", "-")`.
 1. Run the code chunk to make sure the code works, then knit the document. 
 Don't forget about including the `knitr::kable()` function at the end of the pipe.
 
+<details><summary><strong>Click for a possible solution</strong></summary>
+<p>
+
+```{r answer-2-var-plots, eval=FALSE}
+# 1. Loading libraries
+library(tidyverse)
+library(NHANES)
+
+# 2. Calculating mean BMI and Age
+{r prettier-table}
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = mean(Values, na.rm = TRUE))
+
+# 3. Roudning the values to 1 digit
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1))
+    
+
+# 4. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr)
+
+# 5.  Modify the `Sex` column so that male and female get capitalized.
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr) %>%
+    mutate(Sex = str_to_sentence(Sex))
+
+# 6. Replace `_` with `-` in the `Year`column
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr) %>%
+    mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))
+
+# 7. Include the `knitr::kable()` function at the end of the pipe.
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr) %>%
+    mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))  %>% 
+    knitr::kable(caption = "A prettier Table. Mean values of Age and BMI for each sex by survey year.")
+
+</p>
+</details>
+
+
+
+
 ## Formatting text with Markdown syntax
 
 **Take about 8 min to read over the first few parts of this section, then move
