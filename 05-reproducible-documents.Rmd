@@ -454,7 +454,7 @@ Don't forget about including the `knitr::kable()` function at the end of the pip
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
 
-```{r answer-2-var-plots, eval=FALSE}
+```{r answer-ex-create-table, eval=FALSE}
 # 1. Loading libraries
 library(tidyverse)
 library(NHANES)
