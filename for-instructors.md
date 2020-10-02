@@ -115,7 +115,7 @@ If you need help, put the 'need help' sticky up."
 
 ## Lesson material details
 
-## Version control
+### Version control
 
 For the reading parts, let them read it first 
 and then walk through the material again, 
@@ -129,7 +129,13 @@ topic and isn't something most people have ever learned about or dealt with.
 So take it slow and make sure everyone is on the same page. Make use of stickies
 frequently to assess how everyone is doing.
 
-## Data visualization
+### Data management
+
+For this session, it usually takes a fair amount of time relative to the other sessions.
+The R Markdown session is right afterwards and since it usually is done quicker
+than other sessions, the Data Management session can go into the R Markdown session.
+
+### Data visualization
 
 For the section on the bar and error plots, make sure to go over the problems
 and major flaws with using this type of plot. Really try to reinforce the concept
