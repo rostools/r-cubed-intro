@@ -157,3 +157,27 @@ if you want to use this course material and run a course like this on your
 own, you can clone the r3 package and modify it as necessary for your own
 purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/master/README.md)
 of the r3 package for more details.
+
+### About using surveys
+
+We used Google Forms to create surveys for pre-, during-, and post-course
+feedback and questionnaires. Then we included the link as a function within the
+r3 package so learners can quickly access the survey. Creating surveys is quite
+easy with Google Forms. Below are a list of questions to include (depending on
+the survey):
+
+- **Pre-course**:
+    - Basic questions about the participant (position, name, place of work).
+    - Questions about perceived skill/knowledge on using R, programming, data
+    analysis, and version control.
+    - Questions related to their pre-course tasks.
+    - Feedback on the pre-course tasks, like: What worked well? What could be improved?
+- **Daily feedback**:
+    - For each session, we asked: What worked well? What could be improved?
+    - For final session, we asked broader quantitative comments like: I think I
+    learned a lot; I think the instructors communicated clearly; I think there 
+    was good alignment between content and delivery.
+- **Post-course**:
+    - Basic questions about the participant (like in the pre-course survey).
+    - Questions about current usage of the tools they learned during the course.
+    - Questions about and reflections on the course.
