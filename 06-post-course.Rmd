@@ -1,58 +1,73 @@
 # Continued learning {#post-course}
 
 ## What next? First part (placeholder)
-Should be about some of the points mentioned in issue 111, e.g. what can the participants do to plan/visualize this sort of work-flow, and how to implement it into their research institutes and environments.
 
+TODO: Should be about some of the points mentioned in issue 111, e.g. what can the
+participants do to plan/visualize this sort of work-flow, and how to implement
+it into their research institutes and environments.
 
-## Reproducible Research with R - in the Real World
-A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services
+## Reproducible Research with R: In the Real World
+
+A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case study: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services.
 
 **What is the deal?**  
 You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
 Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like GitHub or the online archive where R packages are normally installed from with `install.packages()`.
 
 ### Requirements
+
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
-Contact your system administrator and ask them if R and Git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
+Contact your system administrator and ask them if R and Git are supported. If not, then ask the administrators to install them. That's a basic service that they should provide.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
-```{r dst-desktop, echo=FALSE, fig.cap="Git, R & RStudio are already installed."}
+
+```{r dst-desktop, echo=FALSE, fig.cap="Git, R, and RStudio are already installed."}
 knitr::include_graphics(here::here("images/dst_desktop.jpg"))
 ```
 
-
 ### Packages are accessible!
+
 To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to access any package from there with the `library()` command.
 
 While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab will slow your session down a lot). See Figure \@ref(fig:dst-packages):
+
 ```{r dst-packages, echo=FALSE, fig.cap="CRAN packages are already installed."}
 knitr::include_graphics(here::here("images/dst_packages.jpg"))
 ```
+
 ### Setting up our project.
-**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation))**  
+
+**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation)).**  
 We may get a message nudging us to set up our Git config and not just use the defaults. The defaults should be based on your log-on ID (and be somewhat sensible) here, but we can set them ourselves later.
 
 ### Activating Git for the project
-Normally, we would activate Git with the `usethis::use_Git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`. See Figure \@ref(fig:dst-git-setup)
+
+Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`, shown in Figure \@ref(fig:dst-git-setup).
+
 ```{r dst-git-setup, echo=FALSE, fig.cap="Setting up Git for the project."}
 knitr::include_graphics(here::here("images/dst-git-setup.jpg"))
 ```
-After restarting RStudio, you should see the Git icons and tabs.
 
+After restarting RStudio, you should see the Git icons and tabs.
 Now we can set our Git config (since we don't have access to the r3 package, we'll set it with the git2r package here):
+
 ```{r dst_git_config, eval=FALSE}
 git2r::config(user.name = "My Name Here", user.email = "mynamehere@mymailhere.com")
 ```
 
-**And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works)**
+**And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works).**
+
 ```{r dst-git-works, echo=FALSE, fig.cap="Initial commit to local repository."}
 knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
 ```
+
 **We will not be able to access an online remote Git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
 We can still use Git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
 
 ### Setting up a Git remote repository in the virtual environment
+
 If we're working in a team, we will to want to have a remote repository for keeping the latest versions available to everybody on the team.
 In the version-control session, we created a remote repository through GitHub's website, and then created a local repository from it by cloning it.  This time, we'll do it all from the terminal, and since we've already set up a local repository, we'll do it the other way round:  
+
 1. Create a blank remote repository in a local folder that all team members have access to.
 2. Connect our local repository to it.
 3. Push the commits from our local repository to it.
@@ -61,31 +76,55 @@ In the end, the only difference here is that the location of the remote is not a
 
 **Remember: Git is operated through the terminal, not the console, so we go to the terminal tab and type:**
 
-`mkdir -p E:/project_directory/git-remote # Creates the folder for the remote (you can also do this through the File Explorer in Windows of course)`  
-`cd E:/project_directory/git-remote/ # Changes the Git working directory to the remote folder.`  
-`git init --bare # Creates an empty remote repository in the remote folder.`  
-`cd E:/project_directory/LearningR # Changes the Git working directory back to the R project folder.`  
-`git remote add origin E:/project_directory/git-remote # Links the project to the remote repository`  
-`git push -u origin master # Pushes the local repository to the remote`
+```bash
+# Creates the folder for the remote (you can also 
+# do this through the File Explorer in Windows of 
+# course)
+mkdir -p E:/project_directory/git-remote 
+
+# Changes the Git working directory to the 
+# remote folder.
+cd E:/project_directory/git-remote/ 
+
+# Creates an empty remote repository in the 
+# remote folder.
+git init --bare 
+
+# Changes the Git working directory back to the R 
+# project folder.
+cd E:/project_directory/LearningR 
+
+# Links the project to the remote repository
+git remote add origin E:/project_directory/git-remote 
+
+# Pushes the local repository to the remote
+git push -u origin master 
+```
 
 **Notice in Figure \@ref(fig:dst-git-remote) how the Pull and Push icons now have colors:**
+
 ```{r dst-git-remote, echo=FALSE, fig.cap="The Remote repository works."}
 knitr::include_graphics(here::here("images/dst-git-remote.jpg"))
 ```
+
 **And that's it! Now we have version control!**  
   
 **Are we missing out by not having access to GitHub?**
 Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the repositories here serve the same function as a remote repository like GitHub normally would:  
+
 - A platform for collaboration, where all team members can keep their edits synchronized and work in parallel without losing track of changes.  
 - A secure back-up of the entire history of the project in case the dog eats our laptops.
 
-## How R can help us deal with common issues in restricted environments:
+## How R can help us deal with common issues in restricted environments
+
 ### Keeping track of file paths
+
 The preset folder structures are often ugly, long, and maze-like. While they can't be edited, using a work-flow that takes advantage of R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
   
-- Sometimes, these types of servers will be using a specific software and data file format. Perhaps the data is in a different format, or it is stored in a relational database, e.g SQL.
+Sometimes, these types of servers will be using a specific software and data file format. Perhaps the data is in a different format, or it is stored in a relational database, e.g SQL.
 
-### Quickly converting raw data from foreign formats and separate files:
+### Quickly converting raw data from foreign formats and separate files
+
 In the case of DST, all raw data and formatting tables are provided in SAS-formats. Luckily for us, with the haven package, we can open pretty much any data format. And with a few functions, we can automate the file conversion process. The intermediate course will go much more into functional programming and lists, but this is a sneak peek of how it can make your our lives much easier:
 
 ```{r sneak_peek_conversion, eval=FALSE}
@@ -94,20 +133,25 @@ raw_folder <- "E:/Users/long/uneditable/maze/of/folders/to/get/to/your/project/d
 work_folder <- here::here("data/")
 file_list <- list.files(path = raw_folder)
 ```
+
 File names can be specified with the pattern argument: e.g. `pattern = ".sas7bdat$"` to select only the SAS data files in the folder. Or `pattern = "^medicine"` to only convert files starting with "medicine".  
-Now, we make a custom function to do the file conversion and saving, and we feed it all the file names we stored in file_list with a "for loop",:
+Now, we make a custom function to do the file conversion and saving, and we feed it all the file names we stored in `file_list` with `purrr::walk()`, which takes the files and applies our custom function to each file.
 
 ```{r sneak_peek_conversion_2, eval=FALSE}
 my_automatic_conversion_function <- function(filename) {
-dataset <- read_sas(paste(raw_folder, filename, sep = '') )
-# It is possible to add code to filter the data here, if you want to trim the dataset during conversion
-saveRDS(dataset, paste(work_folder, filename, '.rds', sep = ''))
-remove(dataset)
+    dataset <- read_sas(paste(raw_folder, filename, sep = ''))
+    # It is possible to add code to filter the 
+    # data here, if you want to trim the dataset 
+    # during conversion
+    saveRDS(dataset, paste(work_folder, filename, '.rds', sep = ''))
 }
 
-for (filename in file_list) {
-  my_automatic_conversion_function(filename)
-}
+# walk runs a function on a vector (of file names)
+# that only e.g. save a dataset.
+purrr::walk(
+    file_list,
+    my_automatic_conversion_function
+)
 ```
 
 We can also merge the datasets at the end process if your raw data is spread across several files and you need to have it in one file, e.g. if each year is a separate file.  
@@ -120,25 +164,30 @@ merged_data <- rbindlist(opened_data, use.names = TRUE, fill = TRUE)
 saveRDS(merged_data, paste(work_folder, 'all_medicine_in_one_file', '.rds', sep = '') )
 ```
 
-With R, you're very flexible in terms of data formats, so if you end up in an environment like this, just remember Figure \@ref(fig:no-sas-no-problem)
+With R, you're very flexible in terms of data formats, so if you end up in an environment like this, just remember Figure \@ref(fig:no-sas-no-problem).
+
 ```{r no-sas-no-problem, echo=FALSE, fig.cap="No SAS. No Problem."}
 knitr::include_graphics(here::here("images/i-got-99-problems-but-sas-aint-one.jpg"))
 ```
 
 ### Accessing, wrangling and extracting data from databases
+
 Even if the data is stored in a database format, e.g. SQL Server, Oracle Database or other formats, you can still access it with R. This means that you don't have to use a separate program to interact with the raw data, so you can keep your work-flow in the R project where it's clearly documented and reproducible. The tidyverse includes the dbplyr-package that can translate the wrangling functions from dplyr into SQL queries, so you won't have to learn a new syntax, you can just stick with what you've already learned!  
 This is big field with many different databases, each with their own quirks. A good reference to keep in hand along the way is the [database guide by RStudio](https://db.rstudio.com/getting-started/)  
 **We'll have to set up a DSN connection to the database first, which is a bit tedious - but stay with us!**
-First, type in "odbc" in the taskbar and choose the right architecture for your database, see figure \@ref(fig:odbc-admin-1)
+First, type in "odbc" in the taskbar and choose the right architecture for your database, see Figure \@ref(fig:odbc-admin-1).
+
 ```{r odbc-admin-1, echo=FALSE, fig.cap="Setting up the DSN connection drivers. Depending on the type of database, choose the 32-bit or 64-bit option."}
 knitr::include_graphics(here::here("images/odbc-admin-1.jpg"))
 ```
 
-Next, we have to set up the connection driver, that is: We have to name it and specify the address of the database we want it to connect to. Figure \@ref(fig:odbc-admin-2)
+Next, we have to set up the connection driver, that is: We have to name it and specify the address of the database we want it to connect to, shown in Figure \@ref(fig:odbc-admin-2).
+
 ```{r odbc-admin-2, echo=FALSE, fig.cap="Add the relevant driver in either the user or system tab. A setup wizard will pop up and take you through the rest of the setup process."}
 knitr::include_graphics(here::here("images/odbc-admin-2.jpg"))
 ```
-** Alright, back to R**
+
+**Alright, back to R.**
 If we need to connect to a 32-bit database, we'll have to switch to the 32-bit version of R first (Go to `Tools -> Global Options -> General Tab -> R Version -> change -> use default 32-bit version of R` and restart R). Remember to switch back to the 64-bit version when you're finished interacting with the database, as the 64-bit version is much more powerful.  
 Now, we can load the required packages and connect to the data:
 
@@ -188,10 +237,13 @@ FROM `Tabel1`) `dbplyr_001`
 WHERE (`Sex` = 'Male')
 GROUP BY `District`
 ```
+
 **It's pretty clear which one is easier to read, extend or make changes to without making mistakes, isn't it?**
 
 ### Other drawbacks to working in a virtual environment
+
 **There are a lot, but to name a few:**  
+
 - In addition to being a repository, GitHub can also be used as a forum for communicating about the project work-flow (and get feedback/contributions from the public if using a public repository).  
 - You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
 - The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
