@@ -163,15 +163,15 @@ of the r3 package for more details.
 We used Google Forms to create surveys for pre-, during-, and post-course
 feedback and questionnaires. The purpose of using surveys in the current context
 is purely to gain feedback on aspects of the course that could be improved
-in future iterations, such as the "pace" of material being presented. We are 
-not attempting to perform formal program evaluation.
+in future iterations, such as the "pace" of material being presented.
 
-Survey templates are stored in Luke's Google Drive folder, so you will need to 
-provide your email address in order to be given permissions. Survey templates
-are different for beginner versus intermediate course levels. The interface 
-for creating survey templates is quite clear and functions are very intuitive. 
+The interface for creating surveys is quite clear and functions are very intuitive. 
 You will see a floating menu to the right of your template where you can add 
-questions etc. One particularly useful tool is the ability to duplicate matrices. 
+questions etc. One particularly useful tool is the ability to duplicate question and answer
+matrices. If you are using this course material to run your own independent workshop
+and want the surveys to use as a template that you can then customize,
+create a [new issue](https://gitlab.com/rostools/r-cubed/-/issues/new) to request
+access.
 
 We included survey links as a function within the r3 package so learners can quickly 
 access the survey. Creating surveys is quite easy with Google Forms. Below are a 
