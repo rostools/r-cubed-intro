@@ -192,3 +192,34 @@ list of questions to include (depending on the survey):
     - Basic questions about the participant (like in the pre-course survey).
     - Questions about current usage of the tools they learned during the course.
     - Questions about and reflections on the course.
+    
+## General course admin
+
+### Helper R scripts
+
+There are several R scripts in the `R/` folder of the repository that can be
+modified and used to help manage and organize the course. Here is a brief
+overview of what each script is and how it can help.
+
+- `build-slides.R`: As the name suggests, this script will build (or re-build)
+the R Markdown slides in the `slides/` folder.
+- `checks.R`: Can be used to run basic checks of the URLs in the chapters. 
+URLs are not always stable, so this checks if they are active/live.
+- `create-teams.R`: Relies on `fetch-pre-survey.R`, this script will group
+the participants in to teams, create teams on GitHub, create repositories for 
+the teams, and assign the teams to those repositories.
+- `fetch-feedback-survey.R`: Fetches and processes the participant feedback
+from the Google Form survey. Uses the `ignore.R` file that contains the Google
+document ID and is not present in the repository, so you'd have to create your own.
+- `fetch-pre-survey.R`: Like the `fetch-feedback-survey.R`, this fetches and 
+processes the pre-survey results. Also uses the `ignore.R` file.
+- `ignore.R`: Not in the repository, so will need to be created to contain
+the `PRE_SURVEY_ID` and `FEEDBACK_SURVEY_ID` variables that have the Google
+document ID for the survey results.
+
+Other scripts are used within the material to generate content or do other tasks:
+
+- `extract-solutions.R`: This script contains a function to extract solutions
+from each of the exercises and prints them in the `resources.Rmd` section.
+- `slide-setup.R`: Contains code that sets up the themes, options, and 
+reference management for the slides in `slides/`.

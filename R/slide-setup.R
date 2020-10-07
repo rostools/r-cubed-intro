@@ -1,4 +1,6 @@
 
+# For setting up slides ---------------------------------------------------
+
 options(htmltools.dir.version = FALSE)
 
 # Insert references
