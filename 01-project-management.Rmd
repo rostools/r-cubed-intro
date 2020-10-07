@@ -147,6 +147,10 @@ Time: 7 min
 
 1. Briefly read through each of the `README.md` files by opening them up in RStudio.
 
+```{r solution-read-readme, eval=FALSE, echo=FALSE}
+# This exercise has no solution.
+```
+
 ### Exercise: Better file naming
 
 Time: 10 min
@@ -167,6 +171,30 @@ new version of analysis.R
 trying.something.here.R
 plotting-regression.R
 utility_functions.R
+code.R
+```
+
+```{r solution-better-filenaming, eval=FALSE, echo=FALSE}
+# Bad: Has a space.
+fit models.R
+# Good: Descriptive with no space.
+fit-models.R
+# Bad: Not descriptive.
+foo.r
+stuff.r
+# Good: Descriptive with no space.
+get_data.R
+# Bad: Has space
+Manuscript version 10.docx
+# Good: Descriptive.
+manuscript.docx
+# Bad: Not descriptive and has spaces.
+new version of analysis.R
+# Bad: Not descriptive and has dots.
+trying.something.here.R
+plotting-regression.R
+utility_functions.R
+# Bad: Not descriptive.
 code.R
 ```
 
@@ -376,7 +404,7 @@ message("Y is negative")
 
 The old code is in comments and the better code is below it.
 
-```{r ex-wrong-code-naming-answer, eval=FALSE}
+```{r solution-ex-wrong-code-naming, eval=FALSE}
 # Object names
 
 # Should be snake case (looks like `snake_case`)
@@ -543,11 +571,13 @@ no matter their skill level. You *can fix it*! `r emo::ji("smile")`
 The pieces of code below will return an error message due to one of the mistakes noted above. You don’t need to run this code in RStudio, but you can copy and paste the code into RStudio so that you can play around with it. Look at the code, identify the mistake, and provide the corrected code. You don’t need to understand what the code does.
 
 ```{r exercise-errors, error=TRUE}
-Library()
-
 x < y
+Library(tidyvrese)
+```
 
-library(tidyvrese)
+```{r solution-exercise-errors, eval=FALSE, echo=FALSE}
+x < y
+library(tidyverse)
 ```
 
 ## Final troubleshooting tips

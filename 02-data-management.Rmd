@@ -235,7 +235,7 @@ summary(___)
 <details><summary><strong>Click for the solution</strong></summary>
 <p>
 
-```{r, eval=FALSE}
+```{r solution-exercise-familiar-with-data, eval=FALSE}
 # Load the packages
 library(tidyverse)
 library(NHANES)
@@ -334,7 +334,7 @@ rename(nhanes_small, Sex = Gender)
 # View dataframe
 nhanes_small
 ```
-Notice that the rename() function has not altered the nhanes_small dataframe. To do this, we need to assign the change to nhanes_small:
+Notice that the `rename()` function has not altered the `nhanes_small` dataframe. To do this, we need to assign the change to `nhanes_small`:
 
 ```{r}
 nhanes_small <- rename(nhanes_small, Sex = Gender)
@@ -406,19 +406,19 @@ So with tidyverse packages,
 the first position always takes the data,
 to make the function usable with the pipe.
 
-**Ok, let's return back together and try this out**.
+**Ok, let's return back together and try this out**. Recall that the
+keyboard shortcut for the pipe is `Ctrl-Shift-M`.
 
 ```{r}
 # These two ways are the same
 colnames(nhanes_small)
 nhanes_small %>% 
     colnames()
-# Shortcut for the pipe is Ctrl+shift+m
 ```
 
-Because the pipe automatically takes NHANES
+Because the pipe automatically takes `nhanes_small`
 and puts it into the first position, 
-we don't need to type out `NHANES` inside `colnames()` when piping.
+we don't need to type out `nhanes_small` inside `colnames()` when piping.
 
 Let's try the pipe on the `select()` and `rename()` function from the previous section.
 Remember, both `select()` and `rename()` take a dataset as the first position,
@@ -427,13 +427,13 @@ which makes them pipe-able.
 ```{r}
 NHANES %>% 
     select(nBabies) %>% 
-    rename(NumberBabies = nBabies)
+    rename(Number_Babies = nBabies)
 ```
 
 We can now "read" these actions as:
 
 > Take the NHANES dataset *and then* select the nBabies column 
-*and then* rename the nBabies column to NumberBabies.
+*and then* rename the nBabies column to Number_Babies.
 
 ## Exercise: Practice what we've learned
 
@@ -481,7 +481,7 @@ then re-read the revised version. Which do you feel is easier to "read"?
 <details><summary><strong>Click for the solution</strong></summary>
 <p>
 
-```{r, eval=FALSE}
+```{r solution-ex-practice-dplyr, eval=FALSE}
 # 1. Select specific columns
 NHANES %>%
     select(HomeOwn, TVHrsDay, Diabetes)
@@ -502,7 +502,6 @@ NHANES %>%
 
 </p>
 </details>
-
 
 ## Filter the data by row
 
@@ -715,20 +714,20 @@ in the R script for this exercise by using `Ctrl-Shift-R`).
 
 1. Filter nhanes_small so only those with a BMI of more than or equal to 20 
 *and* less than or equal to 40 *and* keep those who have diabetes.
-2. Using the large NHANES dataframe, create a new variable called `Urine_vol_average` by calculating the average
+2. Using the larger NHANES dataframe, create a new variable called `Urine_vol_average` by calculating the average
 urine volumne (from `UrineVol1` and `UrineVol2`).
     - *Comment*: After creating the `Urine_vol_average` column, 
     check out values. What do you nothice? Compare with the original urine columns.
 3. Create a new variable called `Young_child` when age is less than 6 years.
 
-```{r, eval=FALSE}
+```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
 nhanes_small %>%
     # format: variable >= number or character
     filter(___ >= ___ & ___ <= ___ & ___ == ___)
 
 # Pipe the data into mutate function and:
-NHANES_modified <- ___ %>% # dataset
+nhanes_modified <- ___ %>% # dataset
     mutate(
         # 2. Calculate average urine volume
         ___ = ___,
@@ -741,7 +740,7 @@ NHANES_modified
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
 
-```{r}
+```{r solution-ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
 nhanes_small %>%
     # format: variable >= number
@@ -802,9 +801,9 @@ you can add multiple "summaries" by adding new columns separated by comma `,`. Y
 
 The `group_by()` function doesn't do anything by itself so should always be used in combination with a `summarize()`, `mutate()`, `arrange()`, or other function. However, the `summarize()` function can be used on its own. Let's take a look.
 
-# `summarize()` function
+## Calculating summary statistics
 
-Let's calculate the max age. Because `NA` values "propogate" 
+Let's calculate the max age. Because `NA` values "propagate" 
 (if there is one missing, then a max or mean will be missing),
 we need to tell `max()` to exclude `NA` using `na.rm = TRUE`.
 
@@ -821,20 +820,54 @@ nhanes_small %>%
               Min_age = min(Age, na.rm = TRUE))
 ```
 
-# Exercise: Try using the `summarize()` function on your own
+## Exercise: Use `summarize()` to calculate basic statistics
 
-Time: 5 mins 
+Time: 10 min 
 
-Select another variable from NHANES to derive a summary statistic from, perhaps something other than min or max as we have just done). If you are unsure which summary staistics you can compute, consider using the `help()` or `?` functions to access documentation find help. Remember to use your `colnames()` and/or `str()`/`glimpse()` functions to take a quick look at the NHANES dataset and its variables.
+Practice using `summarize()` by calculating various summary statistics.
+Complete the following tasks:
 
-Here's another example, if you get stuck:
+1. Calculate the `mean()` of `weight` and `bmi`.
+2. Calculate the `max()` and `min()` of `height`.
+3. Calculate the `median()` of `age` and `phys_active_days`.
 
-```{r}
-NHANES %>%
-    summarize(AverageWeight = mean(Weight, na.rm = TRUE))
+Don't forget to use `na.rm = TRUE` in the basic statistic functions.
+
+```{r exercise-summarize-basic-stats, eval=FALSE}
+# 1.
+nhanes_small %>%
+    summarize(mean_weight = ___,
+              mean_bmi = ___)
+
+# 2.
+nhanes_small %>%
+    summarize(max_height = ___,
+              min_height = ___)
+
+# 3.
+nhanes_small %>%
+    summarize(___ = ___,
+              ___ = ___)
 ```
 
-# `group_by()` function
+```{r solution-exercise-summarize-basic-stats, eval=FALSE, echo=FALSE}
+# 1.
+nhanes_small %>%
+    summarize(mean_weight = mean(weight, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE))
+
+# 2.
+nhanes_small %>%
+    summarize(max_height = max(height, na.rm = TRUE),
+              min_height = min(height, na.rm = TRUE))
+
+# 3.
+nhanes_small %>%
+    summarize(median_age = median(height, na.rm = TRUE),
+              median_phys_active_days = median(phys_active_days, na.rm = TRUE))
+```
+
+## Summary statistics by a group
 
 While the `summarize()` function is partly useful, it really shines when combined with `group_by()`.
 Let's find out the mean age and BMI between those with and without Diabetes.
@@ -878,18 +911,70 @@ nhanes_small %>%
 
 Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
 
-# Exercise: Try using the `group_by()` and `summarize()` functions on your own
+## Exercise: Use `group_by()` and `summarize()` to answer some questions
 
-Time: 5-7 mins
+Time: 5-7 min
 
-To complete this exericse, we would like you to:
-1. Select a new demographic and clinical variable from the NHANES dataset. Try to pick variables that we haven't used previously.
-2. Compare diabetes status groups on these variables, using summary statistics of your choice. 
+Using the `group_by()` with `summarize()`, answer these questions:
 
-Note: You are likely to come across some errors in this exercise, so be sure to refer to your troubleshooting and help-finding materials.
+1. What is the mean, max, and min differences in age between
+females and males with or without diabetes?
+2. What is the mean, max, and min differences in height and weight between
+females and males with or without diabetes?
 
-## Exercise: Where have we gone wrong?
+```{r exercise-groupby-summarise, eval=FALSE}
+# 1. 
+nhanes_small %>% 
+    filter(!is.na(Diabetes)) %>% 
+    ___(___, ___) %>% 
+    ___(
+        ___,
+        ___,
+        ___
+    )
 
+# 2. 
+nhanes_small %>% 
+    filter(!is.na(Diabetes)) %>% 
+    ___(___, ___) %>% 
+    ___(
+        ___,
+        ___,
+        ___,
+        ___,
+        ___,
+        ___
+    )
+```
+
+```{r solution-exercise-groupby-summarise, eval=FALSE, echo=FALSE}
+# 1. 
+nhanes_small %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) %>% 
+    summarize(
+        mean_age = mean(age, na.rm = TRUE),
+        max_age = max(age, na.rm = TRUE),
+        min_age = min(age, na.rm = TRUE),
+    )
+
+# 2. 
+nhanes_small %>% 
+    filter(!is.na(Diabetes)) %>% 
+    group_by(Diabetes, Sex) %>% 
+    summarize(
+        mean_height = mean(height, na.rm = TRUE),
+        max_height = max(height, na.rm = TRUE),
+        min_height = min(height, na.rm = TRUE),
+        mean_weight = mean(weight, na.rm = TRUE),
+        max_weight = max(weight, na.rm = TRUE),
+        min_weight = min(weight, na.rm = TRUE)
+    )
+```
+
+## Where have we gone wrong?
+
+**Do this section on your own for the next 5 minutes**.
 We are going to take a pitstop here to practice what you learned earlier \@ref(01-project-management.Rmd) about troubleshooting errors, including going back to the start of the code and running each line or part one at a time until you find where the problem occurs.
 
 Here is a piece of code similar to the one we were just using. When it is run in RStudio, it returns an error message. However, we can’t immediately see the problem and need a hint to locate where in the code the issue lies. We are going to try the one-line-at-a-time approach.
@@ -929,7 +1014,6 @@ Here is where the error occurs, which indicates that the issues lies somewhere b
 
 ## Saving datasets as files
 
-This will be a very short section. 
 Sometimes you'll need or want to save the dataset you've been working on,
 maybe because you've done a lot of cleaning to it, 
 preparing it for later analyses, 
@@ -994,7 +1078,6 @@ For SAS, SPSS, or Stata files, you can use the package
 - Never edit raw data - instead, save the changes in a separate folder or even file based on a code, and don't manually edit the data
 - Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
 - Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
-
 
 ## Final exercise: Group work
 

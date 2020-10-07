@@ -179,6 +179,10 @@ or with the RStudio "Knit" button.
 key from `html_document` to `word_document`. Knit again.
 1. Open the Word file if it hasn't been opened already.
 
+```{r solution-create-rmd, eval=FALSE, echo=FALSE}
+# This exercise has no R code solution.
+```
+
 ## Inserting R code into your document
 
 Being able to insert R code directly into a document is one of the most 
@@ -454,7 +458,7 @@ Don't forget about including the `knitr::kable()` function at the end of the pip
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
 
-```{r answer-ex-create-table, eval=FALSE}
+```{r solution-ex-create-table, eval=FALSE}
 # 1. Loading libraries
 library(tidyverse)
 library(NHANES)
@@ -613,6 +617,10 @@ Time: 5 min
 1. Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
 1. Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
+
+```{r solution-use-md-for-text, eval=FALSE, echo=FALSE}
+# This exercise has no R code solution.
+```
 
 ## Inserting figures, as files or from R code
 
