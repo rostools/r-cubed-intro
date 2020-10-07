@@ -350,6 +350,11 @@ add a new line to the `R/version-control-session.R` with an R comment
 Type out something like "This will be used for testing out Git".
 Add and commit that new line you've written.
 
+```{r solution-commit-to-history, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
+
+
 ## "Remotes": Storing your repository online
 
 **Take 3 min and read through the next two paragraphs**.
@@ -482,6 +487,10 @@ Clone it to your desktop.
 knitr::include_graphics(here::here("images/github-add-readme.png"))
 ```
 
+```{r solution-clone-repo, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
+
 ## Synchronizing with GitHub
 
 **Take 3 min and read through the next two paragraphs**.
@@ -569,6 +578,10 @@ directly edit your `README.md` file there.
 Commit the changes.
 6. Open up your RStudio `practice-repo` project 
 and pull the changes you made on GitHub.
+
+```{r solution-push-pull, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
 
 ## Dealing with file conflicts between the local and remote
 
@@ -681,6 +694,10 @@ Add the changes to the staging after you fixed them and click the commit button
 4. Push the changes up to GitHub 
 and view them there to make sure they have been synchronized
 (you may need to refresh the browser).
+
+```{r solution-merge-conflicts, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
 
 ## Collaborating using Git and GitHub 
 

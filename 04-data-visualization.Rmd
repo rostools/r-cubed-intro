@@ -442,7 +442,7 @@ ggplot(___, aes(x = ___, y = ___)) +
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
 
-```{r answer-2-var-plots, eval=FALSE}
+```{r solution-2-var-plots, eval=FALSE}
 # 1. Remove missing diabetes, rename to Sex
 nhanes_tidy <- NHANES %>% 
     # Filter rows
@@ -601,13 +601,13 @@ There are two: the viridis and the [ColorBrewer] colour schemes.
 Both are well designed and are colour-blind friendly.
 For this course, we will only cover the viridis package.
 
-## Exercise: Playing around with colour schemes
+## Exercise: Changing the colour schemes
 
-Time: 10 mins
+Time: 10 min
 
-Try changing a bar plot into 1-2 different colours to see how the functions work.
-
-1. Let's make a base plot object to work from, with two discrete variables. Copy and paste the code below into your script file.
+Practice changing colour schemes on this bar plot.
+Start with a base plot object to work from that has two discrete variables. 
+Copy and paste the code below into your script file.
 
 [ColorBrewer]: https://colorbrewer2.org/
 
@@ -618,35 +618,58 @@ base_barplot <- nhanes_tidied2 %>%
     geom_bar(position = position_dodge())
 ```
 
-2. Now, use the `scale_fill_` function to add the colour scheme. Remember to use the `help()` or `?` functions in RStudio if you are wanting more information or documentation about  various `scale_` functions. We will use the viridis scheme to account for colour-blindness. We would need to indicate that we have discrete variables by adding a `_d` to the end of the function, and then we can choose from one of the colour schemes by entering a selection from `"A"` to `"E"` as an option. Copy and paste the code below into your script file.
+Use the `scale_fill_` function to add the colour scheme. If you need help,
+use the `help()` or `?` functions in RStudio to look over the documentation 
+for more information or to see the other `scale_` functions. Use Tab Completion
+to find the correct function.
 
-```{r}
-# change colors to a viridis color scheme
+1. Use the viridis scheme from `scale_fill_` to change the colours of the
+`base_barplot` graph so that the plot is colour-blind friendly. Because the 
+variables are discrete, you need to add `_d` to the end of the viridis scheme
+function.
+
+2. Viridis has several palettes. An the argument `options` with `"A"`. Run
+the function again and see how the colour changes. Instead of `"A"`, change it
+to `"E"`.
+
+3. Now, let's practice using the colour schemes on a plot with continuous
+variables. Copy and paste the code below into your exercise code chunk.
+Since we are using `colour` instead of `fill`, the `scale_` will be `scale_colour_`.
+Use this scale with viridis and use the function with `_c` at the end to indicate
+the variable will be continuous.
+
+    ```{r}
+    # scatterplot to work from, with two continuous variables
+    base_scatterplot <- nhanes_tidied2 %>% 
+        ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+        geom_point()
+    ```
+    
+4. Like with 2 above, use the `options` argument and set it to first `"B"`,
+run it to see how the colour changes, then switch it to `"C"` and run it
+to see the colour differences.
+
+```{r solution-colour-schemes, eval=FALSE, echo=FALSE}
+# 1. change colors to a viridis color scheme
 base_barplot +
     scale_fill_viridis_d()
-# change colors to another viridis color scheme
+
+# 2. change colors to another viridis color scheme
 base_barplot +
     scale_fill_viridis_d(option = "A")
-```
+base_barplot +
+    scale_fill_viridis_d(option = "E")
 
-3. Try changing the colour scheme by entering another selection (e.g., `"B"`, `"C"`, or `"D"`).
-
-4. Let's practice using the colour schemes on a plot using continuous variables. First, we'd most likely be using the `colour` aesthetic, which means that the scale function would be `scale_colour_`. We'd also need to add a `_c` to indicate that we have continuous variables. Copy and paste the code below into your script file.
-
-```{r}
-# scatterplot to work from, with two continuous variables
-base_scatterplot <- nhanes_tidied2 %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point()
-# change colors to a viridis color scheme
+# 3. change colours to a viridis color scheme
 base_scatterplot +
     scale_color_viridis_c()
-# change colors to another viridis color scheme
+
+# 4. change colors to another viridis color scheme
+base_scatterplot +
+    scale_color_viridis_c(option = "B")
 base_scatterplot +
     scale_color_viridis_c(option = "C")
 ```
-
-5. You can modify ggplot2 colour schemes using many other pre-defined palettes by installing new R packages, including scientific journal colour palettes ("ggsci") and even a Wes Anderson colour palette ("wesanderson")! Feel free to take some time after today's course to search online for other colour palettes that you think would suit your own work better. Remember to refer to the Data Visualization book in the [resources](resources) chapter.
 
 ## Titles, axis labels, and themes
 
