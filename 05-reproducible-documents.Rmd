@@ -1,7 +1,5 @@
 # Analytically reproducible documents {#reproducible-documents}
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 > When in RStudio, quickly jump to this page using `r3::open_reproducible_documents()`.
 
 **Session objectives**:

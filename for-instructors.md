@@ -1,7 +1,5 @@
 # For Instructors
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 ## Workshop details
 
 ### Instructor and helper number

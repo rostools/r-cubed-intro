@@ -1,7 +1,5 @@
 # Version control with Git {#version-control}
 
-![](https://img.shields.io/badge/document%20status-completed-brightgreen?style=flat-square)
-
 > When in RStudio, quickly jump to this page using `r3::open_version_control()`.
 
 **Session objectives**:

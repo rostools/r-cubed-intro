@@ -10,7 +10,7 @@ description: "A 3-day workshop for researchers introducing modern and reproducib
 apple-touch-icon: "images/apple-touch-icon.png"
 apple-touch-icon-size: 180
 favicon: "images/favicon.ico"
-url: 'https\://r-cubed.rostools.org'
+url: 'https\://r-cubed-v2.rostools.org'
 ---
 
 # Syllabus
@@ -23,10 +23,8 @@ knitr::write_bib(
 )
 ```
 
-![](https://img.shields.io/badge/document%20status-completed-success?style=flat-square)
-
-> Note: You'll see several of these "badges" (image above) throughout the course material.
-This badge indicates whether the material is completed or is still being developed.
+> **This is Version 2 of the course material**. For the latest version, go to
+the main [r-cubed website](https://r-cubed.rostools.org).
 
 Reproducibility and open scientific practices are increasingly demanded of
 scientists and researchers. Training on how to apply these practices in data
