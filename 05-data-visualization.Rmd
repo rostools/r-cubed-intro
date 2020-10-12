@@ -36,6 +36,7 @@ To start, here are some tips for making a graph
 - Though commonly used in scientific papers, 
 *[avoid barplots]* with means and error bars as they greatly misrepresent the data
 (we'll cover why later)
+- Maximise Data-Ink ratio by reducing non-essential or non-data text and features on your graph
 - Use colour to 1) highlight and enhance your message 
 and 2) to make the plot visually appealing
 - Use a colour-blind friendly palette so the plot is more accessible to others
@@ -111,7 +112,8 @@ On the other hand, ggplot2:
 - Works very well with auto-completion
 - Function and argument naming is consistent and *descriptive* (in plain English)
 
-These are the reasons we teach and use ggplot2.
+These are the reasons we teach and use ggplot2. 
+Let's make our first graphs together now.
 
 ## Graph individual variables
 
@@ -154,63 +156,58 @@ To show distributions, there are two good geoms:
 `geom_density()` and `geom_histogram()`.
 
 ```{r, message=FALSE}
-# create density plot for BMI
-ggplot(NHANES, aes(x = BMI)) +
+# First, load the small, tidied dataset from the wrangling session
+load(here::here("data/nhanes_small.rda"))
+
+# Create density plot for BMI
+ggplot(nhanes_small, aes(x = BMI)) +
     geom_density()
 
-# create histogram for BMI
-ggplot(NHANES, aes(x = BMI)) +
+# Create histogram for BMI
+ggplot(nhanes_small, aes(x = BMI)) +
     geom_histogram()
 ```
 
 It's good practice to always create a new line after the `+`.
 We can see that for the most part there is a good distribution with BMI,
 though there are several values that are quite large...
-some at 80 BMI!
+some at 80 BMI units!
 
 The plots above are for continuous variables, 
 but what about for discrete?
 Well, sadly, there's really only one: `geom_bar()`.
 This isn't a geom for a barplot though! 
 This shows the counts of a discrete variable.
-There are many discrete variables in NHANES.
-Sex is another good variable to examine
-and NHANES also has a diabetes variable, 
+There are many discrete variables in NHANES, including sex and diabetes, 
 so let's visualize those. 
-But first, let's fix the `Gender` column to be called `Sex`, 
-since it denotes biological sex (presence of a Y chromosome).
-
-```{r fix-sex-column}
-# fix sex column header
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender)
-```
-
-Now, let's visualize them:
 
 ```{r}
 # create count barplot for sex
-ggplot(nhanes_tidied, aes(x = Sex)) +
+ggplot(nhanes_small, aes(x = Sex)) +
     geom_bar()
 ```
-We can see that for the most part there are equal numbers of females and males.
+We can see that there are almost equal numbers of females and males.
 
 Now to create a count bar plot for diabetes status:
 
 ```{r}
 # create count barplot for diabetes status
-ggplot(nhanes_tidied, aes(x = Diabetes)) +
+ggplot(nhanes_small, aes(x = Diabetes)) +
     geom_bar()
 ```
 
 For diabetes, it seems there is some missingness in the dataset.
 Since diabetes status is an important variable for us,
-let's remove all missing values right now.
+let's remove all missing values right now and plot it again.
 
 ```{r remove-missing-diabetes}
 # remove individuals with missing diabetes status
-nhanes_tidied2 <- nhanes_tidied %>% 
+nhanes_tidied <- nhanes_small %>% 
     filter(!is.na(Diabetes))
+
+# create a new count barplot for diabetes status
+ggplot(nhanes_tidied, aes(x = Diabetes)) +
+    geom_bar()
 ```
 
 Let's take a minute to talk about the commonly used barplots with mean and error bars.
@@ -229,7 +226,7 @@ shows briefly why this plot type is not useful.
 knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
-If you do want to create a barplot, 
+If you *do* want to create a barplot, 
 you'll quickly find out that it actually is quite hard to do in ggplot2.
 The reason it is difficult to create in ggplot2 is by design:
 it's a bad plot to use, so use something else.
