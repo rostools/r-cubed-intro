@@ -505,7 +505,7 @@ For this plot, we could use `geom_boxplot()`.
 
 ```{r}
 # Plot systolic blood pressure in relation to sex and diabetes status
-nhanes_tidied2 %>% 
+nhanes_tidied %>% 
     ggplot(aes(x = Sex, y = BPSysAve, colour = Diabetes)) +
     geom_boxplot()
 ```
@@ -517,19 +517,19 @@ so we could use `geom_point()`.
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and age
-nhanes_tidied2 %>%
+nhanes_tidied %>%
     ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
     geom_point()
 ```
 
 *Question*: How does BMI relate to systolic blood pressure 
 and what is different between those with and without diabetes?
-In this case, we have two continuous and one discrete variable (`Diabetes`).
+In this case, we have two continuous (`BMI` and `BPSysAve`) and one discrete variable (`Diabetes`).
 We could use `geom_point()`:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and diabetes status
-nhanes_tidied2 %>% 
+nhanes_tidied %>% 
     ggplot(aes(x = BMI, y = BPSysAve, colour = Diabetes)) +
     geom_point()
 ```
@@ -553,21 +553,23 @@ Let's try it with the previous example (instead of using `colour`).
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and diabetes status using faceting
-nhanes_tidied2 %>% 
+nhanes_tidied %>% 
     ggplot(aes(x = BMI, y = BPSysAve)) +
     geom_point() +
     facet_grid(cols = vars(Diabetes))
 ```
 
-We can also stack by `SurveyYr` and use `Age` as a colour:
+Try facetting with plots stacked by diabetes status, using the argument rows = vars(Diabetes) instead. Which is more informative?
+
+We can also facet by `Sex` and use `Age` as a colour:
 
 ```{r}
-# Plot BMI in relation to systolic blood pressure, age, survey year and diabetes status using faceting
-nhanes_tidied2 %>% 
+# Plot BMI in relation to systolic blood pressure, age, sex and diabetes status using faceting
+nhanes_tidied %>% 
     ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
     geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(SurveyYr))
+    facet_grid(rows = vars(Diabetes),
+               cols = vars(Sex))
 ```
 
 ## Colours: Make your graphs more accessible
@@ -595,7 +597,7 @@ When using colours, think about what you are trying to convey in your figure
 and how your choice of colours will be interpreted. 
 You can use built-in colour schemes or create your own. 
 For now, let's stick to using built-in ones.
-There are two: the viridis and the [ColorBrewer] colour schemes. 
+There are two: the viridis and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. 
 Both are well designed and are colour-blind friendly.
 For this course, we will only cover the viridis package.
 
@@ -603,15 +605,14 @@ For this course, we will only cover the viridis package.
 
 Time: 10 min
 
-Practice changing colour schemes on this bar plot.
+Practice changing colour schemes on a bar plot.
 Start with a base plot object to work from that has two discrete variables. 
 Copy and paste the code below into your script file.
 
-[ColorBrewer]: https://colorbrewer2.org/
 
 ```{r}
 # Barplot to work from, with two discrete variables
-base_barplot <- nhanes_tidied2 %>% 
+base_barplot <- nhanes_tidied %>% 
     ggplot(aes(x = Diabetes, fill = Sex)) +
     geom_bar(position = position_dodge())
 ```
@@ -638,7 +639,7 @@ the variable will be continuous.
 
     ```{r}
     # scatterplot to work from, with two continuous variables
-    base_scatterplot <- nhanes_tidied2 %>% 
+    base_scatterplot <- nhanes_tidied %>% 
         ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
         geom_point()
     ```
@@ -686,9 +687,12 @@ All built-in themes start with `theme_`.
 ```{r}
 # create scatterplot to play with themes
 base_scatterplot2 <- base_scatterplot +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
+    facet_grid(rows = vars(Diabetes),
+               cols = vars(Sex)) +
     scale_color_viridis_c()
+
+# View the plot with the default theme
+base_scatterplot2
 
 # Some pre-defined themes
 base_scatterplot2 + theme_bw()
@@ -739,13 +743,12 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
        base_scatterplot2, width = 7, height = 5)
 ```
 
-## Summary of session
+## Summary of data visualization session
 
 - Use the "Grammar of Graphics" with the ggplot2 package within the tidyverse to plot your data
 - Prioritise plotting raw data data instead of summaries whenever possible or if able to
-- ggplot2 has 4 levels of grammar: `aes()` (what data to plot), `geom_` (e.g. `geom_bar()` what kind of plot), `scale_` (making the plot pretty) and `theme()` (controls the surroundings of the plotting area)
-- Only use bar plots for discrete values - if applying them on continuous variables, it hides the distribution of the data  
-- Use `position_dogde()` to get bar plots next to rather than on top of each other 
+- ggplot2 has 4 levels of grammar: `aes()` (which data to plot), `geom_` (e.g. `geom_bar()` what kind of plot), `scale_` (making the plot pretty) and `theme()` (controls the surroundings of the plotting area)
+- Only use bar plots for discrete values - if applying them on continuous variables, it hides the distribution of the data
 - Use both colour, X and Y axis to plot three dimensions - or `facet_grid()` to plot more dimensions
 - Use colourblind-friendly colours, e.g. by using the colour palettes `viridis` or `ColorBrewer`
 - Save plots by `ggsave()`
