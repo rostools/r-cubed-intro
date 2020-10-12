@@ -149,22 +149,7 @@ tibble::tribble(
     knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
 ```
 
-The functions above come from the packages [dplyr] and [tidyr].
-These packages provide easy tools for most common data manipulation tasks. 
-No other packages have developed such a "language" of wrangling,
-and is the reason we teach them. 
-Plus both packages have excellent documentation and tutorials on how to use them.
-For dplyr, it is built to work directly with data frames 
-(i.e. rectangular data like those found in spreadsheets)
-and has an additional feature to interact directly with data stored in an external
-database, such as in SQL. Working with databases is a powerful way to work
-with massive datasets (100s of GB), more than what your computer could normally
-handle. Working with massive data won't be covered in this course,
-but see this [resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
-to learn more.
-
-[dplyr]: https://dplyr.tidyverse.org/
-[tidyr]: https://tidyr.tidyverse.org/
+The functions above come from the packages [dplyr] and [tidyr]. You will recall that these are packages that are commonly used for data manipulation.
 
 **Tip**: Sometimes you need to do some complicated wrangling to get your data 
 in appropriate "shape" to use for later analyses.
