@@ -172,6 +172,8 @@ library(tidyverse)
 library(NHANES)
 ```
 
+With the added dataset package, add and commit the changes to the Git history with the RStudio Git Interface.
+
 Then open the `R/wrangling-session.R` script to start typing out the next code. 
 We'll use this file to write the code for this session (but not for the exercises).
 
@@ -185,6 +187,7 @@ source(here::here("R/package-loading.R"))
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
 ```
+Add and commit to the Git history with the RStudio Git Interface.
 
 ## Exercise: Become familiar with the dataset
 
@@ -197,6 +200,7 @@ Take the time to get familiar with the NHANES dataset.
 1. Copy the code below and paste it into the new exercise file.
 1. Replace the `___` with the `NHANES` dataset. 
 1. Run each line of code by typing `Ctrl-Enter`.
+1. Add and commit it to the Git history with the RStudio Git Interface.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
@@ -439,6 +443,8 @@ We can now "read" these actions as:
 > Take the NHANES dataset *and then* select the nBabies column 
 *and then* rename the nBabies column to Number_Babies.
 
+Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
+
 ## Exercise: Practice what we've learned
 
 Time: 10 min
@@ -481,6 +487,7 @@ then re-read the revised version. Which do you feel is easier to "read"?
     drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
     rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
     ```
+5. Add and commit to the Git history with the RStudio Git Interface.     
     
 <details><summary><strong>Click for the solution</strong></summary>
 <p>
@@ -706,6 +713,8 @@ nhanes_update <- nhanes_small %>%
            highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
 ```
 
+Before you start the exercise, add and commit all added lines to the Git history with the RStudio Git Interface.
+
 ## Exercise: Piping, filtering, and mutating
 
 Time: 20 min
@@ -723,6 +732,7 @@ urine volumne (from `UrineVol1` and `UrineVol2`).
     - *Comment*: After creating the `urine_vol_average` column, 
     check out values. What do you notice? Compare with the original urine columns.
 3. Create a new variable called `young_child` when age is less than 6 years.
+4. Add and commit to the Git history with the RStudio Git Interface.
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
@@ -805,6 +815,8 @@ you can add multiple "summaries" by adding new columns separated by comma `,`. Y
 
 The `group_by()` function doesn't do anything by itself so should always be used in combination with a `summarize()`, `mutate()`, `arrange()`, or other function. However, the `summarize()` function can be used on its own. Let's take a look.
 
+Add and commit to the Git history with the RStudio Git Interface.
+
 ## Calculating summary statistics
 
 Let's calculate the max age. Because `NA` values "propagate" 
@@ -823,6 +835,7 @@ nhanes_small %>%
     summarize(max_age = max(age, na.rm = TRUE),
               min_age = min(age, na.rm = TRUE))
 ```
+Before you start the exercise, addd and commit to the Git history with the RStudio Git Interface.
 
 ## Exercise: Use `summarize()` to calculate basic statistics
 
@@ -834,6 +847,7 @@ Complete the following tasks:
 1. Calculate the `mean()` of `weight` and `bmi`.
 2. Calculate the `max()` and `min()` of `height`.
 3. Calculate the `median()` of `age` and `phys_active_days`.
+4. Add and commit to the Git history with the RStudio Git Interface.
 
 Don't forget to use `na.rm = TRUE` in the basic statistic functions.
 
@@ -868,7 +882,7 @@ nhanes_small %>%
 # 3.
 nhanes_small %>%
     summarize(median_age = median(height, na.rm = TRUE),
-              median_phys_active_days = median(phys_active_days, na.rm = TRUE))
+              median_phys_active_days = median(phys_active_days, na.rm = TRUE))             
 ```
 
 ## Summary statistics by a group
@@ -912,6 +926,7 @@ nhanes_small %>%
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
+Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
 
 Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
 
@@ -925,6 +940,7 @@ Using the `group_by()` with `summarize()`, answer these questions:
 females and males with or without diabetes?
 2. What is the mean, max, and min differences in height and weight between
 females and males with or without diabetes?
+3. Add and commit to the Git history with the RStudio Git Interface. 
 
 ```{r exercise-groupby-summarise, eval=FALSE}
 # 1. 
@@ -1072,6 +1088,9 @@ for importing into the R script you are working in.
     load(here::here("data/dataset_name.rda"))    
     ```
 
+
+Before you start with the final exercise, add and commit to the Git history with the RStudio Git Interface. 
+
 For SAS, SPSS, or Stata files, you can use the package 
 [`haven`](https://haven.tidyverse.org/) to import those datasets into R.
 
@@ -1101,6 +1120,7 @@ labeled `"under 50"` and those 50 years old and older are labeled `"over 50"`.
 6. Group the data according to `sex` and `age_class`.
 7. Calculate the mean and median BMI according to the grouping to determine the
 difference in BMI between age classes and sex.
+8. Add and commit to the Git history with the RStudio Git Interface. 
 
 
 <details><summary><strong>Click for the solution</strong></summary>
