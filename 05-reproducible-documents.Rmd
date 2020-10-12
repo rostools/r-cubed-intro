@@ -800,7 +800,7 @@ It's now time to start putting things together as a HTML report which is easy to
     Find the mean, standard deviation, minimum and maximum values. Provide the table with an appropriate caption. 
     Make sure all column names starts with lower case, and align the columns to be left-centered. 
     Use a setting to make the numbers in the table have a similar number of digits. 
-    - In the end your report, create a new code chunk named `final_picture`, insert a picture that describes the group work. Give it a caption, center it, and let it fill 50% of the document. Suppress the code and warning messages in the R chunk but make sure the code is evaluated. 
+    - In the end your report, create a new code chunk named `final-picture`, insert a picture that describes the group work. Give it a caption, center it, and let it fill 50% of the document. Suppress the code and warning messages in the R chunk but make sure the code is evaluated. 
 - Assign a beautiful theme to your HTML report.
 - Try to "knit" your document to HTML often, to make sure the analysis is reproducible.
 - At last, add to staging, commit, and push the the HTML report to GitHub.
