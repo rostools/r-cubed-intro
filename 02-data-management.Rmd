@@ -318,13 +318,25 @@ nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, PhysA
 nhanes_small
 ```
 
-## Following the style guide in naming the columns 
-To match the style guide, we want to change the column names to be all lower case. There’s a package to do that called snakecase.
+## Renaming all column names based on style guide
 
-In the Console, type out `snakecase::` and hit Tab. You’ll see a list of possible functions to use. We want to use the snake case function, so scroll down and find the `to_snake_case()`. To change all the column names to lower case, we can write
+To match the style guide, we should change the column names to be all lower case
+and with `_` for spaces between words. There's a package that can do that for us
+called [snakecase].
 
- ```{r}
-colnames(nhanes_small) <- to_snake_case(colnames(nhanes_small))
+[snakecase]: https://tazinho.github.io/snakecase/
+
+In the Console, type out `snakecase::` and hit Tab. You’ll see a list of
+possible functions to use. We want to use the snake case function, so scroll
+down and find the `to_snake_case()`. To change all the column names to lower
+case, we'll use the function `rename_with()`. This function like the other dplyr
+functions, takes the data from the pipe `%>%` as the first argument and takes
+another function, which is `to_snake_case()`, for the second argument. Based on
+this function, it then renames all columns.
+
+```{r}
+nhanes_small <- nhanes_small %>% 
+    rename_with(to_snake_case)
 
 # Have a look at the dataframe
 nhanes_small
@@ -355,7 +367,6 @@ nhanes_small
 ```
 
 Now the column has been renamed from gender to sex. What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
-
 
 ## Chaining functions with the pipe
 
