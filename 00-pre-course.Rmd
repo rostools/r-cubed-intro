@@ -45,10 +45,24 @@ If you continue having problems, indicate on the survey that you need help
 and we can try to book a quick video call to fix the problem. 
 Otherwise, if you can, come to the course earlier (15-20 min) to get help.
 
+## What is R?
+
+During this course, we will be spending most of our time in RStudio. RStudio is an environment to interact with R. R is like an engine, while RStudio is what you use to actually work with the engine. Prior to taking a look at what RStudio looks like, let's talk briefly about R as a programming language.
+
+R was developed in 1993 and is a free programming language/environment used in statistical computing, data analytics, and scientific research. R is used to clean, organize, analyze, and report data. R was developed with visualization in mind, so it is a particularly useful tool for creating charts, graphs, and plots. R is different to SPSS and other statistical programs in that you run analyses by typing commands in to a terminal rather than using drop-down menus etc. 
+
+In recent years, R has become one of the most popular languages among statisticians and data miners for several reasons. Here are some of R's advantages:
+- Easy-to-use interface
+- Open source (so you can "get under the hood" to see what is going on)
+- Provides access to a vast array of packages that can facilitate most functions
+- Huge online community to help you problem-solve any issue
+- Runs on all platforms
+- Highly compatible with other programming languages
+
+However, R is not an easy language to learn and has a steep learning curve. Some functions are spread across packages, which means that you need to have prior knowledge of packages in order to implement functions. Finally, R is known to be much slower than other languages (e.g., Python). Nonetheless, R offers such rich functionality that it is worth the challenge!
+
 ## Getting familiar with RStudio
 
-RStudio is an environment to interact with R. 
-R is like an engine, while RStudio is what you use to actually work with the engine.
 Check out Figure \@ref(fig:rstudio-introduction) below.
 You can see that RStudio has four "panels", 
 dividing the screen into the four corners.
@@ -84,7 +98,14 @@ that if there is something you'd like to do in R,
 there probably is an R package to do it. 
 Making use of R packages can seriously help you out when doing your research.
 
-Alright, you'll need to install the remotes package.
+There are so many packages that we could teach in this course, that may be more or less relevant to your discipline and work goals. However, we have chosen to focus on those that are most likely to be helpful in organizing your work, including: [tidyverse], [ggplot2], [dplyr], and [tidyr]. These packages provide easy tools for most common data manipulation tasks. No other packages have developed such a "language" of wrangling, and is the reason we teach them. Plus, these packages have excellent documentation and tutorials on how to use them:
+
+[dplyr]: https://dplyr.tidyverse.org/
+[tidyr]: https://tidyr.tidyverse.org/
+[ggplot2]: https://ggplot2.tidyverse.org/
+
+# First: Let's install the [remotes] package
+
 See the GIF in Figure \@ref(fig:rstudio-installing-remotes) below for how to do that:
 
 ```{r rstudio-installing-remotes, echo=FALSE, fig.cap="Installing the remotes package in RStudio."}
@@ -115,6 +136,26 @@ But by using the `::`, we tell R to directly use a function from a package.
 We use this trick because we only want to use the `install_gitlab()` command
 from the remotes package and not have to load all the other remotes functions. 
 We will be using this more as we go along.
+
+# Second: [tidyverse]
+
+Throughout this course, we will be using a number of the packages from tidyverse. tidyverse is a collection of packages that were designed for repeated tasks in data science, ranging from data exploration to data visualization. As the name suggests, tidyverse is an attempt to organize the universe by providing packages that guide workflows result in reproducible work products. Here is the command you would enter in the RStudio Console to install tidyverse:
+
+```r
+install.packages("tidyverse")
+```
+
+# Third: [dplyr], [tidyr], and [ggplot2]
+
+These are three of the core packages contained within tidyverse. Let's talk a little about each one and how they compare to similar tools.
+
+[dplyr]: This is a very popular package that contains important data manipulation functions, including functions that select and/or create and variables depending on certain conditions. Some of these functions include `mutate()`, `filter()`, and `summarise()`. [dplyr] is built to work directly with data frames (i.e., rectangular data like those found in spreadsheets) and has an additional feature to interact directly with data stored in an external database, such as in SQL. Working with databases is a powerful way to work with massive datasets (100s of GB), more than what your computer could normally handle. Working with massive data won't be covered in this course, but see this [resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html)) to learn more.
+
+[tidyr]: This package is really useful for data cleaning and creating/maintaining tidy data, so that more time can be spent on data analysis. The core functions in this package can be said to fall under five categories including pivoting, nesting, splitting, rectangling, and converting. Functions in this package are useful for transforming data in a way that facilitates data analysis.
+
+[ggplot2]: This is a data visualization package that can be used to create bar charts, pie charts, histograms, scatterplots, error charts, and more. It uses high-level API that means you are able to customize the aesthetics of your plot and add different components or layers. 
+
+While this may not be so meaningful now, it will make sense later when you begin to practice some of these functions.
 
 ## Setting up Git and GitHub
 
