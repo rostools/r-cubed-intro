@@ -178,7 +178,7 @@ or with the RStudio "Knit" button.
 1. Look at the output document, then change the YAML value for the `output:`
 key from `html_document` to `word_document`. Knit again.
 1. Open the Word file if it hasn't been opened already.
-1. Add, commit, and push to your GitHub repository
+1. Add, commit, and push to your GitHub repository.
 
 ```{r solution-create-rmd, eval=FALSE, echo=FALSE}
 # This exercise has no R code solution.
@@ -455,7 +455,7 @@ Use `str_to_sentence(Sex)` to capitalize the first letter of the word.
 replace the `_` with `-` by using `str_replace(Year, "_", "-")`.
 1. Run the code chunk to make sure the code works, then knit the document. 
 Don't forget about including the `knitr::kable()` function at the end of the pipe.
-1. End the exercise by adding, committing, and pushing the files to your GitHub repository
+1. End the exercise by adding, committing, and pushing the files to your GitHub repository.
 
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
@@ -789,21 +789,23 @@ This last approach is what we will get you to do for the group project.
 
 ## Final exercise: Making your own R Markdown document
 
-Time: 45 minutes
+Time: 30 minutes
 
-It's now time to start putting things together as a HTML report which is easy to read.
+It's now time to start putting things together as an HTML report.
+
 - Create a new R Markdown document in `doc/`
-- Try to do some of the following tasks in the R Markdown document;
-    - Under a new headline, start by including a list with your names, add affiliations as footnotes and provide links for your university or institution
-    - Make a new code chunck called `summary-table`. 
-    Make sure it runs every time and warnings are shown, but the code is suppressed. 
-    Make a table with summary data from your data set for selected variables. 
-    Find the mean, standard deviation, minimum and maximum values. Provide the table with an appropriate caption. 
+- Do some of the following tasks in the R Markdown document:
+    - Under a new header, start by including a list with your names, put your affiliations as footnotes, and provide links for your university or institution.
+    - Create a new code chunck called `summary-table` and write code to 
+    make a table with summary data from your data set for the selected variables. 
+    Calculate the mean, standard deviation, minimum and maximum values for these variables.
+    - Write an appropriate caption for the table using the `knitr::kable()` argument `caption`. 
     Make sure all column names starts with lower case, and align the columns to be left-centered. 
-    Use a setting to make the numbers in the table have a similar number of digits. 
+    Use a setting to make the numbers in the table have a similar number of digits.
+    Make sure it runs every time and warnings are shown, but the code is suppressed.
     - In the end your report, create a new code chunk named `final-picture`, insert a picture that describes the group work. Give it a caption, center it, and let it fill 50% of the document. Suppress the code and warning messages in the R chunk but make sure the code is evaluated. 
-- Assign a beautiful theme to your HTML report.
-- Try to "knit" your document to HTML often, to make sure the analysis is reproducible.
+- Assign a beautiful theme of your choice to your HTML report.
+- "Knit" your document to HTML often, to make sure the analysis is reproducible.
 - At last, add to staging, commit, and push the the HTML report to GitHub.
 
 Now you know how to make a reproducible document!
