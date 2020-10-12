@@ -137,3 +137,18 @@ and documentation on the functions
 knitr::kable(r3::useful_packages_list, caption = "Useful and common packages to use in data analysis.")
 ```
 
+## Frequently Asked Questions (FAQ)
+
+### Installation Problems
+
+**Q: What do I do if I don't have admin rights and can't install the newest versions of programs?**
+A: In previous iterations of this course, we have found that course participants affiliated with some Danish hospitals (i.e., Region) were unable to download newer versions of R and RStudio. Firstly, you should contact your IT support person to see whether you are able to access an updated version. While you could attempt to use the older version of these programs available to you, you may notice that some things either look quite different or not work at all. One solution is to use the RStudio Cloud platform, as per the instructions earlier in this section under "Setting up RStudio Cloud".
+
+**Q: Why did my output have so much red text when I tried to install packages?**
+A: Rest assured that this is simply the way that RStudio informs you that packages are being installed, even though it may look scary. If there really was an error, the output would likely begin with an "Error:..." or "Warning:..." sentence stem, to differentiate between informational and error messages. 
+
+**Q: Why did I receive a bunch of error messages when I tried to install packages?**
+A: For some Windows users, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/Rtools35.exe).
+
+**Q: Help! My code isn't working, even though I've followed all the instructions.**
+A: This is the most common problem you will face, so we've dedicated sections 7.9 to 7.11 to troubleshooting solutions in the Management of R Projects section.
