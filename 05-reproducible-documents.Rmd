@@ -704,6 +704,7 @@ knitr::include_graphics(here::here("images/kitten.jpg"))
 ```
 
 Knit again to see how the image changed. Great! 
+
 ## Other R Markdown features
 
 **Take 5 min to read these sections below before proceeding to the final exercise**.
@@ -785,39 +786,21 @@ This last approach is what we will get you to do for the group project.
 - For HTML, choose different themes for appearance to personalise your R Markdown output document
 
 
-## Final exercise: Group work
+## Final exercise: Making your own R Markdown document
 
-Time: 1 hour
+Time: 45 minutes
 
-It's now time to start putting things together as a report 
-and to present on it later in the afternoon.
-
-- As a team, 
-complete item 7 and its sub-tasks in the [group assignment](assignment.html)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).
-- Try to do some of the following tasks in a R Markdown document;
+It's now time to start putting things together as a HTML report which is easy to read.
+- Create a new R Markdown document in `doc/`
+- Try to do some of the following tasks in the R Markdown document;
     - Under a new headline, start by including a list with your names, add affiliations as footnotes and provide links for your university or institution
-    - Make a new code chunck called `summary-table`. Make sure it runs every time and warnings are shown, but the code is suppressed. Make a table with summary data from your data set for varialbes that you have selected. Find the mean, standard deviation, minimum and maximum values. Provide the table with an appropriate caption. Make sure all column names starts with lower case, and align the columns to be left-centered. Use a setting to make the numbers in the table have a similar number of digits. 
+    - Make a new code chunck called `summary-table`. 
+    Make sure it runs every time and warnings are shown, but the code is suppressed. 
+    Make a table with summary data from your data set for selected variables. 
+    Find the mean, standard deviation, minimum and maximum values. Provide the table with an appropriate caption. 
+    Make sure all column names starts with lower case, and align the columns to be left-centered. 
+    Use a setting to make the numbers in the table have a similar number of digits. 
     - In the end your report, create a new code chunk named `final_picture`, insert a picture that describes the group work. Give it a caption, center it, and let it fill 50% of the document. Suppress the code and warning messages in the R chunk but make sure the code is evaluated. 
-- Distribute the tasks so each team member is (mostly) doing something different.
-    - Create one R Markdown file for each team member,
-    and each person works on their own file.
-    Later this file will be merged into the final report.
-- Frequently use the "Git workflow": 
-Add to staging, commit, push, and pull the changes you've made.
-    - You'll likely deal with merge conflicts, 
-    which is a good chance to practice with Git more.
-- Try to "knit" your document to HTML often, 
-to make sure the analysis is reproducible.
-- Assign a beautiful theme to your HTML report. 
-    - **Note**: For now, *do not* add and commit the HTML report.
-
-
-Once you as a team are happy with the report, figures, and tables,
-make sure that everyone does a final add-commit-push to your GitHub repository.
-Then, designate someone to pull from GitHub, 
-merge each R Markdown file into a single `report.Rmd` file in the `doc/` folder,
-and knit the `.Rmd` document to make sure it knits correctly. 
-Then add-commit-push the HTML report to GitHub.
-You should now be ready to present your report!
+- Assign a beautiful theme to your HTML report.
+- Try to "knit" your document to HTML often, to make sure the analysis is reproducible.
+- At last, add to staging, commit, and push the the HTML report to GitHub.
