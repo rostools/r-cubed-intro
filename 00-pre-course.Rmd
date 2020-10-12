@@ -45,6 +45,8 @@ If you continue having problems, indicate on the survey that you need help
 and we can try to book a quick video call to fix the problem. 
 Otherwise, if you can, come to the course earlier (15-20 min) to get help.
 
+If you're unable to complete the setup procedure due to unfixable technical issues, you can use RStudio Cloud as a last-ditch solution to participate in the course. For help setting up RStudio Cloud for this course, refer to the [RStudio setup guide](resources#setting-up-rstudio-cloud).
+
 ## What is R?
 
 During this course, we will be spending most of our time in RStudio. RStudio is an environment to interact with R. R is like an engine, while RStudio is what you use to actually work with the engine. Prior to taking a look at what RStudio looks like, let's talk briefly about R as a programming language.

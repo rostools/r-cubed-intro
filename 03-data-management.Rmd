@@ -303,6 +303,29 @@ nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, PhysA
 nhanes_small
 ```
 
+## Renaming all column names based on style guide
+
+To match the style guide, we should change the column names to be all lower case
+and with `_` for spaces between words. There's a package that can do that for us
+called [snakecase].
+
+[snakecase]: https://tazinho.github.io/snakecase/
+
+In the Console, type out `snakecase::` and hit Tab. You’ll see a list of
+possible functions to use. We want to use the snake case function, so scroll
+down and find the `to_snake_case()`. To change all the column names to lower
+case, we'll use the function `rename_with()`. This function like the other dplyr
+functions, takes the data from the pipe `%>%` as the first argument and takes
+another function, which is `to_snake_case()`, for the second argument. Based on
+this function, it then renames all columns.
+
+```{r}
+nhanes_small <- rename_with(nhanes_small, snakecase::to_snake_case)
+
+# Have a look at the dataframe
+nhanes_small
+```
+
 ## Rename specific columns
 
 Depending on how your data was collected, 
@@ -315,21 +338,19 @@ Like `select()`, `rename()` takes the dataset as the first argument
 Renaming takes the form of `newname = oldname`.
 
 ```{r}
-rename(nhanes_small, Sex = Gender)
+rename(nhanes_small, sex = gender)
 # View dataframe
 nhanes_small
 ```
 Notice that the `rename()` function has not altered the `nhanes_small` dataframe. To do this, we need to assign the change to `nhanes_small`:
 
 ```{r}
-nhanes_small <- rename(nhanes_small, Sex = Gender)
+nhanes_small <- rename(nhanes_small, sex = gender)
 # View dataframe
 nhanes_small
 ```
 
-Now the column has been renamed from Gender to Sex. What if you want to select some columns and then rename some of them,
-do you have to create a new data object every time? No! 
-We can make use of a very powerful tool called piping (with the `%>%` function).
+Now the column has been renamed from gender to sex. What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
 
 ## Chaining functions with the pipe
 
@@ -513,7 +534,7 @@ For example, if we want to keep only females in the dataset it would be:
 
 ```{r}
 nhanes_small %>%
-    filter(Sex == "female")
+    filter(sex == "female")
 ```
 
 We'd "read" this code as:
@@ -548,15 +569,15 @@ Let's try out a few of these logic conditions with `filter()`.
 ```{r}
 # Participants that don't have female sex
 nhanes_small %>%
-    filter(Sex != "female")
+    filter(sex != "female")
 
 # Participants that have BMI equal to 25
 nhanes_small %>%
-    filter(BMI == 25)
+    filter(bmi == 25)
 
 # Participants that have BMI equal to or more than 25
 nhanes_small %>%
-    filter(BMI >= 25)
+    filter(bmi >= 25)
 ```
 
 We use the `|` ("or") and `&` ("and") when we want to combine conditions across columns.
@@ -580,11 +601,11 @@ FALSE | FALSE
 ```{r}
 # when BMI is 25 AND sex is female
 nhanes_small %>%
-    filter(BMI == 25 & Sex == "female")
+    filter(bmi == 25 & sex == "female")
 
 # when BMI is 25 OR sex is female
 nhanes_small %>%
-    filter(BMI == 25 | Sex == "female")
+    filter(bmi == 25 | sex == "female")
 ```
 
 ## (Re)Arranging the rows of your data by column
@@ -599,7 +620,7 @@ By default, arrange orders in ascending order.
 ```{r}
 # ascending order by age
 nhanes_small %>%
-    arrange(Age)
+    arrange(age)
 ```
 
 It also arranges parameters of type character alphabetically:
@@ -616,28 +637,28 @@ We can do this also in descending order with `desc()`.
 ```{r}
 # descending order
 nhanes_small %>%
-    arrange(desc(Age))
+    arrange(desc(age))
 ```
 
 You can also arrange by multiple columns. For instance,
-first arrange by `Sex` and then by `Age`.
+first arrange by `sex` and then by `age`.
 
 ```{r}
 # ascending order by sex and Age
 nhanes_small %>%
-    arrange(Sex, Age)
+    arrange(sex, age)
 ```
 
 ## Transform or add columns
 
-To "transform" (modify) an existing column or to add a new one, the function to use is called `mutate()`. Unfortunately, unlike the other functions, the name is not as obvious about what it does. The meaning of mutate though is to change or modify, so it kind of makes sense. You would use `mutate()` if you wanted to compute a new variable using existing columns in your dataset, such as calculating BMI using `Height` and `Weight` columns. It may be that you want to multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the data and the other arguments are columns to add or modify.
+To "transform" (modify) an existing column or to add a new one, the function to use is called `mutate()`. Unfortunately, unlike the other functions, the name is not as obvious about what it does. The meaning of mutate though is to change or modify, so it kind of makes sense. You would use `mutate()` if you wanted to compute a new variable using existing columns in your dataset, such as calculating BMI using `height` and `weight` columns. It may be that you want to multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the data and the other arguments are columns to add or modify.
 
 The form that `mutate()` uses is similar to normal R assignment:
 For instance, since the height's values are in centimeters, 
 maybe we'd rather want them in meters. So, in `mutate()` we'd type out:
 
 ```
-Height = Height / 100
+height = height / 100
 ```
 
 This form is similar to how math works. 
@@ -647,14 +668,14 @@ With using `mutate()` itself:
 
 ```{r}
 nhanes_small %>%
-    mutate(Height = Height / 100)
+    mutate(height = height / 100)
 ```
 
 Or we can create a new column (maybe log transforming height):
 
 ```{r}
 nhanes_small %>% 
-    mutate(Logged_height = log(Height))
+    mutate(logged_height = log(height))
 ```
 
 We can also add multiple modifications 
@@ -664,8 +685,8 @@ it would be:
 
 ```{r}
 nhanes_small %>% 
-    mutate(Height = Height / 100,
-           Logged_height = log(Height))
+    mutate(height = height / 100,
+           logged_height = log(height))
 ```
 
 We can also have different values based on a logic conditions using `if_else()`.
@@ -673,7 +694,7 @@ Use Table \@ref(tab:logic-operators) to help with creating the logic condition.
 
 ```{r}
 nhanes_small %>%
-    mutate(Highly_active = if_else(PhysActiveDays >= 5, "yes", "no"))
+    mutate(highly_active = if_else(phys_active_days >= 5, "yes", "no"))
 ```
 
 Recall that the original dataset doesn't change. 
@@ -682,9 +703,9 @@ So putting it all together:
 
 ```{r}
 nhanes_update <- nhanes_small %>%
-    mutate(Height = Height / 100,
-           Logged_height = log(Height),
-           Highly_active = if_else(PhysActiveDays >= 5, "Yes", "No"))
+    mutate(height = height / 100,
+           logged_height = log(height),
+           highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
 ```
 
 ## Exercise: Piping, filtering, and mutating
@@ -697,13 +718,13 @@ code to complete the tasks below.
 (*Suggestion*: Create a new "Section"
 in the R script for this exercise by using `Ctrl-Shift-R`).
 
-1. Filter nhanes_small so only those with a BMI of more than or equal to 20 
+1. Filter `nhanes_small` so only those with a BMI of more than or equal to 20 
 *and* less than or equal to 40 *and* keep those who have diabetes.
 2. Using the larger NHANES dataframe, create a new variable called `Urine_vol_average` by calculating the average
 urine volumne (from `UrineVol1` and `UrineVol2`).
-    - *Comment*: After creating the `Urine_vol_average` column, 
-    check out values. What do you nothice? Compare with the original urine columns.
-3. Create a new variable called `Young_child` when age is less than 6 years.
+    - *Comment*: After creating the `urine_vol_average` column, 
+    check out values. What do you notice? Compare with the original urine columns.
+3. Create a new variable called `young_child` when age is less than 6 years.
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
@@ -729,19 +750,19 @@ NHANES_modified
 # 1. BMI between 20 and 40 and who have diabetes
 nhanes_small %>%
     # format: variable >= number
-    filter(BMI >= 20 & BMI <= 40 & Diabetes == "Yes")
+    filter(bmi >= 20 & bmi <= 40 & diabetes == "Yes")
 
 # Pipe the data into mutate function and:
 NHANES_modified <- NHANES %>% # dataset
     mutate(
         # 2. Calculate average urine volume
-        Urine_vol_average = (UrineVol1 + UrineVol2) / 2,
+        urine_vol_average = (UrineVol1 + UrineVol2) / 2,
         # 3. Create Young_child variable using a condition
-        Young_child = if_else(Age < 6, "Yes", "No")
+        young_child = if_else(Age < 6, "Yes", "No")
     )
 ```
 
-For the "Urine_vol_average" values, they are probably almost entirely `NA` (aka
+For the "urine_vol_average" values, they are probably almost entirely `NA` (aka
 missing). That's because `NA` values are infectious. See how "UrineVol2" has mostly
 `NA` values too? When you calculate something that has `NA`, you get another `NA`.
 This is something to be careful about. So always check your calculations!
@@ -794,15 +815,15 @@ we need to tell `max()` to exclude `NA` using `na.rm = TRUE`.
 
 ```{r}
 nhanes_small %>%
-    summarize(Max_age = max(Age, na.rm = TRUE))
+    summarize(max_age = max(age, na.rm = TRUE))
 ```
 
 Add another summary column with `,`.
 
 ```{r}
 nhanes_small %>%
-    summarize(Max_age = max(Age, na.rm = TRUE),
-              Min_age = min(Age, na.rm = TRUE))
+    summarize(max_age = max(age, na.rm = TRUE),
+              min_age = min(age, na.rm = TRUE))
 ```
 
 ## Exercise: Use `summarize()` to calculate basic statistics
@@ -859,9 +880,9 @@ Let's find out the mean age and BMI between those with and without Diabetes.
 
 ```{r}
 nhanes_small %>%
-    group_by(Diabetes) %>% 
-    summarise(Mean_age = mean(Age, na.rm = TRUE),
-              Mean_BMI = mean(BMI, na.rm = TRUE))
+    group_by(diabetes) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE))
 ```
 
 *Quick note*: If you are using dplyr version 1.0.0 (the latest),
@@ -877,10 +898,10 @@ so let's first remove rows that have missing Diabetes status.
 ```{r}
 nhanes_small %>%
     # Recall ! means "NOT", so !is.na means "is not missing"
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes) %>% 
-    summarise(Mean_age = mean(Age, na.rm = TRUE),
-              Mean_BMI = mean(BMI, na.rm = TRUE))
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE))
 ```
 
 Cool! But we can add more columns to the grouping. 
@@ -888,10 +909,10 @@ Let's compare mean age and BMI by sex and diabetes status.
 
 ```{r}
 nhanes_small %>%
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes, Sex) %>% 
-    summarise(Mean_age = mean(Age, na.rm = TRUE),
-              Mean_BMI = mean(BMI, na.rm = TRUE))
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE))
 ```
 
 Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
@@ -910,7 +931,7 @@ females and males with or without diabetes?
 ```{r exercise-groupby-summarise, eval=FALSE}
 # 1. 
 nhanes_small %>% 
-    filter(!is.na(Diabetes)) %>% 
+    filter(!is.na(diabetes)) %>% 
     ___(___, ___) %>% 
     ___(
         ___,
@@ -920,7 +941,7 @@ nhanes_small %>%
 
 # 2. 
 nhanes_small %>% 
-    filter(!is.na(Diabetes)) %>% 
+    filter(!is.na(diabetes)) %>% 
     ___(___, ___) %>% 
     ___(
         ___,
@@ -935,8 +956,8 @@ nhanes_small %>%
 ```{r solution-exercise-groupby-summarise, eval=FALSE, echo=FALSE}
 # 1. 
 nhanes_small %>% 
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes, Sex) %>% 
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
     summarize(
         mean_age = mean(age, na.rm = TRUE),
         max_age = max(age, na.rm = TRUE),
@@ -945,8 +966,8 @@ nhanes_small %>%
 
 # 2. 
 nhanes_small %>% 
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes, Sex) %>% 
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
     summarize(
         mean_height = mean(height, na.rm = TRUE),
         max_height = max(height, na.rm = TRUE),
@@ -966,33 +987,33 @@ Here is a piece of code similar to the one we were just using. When it is run in
 
 ```{r, error = TRUE}
 nhanes_small %>%
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes, Sex) 
-    summarise(Mean_age = mean(Age, na.rm = TRUE))
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) 
+    summarise(mean_age = mean(age, na.rm = TRUE))
 ```
 
 When you are working with pieces of code that uses pipes (%>%), you should highlight from one pipe up until (but excluding) the next pipe. Watch as each line of code is entered separately.
 
 ```{r}
 nhanes_small %>%
-    filter(!is.na(Diabetes))
+    filter(!is.na(diabetes))
 ```
 
 No problems there!
 
 ```{r}
 nhanes_small %>%
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes, Sex) 
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) 
 ```
 
 Again, no problems!
 
 ```{r, error = TRUE}
 nhanes_small %>%
-    filter(!is.na(Diabetes)) %>% 
-    group_by(Diabetes, Sex) 
-    summarise(Mean_age = mean(Age, na.rm = TRUE))
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) 
+    summarise(mean_age = mean(age, na.rm = TRUE))
 ```
 
 Here is where the error occurs, which indicates that the issues lies somewhere between the `group_by()` and `summarise()` functions. If we take a closer look, you can see that the pipe was left off after the `group_by()` function line.
