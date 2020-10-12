@@ -1100,36 +1100,41 @@ For SAS, SPSS, or Stata files, you can use the package
 - Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
 - Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
 
-## Final exercise: Combing all your knew dplyr knowledge
+## Final exercise: Practicing the dplyr functions
 
-Time: 1 hour (?)
+Time: 30 minutes
 
-In this exercise, you have the chance to through the content of the whole dplyr section yourself and solve a more challenging exercise.
+In this exercise, you have the chance to through the content of the whole dplyr 
+section yourself and solve a more challenging exercise. 
+Complete these tasks by starting from the original `NHANES` dataset and using the
+pipe to link each task with the next.
 
-
-1. Create a new data-set where all column names start with lower case
-2. Select columns Gender, Age and BMI
-3. Make sure to exclude NAs from all selected columns
-4. Rename gender to sex
-5. Create a new column named age_class, where under 50-year-old named "under50", and over 50-year olds and olders are named "over50"
-6. Group the data according to Sex and age_class
-7. Calculate the mean and median BMI according to the grouping
+1. Rename all the columns so they are snake case.
+2. Select columns gender, age and BMI.
+3. Exclude NAs from all the selected columns.
+4. Rename gender to sex.
+5. Create a new column named `age_class`, where anyone under 50 years old is
+labeled `"under 50"` and those 50 years old and older are labeled `"over 50"`.
+6. Group the data according to `sex` and `age_class`.
+7. Calculate the mean and median BMI according to the grouping to determine the
+difference in BMI between age classes and sex.
 
 
 <details><summary><strong>Click for the solution</strong></summary>
 <p>
 
-```{r solution-exercise-familiar-with-data, eval=FALSE}
-
+```{r solution-exercise-combine-all-dplyr, eval=FALSE}
 # Create a new dataset with lower-case column names
-nhanes_lc <- rename_with(NHANES, snakecase::to_snake_case)
+nhanes_lc <- 
 
-nhanes_lc %>% select(gender, age,  bmi) %>% 
-  filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
-  rename(sex = gender) %>% 
-  mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
-  group_by(age_class, sex) %>% 
-  summarise(bmi_mean = mean(bmi, na.rm = T), bmi_median = median(bmi, na.rm = T))
+NHANES %>% 
+    rename_with(snakecase::to_snake_case) %>% select(gender, age,  bmi) %>% 
+    filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
+    rename(sex = gender) %>% 
+    mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
+    group_by(age_class, sex) %>% 
+    summarise(bmi_mean = mean(bmi, na.rm = TRUE), 
+              bmi_median = median(bmi, na.rm = TRUE))
 ```
 
 </p>
