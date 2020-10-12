@@ -14,12 +14,12 @@ During the presentation, you as a group will:
 
 - Show your project on GitHub
 - Show your generated HTML report
-- Describe what you did and the reasons for why you did them
+- Describe what you did and the reasons behind
 - Explain any challenges you encountered or things you would do differently
 - Explain anything you liked and would do more of in the future
 
 When your group isn't presenting, 
-you as an audience member *can* participate if you want in the discussion by:
+you as an audience member *can* participate in the discussion by:
 
 - Asking questions to *clarify* anything you may not understand or are confused about
 - Give *constructive* feedback on what they could have improved on
@@ -34,7 +34,7 @@ We'd recommend assigning one or two people to be the "presenters".
 
 It is important to note that you will be using Git and GitHub to manage your
 group assignment, so you should take care to set this up correctly prior to
-jumping in to the exercises. You are likely to push and pull a lot of content
+jumping into the exercises. You are likely to push and pull a lot of content
 (which you will learn how to do), so you will need to maintain regular and open
 communication with your team members.
 
@@ -61,7 +61,7 @@ by using the prodigenr package.
     - The coordinator needs to add and commit all the files in the R Project.
     - The coordinator must connect the project to GitHub and push ("upload") the
     repository (covered in [Version Control](version-control.html)).
-    - All other team members must clone their team's GitHub repository on their
+    - All other team members must clone their team's GitHub repository onto their
     computers.
     - Each team must open up the `README.md` file and write a few sentences about
     themselves. After saving the changes, add and commit them into the Git repository.
@@ -123,7 +123,7 @@ These tasks may seem like a lot, with a lot of new terminology and tools to use.
 But don't worry! We will be going over many of these topics and you will have time
 to complete the project over the three days.
 
-At the end, the lead instructor will download each of the teams Git projects,
+At the end, the lead instructor will download each of the teams' Git projects,
 knit the R Markdown documents, 
 and show them on the screen for each team to present on.
 
@@ -135,8 +135,8 @@ and show them on the screen for each team to present on.
 - Separated "raw data" from "cleaned data"
 - Used scripts to clean the data
 - Included R code within an R Markdown file to show results and make figures
-- Written about your methods, datasets
-- Written about your challenges and general experiences
+- Wrote about methods and datasets
+- Went over your challenges and general experiences
 - Generated an HTML file from an R Markdown file
 
 ## Expectations for the project
@@ -150,7 +150,7 @@ What we expect you to do for the group project:
 What we don't expect:
 
 - Complicated analysis or coding. 
-The simpler it is the easier is to for you to do the coding 
+The simpler it is, the easier is to for you to do the coding 
 and understand what is going on
 and it helps us to see that you've practiced what you learned.
 - Clever or overly concise code. 
