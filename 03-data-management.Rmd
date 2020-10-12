@@ -215,8 +215,7 @@ Take the time to get familiar with the NHANES dataset.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
-library(tidyverse)
-library(NHANES)
+source(here::here("R/package-loading.R"))
 
 # Check column names
 colnames(___)
@@ -237,8 +236,7 @@ summary(___)
 
 ```{r solution-exercise-familiar-with-data, eval=FALSE}
 # Load the packages
-library(tidyverse)
-library(NHANES)
+source(here::here("R/package-loading.R"))
 
 # Check column names
 colnames(NHANES)
