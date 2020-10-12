@@ -318,6 +318,18 @@ nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, PhysA
 nhanes_small
 ```
 
+## Following the style guide in naming the columns 
+To match the style guide, we want to change the column names to be all lower case. There’s a package to do that called snakecase.
+
+In the Console, type out `snakecase::` and hit Tab. You’ll see a list of possible functions to use. We want to use the snake case function, so scroll down and find the `to_snake_case()`. To change all the column names to lower case, we can write
+
+ ```{r}
+colnames(nhanes_small) <- to_snake_case(colnames(nhanes_small))
+
+# Have a look at the dataframe
+nhanes_small
+```
+
 ## Rename specific columns
 
 Depending on how your data was collected, 
@@ -330,21 +342,20 @@ Like `select()`, `rename()` takes the dataset as the first argument
 Renaming takes the form of `newname = oldname`.
 
 ```{r}
-rename(nhanes_small, Sex = Gender)
+rename(nhanes_small, sex = gender)
 # View dataframe
 nhanes_small
 ```
 Notice that the `rename()` function has not altered the `nhanes_small` dataframe. To do this, we need to assign the change to `nhanes_small`:
 
 ```{r}
-nhanes_small <- rename(nhanes_small, Sex = Gender)
+nhanes_small <- rename(nhanes_small, sex = gender)
 # View dataframe
 nhanes_small
 ```
 
-Now the column has been renamed from Gender to Sex. What if you want to select some columns and then rename some of them,
-do you have to create a new data object every time? No! 
-We can make use of a very powerful tool called piping (with the `%>%` function).
+Now the column has been renamed from gender to sex. What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
+
 
 ## Chaining functions with the pipe
 
