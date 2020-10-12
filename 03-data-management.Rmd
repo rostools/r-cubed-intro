@@ -1100,33 +1100,37 @@ For SAS, SPSS, or Stata files, you can use the package
 - Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
 - Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
 
-## Final exercise: Group work
+## Final exercise: Combing all your knew dplyr knowledge
 
-Time: 1 hour
+Time: 1 hour (?)
 
-This exercise has two aims: to get working on and completing the group project, 
-and to get you practicing using the dplyr and tidyr functions we covered today.
-First, take maximum 10 min to:
+In this exercise, you have the chance to through the content of the whole dplyr section yourself and solve a more challenging exercise.
 
-1. *As a group*, complete item 2 of the [group assignment](assignment)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).
-2. *Individually*, open your group R project
-and complete item 3 of the group assignment.
-Follow the appropriate filenaming conventions as we learned in the Project Management
-session for the dataset (e.g. don't use spaces, instead use either `-` or `_`).
 
-With the remaining time:
+1. Create a new data-set where all column names start with lower case
+2. Select columns Gender, Age and BMI
+3. Make sure to exclude NAs from all selected columns
+4. Rename gender to sex
+5. Create a new column named age_class, where under 50-year-old named "under50", and over 50-year olds and olders are named "over50"
+6. Group the data according to Sex and age_class
+7. Calculate the mean and median BMI according to the grouping
 
-3. *As a group*, complete item 4 of the [group assignment](assignment).
-Explore the data and *use all the functions* we've covered in this session to
-better understand the data you'll work with. 
-You can (and probably should) divide exploratory tasks between group members,
-so that you have a good understanding *as a group* of the data.
 
-> *Tip*: Make use of TAB auto-completion when typing out the dplyr and tidyr
-functions for wrangling the data to speed up your coding and to get help if needed.
-For instance, type out `sel`, hit TAB, and see the list of possible functions.
-Choose the right item in the menu and hit TAB again to finish the function.
-If you want to see a list of other functions in dplyr, type out `dplyr::` 
-and then hit TAB. You'll now have a list of functions inside the dplyr package.
+<details><summary><strong>Click for the solution</strong></summary>
+<p>
+
+```{r solution-exercise-familiar-with-data, eval=FALSE}
+
+# Create a new dataset with lower-case column names
+nhanes_lc <- rename_with(NHANES, snakecase::to_snake_case)
+
+nhanes_lc %>% select(gender, age,  bmi) %>% 
+  filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
+  rename(sex = gender) %>% 
+  mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
+  group_by(age_class, sex) %>% 
+  summarise(bmi_mean = mean(bmi, na.rm = T), bmi_median = median(bmi, na.rm = T))
+```
+
+</p>
+</details>
