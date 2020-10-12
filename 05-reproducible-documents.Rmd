@@ -178,6 +178,7 @@ or with the RStudio "Knit" button.
 1. Look at the output document, then change the YAML value for the `output:`
 key from `html_document` to `word_document`. Knit again.
 1. Open the Word file if it hasn't been opened already.
+1. Add, commit, and push to your GitHub repository
 
 ```{r solution-create-rmd, eval=FALSE, echo=FALSE}
 # This exercise has no R code solution.
@@ -454,6 +455,7 @@ Use `str_to_sentence(Sex)` to capitalize the first letter of the word.
 replace the `_` with `-` by using `str_replace(Year, "_", "-")`.
 1. Run the code chunk to make sure the code works, then knit the document. 
 Don't forget about including the `knitr::kable()` function at the end of the pipe.
+1. End the exercise by adding, committing, and pushing the files to your GitHub repository
 
 <details><summary><strong>Click for a possible solution</strong></summary>
 <p>
@@ -701,92 +703,7 @@ knitr::include_graphics(here::here("images/kitten.jpg"))
 knitr::include_graphics(here::here("images/kitten.jpg"))
 ```
 
-Knit again to see how the image changed.
-Great! But the real fun comes by inserting figures directly from R code.
-Let's create another code chunk ("Ctrl+Alt+I")
-and name the code chunk `exploring-plot`.
-We'll copy and paste the visualization code we used in Section \@ref(visualization)
-into the code chunk.
-You can copy and paste this code as well:
-
-````markdown
-`r ''````{r exploring-plot}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-`r ''````
-````
-
-```{r exploring-plot}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-```
-
-Run the code in the code chunk to make sure it runs properly,
-by typing "Ctrl+Enter" 
-(or "Ctrl+Shift+Enter" to run all the code in the code chunk at once).
-Once it creates the figure below the code chunk,
-knit the document again to see how the figure gets inserted into the HTML document.
-
-You might also notice that you get a warning below the code chunk too.
-Let's get rid of that warning message,
-make the figure bigger, and add a caption.
-When you create a figure with R code, 
-you need to use different options instead of `out.width` and `out.height`:
-
-- `fig.width` and `fig.height`: Sets the width 
-and height of the figure, where the default value is 7.
-
-Add the chunk options `fig.width`, `fig.height`, and `fig.cap`, 
-along with the `warning=FALSE` to the code chunk.
-
-````markdown
-`r ''````{r exploring-plot, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-`r ''````
-````
-
-```{r exploring-plot-bigger, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE, echo=FALSE}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-```
-
-Knit the document again
-and view the generated HTML document.
-Cool! You've just made an easily reproducible figure in a document!
-
+Knit again to see how the image changed. Great! 
 ## Other R Markdown features
 
 **Take 5 min to read these sections below before proceeding to the final exercise**.
@@ -879,6 +796,10 @@ and to present on it later in the afternoon.
 complete item 7 and its sub-tasks in the [group assignment](assignment.html)
 (to jump quickly to the assignment, 
 run `r3::open_assignment()` in the RStudio Console).
+- Try to do some of the following tasks in a R Markdown document;
+    - Under a new headline, start by including a list with your names, add affiliations as footnotes and provide links for your university or institution
+    - Make a new code chunck called `summary-table`. Make sure it runs every time and warnings are shown, but the code is suppressed. Make a table with summary data from your data set for varialbes that you have selected. Find the mean, standard deviation, minimum and maximum values. Provide the table with an appropriate caption. Make sure all column names starts with lower case, and align the columns to be left-centered. Use a setting to make the numbers in the table have a similar number of digits. 
+    - In the end your report, create a new code chunk named `final_picture`, insert a picture that describes the group work. Give it a caption, center it, and let it fill 50% of the document. Suppress the code and warning messages in the R chunk but make sure the code is evaluated. 
 - Distribute the tasks so each team member is (mostly) doing something different.
     - Create one R Markdown file for each team member,
     and each person works on their own file.
@@ -889,7 +810,9 @@ Add to staging, commit, push, and pull the changes you've made.
     which is a good chance to practice with Git more.
 - Try to "knit" your document to HTML often, 
 to make sure the analysis is reproducible.
+- Assign a beautiful theme to your HTML report. 
     - **Note**: For now, *do not* add and commit the HTML report.
+
 
 Once you as a team are happy with the report, figures, and tables,
 make sure that everyone does a final add-commit-push to your GitHub repository.
