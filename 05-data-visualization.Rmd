@@ -201,11 +201,14 @@ Since diabetes status is an important variable for us,
 let's remove all missing values right now and plot it again.
 
 ```{r remove-missing-diabetes}
-# remove individuals with missing diabetes status
+# Remove individuals with missing diabetes status
 nhanes_tidied <- nhanes_small %>% 
     filter(!is.na(Diabetes))
 
-# create a new count barplot for diabetes status
+# Save the tidied dataset as an rda file in the data folder
+usethis::use_data(nhanes_tidied, overwrite = TRUE)
+
+# Create a new count barplot for diabetes status
 ggplot(nhanes_tidied, aes(x = Diabetes)) +
     geom_bar()
 ```
@@ -256,7 +259,7 @@ hex plot, and a smoothing line plot:
 
 ```{r, message=FALSE}
 # Using 2 continuous 
-bmi_chol <- ggplot(nhanes_tidied2, aes(x = BMI, y = TotChol))
+bmi_chol <- ggplot(nhanes_tidied, aes(x = BMI, y = TotChol))
 # Standard scatter plot
 bmi_chol + 
     geom_point()
@@ -292,7 +295,7 @@ So let's see what the difference in diabetes status is between sexes.
 ```{r}
 # 2 categorical/discrete
 # (We can pipe data into ggplot)
-two_discrete <- nhanes_tidied2 %>% 
+two_discrete <- nhanes_tidied %>% 
     ggplot(aes(x = Diabetes, fill = Sex)) 
 
 # Stacked
@@ -313,6 +316,8 @@ This new function takes the fill grouping variable and "dodges" them
 two_discrete + 
     geom_bar(position = position_dodge())
 ```
+
+Now you can see that there are slightly more men that have diabetes.
 
 ### Discrete and continuous variables
 
@@ -338,13 +343,13 @@ Let's see how BMI differs between those with or without diabetes.
 
 ```{r}
 # Using mixed data
-two_mixed <- nhanes_tidied2 %>% 
+two_mixed <- nhanes_tidied %>% 
     ggplot(aes(x = Diabetes, y = BMI))
 
-# Standard boxplot
+# Standard boxplot with outliers
 two_mixed + 
     geom_boxplot()
-# Better than boxplot, show the actual data!
+# Show the actual data using a jitter plot
 two_mixed + 
     geom_jitter()
 # Give more distance between groups
@@ -365,11 +370,7 @@ Create an exercise script by typing in the Console `usethis::use_r("exercises-vi
 Copy and paste the below code into that script.
 Complete as many tasks as you can below.
 
-1. Like we did above, remove individuals that have missing diabetes status
-and rename the `Gender` column to `Sex`. 
-Reminder, use `!` to invert a logic condition 
-(from `TRUE` to `FALSE` and vice versa, e.g. for keeping non-missing).
-We do this again in this script to make the script self-contained.
+1. vLike we did above, remove individuals that have missing diabetes status and rename the Gender column to Sex. Reminder, use ! to invert a logic condition (from TRUE to FALSE and vice versa, e.g. for keeping non-missing). We do this again in this script to make the script self-contained.
 2. Using `geom_histogram()`, find out what the distribution is for the two variables below.
     a. `Age` (participant's age at collection)
     b. `DiabetesAge` (age of diabetes diagnosis)
@@ -396,7 +397,7 @@ what can you conclude about how poverty may be associated with diabetes status?
     Smaller numbers mean higher poverty.
 
 ```{r exercise-2-var-plots, eval=FALSE}
-# 1. Remove missing diabetes, rename to Sex
+# 1. Remove individuals with missing diabetes status, rename Gender to Sex
 nhanes_tidy <- NHANES %>% 
     # Filter rows
     ___(___(___)) %>% 
