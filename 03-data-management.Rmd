@@ -300,7 +300,7 @@ The full NHANES dataset is 10,000 individuals (rows) with 76 parameters (columns
 ```{r}
 # Save the selected parameters as a new dataframe
 # Recall the style guide for naming objects
-nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, PhysActiveDays)
+nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, DiabetesAge, PhysActiveDays, PhysActive, TotChol, BPSysAve, BPDiaAve, SmokeNow)
 # View the new dataframe
 nhanes_small
 ```
@@ -1127,10 +1127,9 @@ difference in BMI between age classes and sex.
 <p>
 
 ```{r solution-exercise-combine-all-dplyr, eval=FALSE}
-
-
 NHANES %>% 
-    rename_with(snakecase::to_snake_case) %>% select(gender, age,  bmi) %>% 
+    rename_with(snakecase::to_snake_case) %>% 
+    select(gender, age,  bmi) %>% 
     filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
     rename(sex = gender) %>% 
     mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
