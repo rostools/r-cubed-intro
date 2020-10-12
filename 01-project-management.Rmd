@@ -616,16 +616,6 @@ great sources of help and learning. You can access cheatsheets by select "Help -
 - Use tab auto-completion when writing code
 - Use `?` to get help on an R object
 
-## Final exercise: Group work
-
-Time: 30 min.
-
-For each member of the group:
-
-1. Complete item 1 of the [group assignment](assignment)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).
-
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
 [R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 [style guide]: https://style.tidyverse.org/
