@@ -2,6 +2,52 @@
 
 ## For this course
 
+### Setting up RStudio Cloud
+
+**Are technical issues with your computer preventing you from completing the pre-course tasks or doing the course sessions?** 
+
+A last-ditch solution may be to use the RStudio Cloud platform to do the course.
+*What is it?*
+
+RStudio Cloud is a cloud computing service hosted by RStudio. It runs RStudio in your web browser with full functionality, including built-in integration of R projects and Git. It looks slightly different from a local RStudio session, and it treats R projects and Git a little different, but the overall R user experience is virtually identical.
+For what we need in this course, we are fine with their free service, which only requires a little work to register and set up.
+
+**Setting up RStudio Cloud**
+
+1. Register a free account: Go to the [RStudio Cloud website](https://rstudio.cloud/plans/free) and complete the sign-up process for a free account.
+2. Log in to the account. After logging in, we start on the "Personal Workspace" page. Here we can create new R projects (which we'll do next), set up additional workspaces (which we don't need for this course) or read the R guides and cheatsheets available in the "Learn" section of the menu panel (we can explore those after the course, there's a lot of good content):
+```{r cloud-start, echo=FALSE, fig.cap="This is RStudio Cloud."}
+knitr::include_graphics(here::here("images/cloud-start.jpg"))
+```
+3. Start a new R project:  Click the "New Project" button. While you can start a new project from scratch by clicking the button, we won't for the course. To get some practice though, click the right half of the button and you get the option to create a project by cloning a GitHub repository (more on that later):
+```{r cloud-new-project, echo=FALSE, fig.cap="Create a new RStudio Cloud Project."}
+knitr::include_graphics(here::here("images/cloud-new-project.jpg"))
+```
+For now, we'll start a new project from scratch by clicking the button. Don't forget to click the top panel after the project has been created to rename it to something sensible. Great! Now we've set up an R project:
+```{r cloud-project, echo=FALSE, fig.cap="Our first RStudio Cloud project. The interface is identical to a local instance of RStudio."}
+knitr::include_graphics(here::here("images/cloud-project.jpg"))
+```
+Before we get ahead of ourselves, however, we'll tune the cloud computing settings for the project to get more monthly run-time out of our free account.
+4. Throttle CPU and memory usage down: For this course, we don't need a lot of computer power, so we can get by with just the minimum memory and CPU settings. With these settings, we get 30 hours of run-time per months, which should be plenty for this course. To do so, click the gear-icon in the top right of the screen, then the "Resources" tab, toggle both sliders to the far left, and click "Apply Changes":
+```{r cloud-cpu-memory, echo=FALSE, fig.cap="Tuning cloud resources. Slow and steady wins the race!"}
+knitr::include_graphics(here::here("images/cloud-cpu-memory.jpg"))
+```
+If you end up requiring more memory or CPU power, you can always turn these settings up later. Cloud run-time is only accumulated while your project is active, so if you find yourself running low on run-time, make sure to exit your project when you're not actively coding.
+6. Set up access to GitHub: Finally, we need to to allow access to private GitHub repositories, which we'll be using in this course. Click on your user name in the top-right corner, and then the "Authentication" tab. This will take us to the authentication options, where we tick both boxes at the bottom for enabling GitHub, including the one labeled "Private repo access also enabled":
+```{r cloud-settings-github, echo=FALSE, fig.cap="Enable access to private repositories on GitHub."}
+knitr::include_graphics(here::here("images/cloud-settings-github.jpg"))
+```
+7. Setting up Git on RStudio Cloud projects: Git cannot be set up inside project using packages, so prodigenr and `usethis::use_git()` will not work. However, it can easily be done through the RStudio menu interface: "Tools -> Version Control -> Project Setup -> Version Control System: Git"
+7. Now you're good to go! You should have no issues completing the [pre-course tasks](pre-course#getting-familiar-with-rstudio) and have a course experience similar to those using a local installation.
+8. There are just a few more differences between local and RStudio Cloud sessions to be aware of:
+    - **Uploading files to RStudio Cloud projects:** To make files available to RStudio Cloud projects, we have to upload the files to it. Thankfully, this is very easy! In RStudio Cloud the "Files" tab of Panel D (Figure \@ref(fig:rstudio-introduction)) contains a new icon "Upload File", which allows us to easily upload a file from our local computer (or several files within a zip file) to the RStudio Cloud folder we're currently in:
+    ```{r cloud-upload, echo=FALSE, fig.cap="Uploading files, e.g. datasets to the cloud is easy."}
+    knitr::include_graphics(here::here("images/cloud-upload.jpg"))
+    ```
+    Another way of loading files to RStudio Cloud is to synchronize the project with a remote repository, which will download all the tracked files to the RStudio Cloud project.
+    - **R projects and folder structure in RStudio Cloud:** Since we start every R session inside of a project on RStudio Cloud, RStudio in the cloud session doesn't let us set up projects from inside of the R session. The `prodigenr` package can still be used *through the console* to set up the basic folder structure of our projects. However, the root folder of any project is fixed to `/cloud/project/`, so when setting up our folder structure with prodigenr, we should have this in mind (e.g. `prodigenr::setup_project("LearningR")` creates the prodigenr folders inside`/cloud/project/LearningR` and avoids unnecessarily long file paths)
+    - **Cloning a GitHub remote repository in RStudio Cloud:** Can be done when setting up a new project in the RStudio Cloud workspace ("New Project from Git Repo"), or from the terminal, but it cannot be done through the RStudio main menu interface.
+
 ### Potential exercise solutions
 
 These are *potential* exercise solutions of R code only. This are mostly intended
@@ -18,53 +64,6 @@ solutions <- purrr::map(
 unlist(solutions) %>% 
     cat(sep = "\n")
 ```
-
-
-### Setting up RStudio Cloud
-
-**Are technical issues with your computer preventing you from completing the pre-course tasks or doing the course sessions?**  
-**A last-ditch solution may be to use the RStudio Cloud platform to do the course.**  
-
-*What is it?*
-
-RStudio Cloud is a cloud computing service hosted by RStudio. It runs RStudio in your web browser with full functionality, including built-in integration of R projects and Git. It looks slightly different from a local RStudio session, and it treats R projects and Git a little different, but the overall R user experience is virtually identical.
-For what we need in this course, we are fine with their free service, which only requires a little work to register and set up.
-
-**Setting up RStudio Cloud**
-
-1. Register a free account: Go to the [RStudio Cloud website](https://rstudio.cloud/plans/free) and complete the sign-up process for a free account.
-2. Log in to the account. After logging in, we start on the "Personal Workspace" page. Here we can create new R projects (which we'll do next), set up additional workspaces (which we don't need for this course) or read the R guides and cheatsheets available in the "Learn" section of the menu panel (we can explore those after the course - there's a lot of good content):
-```{r cloud-start, echo=FALSE, fig.cap="This is RStudio Cloud"}
-knitr::include_graphics(here::here("images/cloud-start.jpg"))
-```
-3. Start a new R project:  Click the New Project button. We can either start a new project from scratch by clicking the button. If we click the right half of the button, we get the option to create a project by cloning a GitHub repository (more on that later):
-```{r cloud-new-project, echo=FALSE, fig.cap="Create a new RStudio Cloud Project."}
-knitr::include_graphics(here::here("images/cloud-new-project.jpg"))
-```
-For now, we'll start a new project from scratch by clicking the button. Don't forget to click the top panel after the project has been created to rename it to something sensible. Great! Now we've set up an R project:
-```{r cloud-project, echo=FALSE, fig.cap="Our first RStudio Cloud project. The interface is identical to a local instance of RStudio."}
-knitr::include_graphics(here::here("images/cloud-project.jpg"))
-```
-Before we get ahead of ourselves, however, we'll tune the cloud computing settings for the project to get more monthly run-time out of our free account:
-4. Throttle CPU and memory usage down: For this course, we don't need a lot of computer power, so we can get by with just the minimum memory and CPU settings. With these settings, we get 30 hours of run-time per months, which should be plenty for this course. To do so, click the gear-icon in the top right of the screen, then the "Resources" tab, toggle both sliders to the far left, and click "Apply Changes":
-```{r cloud-cpu-memory, echo=FALSE, fig.cap="Tuning cloud resources. Slow and steady wins the race!"}
-knitr::include_graphics(here::here("images/cloud-cpu-memory.jpg"))
-```
-If you end up requiring more memory or CPU power, you can always turn these settings up later. Cloud run-time is only accumulated while your project is active, so if you find yourself running low on run-time, make sure to exit your project when you're not actively coding.
-6. Set up access to GitHub: Finally, we need to to allow access to private GitHub repositories, which we'll be using in this course. Click on your user name in the top-right corner, and then the "Authentication" tab. This will take us to the authentication options, where we tick both boxes at the bottom for enabling GitHub, including the one labeled "Private repo access also enabled":
-```{r cloud-settings-github, echo=FALSE, fig.cap="Enable access to private repositories on GitHub."}
-knitr::include_graphics(here::here("images/cloud-settings-github.jpg"))
-```
-7. Setting up Git on RStudio Cloud projects: Git cannot be set up inside project using packages, so prodigenr and `usethis::use_git()` will not work. However, it can easily be done through the RStudio menu interface: Tools -> Version Control -> Project Setup -> Version Control System: Git
-7. Now you're good to go! You should have no issues completing the [pre-course tasks](pre-course#getting-familiar-with-rstudio) and have a course experience similar to those using a local installation.
-8. There are just a few more differences between local and RStudio Cloud sessions to be aware of:
-- **Uploading files to RStudio Cloud projects:** To make files available to RStudio Cloud projects, we have to upload the files to it, Thankfully, this is very easy! In RStudio Cloud the "Files" tab of Panel D (ref. Figure \@ref(fig:rstudio-introduction)) contains a new icon "Upload File", which allows us to easily upload a file from our local computer (or several files within a .zip-file) to the RStudio Cloud folder we're currently in:
-```{r cloud-upload, echo=FALSE, fig.cap="Uploading files, e.g. datasets to the cloud is easy."}
-knitr::include_graphics(here::here("images/cloud-upload.jpg"))
-```
-Of course, another way of loading files to RStudio Cloud is to synchronize the project with a remote repository, which will download all the tracked files to the RStudio Cloud project.
-- **R projects and folder structure in RStudio Cloud:** Since we start every R session inside of a project on RStudio Cloud, RStudio in the cloud session doesn't let us set up projects from inside of the R session. The `prodigenr` package can still be used *through the console* to set up the basic folder structure of our projects. However, the root folder of any project is fixed to `/cloud/project/`, so when setting up our folder structure with prodigenr, we should have this in mind (e.g. `prodigenr::setup_project("LearningR")` creates the prodigenr folders inside`/cloud/project/LearningR` and avoids unnecessarily long file paths)
-- **Cloning a GitHub remote repository in RStudio Cloud:** Can be done when setting up a new project in the RStudio Cloud workspace ("New Project from Git Repo"), or from the terminal, but it cannot be done through the RStudio main menu interface.
 
 ## For learning
 
@@ -88,7 +87,6 @@ The go-to reference for learning and using R Markdown
 - [Course material for a statistics class](https://stat545.com/):
 Excellent course material for teaching statistics and R.
     
-
 **Quick references**:
 
 - [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/):
@@ -135,7 +133,7 @@ Markdown uses [pandoc])
 and documentation on the functions 
 (e.g. try typing `base::` and then hitting Tab to show a list of all functions found in base R)
 
-```{r}
+```{r table-common-packages, echo=FALSE}
 knitr::kable(r3::useful_packages_list, caption = "Useful and common packages to use in data analysis.")
 ```
 
