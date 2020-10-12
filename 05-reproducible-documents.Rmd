@@ -804,3 +804,5 @@ It's now time to start putting things together as a HTML report which is easy to
 - Assign a beautiful theme to your HTML report.
 - Try to "knit" your document to HTML often, to make sure the analysis is reproducible.
 - At last, add to staging, commit, and push the the HTML report to GitHub.
+
+Now you know how to make a reproducible document!
