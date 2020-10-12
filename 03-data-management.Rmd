@@ -1077,7 +1077,7 @@ for importing into the R script you are working in.
 For SAS, SPSS, or Stata files, you can use the package 
 [`haven`](https://haven.tidyverse.org/) to import those datasets into R.
 
-## Summary of session
+## Summary of session {#wrangling-summary}
 
 - In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
 - Use the R package tidyverse to load in multiple packages to tidy up data 

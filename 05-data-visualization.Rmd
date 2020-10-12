@@ -741,7 +741,7 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
        base_scatterplot2, width = 7, height = 5)
 ```
 
-## Summary of session
+## Summary of session {#dataviz-summary}
 
 - Use the "Grammar of Graphics" with the ggplot2 package within the tidyverse to plot your data
 - Prioritise plotting raw data data instead of summaries whenever possible or if able to
