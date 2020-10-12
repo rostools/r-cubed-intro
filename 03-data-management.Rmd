@@ -200,7 +200,8 @@ Take the time to get familiar with the NHANES dataset.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
-source(here::here("R/package-loading.R"))
+library(tidyverse)
+library(NHANES)
 
 # Check column names
 colnames(___)
@@ -221,7 +222,8 @@ summary(___)
 
 ```{r solution-exercise-familiar-with-data, eval=FALSE}
 # Load the packages
-source(here::here("R/package-loading.R"))
+library(tidyverse)
+library(NHANES)
 
 # Check column names
 colnames(NHANES)
@@ -296,7 +298,7 @@ The full NHANES dataset is 10,000 individuals (rows) with 76 parameters (columns
 ```{r}
 # Save the selected parameters as a new dataframe
 # Recall the style guide for naming objects
-nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, PhysActiveDays)
+nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, DiabetesAge, PhysActiveDays, PhysActive, TotChol, BPSysAve, BPDiaAve, SmokeNow)
 # View the new dataframe
 nhanes_small
 ```
@@ -1083,42 +1085,33 @@ For SAS, SPSS, or Stata files, you can use the package
 - Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
 - Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
 
-## Final exercise: Practicing the dplyr functions
+## Final exercise: Group work
 
-Time: 30 minutes
+Time: 1 hour
 
-In this exercise, you have the chance to through the content of the whole dplyr 
-section yourself and solve a more challenging exercise. 
-Complete these tasks by starting from the original `NHANES` dataset and using the
-pipe to link each task with the next.
+This exercise has two aims: to get working on and completing the group project, 
+and to get you practicing using the dplyr and tidyr functions we covered today.
+First, take maximum 10 min to:
 
-1. Rename all the columns so they are snake case.
-2. Select columns gender, age and BMI.
-3. Exclude NAs from all the selected columns.
-4. Rename gender to sex.
-5. Create a new column named `age_class`, where anyone under 50 years old is
-labeled `"under 50"` and those 50 years old and older are labeled `"over 50"`.
-6. Group the data according to `sex` and `age_class`.
-7. Calculate the mean and median BMI according to the grouping to determine the
-difference in BMI between age classes and sex.
+1. *As a group*, complete item 2 of the [group assignment](assignment)
+(to jump quickly to the assignment, 
+run `r3::open_assignment()` in the RStudio Console).
+2. *Individually*, open your group R project
+and complete item 3 of the group assignment.
+Follow the appropriate filenaming conventions as we learned in the Project Management
+session for the dataset (e.g. don't use spaces, instead use either `-` or `_`).
 
+With the remaining time:
 
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
+3. *As a group*, complete item 4 of the [group assignment](assignment).
+Explore the data and *use all the functions* we've covered in this session to
+better understand the data you'll work with. 
+You can (and probably should) divide exploratory tasks between group members,
+so that you have a good understanding *as a group* of the data.
 
-```{r solution-exercise-combine-all-dplyr, eval=FALSE}
-# Create a new dataset with lower-case column names
-nhanes_lc <- 
-
-NHANES %>% 
-    rename_with(snakecase::to_snake_case) %>% select(gender, age,  bmi) %>% 
-    filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
-    rename(sex = gender) %>% 
-    mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
-    group_by(age_class, sex) %>% 
-    summarise(bmi_mean = mean(bmi, na.rm = TRUE), 
-              bmi_median = median(bmi, na.rm = TRUE))
-```
-
-</p>
-</details>
+> *Tip*: Make use of TAB auto-completion when typing out the dplyr and tidyr
+functions for wrangling the data to speed up your coding and to get help if needed.
+For instance, type out `sel`, hit TAB, and see the list of possible functions.
+Choose the right item in the menu and hit TAB again to finish the function.
+If you want to see a list of other functions in dplyr, type out `dplyr::` 
+and then hit TAB. You'll now have a list of functions inside the dplyr package.
