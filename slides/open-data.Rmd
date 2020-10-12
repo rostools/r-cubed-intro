@@ -412,6 +412,8 @@ class: center
 [Nature recommended data repositories]: https://www.nature.com/sdata/policies/repositories
 
 ???
+Finding and Obtaining Open Datasets - Lecture Notes
+
 In this section we will look at some practical ways to find and access open data. This introduction is by no means exhaustive but will help you find datasets that you can use to train your data wrangling and analysis skills, check the reproducibility of published papers and even to conduct original research. Along the way we will see how researchers and institutions are currently publishing data sets and analytical code. We will also see that the situation is not as good as it could be.
 
 To start with, it is worth pointing out that accessible data is only one part of a wider set of principles guiding open and reproducible science.
