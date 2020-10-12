@@ -740,7 +740,7 @@ We won't have you do this for this session,
 since you've all been added as collaborators to your group's repository.
 But you will get practice collaborating on a Git project in the final exercise.
 
-## Summary of session
+## Summary of session {#version-control-summary}
 
 - Use the version control system Git to track changes to your files,
 to more easily manage your project and to more easily collaborate with others.
