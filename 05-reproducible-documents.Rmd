@@ -705,6 +705,7 @@ knitr::include_graphics(here::here("images/kitten.jpg"))
 
 Knit again to see how the image changed. Great! 
 
+
 ## Other R Markdown features
 
 **Take 5 min to read these sections below before proceeding to the final exercise**.
