@@ -1107,11 +1107,9 @@ difference in BMI between age classes and sex.
 <p>
 
 ```{r solution-exercise-combine-all-dplyr, eval=FALSE}
-# Create a new dataset with lower-case column names
-nhanes_lc <- 
-
 NHANES %>% 
-    rename_with(snakecase::to_snake_case) %>% select(gender, age,  bmi) %>% 
+    rename_with(snakecase::to_snake_case) %>% 
+    select(gender, age,  bmi) %>% 
     filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
     rename(sex = gender) %>% 
     mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
