@@ -139,19 +139,25 @@ columns are the variables that were measured.
 So, from now on, we call them "variables".
 
 Ok, let's visually explore our data. 
-Open the previously used R Project, 
-then open the `visualization-session.R` script in the `R/` folder. 
-This script we will use for the code-along, but not for the exercises.
-First, let's add this to the top of the script:
+Open the previously used R Project, and create a new R Markdown file called `visualization-session.Rmd`. (To do this, go to “File -> New File -> R Markdown”, and a dialog box will then pop up. Type in “Data visualization” in the title section and your name in the author section. Choose HTML as the output format. Delete unneeded text and codechunks, then save this file as `visualization-session.Rmd` in the doc/ folder).
+This script we will use for the code-along and exercises in data visualization.
+
+First, we want to load packages, so let's write that at the top of the file, right under the YAML header.
+
+`Load packages`
+
+Then add a new code chunk with the shortcut “Ctrl+Alt+I” or by using the menu item “Code -> Insert Chunk”
+Then add this to the first code chunk:
 
 ```{r, eval=FALSE}
-# load packages
 source(here::here("R/package-loading.R"))
 ```
 
+Now we are ready to start creating the first plot! 
 Since BMI is a strong risk factor for diabetes, let's check out its distribution.
 To show distributions, there are two good geoms: 
 `geom_density()` and `geom_histogram()`.
+Type in an appropriate heading and add a new code chunk, then type:
 
 ```{r, message=FALSE}
 # create density plot for BMI
