@@ -36,7 +36,6 @@ To start, here are some tips for making a graph
 - Though commonly used in scientific papers, 
 *[avoid barplots]* with means and error bars as they greatly misrepresent the data
 (we'll cover why later)
-- Maximise Data-Ink ratio by reducing non-essential or non-data text and features on your graph
 - Use colour to 1) highlight and enhance your message 
 and 2) to make the plot visually appealing
 - Use a colour-blind friendly palette so the plot is more accessible to others
@@ -516,38 +515,42 @@ Let's try to answer a few questions, to visualize some examples:
 
 *Question*: Is systolic blood pressure different in those with 
 or without diabetes in females and males? 
-In this case, we have one continuous variable (`BPSysAve`)
-and two discrete (`Sex` and `Diabetes`).
+In this case, we have one continuous variable (`bp_sys_ave`)
+and two discrete (`sex` and `diabetes`).
 For this plot, we could use `geom_boxplot()`. 
 
 ```{r}
 # Plot systolic blood pressure in relation to sex and diabetes status
 nhanes_tidied %>% 
-    ggplot(aes(x = Sex, y = BPSysAve, colour = Diabetes)) +
+    ggplot(aes(x = sex, y = bp_sys_ave, colour = diabetes)) +
     geom_boxplot()
 ```
 
+Do you see differences in systolic blood pressure between the sexes? Between diabetics and non-diabetics?
+
 *Question*: How does BMI relate to systolic blood pressure 
 and age?
-Here we have three continuous variables (`BMI`, `BPSysAve`, and `Age`),
+Here we have three continuous variables (`bmi`, `bp_sys_ave`, and `age`),
 so we could use `geom_point()`.
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and age
 nhanes_tidied %>%
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
     geom_point()
 ```
 
+Can you see any associations between systolic blood pressure and BMI or age?
+
 *Question*: How does BMI relate to systolic blood pressure 
 and what is different between those with and without diabetes?
-In this case, we have two continuous (`BMI` and `BPSysAve`) and one discrete variable (`Diabetes`).
+In this case, we have two continuous (`bmi` and `bp_sys_ave`) and one discrete variable (`diabetes`).
 We could use `geom_point()`:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and diabetes status
 nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Diabetes)) +
+    ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
     geom_point()
 ```
 
@@ -569,24 +572,32 @@ For both `cols` and `rows`, the variable given must be wrapped by `vars()`
 Let's try it with the previous example (instead of using `colour`).
 
 ```{r}
-# Plot BMI in relation to systolic blood pressure and diabetes status using faceting
+# Plot BMI in relation to systolic blood pressure and diabetes status using faceting by column
 nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve)) +
+    ggplot(aes(x = bmi, y = bp_sys_ave)) +
     geom_point() +
-    facet_grid(cols = vars(Diabetes))
+    facet_grid(cols = vars(diabetes))
 ```
 
-Try facetting with plots stacked by diabetes status, using the argument rows = vars(Diabetes) instead. Which is more informative?
+Try facetting with plots stacked by diabetes status, using the argument rows = vars(diabetes) instead. Which do you find more informative?
 
-We can also facet by `Sex` and use `Age` as a colour:
+```{r}
+# Plot BMI in relation to systolic blood pressure and diabetes status using faceting by row
+nhanes_tidied %>% 
+    ggplot(aes(x = bmi, y = bp_sys_ave)) +
+    geom_point() +
+    facet_grid(rows = vars(diabetes))
+```
+
+We can also facet by `sex` and use `age` as a colour:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure, age, sex and diabetes status using faceting
 nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+    ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
     geom_point() +
-    facet_grid(rows = vars(Diabetes),
-               cols = vars(Sex))
+    facet_grid(rows = vars(diabetes),
+               cols = vars(sex))
 ```
 
 ## Colours: Make your graphs more accessible
@@ -624,13 +635,13 @@ Time: 10 min
 
 Practice changing colour schemes on a bar plot.
 Start with a base plot object to work from that has two discrete variables. 
-Copy and paste the code below into your script file.
+Copy and paste the code below into a new code chunk.
 
 
 ```{r}
 # Barplot to work from, with two discrete variables
 base_barplot <- nhanes_tidied %>% 
-    ggplot(aes(x = Diabetes, fill = Sex)) +
+    ggplot(aes(x = diabetes, fill = sex)) +
     geom_bar(position = position_dodge())
 ```
 
@@ -644,26 +655,25 @@ to find the correct function.
 variables are discrete, you need to add `_d` to the end of the viridis scheme
 function.
 
-2. Viridis has several palettes. An the argument `options` with `"A"`. Run
+2. Viridis has several palettes. Add the argument `options = "A"` to the `scale_` function. Run
 the function again and see how the colour changes. Instead of `"A"`, change it
 to `"E"`.
 
 3. Now, let's practice using the colour schemes on a plot with continuous
-variables. Copy and paste the code below into your exercise code chunk.
+variables. Copy and paste the code below into a new code chunk.
 Since we are using `colour` instead of `fill`, the `scale_` will be `scale_colour_`.
 Use this scale with viridis and use the function with `_c` at the end to indicate
 the variable will be continuous.
 
     ```{r}
-    # scatterplot to work from, with two continuous variables
+    # scatterplot to work from, with three continuous variables
     base_scatterplot <- nhanes_tidied %>% 
-        ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
+        ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
         geom_point()
     ```
     
-4. Like with 2 above, use the `options` argument and set it to first `"B"`,
-run it to see how the colour changes, then switch it to `"C"` and run it
-to see the colour differences.
+4. Like in point 2 above, use the `options` argument and set it to `"B"`, 
+to see how the colour changes.
 
 ```{r solution-colour-schemes, eval=FALSE, echo=FALSE}
 # 1. change colors to a viridis color scheme
@@ -673,6 +683,7 @@ base_barplot +
 # 2. change colors to another viridis color scheme
 base_barplot +
     scale_fill_viridis_d(option = "A")
+
 base_barplot +
     scale_fill_viridis_d(option = "E")
 
@@ -683,8 +694,6 @@ base_scatterplot +
 # 4. change colors to another viridis color scheme
 base_scatterplot +
     scale_color_viridis_c(option = "B")
-base_scatterplot +
-    scale_color_viridis_c(option = "C")
 ```
 
 ## Titles, axis labels, and themes
@@ -704,8 +713,8 @@ All built-in themes start with `theme_`.
 ```{r}
 # create scatterplot to play with themes
 base_scatterplot2 <- base_scatterplot +
-    facet_grid(rows = vars(Diabetes),
-               cols = vars(Sex)) +
+    facet_grid(rows = vars(diabetes),
+               cols = vars(sex)) +
     scale_color_viridis_c()
 
 # View the plot with the default theme
@@ -746,9 +755,10 @@ The next argument is the plot you want to save.
 To set the dimensions of the figure, 
 use `width` and `height` arguments.
 But first, we need to create the `doc/images/` folder. 
-We can do this with the fs (for "filesystem") package:
+We can do this with the fs (for "filesystem") package. 
 
 ```{r, eval=FALSE}
+# Create a new directory to save images into
 fs::dir_create("doc/images")
 ```
 
@@ -759,6 +769,8 @@ Ok, now let's save that figure!
 ggsave(here::here("doc/images/scatterplot.pdf"), 
        base_scatterplot2, width = 7, height = 5)
 ```
+
+Finally, remember to save the Rmd file, commit the changes, and push to Github!
 
 ## Summary of session {#dataviz-summary}
 
