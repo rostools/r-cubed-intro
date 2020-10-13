@@ -648,12 +648,13 @@ and `>>>>>>> origin/master` are the changes found on your *remote*
 (GitHub) repository.
 `HEAD` is the term to mean where your files are currently at.
 Think of `HEAD` as meaning the "top" of the history.
-`origin/master` indicates that the commit comes from the `master` branch
+`origin/master` indicates that the commit comes from the `master` 
+(or sometimes called `main`) branch
 of the `origin` remote.
 The concept and use of branches is a powerful feature of Git,
 but due to time we won't be covering them.
 You only need to know that every Git repository starts with the default
-`master` branch.
+`master` (or `main`) branch.
 
 At this point, 
 you decide what to keep 
