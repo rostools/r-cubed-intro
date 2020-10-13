@@ -113,7 +113,7 @@ please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
 - Throughout the exercises and code-along sessions, reinforce the use of troubleshooting techniques including finding help from othe resources.
 
-## Lesson material details
+## Content and other details
 
 ### Version control
 
@@ -198,3 +198,10 @@ list of questions to include (depending on the survey):
     - Basic questions about the participant (like in the pre-course survey).
     - Questions about current usage of the tools they learned during the course.
     - Questions about and reflections on the course.
+
+### About the schedule
+
+The schedule is not designed to be a fixed sequence of sessions. Some sessions
+may run shorter so you can move on to the next session afterwards, while other
+sessions may run longer and go into the next session. That is ok if that happens.
+The schedule is a guide only, an overview of what will be covered and when.
