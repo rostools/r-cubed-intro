@@ -352,7 +352,14 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
 
-Now the column has been renamed from gender to sex. What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
+Now the column has been renamed from gender to sex. To be able to access this new dataframe easily, you can save this as an .rda file into your data folder, using the function `use_data()`:
+
+```{r}
+# Saving data as an .rda file in the data folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
+```
+
+What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
 
 ## Chaining functions with the pipe
 
