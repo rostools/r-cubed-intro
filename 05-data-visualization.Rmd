@@ -743,7 +743,7 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
        base_scatterplot2, width = 7, height = 5)
 ```
 
-## Summary of data visualization session
+## Summary of session {#dataviz-summary}
 
 - Use the "Grammar of Graphics" with the ggplot2 package within the tidyverse to plot your data
 - Prioritise plotting raw data data instead of summaries whenever possible or if able to
@@ -752,29 +752,3 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
 - Use both colour, X and Y axis to plot three dimensions - or `facet_grid()` to plot more dimensions
 - Use colourblind-friendly colours, e.g. by using the colour palettes `viridis` or `ColorBrewer`
 - Save plots by `ggsave()`
-
-## Final exercise: Group work
-
-Time: 45 min
-
-In your groups, start exploring your data by making ggplot2 graphs.
-Ultimately, your goal as a group is to complete item 6 of the [assignment](assignment).
-It's a good idea to distribute exploration to each group member,
-so that each member gets practice making ggplot2 graphs.
-Take about 10-15 min to do these tasks:
-
-- Each member creates an R script in the `R/` folder
-to start visually exploring the data.
-Name these new files with your name and `-exploring.R`.
-- Add, commit, and push these files to your GitHub repository.
-- Find some visually interesting
-and insightful plots are that you could show in the presentation 
-and in the report.
-
-Then with the remaining time, as a group:
-
-- Decide which graphs to include in the report and presentation.
-- Complete item 6 of the assignment by creating an R script that will create those figures.
-- Add, commit, and push the new file to GitHub.
-- Save these figures in the `doc/images/` folder.
-- Add, commit, and push the images to GitHub.

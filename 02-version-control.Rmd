@@ -648,12 +648,13 @@ and `>>>>>>> origin/master` are the changes found on your *remote*
 (GitHub) repository.
 `HEAD` is the term to mean where your files are currently at.
 Think of `HEAD` as meaning the "top" of the history.
-`origin/master` indicates that the commit comes from the `master` branch
+`origin/master` indicates that the commit comes from the `master` 
+(or sometimes called `main`) branch
 of the `origin` remote.
 The concept and use of branches is a powerful feature of Git,
 but due to time we won't be covering them.
 You only need to know that every Git repository starts with the default
-`master` branch.
+`master` (or `main`) branch.
 
 At this point, 
 you decide what to keep 
@@ -738,9 +739,10 @@ insert_video("videos/github-add-collaborator.mp4")
 
 We won't have you do this for this session, 
 since you've all been added as collaborators to your group's repository.
-But you will get practice collaborating on a Git project in the final exercise.
+But you will get practice collaborating on a Git project in the group work later 
+in the course.
 
-## Summary of session
+## Summary of session {#version-control-summary}
 
 - Use the version control system Git to track changes to your files,
 to more easily manage your project and to more easily collaborate with others.
@@ -762,32 +764,3 @@ a merge conflict occurs that you must deal with manually.
     `=======`, and `>>>>>>> origin/master` 
     (the last name may sometimes look different).
 - Almost all Git actions can be done using RStudio's Git interface.
-
-## Final exercise: Group work
-
-Time: 1 hour
-
-For this exercise, you as a group will upload your group project folder to GitHub.
-We've already created a team repository for you 
-(which you should already have access to).
-From this point on you'll use Git and GitHub to collaborate on your project.
-
-1. During the project management session's final exercise on the first day, 
-you designated a "coordinator" in your group. 
-For this task, 
-the coordinator needs to link their project to the team's GitHub repository 
-and upload (push) their project files to GitHub.
-    - Use the process we did *for an existing repository*.
-2. After the coordinator has done this, 
-each team member must "clone" (download) 
-the updated project using RStudio's interface
-("File -> New Project -> Version Control -> Git").
-    - Use the process we did *for new repositories*.
-3. Then each team member needs to move any files they worked on in their old project folder
-and move them into the newly created Git repository R project.
-Then add to the staging, commit, and push those file changes to GitHub.
-    - You'll likely have to deal with Merge Conflicts at this point. 
-    We'll be here to help out.
-4. Then complete item 5 and its sub-tasks in the [group assignment](assignment.html)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).

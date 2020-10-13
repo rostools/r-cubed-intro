@@ -149,22 +149,7 @@ tibble::tribble(
     knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
 ```
 
-The functions above come from the packages [dplyr] and [tidyr].
-These packages provide easy tools for most common data manipulation tasks. 
-No other packages have developed such a "language" of wrangling,
-and is the reason we teach them. 
-Plus both packages have excellent documentation and tutorials on how to use them.
-For dplyr, it is built to work directly with data frames 
-(i.e. rectangular data like those found in spreadsheets)
-and has an additional feature to interact directly with data stored in an external
-database, such as in SQL. Working with databases is a powerful way to work
-with massive datasets (100s of GB), more than what your computer could normally
-handle. Working with massive data won't be covered in this course,
-but see this [resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
-to learn more.
-
-[dplyr]: https://dplyr.tidyverse.org/
-[tidyr]: https://tidyr.tidyverse.org/
+The functions above come from the packages [dplyr] and [tidyr]. You will recall that these are packages that are commonly used for data manipulation.
 
 **Tip**: Sometimes you need to do some complicated wrangling to get your data 
 in appropriate "shape" to use for later analyses.
@@ -187,6 +172,8 @@ library(tidyverse)
 library(NHANES)
 ```
 
+With the added dataset package, add and commit the changes to the Git history with the RStudio Git Interface.
+
 Then open the `R/wrangling-session.R` script to start typing out the next code. 
 We'll use this file to write the code for this session (but not for the exercises).
 
@@ -200,6 +187,7 @@ source(here::here("R/package-loading.R"))
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
 ```
+Add and commit to the Git history with the RStudio Git Interface.
 
 ## Exercise: Become familiar with the dataset
 
@@ -212,11 +200,11 @@ Take the time to get familiar with the NHANES dataset.
 1. Copy the code below and paste it into the new exercise file.
 1. Replace the `___` with the `NHANES` dataset. 
 1. Run each line of code by typing `Ctrl-Enter`.
+1. Add and commit it to the Git history with the RStudio Git Interface.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
-library(tidyverse)
-library(NHANES)
+source(here::here("R/package-loading.R"))
 
 # Check column names
 colnames(___)
@@ -237,8 +225,7 @@ summary(___)
 
 ```{r solution-exercise-familiar-with-data, eval=FALSE}
 # Load the packages
-library(tidyverse)
-library(NHANES)
+source(here::here("R/package-loading.R"))
 
 # Check column names
 colnames(NHANES)
@@ -313,7 +300,7 @@ The full NHANES dataset is 10,000 individuals (rows) with 76 parameters (columns
 ```{r}
 # Save the selected parameters as a new dataframe
 # Recall the style guide for naming objects
-nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, PhysActiveDays)
+nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, DiabetesAge, PhysActiveDays, PhysActive, TotChol, BPSysAve, BPDiaAve, SmokeNow)
 # View the new dataframe
 nhanes_small
 ```
@@ -365,7 +352,14 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
 
-Now the column has been renamed from gender to sex. What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
+Now the column has been renamed from gender to sex. To be able to access this new dataframe easily, you can save this as an .rda file into your data folder, using the function `use_data()`:
+
+```{r}
+# Saving data as an .rda file in the data folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
+```
+
+What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
 
 ## Chaining functions with the pipe
 
@@ -456,6 +450,8 @@ We can now "read" these actions as:
 > Take the NHANES dataset *and then* select the nBabies column 
 *and then* rename the nBabies column to Number_Babies.
 
+Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
+
 ## Exercise: Practice what we've learned
 
 Time: 10 min
@@ -498,6 +494,7 @@ then re-read the revised version. Which do you feel is easier to "read"?
     drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
     rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
     ```
+5. Add and commit to the Git history with the RStudio Git Interface.     
     
 <details><summary><strong>Click for the solution</strong></summary>
 <p>
@@ -723,6 +720,8 @@ nhanes_update <- nhanes_small %>%
            highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
 ```
 
+Before you start the exercise, add and commit all added lines to the Git history with the RStudio Git Interface.
+
 ## Exercise: Piping, filtering, and mutating
 
 Time: 20 min
@@ -740,6 +739,7 @@ urine volumne (from `UrineVol1` and `UrineVol2`).
     - *Comment*: After creating the `urine_vol_average` column, 
     check out values. What do you notice? Compare with the original urine columns.
 3. Create a new variable called `young_child` when age is less than 6 years.
+4. Add and commit to the Git history with the RStudio Git Interface.
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
@@ -822,6 +822,8 @@ you can add multiple "summaries" by adding new columns separated by comma `,`. Y
 
 The `group_by()` function doesn't do anything by itself so should always be used in combination with a `summarize()`, `mutate()`, `arrange()`, or other function. However, the `summarize()` function can be used on its own. Let's take a look.
 
+Add and commit to the Git history with the RStudio Git Interface.
+
 ## Calculating summary statistics
 
 Let's calculate the max age. Because `NA` values "propagate" 
@@ -840,6 +842,7 @@ nhanes_small %>%
     summarize(max_age = max(age, na.rm = TRUE),
               min_age = min(age, na.rm = TRUE))
 ```
+Before you start the exercise, addd and commit to the Git history with the RStudio Git Interface.
 
 ## Exercise: Use `summarize()` to calculate basic statistics
 
@@ -851,6 +854,7 @@ Complete the following tasks:
 1. Calculate the `mean()` of `weight` and `bmi`.
 2. Calculate the `max()` and `min()` of `height`.
 3. Calculate the `median()` of `age` and `phys_active_days`.
+4. Add and commit to the Git history with the RStudio Git Interface.
 
 Don't forget to use `na.rm = TRUE` in the basic statistic functions.
 
@@ -885,7 +889,7 @@ nhanes_small %>%
 # 3.
 nhanes_small %>%
     summarize(median_age = median(height, na.rm = TRUE),
-              median_phys_active_days = median(phys_active_days, na.rm = TRUE))
+              median_phys_active_days = median(phys_active_days, na.rm = TRUE))             
 ```
 
 ## Summary statistics by a group
@@ -929,6 +933,7 @@ nhanes_small %>%
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
+Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
 
 Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
 
@@ -942,6 +947,7 @@ Using the `group_by()` with `summarize()`, answer these questions:
 females and males with or without diabetes?
 2. What is the mean, max, and min differences in height and weight between
 females and males with or without diabetes?
+3. Add and commit to the Git history with the RStudio Git Interface. 
 
 ```{r exercise-groupby-summarise, eval=FALSE}
 # 1. 
@@ -1089,10 +1095,13 @@ for importing into the R script you are working in.
     load(here::here("data/dataset_name.rda"))    
     ```
 
+
+Before you start with the final exercise, add and commit to the Git history with the RStudio Git Interface. 
+
 For SAS, SPSS, or Stata files, you can use the package 
 [`haven`](https://haven.tidyverse.org/) to import those datasets into R.
 
-## Summary of session
+## Summary of session {#wrangling-summary}
 
 - In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
 - Use the R package tidyverse to load in multiple packages to tidy up data 
@@ -1100,33 +1109,41 @@ For SAS, SPSS, or Stata files, you can use the package
 - Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
 - Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
 
-## Final exercise: Group work
+## Final exercise: Practicing the dplyr functions
 
-Time: 1 hour
+Time: 30 minutes
 
-This exercise has two aims: to get working on and completing the group project, 
-and to get you practicing using the dplyr and tidyr functions we covered today.
-First, take maximum 10 min to:
+In this exercise, you have the chance to through the content of the whole dplyr 
+section yourself and solve a more challenging exercise. 
+Complete these tasks by starting from the original `NHANES` dataset and using the
+pipe to link each task with the next.
 
-1. *As a group*, complete item 2 of the [group assignment](assignment)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).
-2. *Individually*, open your group R project
-and complete item 3 of the group assignment.
-Follow the appropriate filenaming conventions as we learned in the Project Management
-session for the dataset (e.g. don't use spaces, instead use either `-` or `_`).
+1. Rename all the columns so they are snake case.
+2. Select columns gender, age and BMI.
+3. Exclude NAs from all the selected columns.
+4. Rename gender to sex.
+5. Create a new column named `age_class`, where anyone under 50 years old is
+labeled `"under 50"` and those 50 years old and older are labeled `"over 50"`.
+6. Group the data according to `sex` and `age_class`.
+7. Calculate the mean and median BMI according to the grouping to determine the
+difference in BMI between age classes and sex.
+8. Add and commit to the Git history with the RStudio Git Interface. 
 
-With the remaining time:
 
-3. *As a group*, complete item 4 of the [group assignment](assignment).
-Explore the data and *use all the functions* we've covered in this session to
-better understand the data you'll work with. 
-You can (and probably should) divide exploratory tasks between group members,
-so that you have a good understanding *as a group* of the data.
+<details><summary><strong>Click for the solution</strong></summary>
+<p>
 
-> *Tip*: Make use of TAB auto-completion when typing out the dplyr and tidyr
-functions for wrangling the data to speed up your coding and to get help if needed.
-For instance, type out `sel`, hit TAB, and see the list of possible functions.
-Choose the right item in the menu and hit TAB again to finish the function.
-If you want to see a list of other functions in dplyr, type out `dplyr::` 
-and then hit TAB. You'll now have a list of functions inside the dplyr package.
+```{r solution-exercise-combine-all-dplyr, eval=FALSE}
+NHANES %>% 
+    rename_with(snakecase::to_snake_case) %>% 
+    select(gender, age,  bmi) %>% 
+    filter(!is.na(gender) && !is.na(age) && !is.na(bmi)) %>% 
+    rename(sex = gender) %>% 
+    mutate(age_class = if_else(age < 50, "under50", "over50")) %>%
+    group_by(age_class, sex) %>% 
+    summarise(bmi_mean = mean(bmi, na.rm = TRUE), 
+              bmi_median = median(bmi, na.rm = TRUE))
+```
+
+</p>
+</details>

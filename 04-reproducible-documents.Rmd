@@ -857,7 +857,7 @@ You might split up a document into sections that each collaborator may work on,
 and then later on merge them together.
 This last approach is what we will get you to do for the group project.
 
-## Summary of session
+## Summary of session {#r-markdown-summary}
 
 - Making your research reproducible not only improves your science, but also makes you more efficient, productive, and have more confidence in your results
 - Use R Markdown to construct files that can easily be turned into a variety of files such as HTML or Word
