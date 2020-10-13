@@ -56,21 +56,6 @@ presurvey_tidying <- presurvey %>%
           ) %>%
     filter(!str_detect(github_username, "helenejuel"))
 
-# presurvey_tidying %>%
-#     View()
-#
-# presurvey_tidying %>%
-#     select(email,
-#            name_from_survey = full_name) %>%
-#     rename(email_from_survey = email) %>%
-#     full_join(participants) %>%
-#     filter(
-#         name_from_survey != name_from_list |
-#             is.na(name_from_survey) |
-#             is.na(name_from_list)
-#     ) %>%
-#     View()
-
 presurvey_with_participants <- presurvey_tidying %>%
     mutate(name_from_survey = full_name) %>%
     rename(email_from_survey = email) %>%
