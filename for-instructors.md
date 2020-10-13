@@ -198,19 +198,18 @@ list of questions to include (depending on the survey):
 ### Helper R scripts
 
 There are several R scripts in the `R/` folder of the repository that can be
-modified and used to help manage and organize the course. Here is a brief
+modified and used to help manage and organize some administrative aspects of the course. Here is a brief
 overview of what each script is and how it can help.
 
 - `build-slides.R`: As the name suggests, this script will build (or re-build)
 the R Markdown slides in the `slides/` folder.
 - `checks.R`: Can be used to run basic checks of the URLs in the chapters. 
 URLs are not always stable, so this checks if they are active/live.
-- `create-teams.R`: Relies on `fetch-pre-survey.R`, this script will group
-the participants in to teams, create teams on GitHub, create repositories for 
-the teams, and assign the teams to those repositories.
-- `fetch-feedback-survey.R`: Fetches and processes the participant feedback
+- `create-teams.R`: This script will group the participants in to teams, create and name teams on GitHub, create repositories for 
+the teams, and assign the teams to those repositories. Relies on `fetch-pre-survey.R` (see below).
+- `fetch-feedback-survey.R`: Fetches, cleans, and processes the participant feedback
 from the Google Form survey. Uses the `ignore.R` file that contains the Google
-document ID and is not present in the repository, so you'd have to create your own.
+document ID and is not present in the repository, so you'd have to create your own Google doc.
 - `fetch-pre-survey.R`: Like the `fetch-feedback-survey.R`, this fetches and 
 processes the pre-survey results. Also uses the `ignore.R` file.
 - `ignore.R`: Not in the repository, so will need to be created to contain
