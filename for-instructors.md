@@ -113,7 +113,7 @@ please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
 - Throughout the exercises and code-along sessions, reinforce the use of troubleshooting techniques including finding help from othe resources.
 
-## Lesson material details
+## Content and other details
 
 ### Version control
 
@@ -155,15 +155,6 @@ check out the [remark.js keyword shortcuts].
 [xaringan]: https://github.com/yihui/xaringan
 [remark.js keyword shortcuts]: https://github.com/gnab/remark/wiki/Keyboard-shortcuts
 
-### About the r3 package
-
-The r3 package is used as a companion and helper throughout this course to
-making it easier to do certain tasks (like go to the survey). Considering this,
-if you want to use this course material and run a course like this on your 
-own, you can clone the r3 package and modify it as necessary for your own
-purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/master/README.md)
-of the r3 package for more details.
-
 ### About using surveys
 
 We used Google Forms to create surveys for pre-, during-, and post-course
@@ -198,6 +189,13 @@ list of questions to include (depending on the survey):
     - Basic questions about the participant (like in the pre-course survey).
     - Questions about current usage of the tools they learned during the course.
     - Questions about and reflections on the course.
+
+### About the schedule
+
+The schedule is not designed to be a fixed sequence of sessions. Some sessions
+may run shorter so you can move on to the next session afterwards, while other
+sessions may run longer and go into the next session. That is ok if that happens.
+The schedule is a guide only, an overview of what will be covered and when.
     
 ## General course admin
 
@@ -228,3 +226,12 @@ Other scripts are used within the material to generate content or do other tasks
 from each of the exercises and prints them in the `resources.Rmd` section.
 - `slide-setup.R`: Contains code that sets up the themes, options, and 
 reference management for the slides in `slides/`.
+
+### About the r3 package
+
+The r3 package is used as a companion and helper throughout this course to
+making it easier to do certain tasks (like go to the survey). Considering this,
+if you want to use this course material and run a course like this on your 
+own, you can clone the r3 package and modify it as necessary for your own
+purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/master/README.md)
+of the r3 package for more details.
