@@ -6,7 +6,7 @@ TODO: Should be about some of the points mentioned in issue 111, e.g. what can t
 participants do to plan/visualize this sort of work-flow, and how to implement
 it into their research institutes and environments.
 
-## Reproducible Research with R: In the Real World
+## Reproducible research with R: In the real world
 
 A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case study: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services.
 
