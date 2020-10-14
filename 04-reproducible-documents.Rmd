@@ -782,6 +782,29 @@ You might split up a document into sections that each collaborator may work on,
 and then later on merge them together.
 This last approach is what we will get you to do for the group project.
 
+## Exercise: Adding figures and change the theme
+
+Time: 20 minutes
+
+Go into the `doc/another-one.Rmd` and complete these tasks: 
+
+- Search online for a picture that you like and that you will put into the
+R Markdown file. Download it, create a new folder in `doc/` called `images/`,
+and save the image there.
+    - In the R Markdown file, insert the image somewhere (e.g. under `# Results`)
+    and give it an appropriate caption. The location of the image when using Markdown
+    syntax would be e.g. `image/image-name.png`.
+    - Knit the document to make sure the image gets inserted.
+- Go to the R Markdown [documentation] site and look at the different available
+themes for the HTML output. Find a theme you like by changing the `theme` option
+in the YAML header and re-knitting the document. 
+- Finally, add and commit the changes you've made to the `doc/another-one.Rmd`. 
+For now, don't add and commit the HTML output file.
+
+```{r solution-figures-themes, eval=FALSE, echo=FALSE}
+# This exercise has no R code solution.
+```
+
 ## Summary of session {#r-markdown-summary}
 
 - Making your research reproducible not only improves your science, but also makes you more efficient, productive, and have more confidence in your results
@@ -791,26 +814,3 @@ This last approach is what we will get you to do for the group project.
 - Apply headers ( `# Header 1`), text formatting (`**bold**`), lists (`-`), blockquotes (`>`), links `([Link](www))` and footnotes `[^1]` directly in the R Markdown file 
 - Insert pictures directly in R Markdown with `![Caption text](path/to/image.png)` or `knitr::include_graphics("path/to/image.png"))`
 - For HTML, choose different themes for appearance to personalise your R Markdown output document
-
-
-## Final exercise: Making your own R Markdown document
-
-Time: 30 minutes
-
-It's now time to start putting things together as an HTML report.
-
-- Create a new R Markdown document in `doc/`
-- Do some of the following tasks in the R Markdown document:
-    - Under a new header, start by including a list with your names, put your affiliations as footnotes, and provide links for your university or institution.
-    - Create a new code chunck called `summary-table` and write code to 
-    make a table with summary data from your data set for the selected variables. 
-    Calculate the mean, standard deviation, minimum and maximum values for these variables.
-    - Write an appropriate caption for the table using the `knitr::kable()` argument `caption`. 
-    Make sure all column names starts with lower case, and align the columns to be left-centered. 
-    Use a setting to make the numbers in the table have a similar number of digits.
-    Make sure it runs every time and warnings are shown, but the code is suppressed.
-    - In the end your report, create a new code chunk named `final-picture`, insert a picture that describes the group work. Give it a caption, center it, and let it fill 50% of the document. Suppress the code and warning messages in the R chunk but make sure the code is evaluated. 
-- Assign a beautiful theme of your choice to your HTML report.
-- "Knit" your document to HTML often, to make sure the analysis is reproducible.
-- At last, add to staging, commit, and push the the HTML report to GitHub.
-
