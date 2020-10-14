@@ -2,11 +2,10 @@ source(here::here("R/ignore.R"))
 library(googledrive)
 library(googlesheets4)
 library(tidyverse)
-conflicted::conflict_prefer("filter", "dplyr")
-
-# Import pre-survey data --------------------------------------------------
 
 stop("To prevent accidental sourcing.")
+
+# Import pre-survey data --------------------------------------------------
 
 feedback_survey <- drive_get(id = FEEDBACK_SURVEY_ID) %>%
     read_sheet()

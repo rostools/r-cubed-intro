@@ -247,3 +247,22 @@ GROUP BY `District`
 - In addition to being a repository, GitHub can also be used as a forum for communicating about the project work-flow (and get feedback/contributions from the public if using a public repository).  
 - You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
 - The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
+
+So you can probably imagine,
+doing this for larger or even slightly more complicated tables is not practical.
+A good alternative approach is to create the table in a spreadsheet,
+importing that table into R within a code chunk,
+and using `knitr::kable()` to create the table after that.
+
+## Other colour schemes in ggplot2
+
+You can modify ggplot2 colour schemes using many other pre-defined palettes by
+installing new R packages, including scientific journal colour palettes
+([ggsci]) and even a Wes Anderson ([wesanderson]) or a Stubio Ghibli ([ghibli])
+colour palette! 
+Also check out the Data Visualization book in the [resources](resources.html)
+chapter for more information and learning on visualizing data.
+
+[ggsci]: https://nanx.me/ggsci/index.html
+[wesanderson]: https://github.com/karthik/wesanderson
+[ghibli]: https://ewenme.github.io/ghibli/

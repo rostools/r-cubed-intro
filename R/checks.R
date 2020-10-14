@@ -1,4 +1,3 @@
-
 library(tidyverse)
 library(httr)
 library(fs)
@@ -6,6 +5,14 @@ library(fs)
 text_files <- dir_ls(path = c("slides", "."),
                      type = "file",
                      regexp = "[.](md|Rmd)$")
+stop("To prevent accidental sourcing.")
+
+# Test URL is active or alive ---------------------------------------------
+
+# URLs change over time or get removed from the internet. This code
+# runs gets all http(s) links and does a simple "GET" to see if it
+# is active or not. It isn't always correct, but its a good starting
+# point.
 
 url_pattern <- "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"
 url_links <- map(text_files, read_lines) %>%

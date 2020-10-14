@@ -25,12 +25,12 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
-```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'. Image source: [PhD Comics](https://phdcomics.com/comics/archive_print.php?comicid=1531)"}
-knitr::include_graphics(here::here("images/phd-comics-version-control.png"))
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'."}
+knitr::include_graphics(here::here("images/version-control.jpg"))
 ```
 
-```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming used for the common 'version control'. Image source: [PhD Comics](https://phdcomics.com/comics.php?f=1323)"}
-knitr::include_graphics(here::here("images/informal-version-control.gif"))
+```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming used for the common 'version control'."}
+knitr::include_graphics(here::here("images/informal-version-control.jpg"))
 ```
 
 Does this way of saving files and keeping track of versions look familiar?
@@ -258,6 +258,7 @@ Red, which you will see shortly, means text was removed.
 Now click the "Staged" checkbox besides the `README.md` file 
 to get it ready to be saved into the history.
 You've now "added" it to the staged area.
+Tip: If you have a lot of files to stage and you don't need to review each change: You can stage them all in a single click by pressing CTRL-A to select all files (⌘-A for Mac users) and then clicking the "Staged" checkbox one of the files. 
 The box on the right side is where you type out your "commit" message.
 "Commit" means you save something to the history of changes;
 You "commit" it to the history, like you "commit" something to your own memory.
@@ -348,6 +349,11 @@ add a new line to the `R/version-control-session.R` with an R comment
 (starts with a `#`).
 Type out something like "This will be used for testing out Git".
 Add and commit that new line you've written.
+
+```{r solution-commit-to-history, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
+
 
 ## "Remotes": Storing your repository online
 
@@ -481,6 +487,10 @@ Clone it to your desktop.
 knitr::include_graphics(here::here("images/github-add-readme.png"))
 ```
 
+```{r solution-clone-repo, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
+
 ## Synchronizing with GitHub
 
 **Take 3 min and read through the next two paragraphs**.
@@ -569,6 +579,10 @@ Commit the changes.
 6. Open up your RStudio `practice-repo` project 
 and pull the changes you made on GitHub.
 
+```{r solution-push-pull, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
+
 ## Dealing with file conflicts between the local and remote
 
 Normally Git is very good at synchronizing 
@@ -634,12 +648,13 @@ and `>>>>>>> origin/master` are the changes found on your *remote*
 (GitHub) repository.
 `HEAD` is the term to mean where your files are currently at.
 Think of `HEAD` as meaning the "top" of the history.
-`origin/master` indicates that the commit comes from the `master` branch
+`origin/master` indicates that the commit comes from the `master` 
+(or sometimes called `main`) branch
 of the `origin` remote.
 The concept and use of branches is a powerful feature of Git,
 but due to time we won't be covering them.
 You only need to know that every Git repository starts with the default
-`master` branch.
+`master` (or `main`) branch.
 
 At this point, 
 you decide what to keep 
@@ -681,6 +696,10 @@ Add the changes to the staging after you fixed them and click the commit button
 and view them there to make sure they have been synchronized
 (you may need to refresh the browser).
 
+```{r solution-merge-conflicts, eval=FALSE, echo=FALSE}
+# There is not R code solution for this section.
+```
+
 ## Collaborating using Git and GitHub 
 
 While all of the previous Git tools we covered are extremely useful when working alone,
@@ -720,9 +739,10 @@ insert_video("videos/github-add-collaborator.mp4")
 
 We won't have you do this for this session, 
 since you've all been added as collaborators to your group's repository.
-But you will get practice collaborating on a Git project in the final exercise.
+But you will get practice collaborating on a Git project in the group work later 
+in the course.
 
-## Summary of session
+## Summary of session {#version-control-summary}
 
 - Use the version control system Git to track changes to your files,
 to more easily manage your project and to more easily collaborate with others.
@@ -744,32 +764,3 @@ a merge conflict occurs that you must deal with manually.
     `=======`, and `>>>>>>> origin/master` 
     (the last name may sometimes look different).
 - Almost all Git actions can be done using RStudio's Git interface.
-
-## Final exercise: Group work
-
-Time: 1 hour
-
-For this exercise, you as a group will upload your group project folder to GitHub.
-We've already created a team repository for you 
-(which you should already have access to).
-From this point on you'll use Git and GitHub to collaborate on your project.
-
-1. During the project management session's final exercise on the first day, 
-you designated a "coordinator" in your group. 
-For this task, 
-the coordinator needs to link their project to the team's GitHub repository 
-and upload (push) their project files to GitHub.
-    - Use the process we did *for an existing repository*.
-2. After the coordinator has done this, 
-each team member must "clone" (download) 
-the updated project using RStudio's interface
-("File -> New Project -> Version Control -> Git").
-    - Use the process we did *for new repositories*.
-3. Then each team member needs to move any files they worked on in their old project folder
-and move them into the newly created Git repository R project.
-Then add to the staging, commit, and push those file changes to GitHub.
-    - You'll likely have to deal with Merge Conflicts at this point. 
-    We'll be here to help out.
-4. Then complete item 5 and its sub-tasks in the [group assignment](assignment.html)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).

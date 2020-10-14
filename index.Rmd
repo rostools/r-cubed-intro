@@ -73,6 +73,18 @@ on the GitLab repository for more details.
 [README]: https://gitlab.com/rostools/r-cubed/-/blob/master/README.md
 [CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/master/CONTRIBUTING.md
 
+## Target audiences
+
+This website and its content is targeted to three groups:
+
+1. For the **learners** to use during the course to follow along in case they get
+lost and for them to use as a reference after the course ends.
+2. For the **instructors** to use as a guide for when they run the course and
+do the code-alongs and lectures.
+3. For those who are **interested in teaching**, and who may not have much experience
+and who may not know where to start. They can use this website as a guide to running
+and instructing their own workshops.
+
 ## Re-use and licensing {#licensing}
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>

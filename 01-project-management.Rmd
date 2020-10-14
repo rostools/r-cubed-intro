@@ -39,7 +39,7 @@ so it is more "self-contained"
 - Make raw data "read-only" (don't edit it directly) and use code to show what
 was done.
 - Whenever possible, use code to create output (figures, tables) rather than
-manualling creating or editing them.
+manually creating or editing them.
 - Think of your code and project like you do with your manuscript or thesis:
 that other people will eventually look at it and review it, 
 that it will be published.
@@ -106,11 +106,21 @@ make life easier. Once a project is opened within RStudio the following actions
 are taken:
 
 - A new R session (process) is started.
-- The current working directory is set to the project directory.
+- The R session's working directory is set to the project directory.
 - RStudio project options are loaded.
 
-The README in each folder explains a bit about what should be placed there. But
-briefly:
+Let's learn a bit more about how R works, and what the "R session" means. An R
+session is the way you normally interact with R, where you would write
+code in the Console to tell R to do something. Normally, when you open an R
+session without an R Project, the session defaults to assuming you will be
+working in the `~/Desktop` or `~` (your Home folder) location. But this location
+isn't where you actually work... you would work in the folder that has your R
+scripts or data files. With R Projects, this assumption is implicit because the
+R Project contains your R scripts and data files, and it is this folder location
+that the R session opens in.
+
+Back to the project we created. There are README files in each folder that
+explain a bit about what should be placed there. Briefly:
 
 1. Documents like manuscripts, abstracts, and exploration type documents should 
 be put in the `doc/` directory (including [R Markdown] files which we will cover
@@ -120,7 +130,9 @@ in `data-raw/` for the raw data.
 We'll explain the `data-raw/` folder and creating it later in the lesson.
 1. All R files and code should be in the `R/` directory.
 1. Name all new files to reflect their content or function. Follow the tidyverse 
-[style guide for file naming](https://style.tidyverse.org/files.html).
+[style guide for file naming](https://style.tidyverse.org/files.html). Either
+`_` or `-` are recommended to be used instead of a space, thought using `-`
+tends to be more commonly used. 
 
 [R Markdown]: https://rmarkdown.rstudio.com/
 
@@ -136,6 +148,10 @@ which we'll cover in more detail [later](version-control).
 Time: 7 min
 
 1. Briefly read through each of the `README.md` files by opening them up in RStudio.
+
+```{r solution-read-readme, eval=FALSE, echo=FALSE}
+# This exercise has no solution.
+```
 
 ### Exercise: Better file naming
 
@@ -157,6 +173,30 @@ new version of analysis.R
 trying.something.here.R
 plotting-regression.R
 utility_functions.R
+code.R
+```
+
+```{r solution-better-filenaming, eval=FALSE, echo=FALSE}
+# Bad: Has a space.
+fit models.R
+# Good: Descriptive with no space.
+fit-models.R
+# Bad: Not descriptive.
+foo.r
+stuff.r
+# Good: Descriptive with no space.
+get_data.R
+# Bad: Has space
+Manuscript version 10.docx
+# Good: Descriptive.
+manuscript.docx
+# Bad: Not descriptive and has spaces.
+new version of analysis.R
+# Bad: Not descriptive and has dots.
+trying.something.here.R
+plotting-regression.R
+utility_functions.R
+# Bad: Not descriptive.
 code.R
 ```
 
@@ -366,7 +406,7 @@ message("Y is negative")
 
 The old code is in comments and the better code is below it.
 
-```{r ex-wrong-code-naming-answer, eval=FALSE}
+```{r solution-ex-wrong-code-naming, eval=FALSE}
 # Object names
 
 # Should be snake case (looks like `snake_case`)
@@ -461,22 +501,42 @@ source(here::here("R/package-loading.R"))
 ```
 
 There's a new thing `here`! The [here] package uses a function called `here()` 
-that makes it easier to manage file paths. 
+that makes it easier to manage *file paths* within an R Project. 
 The here package should already be installed.
 
-So, what is a file path and why is this 
+So, what is a file path and why is this `here` package
 necessary? A file path is the list of folders a file is found in. For instance,
 your CV may be found in `/Users/Documents/personal_things/CV.docx`. The problem 
 with file paths in R is that when you run a script interactively (e.g. what we
 do in class and normally), 
-the file path and "working directory" is located at the Project level 
-(where the `.Rproj` file is found).
+the file path and "working directory" (the R session) are located at the Project
+level (where the `.Rproj` file is found).
 You can see the working directory by looking at the top of the RStudio Console.
 
-But! When you `source()` an R script, it may likely run *in the
+But! When you `source()` an R script, the R code may likely run *in the
 folder it is saved in*, e.g. in the `R/` folder. So your file path
 `R/packages-loading.R` won't work because there isn't a folder called R in the
-`R/` folder. Often people use the function `setwd()`, but this is *never* a good
+`R/` folder. 
+
+```
+LearningR <--- R session working directory starts here.
+├── R
+│   ├── README.md
+│   ├── fetch_data.R <--- Working directory when running from source()
+│   └── setup.R
+├── data
+│   └── README.md
+├── doc
+│   └── README.md
+├── .Rbuildignore
+├── .gitignore
+├── DESCRIPTION
+├── LearningR.Rproj <--- here() moves file path to start in this file's folder
+├── README.md
+└── TODO.md
+```
+
+Often people use the function `setwd()`, but this is *never* a good
 idea since using it makes your script *runnable only on your computer*... which
 makes it no longer reproducible. We use the `here()` function to tell R to go
 to the project root (where the `.Rproj` file is found) and then use that file
@@ -513,11 +573,13 @@ no matter their skill level. You *can fix it*! `r emo::ji("smile")`
 The pieces of code below will return an error message due to one of the mistakes noted above. You don’t need to run this code in RStudio, but you can copy and paste the code into RStudio so that you can play around with it. Look at the code, identify the mistake, and provide the corrected code. You don’t need to understand what the code does.
 
 ```{r exercise-errors, error=TRUE}
-Library()
-
 x < y
+Library(tidyvrese)
+```
 
-library(tidyvrese)
+```{r solution-exercise-errors, eval=FALSE, echo=FALSE}
+x < y
+library(tidyverse)
 ```
 
 ## Final troubleshooting tips
@@ -546,7 +608,7 @@ great sources of help and learning. You can access cheatsheets by select "Help -
 
 **Final words:** It is important to always work towards writing "better" and "neater" code, as this can make it easier to break down pieces of code and troubleshoot problems. Ways to integrate this into your practice are to review documents like the tidyverse style guides regularly and perhaps join an online coding community.  
 
-## Summary of session
+## Summary of session {#r-project-management-summary}
 
 - Use R Projects in RStudio (e.g. with prodigenr)
 - Use a standard folder and file structure
@@ -555,16 +617,6 @@ great sources of help and learning. You can access cheatsheets by select "Help -
 - Use the `here()` function from the [here] package
 - Use tab auto-completion when writing code
 - Use `?` to get help on an R object
-
-## Final exercise: Group work
-
-Time: 30 min.
-
-For each member of the group:
-
-1. Complete item 1 of the [group assignment](assignment)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
 [R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects

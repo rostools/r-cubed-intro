@@ -178,6 +178,11 @@ or with the RStudio "Knit" button.
 1. Look at the output document, then change the YAML value for the `output:`
 key from `html_document` to `word_document`. Knit again.
 1. Open the Word file if it hasn't been opened already.
+1. Add, commit, and push to your GitHub repository.
+
+```{r solution-create-rmd, eval=FALSE, echo=FALSE}
+# This exercise has no R code solution.
+```
 
 ## Inserting R code into your document
 
@@ -440,6 +445,7 @@ Include the `library()` functions to load tidyverse and NHANES.
 1. Create another code chunk and call it `prettier-table`.
 Copy the code from above that calculates the mean BMI and Age
 and paste the code into the new chunk.
+Add the option `echo = FALSE` to the code chunk.
 1. Using the function `round()` around the `mean()` function,
 round the values to 1 digit.
 1. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
@@ -450,6 +456,95 @@ Use `str_to_sentence(Sex)` to capitalize the first letter of the word.
 replace the `_` with `-` by using `str_replace(Year, "_", "-")`.
 1. Run the code chunk to make sure the code works, then knit the document. 
 Don't forget about including the `knitr::kable()` function at the end of the pipe.
+1. End the exercise by adding, committing, and pushing the files to your GitHub repository.
+
+<details><summary><strong>Click for a possible solution</strong></summary>
+<p>
+
+```{r solution-ex-create-table, eval=FALSE}
+# 1. Loading libraries
+library(tidyverse)
+library(NHANES)
+
+# 2. Calculating mean BMI and Age
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = mean(Values, na.rm = TRUE))
+
+# 3. Roudning the values to 1 digit
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1))
+    
+
+# 4. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr)
+
+# 5.  Modify the `Sex` column so that male and female get capitalized.
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr) %>%
+    mutate(Sex = str_to_sentence(Sex))
+
+# 6. Replace `_` with `-` in the `Year`column
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr) %>%
+    mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))
+
+# 7. Include the `knitr::kable()` function at the end of the pipe.
+NHANES %>%
+    rename(Sex = Gender) %>%
+    select(SurveyYr, Sex, BMI, Age) %>%
+    pivot_longer(c(-SurveyYr, -Sex),
+                 names_to = "Variables",
+                 values_to = "Values") %>%
+    group_by(SurveyYr, Sex, Variables) %>%
+    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
+    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
+    rename(Year = SurveyYr) %>%
+    mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))  %>% 
+    knitr::kable(caption = "A prettier Table. Mean values of Age and BMI for each sex by survey year.")
+```
+
+</p>
+</details>
+
+
+
 
 ## Formatting text with Markdown syntax
 
@@ -520,11 +615,20 @@ or character value, nothing more.
 
 Time: 5 min
 
-1. Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
-1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
-1. Write one random short sentence under each header. 
+Go into the `doc/another-one.Rmd` file and complete these items:
+
+- Right under the YAML header, insert a list item with your name.
+Put your affiliations as a footnote, and provide a link to your 
+university or institution.
+- Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
+- Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
+- Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
-1. Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
+- Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
+
+```{r solution-use-md-for-text, eval=FALSE, echo=FALSE}
+# This exercise has no R code solution.
+```
 
 ## Inserting figures, as files or from R code
 
@@ -605,91 +709,8 @@ knitr::include_graphics(here::here("images/kitten.jpg"))
 knitr::include_graphics(here::here("images/kitten.jpg"))
 ```
 
-Knit again to see how the image changed.
-Great! But the real fun comes by inserting figures directly from R code.
-Let's create another code chunk ("Ctrl+Alt+I")
-and name the code chunk `exploring-plot`.
-We'll copy and paste the visualization code we used in Section \@ref(visualization)
-into the code chunk.
-You can copy and paste this code as well:
+Knit again to see how the image changed. Great! 
 
-````markdown
-`r ''````{r exploring-plot}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-`r ''````
-````
-
-```{r exploring-plot}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-```
-
-Run the code in the code chunk to make sure it runs properly,
-by typing "Ctrl+Enter" 
-(or "Ctrl+Shift+Enter" to run all the code in the code chunk at once).
-Once it creates the figure below the code chunk,
-knit the document again to see how the figure gets inserted into the HTML document.
-
-You might also notice that you get a warning below the code chunk too.
-Let's get rid of that warning message,
-make the figure bigger, and add a caption.
-When you create a figure with R code, 
-you need to use different options instead of `out.width` and `out.height`:
-
-- `fig.width` and `fig.height`: Sets the width 
-and height of the figure, where the default value is 7.
-
-Add the chunk options `fig.width`, `fig.height`, and `fig.cap`, 
-along with the `warning=FALSE` to the code chunk.
-
-````markdown
-`r ''````{r exploring-plot, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-`r ''````
-````
-
-```{r exploring-plot-bigger, fig.width=9, fig.height=8, fig.cap="Exploratory figure of the NHANES dataset", warning=FALSE, echo=FALSE}
-nhanes_tidied <- NHANES %>% 
-    rename(Sex = Gender) %>% 
-    filter(!is.na(Diabetes))
-nhanes_tidied %>% 
-    ggplot(aes(x = BMI, y = BPSysAve, colour = Age)) +
-    geom_point() +
-    facet_grid(cols = vars(Diabetes),
-               rows = vars(Sex)) +
-    scale_color_viridis_c() +
-    theme_minimal()
-```
-
-Knit the document again
-and view the generated HTML document.
-Cool! You've just made an easily reproducible figure in a document!
 
 ## Other R Markdown features
 
@@ -761,7 +782,28 @@ You might split up a document into sections that each collaborator may work on,
 and then later on merge them together.
 This last approach is what we will get you to do for the group project.
 
-## Summary of session
+## Exercise: Adding figures and change the theme
+
+Time: 20 minutes
+
+Go into the `doc/another-one.Rmd` and complete these tasks: 
+
+- Search online for a picture that you like and that you will put into the
+R Markdown file. Download it and save the image in `doc/`.
+    - In the R Markdown file, insert the image somewhere (e.g. under `# Results`)
+    and give it an appropriate caption. 
+    - Knit the document to make sure the image gets inserted.
+- Go to the R Markdown [documentation] site and look at the different available
+themes for the HTML output. Find a theme you like by changing the `theme` option
+in the YAML header and re-knitting the document. 
+- Finally, add and commit the changes you've made to the `doc/another-one.Rmd`. 
+For now, don't add and commit the HTML output file.
+
+```{r solution-figures-themes, eval=FALSE, echo=FALSE}
+# This exercise has no R code solution.
+```
+
+## Summary of session {#r-markdown-summary}
 
 - Making your research reproducible not only improves your science, but also makes you more efficient, productive, and have more confidence in your results
 - Use R Markdown to construct files that can easily be turned into a variety of files such as HTML or Word
@@ -770,35 +812,3 @@ This last approach is what we will get you to do for the group project.
 - Apply headers ( `# Header 1`), text formatting (`**bold**`), lists (`-`), blockquotes (`>`), links `([Link](www))` and footnotes `[^1]` directly in the R Markdown file 
 - Insert pictures directly in R Markdown with `![Caption text](path/to/image.png)` or `knitr::include_graphics("path/to/image.png"))`
 - For HTML, choose different themes for appearance to personalise your R Markdown output document
-
-
-## Final exercise: Group work
-
-Time: 1 hour
-
-It's now time to start putting things together as a report 
-and to present on it later in the afternoon.
-
-- As a team, 
-complete item 7 and its sub-tasks in the [group assignment](assignment.html)
-(to jump quickly to the assignment, 
-run `r3::open_assignment()` in the RStudio Console).
-- Distribute the tasks so each team member is (mostly) doing something different.
-    - Create one R Markdown file for each team member,
-    and each person works on their own file.
-    Later this file will be merged into the final report.
-- Frequently use the "Git workflow": 
-Add to staging, commit, push, and pull the changes you've made.
-    - You'll likely deal with merge conflicts, 
-    which is a good chance to practice with Git more.
-- Try to "knit" your document to HTML often, 
-to make sure the analysis is reproducible.
-    - **Note**: For now, *do not* add and commit the HTML report.
-
-Once you as a team are happy with the report, figures, and tables,
-make sure that everyone does a final add-commit-push to your GitHub repository.
-Then, designate someone to pull from GitHub, 
-merge each R Markdown file into a single `report.Rmd` file in the `doc/` folder,
-and knit the `.Rmd` document to make sure it knits correctly. 
-Then add-commit-push the HTML report to GitHub.
-You should now be ready to present your report!

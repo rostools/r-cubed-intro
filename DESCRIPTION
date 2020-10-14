@@ -1,30 +1,53 @@
 Package: rcubed
 Title: "Reproducible Research in R: An Introductory Workshop on
     Modern Data Analysis using R"
+Description: Reproducibility and open scientific practices are increasingly demanded of
+    scientists and researchers. Training on how to apply these practices in data
+    analysis has not kept up with demand. The aim of this course is to begin meeting
+    that demand. The course is designed as a series of participatory live-coding lessons, 
+    where the instructor and learner code together, has hands-on
+    exercises interspersed throughout the course, 
+    and has a final group assignment of doing a simple data analysis project.
+    This repository contains all of the
+    material for the course, from reading material to exercises, to images. It is
+    structured as a book, with "chapters" as lessons. For
+    more detail on the course, check out the <a
+    href='https://r-cubed.rostools.org'>website</a>.
 Version: 2.0.0
-Authors@R: c(
-    person(given = "Luke",
-           family = "Johnston",
-           role = c("aut", "cre"),
-           email = "lwjohnst@gmail.com",
-           comment = c(ORCID = "0000-0003-4169-2616")),
-    person(given = "Daniel",
-           family = "Witte",
-           role = c("aut"),
-           email = "daniel.witte@ph.au.dk",
-           comment = c(ORCID = "0000-0002-0769-2922")),
-    person(given = "Helene",
-           family = "Juel",
-           role = c("aut"),
-           email = "helene.baek.juel@sund.ku.dk",
-           comment = c(ORCID = "0000-0002-5763-8545")),
-    person(given = "Bettina",
-           family = "Lengger",
-           role = c("aut"),
-           email = "betlen@biosustain.dtu.dk",
-           comment = c(ORCID = "0000-0001-9997-7011"))
-    )
-URL: https://gitlab.com/rostools/r-cubed/issues,
+Authors@R: 
+    c(person(given = "Luke",
+             family = "Johnston",
+             role = c("aut", "cre"),
+             email = "lwjohnst@gmail.com",
+             comment = c(ORCID = "0000-0003-4169-2616", affiliation = "Steno Diabetes Center Aarhus")),
+      person(given = "Daniel",
+             family = "Witte",
+             role = "aut",
+             email = "daniel.witte@ph.au.dk",
+             comment = c(ORCID = "0000-0002-0769-2922", affiliation = "Aarhus University")),
+      person(given = "Helene",
+             family = "Juel",
+             role = "aut",
+             email = "helene.baek.juel@sund.ku.dk",
+             comment = c(ORCID = "0000-0002-5763-8545", affiliation = "Novo Nordisk Foundation Center for Basic Metabolic Research")),
+      person(given = "Bettina",
+             family = "Lengger",
+             role = "aut",
+             email = "betlen@biosustain.dtu.dk",
+             comment = c(ORCID = "0000-0001-9997-7011", affiliation = "Technical University of Denmark")),
+      person(given = "Malene Revsbech",
+             family = "Christiansen",
+             role = "aut",
+             comment = "c(ORCID = '0000-0002-9772-3576', affiliation = 'Københavns Universitet')"),
+      person(given = "Hannah",
+             family = "Chatwin",
+             role = "aut",
+             comment = "c(ORCID = '0000-0001-7248-8568', affiliation = 'University of Southern Denmark')"),
+      person(given = "Anders Aasted",
+             family = "Isaksen",
+             role = "aut",
+             comment = "c(ORCID = '0000-0001-8457-5466', affiliation = 'Aarhus University')"))
+URL: https://gitlab.com/rostools/r-cubed/,
     https://r-cubed.rostools.org
 Depends: 
     R (>= 3.6.0)
@@ -38,7 +61,8 @@ Imports:
     NHANES,
     RefManageR,
     tidyr,
-    r3 (>= 0.0.0.9000)
+    r3 (>= 0.0.0.9000),
+    snakecase
 Suggests: 
     fs,
     prodigenr,
