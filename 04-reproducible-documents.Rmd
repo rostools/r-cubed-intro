@@ -789,11 +789,9 @@ Time: 20 minutes
 Go into the `doc/another-one.Rmd` and complete these tasks: 
 
 - Search online for a picture that you like and that you will put into the
-R Markdown file. Download it, create a new folder in `doc/` called `images/`,
-and save the image there.
+R Markdown file. Download it and save the image in `doc/`.
     - In the R Markdown file, insert the image somewhere (e.g. under `# Results`)
-    and give it an appropriate caption. The location of the image when using Markdown
-    syntax would be e.g. `image/image-name.png`.
+    and give it an appropriate caption. 
     - Knit the document to make sure the image gets inserted.
 - Go to the R Markdown [documentation] site and look at the different available
 themes for the HTML output. Find a theme you like by changing the `theme` option
