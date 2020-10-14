@@ -445,6 +445,7 @@ Include the `library()` functions to load tidyverse and NHANES.
 1. Create another code chunk and call it `prettier-table`.
 Copy the code from above that calculates the mean BMI and Age
 and paste the code into the new chunk.
+Add the option `echo = FALSE` to the code chunk.
 1. Using the function `round()` around the `mean()` function,
 round the values to 1 digit.
 1. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
@@ -466,7 +467,6 @@ library(tidyverse)
 library(NHANES)
 
 # 2. Calculating mean BMI and Age
-{r prettier-table}
 NHANES %>%
     rename(Sex = Gender) %>%
     select(SurveyYr, Sex, BMI, Age) %>%
@@ -538,6 +538,7 @@ NHANES %>%
     rename(Year = SurveyYr) %>%
     mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))  %>% 
     knitr::kable(caption = "A prettier Table. Mean values of Age and BMI for each sex by survey year.")
+```
 
 </p>
 </details>
@@ -614,11 +615,16 @@ or character value, nothing more.
 
 Time: 5 min
 
-1. Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
-1. Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
-1. Write one random short sentence under each header. 
+Go into the `doc/another-one.Rmd` file and complete these items:
+
+- Right under the YAML header, insert a list item with your name.
+Put your affiliations as a footnote, and provide a link to your 
+university or institution.
+- Create three level 1 headers (`#`), called "Intro", "Methods and Results", "Discussion".
+- Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
+- Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
-1. Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
+- Enter a code chunk to make a simple calculation (e.g. `2 + 2`).
 
 ```{r solution-use-md-for-text, eval=FALSE, echo=FALSE}
 # This exercise has no R code solution.
@@ -808,4 +814,3 @@ It's now time to start putting things together as an HTML report.
 - "Knit" your document to HTML often, to make sure the analysis is reproducible.
 - At last, add to staging, commit, and push the the HTML report to GitHub.
 
-Now you know how to make a reproducible document!
