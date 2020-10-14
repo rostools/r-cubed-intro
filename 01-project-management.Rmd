@@ -130,7 +130,9 @@ in `data-raw/` for the raw data.
 We'll explain the `data-raw/` folder and creating it later in the lesson.
 1. All R files and code should be in the `R/` directory.
 1. Name all new files to reflect their content or function. Follow the tidyverse 
-[style guide for file naming](https://style.tidyverse.org/files.html).
+[style guide for file naming](https://style.tidyverse.org/files.html). Either
+`_` or `-` are recommended to be used instead of a space, thought using `-`
+tends to be more commonly used. 
 
 [R Markdown]: https://rmarkdown.rstudio.com/
 
