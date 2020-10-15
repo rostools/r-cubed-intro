@@ -914,6 +914,19 @@ nhanes_small %>%
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
+
+Since we don't need the dataset grouped anymore, it's good practice to end the
+grouping with `ungroup()`.
+
+```{r}
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup()
+```
+
 Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
 
 Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
