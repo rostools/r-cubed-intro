@@ -726,7 +726,10 @@ Go into the `doc/another-one.Rmd` and complete these tasks:
 - Search online for a picture that you like and that you will put into the
 R Markdown file. Download it and save the image in `doc/`.
     - In the R Markdown file, insert the image somewhere (e.g. under `# Results`)
-    and give it an appropriate caption. 
+    and give it an appropriate caption.
+    - For inserting the images, use the code-chunk with `knitr::include_graphics()`
+    - Use `fig.cap` to include a caption, center align with `fig.align`, 
+    and resize it to `"75%"` with `out.width`.
     - Knit the document to make sure the image gets inserted.
 - Go to the R Markdown [documentation] site and look at the different available
 themes for the HTML output. Find a theme you like by changing the `theme` option
