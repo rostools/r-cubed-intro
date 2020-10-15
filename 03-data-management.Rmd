@@ -187,7 +187,8 @@ source(here::here("R/package-loading.R"))
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
 ```
-Add and commit to the Git history with the RStudio Git Interface.
+
+Let's add and commit the changes to the Git history with the RStudio Git Interface.
 
 ## Exercise: Become familiar with the dataset
 
@@ -200,7 +201,7 @@ Take the time to get familiar with the NHANES dataset.
 1. Copy the code below and paste it into the new exercise file.
 1. Replace the `___` with the `NHANES` dataset. 
 1. Run each line of code by typing `Ctrl-Enter`.
-1. Add and commit it to the Git history with the RStudio Git Interface.
+1. Add and commit the changes to the Git history with the RStudio Git Interface.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
