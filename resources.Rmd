@@ -53,7 +53,7 @@ knitr::include_graphics(here::here("images/cloud-settings-github.jpg"))
 These are *potential* exercise solutions of R code only. This are mostly intended
 as a resource for after the class, not during it.
 
-```{r all-exercise-solutions, results="asis", echo=FALSE, eval=TRUE, message=FALSE}
+```{r all-exercise-solutions, results="asis", echo=FALSE, message=FALSE}
 library(magrittr)
 source(here::here("R/extract-solutions.R"))
 chapter_files <- fs::dir_ls(regexp = "^0[1-5]-.*.Rmd$")

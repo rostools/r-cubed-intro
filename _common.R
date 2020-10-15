@@ -17,6 +17,13 @@ knitr::opts_chunk$set(
     fig.align = "center"
 )
 
+knitr::knit_hooks$set(solution = function(before) {
+    if (before)
+        "<details><summary><strong>Click for the (possible) solution.</strong></summary><p>"
+    else
+        "</p></details>"
+})
+
 BibOptions(
     check.entries = FALSE,
     bib.style = "authoryear",
