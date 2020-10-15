@@ -873,7 +873,7 @@ nhanes_small %>%
               median_phys_active_days = median(phys_active_days, na.rm = TRUE))             
 ```
 
-## Summary statistics by a group
+## Summary statistics by a group {#group-by-summarize}
 
 While the `summarize()` function is partly useful, it really shines when combined with `group_by()`.
 Let's find out the mean age and BMI between those with and without Diabetes.
