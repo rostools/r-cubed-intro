@@ -300,7 +300,10 @@ The full NHANES dataset is 10,000 individuals (rows) with 76 parameters (columns
 ```{r}
 # Save the selected parameters as a new dataframe
 # Recall the style guide for naming objects
-nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, DiabetesAge, PhysActiveDays, PhysActive, TotChol, BPSysAve, BPDiaAve, SmokeNow)
+nhanes_small <- select(NHANES, Age, Gender, Height, 
+                       Weight, BMI, Diabetes, DiabetesAge, 
+                       PhysActiveDays, PhysActive, TotChol, 
+                       BPSysAve, BPDiaAve, SmokeNow, Poverty)
 # View the new dataframe
 nhanes_small
 ```
@@ -440,15 +443,15 @@ Remember, both `select()` and `rename()` take a dataset as the first position,
 which makes them pipe-able.
 
 ```{r}
-NHANES %>% 
-    select(nBabies) %>% 
-    rename(Number_Babies = nBabies)
+nhanes_small %>% 
+    select(phys_active) %>% 
+    rename(physically_active = phys_active)
 ```
 
 We can now "read" these actions as:
 
-> Take the NHANES dataset *and then* select the nBabies column 
-*and then* rename the nBabies column to Number_Babies.
+> Take the nhanes small dataset *and then* select the phys active column 
+*and then* renames the phys active column to physically active.
 
 Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
 
@@ -460,28 +463,27 @@ In the `exercise-wrangling.R` file, complete these tasks:
 
 1. Copy and paste the below code into the exercise file.
 In the `select()` function, 
-type in the columns `HomeOwn`, `TVHrsDay`, and `Diabetes`
+type in the columns `tot_chol`, `bp_sys_ave`, and `poverty`
 where the blank space is.
 
     ```r
-    NHANES %>% 
+    nhanes_small %>% 
         select(___)
     ```
     
 2. Copy and paste the below code and fill out the blanks.
-Rename `DiabetesAge` to be `DiabetesAgeOfDiagnosis` and `Gender` to be `Sex` 
-(gender is the social construct, while sex is biological).
+Rename `diabetes_age` to be `diabetes_diagnosis_age`.
 *Tip*: Recall that renaming is in the form `new = old`.
 
     ```r
-    NHANES %>% 
+    nhanes_small %>% 
         rename(___ = ___, ___ = ____)
     ```
 
 3. Re-write this bit of code to use the pipe:
 
     ```r
-    select(NHANES, BMI, contains("Age"))
+    select(nhanes_small, bmi, contains("age"))
     ```
 
 4. Read aloud (under your breath or in your head) the below code.
@@ -491,35 +493,29 @@ by using the pipe,
 then re-read the revised version. Which do you feel is easier to "read"?
 
     ```r
-    drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
-    rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
+    physical_activity <- select(nhanes_small, phys_active_days, phys_active)
+    rename(physical_activity, days_phys_active = phys_active_days)
     ```
 5. Add and commit to the Git history with the RStudio Git Interface.     
     
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r solution-ex-practice-dplyr, eval=FALSE}
+```{r solution-ex-practice-dplyr, eval=FALSE, solution=TRUE}
 # 1. Select specific columns
-NHANES %>%
-    select(HomeOwn, TVHrsDay, Diabetes)
+nhanes_small %>%
+    select(tot_chol, bp_sys_ave, poverty)
 
 # 2. Rename columns
-NHANES %>%
-    rename(DiabetesAgeOfDiagnosis = DiabetesAge, Sex = Gender)
+nhanes_small %>%
+    rename(diabetes_diagnosis_age = diabetes_age)
 
 # 3. Re-write with pipe
-NHANES %>% 
-    select(BMI, contains("Age"))
+nhanes_small %>% 
+    select(bmi, contains("age"))
 
 # 4. Re-write with pipe
-NHANES %>% 
-    select(Marijuana, AgeFirstMarij) %>% 
-    rename(AgeOfFirstMarijuanaUse = AgeFirstMarij)
+nhanes_small %>% 
+    select(phys_active_days, phys_active) %>% 
+    rename(days_phys_active = phys_active_days)
 ```
-
-</p>
-</details>
 
 ## Filter the data by row
 
@@ -551,10 +547,10 @@ nhanes_small %>%
 
 We'd "read" this code as:
 
-> Take the NHANES dataset, *and then* 
-filter so that only rows where `Sex` is equal to "female" are kept.
+> Take the nhanes small dataset, *and then* 
+filter so that only rows where `sex` is equal to "female" are kept.
 
-So, when a row in the `Sex` column has the value "female", that row is kept.
+So, when a row in the `sex` column has the value `"female"`, that row is kept.
 Otherwise, it is dropped.
 
 There are other logic comparisons to use.
@@ -638,11 +634,9 @@ nhanes_small %>%
 It also arranges parameters of type character alphabetically:
 
 ```{r}
-NHANES %>% 
-    select(HealthGen) %>% 
-    arrange(HealthGen)
+nhanes_small %>% 
+    arrange(sex)
 ```
-We're selecting the parameter HealthGen first so we can show what is happening in the large dataset. 
 
 We can do this also in descending order with `desc()`.
 

@@ -273,16 +273,16 @@ Let's add tidyverse and NHANES to the chunk:
 ````markdown
 `r ''````{r setup}
 library(tidyverse)
-library(NHANES)
+load(here::here("data/nhanes_small.rda"))
 `r ''````
 ````
 
 Let's add another code chunk,
-and this time simply put `NHANES` in it:
+and this time simply put `nhanes_small` in it:
 
 ````markdown
 `r ''````{r}
-NHANES
+nhanes_small
 `r ''````
 ````
 
@@ -322,9 +322,15 @@ you can add the options `message=FALSE` and `warning=FALSE`:
 ````markdown
 `r ''````{r setup, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(NHANES)
+load(here::here("data/nhanes_small.rda"))
 `r ''````
 ````
+
+```{r load-data, include=FALSE}
+# Load dataset for later code.
+library(tidyverse)
+load(here::here("data/nhanes_small.rda"))
+```
 
 If you want to hide the code, the messages, the warnings, and the output,
 but still run the code,
@@ -333,7 +339,7 @@ you use the option `include=FALSE`.
 ````markdown
 `r ''````{r setup, include=FALSE}
 library(tidyverse)
-library(NHANES)
+load(here::here("data/nhanes_small.rda"))
 `r ''````
 ````
 
@@ -356,7 +362,7 @@ but here is what it looks like:
 ````markdown
 `r ''````{r setup}
 library(tidyverse)
-library(NHANES)
+load(here::here("data/nhanes_small.rda"))
 knitr::opts_chunk$set(echo = FALSE)
 `r ''````
 ````
@@ -365,35 +371,26 @@ A common results output that is included in documents are tables.
 So let's run some R code and get R Markdown to create one.
 First, create a new code chunk and name it `mean-bmi-table`.
 Then, let's copy the code from the Data Wrangling session,
-from Section \@ref(pivot-sac),
-and include the `pivot_wider()` continuation of the pipe.
-To keep the output smaller, 
-we'll only select `SurveyYr`, `Sex`, `BMI`, and `Age`.
+from Section \@ref(group-by-summarize).
 
 ````markdown
-`r ''````{r mean-bmi-table}
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
-    pivot_wider(names_from = Variables, values_from = MeanValues)
+`r ''````{r mean-age-bmi-table}
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup()
 `r ''````
 ````
 
-```{r mean-bmi-pivoting, echo=FALSE}
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
-    pivot_wider(names_from = Variables, values_from = MeanValues)
+```{r mean-age-bmi, echo=FALSE}
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup()
 ```
 
 This output is almost in a table format.
@@ -405,31 +402,25 @@ Because we don't want to load all of the knitr functions,
 we'll use `knitr::kable()` instead.
 
 ````markdown
-`r ''````{r mean-bmi-table}
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
-    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex by survey year.")
+`r ''````{r mean-age-bmi-table}
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup() %>% 
+    knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex and diabetes status.")
 `r ''````
 ````
 
-```{r mean-bmi-table, echo=FALSE}
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = mean(Values, na.rm = TRUE)) %>%
-    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex by survey year.")
+```{r mean-age-bmi-table, echo=FALSE}
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup() %>% 
+    knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex and diabetes status.")
 ```
 
 Now, knit ("Ctrl+Shift+K") and view the output in the HTML document.
@@ -441,110 +432,54 @@ Time: 12 min
 
 1. In the `doc/another-one.Rmd`,
 create a new code chunk and call it `setup`.
-Include the `library()` functions to load tidyverse and NHANES.
+Include the `library()` function to load tidyverse and use `load()` with
+`here::here()` to load the `nhanes_small` dataset.
 1. Create another code chunk and call it `prettier-table`.
 Copy the code from above that calculates the mean BMI and Age
 and paste the code into the new chunk.
 Add the option `echo = FALSE` to the code chunk.
-1. Using the function `round()` around the `mean()` function,
-round the values to 1 digit.
-1. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
-1. After the `rename()` function,
-use `mutate()` to modify the `Sex` column so that male and female get capitalized.
-Use `str_to_sentence(Sex)` to capitalize the first letter of the word.
-1. Inside the previous `mutate()` function, modify the `Year` column to
-replace the `_` with `-` by using `str_replace(Year, "_", "-")`.
-1. Run the code chunk to make sure the code works, then knit the document. 
-Don't forget about including the `knitr::kable()` function at the end of the pipe.
-1. End the exercise by adding, committing, and pushing the files to your GitHub repository.
+1. Use `mutate()` to update:
+    - the `mean_age` and `mean_bmi` columns and applying the function `round()` on
+    them, rounding the values to 1 digit
+    - the `sex` column so that male and female get capitalized by using
+    `str_to_sentence(sex)` to capitalize the first letter of the word. This new
+    function takes the values of `sex` and capitalizes the first letter (e.g.
+    `female` to `Female`).
+1. Rename `diabetes` to `"Diabetes Status"`, `sex` to `Sex`, and `mean_age` and 
+`mean_bmi` to `"Mean Age"` and `"Mean BMI"` by using `rename()`.
+*Hint*: You can rename columns to have spaces by using `"` around the new column
+name (e.g. `"Diabetes Status" = diabetes`). Don't forget, the renaming form is 
+`new = old`
+1. Run the code chunk to make sure the code works.
+Include the `knitr::kable()` function at the end of the pipe, with a table caption
+of your choice.
+1. Knit the document and check the created table.
+1. End the exercise by adding, committing, and pushing the files to your GitHub
+repository.
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-```{r solution-ex-create-table, eval=FALSE}
+```{r solution-ex-create-table, eval=FALSE, solution=TRUE}
 # 1. Loading libraries
 library(tidyverse)
-library(NHANES)
+load(here::here("data/nhanes_small.rda"))
 
 # 2. Calculating mean BMI and Age
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = mean(Values, na.rm = TRUE))
-
-# 3. Roudning the values to 1 digit
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1))
-    
-
-# 4. Rename `SurveyYr` to `Year` by using `rename()` after the `pivot_wider()`.
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
-    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    rename(Year = SurveyYr)
-
-# 5.  Modify the `Sex` column so that male and female get capitalized.
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
-    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    rename(Year = SurveyYr) %>%
-    mutate(Sex = str_to_sentence(Sex))
-
-# 6. Replace `_` with `-` in the `Year`column
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
-    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    rename(Year = SurveyYr) %>%
-    mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))
-
-# 7. Include the `knitr::kable()` function at the end of the pipe.
-NHANES %>%
-    rename(Sex = Gender) %>%
-    select(SurveyYr, Sex, BMI, Age) %>%
-    pivot_longer(c(-SurveyYr, -Sex),
-                 names_to = "Variables",
-                 values_to = "Values") %>%
-    group_by(SurveyYr, Sex, Variables) %>%
-    summarize(MeanValues = round(mean(Values, na.rm = TRUE),1)) %>% 
-    pivot_wider(names_from = Variables, values_from = MeanValues) %>% 
-    rename(Year = SurveyYr) %>%
-    mutate(Sex = str_to_sentence(Sex), Year = str_replace(Year, "_", "-"))  %>% 
-    knitr::kable(caption = "A prettier Table. Mean values of Age and BMI for each sex by survey year.")
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup() %>% 
+    # 3. Round the means to 1 digit and
+    # modify the `sex` column so that male and female get capitalized.
+    mutate(mean_age = round(mean_age, 1),
+           mean_bmi = round(mean_bmi, 1),
+           sex = str_to_sentence(sex)) %>% 
+    # 4. Rename `diabetes` to `"Diabetes Status"` and `sex` to `Sex`
+    rename("Diabetes Status" = diabetes, Sex = sex,
+           "Mean Age" = mean_age, "Mean BMI" = mean_bmi) %>% 
+    # 5. Include the `knitr::kable()` function at the end of the pipe.
+    knitr::kable(caption = "A prettier Table. Mean values of Age and BMI for each sex and diabetes status.")
 ```
-
-</p>
-</details>
-
-
-
 
 ## Formatting text with Markdown syntax
 
@@ -602,11 +537,11 @@ R Markdown also allows you to including numbers
 For instance, if you want to add a mean into some text,
 it would look like:
 
-> The mean of BMI is &#96;r round(mean(NHANES$BMI, na.rm = TRUE), 2)&#96;.
+> The mean of BMI is &#96;r round(mean(nhanes_small$bmi, na.rm = TRUE), 2)&#96;.
 
 which gives...
 
-The mean of BMI is `r round(mean(NHANES$BMI, na.rm = TRUE), 2)`.
+The mean of BMI is `r round(mean(nhanes_small$bmi, na.rm = TRUE), 2)`.
 
 But note that using inline R code can *only* insert a *single* number 
 or character value, nothing more.
