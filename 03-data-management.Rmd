@@ -313,8 +313,10 @@ called [snakecase].
 
 In the Console, type out `snakecase::` and hit Tab. You’ll see a list of
 possible functions to use. We want to use the snake case function, so scroll
-down and find the `to_snake_case()`. To change all the column names to lower
-case, we'll use the function `rename_with()`. This function like the other dplyr
+down and find the `to_snake_case()`. This is the function we want to use.
+
+To change all the column names to lower
+case, we'll use the function `rename_with()`. This function, like the other dplyr
 functions, takes the data from the pipe `%>%` as the first argument and takes
 another function, which is `to_snake_case()`, for the second argument. Based on
 this function, it then renames all columns.
@@ -336,12 +338,15 @@ Like `select()`, `rename()` takes the dataset as the first argument
 (first position) and then takes as many renaming arguments as you want
 (because the second argument position is `...`).
 Renaming takes the form of `newname = oldname`.
+Let's rename gender to be sex, since gender is a social construct, while sex is
+biological, which is what the data actually is.
 
 ```{r}
 rename(nhanes_small, sex = gender)
 # View dataframe
 nhanes_small
 ```
+
 Notice that the `rename()` function has not altered the `nhanes_small` dataframe. To do this, we need to assign the change to `nhanes_small`:
 
 ```{r}
