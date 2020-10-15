@@ -723,12 +723,12 @@ in the R script for this exercise by using `Ctrl-Shift-R`).
 
 1. Filter `nhanes_small` so only those with a BMI of more than or equal to 20 
 *and* less than or equal to 40 *and* keep those who have diabetes.
-2. Using the larger NHANES dataframe, create a new variable called `Urine_vol_average` by calculating the average
-urine volumne (from `UrineVol1` and `UrineVol2`).
-    - *Comment*: After creating the `urine_vol_average` column, 
-    check out values. What do you notice? Compare with the original urine columns.
+2. Create a new variable called `mean_arterial_pressure` by applying the formula
+$((2 \times DBP) + SBP) / 3$ (DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate
+[Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
+*Hint*: In R, use `+` to add, use `*` to multiply, use `/` to divide.
 3. Create a new variable called `young_child` when age is less than 6 years.
-4. Add and commit to the Git history with the RStudio Git Interface.
+4. Add and commit these changes to the Git history with the RStudio Git Interface.
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
@@ -737,14 +737,15 @@ nhanes_small %>%
     filter(___ >= ___ & ___ <= ___ & ___ == ___)
 
 # Pipe the data into mutate function and:
-nhanes_modified <- ___ %>% # dataset
+nhanes_modified <- nhanes_small %>% # dataset
     mutate(
-        # 2. Calculate average urine volume
+        # 2. Calculate mean arterial pressure
         ___ = ___,
-        # 3. Create Young_child variable using a condition
+        # 3. Create young_child variable using a condition
         ___ = if_else(___, "Yes", "No")
     )
-NHANES_modified
+
+nhanes_modified
 ```
 
 ```{r solution-ex-pipe-filter-mutate, eval=FALSE, solution=TRUE}
@@ -754,13 +755,15 @@ nhanes_small %>%
     filter(bmi >= 20 & bmi <= 40 & diabetes == "Yes")
 
 # Pipe the data into mutate function and:
-NHANES_modified <- NHANES %>% # dataset
+nhanes_modified <- nhanes_small %>% # dataset
     mutate(
-        # 2. Calculate average urine volume
-        urine_vol_average = (UrineVol1 + UrineVol2) / 2,
+        # 2. Calculate mean arterial pressure
+        mean_arterial_pressure = ((2 * bp_dia_ave) + bp_sys_ave) / 3,
         # 3. Create Young_child variable using a condition
         young_child = if_else(Age < 6, "Yes", "No")
     )
+
+nhanes_modified
 ```
 
 ## Split-apply-combine: Summarizing data
