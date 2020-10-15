@@ -187,7 +187,8 @@ source(here::here("R/package-loading.R"))
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
 ```
-Add and commit to the Git history with the RStudio Git Interface.
+
+Let's add and commit the changes to the Git history with the RStudio Git Interface.
 
 ## Exercise: Become familiar with the dataset
 
@@ -200,7 +201,7 @@ Take the time to get familiar with the NHANES dataset.
 1. Copy the code below and paste it into the new exercise file.
 1. Replace the `___` with the `NHANES` dataset. 
 1. Run each line of code by typing `Ctrl-Enter`.
-1. Add and commit it to the Git history with the RStudio Git Interface.
+1. Add and commit the changes to the Git history with the RStudio Git Interface.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
 # Load the packages
@@ -220,10 +221,7 @@ summary(___)
 ?___
 ```
 
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r solution-exercise-familiar-with-data, eval=FALSE}
+```{r solution-exercise-familiar-with-data, eval=FALSE, solution=TRUE}
 # Load the packages
 source(here::here("R/package-loading.R"))
 
@@ -240,9 +238,6 @@ summary(NHANES)
 # Look over the dataset documentation
 ?NHANES
 ```
-
-</p>
-</details>
 
 ## Select specific columns in a dataset
 
@@ -300,7 +295,10 @@ The full NHANES dataset is 10,000 individuals (rows) with 76 parameters (columns
 ```{r}
 # Save the selected parameters as a new dataframe
 # Recall the style guide for naming objects
-nhanes_small <- select(NHANES, Age, Gender, Height, Weight, BMI, Diabetes, DiabetesAge, PhysActiveDays, PhysActive, TotChol, BPSysAve, BPDiaAve, SmokeNow)
+nhanes_small <- select(NHANES, Age, Gender, Height, 
+                       Weight, BMI, Diabetes, DiabetesAge, 
+                       PhysActiveDays, PhysActive, TotChol, 
+                       BPSysAve, BPDiaAve, SmokeNow, Poverty)
 # View the new dataframe
 nhanes_small
 ```
@@ -315,8 +313,10 @@ called [snakecase].
 
 In the Console, type out `snakecase::` and hit Tab. You’ll see a list of
 possible functions to use. We want to use the snake case function, so scroll
-down and find the `to_snake_case()`. To change all the column names to lower
-case, we'll use the function `rename_with()`. This function like the other dplyr
+down and find the `to_snake_case()`. This is the function we want to use.
+
+To change all the column names to lower
+case, we'll use the function `rename_with()`. This function, like the other dplyr
 functions, takes the data from the pipe `%>%` as the first argument and takes
 another function, which is `to_snake_case()`, for the second argument. Based on
 this function, it then renames all columns.
@@ -338,12 +338,15 @@ Like `select()`, `rename()` takes the dataset as the first argument
 (first position) and then takes as many renaming arguments as you want
 (because the second argument position is `...`).
 Renaming takes the form of `newname = oldname`.
+Let's rename gender to be sex, since gender is a social construct, while sex is
+biological, which is what the data actually is.
 
 ```{r}
 rename(nhanes_small, sex = gender)
 # View dataframe
 nhanes_small
 ```
+
 Notice that the `rename()` function has not altered the `nhanes_small` dataframe. To do this, we need to assign the change to `nhanes_small`:
 
 ```{r}
@@ -352,13 +355,7 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
 
-Now the column has been renamed from gender to sex. To be able to access this new dataframe easily, you can save this as an .rda file into your data folder, using the function `use_data()`:
-
-```{r}
-# Saving data as an .rda file in the data folder
-usethis::use_data(nhanes_small, overwrite = TRUE)
-```
-
+Now the column has been renamed from gender to sex. 
 What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
 
 ## Chaining functions with the pipe
@@ -440,15 +437,15 @@ Remember, both `select()` and `rename()` take a dataset as the first position,
 which makes them pipe-able.
 
 ```{r}
-NHANES %>% 
-    select(nBabies) %>% 
-    rename(Number_Babies = nBabies)
+nhanes_small %>% 
+    select(phys_active) %>% 
+    rename(physically_active = phys_active)
 ```
 
 We can now "read" these actions as:
 
-> Take the NHANES dataset *and then* select the nBabies column 
-*and then* rename the nBabies column to Number_Babies.
+> Take the nhanes small dataset *and then* select the phys active column 
+*and then* renames the phys active column to physically active.
 
 Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
 
@@ -460,28 +457,27 @@ In the `exercise-wrangling.R` file, complete these tasks:
 
 1. Copy and paste the below code into the exercise file.
 In the `select()` function, 
-type in the columns `HomeOwn`, `TVHrsDay`, and `Diabetes`
+type in the columns `tot_chol`, `bp_sys_ave`, and `poverty`
 where the blank space is.
 
     ```r
-    NHANES %>% 
+    nhanes_small %>% 
         select(___)
     ```
     
 2. Copy and paste the below code and fill out the blanks.
-Rename `DiabetesAge` to be `DiabetesAgeOfDiagnosis` and `Gender` to be `Sex` 
-(gender is the social construct, while sex is biological).
+Rename `diabetes_age` to be `diabetes_diagnosis_age`.
 *Tip*: Recall that renaming is in the form `new = old`.
 
     ```r
-    NHANES %>% 
+    nhanes_small %>% 
         rename(___ = ___, ___ = ____)
     ```
 
 3. Re-write this bit of code to use the pipe:
 
     ```r
-    select(NHANES, BMI, contains("Age"))
+    select(nhanes_small, bmi, contains("age"))
     ```
 
 4. Read aloud (under your breath or in your head) the below code.
@@ -491,35 +487,29 @@ by using the pipe,
 then re-read the revised version. Which do you feel is easier to "read"?
 
     ```r
-    drug_use <- select(NHANES, Marijuana, AgeFirstMarij)
-    rename(drug_use, AgeOfFirstMarijuanaUse = AgeFirstMarij)
+    physical_activity <- select(nhanes_small, phys_active_days, phys_active)
+    rename(physical_activity, days_phys_active = phys_active_days)
     ```
 5. Add and commit to the Git history with the RStudio Git Interface.     
     
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r solution-ex-practice-dplyr, eval=FALSE}
+```{r solution-ex-practice-dplyr, eval=FALSE, solution=TRUE}
 # 1. Select specific columns
-NHANES %>%
-    select(HomeOwn, TVHrsDay, Diabetes)
+nhanes_small %>%
+    select(tot_chol, bp_sys_ave, poverty)
 
 # 2. Rename columns
-NHANES %>%
-    rename(DiabetesAgeOfDiagnosis = DiabetesAge, Sex = Gender)
+nhanes_small %>%
+    rename(diabetes_diagnosis_age = diabetes_age)
 
 # 3. Re-write with pipe
-NHANES %>% 
-    select(BMI, contains("Age"))
+nhanes_small %>% 
+    select(bmi, contains("age"))
 
 # 4. Re-write with pipe
-NHANES %>% 
-    select(Marijuana, AgeFirstMarij) %>% 
-    rename(AgeOfFirstMarijuanaUse = AgeFirstMarij)
+nhanes_small %>% 
+    select(phys_active_days, phys_active) %>% 
+    rename(days_phys_active = phys_active_days)
 ```
-
-</p>
-</details>
 
 ## Filter the data by row
 
@@ -551,10 +541,10 @@ nhanes_small %>%
 
 We'd "read" this code as:
 
-> Take the NHANES dataset, *and then* 
-filter so that only rows where `Sex` is equal to "female" are kept.
+> Take the nhanes small dataset, *and then* 
+filter so that only rows where `sex` is equal to "female" are kept.
 
-So, when a row in the `Sex` column has the value "female", that row is kept.
+So, when a row in the `sex` column has the value `"female"`, that row is kept.
 Otherwise, it is dropped.
 
 There are other logic comparisons to use.
@@ -609,6 +599,7 @@ TRUE | FALSE
 FALSE | FALSE
 ```
 
+When used in `filter()` is would be used like:
 
 ```{r}
 # when BMI is 25 AND sex is female
@@ -638,11 +629,9 @@ nhanes_small %>%
 It also arranges parameters of type character alphabetically:
 
 ```{r}
-NHANES %>% 
-    select(HealthGen) %>% 
-    arrange(HealthGen)
+nhanes_small %>% 
+    arrange(sex)
 ```
-We're selecting the parameter HealthGen first so we can show what is happening in the large dataset. 
 
 We can do this also in descending order with `desc()`.
 
@@ -734,12 +723,12 @@ in the R script for this exercise by using `Ctrl-Shift-R`).
 
 1. Filter `nhanes_small` so only those with a BMI of more than or equal to 20 
 *and* less than or equal to 40 *and* keep those who have diabetes.
-2. Using the larger NHANES dataframe, create a new variable called `Urine_vol_average` by calculating the average
-urine volumne (from `UrineVol1` and `UrineVol2`).
-    - *Comment*: After creating the `urine_vol_average` column, 
-    check out values. What do you notice? Compare with the original urine columns.
+2. Create a new variable called `mean_arterial_pressure` by applying the formula
+$((2 \times DBP) + SBP) / 3$ (DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate
+[Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
+*Hint*: In R, use `+` to add, use `*` to multiply, use `/` to divide.
 3. Create a new variable called `young_child` when age is less than 6 years.
-4. Add and commit to the Git history with the RStudio Git Interface.
+4. Add and commit these changes to the Git history with the RStudio Git Interface.
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 and who have diabetes
@@ -748,42 +737,34 @@ nhanes_small %>%
     filter(___ >= ___ & ___ <= ___ & ___ == ___)
 
 # Pipe the data into mutate function and:
-nhanes_modified <- ___ %>% # dataset
+nhanes_modified <- nhanes_small %>% # dataset
     mutate(
-        # 2. Calculate average urine volume
+        # 2. Calculate mean arterial pressure
         ___ = ___,
-        # 3. Create Young_child variable using a condition
+        # 3. Create young_child variable using a condition
         ___ = if_else(___, "Yes", "No")
     )
-NHANES_modified
+
+nhanes_modified
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-```{r solution-ex-pipe-filter-mutate, eval=FALSE}
+```{r solution-ex-pipe-filter-mutate, eval=FALSE, solution=TRUE}
 # 1. BMI between 20 and 40 and who have diabetes
 nhanes_small %>%
     # format: variable >= number
     filter(bmi >= 20 & bmi <= 40 & diabetes == "Yes")
 
 # Pipe the data into mutate function and:
-NHANES_modified <- NHANES %>% # dataset
+nhanes_modified <- nhanes_small %>% # dataset
     mutate(
-        # 2. Calculate average urine volume
-        urine_vol_average = (UrineVol1 + UrineVol2) / 2,
+        # 2. Calculate mean arterial pressure
+        mean_arterial_pressure = ((2 * bp_dia_ave) + bp_sys_ave) / 3,
         # 3. Create Young_child variable using a condition
         young_child = if_else(Age < 6, "Yes", "No")
     )
+
+nhanes_modified
 ```
-
-For the "urine_vol_average" values, they are probably almost entirely `NA` (aka
-missing). That's because `NA` values are infectious. See how "UrineVol2" has mostly
-`NA` values too? When you calculate something that has `NA`, you get another `NA`.
-This is something to be careful about. So always check your calculations!
-
-</p>
-</details>
 
 ## Split-apply-combine: Summarizing data
 
@@ -875,7 +856,7 @@ nhanes_small %>%
               ___ = ___)
 ```
 
-```{r solution-exercise-summarize-basic-stats, eval=FALSE, echo=FALSE}
+```{r solution-exercise-summarize-basic-stats, eval=FALSE, solution=TRUE}
 # 1.
 nhanes_small %>%
     summarize(mean_weight = mean(weight, na.rm = TRUE),
@@ -892,7 +873,7 @@ nhanes_small %>%
               median_phys_active_days = median(phys_active_days, na.rm = TRUE))             
 ```
 
-## Summary statistics by a group
+## Summary statistics by a group {#group-by-summarize}
 
 While the `summarize()` function is partly useful, it really shines when combined with `group_by()`.
 Let's find out the mean age and BMI between those with and without Diabetes.
@@ -933,6 +914,19 @@ nhanes_small %>%
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
+
+Since we don't need the dataset grouped anymore, it's good practice to end the
+grouping with `ungroup()`.
+
+```{r}
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>% 
+    group_by(diabetes, sex) %>% 
+    summarise(mean_age = mean(age, na.rm = TRUE),
+              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
+    ungroup()
+```
+
 Before you start the exercise, add and commit to the Git history with the RStudio Git Interface. 
 
 Let's stay in the realm of diabetes and try to examine the differences between groups a little further.
@@ -974,7 +968,7 @@ nhanes_small %>%
     )
 ```
 
-```{r solution-exercise-groupby-summarise, eval=FALSE, echo=FALSE}
+```{r solution-exercise-groupby-summarise, eval=FALSE, solution=TRUE}
 # 1. 
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
@@ -1041,32 +1035,28 @@ Here is where the error occurs, which indicates that the issues lies somewhere b
 
 ## Saving datasets as files
 
-Sometimes you'll need or want to save the dataset you've been working on,
-maybe because you've done a lot of cleaning to it, 
-preparing it for later analyses, 
-or because you've run an analysis and want to save the results.
-Either way, 
-a recommended way of saving your dataset is to use the `usethis::use_data()` function.
-Let's do a very simple example:
-
-```{r, eval=FALSE}
-usethis::use_data(nhanes_small, overwrite = TRUE)
-```
-
+The `nhanes_small` data frame you created is only available after you've created
+it from NHAHES, but if you want to access it later, you can save this as an
+`.rda` file into your data folder using the function `usethis::use_data()`. We
+use `overwrite = TRUE` so that we can save the dataset again even if the file
+already exists.
 The `usethis::use_data()` function outputs some information, 
 the last of which ("Document your data") we won't cover in this course.
 The function takes any number of datasets 
 and saves each individually as a `.rda` R dataset file in the `data/` folder.
-You load the dataset and use it again, 
-but before we do, let's restart the R session with either `Ctrl-Shift-F10`
-or with the menu item "Session -> Restart R". Now, type out and run this:
 
 ```{r, eval=FALSE}
-load(here::here("data/nhanes_small.rda"))
+# Saving data as an .rda file in the data folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
 ```
 
-You should see this dataset in the Environment tab. 
-This is how you save and load data.
+For many projects, it isn't necessary or advisable to save every data object
+you create. It's better to let the code create the data you'll use rather than
+save each new wrangled dataset you might create. But sometimes you'll need or
+want to save the dataset you've been working on, maybe because you've done a lot
+of cleaning to it, preparing it for later analyses, or because you've run an
+analysis and want to save the results. In that case, you should definitely save
+the new cleaned dataset.
 
 ## Loading in a dataset
 
@@ -1095,28 +1085,29 @@ for importing into the R script you are working in.
     load(here::here("data/dataset_name.rda"))    
     ```
 
+    You load the dataset and use it again, 
+    but before we do, let's restart the R session with either `Ctrl-Shift-F10`
+    or with the menu item "Session -> Restart R". Now, type out and run this:
+    
+    ```{r, eval=FALSE}
+    load(here::here("data/nhanes_small.rda"))
+    ```
+    
+    You should see this dataset in the Environment tab. 
+    This is how you save and load data.
 
 Before you start with the final exercise, add and commit to the Git history with the RStudio Git Interface. 
 
 For SAS, SPSS, or Stata files, you can use the package 
 [`haven`](https://haven.tidyverse.org/) to import those datasets into R.
 
-## Summary of session {#wrangling-summary}
-
-- In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
-- Use the R package tidyverse to load in multiple packages to tidy up data 
-- Never edit raw data - instead, save the changes in a separate folder or even file based on a code, and don't manually edit the data
-- Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
-- Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
-
-## Final exercise: Practicing the dplyr functions
+## Exercise: Practicing the dplyr functions
 
 Time: 30 minutes
 
-In this exercise, you have the chance to through the content of the whole dplyr 
-section yourself and solve a more challenging exercise. 
-Complete these tasks by starting from the original `NHANES` dataset and using the
-pipe to link each task with the next.
+Practice using dplyr by starting from the original `NHANES` dataset and wrangling
+the data into a summary output. Don't create any intermediate objects by only
+using the pipe to link each task with the next one.
 
 1. Rename all the columns so they are snake case.
 2. Select columns gender, age and BMI.
@@ -1129,11 +1120,7 @@ labeled `"under 50"` and those 50 years old and older are labeled `"over 50"`.
 difference in BMI between age classes and sex.
 8. Add and commit to the Git history with the RStudio Git Interface. 
 
-
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r solution-exercise-combine-all-dplyr, eval=FALSE}
+```{r solution-exercise-combine-all-dplyr, eval=FALSE, solution=TRUE}
 NHANES %>% 
     rename_with(snakecase::to_snake_case) %>% 
     select(gender, age,  bmi) %>% 
@@ -1145,5 +1132,11 @@ NHANES %>%
               bmi_median = median(bmi, na.rm = TRUE))
 ```
 
-</p>
-</details>
+## Summary of session {#wrangling-summary}
+
+- In tidy data, each variable has its now column, each observation has its own row, and each value has its own cell
+- Use the R package tidyverse to load in multiple packages to tidy up data 
+- Never edit raw data - instead, save the changes in a separate folder or even file based on a code, and don't manually edit the data
+- Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or modify"), `arrange()` and `summarise()` your data from the dplyr package
+- Use the pipe (`%>%`) to get an easy-to-read code, similar to reading a text consisting of multiple sentences
+

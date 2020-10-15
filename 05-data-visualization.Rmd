@@ -457,10 +457,7 @@ ggplot(___, aes(x = ___, y = ___)) +
     ___()
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-```{r solution-2-var-plots, eval=FALSE}
+```{r solution-2-var-plots, eval=FALSE, solution=TRUE}
 # 1. Load dataset into the environment
 load(here::here("data/nhanes_tidied.rda"))
 
@@ -496,9 +493,6 @@ ggplot(nhanes_tidied, aes(x = diabetes, fill = phys_active)) +
 ggplot(nhanes_tidied, aes(x = diabetes, y = poverty)) +
     geom_violin()
 ```
-
-</p>
-</details>
 
 ## Visualizing three or more variables
 
@@ -675,7 +669,7 @@ the variable will be continuous.
 4. Like in point 2 above, use the `options` argument and set it to `"B"`, 
 to see how the colour changes.
 
-```{r solution-colour-schemes, eval=FALSE, echo=FALSE}
+```{r solution-colour-schemes, eval=FALSE, solution=TRUE}
 # 1. change colors to a viridis color scheme
 base_barplot +
     scale_fill_viridis_d()

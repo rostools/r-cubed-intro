@@ -130,7 +130,9 @@ in `data-raw/` for the raw data.
 We'll explain the `data-raw/` folder and creating it later in the lesson.
 1. All R files and code should be in the `R/` directory.
 1. Name all new files to reflect their content or function. Follow the tidyverse 
-[style guide for file naming](https://style.tidyverse.org/files.html).
+[style guide for file naming](https://style.tidyverse.org/files.html). Either
+`_` or `-` are recommended to be used instead of a space, thought using `-`
+tends to be more commonly used. 
 
 [R Markdown]: https://rmarkdown.rstudio.com/
 
@@ -174,7 +176,7 @@ utility_functions.R
 code.R
 ```
 
-```{r solution-better-filenaming, eval=FALSE, echo=FALSE}
+```{r solution-better-filenaming, eval=FALSE, solution=TRUE}
 # Bad: Has a space.
 fit models.R
 # Good: Descriptive with no space.
@@ -399,12 +401,7 @@ if (y < 0 && debug)
 message("Y is negative")
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-The old code is in comments and the better code is below it.
-
-```{r solution-ex-wrong-code-naming, eval=FALSE}
+```{r solution-ex-wrong-code-naming, eval=FALSE, solution=TRUE}
 # Object names
 
 # Should be snake case (looks like `snake_case`)
@@ -442,9 +439,6 @@ if (y < 0 && debug) {
     message("Y is negative")
 }
 ```
-
-</p>
-</details>
 
 ## Automatic styling in RStudio
 
@@ -575,7 +569,7 @@ x < y
 Library(tidyvrese)
 ```
 
-```{r solution-exercise-errors, eval=FALSE, echo=FALSE}
+```{r solution-exercise-errors, eval=FALSE, solution=TRUE}
 x < y
 library(tidyverse)
 ```
