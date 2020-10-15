@@ -355,13 +355,7 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
 
-Now the column has been renamed from gender to sex. To be able to access this new dataframe easily, you can save this as an .rda file into your data folder, using the function `use_data()`:
-
-```{r}
-# Saving data as an .rda file in the data folder
-usethis::use_data(nhanes_small, overwrite = TRUE)
-```
-
+Now the column has been renamed from gender to sex. 
 What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping (with the `%>%` function).
 
 ## Chaining functions with the pipe
@@ -1025,32 +1019,28 @@ Here is where the error occurs, which indicates that the issues lies somewhere b
 
 ## Saving datasets as files
 
-Sometimes you'll need or want to save the dataset you've been working on,
-maybe because you've done a lot of cleaning to it, 
-preparing it for later analyses, 
-or because you've run an analysis and want to save the results.
-Either way, 
-a recommended way of saving your dataset is to use the `usethis::use_data()` function.
-Let's do a very simple example:
-
-```{r, eval=FALSE}
-usethis::use_data(nhanes_small, overwrite = TRUE)
-```
-
+The `nhanes_small` data frame you created is only available after you've created
+it from NHAHES, but if you want to access it later, you can save this as an
+`.rda` file into your data folder using the function `usethis::use_data()`. We
+use `overwrite = TRUE` so that we can save the dataset again even if the file
+already exists.
 The `usethis::use_data()` function outputs some information, 
 the last of which ("Document your data") we won't cover in this course.
 The function takes any number of datasets 
 and saves each individually as a `.rda` R dataset file in the `data/` folder.
-You load the dataset and use it again, 
-but before we do, let's restart the R session with either `Ctrl-Shift-F10`
-or with the menu item "Session -> Restart R". Now, type out and run this:
 
 ```{r, eval=FALSE}
-load(here::here("data/nhanes_small.rda"))
+# Saving data as an .rda file in the data folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
 ```
 
-You should see this dataset in the Environment tab. 
-This is how you save and load data.
+For many projects, it isn't necessary or advisable to save every data object
+you create. It's better to let the code create the data you'll use rather than
+save each new wrangled dataset you might create. But sometimes you'll need or
+want to save the dataset you've been working on, maybe because you've done a lot
+of cleaning to it, preparing it for later analyses, or because you've run an
+analysis and want to save the results. In that case, you should definitely save
+the new cleaned dataset.
 
 ## Loading in a dataset
 
@@ -1079,6 +1069,16 @@ for importing into the R script you are working in.
     load(here::here("data/dataset_name.rda"))    
     ```
 
+    You load the dataset and use it again, 
+    but before we do, let's restart the R session with either `Ctrl-Shift-F10`
+    or with the menu item "Session -> Restart R". Now, type out and run this:
+    
+    ```{r, eval=FALSE}
+    load(here::here("data/nhanes_small.rda"))
+    ```
+    
+    You should see this dataset in the Environment tab. 
+    This is how you save and load data.
 
 Before you start with the final exercise, add and commit to the Git history with the RStudio Git Interface. 
 
