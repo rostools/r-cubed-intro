@@ -439,10 +439,7 @@ ggplot(___, aes(x = ___, y = ___)) +
     ___()
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-```{r solution-2-var-plots, eval=FALSE}
+```{r solution-2-var-plots, eval=FALSE, solution=TRUE}
 # 1. Remove missing diabetes, rename to Sex
 nhanes_tidy <- NHANES %>% 
     # Filter rows
@@ -482,9 +479,6 @@ ggplot(nhanes_tidy, aes(x = Diabetes, fill = PhysActive)) +
 ggplot(nhanes_tidy, aes(x = Diabetes, y = Poverty)) +
     geom_violin()
 ```
-
-</p>
-</details>
 
 ## Visualizing three or more variables
 
@@ -649,7 +643,7 @@ the variable will be continuous.
 run it to see how the colour changes, then switch it to `"C"` and run it
 to see the colour differences.
 
-```{r solution-colour-schemes, eval=FALSE, echo=FALSE}
+```{r solution-colour-schemes, eval=FALSE, solution=TRUE}
 # 1. change colors to a viridis color scheme
 base_barplot +
     scale_fill_viridis_d()

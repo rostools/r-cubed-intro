@@ -176,7 +176,7 @@ utility_functions.R
 code.R
 ```
 
-```{r solution-better-filenaming, eval=FALSE, echo=FALSE}
+```{r solution-better-filenaming, eval=FALSE, solution=TRUE}
 # Bad: Has a space.
 fit models.R
 # Good: Descriptive with no space.
@@ -401,12 +401,7 @@ if (y < 0 && debug)
 message("Y is negative")
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-The old code is in comments and the better code is below it.
-
-```{r solution-ex-wrong-code-naming, eval=FALSE}
+```{r solution-ex-wrong-code-naming, eval=FALSE, solution=TRUE}
 # Object names
 
 # Should be snake case (looks like `snake_case`)
@@ -444,9 +439,6 @@ if (y < 0 && debug) {
     message("Y is negative")
 }
 ```
-
-</p>
-</details>
 
 ## Automatic styling in RStudio
 
@@ -577,7 +569,7 @@ x < y
 Library(tidyvrese)
 ```
 
-```{r solution-exercise-errors, eval=FALSE, echo=FALSE}
+```{r solution-exercise-errors, eval=FALSE, solution=TRUE}
 x < y
 library(tidyverse)
 ```

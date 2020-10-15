@@ -220,10 +220,7 @@ summary(___)
 ?___
 ```
 
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r solution-exercise-familiar-with-data, eval=FALSE}
+```{r solution-exercise-familiar-with-data, eval=FALSE, solution=TRUE}
 # Load the packages
 source(here::here("R/package-loading.R"))
 
@@ -240,9 +237,6 @@ summary(NHANES)
 # Look over the dataset documentation
 ?NHANES
 ```
-
-</p>
-</details>
 
 ## Select specific columns in a dataset
 
@@ -752,10 +746,7 @@ nhanes_modified <- ___ %>% # dataset
 NHANES_modified
 ```
 
-<details><summary><strong>Click for a possible solution</strong></summary>
-<p>
-
-```{r solution-ex-pipe-filter-mutate, eval=FALSE}
+```{r solution-ex-pipe-filter-mutate, eval=FALSE, solution=TRUE}
 # 1. BMI between 20 and 40 and who have diabetes
 nhanes_small %>%
     # format: variable >= number
@@ -770,14 +761,6 @@ NHANES_modified <- NHANES %>% # dataset
         young_child = if_else(Age < 6, "Yes", "No")
     )
 ```
-
-For the "urine_vol_average" values, they are probably almost entirely `NA` (aka
-missing). That's because `NA` values are infectious. See how "UrineVol2" has mostly
-`NA` values too? When you calculate something that has `NA`, you get another `NA`.
-This is something to be careful about. So always check your calculations!
-
-</p>
-</details>
 
 ## Split-apply-combine: Summarizing data
 
@@ -869,7 +852,7 @@ nhanes_small %>%
               ___ = ___)
 ```
 
-```{r solution-exercise-summarize-basic-stats, eval=FALSE, echo=FALSE}
+```{r solution-exercise-summarize-basic-stats, eval=FALSE, solution=TRUE}
 # 1.
 nhanes_small %>%
     summarize(mean_weight = mean(weight, na.rm = TRUE),
@@ -968,7 +951,7 @@ nhanes_small %>%
     )
 ```
 
-```{r solution-exercise-groupby-summarise, eval=FALSE, echo=FALSE}
+```{r solution-exercise-groupby-summarise, eval=FALSE, solution=TRUE}
 # 1. 
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
@@ -1124,10 +1107,7 @@ difference in BMI between age classes and sex.
 8. Add and commit to the Git history with the RStudio Git Interface. 
 
 
-<details><summary><strong>Click for the solution</strong></summary>
-<p>
-
-```{r solution-exercise-combine-all-dplyr, eval=FALSE}
+```{r solution-exercise-combine-all-dplyr, eval=FALSE, solution=TRUE}
 NHANES %>% 
     rename_with(snakecase::to_snake_case) %>% 
     select(gender, age,  bmi) %>% 
@@ -1139,5 +1119,3 @@ NHANES %>%
               bmi_median = median(bmi, na.rm = TRUE))
 ```
 
-</p>
-</details>
