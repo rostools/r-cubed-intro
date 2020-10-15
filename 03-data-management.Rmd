@@ -599,6 +599,7 @@ TRUE | FALSE
 FALSE | FALSE
 ```
 
+When used in `filter()` is would be used like:
 
 ```{r}
 # when BMI is 25 AND sex is female
