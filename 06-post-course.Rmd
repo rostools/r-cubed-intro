@@ -5,9 +5,10 @@ It is one thing to learn the principles of how to do reproducible research. It i
 - Practice makes perfect. If we don't have access to our research data yet, where can we find inspiration to keep practicing and learning?
 - Unless our collaborators can be persuaded to use the tools we've gone over in the course, we cannot take full advantage of applying what we've learned in this course.
 - If we're restricted to working with our data in a virtual remote environment, perhaps we don't have authorization to install programs like we did on our local computer in the pre-course tasks.
-### For the first issue, check our [resources for learning](resources#for-learning). In this document, we'll try to provide some help with the last two of these issues.
-### For the second issue, the best approach is to practice what we preach, and explain what we practice. The reproducible work-flow is a way to help ourselves and improve productivity. The most common (perhaps only) reason to shy away from it is a lack of exposure and understanding. If your supervisor only uses Microsoft Word and gets offended if you say the word Git, start with small exposures, e.g. knit your RMarkdown report to Word format and mail the .docx to him, and when you get an email back, save the document containing edits/feedback in your repository so you can version control it with Git. Even if it involves a bit of manual work, you still get some of the benefits of reproducibility. Also, you'll be able to demonstrate in practice how reproducible documents and RMarkdown work, as well as Git for version control. In time, perhaps you can use this showcase to persuade your supervisor to consider using the tools himself.
-### Regarding the third issue, it should not be an issue. We'll go over how:
+
+- For the first issue, check our [resources for learning](resources#for-learning).
+- For the second issue, the best approach is to practice what we preach, and explain what we practice. The reproducible work-flow is a way to help ourselves and improve productivity. The most common (perhaps only) reason to shy away from it is a lack of exposure and understanding. If our supervisor only uses Microsoft Word and gets offended whenever we say the word Git, we'll start with small exposures, e.g. knit our RMarkdown report to Word format and mail the .docx to him, and when we get an email back, save the document containing edits/feedback in a Git repository so we can version control it with Git. Even if it involves a bit of manual work, we still get some of the benefits of reproducibility and version control. Also, we'll be able to demonstrate in practice how reproducible documents and RMarkdown work, as well as Git for version control. In time, perhaps we can use this as a way to showcase to persuade our supervisor to consider using the tools himself.
+- Regarding the third issue, it should not be an issue. We'll go over why and how:
 
 ## Reproducible Research with R - in the Real World
 A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services.
@@ -53,7 +54,7 @@ git2r::config(user.name = "My Name Here", user.email = "mynamehere@mymailhere.co
 
 **And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works)**
 ```{r dst-git-works, echo=FALSE, fig.cap="Initial commit to local repository."}
-knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
+knitr::include_graphics(here::here("images/dst-git-works.jpg"))
 ```
 **We will not be able to access an online remote Git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
 We can still use Git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
