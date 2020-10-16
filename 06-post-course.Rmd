@@ -1,135 +1,133 @@
 # Continued learning {#post-course}
 
-## What next? First part (placeholder)
+## What next?
+It is one thing to learn the principles of how to do reproducible research. It is another thing to do so in daily practice:
+- Practice makes perfect. If we don't have access to our research data yet, where can we find inspiration to keep practicing and learning?
+- Unless our collaborators can be persuaded to use the tools we've gone over in the course, we cannot take full advantage of applying what we've learned in this course.
+- If we're restricted to working with our data in a virtual remote environment, perhaps we don't have authorization to install programs like we did on our local computer in the pre-course tasks.
+### For the first issue, check our [resources for learning](resources#for-learning). In this document, we'll try to provide some help with the last two of these issues.
+### For the second issue, the best approach is to practice what we preach, and explain what we practice. The reproducible work-flow is a way to help ourselves and improve productivity. The most common (perhaps only) reason to shy away from it is a lack of exposure and understanding. If your supervisor only uses Microsoft Word and gets offended if you say the word Git, start with small exposures, e.g. knit your RMarkdown report to Word format and mail the .docx to him, and when you get an email back, save the document containing edits/feedback in your repository so you can version control it with Git. Even if it involves a bit of manual work, you still get some of the benefits of reproducibility. Also, you'll be able to demonstrate in practice how reproducible documents and RMarkdown work, as well as Git for version control. In time, perhaps you can use this showcase to persuade your supervisor to consider using the tools himself.
+### Regarding the third issue, it should not be an issue. We'll go over how:
 
-TODO: Should be about some of the points mentioned in issue 111, e.g. what can the
-participants do to plan/visualize this sort of work-flow, and how to implement
-it into their research institutes and environments.
-
-## Reproducible research with R: In the real world
-
-A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case study: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services.
+## Reproducible Research with R - in the Real World
+A showcase of how the reproducible work-flow we've gone over in the course is possible in a restricted virtual environment. Case in point: The virtual desktop environment used when working on Statistics Denmark (DST)'s researcher services.
+One thing to note, which may be a bit confusing: DST also uses the term "project", and in a very different meaning compared to R:
+- An R project is a collection of R scripts and documentation in a root folder.
+- A DST project is a research project. Each DST project can access separate folders and data, and any user with access to a project can log on and work within those folders and data.
 
 **What is the deal?**  
 You will likely be working in a virtual environment without administrator rights, so you will not be able to install programs yourself.
 Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like GitHub or the online archive where R packages are normally installed from with `install.packages()`.
 
 ### Requirements
-
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
-Contact your system administrator and ask them if R and Git are supported. If not, then ask the administrators to install them. That's a basic service that they should provide.
+Contact your system administrator and ask them if R and Git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
-
-```{r dst-desktop, echo=FALSE, fig.cap="Git, R, and RStudio are already installed."}
+```{r dst-desktop, echo=FALSE, fig.cap="Git, R & RStudio are already installed."}
 knitr::include_graphics(here::here("images/dst_desktop.jpg"))
 ```
 
+
 ### Packages are accessible!
+To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to directly access any package from CRAN with the `library()` command.
 
-To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to access any package from there with the `library()` command.
-
-While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab will slow your session down a lot). See Figure \@ref(fig:dst-packages):
-
+While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab can slow your session down). See Figure \@ref(fig:dst-packages):
 ```{r dst-packages, echo=FALSE, fig.cap="CRAN packages are already installed."}
 knitr::include_graphics(here::here("images/dst_packages.jpg"))
 ```
-
 ### Setting up our project.
-
-**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation)).**  
+**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation))**  
 We may get a message nudging us to set up our Git config and not just use the defaults. The defaults should be based on your log-on ID (and be somewhat sensible) here, but we can set them ourselves later.
 
 ### Activating Git for the project
-
-Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`, shown in Figure \@ref(fig:dst-git-setup).
-
+Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`. See Figure \@ref(fig:dst-git-setup)
 ```{r dst-git-setup, echo=FALSE, fig.cap="Setting up Git for the project."}
 knitr::include_graphics(here::here("images/dst-git-setup.jpg"))
 ```
-
 After restarting RStudio, you should see the Git icons and tabs.
-Now we can set our Git config (since we don't have access to the r3 package, we'll set it with the git2r package here):
 
+Now we can set our Git config (since we don't have access to the r3 package, we'll set it with the git2r package here):
 ```{r dst_git_config, eval=FALSE}
 git2r::config(user.name = "My Name Here", user.email = "mynamehere@mymailhere.com")
 ```
 
-**And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works).**
-
+**And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works)**
 ```{r dst-git-works, echo=FALSE, fig.cap="Initial commit to local repository."}
 knitr::include_graphics(here::here("images/dst_git_Works.jpg"))
 ```
-
 **We will not be able to access an online remote Git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
 We can still use Git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
 
 ### Setting up a Git remote repository in the virtual environment
-
 If we're working in a team, we will to want to have a remote repository for keeping the latest versions available to everybody on the team.
 In the version-control session, we created a remote repository through GitHub's website, and then created a local repository from it by cloning it.  This time, we'll do it all from the terminal, and since we've already set up a local repository, we'll do it the other way round:  
-
 1. Create a blank remote repository in a local folder that all team members have access to.
 2. Connect our local repository to it.
 3. Push the commits from our local repository to it.
 
-In the end, the only difference here is that the location of the remote is not a GitHub-URL, functionally it is the same.
+The only difference here is that the location of the remote is not a GitHub-URL, and we don't create the remote in our web browser with the GitHub interface. In fact, once we've created the remote repository, we link our local repository to it with the same two commands we used in the Git remote session.
 
-**Remember: Git is operated through the terminal, not the console, so we go to the terminal tab and type:**
-
-```bash
-# Creates the folder for the remote (you can also 
-# do this through the File Explorer in Windows of 
-# course)
-mkdir -p E:/project_directory/git-remote 
-
-# Changes the Git working directory to the 
-# remote folder.
-cd E:/project_directory/git-remote/ 
-
-# Creates an empty remote repository in the 
-# remote folder.
-git init --bare 
-
-# Changes the Git working directory back to the R 
-# project folder.
-cd E:/project_directory/LearningR 
-
-# Links the project to the remote repository
-git remote add origin E:/project_directory/git-remote 
-
-# Pushes the local repository to the remote
-git push -u origin master 
+This time, we create the remote repository with the Windows interface by using Git Bash in 3 steps:
+- First we create the folder where we want our remote to be located. We'll put it at the root of our DST project directory and call it `git-remote`:
+```{r dst-git-folder-windows, echo=FALSE, fig.cap="Create new folder for the remote repository"}
+knitr::include_graphics(here::here("dst-git-folder-windows.jpg"))
 ```
 
-**Notice in Figure \@ref(fig:dst-git-remote) how the Pull and Push icons now have colors:**
+- Next, we go to the new directory and open Git Bash:
+```{r dst-git-bash-here, echo=FALSE, fig.cap="Open Git Bash here"}
+knitr::include_graphics(here::here("dst-git-bash-here.jpg"))
+```
+Git Bash is a program for operating Git through a command-line interface in Windows. It is similar to the terminal we used in RStudio. We should see a line indicating the current directory and below it a $-sign followed by a blinking bar indicating that Git Bash is ready to accept new commands.
+- Now, we use a new command: `git init --bare`, which converts the current directory to a blank Git repository.
+```{r dst-git-init-windows, echo=FALSE, fig.cap="'git init --bare' creates the necessary files to convert the folder into a blank Git repository"}
+knitr::include_graphics(here::here("dst-git-init-windows.jpg"))
+```
 
-```{r dst-git-remote, echo=FALSE, fig.cap="The Remote repository works."}
+These three steps accomplish the same creation of a remote repository, which we covered in the course session with the GitHub interface. The rest of the setup (linking the local repository to the remote repository and pushing the contents of the local repository to the remote) is identical to the course session, except the location of the remote is a folder, not a GitHub URL: \@ref(fig:image-github-link-existing-repository).
+
+So, let's go back to our RStudio project and open the RStudio terminal and complete the process:
+``` bash
+git remote add origin E:/project_directory/git-remote 
+git push -u origin master
+```
+
+**And that's it! Now we have version control shared between all users of the DST project integrated into RStudio**
+```{r dst-git-remote, echo=FALSE, fig.cap="The Remote repository works. Pull and Push icons now have colors"}
 knitr::include_graphics(here::here("images/dst-git-remote.jpg"))
 ```
 
-**And that's it! Now we have version control!**  
-  
+*Alternatively, if you're more comfortable working in the terminal, the remote repository can also be set up by just using the terminal:*
+``` bash
+mkdir -p E:/project_directory/git-remote # Creates the folder for the remote.
+cd E:/project_directory/git-remote/ # Changes the Git working directory to the remote folder.  
+git init --bare # Creates an empty remote repository in the remote folder.  
+cd E:/project_directory/LearningR # Changes the Git working directory back to the R project folder.  
+git remote add origin E:/project_directory/git-remote # Links the project to the remote repository  
+git push -u origin master # Pushes the local repository to the remote
+```
+
 **Are we missing out by not having access to GitHub?**
 Not in regards to version control. Since we're already working on a remote virtual desktop where our project collaborators also have access, the repositories here serve the same function as a remote repository like GitHub normally would:  
-
 - A platform for collaboration, where all team members can keep their edits synchronized and work in parallel without losing track of changes.  
 - A secure back-up of the entire history of the project in case the dog eats our laptops.
 
 ## How R can help us deal with common issues in restricted environments
 
-### Keeping track of file paths
+### Keeping track of file paths:
+The preset folder structures are often ugly, long, and maze-like. While they can't be edited, using a work-flow that takes advantage of R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.
 
-The preset folder structures are often ugly, long, and maze-like. While they can't be edited, using a work-flow that takes advantage of R projects and `here::here()` shown in this course, you don't have to deal with the long path names once you've moved everything into the project folder.  
-  
-Sometimes, these types of servers will be using a specific software and data file format. Perhaps the data is in a different format, or it is stored in a relational database, e.g SQL.
+### Using foreign data sources:
+Sometimes, these types of servers will be using a specific software and data file format. Perhaps the data is in a different format, or it is stored in a database, e.g in an SQL server.
+R is extremely flexible, and you can open practically any data format in R using R scripts with familiar R syntax. This includes proprietary data formats such as SAS (which is the default raw data format used by DST) or ODBC-compatible databases such as SQL (often used for centralized storage of large amounts of data).
+The [intermediate course material](https://r-cubed-intermediate.rostools.org/) covers how to handle foreign formats and databases.
 
 ### Other drawbacks to working in a virtual environment
 
-**There are a lot, but to name a few:**  
+**To name a few:**  
 
 - In addition to being a repository, GitHub can also be used as a forum for communicating about the project work-flow (and get feedback/contributions from the public if using a public repository).  
-- You cannot copy-paste or conveniently import anything into the virtual environment - including code chunks or scripts.  
-- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are several months behind the latest "real-world" releases, even in the most updated times.  
+- You cannot copy-paste or conveniently import anything into the virtual environment - including formatting tables, code chunks or scripts. Certain scripts (e.g. AutoHotkey) allow you automatically "type out" the contents of your local clipboard onto the virtual desktop, but in practice these do not work on most virtual machine platforms due to keyboard driver issues - often creating dangerously erratic keyboard behavior instead. Using these types of scripts is not recommended.
+- The installed versions of R, RStudio and the packages will only be as up-to-date as the system administrators keep them. Again, if you need something outdated to be updated, don't be afraid to ask them to help you out. However, it can be tricky to keep the updates of all the different packages compatible with each other and with new versions of R, and keeping everything on the cutting edge of new releases is not feasible. In the case of DST, you will be running versions that are often several months behind the latest "real-world" releases, even in the most updated times.  
 
 ## More formatting syntax in Markdown {#post-course-markdown}
 
