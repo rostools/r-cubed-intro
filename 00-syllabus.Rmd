@@ -48,9 +48,9 @@ experimental to epidemiology).
 - You currently or will soon do some quantitative data analysis.
 - You: 
     - know *nothing* or *little* about R (or computing in general); 
-    - *haven't* used coding programs for doing data analysis (e.g. used SPSS); 
+    - *haven't* used code-based programs for doing data analysis (e.g. have used SPSS); 
     - *have* used coding programs before (e.g. used SAS or Stata), but not R;
-    - know how to use R, but *haven't* used the [tidyverse] or [RStudio].
+    - or know how to use R, but *haven't* used the [tidyverse] or [RStudio].
 
 [tidyverse]: https://www.tidyverse.org/
 [RStudio]: https://rstudio.com/
@@ -58,7 +58,7 @@ experimental to epidemiology).
 While we have these assumptions to help focus the content of the course, if you
 have an interest in learning R but don't fit any of the above assumptions, *you
 are still welcome to attend the course*! 
-We welcome everyone, up until the course capacity is reached that is.
+We welcome everyone, that is until the course capacity is reached.
 
 In addition to the assumptions, we also have a fairly focused scope for teaching
 and expectations for learning. So this may also help you decide if this course
@@ -80,7 +80,7 @@ and group work, using either a practice dataset or some other real-world dataset
 There are some lectures given, mainly at the start and end of the workshop.
 The general schedule outline is shown in the below table. This is not a fixed
 schedule of the timings of each session, some may be shorter and others may be
-longer, and is instead an approximate guide and overview.
+longer, and is instead meant to be an approximate guide and overview.
 
 ```{r schedule-table, echo=FALSE, message=FALSE, warning=FALSE}
 options(knitr.kable.NA = "")

@@ -30,14 +30,14 @@ knitr::write_bib(
 [![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921894.svg)](https://doi.org/10.5281/zenodo.3921894)
 
 The course is designed as a series of participatory live-coding lessons, where
-the instructor and learner code together, has hands-on
-exercises interspersed throughout the course, 
-and has a final group assignment of doing a simple data analysis project.
+the instructor and learner code together, along with hands-on
+exercises interspersed throughout the course
+and a final group assignment to do a simple data analysis project.
 This website contains all of the
-material for the course, from reading material to exercises, to images. It is
+material for the course, from reading material to exercises to code to images. It is
 structured as a book, with "chapters" as lessons, given in order of appearance.
 We make heavy use of the website throughout the course
-where code-along sessions follow the material on the website nearly exactly
+where code-along sessions almost identically follow the material on the website 
 (with slight modifications for time or more detailed explanations).
 
 The course material was created using [rmarkdown] to write the lessons,
@@ -55,7 +55,7 @@ The two main and easiest ways to contribute are by using:
 Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
 comments directly on this website.
 2. [GitLab] and creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
-to make comments and give feedback for the material.
+to make comments and give feedback on the material.
 
 [hypothes.is]: https://web.hypothes.is/
 [rmarkdown]: https://rmarkdown.rstudio.com/
@@ -66,23 +66,19 @@ to make comments and give feedback for the material.
 [Netlify]: https://www.netlify.com/
 [`r-cubed`]: https://gitlab.com/rostools/r-cubed
 
-Want to contribute to this course? 
-Check out the [README] file as well as the [CONTRIBUTING] file
-on the GitLab repository for more details.
-
 [README]: https://gitlab.com/rostools/r-cubed/-/blob/master/README.md
 [CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/master/CONTRIBUTING.md
 
 ## Target audiences
 
-This website and its content is targeted to three groups:
+This website and its content are targeted to three groups:
 
 1. For the **learners** to use during the course to follow along in case they get
 lost and for them to use as a reference after the course ends.
-2. For the **instructors** to use as a guide for when they run the course and
-do the code-alongs and lectures.
+2. For the **instructors** to use as a guide for when they do the code-along
+sessions and lectures.
 3. For those who are **interested in teaching**, and who may not have much experience
-and who may not know where to start. They can use this website as a guide to running
+or may not know where to start, to use this website as a guide to running
 and instructing their own workshops.
 
 ## Re-use and licensing {#licensing}
@@ -111,7 +107,7 @@ Contributors for [version 1](https://gitlab.com/lwjohnst/dda-rcourse/-/tags/v1.0
 the website; organized and coordinated the course; wrote, prepared, and taught
 most of the code-along sessions, as well as several lectures.
 - Daniel Witte: Participated in brainstorming on the course structure and
-laytout; prepared and taught most of the lectures.
+layout; prepared and taught most of the lectures.
 - João Santiago: Taught and edited the R Markdown code-along session material.
 - Anna Schritz: Taught and edited the Data Management and Wrangling code-along
 session material.
@@ -122,7 +118,7 @@ Contributors for [version 2](https://gitlab.com/rostools/r-cubed/-/tags/v2.0) we
 
 - Luke Johnston: Same as with version 1.
 - Daniel Witte: Prepared and taught most of the lectures.
-- Helene Baek Juel: Edited and taught the Data Visualization code-along session material,
+- Helene Bæk Juel: Edited and taught the Data Visualization code-along session material,
 as well as reviewed multiple other sections.
 - Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
 session material, as well as reviewed multiple other sections.

@@ -254,6 +254,10 @@ you'll quickly find out that it actually is quite hard to do in ggplot2.
 The reason it is difficult to create in ggplot2 is by design:
 it's a bad plot to use, so use something else.
 
+```{r image-art-bar-error-plot, fig.cap="Barplots hide interesting results. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations)", echo=FALSE, out.width="70%"}
+knitr::include_graphics(here::here("images/art-bar-error-plot.png"))
+```
+
 ## Plotting two variables
 
 Next section is about plotting two variables at a time.

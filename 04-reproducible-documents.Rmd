@@ -39,6 +39,10 @@ and make your analysis and work more reproducible. Plus you can create
 some very aesthetically appealing reports, 
 way more easily than you could if you did it in Word. 
 
+```{r image-art-reproducibility, fig.cap="Have a more reproducible workflow by using R Markdown. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations)", echo=FALSE, out.width="70%"}
+knitr::include_graphics(here::here("images/art-reproducibility.png"))
+```
+
 ## Creating an R Markdown file
 
 **Take about 5 min to read over the next few paragraphs**.
