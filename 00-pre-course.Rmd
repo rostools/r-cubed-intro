@@ -243,7 +243,15 @@ knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 Most of the description of the course is found in the [syllabus](index.html).
 For quickly going to the syllabus from RStudio, 
 run the function `r3::open_syllabus()`.
-Or click it from the menu bar on the side. While you may have signed up to this course to learn more about R, you should know that conducting reproducible research goes beyond R and RStudio. As such, we will be spending a lot of time exploring other tools that are used in conjunction with R, to improve the structure and transparency of your work. So, while it may feel like you are not doing so much "coding" straight away, just know that all of the readings and exercises are designed to set you up for success in doing reproducible research.
+Or click it from the menu bar on the side. 
+
+While you may have signed up to this
+course to learn more about R, you should know that conducting reproducible
+research goes beyond R and RStudio. As such, we will be spending a lot of time
+exploring other tools that are used in conjunction with R, to improve the
+structure and transparency of your work. This course is designed to not only
+introduce you to R, but also to doing reproducible research and data analysis
+in R.
 
 If you haven't read the syllabus, **please read it now**.
 Read over what the course will cover, 
@@ -256,21 +264,21 @@ One goal of the course is to teach about open science,
 and true to our mission, we practice what we preach.
 The course material is publicly accessible (all on this website) and 
 [openly licensed](license.html) so you can use and re-use it for free!
-The material is ordered as we will cover it during the course.
+The material is organized in the order that we will cover it in the course.
 Even though the course will include lots of hands-on work during the sessions,
 the final group [project assignment](assignment.html) 
-will allow you to practice in a team everything you've learned.
+will allow you to practice in a team setting everything you've learned.
 To quickly access the final project assignment from inside RStudio,
 run the function `r3::open_assignment()`.
 
-We have a [Code of Conduct](conduct.html). Access it quickly with `r3::open_code_of_conduct()`. 
+We have a [Code of Conduct](conduct.html). 
 If you haven't read it, **read it now**.
 At the end there will be a survey that will ask some questions about Conduct.
 We want to make sure this course is a supportive and safe environment for learning,
-so this Code of Conduct is important.
+so this Code of Conduct is quite important.
 
-You're almost done. Please fill out the pre-course survey to find this assignment,
-[at this link] or with this function:
+You're almost done. Please fill out the pre-course survey to finish this
+pre-course assignment, either [at this link] or with this function:
 
 [at this link]: https://docs.google.com/forms/d/e/1FAIpQLSeuMe485zZXlG9uQlUgcgsWBJvpHUB_-bMVkEtA4moWK_oUoQ/viewform?usp=sf_link
 
