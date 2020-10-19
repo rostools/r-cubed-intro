@@ -183,7 +183,7 @@ unlist(solutions) %>%
     cat(sep = "\n")
 ```
 
-## For learning
+## For learning {#further-learning}
 
 **Free online books**:
 
