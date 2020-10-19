@@ -21,47 +21,60 @@ You will likely be working in a virtual environment without administrator rights
 Often, you will be logged into a virtual computer with no internet access. From there, you will not be able to access remote locations like GitHub or the online archive where R packages are normally installed from with `install.packages()`.
 
 ### Requirements
+
 The requirements are the same as the pre-course tasks, except that the system administrators must do the setup. The good news is that once they've done it, everything is pretty much set up for us!
 Contact your system administrator and ask them if R and Git are supported. If not, then it's not a lot to ask the administrators to implement it. That's a basic service.
 In the case of Statistics Denmark, they've pre-installed Git, R and RStudio. See \@ref(fig:dst-desktop):
+
 ```{r dst-desktop, echo=FALSE, fig.cap="Git, R & RStudio are already installed."}
-knitr::include_graphics(here::here("images/dst_desktop.jpg"))
+knitr::include_graphics(here::here("images/dst-desktop.jpg"))
 ```
 
+### Packages are pre-installed
 
-### Packages are accessible!
 To allow access to packages in the restricted environment, DST has pre-installed ALL packages on CRAN, so we will be able to directly access any package from CRAN with the `library()` command.
 
 While we won't be able to use packages from sources other than CRAN (like the r3 package developed for this course), we do have access to more than 15,000 of the most widely used packages (this also means that opening and browsing the packages tab can slow your session down). See Figure \@ref(fig:dst-packages):
+
 ```{r dst-packages, echo=FALSE, fig.cap="CRAN packages are already installed."}
-knitr::include_graphics(here::here("images/dst_packages.jpg"))
+knitr::include_graphics(here::here("images/dst-packages.jpg"))
 ```
+
 ### Setting up our project.
-**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation))**  
+
+**The prodigenr package is available, so we'll set the project up like we normally would (refer to Figure \@ref(fig:prodigenr-project-creation))**.  
 We may get a message nudging us to set up our Git config and not just use the defaults. The defaults should be based on your log-on ID (and be somewhat sensible) here, but we can set them ourselves later.
 
 ### Activating Git for the project
-Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`. See Figure \@ref(fig:dst-git-setup)
+
+Normally, we would activate Git with the `usethis::use_git()` command. This may not always work in the DST environment. Instead, we'll activate Git through the RStudio menu tab: `Tools -> Version Control -> Project Setup -> Version control system: Git`, shown in Figure \@ref(fig:dst-git-setup).
+
 ```{r dst-git-setup, echo=FALSE, fig.cap="Setting up Git for the project."}
 knitr::include_graphics(here::here("images/dst-git-setup.jpg"))
 ```
+
 After restarting RStudio, you should see the Git icons and tabs.
 
 Now we can set our Git config (since we don't have access to the r3 package, we'll set it with the git2r package here):
-```{r dst_git_config, eval=FALSE}
+
+```{r dst-git-config, eval=FALSE}
 git2r::config(user.name = "My Name Here", user.email = "mynamehere@mymailhere.com")
 ```
 
-**And now we can make our initial commit to the local Git repository: See Figure \@ref(fig:dst-git-works)**
+**And now we can make our initial commit to the local Git repository, shown in Figure \@ref(fig:dst-git-works)**.
+
 ```{r dst-git-works, echo=FALSE, fig.cap="Initial commit to local repository."}
 knitr::include_graphics(here::here("images/dst-git-works.jpg"))
 ```
+
 **We will not be able to access an online remote Git repository like GitHub, since we have no internet access from the virtual desktop, but don't worry!**  
 We can still use Git with a local repository on the virtual desktop to track our own work - and in a few steps, we'll set up a remote repository and get all the functionality of Git in a collaborative work-flow as well!  
 
 ### Setting up a Git remote repository in the virtual environment
+
 If we're working in a team, we will to want to have a remote repository for keeping the latest versions available to everybody on the team.
 In the version-control session, we created a remote repository through GitHub's website, and then created a local repository from it by cloning it.  This time, we'll do it all from the terminal, and since we've already set up a local repository, we'll do it the other way round:  
+
 1. Create a blank remote repository in a local folder that all team members have access to.
 2. Connect our local repository to it.
 3. Push the commits from our local repository to it.
@@ -69,10 +82,12 @@ In the version-control session, we created a remote repository through GitHub's 
 The only difference here is that the location of the remote is not a GitHub-URL, and we don't create the remote in our web browser with the GitHub interface. In fact, once we've created the remote repository, we link our local repository to it with the same two commands we used in the Git remote session.
 
 This time, we create the remote repository with the Windows interface by using Git Bash in 3 steps:
+
 - First we create the folder where we want our remote to be located. We'll put it at the root of our DST project directory and call it `git-remote`:
-```{r dst-git-folder-windows, echo=FALSE, fig.cap="Create new folder for the remote repository"}
-knitr::include_graphics(here::here("dst-git-folder-windows.jpg"))
-```
+
+    ```{r dst-git-folder-windows, echo=FALSE, fig.cap="Create new folder for the remote repository"}
+    knitr::include_graphics(here::here("dst-git-folder-windows.jpg"))
+    ```
 
 - Next, we go to the new directory and open Git Bash:
 ```{r dst-git-bash-here, echo=FALSE, fig.cap="Open Git Bash here"}
