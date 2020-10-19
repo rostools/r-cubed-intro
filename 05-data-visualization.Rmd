@@ -27,9 +27,7 @@ if the graph is the *most appropriate* for the data or results,
 and how you can design your graphs to be as accessible 
 and understandable as possible.
 
-To start, here are some tips for making a graph 
-(there are excellent online books on this that are included in the 
-[resources](resources) chapter:
+To start, here are some tips for making a graph:
 
 - Whenever possible or reasonable, show raw data values rather than summaries 
 (e.g. means)
@@ -40,6 +38,9 @@ To start, here are some tips for making a graph
 and 2) to make the plot visually appealing
 - Use a colour-blind friendly palette so the plot is more accessible to others
 (more on this later)
+
+There are also excellent online books on this that are included in the 
+[resources](resources.html) chapter.
 
 [avoid barplots]: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
 
@@ -140,15 +141,21 @@ columns are the variables that were measured.
 So, from now on, we call them "variables".
 
 Ok, let's visually explore our data. 
-Open the previously used R Project, and create a new R Markdown file called `visualization-session.Rmd`. (To do this, go to “File -> New File -> R Markdown”, and a dialog box will then pop up. Type in “Data visualization” in the title section and your name in the author section. Choose HTML as the output format. Delete unneeded text and codechunks, then save this file as `visualization-session.Rmd` in the doc/ folder).
-This script we will use for the code-along and exercises in data visualization.
+Open the previously used R Project, and create a new R Markdown file called
+`visualization-session.Rmd`. To do this, go to `File -> New File -> R
+Markdown`, and a dialog box will then pop up. Type in “Data visualization” in
+the title section and your name in the author section. Choose HTML as the output
+format. Delete unneeded text and code chunks, then save this file as
+`visualization-session.Rmd` in the `doc/` folder. We will use this file for
+the code-along and exercises in for the data visualization session.
 
-First, we want to load packages and dataset, so let's write that at the top of the file, right under the YAML header.
+First, we want to load packages and dataset, so let's write that at the top of
+the file, right under the YAML header.
 
-`Load packages and dataset`
+`# Load packages and dataset`
 
-Then add a new code chunk with the shortcut “Ctrl+Alt+I” or by using the menu item “Code -> Insert Chunk”
-Then add this to the first code chunk:
+Then add a new code chunk with the shortcut `Ctrl+Alt+I` or by using the menu
+item `Code -> Insert Chunk` Then add this to the first code chunk:
 
 ```{r, eval=FALSE}
 # Load packages
@@ -170,7 +177,10 @@ Type in an appropriate heading and add a new code chunk, then type:
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_density()
 ```
-In this session, we'll create a new code chunk for each plot to maintain a nice, readable code, and to practice writing headers and inserting code chunks. So - create a new code chunk and type this code:
+
+In this session, we'll create a new code chunk for each plot to maintain a nice,
+readable code, and to practice writing headers and inserting code chunks. So,
+create a new code chunk and type this code:
 
 ```{r, message=FALSE}
 # Create histogram for BMI
@@ -197,8 +207,8 @@ Again, add a new code chunk, then type:
 ggplot(nhanes_small, aes(x = sex)) +
     geom_bar()
 ```
-We can see that there are almost equal numbers of females and males.
 
+We can see that there are almost equal numbers of females and males.
 Now we'll do the same for diabetes status, so in a new code chunk type:
 
 ```{r}
@@ -208,8 +218,9 @@ ggplot(nhanes_small, aes(x = diabetes)) +
 ```
 
 For diabetes, it seems there is some missingness in the dataset.
-Since diabetes status is an important variable for us,
-let's remove all missing values right now, save the tidied dataset in the data folder, and plot it again (in a new code chunk).
+Since diabetes status is an important variable for us, let's remove all missing
+values right now, save the tidied dataset in the data folder, and plot it again
+(in a new code chunk).
 
 ```{r remove-missing-diabetes}
 # Remove individuals with missing diabetes status
@@ -234,9 +245,7 @@ you can read the article on why to [avoid barplots] after the course.
 The image below, taken from that paper, 
 shows briefly why this plot type is not useful. 
 
-(ref:deceptive-barplots) Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).
-
-```{r barplots-deceive, fig.cap="(ref:deceptive-barplots)", echo=FALSE}
+```{r barplots-deceive, fig.cap="Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).", echo=FALSE}
 knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
@@ -505,7 +514,7 @@ when the underlying aesthetics are the same or similar.
 In this section, we'll be covering many of these capabilities in ggplot2.
 
 The most common and "prettiest" way of adding a third variable is by using colour.
-Let's try to answer a few questions, to visualize some examples:
+Let's try to answer a few questions, to visualize some examples.
 
 *Question*: Is systolic blood pressure different in those with 
 or without diabetes in females and males? 
@@ -573,7 +582,8 @@ nhanes_tidied %>%
     facet_grid(cols = vars(diabetes))
 ```
 
-Try facetting with plots stacked by diabetes status, using the argument rows = vars(diabetes) instead. Which do you find more informative?
+Try faceting with plots stacked by diabetes status, using the argument `rows =
+vars(diabetes)` instead. Which do you find more informative?
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and diabetes status using faceting by row
@@ -630,7 +640,6 @@ Time: 10 min
 Practice changing colour schemes on a bar plot.
 Start with a base plot object to work from that has two discrete variables. 
 Copy and paste the code below into a new code chunk.
-
 
 ```{r}
 # Barplot to work from, with two discrete variables
@@ -719,7 +728,9 @@ base_scatterplot2 + theme_bw()
 base_scatterplot2 + theme_minimal()
 base_scatterplot2 + theme_classic()
 ```
-You can also set the theme for all subsequent plots, by using the `theme_set()` function, specifying the theme you want in the parenthesis.
+
+You can also set the theme for all subsequent plots, by using the `theme_set()`
+function, specifying the theme you want in the parenthesis.
 
 ```{r, eval=FALSE}
 # set the theme for all subsequent plots
