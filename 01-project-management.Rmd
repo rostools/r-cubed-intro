@@ -537,7 +537,11 @@ you to use later on.
 
 ## Encountering problems and finding help
 
-**Please take 5 mins to read this section.**
+**Please take 5 min to read this section.**
+
+```{r image-art-debugging, fig.cap="A common and frequent experience when working in R. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations)", echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("images/art-debugging.jpg"))
+```
 
 You *will* encounter problems and errors when working with R, 
 and you will encounter them *all the time*. In fact, most of your time in R will be spent figuring out solutions to these errors ("debugging"). Error messages will appear in red text in your Console and start with "Error:". Warning messages that are sometimes harmless are also usually in red, so make sure to read if it says "Error" or not. This section is designed to give you some tips for how to work around problems, as you won't always have stickies and helpers in the room to come over to your computer, and help you work through things! Here are some initial steps to take when you encounter an error:
