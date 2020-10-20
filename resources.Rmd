@@ -166,7 +166,21 @@ importing that table into R within a code chunk,
 and using `knitr::kable()` to create the table after that.
 
 
-### Potential exercise solutions
+## Other colour schemes in ggplot2
+
+You can modify ggplot2 colour schemes using many other pre-defined palettes by
+installing new R packages, including scientific journal colour palettes
+([ggsci]) and even a Wes Anderson ([wesanderson]) or a Stubio Ghibli ([ghibli])
+colour palette! 
+Also check out the Data Visualization book in the [resources](resources.html)
+chapter for more information and learning on visualizing data.
+
+[ggsci]: https://nanx.me/ggsci/index.html
+[wesanderson]: https://github.com/karthik/wesanderson
+[ghibli]: https://ewenme.github.io/ghibli/
+
+
+## Potential exercise solutions
 
 These are *potential* exercise solutions of R code only. This are mostly intended
 as a resource for after the class, not during it.

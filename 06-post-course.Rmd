@@ -277,29 +277,3 @@ each other and with new versions of R, and keeping everything on the cutting
 edge of new releases is not feasible. In the case of DST, you will be running
 versions that are often several months behind the latest "real-world" releases,
 even in the most updated times.
-
-## Other colour schemes in ggplot2
-
-You can modify ggplot2 colour schemes using many other pre-defined palettes by
-installing new R packages, including scientific journal colour palettes
-([ggsci]) and even a Wes Anderson ([wesanderson]) or a Stubio Ghibli ([ghibli])
-colour palette! 
-Also check out the Data Visualization book in the [resources](resources.html)
-chapter for more information and learning on visualizing data.
-
-[ggsci]: https://nanx.me/ggsci/index.html
-[wesanderson]: https://github.com/karthik/wesanderson
-[ghibli]: https://ewenme.github.io/ghibli/
-
-## Other colour schemes in ggplot2
-
-You can modify ggplot2 colour schemes using many other pre-defined palettes by
-installing new R packages, including scientific journal colour palettes
-([ggsci]) and even a Wes Anderson ([wesanderson]) or a Stubio Ghibli ([ghibli])
-colour palette! 
-Also check out the Data Visualization book in the [resources](resources.html)
-chapter for more information and learning on visualizing data.
-
-[ggsci]: https://nanx.me/ggsci/index.html
-[wesanderson]: https://github.com/karthik/wesanderson
-[ghibli]: https://ewenme.github.io/ghibli/
