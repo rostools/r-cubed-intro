@@ -39,7 +39,7 @@ and make your analysis and work more reproducible. Plus you can create
 some very aesthetically appealing reports, 
 way more easily than you could if you did it in Word. 
 
-```{r image-art-reproducibility, fig.cap="Have a more reproducible workflow by using R Markdown. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations)", echo=FALSE, out.width="70%"}
+```{r image-art-reproducibility, fig.cap="Have a more reproducible workflow by using R Markdown. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations).", echo=FALSE, out.width="70%"}
 knitr::include_graphics(here::here("images/art-reproducibility.png"))
 ```
 
@@ -97,7 +97,7 @@ because the logic and sequence is shown in the document itself.
 **Let's go over this together**.
 
 Ok, let's create and save an R Markdown file. 
-Go to "File -> New File -> R Markdown",
+Go to `File -> New File -> R Markdown`,
 and a dialog box will then pop up.
 Type in "Reproducible documents" in the title section 
 and your name in the author section. 
@@ -152,7 +152,7 @@ By "knitting" it! At the top of the pane near the save button,
 there is a button with the word "Knit" and yarn beside it, 
 as shown in Figure \@ref(fig:image-rstudio-knit-button). 
 To knit, you either click that button 
-or by typing "Ctrl+Shift+K" anywhere in the R Markdown document.
+or by typing `Ctrl-Shift-K` anywhere in the R Markdown document.
 
 ```{r image-rstudio-knit-button, echo=FALSE, fig.cap="Location of the Knit button in RStudio."}
 knitr::include_graphics(here::here("images/rstudio-knit-button.png"))
@@ -165,7 +165,7 @@ Alternatively, the HTML document may pop up in the "Viewer" pane.
 Cool, so now you've created an HTML document!
 Let's try making a Word document.
 Change the YAML value in the key `output:` from `html_document` to `word_document`.
-Then knit the document again (with the "Knit" button or with "Ctrl-Shift-K").
+Then knit the document again (with the "Knit" button or with `Ctrl-Shift-K`).
 Now, a Word document should open up.
 This is the basic approach to creating documents from R Markdown.
 
@@ -177,7 +177,7 @@ Time: 7 min
     - Write the title as "Trying out R Markdown".
     - Choose "HTML" as the document type.
 1. Save the document in the `doc/` folder and name it `another-one.Rmd`.
-1. Knit the document with either "Ctrl-Shift-K" 
+1. Knit the document with either `Ctrl-Shift-K` 
 or with the RStudio "Knit" button.
 1. Look at the output document, then change the YAML value for the `output:`
 key from `html_document` to `word_document`. Knit again.
@@ -197,8 +197,8 @@ and when running R code in order to obtain an output
 that you'd then put into the document.
 
 Running and including R code in R Markdown is done through "R code chunks".
-You insert these chunks into the document by either typing "Ctrl+Alt+I" 
-or using the menu item "Code -> Insert Chunk", 
+You insert these chunks into the document by either typing `Ctrl-Alt-I` 
+or using the menu item `Code -> Insert Chunk`, 
 with the cursor at the location you want the chunk to be.
 Before we do that,
 delete all the text in your R Markdown document (the `rmarkdown-session.Rmd` file),
@@ -206,7 +206,7 @@ excluding the YAML header.
 Make sure that the YAML key `output:` is set to `html_document`.
 
 Then, place your cursor two lines below the YAML header 
-and insert a code chunk ("Ctrl+Alt+I" or "Code -> Insert Chunk").
+and insert a code chunk (`Ctrl-Alt-I` or `Code -> Insert Chunk`).
 The code chunk should look something like this:
 
 ````markdown
@@ -224,12 +224,12 @@ In the code chunk, type out `2 + 2`, so it looks like:
 ````
 
 You can run R code inside the code chunk the same as you would when in an R script.
-Typing "Ctrl+Enter" on the line will send the code `2 + 2` to the console,
+Typing `Ctrl-Enter` on the line will send the code `2 + 2` to the console,
 putting the output directly below the code chunk in the R Markdown document.
 This output though is temporary.
 
 To get it inserted into the HTML document,
-knit ("Ctrl+Shift+K") the document and see what happens in the created HTML document.
+knit (`Ctrl-Shift-K`) the document and see what happens in the created HTML document.
 The output `4` should appear below the code chunk in the HTML document.
 Something like this:
 
@@ -263,9 +263,9 @@ probably causing you quite a bit of annoyance and frustration.
 
 A nifty thing about using chunk labels is that you can see the name
 when using "Document Outline" 
-(found using "Ctrl+Shift+O"), 
+(found using `Ctrl-Shift-O`), 
 but only if you have the option set in the 
-"Tools -> Global Options -> R Markdown -> Show in document outline".
+`Tools -> Global Options -> R Markdown -> Show in document outline`.
 
 The name `setup` is also a special name for R Markdown.
 When you run other code chunks in the document,
@@ -291,8 +291,8 @@ nhanes_small
 ````
 
 You can run this code normally, with the cursor over the code 
-and typing "Ctrl+Enter".
-Or we can knit ("Ctrl+Shift+K") the document and see what it looks like.
+and typing `Ctrl-Enter`.
+Or we can knit (`Ctrl-Shift-K`) the document and see what it looks like.
 When the HTML document opens,
 you should see some text below the `setup` chunk that might look something like this:
 
@@ -427,7 +427,7 @@ nhanes_small %>%
     knitr::kable(caption = "Table caption. Mean values of Age and BMI for each sex and diabetes status.")
 ```
 
-Now, knit ("Ctrl+Shift+K") and view the output in the HTML document.
+Now, knit (`Ctrl-Shift-K`) and view the output in the HTML document.
 Pretty eh!
 
 ## Exercise: Creating a table using R code
@@ -489,7 +489,7 @@ nhanes_small %>%
 
 **Take about 8 min to read over the first few parts of this section, then move
 to the next exercise. You can also access a quick guide using the RStudio menu:
-"Help -> Cheatsheets -> R Markdown Cheat Sheet"**. For learning more formatting
+`Help -> Cheatsheets -> R Markdown Cheat Sheet`**. For learning more formatting
 features of Markdown, check out Appendix \@ref(post-course-markdown).
 
 Formatting text in Markdown is done using characters that are considered "special"
@@ -607,7 +607,7 @@ If you want to change the size of the image,
 it can be difficult. 
 However, using R code chunks can simplify this!
 
-First, let's create a new code chunk ("Ctrl+Alt+I"),
+First, let's create a new code chunk (`Ctrl-Alt-I`),
 name the code chunk `kitten-image`,
 and add the function `knitr::include_graphics()`.
 To make it easier to find the image, 
@@ -624,7 +624,7 @@ knitr::include_graphics(here::here("doc/images/kitten.jpg"))
 knitr::include_graphics(here::here("images/kitten.jpg"))
 ```
 
-Knit the document again ("Ctrl+Shift+K") 
+Knit the document again (`Ctrl-Shift-K`) 
 and view the HTML document with the new picture.
 Now, let's change the width and height of the image,
 along with adding a figure caption.

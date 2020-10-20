@@ -219,7 +219,7 @@ the vast majority of daily use can be done through RStudio's interface.
 To access the Git interface in RStudio, 
 click the Git icon beside the "Go to" search bar 
 (see Figure \@ref(fig:image-rstudio-git-button)) 
-and then click the "Commit..." option (Ctrl+Alt+M).
+and then click the "Commit..." option (`Ctrl-Alt-M`).
 
 ```{r image-rstudio-git-button, echo=FALSE, fig.cap="The Git button location in RStudio."}
 knitr::include_graphics(here::here("images/rstudio-git-button.png"))
@@ -258,7 +258,10 @@ Red, which you will see shortly, means text was removed.
 Now click the "Staged" checkbox besides the `README.md` file 
 to get it ready to be saved into the history.
 You've now "added" it to the staged area.
-Tip: If you have a lot of files to stage and you don't need to review each change: You can stage them all in a single click by pressing CTRL-A to select all files (⌘-A for Mac users) and then clicking the "Staged" checkbox one of the files. 
+Tip: If you have a lot of files to stage and you don't need to review each
+change: You can stage them all in a single click by pressing `Ctrl-A` to select
+all files (`⌘-A` for Mac users) and then clicking the "Staged" checkbox one of the
+files.
 The box on the right side is where you type out your "commit" message.
 "Commit" means you save something to the history of changes;
 You "commit" it to the history, like you "commit" something to your own memory.
@@ -318,7 +321,7 @@ Here you can see what has been done in previous commits.
 Next, open up the `README.md` file in RStudio using the Files tab.
 At the top of the file, write your name and your field of research,
 and then save the file.
-Open up the Git interface again (with the Git icon or with Ctrl-Alt-M).
+Open up the Git interface again (with the Git icon or with `Ctrl-Alt-M`).
 You should now see the added text in green.
 Alright, now stage the change (click the checkbox),
 write a message like "added my name to README file",
@@ -463,7 +466,7 @@ Open up the `LearningR` RStudio R project
 and go to the Terminal tab beside the Console tab, 
 shown in Figure \@ref(fig:image-rstudio-terminal-tab)).
 Paste the code into the Terminal by right-clicking and selecting "Paste"
-(*note*: "Ctrl+V" does *not* work) and press Enter.
+(*note*: `Ctrl-V` does *not* work) and press Enter.
 You will likely need to type in your GitHub password.
 Wait for it to finish and then go to the `LearningR` GitHub repository.
 You should now have your project files on GitHub!
@@ -536,8 +539,8 @@ and selecting the `LearningR` project from the menu.
 Open up the `README.md` 
 and add a random sentence somewhere near the top of the file.
 Save, then open the Git interface,
-by typing "Ctrl+Alt+M" anywhere in the RStudio interface
-(but not when in the Terminal) or going to the "Git button -> Commit",
+by typing `Ctrl-Alt-M` anywhere in the RStudio interface
+(but not when in the Terminal) or going to the `Git button -> Commit`,
 and add to the staging and commit the new change.
 Next, click the "Push" button in the top right corner of the Git interface
 (in box 2 of Figure \@ref(fig:image-rstudio-git-interface)).
@@ -730,7 +733,7 @@ When you have a private repository,
 you need to explicitly add collaborators in GitHub.
 
 You add someone by going to 
-"Settings -> Manage Access -> Invite a collaborator"
+`Settings -> Manage Access -> Invite a collaborator`
 (also shown in the video below).
 
 ```{r video-github-add-collaborator, echo=FALSE}
