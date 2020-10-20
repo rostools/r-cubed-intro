@@ -48,6 +48,26 @@ knitr::include_graphics(here::here("images/cloud-settings-github.jpg"))
     - **R projects and folder structure in RStudio Cloud:** Since we start every R session inside of a project on RStudio Cloud, RStudio in the cloud session doesn't let us set up projects from inside of the R session. The `prodigenr` package can still be used *through the console* to set up the basic folder structure of our projects. However, the root folder of any project is fixed to `/cloud/project/`, so when setting up our folder structure with prodigenr, we should have this in mind (e.g. `prodigenr::setup_project("LearningR")` creates the prodigenr folders inside`/cloud/project/LearningR` and avoids unnecessarily long file paths)
     - **Cloning a GitHub remote repository in RStudio Cloud:** Can be done when setting up a new project in the RStudio Cloud workspace ("New Project from Git Repo"), or from the terminal, but it cannot be done through the RStudio main menu interface.
 
+### Potential exercise solutions
+
+These are *potential* exercise solutions of R code only. This are mostly intended
+as a resource for after the class, not during it.
+
+```{r all-exercise-solutions, results="asis", echo=FALSE, message=FALSE}
+library(magrittr)
+source(here::here("R/extract-solutions.R"))
+chapter_files <- fs::dir_ls(regexp = "^0[1-5]-.*.Rmd$")
+solutions <- purrr::map(
+    chapter_files,
+    extract_solution_chunks
+)
+unlist(solutions) %>% 
+    cat(sep = "\n")
+```
+
+
+## Resources for general use:
+
 ## More formatting syntax in Markdown {#post-course-markdown}
 
 ### Lists
@@ -180,22 +200,6 @@ chapter for more information and learning on visualizing data.
 [ghibli]: https://ewenme.github.io/ghibli/
 
 
-## Potential exercise solutions
-
-These are *potential* exercise solutions of R code only. This are mostly intended
-as a resource for after the class, not during it.
-
-```{r all-exercise-solutions, results="asis", echo=FALSE, message=FALSE}
-library(magrittr)
-source(here::here("R/extract-solutions.R"))
-chapter_files <- fs::dir_ls(regexp = "^0[1-5]-.*.Rmd$")
-solutions <- purrr::map(
-    chapter_files,
-    extract_solution_chunks
-)
-unlist(solutions) %>% 
-    cat(sep = "\n")
-```
 
 ## For learning {#further-learning}
 
