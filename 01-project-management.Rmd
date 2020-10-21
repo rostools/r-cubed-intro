@@ -633,26 +633,6 @@ troubleshoot problems. Ways to integrate this into your practice are to review
 documents like the tidyverse style guides regularly and perhaps join an online
 coding community.
 
-## Exercise: Quick fixes and troubleshooting
-
-**Time: 10 min**
-
-The pieces of code below will return an error message due to one of the mistakes
-noted above. You don’t need to run this code in the `R/project-session.R`, but you can copy and
-paste the code into RStudio so that you can play around with it. Look at the
-code, identify the mistake, and provide the corrected code. You don’t need to
-understand what the code does.
-
-```{r exercise-errors, error=TRUE}
-x < y
-Library(tidyvrese)
-```
-
-```{r solution-exercise-errors, eval=FALSE, solution=TRUE}
-x < y
-library(tidyverse)
-```
-
 ## Summary of session {#r-project-management-summary}
 
 - Use [R Projects] in RStudio (e.g. with prodigenr).
