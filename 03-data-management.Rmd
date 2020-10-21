@@ -7,15 +7,12 @@
 1. Learn the difference between "messy" and "tidy" data 
 and how to create tidy data to simplify your analysis.
 1. Perform simple transformations and subsetting of datasets, such as:
-    - Subset specific columns and rows of a dataset (with `filter()`and `select()`).
-    - Sort rows of a dataset by a specific column (with `arrange()`).
-    - Create new or transform existing columns in a dataset (with `mutate()`).
-    - Calculate simple data summaries (with `summarize()`).
-1. Learn about and apply the "split-apply-combine" method for doing analyses
-(with `group_by()` and `summarize()`).
-1. Know the difference between "long" and "wide" data 
-and how to convert between them by "pivotting" (with `pivot_longer()`
-and `pivot_wider()`).
+    - Subset specific columns and rows of a dataset, with `filter()`and `select()`.
+    - Sort rows of a dataset by a specific column, with `arrange()`.
+    - Create new or transform existing columns in a dataset, with `mutate()`.
+    - Calculate simple data summaries, with `summarize()`.
+1. Learn about and apply the "split-apply-combine" method for doing analyses,
+with `group_by()` and `summarize()`.
 1. Write "tidier" and more readable code by using the pipe (`%>%`) operator.
 
 ## "Messy" vs. "tidy" data
@@ -32,7 +29,7 @@ we need to cover something that is related to the concept of "tidy"
 and that will come up often in this course: the [tidyverse].
 The tidyverse is an ecosystem of R packages that are designed to work well together,
 that all follow a strong "[design philosophy]" and common [style guide].
-This makes them much easier to use together.
+This makes combining these packages in the tidyverse much easier.
 These packages also tend to have excellent, beginner-friendly documentation
 and tutorials on learning and using the packages.
 We teach the tidyverse because of these reasons.
@@ -43,16 +40,15 @@ We teach the tidyverse because of these reasons.
 
 Ok, back to "tidy data". A tidy dataset is when:
 
-- Each variable has its own column (e.g. "Body Weight")
-- Each observation has its own row (e.g. "Person")
-- Each value has its own cell (e.g. "Body weight for a person at a specific date")
+- Each variable has its own column (e.g. "Body Weight").
+- Each observation has its own row (e.g. "Person").
+- Each value has its own cell (e.g. "Body weight for a person at a specific date").
 
 [article]: https://www.jstatsoft.org/v59/i10/paper
 [Tidy Data chapter]: https://r4ds.had.co.nz/tidy-data.html
 
 Take a look at the example "tidy" and "messy" data frames
 (also called "tibbles" in the tidyverse) below.
-These datasets come built in with the tidyr package for teaching purpose.
 Think about why each is "tidy" or "messy". 
 What do you notice between the tidy versions and the messier versions?
 
@@ -60,12 +56,16 @@ What do you notice between the tidy versions and the messier versions?
 # Datasets come from tidyr
 # Tidy:
 table1
+
 # Partly tidy:
 table2
+
 # Messier:
 table3
+
 # Messy:
 table4a
+
 # Messy:
 table4b
 ```
@@ -104,7 +104,7 @@ in plainer English what you are doing to the data
 When working with data, there are a few principles to follow:
 
 - **Never** edit raw data and save it in a separate location 
-(could put in the `data-raw/` folder)
+(could put in the `data-raw/` folder).
     - *Note*: Saving to `data-raw/` depends on how you collected the data 
     and how many collaborators are on your team. 
     You may end up storing and processing the data in another folder as a project
@@ -119,9 +119,9 @@ preferably by using R code.
 When wrangling your data with R code make sure to:
 
 - Document and comment as best you can what you did to your data and why you did
-it to help you remember
+it to help you remember.
 - Write the code itself to be as descriptive as you can
-and to readable enough to understand what is being done to the data.
+and to be readable enough to understand what is being done to the data.
 Keep the code simple: Don't be clever, be clear.
 Clear code is easier to understand than some clever code.
 
@@ -131,7 +131,9 @@ Wrangling here is used in the sense of maneuvering, managing, controlling, and
 turning your data around to clean it up, to better understand it,
 and to prepare it for later analyses. 
 The table below lists some common "verbs" from the [dplyr] 
-and [tidyr] packages that come from the tidyverse:
+package that come from the tidyverse:
+
+[dplyr]: https://dplyr.tidyverse.org/
 
 ```{r table-wrangling-verbs, echo=FALSE}
 tibble::tribble(
@@ -141,15 +143,11 @@ tibble::tribble(
     "Transform or modify columns", "Multiplying a column's values or taking the log.", "`mutate()`",
     "Subset/filter rows", "Keeping rows with glucose values above 4.", "`filter()`",
     "Sort rows", "Show rows with the smallest value at the top.", "`arrange()`",
-    "Convert data from wide to long", "One row per participant to multiple participants per row (repeated measures).", "`pivot_longer()`",
-    "Convert data from long to wide", "Multiple rows per participant (repeated measures) to one participant per row.", "`pivot_wider()`",
     "Calculate summaries of the data", "Calculating the maximum, median, and minimum age.", "`summarise()`",
     "Run an analysis by a group", "Calculate means of age by males and females.", "`group_by()` with `summarise()`"
 ) %>% 
     knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
 ```
-
-The functions above come from the packages [dplyr] and [tidyr]. You will recall that these are packages that are commonly used for data manipulation.
 
 **Tip**: Sometimes you need to do some complicated wrangling to get your data 
 in appropriate "shape" to use for later analyses.
@@ -163,16 +161,14 @@ than having to run the wrangling code every time you want to work with the data.
 We're going to use the US [NHANES] dataset to demonstrate the wrangling functions. 
 There is an [NHANES package] that contains a teaching version of the original dataset, 
 so we'll use that for this lesson. 
-First, make sure the R Project you created previously is open. 
-Then open the `R/package-loading.R` script, add the dataset package to the file,
+First, make sure the `LearningR` R Project you created previously is open. 
+Then open the `R/package-loading.R` script and add the dataset package to the file,
 so it looks like:
 
 ```{r}
 library(tidyverse)
 library(NHANES)
 ```
-
-With the added dataset package, add and commit the changes to the Git history with the RStudio Git Interface.
 
 Then open the `R/wrangling-session.R` script to start typing out the next code. 
 We'll use this file to write the code for this session (but not for the exercises).
@@ -188,7 +184,8 @@ source(here::here("R/package-loading.R"))
 glimpse(NHANES)
 ```
 
-Let's add and commit the changes to the Git history with the RStudio Git Interface.
+With the added dataset package and code added to the `R/wrangling-session.R`,
+add and commit the changes to the Git history with the RStudio Git interface.
 
 ## Exercise: Become familiar with the dataset
 
