@@ -85,7 +85,7 @@ also be keeping track of time and wave to you to continue on or slow down.
 quite hard, but just try as best you can. The lead organizer may take notes and
 provide feedback after your lesson or clarify concepts to the participants. Try
 to (briefly) explain as much aspects as possible of what you are doing,
-including how to open RStudio or how to run code (e.g. press `Shift+Enter` in RStudio)
+including how to open RStudio or how to run code (e.g. press `Shift-Enter` in RStudio)
 - The majority of the lesson material is *participatory live-coding*, so use of
 slides is minimal. The purpose of the course is to *type with the participants*,
 to show by doing.

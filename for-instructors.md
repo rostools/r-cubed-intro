@@ -28,11 +28,11 @@ Once teams are created, assign one instructor or helper to each group.
 
 - Have an RStudio theme that uses a white background with black text.
 This setting is easier to read on projectors.
-- In "Global Options -> Appearance", 
+- In `Global Options -> Appearance`, 
 put a higher Zoom value and increase the font size (maybe around 14). 
 Exact zoom and font size depends on the projector.
 - Put the Console and Script panes side by side rather than stacked. 
-This can be changed in the "Global Options -> Pane Layout" 
+This can be changed in the `Global Options -> Pane Layout` 
 
 ### First day
 
@@ -58,8 +58,8 @@ and why they want to learn R.
 
 - For most of the sessions,
 there are sections that tell the participants to read on their own.
-Know beforehand where these sections are,
-get them to read over the section.
+Know beforehand where these sections are and
+get them to read over the section when you come to it.
 Ask for any questions about what they read, 
 and if you want to elaborate you can, 
 but it's not necessary given they just read it.
@@ -77,8 +77,8 @@ and don't let R code go too long.
 You have two options to take so that all code stays on the screen
 (use which ever you find most visually appealing):
     1. Use soft-wrapping of R code. 
-    You can set this in RStudio by going to "Tools -> Global
-    Options -> Code -> Editing tab"
+    You can set this in RStudio by going to `Tools -> Global
+    Options -> Code -> Editing tab`
     and then tick the "Soft-wrap R source files" option.
     2. Or, adding more lines to the code then you normally would use.
     For instance, instead of:

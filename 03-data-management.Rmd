@@ -1069,7 +1069,7 @@ time when you want to wrangle your own data.
 
 There are several ways to load in a dataset. The most common ways are:
 
-1. Using the RStudio menu "File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata" 
+1. Using the RStudio menu `File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata` 
 (depending on your file type you want to import). Copy and paste the R code given
 for importing into the R script you are working in.
 
@@ -1087,7 +1087,7 @@ for importing into the R script you are working in.
 
     You load the dataset and use it again, 
     but before we do, let's restart the R session with either `Ctrl-Shift-F10`
-    or with the menu item "Session -> Restart R". Now, type out and run this:
+    or with the menu item `Session -> Restart R`. Now, type out and run this:
     
     ```{r, eval=FALSE}
     load(here::here("data/nhanes_small.rda"))

@@ -154,7 +154,7 @@ the file, right under the YAML header.
 
 `# Load packages and dataset`
 
-Then add a new code chunk with the shortcut `Ctrl+Alt+I` or by using the menu
+Then add a new code chunk with the shortcut `Ctrl-Alt-I` or by using the menu
 item `Code -> Insert Chunk` Then add this to the first code chunk:
 
 ```{r, eval=FALSE}
@@ -254,7 +254,7 @@ you'll quickly find out that it actually is quite hard to do in ggplot2.
 The reason it is difficult to create in ggplot2 is by design:
 it's a bad plot to use, so use something else.
 
-```{r image-art-bar-error-plot, fig.cap="Barplots hide interesting results. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations)", echo=FALSE, out.width="70%"}
+```{r image-art-bar-error-plot, fig.cap="Barplots hide interesting results. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations).", echo=FALSE, out.width="70%"}
 knitr::include_graphics(here::here("images/art-bar-error-plot.png"))
 ```
 
