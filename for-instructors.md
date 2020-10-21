@@ -58,8 +58,8 @@ and why they want to learn R.
 
 - For most of the sessions,
 there are sections that tell the participants to read on their own.
-Know beforehand where these sections are,
-get them to read over the section.
+Know beforehand where these sections are and
+get them to read over the section when you come to it.
 Ask for any questions about what they read, 
 and if you want to elaborate you can, 
 but it's not necessary given they just read it.
