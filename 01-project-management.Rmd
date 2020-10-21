@@ -584,6 +584,54 @@ telling you**. Some common error messages include:
 where the problem occurs. You will get an opportunity to practice this later,
 once you are working with bigger chunks of code.
 
+If you still can't find the problem, here are some other steps to take:
+
+1. **Restart the R session (`Session -> Restart R` or `Ctrl-Shift-F10`)**. 
+Then run the code from beginning again and track what objects get created, and if
+the proper object name is used later on.
+1. (Rarely need to do) **Close/re-open RStudio and try again.**
+1. **Use `help()` or `?` to access built-in documentation about a function or
+package.** You may be using the function incorrectly, so find out more about the
+function by looking at the built-in documentation. The documentation will open
+up in the "Help" pane of RStudio (bottom right-hand corner). **Try it out:**
+Enter either of the following commands into your console and run it (hit `Enter`).
+
+    ```{r using-help, eval=FALSE}
+    ?colnames
+
+    help(colnames)
+    ```
+
+    Sometimes, this documentation can be hard to read and seem overly complex for a
+    beginner. You can also try finding the website for the package you are
+    having trouble with, as they often have guides that are a little easier to
+    understand. The [tidyverse](https://www.tidyverse.org/packages/) packages all
+    have amazing documentation that you can use to help you with problems you may
+    have.
+
+1. **Consider explaining the problem out loud to a colleague or friend.** You
+might find that, in verbally going through the problem and explaining it, 
+you will likely come up with the solution yourself.
+1. **Take a break and come back to it later!**
+1. **Google it.** Chances are that someone has already encountered that error
+and has asked about it online. In fact, those who are "experts" in coding
+languages like R are experts largely because of their skill in knowing the right
+words or terms or questions to ask Google. Usually googling the error message
+will be enough to find the answer, but sometimes you'll need to include "R" or
+"rstats" and the relevant package or function as a keyword in your search.
+1. If all else fails, you can always turn to the trusty **online R community**.
+Check [StackOverflow](https://stackoverflow.com/questions/tagged/r), a
+coding-related question and answer website, to see whether your issue has
+already been asked and solved by others. If it hasn’t and you are
+considering submitting a question, make sure to read the posting guides
+beforehand to ensure that you are asking the question in a helpful way.
+
+*Final words:* It is important to always work towards writing "better" and
+"neater" code, as this can make it easier to break down pieces of code and
+troubleshoot problems. Ways to integrate this into your practice are to review
+documents like the tidyverse style guides regularly and perhaps join an online
+coding community.
+
 ## Exercise: Quick fixes and troubleshooting
 
 **Time: 10 min**
@@ -604,41 +652,15 @@ x < y
 library(tidyverse)
 ```
 
-## Final troubleshooting tips
-
-1. **Restart the R session (`Session -> Restart R` or `Ctrl-Shift-F10`)**. 
-Then run the code from beginning again and track what objects get created, and if
-the proper object name is used later on.
-1. (Rarely need to do) **Close/ re-open RStudio and try again.**
-1. **Use `help()` or `?` to access built-in documentation about a function or package.** When you run this function on an object,
-it will open the relevant documentation in the "Help" pane of RStudio (bottom right-hand corner). **Try it out:** Enter either of the following commands into your console and Run.
-
-    ```{r using-help, eval=FALSE}
-    ?colnames
-
-    help(colnames)
-    ```
-
-Sometimes, this documentation can be hard to read and seem overly complex for a beginner. Instead, you can try finding the website for the package you are having trouble with, as they often have guides that are a little easier to understand. The [tidyverse](https://www.tidyverse.org/packages/) packages all have amazing documentation that you can use to help you with problems you may have.
-
-1. **Check out the [RStudio cheatsheets](https://rstudio.com/resources/cheatsheets/)**, which are printable PDF files that are 
-great sources of help and learning. You can access cheatsheets by select `Help -> Cheatsheets` from the top menu bar. 
-1. **Consider explaining the problem out loud to a colleague or friend.** You might find that, in stepping through the problem and explaining what it is that you are trying to do/solve, you will come up with the solution yourself.
-1. **Take a break and come back to it!**
-1. **Google it.** Chances are that someone has already encountered that error and has asked about it online. In fact, those who are "more expert" in coding languages like R are skilled mostly because they are strategic and know how ask Google the right questions. Sometimes, Googling the error message will be enough, but sometimes you will need to include "R" or "rstats" and the relevant package or function as a keyword in your search.
-1. If all else fails, you can always turn to the trusty **online R community**. Check [StackOverflow](https://stackoverflow.com/questions/tagged/r), a coding-related question and answer website, to see whether your issue has already been asked about and solved by others. If it hasn’t and you are considering submitting a question, make sure to read the posting guides beforehand to ensure that you are asking the question in a helpful way. 
-
-**Final words:** It is important to always work towards writing "better" and "neater" code, as this can make it easier to break down pieces of code and troubleshoot problems. Ways to integrate this into your practice are to review documents like the tidyverse style guides regularly and perhaps join an online coding community.  
-
 ## Summary of session {#r-project-management-summary}
 
-- Use R Projects in RStudio (e.g. with prodigenr)
-- Use a standard folder and file structure
-- Use a consistent [style guide] for code and files
-- Keep R scripts simple, focused, short
-- Use the `here()` function from the [here] package
-- Use tab auto-completion when writing code
-- Use `?` to get help on an R object
+- Use [R Projects] in RStudio (e.g. with prodigenr).
+- Use a standard folder and file structure.
+- Use a consistent [style guide] for code and files.
+- Keep R scripts simple, focused, short.
+- Use the `here()` function from the [here] package.
+- Use tab auto-completion when writing code.
+- Use `?` to get help on an R object.
 
 [RStudio cheatsheets]: https://www.rstudio.com/resources/cheatsheets/
 [R Projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
