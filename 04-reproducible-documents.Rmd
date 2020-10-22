@@ -606,8 +606,7 @@ Time: 5 min
 Go into the `doc/another-one.Rmd` file and complete these items:
 
 - Right under the YAML header, insert a list item with your name.
-Put your affiliations as a sub-item, and provide a link to your 
-university or institution.
+Put your affiliations and your university or institution as items in a sub-list.
 - Create three level 1 headers (`#`), called "Intro", "Methods and Results", and
 "Discussion".
 - Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
