@@ -62,7 +62,7 @@ We'll be setting up a project folder and file structure using [prodigenr](https:
 We'll use RStudio's New Project menu item under `File -> New Project`.
 We'll call the new project **`LearningR`**.
 Save it on your `Desktop/`.
-See Figure \@ref(fig:prodigenr-project-creation) for the steps to do it:
+See Figure \@ref(fig:video-prodigenr-project-creation) for the steps to do it:
 
 ```{r video-prodigenr-project-creation, fig.cap="Creating a new analysis project in RStudio.", echo=FALSE}
 # TODO: Replace with video instead of gif after updating prodigenr
