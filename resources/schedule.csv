@@ -1,6 +1,6 @@
 Date and time,Session topic,Type
 **Day 1**,,
-,"Arrival; Coffee, tea, and snacks",
+,"Arrival; coffee, tea, and snacks",
 10:00,Introduction to the course,Lecture
 10:30,Management of R projects (with short break),Code-along
 12:30,Lunch,
@@ -8,9 +8,8 @@ Date and time,Session topic,Type
 14:00,Version control and collaborative practices,Code-along
 14:30,"Break with coffee, tea, and snacks",
 15:30,Version control and collaborative practices,Code-along
-17:30,End of day short survey,
+17:30,End-of-day short survey,
 **Day 2**,,
-,Breakfast,
 9:00,Data management and wrangling,Code-along
 10:15,"Break with coffee, tea, and snacks",
 10:30,Data management and wrangling (with short break),Code-along
@@ -19,9 +18,8 @@ Date and time,Session topic,Type
 14:00,Creating reproducible documents,Code-along
 14:45,"Break with coffee, tea, and snacks",
 15:00,Creating reproducible documents,Code-along
-17:00,End of day short survey,
+17:00,End-of-day short survey,
 **Day 3**,,
-,Breakfast and checkout,
 9:00,Data visualizations,Code-along
 10:15,"Break with coffee, tea, and snacks",
 11:00,Data visualizations (with short break),Code-along,
