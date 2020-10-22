@@ -4,25 +4,24 @@
 
 ### Instructor and helper number
 
-The recommended number of instructors for a 25-35 class size is about 3-6
+- The recommended number of instructors for a 25-35 class size is about 3-6
 instructors (~1 instructors for every 1-2 sessions). 
-If there are more instructors, then less helpers are needed. 
+If there are more instructors, than less helpers are needed. 
 The recommended combined total number of helpers
 and instructors is about 6 for a smooth workflow experience for the learners.
-
-Once you have confirmed your team of instructors and helpers, use WhatsApp or another preferred messenger app to set up a group message that supports easy communication.
+- Once you have confirmed your team of instructors and helpers, use WhatsApp or another preferred messenger app to set up a group message that supports easy communication.
 
 ### Setting up teams
 
-Before the introduction session (maybe the day before),
+- Before the introduction session (maybe the day before),
 assign people into groups 
 and create GitHub teams for them using the [ghclass] package.
 Use the R script `R/create-teams.R` to generate random group names,
 and then assign people to these teams and to repositories.
+- Once teams are created, assign one instructor or helper to each group to help
+them throughout the course and especially during the final group project.
 
 [ghclass]: https://rundel.github.io/ghclass
-
-Once teams are created, assign one instructor or helper to each group.
 
 ### Before your session
 
@@ -36,23 +35,21 @@ This can be changed in the `Global Options -> Pane Layout`
 
 ### First day
 
-In the room, arrange the tables into groups for each of the teams.
-As participants come in, get them to sit in their assigned team by referring to the team lists placed in the middle of each table.
-
-During the introduction, introduce all the instructors and helpers.
-
-Some time during the introduction session, 
+- In the room, arrange the tables into groups for each of the teams.
+As participants come in, get them to sit in their assigned team by referring to
+the team lists placed in the middle of each table.
+- During the introduction, introduce all the instructors and helpers.
+- Some time during the introduction session, 
 get them to stand in line and arrange themselves from 
 "complete beginner" to "know a little bit" for R, 
 data analysis, and programming.
 During the introduction, 
 describe the assignment and what's the purposes of the teams.
-
-Before the lunch break, get the groups to have lunch together 
+- Before the lunch break, get the groups to have lunch together 
 and introduce each other more. 
 Get them to say their program, if they've used R before, 
 some struggles they've had with R and with data analysis in general, 
-and why they want to learn R.
+and/or why they want to learn R.
 
 ### Throughout the sessions
 
@@ -64,7 +61,7 @@ Ask for any questions about what they read,
 and if you want to elaborate you can, 
 but it's not necessary given they just read it.
 - For the exercises, 
-make sure to get the learners helping each other out in their groups.
+make sure to get the learners are helping each other out in their groups.
 - Exercise solutions do not need to be covered by the instructor,
 given the solution is provided already.
 - Try to keep the screen on your RStudio as much as possible 
@@ -100,31 +97,30 @@ You have two options to take so that all code stays on the screen
 
 ### Making use of the stickies
 
-- Check in with the learners to see where they are at by asking something like:
+- Check in with the learners to see where they are at by saying something like:
 "Do you see the same thing as is on the screen? 
 If yes, put the 'all good' sticky on your laptop. 
 If no, use the 'need help' sticky."
-- For the reading activities, before starting, ask:
+- For the reading activities, before starting, say:
 "Please read this section as instructed. 
 When you are done, put the 'all good' sticky up."
-- For exercises, before starting, ask:
+- For exercises, before starting, say:
 "Please complete the exercise. When you are done,
 please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
-- Throughout the exercises and code-along sessions, reinforce the use of troubleshooting techniques including finding help from othe resources.
+- Throughout the exercises and code-along sessions, reinforce the use of troubleshooting techniques including finding help from other resources.
 
 ## Content and other details
 
 ### Version control
 
-For the reading parts, let them read it first 
+- For the reading parts, let them read it first 
 and then walk through the material again, 
-to reinforce importance of version control 
+to reinforce the importance of version control 
 and doing it formally.
 So give them a heads up that you'll be repeating things,
 specifically to reinforce the concepts.
-
-It's important in this session to go **slowly**. Version control is a challenging
+- It's important in this session to go **slowly**. Version control is a challenging
 topic and isn't something most people have ever learned about or dealt with.
 So take it slow and make sure everyone is on the same page. Make use of stickies
 frequently to assess how everyone is doing.
@@ -213,7 +209,7 @@ URLs are not always stable, so this checks if they are active/live.
 the teams, and assign the teams to those repositories. Relies on `fetch-pre-survey.R` (see below).
 - `fetch-feedback-survey.R`: Fetches, cleans, and processes the participant feedback
 from the Google Form survey. Uses the `ignore.R` file that contains the Google
-document ID and is not present in the repository, so you'd have to create your own Google doc.
+document ID and is not present in the repository, so you'd have to create your own Google Doc.
 - `fetch-pre-survey.R`: Like the `fetch-feedback-survey.R`, this fetches and 
 processes the pre-survey results. Also uses the `ignore.R` file.
 - `ignore.R`: Not in the repository, so will need to be created to contain

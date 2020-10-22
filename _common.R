@@ -3,9 +3,7 @@ library(RefManageR)
 library(NHANES)
 library(knitr)
 library(tidyverse)
-# library(DiagrammeR)
 library(htmltools)
-# library(webshot)
 
 knitr::opts_chunk$set(
     comment = "#>",
@@ -30,7 +28,6 @@ BibOptions(
     cite.style = "authoryear",
     style = "markdown",
     super = TRUE
-    # hyperlink = FALSE,
 )
 
 options(knitr.table.format = "html",
