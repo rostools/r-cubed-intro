@@ -70,39 +70,6 @@ unlist(solutions) %>%
 
 ## More formatting syntax in Markdown {#post-course-markdown}
 
-### Lists
-
-Lists are created by adding either `- ` or `1.` to the beginning of a line
-and an empty line must be at the start and end of the list.
-
-For unnumbered lists, it looks like:
-
-```markdown
-- item 1
-- item 2
-- item 3
-```
-
-which gives...
-
-- item 1
-- item 2
-- item 3
-
-And numbered lists look like:
-
-```markdown
-1. item 1
-2. item 2
-3. item 3
-```
-
-which gives...
-
-1. item 1
-2. item 2
-3. item 3
-
 ### Block quotes
 
 Block quotes are used when you want to emphasize a block of text,
