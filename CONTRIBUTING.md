@@ -65,8 +65,9 @@ request after you commit and push.
 
 *If you are creating slides*, use the R Markdown format [xaringan](https://github.com/yihui/xaringan).
 
-Making videos is done using [Peek](https://github.com/phw/peek),
-[OpenShot](https://www.openshot.org/),
+Making videos is done using [Peek](https://github.com/phw/peek) (setting the 
+window size to 1280x720),
+[OpenShot](https://www.openshot.org/) (to edit the video if necessary),
 and the below command to reduce the video file size:
 
 ```
