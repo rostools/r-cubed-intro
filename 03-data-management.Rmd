@@ -1029,46 +1029,6 @@ nhanes_small %>%
     )
 ```
 
-## Where have we gone wrong?
-
-**Do this section on your own for the next 5 minutes**.
-We are going to take a pitstop here to practice what you learned earlier \@ref(01-project-management.Rmd) about troubleshooting errors, including going back to the start of the code and running each line or part one at a time until you find where the problem occurs.
-
-Here is a piece of code similar to the one we were just using. When it is run in RStudio, it returns an error message. However, we can’t immediately see the problem and need a hint to locate where in the code the issue lies. We are going to try the one-line-at-a-time approach.
-
-```{r, error = TRUE}
-nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) 
-    summarise(mean_age = mean(age, na.rm = TRUE))
-```
-
-When you are working with pieces of code that uses pipes (%>%), you should highlight from one pipe up until (but excluding) the next pipe. Watch as each line of code is entered separately.
-
-```{r}
-nhanes_small %>%
-    filter(!is.na(diabetes))
-```
-
-No problems there!
-
-```{r}
-nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) 
-```
-
-Again, no problems!
-
-```{r, error = TRUE}
-nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) 
-    summarise(mean_age = mean(age, na.rm = TRUE))
-```
-
-Here is where the error occurs, which indicates that the issues lies somewhere between the `group_by()` and `summarise()` functions. If we take a closer look, you can see that the pipe was left off after the `group_by()` function line.
-
 ## Saving datasets as files
 
 The `nhanes_small` data frame you created is only available after you've created
