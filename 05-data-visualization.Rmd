@@ -250,13 +250,15 @@ knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
 If you *do* want to create a barplot, 
-you'll quickly find out that it actually is quite hard to do in ggplot2.
-The reason it is difficult to create in ggplot2 is by design:
+you'll quickly find out that it actually is quite hard to do in `ggplot2`.
+The reason it is difficult to create in `ggplot2` is by design:
 it's a bad plot to use, so use something else.
 
 ```{r image-art-bar-error-plot, fig.cap="Barplots hide interesting results. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations).", echo=FALSE, out.width="70%"}
 knitr::include_graphics(here::here("images/art-bar-error-plot.png"))
 ```
+
+Before we move on, let’s add and commit the new files we created into the Git history and push up to your GitHub repository.
 
 ## Plotting two variables
 
@@ -269,17 +271,17 @@ Usually the variable that you "control or influence"
 and the variable that "responds" (the dependent variable)
 goes on the y-axis.
 
-When you have *two continuous* variables, some geoms are:
+When you have *two continuous* variables, some geoms to use are:
 
 - `geom_point()`, which is used to create a standard scatterplot
 - `geom_hex()`, which is used to replace `geom_point()` 
 when your data is *massive*, since creating points 
 for each value in a large dataset can take a long time to plot
 - `geom_smooth()`, which applies a "regression-type" line to the data
-(default uses LOESS regression)
+(the default uses LOESS regression)
 
 Let's check out how BMI may influence cholesterol using a basic scatterplot,
-hex plot, and a smoothing line plot in a new code chunk:
+a hex plot, and a smoothing line plot, by inserting the code in a new code chunk:
 
 ```{r, message=FALSE}
 # Using 2 continuous variables
@@ -315,9 +317,9 @@ bmi_chol +
 
 Sadly, for two discrete variables, 
 there are not many options available without major data wrangling. 
-The most useful geom for this is `geom_bar()` like before, 
+The most useful geom for this type of plot is `geom_bar()` like before, 
 but with an added variable.
-Because `geom_bar()` has a "fill" (coloured inside), 
+Because `geom_bar()` has a "fill" (which means "coloured inside"), 
 we can change that fill based on a variable.
 So let's see what the difference in diabetes status is between sexes.
 
@@ -332,12 +334,12 @@ two_discrete +
     geom_bar()
 ```
 
-By default, `geom_bar()` will make fill groups stacked on top of each other.
+By default, `geom_bar()` will make "fill" groups stacked on top of each other.
 For this case, it isn't really that useful.
 So let's instead have them side by side. 
 For that, we need to use the `position` argument with a function called
 `position_dodge()`.
-This new function takes the fill grouping variable and "dodges" them 
+This new function takes the "fill" grouping variable and "dodges" them 
 (moves them) to be side by side.
 
 ```{r}
@@ -380,7 +382,7 @@ two_mixed +
     geom_boxplot()
 ```
 
-However, the box plot is still hiding your actual datapoints. These can be shown with a jitter plot:
+However, the boxplot is still hiding your actual datapoints. These can be shown with a jitter plot:
 
 ```{r}
 # Show the actual data using a jitter plot
@@ -388,7 +390,7 @@ two_mixed +
     geom_jitter()
 ```
 
-Or a violin plot:
+... Or a violin plot:
 ```{r}
 # Show the distribution with a voilin plot
 two_mixed + 
@@ -405,21 +407,21 @@ Time: 15 min
 
 Create an exercise script by typing in the Console `usethis::use_r("exercises-visualization")`.
 Copy and paste the below code into that script.
-Complete as many tasks as you can below.
+Complete as many of the below tasks as you can.
 
 1. If you haven't already, load the nhanes_tidied dataset into the environment. 
-2. Using `geom_histogram()`, find out what the distribution is for the two variables below.
+2. Using `geom_histogram()`, find out what the distribution is for the two variables below:
     a. `age` (participant's age at collection)
     b. `diabetes_age` (age of diabetes diagnosis)
 3. Using `geom_bar()`, find out how many people have data recorded for each of these discrete variables.
 What can you say about most people for these variables?
     a. `smoke_now` (current smoking status)
-    b. `phys_active` (does moderate to vigorous physical activity)
+    b. `phys_active` (does the participant do moderate to vigorous physical activity)
 4. Using `geom_hex()`, find out how BMI relates to the two blood pressure variables.
 What is the most common BMI and blood pressure combination?
 Do you notice anything about the data from the plots?
-    a. `bp_sys_ave` (average systolic blood pressure)
-    b. `bp_dia_ave` (average diastolic blood pressure)
+    a. `bp_sys_ave` (average systolic blood pressure).
+    b. `bp_dia_ave` (average diastolic blood pressure).
 5. Using `geom_bar()`, find out how `phys_active` those with or without `diabetes` are.
 Put `diabetes` on the x-axis.
 What can you say based on the data? 
@@ -511,20 +513,20 @@ ggplot(nhanes_tidied, aes(x = diabetes, y = poverty)) +
 
 There are many many ways to visualize additional variables in a plot 
 and further explore your data.
-We can use ggplot's colour, shape, size, transparency ("alpha"), 
+For that, we can use `ggplot2`'s colour, shape, size, transparency ("alpha"), 
 and fill aesthetics, as well as "facets".
-Faceting in ggplot2 is a way of splitting the plot up into multiple plots 
+Faceting in `ggplot2` is a way of splitting the plot up into multiple plots 
 when the underlying aesthetics are the same or similar. 
-In this section, we'll be covering many of these capabilities in ggplot2.
+In this section, we'll be covering many of these capabilities in `ggplot2`.
 
-The most common and "prettiest" way of adding a third variable is by using colour.
-Let's try to answer a few questions, to visualize some examples.
+The most common and "prettiest" way of adding a third variable is by using colours.
+Let's try to answer a few questions by visualizing some examples.
 
-*Question*: Is systolic blood pressure different in those with 
-or without diabetes in females and males? 
+*Question: Is systolic blood pressure different in those with 
+or without diabetes in females and males? *
 In this case, we have one continuous variable (`bp_sys_ave`)
 and two discrete (`sex` and `diabetes`).
-For this plot, we could use `geom_boxplot()`. 
+For this plot, we could use `geom_boxplot()`:
 
 ```{r}
 # Plot systolic blood pressure in relation to sex and diabetes status
@@ -535,10 +537,10 @@ nhanes_tidied %>%
 
 Do you see differences in systolic blood pressure between the sexes? Between diabetics and non-diabetics?
 
-*Question*: How does BMI relate to systolic blood pressure 
-and age?
+*Question: How does BMI relate to systolic blood pressure 
+and age?*
 Here we have three continuous variables (`bmi`, `bp_sys_ave`, and `age`),
-so we could use `geom_point()`.
+so we could use `geom_point()`:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and age
@@ -549,8 +551,8 @@ nhanes_tidied %>%
 
 Can you see any associations between systolic blood pressure and BMI or age?
 
-*Question*: How does BMI relate to systolic blood pressure 
-and what is different between those with and without diabetes?
+*Question: How does BMI relate to systolic blood pressure 
+and what is different between those with and without diabetes?*
 In this case, we have two continuous (`bmi` and `bp_sys_ave`) and one discrete variable (`diabetes`).
 We could use `geom_point()`:
 
@@ -561,18 +563,18 @@ nhanes_tidied %>%
     geom_point()
 ```
 
-For this plot it's really hard to see what's different. 
-But there is another way of visualizing a third (or fourth, and fifth!) variable:
-with "faceting".
+For this latter plot, it's really hard to see what's different. 
+But there is another way of visualizing a third (or fourth, and fifth) variable:
+with "faceting"!
 Faceting splits the plot up into multiple subplots
 using the function `facet_grid()`.
-To work, at least one of the first two arguments to `facet_grid()` are needed.
-The first two are:
+For facet to work, at least one of the first two arguments to `facet_grid()` is needed.
+The first two arguments are:
 
 - `cols`: The discrete variable to use to facet the plot column-wise 
-(i.e. side-by-side)
+(i.e. side-by-side).
 - `rows`: The discrete variable to use to facet the plot row-wise 
-(i.e. stacked on top of each other)
+(i.e. stacked on top of each other).
 
 For both `cols` and `rows`, the variable given must be wrapped by `vars()`
 (e.g. `vars(Diabetes)`).
@@ -633,9 +635,9 @@ When using colours, think about what you are trying to convey in your figure
 and how your choice of colours will be interpreted. 
 You can use built-in colour schemes or create your own. 
 For now, let's stick to using built-in ones.
-There are two: the viridis and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. 
+There are two: the `viridis` and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. 
 Both are well designed and are colour-blind friendly.
-For this course, we will only cover the viridis package.
+For this course, we will only cover the `viridis` package.
 
 ## Exercise: Changing the colour schemes
 
@@ -705,7 +707,7 @@ base_scatterplot +
 
 ## Titles, axis labels, and themes
 
-There are so so so many options to modify a ggplot2 figure.
+There are so so so many options to modify a `ggplot2` figure.
 Almost all of them are found in the `theme()` function. 
 We won't cover individual theme items,
 since the help with `?theme` 
@@ -734,14 +736,14 @@ base_scatterplot2 + theme_classic()
 ```
 
 You can also set the theme for all subsequent plots, by using the `theme_set()`
-function, specifying the theme you want in the parenthesis.
+function and specifying the theme you want in the parenthesis.
 
 ```{r, eval=FALSE}
 # set the theme for all subsequent plots
 theme_set(theme_bw())
 ```
 
-For adding labels to things, such as axis titles, the function is `labs()`.
+For adding labels to your plot, such as axis titles, the function to use is `labs()`.
 To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`.
 For the whole plot, it is `title`:
@@ -749,7 +751,7 @@ For the whole plot, it is `title`:
 ```{r}
 # add plot title, and change x and y axis titles
 base_scatterplot2 +
-    labs(title = "BMI, systolic blood pressure, and age by diabetes and sex.",
+    labs(title = "BMI, systolic blood pressure, and age by diabetes and sex",
          y = "Systolic Blood Pressure (mmHg)",
          x = "BMI (kg/m2)")
 ```
@@ -758,13 +760,12 @@ base_scatterplot2 +
 
 Finally, to save the plot you created, use the `ggsave()` function.
 The first argument says where to save the graph:
-Give the name of the newly created file,
-as well as the folder location (separate folders with `/`.
+You just need to write the name of the newly created file,
+as well as the folder location (separate folders with `/`).
 The next argument is the plot you want to save.
-To set the dimensions of the figure, 
-use `width` and `height` arguments.
+To set the dimensions of the figure, you can use `width` and `height` arguments.
 But first, we need to create the `doc/images/` folder. 
-We can do this with the fs (for "filesystem") package. 
+We can do this with the `fs` (for "filesystem") package. 
 
 ```{r, eval=FALSE}
 # Create a new directory to save images into
@@ -779,14 +780,14 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
        base_scatterplot2, width = 7, height = 5)
 ```
 
-Finally, remember to save the Rmd file, commit the changes, and push to Github!
+Finally, remember to save the .Rmd file, commit the changes, and push to Github!
 
 ## Summary of session {#dataviz-summary}
 
-- Use the "Grammar of Graphics" with the ggplot2 package within the tidyverse to plot your data
-- Prioritise plotting raw data data instead of summaries whenever possible or if able to
-- ggplot2 has 4 levels of grammar: `aes()` (which data to plot), `geom_` (e.g. `geom_bar()` what kind of plot), `scale_` (making the plot pretty) and `theme()` (controls the surroundings of the plotting area)
-- Only use bar plots for discrete values - if applying them on continuous variables, it hides the distribution of the data
-- Use both colour, X and Y axis to plot three dimensions - or `facet_grid()` to plot more dimensions
-- Use colourblind-friendly colours, e.g. by using the colour palettes `viridis` or `ColorBrewer`
-- Save plots by `ggsave()`
+- Use the "Grammar of Graphics" with the `ggplot2` package to plot your data.
+- Prioritize plotting raw data data instead of the mean whenever possible.
+- `ggplot2` has four levels of grammar: `aes()` (which data to plot), `geom_` (e.g. `geom_bar()` which describes the type of plot), `scale_` (making the plot pretty) and `theme()` (controls the surroundings of the plotting area).
+- Only use bar plots for discrete values - if using continuous variables, it hides the distribution of the data as it is plotting the mean.
+- You can plot three dimensions by using the X and Y axis  and colour - to plot even more dimensions, you can use `facet_grid()` .
+- Use colourblind-friendly colours, e.g. the colour palettes `viridis` or `ColorBrewer`.
+- Save plots by `ggsave()`.
