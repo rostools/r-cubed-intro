@@ -30,14 +30,14 @@ and understandable as possible.
 To start, here are some tips for making a graph:
 
 - Whenever possible or reasonable, show raw data values rather than summaries 
-(e.g. means)
+(e.g. means).
 - Though commonly used in scientific papers, 
 *[avoid barplots]* with means and error bars as they greatly misrepresent the data
-(we'll cover why later)
+(we'll cover why later).
 - Use colour to 1) highlight and enhance your message 
-and 2) to make the plot visually appealing
+and 2) to make the plot visually appealing.
 - Use a colour-blind friendly palette so the plot is more accessible to others
-(more on this later)
+(more on this later).
 
 There are also excellent online books on this that are included in the 
 [resources](resources.html) chapter.
@@ -70,13 +70,13 @@ Or maybe change the thickness or colour of the axis lines.
 
 There is a massive amount of features in ggplot2.
 Thankfully, ggplot2 was specifically designed to make it easy to find 
-and use its functions and settings using tab auto-completion.
+and use its functions and settings using the tab auto-completion.
 As an example, if you type out `geom_` and then hit tab, 
 you will get a list of all the geoms available.
 Likewise with `scale_` and all the options inside `theme()`
 (e.g. type out `theme(axis.` and then hit tab, 
 and a list of theme settings related to the axis will pop up).
-ggplot2 also works best with tidy data and with data in the long format.
+`ggplot2` also works best with tidy data and with data in the long format.
 
 So, why do we teach ggplot2 and not base R plotting?
 Base R plotting functionality is quite good and you can make really nice,
@@ -87,32 +87,32 @@ and a user-interface perspective:
 - Function and argument naming and documentation are inconsistent 
 and opaque (e.g. the `cex` argument, in *certain but not all functions*, 
 magnifies text and symbols, 
-but you can't tell from the name that it does that)
+but you can't tell from the name that it does that).
 - User-friendly documentation that is accessible to a broad range of people
 is not much of a priority, 
-so often the help documentation isn't written with beginners in mind
+so often the help documentation isn't written with beginners in mind.
 - Graphs are built similar to painting on a canvas:
-Make a mistake and you need to start all over (e.g. restart R)
+Make a mistake and you need to start all over (e.g. restart R).
 
 These limitations are due to the fact that base R plotting was developed:
 
-- By different people over different periods of time
-- By people who were/are mostly in statistics and maths
+- By different people over different periods of time.
+- By people who were/are mostly in statistics and maths.
 - By people who (generally) don't have training in principles of
-software user-design, user-interface, or engineering
-- Without a strong "design philosophy" to guide development
+software user-design, user-interface, or engineering.
+- Without a strong "design philosophy" to guide development.
 - During a time when auto-completion didn't really exist or was sub-optimal,
-so short function and object names were more important than they are today
+so short function and object names were more important than they are today.
 
-On the other hand, ggplot2:
+On the other hand, `ggplot2`:
 
-- Has excellent documentation for help and learning
-- Has a strong design philosophy that makes it easier to use
-- Works in "layers", so you don't have to start over if you make a mistake
-- Works very well with auto-completion
-- Function and argument naming is consistent and *descriptive* (in plain English)
+- Has excellent documentation for help and learning.
+- Has a strong design philosophy that makes it easier to use.
+- Works in "layers", so you don't have to start over if you make a mistake.
+- Works very well with auto-completion.
+- Function and argument naming is consistent and *descriptive* (in plain English).
 
-These are the reasons we teach and use ggplot2. 
+These are the reasons we teach and use `ggplot2`. 
 Let's make our first graphs together now.
 
 ## Graph individual variables
@@ -122,21 +122,22 @@ one variable (i.e. one column in a data frame) at a time.
 You create these plots to see the distribution of a variable
 and visually inspect the data for any problems.
 There are several ways of plotting continuous variables 
-(e.g. weight, height) in ggplot2. 
+(e.g. weight, height) in `ggplot2`. 
 For discrete variables (e.g. "male" and "female"), 
 there is really only one way. 
 
 You may notice that since the [data wrangling chapter](wrangling),
 we used the word "column" to describe the columns in the data frame,
-but now we're saying "variable".
-There's a reason for this: ggplot2 really only works with tidy data.
+but from now, we're instead saying "variable".
+There's a reason for this: `ggplot2` really only works with tidy data.
 And if we recall from the definition of tidy data,
 it is made up of "variables" (columns) and "observations" (rows) of a data frame.
 To us, a "variable" is something that we are interested in analyzing or visualizing, 
-and that contains only values relevant to that measurement
+and which only contains values relevant to that measurement
 (e.g. a `Weight` variable must only contain values for weight).
-The NHANES dataset is already pretty tidy:
-Rows are participants at the survey year,
+
+The `NHANES` dataset is already pretty tidy:
+Rows are participants at the survey year, and
 columns are the variables that were measured.
 So, from now on, we call them "variables".
 
@@ -145,9 +146,9 @@ Open the previously used R Project, and create a new R Markdown file called
 `visualization-session.Rmd`. To do this, go to `File -> New File -> R
 Markdown`, and a dialog box will then pop up. Type in “Data visualization” in
 the title section and your name in the author section. Choose HTML as the output
-format. Delete unneeded text and code chunks, then save this file as
+format. Delete un-needed text and code chunks, then save this file as
 `visualization-session.Rmd` in the `doc/` folder. We will use this file for
-the code-along and exercises in for the data visualization session.
+the code-along and exercises in the data [visualization session] (visualization).
 
 First, we want to load packages and dataset, so let's write that at the top of
 the file, right under the YAML header.
@@ -155,7 +156,7 @@ the file, right under the YAML header.
 `# Load packages and dataset`
 
 Then add a new code chunk with the shortcut `Ctrl-Alt-I` or by using the menu
-item `Code -> Insert Chunk` Then add this to the first code chunk:
+item `Code -> Insert Chunk` Then add the below code to the first code chunk:
 
 ```{r, eval=FALSE}
 # Load packages
@@ -166,7 +167,7 @@ load(here::here("data/nhanes_small.rda"))
 ```
 
 Now we are ready to start creating the first plot! 
-Since BMI is a strong risk factor for diabetes, let's check out its distribution.
+Since BMI is a strong risk factor for diabetes, let's check out the distribution of BMI among the participants.
 To show distributions, there are two good geoms: 
 `geom_density()` and `geom_histogram()`.
 
@@ -196,8 +197,7 @@ some at 80 BMI units!
 The plots above are for continuous variables, 
 but what about for discrete?
 Well, sadly, there's really only one: `geom_bar()`.
-This isn't a geom for a barplot though! 
-This shows the counts of a discrete variable.
+This isn't a geom for a barplot though, but instead, this geom shows the counts of a discrete variable.
 There are many discrete variables in NHANES, including sex and diabetes, 
 so let's visualize those. 
 Again, add a new code chunk, then type:
@@ -209,7 +209,7 @@ ggplot(nhanes_small, aes(x = sex)) +
 ```
 
 We can see that there are almost equal numbers of females and males.
-Now we'll do the same for diabetes status, so in a new code chunk type:
+Now we'll do the same for the diabetes status, so in a new code chunk type:
 
 ```{r}
 # create count barplot for diabetes status
@@ -219,7 +219,7 @@ ggplot(nhanes_small, aes(x = diabetes)) +
 
 For diabetes, it seems there is some missingness in the dataset.
 Since diabetes status is an important variable for us, let's remove all missing
-values right now, save the tidied dataset in the data folder, and plot it again
+values right now, save the tidied dataset in the `data` folder, and plot it again
 (in a new code chunk).
 
 ```{r remove-missing-diabetes}
@@ -236,8 +236,8 @@ ggplot(nhanes_tidied, aes(x = diabetes)) +
 ```
 
 Let's take a minute to talk about the commonly used barplots with mean and error bars.
-In all cases, bar plots should only be used for discrete (categorical) data
-where you want to show counts or proportions. They should as a general rule not be used for continuous data.
+In all cases, bar plots should **only** be used for discrete (categorical) data
+where you want to show counts or proportions. They should as a general rule **not** be used for continuous data.
 This is because the commonly used "bar plot of means with error bars" 
 actually hides the underlying distribution of the data.
 To have a better explanation of this,
