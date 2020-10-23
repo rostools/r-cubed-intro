@@ -367,7 +367,7 @@ Add and Commit that new line you've written.
 ```
 
 
-## "Remotes": Storing your repository online
+## "Remotes": Storing your repository online {#remotes-setting-up}
 
 **Take 3 min and read through the next two paragraphs**.
 
