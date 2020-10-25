@@ -29,7 +29,7 @@ Once teams are created, assign one instructor or helper to each group.
 - Have an RStudio theme that uses a white background with black text.
 This setting is easier to read on projectors.
 - In `Global Options -> Appearance`, 
-put a higher Zoom value and increase the font size (maybe around 14). 
+put a higher zoom value and increase the font size (maybe around 14). 
 Exact zoom and font size depends on the projector.
 - Put the Console and Script panes side by side rather than stacked. 
 This can be changed in the `Global Options -> Pane Layout` 
@@ -170,7 +170,7 @@ and want the surveys to use as a template that you can then customize,
 create a [new issue](https://gitlab.com/rostools/r-cubed/-/issues/new) to request
 access.
 
-We included survey links as a function within the r3 package so learners can quickly 
+We included survey links as a function within the `r3` package so learners can quickly 
 access the survey. Creating surveys is quite easy with Google Forms. Below are a 
 list of questions to include (depending on the survey):
 
@@ -195,7 +195,7 @@ list of questions to include (depending on the survey):
 The schedule is not designed to be a fixed sequence of sessions. Some sessions
 may run shorter so you can move on to the next session afterwards, while other
 sessions may run longer and go into the next session. That is ok if that happens.
-The schedule is a guide only, an overview of what will be covered and when.
+The schedule is a guide only, an overview of what will be covered, and when.
     
 ## General course admin
 
@@ -229,9 +229,9 @@ reference management for the slides in `slides/`.
 
 ### About the r3 package
 
-The r3 package is used as a companion and helper throughout this course to
+The `r3` package is used as a companion and helper throughout this course to
 making it easier to do certain tasks (like go to the survey). Considering this,
 if you want to use this course material and run a course like this on your 
-own, you can clone the r3 package and modify it as necessary for your own
+own, you can clone the `r3` package and modify it as necessary for your own
 purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/master/README.md)
-of the r3 package for more details.
+of the `r3` package for more details.
