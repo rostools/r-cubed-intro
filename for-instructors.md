@@ -166,7 +166,7 @@ and want the surveys to use as a template that you can then customize,
 create a [new issue](https://gitlab.com/rostools/r-cubed/-/issues/new) to request
 access.
 
-We included survey links as a function within the `r3` package so learners can quickly 
+We included survey links as a function within the r3 package so learners can quickly 
 access the survey. Creating surveys is quite easy with Google Forms. Below are a 
 list of questions to include (depending on the survey):
 
@@ -225,9 +225,9 @@ reference management for the slides in `slides/`.
 
 ### About the r3 package
 
-The `r3` package is used as a companion and helper throughout this course to
+The r3 package is used as a companion and helper throughout this course to
 making it easier to do certain tasks (like go to the survey). Considering this,
 if you want to use this course material and run a course like this on your 
-own, you can clone the `r3` package and modify it as necessary for your own
+own, you can clone the r3 package and modify it as necessary for your own
 purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/master/README.md)
-of the `r3` package for more details.
+of the r3 package for more details.

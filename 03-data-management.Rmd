@@ -116,7 +116,7 @@ Always keep a history of any changes you've made to the data,
 preferably by using R code.
 - Save the edited data as another dataset and store it in the `data/` folder.
 
-When wrangling your data with R, code make sure to:
+When wrangling your data with R code make sure to:
 
 - Document and comment as best you can what you did to your data and why you did
 it to help you remember.
@@ -344,7 +344,7 @@ Like `select()`, `rename()` takes the dataset as the first argument
 When renaming, it takes the form of `newname = oldname`.
 
 Let's rename gender to be sex, since gender is a social construct, while sex is
-biological, which is what the sex-variable in the data actually describes.
+biological, which is what the sex variable in the data actually describes.
 
 ```{r}
 rename(nhanes_small, sex = gender)
@@ -700,7 +700,7 @@ nhanes_small %>%
 ```
 
 We can add multiple modifications 
-or additions with `mutate` by separating with `,`.
+or additions with `mutate()` by separating with `,`.
 So if we first wanted to have height as meters and then take the natural logarithm, 
 it would be:
 

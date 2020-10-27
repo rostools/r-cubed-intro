@@ -366,7 +366,7 @@ Other common options are:
 - `echo`: To show the code. The default value to show is `TRUE`, to hide is `FALSE`.
 - `results`: To show the output results. The default is `'markup'`, to hide is `'hide'`.
 - `eval`: To evaluate (to run) the R code in the chunk. 
-The default value is `TRUE`, and `FALSE` does not run the code.
+The default value is `TRUE`, while `FALSE` does not run the code.
 
 These options all work on the individual code chunk.
 *Note*, that all the chunk options *must* be on *one* line,
@@ -415,9 +415,9 @@ This output is almost in a table format.
 We have the columns that could be the table headers,
 and we have rows that would be meaningful table rows too.
 To convert it into a pretty table in the R Markdown HTML output document,
-we use the `kable()` function from the `knitr` package.
+we use the `kable()` function from the knitr package.
 Because we don't want to load all of the knitr functions,
-we'll just use `knitr::kable()` instead:
+we'll use `knitr::kable()` instead:
 
 ````markdown
 `r ''````{r mean-age-bmi-table}
@@ -640,7 +640,7 @@ purposes.
 ![Image by Dimitri Houtteman from Pixabay.](images/kitten.jpg)
 ```
 
- Gives...
+Gives...
 
 ![Image by <a href="https://pixabay.com/users/Dimhou-5987327/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Dimitri Houtteman</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Pixabay</a>](images/kitten.jpg)
 

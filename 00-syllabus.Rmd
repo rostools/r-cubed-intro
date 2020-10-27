@@ -78,7 +78,7 @@ The course is structured as a series of participatory live-coding sessions inter
 and group work, using either a practice dataset or some other real-world dataset.
 There are some lectures given, mainly at the start and end of the course.
 The general schedule outline is shown in the below table. This is not a fixed
-schedule of the timings of each session - some may be shorter and others may be
+schedule of the timings of each session --- some may be shorter and others may be
 longer. Instead, it is meant to be an approximate guide and overview.
 
 ```{r schedule-table, echo=FALSE, message=FALSE, warning=FALSE}

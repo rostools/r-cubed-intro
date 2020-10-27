@@ -1,8 +1,8 @@
 # Group project assignment {#assignment}
 
 To maximize how much you learn and how much you will retain, 
-you as a group will take what you learn in the course, 
-and apply it to create a reproducible project. This project, based on a simple data analysis of a dataset of your choice, will have a GitHub repository and be reported as an HTML document to highlight the reproducibility. 
+you as a group will take what you learn in the course
+and apply it to create a reproducible project. This project, based on a simple data analysis of a dataset of your choice, will have a GitHub repository and an HTML document as a report to demonstrate the reproducibility of the analysis. 
 The dataset **cannot be the same** as the one we used in class,
 and it must be an open dataset obtained from an online archive (we recommend a few
 below).
@@ -24,7 +24,7 @@ you as an audience member can participate in the discussion by:
 
 - Asking questions to *clarify* anything you may not understand or are confused about.
 - Give *constructive* feedback on what could have been improved on.
-- Give *concrete* suggestions on how things, that was found challenging, could have been handled.
+- Give *concrete* suggestions on how things they found challenging could have been handled.
 
 ## Specific tasks
 
@@ -45,10 +45,10 @@ For the group project, your specific tasks (based on lesson order) are to:
 
 1. **Create a new project** using the "New Project" setup with the necessary files
 (covered in [Management of R Projects](r-project-management.html)) 
-by using the `prodigenr` package.
+by using the prodigenr package.
     - Assign one person to be the "coordinator" to make this project.
     - Name the project the *same* as your team name (which is given for your group).
-    - Run the below functions from the `usethis` package to setup the project 
+    - Run the below functions from the usethis package to setup the project 
     and to create the following files:
 
 
@@ -113,7 +113,7 @@ pull the changes you've made. You'll likely deal with merge conflicts, which is
 a good chance to practice some more with Git.
     - Create section headers (e.g. "Introduction", "Methods", "Results", "Discussion").
     - In a "Methods" section, write up a basic description of what the dataset is, where you got it
-    from and what you did to process or analyze the data.
+    from, and what you did to process or analyze the data.
     - Create a table in the report that is generated from the data in a "Results"
     section.
     - Create one R Markdown file for each team member,
@@ -128,12 +128,12 @@ a good chance to practice some more with Git.
 one or more figures** to visualize the cleaned dataset 
 (covered in [Data Visualization](visualization.html)). 
 A good place to get started on this is to explore your data by making
-some `ggplot2` graphs and find a few you'd like to include in the report.
+some ggplot2 graphs and find a few you'd like to include in the report.
 It's a good idea to distribute exploration to each group member,
-so that each member gets practice in making `ggplot2` graphs.
+so that each member gets practice in making ggplot2 graphs.
     - Each member creates an R script in the `R/` folder
     to start visually exploring the data.
-    Name these new files with your name at the start, and end it with `-exploring.R`.
+    Name these new files with your name at the start and end it with `-exploring.R`.
     - Add, commit, and push these files to your GitHub repository.
     - Find some visually interesting
     and insightful plots that you could show in the presentation 
@@ -144,7 +144,7 @@ so that each member gets practice in making `ggplot2` graphs.
 
 
 8. **Add discussion items to the `report.Rmd` file**, where you write up a few sentences on some things you liked about doing the project with
-    the tools you learned, and a few sentences on some challenges you had, in a
+    the tools you learned, and a few sentences on some challenges you had in a
     "Discussion" section.
     Add your thoughts as a group as well.
 
@@ -162,7 +162,7 @@ and show them on the screen for each team to present on.
 ## Quick "checklist" for a good project
 
 - Project used Git and is on GitHub.
-- Included a good `README` describing the project and the team.
+- Included a good README describing the project and the team.
 - Separated "raw data" from "cleaned data".
 - Used scripts to clean the data.
 - Included R code within an R Markdown file to show results and make figures.

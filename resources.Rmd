@@ -49,7 +49,7 @@ knitr::include_graphics(here::here("images/cloud-settings-github.jpg"))
     knitr::include_graphics(here::here("images/cloud-upload.jpg"))
     ```
     Another way of loading files to RStudio Cloud is to synchronize the project with a remote repository, which will download all the tracked files to the RStudio Cloud project.
-    - **R projects and folder structure in RStudio Cloud:** Since we start every R session inside of a project on RStudio Cloud, RStudio in the cloud session doesn't let us set up projects from inside of the R session. The `prodigenr` package can still be used *through the console* to set up the basic folder structure of our projects. However, the root folder of any project is fixed to `/cloud/project/`, so when setting up our folder structure with `prodigenr`, we should have this in mind (e.g. `prodigenr::setup_project("LearningR")` creates the `prodigenr` folders inside`/cloud/project/LearningR` and avoids unnecessarily long file paths).
+    - **R projects and folder structure in RStudio Cloud:** Since we start every R session inside of a project on RStudio Cloud, RStudio in the cloud session doesn't let us set up projects from inside of the R session. The prodigenr package can still be used *through the console* to set up the basic folder structure of our projects. However, the root folder of any project is fixed to `/cloud/project/`, so when setting up our folder structure with prodigenr, we should have this in mind (e.g. `prodigenr::setup_project("LearningR")` creates the prodigenr folders inside`/cloud/project/LearningR` and avoids unnecessarily long file paths).
     - **Cloning a GitHub remote repository in RStudio Cloud:** Can be done when setting up a new project in the RStudio Cloud workspace ("New Project from Git Repo"), or from the terminal, but it cannot be done through the RStudio main menu interface.
 
 ### Potential exercise solutions
@@ -162,10 +162,10 @@ and using `knitr::kable()` to create the table after that.
 
 ## Other colour schemes in ggplot2
 
-You can modify `ggplot2` colour schemes using many other pre-defined palettes by
+You can modify ggplot2 colour schemes using many other pre-defined palettes by
 installing new R packages, including scientific journal colour palettes
 ([ggsci]) and even a Wes Anderson ([wesanderson]) or a Stubio Ghibli ([ghibli])
-colour palette! Also check out the Data Visualization book in the [Resources](Resources#further-learning)
+colour palette! Also check out the Data Visualization book in the [Resources](resources.html#further-learning)
 
 
 chapter for more information and learning on visualizing data.
@@ -183,7 +183,7 @@ chapter for more information and learning on visualizing data.
 - [R for Data Science](https://r4ds.had.co.nz/): 
 Excellent open and online resource for using R for data analysis and data science.
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/): 
-Excellent online resource for using `ggplot2` and R graphics.
+Excellent online resource for using ggplot2 and R graphics.
 The book mostly focuses on concepts and theory of how to visualize, 
 rather than the practicalities (i.e. no coding involved).
 - [ModernDive: Statistical Inference via Data Science](https://moderndive.com/): 

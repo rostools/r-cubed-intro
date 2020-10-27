@@ -349,7 +349,7 @@ and make it easier for others as well.
 
 Time: 12 min
 
-1. Practice the Add-Commit ("add to staging"-"committing to history") sequence by adding and 
+1. Practice the add-commit ("add to staging"-"committing to history") sequence by adding and 
 committing each of the remaining files in your R project one by one into the Git history
 (e.g. the `.gitignore`, the `.R` files, and the `.Rproj` file).
     - Make sure to write a meaningful 
@@ -360,7 +360,7 @@ committing each of the remaining files in your R project one by one into the Git
 add a new line to the `R/version-control-session.R` with an R comment 
 (starts with a `#`).
 Type out something like "This will be used for testing out Git".
-Add and Commit that new line you've written.
+Add and commit that new line you've written.
 
 ```{r solution-commit-to-history, eval=FALSE, echo=FALSE}
 # There is not R code solution for this section.

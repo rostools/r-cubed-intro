@@ -80,7 +80,7 @@ of which Luke W. Johnston has created, been involved in, or contributed to), inc
 (which I helped develop and is the inspiration and basis for this course)
 - [Software and Data Carpentry](https://carpentries.org/) workshop material
 - [UofTCoders material](https://uoftcoders.github.io/studyGroup/lessons/)
-and [AU CRU material](https://au-cru.github.io/site/material/) <-- DOESNT WORK>,
+and [AU CRU material](https://au-cru.github.io/),
 from the peer led and contributed lessons of each
 - [Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/)
 course template

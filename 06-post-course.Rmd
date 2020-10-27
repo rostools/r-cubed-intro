@@ -79,7 +79,7 @@ To allow access to packages in the restricted environment, DST has pre-installed
 *all* packages on CRAN, so we will be able to directly access any package from
 CRAN with the `library()` function.
 
-While we won't be able to use packages from sources other than CRAN (like the `r3`
+While we won't be able to use packages from sources other than CRAN (like the r3
 package developed for this course), we do have access to the >15,000 packages on 
 CRAN (this also means that opening and browsing the
 packages tab can slow your session down, shown in Figure \@ref(fig:dst-packages)).
@@ -147,7 +147,7 @@ access to.
 The only difference here is that the location of the remote is not a GitHub URL
 and we don't create the remote on our web browser with the GitHub interface. In
 fact, once we've created the remote repository, we link our local repository to
-it with the same two commands we used in the [Git remote session] \@ref(remotes-setting-up).
+it with the same two commands we used in the Git remote session in Section \@ref(remotes-setting-up).
 
 This time, we create the remote repository with the Windows interface by using
 Git Bash in 3 steps:

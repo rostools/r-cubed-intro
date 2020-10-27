@@ -239,7 +239,7 @@ knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 
 ## Course introduction
 
-Most of the description of the course is found in the [syllabus](https://r-cubed.rostools.org/syllabus.html).
+Most of the description of the course is found in the [syllabus](syllabus.html).
 For quickly going to the syllabus from RStudio, 
 run the function `r3::open_syllabus()`. Alternatively, you can click it from the menu bar on the side. 
 

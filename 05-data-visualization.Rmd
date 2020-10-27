@@ -104,7 +104,7 @@ software user-design, user-interface, or engineering.
 - During a time when auto-completion didn't really exist or was sub-optimal,
 so short function and object names were more important than they are today.
 
-On the other hand, `ggplot2`:
+On the other hand, ggplot2:
 
 - Has excellent documentation for help and learning.
 - Has a strong design philosophy that makes it easier to use.
@@ -122,14 +122,14 @@ one variable (i.e. one column in a data frame) at a time.
 You create these plots to see the distribution of a variable
 and visually inspect the data for any problems.
 There are several ways of plotting continuous variables 
-(e.g. weight, height) in `ggplot2`. 
+(e.g. weight, height) in ggplot2. 
 For discrete variables (e.g. "male" and "female"), 
 there is really only one way. 
 
 You may notice that since the [data wrangling chapter](wrangling),
 we used the word "column" to describe the columns in the data frame,
 but from now, we're instead saying "variable".
-There's a reason for this: `ggplot2` really only works with tidy data.
+There's a reason for this: ggplot2 really only works with tidy data.
 And if we recall from the definition of tidy data,
 it is made up of "variables" (columns) and "observations" (rows) of a data frame.
 To us, a "variable" is something that we are interested in analyzing or visualizing, 
@@ -254,8 +254,8 @@ knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
 If you *do* want to create a barplot, 
-you'll quickly find out that it actually is quite hard to do in `ggplot2`.
-The reason it is difficult to create in `ggplot2` is by design:
+you'll quickly find out that it actually is quite hard to do in ggplot2.
+The reason it is difficult to create in ggplot2 is by design:
 it's a bad plot to use, so use something else.
 
 ```{r image-art-bar-error-plot, fig.cap="Barplots hide interesting results. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations).", echo=FALSE, out.width="70%"}
@@ -521,11 +521,11 @@ ggplot(nhanes_tidied, aes(x = diabetes, y = poverty)) +
 
 There are many many ways to visualize additional variables in a plot 
 and further explore your data.
-For that, we can use `ggplot2`'s colour, shape, size, transparency ("alpha"), 
+For that, we can use ggplot2's colour, shape, size, transparency ("alpha"), 
 and fill aesthetics, as well as "facets".
-Faceting in `ggplot2` is a way of splitting the plot up into multiple plots 
+Faceting in ggplot2 is a way of splitting the plot up into multiple plots 
 when the underlying aesthetics are the same or similar. 
-In this section, we'll be covering many of these capabilities in `ggplot2`.
+In this section, we'll be covering many of these capabilities in ggplot2.
 
 The most common and "prettiest" way of adding a third variable is by using colour.
 Let's try to answer a few questions, to visualize some examples.
@@ -533,7 +533,7 @@ First, create a new header called `# Plotting three or more variables`
 and create a new code chunk below it.
 
 *Question: Is systolic blood pressure different in those with 
-or without diabetes in females and males? *
+or without diabetes in females and males?*
 In this case, we have one continuous variable (`bp_sys_ave`)
 and two discrete (`sex` and `diabetes`).
 For this plot, we could use `geom_boxplot()`:
@@ -651,9 +651,9 @@ When using colours, think about what you are trying to convey in your figure
 and how your choice of colours will be interpreted. 
 You can use built-in colour schemes or create your own. 
 For now, let's stick to using built-in ones.
-There are two: the `viridis` and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. 
+There are two: the viridis and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. 
 Both are well designed and are colour-blind friendly.
-For this course, we will only cover the `viridis` package.
+For this course, we will only cover the viridis package.
 
 ## Exercise: Changing the colour schemes
 
@@ -726,7 +726,7 @@ base_scatterplot +
 
 ## Titles, axis labels, and themes
 
-There are so so so many options to modify a `ggplot2` figure.
+There are so so so many options to modify a ggplot2 figure.
 Almost all of them are found in the `theme()` function. 
 We won't cover individual theme items,
 since the help with `?theme` 

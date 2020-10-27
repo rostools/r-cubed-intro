@@ -122,7 +122,7 @@ scripts or data files. The assumption with R Projects on the other hand, is that
 the R session working directory should be where the R Project is, since that
 is where you have your R scripts and data files.
 
-Within the project we created, there are several `README` files in each folder that
+Within the project we created, there are several README files in each folder that
 explain a bit about what should be placed there. Briefly:
 
 1. Documents like manuscripts, abstracts, and exploration type documents should 
@@ -469,7 +469,7 @@ so this is just a reference to a possible future tool to try out.
 
 A major strength of R is in its ability for others to easily create packages
 that simplify doing complex tasks (e.g. running mixed effects models with the
-`lme4` package or creating figures with the `ggplot2` package) and for anyone to 
+lme4 package or creating figures with the ggplot2 package) and for anyone to 
 easily install and use that package. So make use of packages!
 
 You load a package by writing:
@@ -506,7 +506,7 @@ source(here::here("R/package-loading.R"))
 You see there's a new thing `here`! The [here] package uses a function called `here()` 
 that makes it easier to manage *file paths* within an R Project. 
 
-So, what is a file path and why is this `here` package
+So, what is a file path and why is this here package
 necessary? A file path is the list of folders a file is found in. For instance,
 your CV may be found in `/Users/Documents/personal_things/CV.docx`. The problem 
 with file paths in R is that when you run a script interactively (e.g. what we
@@ -635,7 +635,7 @@ coding community.
 
 ## Summary of session {#r-project-management-summary}
 
-- Use [R Projects] in RStudio (e.g. with `prodigenr`).
+- Use [R Projects] in RStudio (e.g. with prodigenr).
 - Use a standard folder and file structure.
 - Use a consistent [style guide] for code and files.
 - Keep R scripts simple, focused, and short.

@@ -15,13 +15,13 @@ as confidential.
 We are dedicated to providing a welcoming and supportive environment
 for all people, regardless of background or identity. As such, we do not
 tolerate behaviour that is disrespectful to our teachers or learners or that
-excludes, intimidates or causes discomfort to others. We do not tolerate
+excludes, intimidates, or causes discomfort to others. We do not tolerate
 discrimination or harassment based on characteristics that include, but are not
 limited to, gender identity and expression, sexual orientation, disability,
 physical appearance, body size, citizenship, nationality, ethnic or social
 origin, pregnancy, familial status, veteran status, genetic information,
 religion or belief (or lack thereof), membership of a national minority,
-property, age, education, socio-economic status, technical choices and
+property, age, education, socio-economic status, technical choices, and
 experience level.
 
 Conforming to this Code of Conduct applies to all spaces associated with this course,
@@ -63,7 +63,7 @@ Examples of unacceptable behavior by participants include:
 - Sexist, racist, homophobic, transphobic, ableist, or exclusionary jokes.
 - Excessive swearing.
 - Incitement to violence, suicide, or self-harm.
-- Continuing to initiate interaction (including photography or recording) with someone, after being asked to stop.
+- Continuing to initiate interaction (including photography or recording) with someone after being asked to stop.
 - Publication of private communication without consent.
 
 ## Consequences of Unacceptable Behavior

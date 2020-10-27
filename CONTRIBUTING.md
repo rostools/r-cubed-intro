@@ -9,7 +9,7 @@ There are a few ways in which you can contribute:
 
 ## Participating in issue discussions :thought_balloon: :question:
 
-Helping to contribute can be as simple as giving feedback, suggestions or thoughts
+Helping to contribute can be as simple as giving feedback, suggestions, or thoughts
 about a topic or issue. You'll need a GitLab account to add your comments on
 the course development in the [`r-cubed` repository](https://gitlab.com/rostools/r-cubed/-/issues). 
 In particular, check the
@@ -41,7 +41,7 @@ Anyone can contribute to the course repository by two main ways:
 1. Using [hypothes.is](https://web.hypothes.is/), a web annotating tool. 
 Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
 comments directly on this website. This is the easiest approach.
-2. Through Git and [[GitLab] (https://gitlab.com/) by creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+2. Through Git and [GitLab] (https://gitlab.com/) by creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
 to make comments and give feedback for the material or via [merge
 requests][merge-requests]. This is the harder but preferred approach.
 
