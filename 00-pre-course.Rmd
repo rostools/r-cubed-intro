@@ -223,7 +223,7 @@ knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 
 ## Course introduction
 
-Most of the description of the course is found in the [syllabus](index.html).
+Most of the description of the course is found in the [syllabus](syllabus.html).
 A shortcut to quickly access the syllabus from RStudio is to enter `r3::open_syllabus()` or click it from the menu bar on the side. 
 
 While you may have signed up to this
