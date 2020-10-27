@@ -3,10 +3,10 @@
 ## What next?
 
 It is one thing to learn the principles of how to do reproducible research. It
-is another thing to do so in daily practice. So, how can we practice these
+is quite another thing to do so in daily practice. So, how can we practice these
 skills and tools we learned during the course?
 
-- If you have your own data already, then its easy: Just start using these tools
+- If you have your own data already, then it's easy: Just start using these tools
 bit by bit. Slowly and steadily use the tools from this course and continue
 learning. It isn't a race, use what you can without getting totally overwhelmed.
 - If you don't have access to your data yet, check out Section
@@ -17,10 +17,10 @@ themselves, e.g. they are too busy, there are several steps you can take. This
 situtation is definitely challenging and is likely to be most commonly 
 encountered. Use the tools as best you can, small bits at a time, so you continue
 learning but don't get completely overwhelmed with all the new things and ways
-to do reproducible research. Here are some small steps to take to start incorporating and 
-using R and reproducibility in your work:
+to do things. Below are some potential small steps to take that you can choose from
+to start incorporating and using R and reproducibility in your work:
     - As much as possible, setup your projects, folders, and files in a more
-    reproducible way (e.g. through using structure created from the `prodigenr` 
+    reproducible way (e.g. through using the structure created from the prodigenr 
     package).
     - Create all your figures entirely in R and using R scripts or R Markdown 
     files.
@@ -39,11 +39,11 @@ some programs. However, most remote environments have the latest software used
 for data analysis type tasks. Check out Section \@ref(real-world-r3) below for 
 details about doing reproducible research with R in the Denmark Statistics servers.
 
-## Reproducible research with R - in the real world {#real-world-r3}
+## Reproducible research with R in the real world {#real-world-r3}
 
 This section showcases how the reproducible workflow we've used in the course is
 possible in a restricted virtual environment. The case example: The virtual desktop
-environment used when working on Statistics Denmark (DST)'s researcher services.
+environment used when working on Statistics Denmark (DST)'s research servers.
 One thing to note, which may be a bit confusing is that DST also uses the term
 "project" but in a very different meaning compared to RStudio R Projects:
 
@@ -90,9 +90,9 @@ knitr::include_graphics(here::here("images/dst-packages.jpg"))
 
 ### Setting up our project
 
-The `prodigenr` package is available, so we'll set the project up like we
-normally would (refer to Figure \@ref(fig:prodigenr-project-creation)).
-We may get a message nudging us to set up our Git config and not just use the
+The prodigenr package is available, so we'll set the project up like we
+normally would (refer to Figure \@ref(fig:video-prodigenr-project-creation)).
+We may get a message nudging us to set up our Git configuration and not just use the
 defaults. The defaults should be based on your log-on ID (and be somewhat
 sensible), but we can set them ourselves later.
 
@@ -108,14 +108,14 @@ knitr::include_graphics(here::here("images/dst-git-setup.jpg"))
 ```
 
 After restarting RStudio, you should see the Git icons and tabs.
-
-Now we can set our Git config (since we don't have access to the `r3` package,
-we'll set it with the [gert](https://docs.ropensci.org/gert/index.html) package 
+Now we can set our Git config (since we don't have access to the r3 package,
+we'll set it with the [git2r](https://docs.ropensci.org/git2r/index.html) package 
 that allows R to interact with Git):
 
 ```{r dst-git-config, eval=FALSE}
-gert::git_config_global_set("user.name", "My Name Here")
-gert::git_config_global_set("user.email", "mynamehere@mymailhere.com")
+git2r::config(user.name = "My Name Here", 
+              user.email = "mynamehere@mymailhere.com",
+              global = TRUE)
 ```
 
 And now we can make our initial commit to the local Git repository, shown in Figure \@ref(fig:dst-git-works).
@@ -137,9 +137,10 @@ keeping the latest versions available to everybody on the team. In the
 version control session, we created a remote repository through GitHub's
 website, and then created a local repository from it by cloning it.  This time,
 we'll do it all from the terminal, and since we've already set up a local
-repository, we'll do it the other way round:
+repository, we'll do it the other way around:
 
-1. Create a blank remote repository in a local folder that all team members have access to.
+1. Create a blank remote repository in a local folder that all team members have
+access to.
 2. Connect our local repository to it.
 3. Push the commits from our local repository to this new "remote" repository.
 
@@ -154,7 +155,7 @@ Git Bash in 3 steps:
 - First we create the folder where we want our remote to be located. We'll put
 it at the root of our DST project directory and call it `git-remote`:
 
-    ```{r dst-git-folder-windows, echo=FALSE, fig.cap="Create new folder for the remote repository"}
+    ```{r dst-git-folder-windows, echo=FALSE, fig.cap="Create new folder for the remote repository."}
     knitr::include_graphics(here::here("images/dst-git-folder-windows.jpg"))
     ```
 
@@ -194,7 +195,7 @@ git push -u origin master
 And that's it! Now we have version control shared between all users of the DST
 project integrated into RStudio.
 
-```{r dst-git-remote, echo=FALSE, fig.cap="The remote repository now works for pushing and pulling through the RStudio Git Interface."}
+```{r dst-git-remote, echo=FALSE, fig.cap="The remote repository now works for pushing and pulling through the RStudio Git interface."}
 knitr::include_graphics(here::here("images/dst-git-remote.jpg"))
 ```
 
@@ -237,7 +238,7 @@ or goes wrong.
 #### Keeping track of file paths
 
 The preset folder structures are often ugly, long, and maze-like. While they
-can't be edited, using a work-flow that takes advantage of R projects and
+can't be edited, using a workflow that takes advantage of R projects and
 `here::here()` shown in this course, you don't have to deal with the long path
 names once you've moved everything into the project folder.
 
@@ -270,10 +271,10 @@ on most virtual machine platforms due to keyboard driver issues - often creating
 dangerously erratic keyboard behaviors instead. Using these types of scripts is
 not recommended.
 - The installed versions of R, RStudio, and the packages will only be as
-up-to-date as the system administrators keep them. Again, if you need something
-outdated to be updated, don't be afraid to ask them to help you out. However, it
-can be tricky to keep the updates of all the different packages compatible with
-each other and with new versions of R, and keeping everything on the cutting
-edge of new releases is not feasible. In the case of DST, you will be running
-versions that are often several months behind the latest "real-world" releases,
-even in the most updated times.
+up-to-date as the system administrators keep them. Again, if something is out
+of date and you need it updated, don't be afraid to ask them to help you out.
+However, it can be tricky to keep the updates of all the different packages
+compatible with each other and with new versions of R, and keeping everything on
+the cutting edge of new releases is not feasible. In the case of DST, you will
+be running versions that are often several months behind the latest "real-world"
+releases, even in the most updated cases.

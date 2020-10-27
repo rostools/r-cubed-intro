@@ -11,7 +11,7 @@ There are a few ways in which you can contribute:
 
 Helping to contribute can be as simple as giving feedback, suggestions or thoughts
 about a topic or issue. You'll need a GitLab account to add your comments on
-the course development in the [`r-cubed` repository](https://gitlab.com/rostools/r-cubed/issues). 
+the course development in the [`r-cubed` repository](https://gitlab.com/rostools/r-cubed/-/issues). 
 In particular, check the
 [`Brainstorm`](https://gitlab.com/rostools/r-cubed/issues?label_name%5B%5D=Brainstorm)
 label to find topics that are specifically to get your feedback and thoughts. As 
@@ -29,7 +29,7 @@ format (`.Rmd`).
 1. Every lesson "chapter" starts with and has only one first level "header" (`#`).
 3. Lessons include a mix of code chunks and text, organized using Markdown
 headers.
-4. Participants should be able to follow the contents of the lesson from the
+4. Participants should be able to follow the content of the lesson from the
 text alone; i.e. the file should contain _all_ conceptual explanations.
 5. We teach the *[tidyverse][tidyverse] way of using R*, meaning we use
 packages like dplyr, tidyr, rmarkdown, ggplot2, and so on. This also means making
@@ -57,7 +57,10 @@ flow style][github-flow] to manage changes. Here are some steps to follow:
 Smaller changes made as a Merge Request are easier to review and merge than 
 bigger changes. The more targeted and specific the changes are, the better.
 3. As you make edits, commit your changes to that branch.
-4. Push the edits on that branch to the course repository.
+4. Push the edits on that branch to the course repository. Note that this assumes you have
+been added to the repository as a contributor. Otherwise, you'll need to make a 
+[fork](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork)
+of the repository first.
 5. Submit a merge request of the branch into the master branch.
 7. If you receive feedback on your pull request, make further commits to the
 branch on your cloned local copy. These will automatically be added to your merge
@@ -65,8 +68,9 @@ request after you commit and push.
 
 *If you are creating slides*, use the R Markdown format [xaringan](https://github.com/yihui/xaringan).
 
-Making videos is done using [Peek](https://github.com/phw/peek),
-[OpenShot](https://www.openshot.org/),
+Making videos (on Linux) is done using [Peek](https://github.com/phw/peek) (setting the 
+window size to 1280x720),
+[OpenShot](https://www.openshot.org/) (to edit the video if necessary),
 and the below command to reduce the video file size:
 
 ```
@@ -85,7 +89,7 @@ also be keeping track of time and wave to you to continue on or slow down.
 quite hard, but just try as best you can. The lead organizer may take notes and
 provide feedback after your lesson or clarify concepts to the participants. Try
 to (briefly) explain as much aspects as possible of what you are doing,
-including how to open RStudio or how to run code (e.g. press `Shift-Enter` in RStudio)
+including how to open RStudio or how to run code (e.g. press `Shift-Enter` in RStudio).
 - The majority of the lesson material is *participatory live-coding*, so use of
 slides is minimal. The purpose of the course is to *type with the participants*,
 to show by doing.
@@ -119,7 +123,7 @@ by trying things hands-on.
 Live-coding is a technique used by [Software Carpentry](https://software-carpentry.org/about/). 
 Software Carpentry has lots of great resources explaining the why and how of live-coding:
 
-- [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html)
+- [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html).
 - The Software Carpentry [instructor training manual](https://carpentries.github.io/instructor-training/) 
 includes many resources about programming education.
 
