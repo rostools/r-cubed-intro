@@ -9,7 +9,7 @@ There are a few ways in which you can contribute:
 
 ## Participating in issue discussions :thought_balloon: :question:
 
-Helping to contribute can be as simple as giving feedback or suggestions or thoughts
+Helping to contribute can be as simple as giving feedback, suggestions, or thoughts
 about a topic or issue. You'll need a GitLab account to add your comments on
 the course development in the [`r-cubed` repository](https://gitlab.com/rostools/r-cubed/-/issues). 
 In particular, check the
@@ -38,10 +38,10 @@ use of the pipe `%>%` operator.
 
 Anyone can contribute to the course repository by two main ways:
 
-1. Using [hypothes.is], a web annotating tool. 
+1. Using [hypothes.is](https://web.hypothes.is/), a web annotating tool. 
 Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
 comments directly on this website. This is the easiest approach.
-2. Through Git and [GitLab] by creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+2. Through Git and [GitLab] (https://gitlab.com/) by creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
 to make comments and give feedback for the material or via [merge
 requests][merge-requests]. This is the harder but preferred approach.
 
@@ -130,11 +130,11 @@ includes many resources about programming education.
 ## Being a helper :raising_hand: 
 
 Being a helper is fairly simple! When you see a participant with a "help" sticky
-on their laptop, go and see what help you can provide. A couple things to review
-and to keep in mind when helping. 
+on their laptop, go and see what help you can provide! A couple things to review
+and to keep in mind when helping:
 
 - Review the curriculum the instructors will be teaching.
-- We teach the [`tidyverse`][tidyverse] way of using R, meaning we use packages
+- We teach the [tidyverse](https://www.tidyverse.org/) way of using R, meaning we use packages
 like dplyr, tidyr, rmarkdown, ggplot2, and so on. 
 - We follow the tidyverse way of [writing and styling R code](https://style.tidyverse.org/).
 - Be kind, and remember, your words and how you help *matter a lot*. They can 

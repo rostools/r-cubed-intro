@@ -157,8 +157,7 @@ remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 insert_video("videos/console-installing-r3.mp4")
 ```
 
-*Note*: When you see a command, called a *function* in R, like `something::something()`,
-for example with `remotes::install_gitlab()`, you would "read" this as:
+*Note*: When you see a command like `something::something()` (for example `remotes::install_gitlab()`), it is called a *function* in R, and you would "read" this as:
 
 > R, can you please use the `install_gitlab` function from the remotes package.
 
@@ -174,8 +173,8 @@ which is a collection of packages that are designed for common tasks in data sci
 ranging from data exploration to data visualization. As the name suggests,
 tidyverse is an attempt to organize the "universe" of data analysis by providing packages 
 that guide workflows that lead to more reproducible analysis projects. 
-You've now installed tidyverse when you installed r3. If you wanted to install
-normally, you would type in the Console:
+You've installed tidyverse when you installed r3. If you wanted to install
+a package normally, you would type in the Console:
 
 ```r
 install.packages("tidyverse")
@@ -240,10 +239,9 @@ knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 
 ## Course introduction
 
-Most of the description of the course is found in the [syllabus](index.html).
+Most of the description of the course is found in the [syllabus](syllabus.html).
 For quickly going to the syllabus from RStudio, 
-run the function `r3::open_syllabus()`.
-Or click it from the menu bar on the side. 
+run the function `r3::open_syllabus()`. Alternatively, you can click it from the menu bar on the side. 
 
 While you may have signed up to this
 course to learn more about R, you should know that conducting reproducible
@@ -273,7 +271,7 @@ run the function `r3::open_assignment()`.
 
 We have a [Code of Conduct](conduct.html). 
 If you haven't read it, **read it now**.
-At the end there will be a survey that will ask some questions about Conduct.
+At the end, there will be a survey that will ask some questions about Conduct.
 We want to make sure this course is a supportive and safe environment for learning,
 so this Code of Conduct is quite important.
 

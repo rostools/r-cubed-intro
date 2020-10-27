@@ -1,10 +1,10 @@
 # Code of Conduct {#conduct}
 
-Science thrives on diversity of thought and origin and we value the participation
+Science thrives on diversity of thought and origin. Therefore, we value the participation
 of every member of the scientific community and want all participants to have an
 enjoyable and fulfilling experience. Accordingly, all participants are expected
 to show respect and courtesy to other members throughout the course, in group
-work, and any activity associated with this course.
+work and any other activity associated with this course.
 
 To make clear what is expected, everyone taking part in this course, including
 instructors, helpers, organizers, and participants, is required to conform to
@@ -24,8 +24,7 @@ religion or belief (or lack thereof), membership of a national minority,
 property, age, education, socio-economic status, technical choices, and
 experience level.
 
-Everyone who participates in this course's activities is required to conform to
-this Code of Conduct. It applies to all spaces associated with this course
+Conforming to this Code of Conduct applies to all spaces associated with this course,
 including, but not limited to, group work, emails, and any online forums such as
 GitHub and Twitter. By participating, participants indicate their acceptance of
 the procedures by which the instructors and organizers resolves any Code of
@@ -34,8 +33,8 @@ Conduct incidents.
 ## Expected Behavior
 
 All course participants are expected to show respect and courtesy to others. All
-interactions should be professional regardless of platform: either online or
-in-person. In order to foster a positive and professional learning environment
+interactions should be professional regardless of the platform: either online or
+in-person. In order to foster a positive and professional learning environment,
 we encourage the following kinds of behaviours in all interactions during this
 course:
 
@@ -60,7 +59,7 @@ Examples of unacceptable behavior by participants include:
 - Unwelcome sexual attention.
 - Non-consensual or unwelcome physical contact.
 - Sustained disruption of talks, events, or communications.
-- Insults or put downs.
+- Insults or put-downs.
 - Sexist, racist, homophobic, transphobic, ableist, or exclusionary jokes.
 - Excessive swearing.
 - Incitement to violence, suicide, or self-harm.
@@ -71,11 +70,11 @@ Examples of unacceptable behavior by participants include:
 
 Participants who are asked, either in person or online, to stop any
 inappropriate behavior are expected to comply immediately. If a participant
-engages in behaviour that violates this code of conduct, the organizers,
+engages in behaviour that violates this Code of Conduct, the organizers,
 instructors, or helpers may take any action they deem appropriate, including
 warning the offender or expulsion from the course.
 
-Thank you for helping make sure this a welcoming, friendly event for all `r emo::ji("smile")`
+Thank you for helping to make sure this a welcoming, friendly event for all `r emo::ji("smile")`
 
 > *Acknowledgements*: Large portions of this Code of Conduct were taken and modified
 from other Codes of Conduct, specifically
