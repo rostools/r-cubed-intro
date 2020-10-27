@@ -31,10 +31,10 @@ since what you report
 and show as figures or tables will be exactly what you get from your analysis. 
 Again, no copying and pasting required!
 
-Hopefully by the end of this session you'll try to start using R Markdown files
+Hopefully by the end of this session you'll start using R Markdown files
 for writing your manuscripts and other technical documents. Believe us, 
 after you've learned how to incorporate text with R code, 
-it can save so much time in the end,
+it can save you so much time in the end,
 and make your analysis and work more reproducible. Plus you can create
 some very aesthetically appealing reports, 
 way more easily than you could if you did it in Word. 
@@ -60,8 +60,7 @@ It is a [markup syntax] and formatting tool, like HTML,
 that allows you write a document in plain text
 that can then be converted into a vast range of other document types,
 e.g. HTML, PDF, Word documents, slides, posters, or websites.
-In fact, this website is built from R and Markdown! 
-(Plus other things like HTML.) 
+In fact, this website is built from R and Markdown (plus other things like HTML)! 
 The Markdown used in R Markdown is based on [pandoc] 
 ("pan" means all and "doc" means document, so "all documents").
 Pandoc is a very powerful, popular, 
@@ -120,8 +119,8 @@ Then save this file as `rmarkdown-session.Rmd` in the `doc/` folder.
 insert_video("videos/rstudio-create-rmarkdown.mp4")
 ```
 
-We now have an R Markdown file.
-Inside the file, there is some text that gives a brief overview of how to use it.
+We now have an R Markdown file!
+Inside the file, there is some text that gives a brief overview of how to use the R Markdown file.
 For now, let's ignore the text.
 
 At the top of the R Markdown file,
@@ -137,7 +136,7 @@ output: html_document
 ```
 
 This section is called the *[YAML] header*
-and it contains commands and metadata about the document.
+and it contains commands and meta-data about the document.
 Most Markdown documents have this YAML header at the top of the document
 and they are always surrounded by `---` on the top and bottom of the section.
 YAML is a data format that has the form of a `key: value` pairing to store data.
@@ -160,8 +159,8 @@ So we will only cover HTML and Word documents in this course.
 [tinytex]: https://yihui.name/tinytex/r/
 
 So how do we create an HTML (or Word) document from the R Markdown document?
-By "knitting" it! At the top of the pane near the save button,
-there is a button with the word "Knit" and a yarn beside it, 
+By "knitting" it! At the top of the pane near the "Save" button,
+there is a button with the word "Knit" and yarn beside it, 
 as shown in Figure \@ref(fig:image-rstudio-knit-button). 
 To knit, you either click that button 
 or by using `Ctrl-Shift-K` anywhere in the R Markdown document.
@@ -174,7 +173,7 @@ When you click it, a bunch of commands should pop up in a new pane called "R Mar
 followed by a new window popping up with the newly created document.
 Alternatively, the HTML document may pop up in the "Viewer" pane.
 
-Cool, so now you've created an HTML document!
+Cool, now you've created an HTML document!
 Let's try making a Word document.
 Change the YAML value in the key `output:` from `html_document` to `word_document`.
 Then knit the document again (with the "Knit" button or with `Ctrl-Shift-K`).
@@ -214,7 +213,7 @@ that you'd then put into the document.
 Running and including R code in R Markdown is done through "R code chunks".
 You insert these chunks into the document by either typing `Ctrl-Alt-I` 
 or using the menu item `Code -> Insert Chunk`, 
-with the cursor at the location you want the chunk to be.
+with the cursor at the location where you want the chunk to be.
 Before we do that,
 delete all the text in your R Markdown document (the `rmarkdown-session.Rmd` file),
 excluding the YAML header.
@@ -238,23 +237,22 @@ In the code chunk, type out `2 + 2`, so it looks like:
 `r ''````
 ````
 
-You can run R code inside the code chunk the same as you would when in an R script.
-Typing `Ctrl-Enter` on the line will send the code `2 + 2` to the Console,
+You can run R code inside the code chunk the same way as you would write it when in an R script.
+Typing `Ctrl-Enter` on the line will send the code `2 + 2` to the console,
 putting the output directly below the code chunk in the R Markdown document.
 This output though is *temporary*.
 
 To get it inserted into the HTML document,
 knit (`Ctrl-Shift-K`) the document and see what happens in the created HTML document.
-The output `4` should appear below the code chunk in the HTML document.
-Something like this:
+The output `4` should appear below the code chunk in the HTML document, something like this:
 
 ```{r}
 2 + 2
 ```
 
 This is a very simple example of how code chunks work.
-Normally, things are more complicated than this though.
-Usually we have to load R packages to use for running R,
+Usually things are more complicated than this though.
+Normally, we have to load R packages to use for running R,
 and this is no different in an R Markdown document.
 Create a new code chunk and then type `setup` right after the `r`.
 It should look like:
@@ -265,7 +263,7 @@ It should look like:
 `r ''````
 ````
 
-This area that you typed in is for code chunk labels.
+This area, that you just typed in, is the area for code chunk labels.
 In this case, we labelled the code chunk with the name `setup`.
 Code [chunk labels] should be named without `_`, spaces, or `.` 
 and instead should be one word or be separated by `-`. 
@@ -308,7 +306,7 @@ nhanes_small
 
 You can run this code normally, with the cursor over the code 
 and typing `Ctrl-Enter`.
-Or we can knit (`Ctrl-Shift-K`) the document and see what it looks like.
+We can also knit (`Ctrl-Shift-K`) the document and see what it looks like.
 When the HTML document opens,
 you should see some text below the `setup` chunk that might look something like this:
 
@@ -328,7 +326,7 @@ You probably don't want this text in your generated document.
 You can change how code chunks work by using [chunk options].
 They are available either by clicking on the gear in the top right corner of the chunk
 (shown in Figure \@ref(fig:image-rstudio-code-chunk-gear))
-or by typing in the area after the chunk label section.
+or by typing them in the area after the chunk label section.
 
 [chunk options]: https://yihui.org/knitr/options/
 
@@ -368,7 +366,7 @@ Other common options are:
 - `echo`: To show the code. The default value to show is `TRUE`, to hide is `FALSE`.
 - `results`: To show the output results. The default is `'markup'`, to hide is `'hide'`.
 - `eval`: To evaluate (to run) the R code in the chunk. 
-The default value is `TRUE` and `FALSE` does not run the code.
+The default value is `TRUE`, while `FALSE` does not run the code.
 
 These options all work on the individual code chunk.
 *Note*, that all the chunk options *must* be on *one* line,
@@ -419,7 +417,7 @@ and we have rows that would be meaningful table rows too.
 To convert it into a pretty table in the R Markdown HTML output document,
 we use the `kable()` function from the knitr package.
 Because we don't want to load all of the knitr functions,
-we'll use `knitr::kable()` instead.
+we'll use `knitr::kable()` instead:
 
 ````markdown
 `r ''````{r mean-age-bmi-table}
@@ -455,7 +453,7 @@ create a new code chunk and call it `setup`.
 Include the `source()` function to load the packages and use `load()` with
 `here::here()` to load the `nhanes_small` dataset.
 1. Create another code chunk and call it `prettier-table`.
-Copy the code from above that calculates the mean BMI and Age
+Copy the code from above that calculates the mean BMI and age
 and paste the code into the new chunk.
 Add the option `echo = FALSE` to the code chunk.
 1. Use `mutate()` to update:
@@ -474,7 +472,7 @@ name (e.g. `"Diabetes Status" = diabetes`). Don't forget, the renaming form is
 1. Run the code chunk to make sure the code works.
 Include the `knitr::kable()` function at the end of the pipe, with a table caption
 of your choice.
-1. Knit the document and check the created table.
+1. Knit the document and check what the created table looks like. 
 1. End the exercise by adding, committing, and pushing the files to your GitHub
 repository.
 
@@ -513,7 +511,7 @@ Formatting text in Markdown is done using characters that are considered "specia
 and act like commands.
 So these special characters indicate what text is bolded,
 what is a header, what is a list, and so on.
-Almost every feature you need to write a scientific document is available in Markdown,
+Almost every feature you will need to write a scientific document is available in Markdown,
 though not all.
 If you can't get Markdown to do what you want,
 our suggestion would be to try to fit your writing around Markdown, 
@@ -525,8 +523,7 @@ and that you can actually do quite a lot with Markdown's capabilities.
 ### Headers 
 
 Creating headers (like chapters or sections) is done by using one 
-or more `#` at the beginning of a line 
-and should always be preceded and followed by an empty line: 
+or more `#` at the beginning of a line. Headers should always be preceded and followed by an empty line: 
 
 ```markdown
 # Header 1
@@ -587,8 +584,8 @@ which gives...
 
 R Markdown also allows you to including numbers 
 (or other output) directly into a paragraph.
-For instance, if you want to add a mean into some text,
-it would look like:
+For instance, if you want to add a mean of some values into the text,
+it would look like this:
 
 > The mean of BMI is `` `r knitr::inline_expr("round(mean(nhanes_small$bmi, na.rm = TRUE), 2)")` ``.
 
@@ -632,9 +629,9 @@ Open a browser and search for a picture to use
 (we're using a kitten, because they're cute).
 Download the image, create a folder in `doc/` called `images`,
 and save the image in that folder.
-Then in your R Markdown document,
+Then, in your R Markdown document,
 use the Markdown syntax for images: `![Caption text](path/to/image.png)`.
-The image can be png, jpeg, or pdf.
+The image can be in png, jpeg, or pdf formats. 
 If you download an image and intend to use it in an official document,
 you will need to add text on the source and author of the image for copyright
 purposes.
@@ -643,7 +640,7 @@ purposes.
 ![Image by Dimitri Houtteman from Pixabay.](images/kitten.jpg)
 ```
 
-Which gives...
+Gives...
 
 ![Image by <a href="https://pixabay.com/users/Dimhou-5987327/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Dimitri Houtteman</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Pixabay</a>](images/kitten.jpg)
 
@@ -684,9 +681,9 @@ We do this with these code chunk options:
 - `fig.align`: To align the figure, either in `"center"`, `"left"`, or `"right"`.
 - `out.width` and `out.height`: Sets the image width 
 and height for external images (not created by R).
-Can use percent to set the size, e.g. `"75%"`.
+You can use percent to set the size as well, e.g. `"75%"`.
 
-Change the width and height to `"50%"`,
+Try now to change the width and height to `"50%"`,
 along with adding a caption like `"Kittens attacking flowers!"`:
 
 ````markdown
@@ -772,7 +769,7 @@ You might split up a document into sections that each collaborator may work on,
 and then later on merge them together.
 This last approach is what we will get you to do for the group project.
 
-## Exercise: Adding figures and change the theme
+## Exercise: Adding figures and changing the theme
 
 Time: 20 minutes
 
@@ -782,13 +779,13 @@ Go into the `doc/another-one.Rmd` and complete these tasks:
 R Markdown file. Download it and save the image in `doc/`.
     - In the R Markdown file, insert the image somewhere (e.g. under `# Results`)
     and give it an appropriate caption.
-    - For inserting the images, use the code-chunk with `knitr::include_graphics()`
+    - For inserting the images, use the code-chunk with `knitr::include_graphics()`.
     - Use `fig.cap` to include a caption, center align with `fig.align`, 
-    and resize it to `"75%"` with `out.width`.
+    and resize the image to `"75%"` with `out.width`.
     - Knit the document to make sure the image gets inserted.
 - Go to the R Markdown [documentation] site and look at the different available
 themes for the HTML output. Find a theme you like by changing the `theme` option
-in the YAML header and re-knitting the document. 
+in the YAML header and re-knit the document. 
 - Finally, add and commit the changes you've made to the `doc/another-one.Rmd`. 
 For now, don't add and commit the HTML output file.
 

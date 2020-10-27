@@ -15,7 +15,7 @@ This repository contains the lesson, lecture, and assignment material for the
 course, including the website source files and other associated course
 administration files. 
 
-For more detail on the course, check out the [syllabus](https://r-cubed.rostools.org).
+For more detail on the course, check out the [syllabus](https://r-cubed.rostools.org/syllabus.html).
 
 ## Instructional Design
 
@@ -46,7 +46,7 @@ associated links to the lecture slides.
 the [xaringan] package. 
 
 The website is generated from [bookdown], 
-so follows the file and folder structure
+so it follows the file and folder structure
 conventions from that package.
 
 [xaringan]: https://github.com/yihui/xaringan
@@ -80,7 +80,7 @@ of which Luke W. Johnston has created, been involved in, or contributed to), inc
 (which I helped develop and is the inspiration and basis for this course)
 - [Software and Data Carpentry](https://carpentries.org/) workshop material
 - [UofTCoders material](https://uoftcoders.github.io/studyGroup/lessons/)
-and [AU CRU material](https://au-cru.github.io/site/material/),
+and [AU CRU material](https://au-cru.github.io/),
 from the peer led and contributed lessons of each
 - [Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/)
 course template
@@ -91,7 +91,7 @@ in March, 2019:
 
 ### Contributions
 
-Contributors for [version 1](https://gitlab.com/lwjohnst/dda-rcourse/-/tags/v1.0.0) were:
+Contributors for [version 1](https://v1--dda-rcourse.netlify.app/) were:
 
 - Luke Johnston: Brainstormed most of the course material and structure; set up
 the website; organized and coordinated the course; wrote, prepared, and taught

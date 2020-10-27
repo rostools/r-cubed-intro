@@ -15,7 +15,7 @@ learning. It isn't a race, use what you can without getting totally overwhelmed.
 are not supportive, or are supportive but not able to learn and use these tools
 themselves, e.g. they are too busy, there are several steps you can take. This 
 situtation is definitely challenging and is likely to be most commonly 
-encountered. Use the tools as best you can, small bits at a time so you continue
+encountered. Use the tools as best you can, small bits at a time, so you continue
 learning but don't get completely overwhelmed with all the new things and ways
 to do things. Below are some potential small steps to take that you can choose from
 to start incorporating and using R and reproducibility in your work:
@@ -30,7 +30,7 @@ to start incorporating and using R and reproducibility in your work:
     Word document.
     - Start slowly making use of Git, even if you can't or are not comfortable 
     yet with sharing on GitHub. Git and GitHub are two separate things and
-    Git still can be used on your computer without putting it up online.
+    Git can still be used on your computer without putting it up online.
     - Use R entirely to wrangle and clean your data rather than, e.g. opening up
     Excel and editing the data there.
 - If you're restricted to working with your data in a virtual remote environment
@@ -94,7 +94,7 @@ The prodigenr package is available, so we'll set the project up like we
 normally would (refer to Figure \@ref(fig:video-prodigenr-project-creation)).
 We may get a message nudging us to set up our Git configuration and not just use the
 defaults. The defaults should be based on your log-on ID (and be somewhat
-sensible) here, but we can set them ourselves later.
+sensible), but we can set them ourselves later.
 
 ### Activating Git for the project
 
@@ -142,12 +142,12 @@ repository, we'll do it the other way around:
 1. Create a blank remote repository in a local folder that all team members have
 access to.
 2. Connect our local repository to it.
-3. Push the commits from our local repository to it.
+3. Push the commits from our local repository to this new "remote" repository.
 
 The only difference here is that the location of the remote is not a GitHub URL
 and we don't create the remote on our web browser with the GitHub interface. In
 fact, once we've created the remote repository, we link our local repository to
-it with the same two commands we used in the Git remote session.
+it with the same two commands we used in the Git remote session in Section \@ref(remotes-setting-up).
 
 This time, we create the remote repository with the Windows interface by using
 Git Bash in 3 steps:
@@ -161,19 +161,19 @@ it at the root of our DST project directory and call it `git-remote`:
 
 - Next, we go to the new directory and open Git Bash:
 
-    ```{r dst-git-bash-here, echo=FALSE, fig.cap="Open Git Bash here"}
+    ```{r dst-git-bash-here, echo=FALSE, fig.cap="Open Git Bash here."}
     knitr::include_graphics(here::here("images/dst-git-bash-here.jpg"))
     ```
     
     Git Bash is a program for operating Git through a command-line interface in
     Windows. It is similar to the terminal we used in RStudio. We should see a
-    line indicating the current directory and below it a `$` sign followed by a
-    blinking bar indicating that Git Bash is ready to accept new commands.
+    line indicating the current directory and below it, a `$` sign followed by a
+    blinking bar, indicating that Git Bash is ready to accept new commands.
     
 - Now, we use a new command: `git init --bare`, which converts the current
 directory to a blank Git repository.
 
-    ```{r dst-git-init-windows, echo=FALSE, fig.cap="'git init --bare' creates the necessary files to convert the folder into a blank Git repository"}
+    ```{r dst-git-init-windows, echo=FALSE, fig.cap="'git init --bare' creates the necessary files to convert the folder into a blank Git repository."}
     knitr::include_graphics(here::here("images/dst-git-init-windows.jpg"))
     ```
 
@@ -268,7 +268,7 @@ environment, including formatting tables, code chunks, or scripts. Certain
 scripts (e.g. AutoHotkey) allow you automatically "type out" the contents of
 your local clipboard onto the virtual desktop, but in practice these do not work
 on most virtual machine platforms due to keyboard driver issues - often creating
-dangerously erratic keyboard behavior instead. Using these types of scripts is
+dangerously erratic keyboard behaviors instead. Using these types of scripts is
 not recommended.
 - The installed versions of R, RStudio, and the packages will only be as
 up-to-date as the system administrators keep them. Again, if something is out
