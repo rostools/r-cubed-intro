@@ -1,8 +1,7 @@
 # Pre-course tasks {#pre-course}
 
-Complete everything in this pre-course tasks chapter and complete the survey
-at the end.
-The deadline for these tasks is (at least) 3 days before the course starts.
+Complete everything in this chapter, then complete the survey at the end.
+The deadline for these tasks is (at least) three days before the course starts.
 
 ## Installing programs
 
@@ -18,8 +17,8 @@ For some Windows users, you may need to install [Rtools](https://cran.r-project.
 in order for some R packages to be installed (which you'll do shortly).
 
 All these programs are required for the course, even Git. 
-Git, which is a software program to formally manage versions of file, 
-is used because of it's popularity and the amount of documentation available for it. During the course, you will be using Git and GitHub to manage your group assignment. Check out the online book [Happy Git with R](https://happygitwithr.com/),
+Git, which is a software program to formally manage versions of files, 
+is used because of it's popularity and the amount of documentation available for it. At the end of the course, you will be using Git and GitHub to manage your group assignment. Check out the online book [Happy Git with R](https://happygitwithr.com/),
 especially the "Why Git" section, for an understanding on why we are teaching Git.
 Windows users tend to have more trouble with installing Git than macOS or Linux users.
 See the section on [Installing Git for Windows](https://happygitwithr.com/install-git.html#install-git-windows) for help.
@@ -28,28 +27,29 @@ See the section on [Installing Git for Windows](https://happygitwithr.com/instal
 restrictive administrative privileges*: 
 You may encounter problems installing software due to administrative reasons
 (e.g. you don't have permission to install things).
-For issues with updating to the latest version of R or RStudio, 
-if you have at least 3.6.0 for R and at least 1.2.5001 for RStudio, 
-that should be fine. If you have versions of R and RStudio older than that,
-it is necessary for you to request that IT update your software if you can't yourself.
-Unfortunately, given that Git is not a commonly used software for some organizations,
+Even if you have issues installing or updating the latest version of R or RStudio, 
+you will likely be able to continue with the course as long as you have at least
+3.6.0 for R and at least 1.2.5001 for RStudio. 
+If you have versions of R and RStudio that are older than that,
+you may need to ask your IT department to update your software if you can't do this yourself.
+Unfortunately, Git is not a commonly used software for some organizations, so 
 you may not have it installed and you *will* need to ask IT to install it.
 We *require* it for the course, so please make sure to give IT enough time to
-be able to install it for you.
+be able to install it for you prior to the course.
 
 Once R, RStudio, and Git have been installed, open RStudio. 
-*If you at any point during these pre-course tasks have any troubles*, 
+*If you encounter any troubles during these pre-course tasks*, 
 try as best you can to complete the task and then let us know about the
 issues in the pre-course survey (at the end of this section). 
 If you continue having problems, indicate on the survey that you need help
 and we can try to book a quick video call to fix the problem. 
-Otherwise, if you can, come to the course earlier (15-20 min) to get help.
+Otherwise, you can come to the course 15-20 minutes earlier to get help.
 
 If you're unable to complete the setup procedure due to unfixable technical issues, you can use RStudio Cloud as a last-ditch solution to participate in the course. For help setting up RStudio Cloud for this course, refer to the [RStudio Cloud setup guide](resources#setting-up-rstudio-cloud).
 
 ## What is R?
 
-During this course, we will be spending most of our time in RStudio. RStudio is an environment to interact with R. R is like an engine, while RStudio is what you use to actually work with the engine. Prior to taking a look at what RStudio looks like, let's talk briefly about R as a programming language.
+During this course, we will be spending most of our time in RStudio. RStudio is an environment that we use to interact with R. R is like an engine, while RStudio is like the tools we use to actually work with that engine. Prior to taking a look at what RStudio looks like, let's talk briefly about R as a programming language.
 
 R is a free programming language/environment used in statistical computing, data
 analytics, and scientific research. R is used to clean, organize, analyze, and
@@ -60,25 +60,25 @@ console rather than using click-based, drop-down menus.
 
 In recent years, R has become one of the most popular languages among statisticians and data scientists for several reasons:
 
-- Open source, so you are able to see how exactly a e.g. statistical method works.
-- Provides access to a vast array of packages that can complete nearly any task
+- It is open source, so you are able to see how exactly a, for instance, statistical method works.
+- It runs on all platforms (Windows, macOS, Linux).
+- It is highly compatible with other programming languages.
+- It provides access to a vast array of packages that can complete nearly any task
 or statistical approach.
-- Huge online community to help you problem-solve any issue.
-- Runs on all platforms (Windows, macOS, Linux).
-- Highly compatible with other programming languages.
+- There is a huge online community to help you problem-solve any issue.
 
-However, like many programming languages, R is not an easy to learn. Some
+However, like many programming languages, R is not easy to learn. Some
 functions are spread across packages, which means that you need to have prior
-knowledge of packages in order to implement some commands. Finally, R can be
+knowledge of packages in order to implement some commands. R can also be
 slower than other programming languages. Nonetheless, R offers
-such rich functionality and a supportive community that it is worth the
+such a supportive community and rich functionality that it is worth the
 challenge!
 
 ## Getting familiar with RStudio
 
 Check out Figure \@ref(fig:rstudio-introduction) below.
 You can see that RStudio has four "panels", 
-dividing the screen into the four corners.
+dividing the screen into the four sections.
 
 ```{r rstudio-introduction, echo=FALSE, fig.cap="Interface to RStudio."}
 knitr::include_graphics(here::here("images/rstudio-introduction.png"))
@@ -87,28 +87,25 @@ knitr::include_graphics(here::here("images/rstudio-introduction.png"))
 While you can customize where the individual panels go, 
 the default layout is how the panels are shown. 
 
-- Panel "A" is the panel that shows the "scripts", which we will cover in the class.
+- Panel "A" is the panel that shows the "scripts", which we will be using a lot during the course.
 You *may or may not see this panel* when you open RStudio for the first time.
 This panel is where you write R code that will be saved as a file.
 - Panel "B" is the Console. This is where R commands are sent and evaluated by R.
 This is the "engine". No R code written here is saved.
-Almost all of the tasks below will be entered through the Console.
+Almost all of the tasks in this course will be entered through the Console.
 - Panel "C" contains the Environment, History, Connections, and Git tabs. 
-In this course we'll only be using the Environment and Git tab, 
-which we'll cover more later.
+In this course, we will only be using the Environment and Git tab.
 - Panel "D" has the Files, Plots, Packages, Help, Build, and Viewer tabs.
-For the course we'll only be going over the Files, Plots, Packages, and Help tabs.
+For this course, we will only be going over the Files, Plots, Packages, and Help tabs.
 
-For this course, you will spend most of your time using R script files to write
-in and play around with code. However, we will also be learning and using [R
-Markdown][rmarkdown] (`.Rmd`) later in the course. R Markdown is a dynamic and invaluable
+While we will spend most of the course using R script files to play around with code, 
+we will also be learning and using [RMarkdown][rmarkdown] (`.Rmd`). R Markdown is a dynamic and invaluable
 tool that will help make your analysis more reproducible. R Markdown allows you
-to mix code with text and images, where R runs the code and inserts the code output
+to enter chunks of code as well as text and images. R runs the code and inserts the code output
 into the R Markdown file. The R Markdown file can be converted into a wide range
 of document types, including MS Word, PDF, or HTML. Some researchers write and
 manage entire papers, theses, or books using R Markdown, as it can make things
-easier to organize and maintain. This website and the course content is written
-with R Markdown.
+easier to organize and maintain. In fact, this website is writtenwith R Markdown.
 
 [rmarkdown]: https://rmarkdown.rstudio.com/
 
@@ -116,28 +113,16 @@ with R Markdown.
 
 Now that you have RStudio and R on your computer, 
 we need to install the R packages we'll use in the course.
-R packages are external bundles of R code that other people have written.
+R packages are bundles of R code that other people have written.
 There are so many R packages available 
-that if there is something you'd like to do in R, 
-there probably is an R package to do it. 
+that there is likely an R package for anything you'd like to do in R.
 Making use of R packages can greatly help you out when doing your research.
 
 For this course, we will be focusing on R packages that are powerful and
-general-purpose enough to help you in multiple aspects of your research
-Most of these packages are bundled together into one package called [tidyverse]
-that we'll discuss a bit more below.
-The packages we will specifically use are [ggplot2], [dplyr], and [rmarkdown]
-(the last of which we introduced above). These packages provide a set of
-consistent tools for most common data analysis tasks and also have excellent
-documentation and tutorials on how to use them.
-
-[dplyr]: https://dplyr.tidyverse.org/
-[tidyverse]: https://tidyverse.org/
-[ggplot2]: https://ggplot2.tidyverse.org/
-
+general-purpose enough to help you in multiple aspects of your research. 
 To install these packages, we'll need to install the r3 helper package. For
 that, we'll need to first install the [remotes] package.
-See the video below for how to do that:
+Watch the video below to see how to do this:
 
 [remotes]: https://remotes.r-lib.org/
 
@@ -147,7 +132,7 @@ insert_video("videos/rstudio-installing-remotes.mp4")
 
 Copy and paste the command below into the RStudio Console. 
 Hit Enter and the r3 helper package will be installed.
-See how to do that in the video below.
+Watch the video below to see how to do this:
 
 ```r
 remotes::install_gitlab("rostools/r3", upgrade = TRUE)
@@ -157,38 +142,35 @@ remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 insert_video("videos/console-installing-r3.mp4")
 ```
 
-*Note*: When you see a command, called a *function* in R, like `something::something()`,
-for example with `remotes::install_gitlab()`, you would "read" this as:
+It is important to understand what you are commanding when you enter a function 
+like `something::something()`. In the example of `remotes::install_gitlab()`, 
+you would "read" this as:
 
-> R, can you please use the `install_gitlab` function from the remotes package.
+> R, can you please use the `install_gitlab` function from the remotes package?
 
-The normal way of doing it would be to load the package with `library(remotes)` 
-and then run the function.
-But by using the `::`, we tell R to directly use a function from a package.
-We use this trick because we only want to use the `install_gitlab()` function
-from the remotes package and not have to load all the other remotes functions. 
-We will be using `::` often as we go through the course.
+You could load the package with `library(remotes)` and then run the `install_gitlab` function.
+However, using the `::` tells R that we want to use a function directly from a package.
+We prefer this way as we only want to use the `install_gitlab()` function from the 
+remotes package without having to load all the other functions. 
+We will be using `::` often during this course.
 
-Throughout this course, we will be using a number of packages from the tidyverse, 
-which is a collection of packages that are designed for common tasks in data science,
-ranging from data exploration to data visualization. As the name suggests,
-tidyverse is an attempt to organize the "universe" of data analysis by providing packages 
-that guide workflows that lead to more reproducible analysis projects. 
-You've now installed tidyverse when you installed r3. If you wanted to install
-normally, you would type in the Console:
+Most of the packages we will be using in this course are bundled together into one package called [tidyverse]. tidyverse is a collection of packages that are designed for common tasks in data science, ranging from data exploration to data visualization. As the name suggests, tidyverse is an attempt to organize the "universe" of data analysis by providing packages that guide workflows and lead to more reproducible analysis projects. Tidyverse will be installed for you now that you've installed r3, as it was already a part of that helper package. If you wanted to install tidyverse normally, you would type in the Console:
 
 ```r
 install.packages("tidyverse")
 ```
+[tidyverse]: https://tidyverse.org/
 
-There are two core packages contained within the tidyverse that we will heavily use.
+The specific packages from tidyverse that we will use are [ggplot2], [dplyr], and [rmarkdown]. These packages provide a set of tools for the most common 
+data analysis tasks, and have excellent documentation and tutorials on how to use them.
+
+There are two core packages contained within tidyverse that we will use more regularly.
 
 - [dplyr] (along with a complementary package [tidyr]) is a package that is very
 popular and contains important data manipulation functions,
 including functions that select and/or create variables depending
-on certain conditions. 
-[dplyr] is built to work directly with data frames, which are rectangular data
-like those found in spreadsheets, and has an additional feature to interact
+on certain conditions. [dplyr] is built to work directly with data frames (rectangular data
+like those found in spreadsheets), and has an additional feature to interact
 directly with data stored in an external database such as in SQL. Working with
 databases
 is a powerful way to work with massive datasets (100s of GB), more than 
@@ -197,20 +179,21 @@ be covered in this course, but see this
 [resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
 to learn more.
 
+[dplyr]: https://dplyr.tidyverse.org/
 [tidyr]: https://tidyr.tidyverse.org/
 
 - [ggplot2] is a data visualization package that can be used to create bar charts, pie charts, histograms, scatterplots, error charts, and more. It uses high-level API that means you are able to customize the aesthetics of your plot and add different components or layers. 
 
-While this may not be so meaningful now, it will make sense later when you begin to practice some of these functions.
+[ggplot2]: https://ggplot2.tidyverse.org/
 
 ## Setting up Git and GitHub
 
 We'll cover what Git and GitHub are during the course, 
-but for now we need you to get things ready beforehand so it's easier in the course.
+but for now, we need you to prepare things so that you are ready for the course.
 In order to use Git properly, 
-we need to inform your computer that you are using Git.
+you need to inform your computer that you are using Git.
 Since we've installed the r3 package and 
-we only want to use specific function from it, 
+we only want to use a specific function from it, 
 we'll be using `r3::` often. 
 So, type in the RStudio Console:
 
@@ -219,16 +202,16 @@ r3::setup_git_config()
 ```
 
 Hit enter and follow the instructions. 
-Finally, type and run this next function to make sure everything is ok with your set up.
-When you do the survey, we ask that you copy and paste the output of this function.
+Finally, type and run this next function to make sure everything is working with your setup.
+When you complete the survey later, you will need to copy and paste the output of this function.
 
 ```r
 r3::check_setup()
 ```
 
 After you are done, you need to [create a GitHub account](https://github.com/join). 
-See Figure \@ref(fig:github-account-creation) for a demonstration of doing that.
-Make note of your user name, since we'll ask you for it in the survey.
+See Figure \@ref(fig:github-account-creation) for a demonstration of how to do that.
+Make note of your username, as we will ask you for it in the pre-course survey.
 
 > Note: *GitHub* is a company and website, while *Git* is a software.
 There is sometimes confusion about these two things since they both say "Git".
@@ -240,45 +223,43 @@ knitr::include_graphics(here::here("videos/github-account-creation.gif"))
 
 ## Course introduction
 
-Most of the description of the course is found in the [syllabus](index.html).
-For quickly going to the syllabus from RStudio, 
-run the function `r3::open_syllabus()`.
-Or click it from the menu bar on the side. 
+Most of the description of the course is found in the [syllabus](syllabus.html).
+A shortcut to quickly access the syllabus from RStudio is to enter `r3::open_syllabus()` or click it from the menu bar on the side. 
 
 While you may have signed up to this
 course to learn more about R, you should know that conducting reproducible
 research goes beyond R and RStudio. As such, we will be spending a lot of time
 exploring other tools that are used in conjunction with R, to improve the
 structure and transparency of your work. This course is designed to not only
-introduce you to R, but also to doing reproducible research and data analysis
+introduce you to R, but also to show ways of conducting reproducible research and data analysis
 in R.
 
 If you haven't read the syllabus, **please read it now**.
 Read over what the course will cover, 
-what we expect you to learn at the end of it,
-and what our basic assumptions are about who you are and what you know.
-At the end of this pre-course assignment we'll ask you a few questions to see
+what we expect you to learn by the end of it,
+and what our basic assumptions are about who you are and what you already know.
+At the end of this section, we'll ask you a few questions to see
 if you understand what you'll learn in the course.
 
 One goal of the course is to teach about open science,
 and true to our mission, we practice what we preach.
 The course material is publicly accessible (all on this website) and 
-[openly licensed](license.html) so you can use and re-use it for free!
+[openly licensed](license.html) so you can (re-)use it for free!
 The material is organized in the order that we will cover it in the course.
 Even though the course will include lots of hands-on work during the sessions,
 the final group [project assignment](assignment.html) 
-will allow you to practice in a team setting everything you've learned.
+will allow you to practice everything you've learned in a team setting.
 To quickly access the final project assignment from inside RStudio,
 run the function `r3::open_assignment()`.
 
 We have a [Code of Conduct](conduct.html). 
 If you haven't read it, **read it now**.
-At the end there will be a survey that will ask some questions about Conduct.
+The survey involves some questions about Conduct.
 We want to make sure this course is a supportive and safe environment for learning,
 so this Code of Conduct is quite important.
 
 You're almost done. Please fill out the pre-course survey to finish this
-pre-course assignment, either [at this link] or with this function:
+section, either [at this link] or with this function:
 
 [at this link]: https://docs.google.com/forms/d/e/1FAIpQLSeuMe485zZXlG9uQlUgcgsWBJvpHUB_-bMVkEtA4moWK_oUoQ/viewform?usp=sf_link
 

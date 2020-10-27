@@ -70,7 +70,7 @@ Or maybe change the thickness or colour of the axis lines.
 
 There is a massive amount of features in ggplot2.
 Thankfully, ggplot2 was specifically designed to make it easy to find 
-and use its functions and settings using tab auto-completion.
+and use its functions and settings using the tab auto-completion.
 As an example, if you type out `geom_` and then hit tab, 
 you will get a list of all the geoms available.
 Likewise with `scale_` or with all the options inside `theme()`
@@ -128,15 +128,16 @@ there is really only one way.
 
 You may notice that since the [data wrangling chapter](wrangling),
 we used the word "column" to describe the columns in the data frame,
-but now we're saying "variable".
+but from now, we're instead saying "variable".
 There's a reason for this: ggplot2 really only works with tidy data.
 And if we recall from the definition of tidy data,
 it is made up of "variables" (columns) and "observations" (rows) of a data frame.
 To us, a "variable" is something that we are interested in analyzing or visualizing, 
-and that contains only values relevant to that measurement
+and which only contains values relevant to that measurement
 (e.g. a `Weight` variable must only contain values for weight).
-The NHANES dataset is already pretty tidy:
-Rows are participants at the survey year,
+
+The `NHANES` dataset is already pretty tidy:
+Rows are participants at the survey year, and
 columns are the variables that were measured.
 So, from now on, we call them "variables".
 
@@ -169,7 +170,7 @@ load(here::here("data/nhanes_small.rda"))
 ```
 
 Now we are ready to start creating the first plot! 
-Since BMI is a strong risk factor for diabetes, let's check out its distribution.
+Since BMI is a strong risk factor for diabetes, let's check out the distribution of BMI among the participants.
 To show distributions, there are two good geoms: 
 `geom_density()` and `geom_histogram()`.
 
@@ -200,8 +201,7 @@ some at 80 BMI units!
 The plots above are for continuous variables, 
 but what about for discrete?
 Well, sadly, there's really only one: `geom_bar()`.
-This isn't a geom for a barplot though! 
-This shows the counts of a discrete variable.
+This isn't a geom for a barplot though, but instead, this geom shows the counts of a discrete variable.
 There are many discrete variables in NHANES, including sex and diabetes, 
 so let's visualize those. 
 Again, create a new code chunk, then type:
@@ -213,7 +213,7 @@ ggplot(nhanes_small, aes(x = sex)) +
 ```
 
 We can see that there are almost equal numbers of females and males.
-Now we'll do the same for diabetes status, so in a new code chunk type:
+Now we'll do the same for the diabetes status, so in a new code chunk type:
 
 ```{r}
 # create count barplot for diabetes status
@@ -240,8 +240,8 @@ ggplot(nhanes_tidied, aes(x = diabetes)) +
 ```
 
 Let's take a minute to talk about the commonly used barplots with mean and error bars.
-In all cases, bar plots should only be used for discrete (categorical) data
-where you want to show counts or proportions. They should as a general rule not be used for continuous data.
+In all cases, bar plots should **only** be used for discrete (categorical) data
+where you want to show counts or proportions. They should as a general rule **not** be used for continuous data.
 This is because the commonly used "bar plot of means with error bars" 
 actually hides the underlying distribution of the data.
 To have a better explanation of this,
@@ -262,8 +262,7 @@ it's a bad plot to use, so use something else.
 knitr::include_graphics(here::here("images/art-bar-error-plot.png"))
 ```
 
-Before we move on, let's add and commit the new files we created into the Git
-history and push up to
+Before we move on, let’s add and commit the new files we created into the Git history and push up to your GitHub repository.
 
 ## Plotting two variables
 
@@ -275,9 +274,7 @@ Usually the variable that you "control or influence"
 and the variable that "responds" (the dependent variable)
 goes on the y-axis.
 
-### Two continuous variables
-
-When you have *two continuous* variables, some geoms are:
+When you have *two continuous* variables, some geoms to use are:
 
 - `geom_point()`, which is used to create a standard scatterplot.
 - `geom_hex()`, which is used to replace `geom_point()` 
@@ -331,9 +328,9 @@ bmi_chol +
 
 Sadly, for two discrete variables, 
 there are not many options available without major data wrangling. 
-The most useful geom for this is `geom_bar()` like before, 
+The most useful geom for this type of plot is `geom_bar()` like before, 
 but with an added variable.
-Because `geom_bar()` has a "fill" (coloured inside), 
+Because `geom_bar()` has a "fill" (which means "coloured inside"), 
 we can change that fill based on a variable.
 So let's see what the difference in diabetes status is between sexes.
 
@@ -348,12 +345,12 @@ two_discrete +
     geom_bar()
 ```
 
-By default, `geom_bar()` will make fill groups stacked on top of each other.
+By default, `geom_bar()` will make "fill" groups stacked on top of each other.
 For this case, it isn't really that useful.
 So let's instead have them side by side. 
 For that, we need to use the `position` argument with a function called
 `position_dodge()`.
-This new function takes the fill grouping variable and "dodges" them 
+This new function takes the "fill" grouping variable and "dodges" them 
 (moves them) to be side by side.
 
 ```{r}
@@ -524,7 +521,7 @@ ggplot(nhanes_tidied, aes(x = diabetes, y = poverty)) +
 
 There are many many ways to visualize additional variables in a plot 
 and further explore your data.
-We can use ggplot's colour, shape, size, transparency ("alpha"), 
+For that, we can use ggplot2's colour, shape, size, transparency ("alpha"), 
 and fill aesthetics, as well as "facets".
 Faceting in ggplot2 is a way of splitting the plot up into multiple plots 
 when the underlying aesthetics are the same or similar. 
@@ -535,11 +532,11 @@ Let's try to answer a few questions, to visualize some examples.
 First, create a new header called `# Plotting three or more variables`
 and create a new code chunk below it.
 
-*Question*: Is systolic blood pressure different in those with 
-or without diabetes in females and males? 
+*Question: Is systolic blood pressure different in those with 
+or without diabetes in females and males?*
 In this case, we have one continuous variable (`bp_sys_ave`)
 and two discrete (`sex` and `diabetes`).
-For this plot, we could use `geom_boxplot()`. 
+For this plot, we could use `geom_boxplot()`:
 
 ```{r}
 # Plot systolic blood pressure in relation to sex and diabetes status
@@ -550,10 +547,10 @@ nhanes_tidied %>%
 
 Do you see differences in systolic blood pressure between the sexes? Between diabetics and non-diabetics?
 
-*Question*: How does BMI relate to systolic blood pressure 
-and age?
+*Question: How does BMI relate to systolic blood pressure 
+and age?*
 Here we have three continuous variables (`bmi`, `bp_sys_ave`, and `age`),
-so we could use `geom_point()`.
+so we could use `geom_point()`:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and age
@@ -564,8 +561,8 @@ nhanes_tidied %>%
 
 Can you see any associations between systolic blood pressure and BMI or age?
 
-*Question*: How does BMI relate to systolic blood pressure 
-and what is different between those with and without diabetes?
+*Question: How does BMI relate to systolic blood pressure 
+and what is different between those with and without diabetes?*
 In this case, we have two continuous (`bmi` and `bp_sys_ave`) and one discrete variable (`diabetes`).
 We could use `geom_point()`:
 
@@ -576,18 +573,18 @@ nhanes_tidied %>%
     geom_point()
 ```
 
-For this plot it's really hard to see what's different. 
-But there is another way of visualizing a third (or fourth, and fifth!) variable:
-with "faceting".
+For this latter plot, it's really hard to see what's different. 
+But there is another way of visualizing a third (or fourth, and fifth) variable:
+with "faceting"!
 Faceting splits the plot up into multiple subplots
 using the function `facet_grid()`.
-To work, at least one of the first two arguments to `facet_grid()` are needed.
-The first two are:
+For facet to work, at least one of the first two arguments to `facet_grid()` is needed.
+The first two arguments are:
 
 - `cols`: The discrete variable to use to facet the plot column-wise 
-(i.e. side-by-side)
+(i.e. side-by-side).
 - `rows`: The discrete variable to use to facet the plot row-wise 
-(i.e. stacked on top of each other)
+(i.e. stacked on top of each other).
 
 For both `cols` and `rows`, the variable given must be wrapped by `vars()`
 (e.g. `vars(diabetes)`).
@@ -757,14 +754,14 @@ base_scatterplot2 + theme_classic()
 ```
 
 You can also set the theme for all subsequent plots, by using the `theme_set()`
-function, specifying the theme you want in the parenthesis.
+function and specifying the theme you want in the parenthesis.
 
 ```{r, eval=FALSE}
 # set the theme for all subsequent plots
 theme_set(theme_bw())
 ```
 
-For adding labels to things, such as axis titles, the function is `labs()`.
+For adding labels to your plot, such as axis titles, the function to use is `labs()`.
 To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`.
 For the whole plot, it is `title`:
@@ -772,7 +769,7 @@ For the whole plot, it is `title`:
 ```{r}
 # add plot title, and change x and y axis titles
 base_scatterplot2 +
-    labs(title = "BMI, systolic blood pressure, and age by diabetes and sex.",
+    labs(title = "BMI, systolic blood pressure, and age by diabetes and sex",
          y = "Systolic Blood Pressure (mmHg)",
          x = "BMI (kg/m2)")
 ```

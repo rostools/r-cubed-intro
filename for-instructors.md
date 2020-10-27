@@ -28,7 +28,7 @@ them throughout the course and especially during the final group project.
 - Have an RStudio theme that uses a white background with black text.
 This setting is easier to read on projectors.
 - In `Global Options -> Appearance`, 
-put a higher Zoom value and increase the font size (maybe around 14). 
+put a higher zoom value and increase the font size (maybe around 14). 
 Exact zoom and font size depends on the projector.
 - Put the Console and Script panes side by side rather than stacked. 
 This can be changed in the `Global Options -> Pane Layout` 
@@ -191,7 +191,7 @@ list of questions to include (depending on the survey):
 The schedule is not designed to be a fixed sequence of sessions. Some sessions
 may run shorter so you can move on to the next session afterwards, while other
 sessions may run longer and go into the next session. That is ok if that happens.
-The schedule is a guide only, an overview of what will be covered and when.
+The schedule is a guide only, an overview of what will be covered, and when.
     
 ## General course admin
 
