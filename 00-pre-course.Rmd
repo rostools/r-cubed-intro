@@ -60,7 +60,7 @@ console rather than using click-based, drop-down menus.
 
 In recent years, R has become one of the most popular languages among statisticians and data scientists for several reasons:
 
-- It is open source, so you are able to see how exactly a (e.g.,) statistical method works.
+- It is open source, so you are able to see how exactly a, for instance, statistical method works.
 - It runs on all platforms (Windows, macOS, Linux).
 - It is highly compatible with other programming languages.
 - It provides access to a vast array of packages that can complete nearly any task
