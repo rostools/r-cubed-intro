@@ -58,7 +58,7 @@ Imports:
     here,
     hexbin,
     NHANES,
-    RefManageR,
+    RefManageR (>= 1.3.0),
     tidyr,
     r3 (>= 0.0.0.9000),
     snakecase
@@ -71,8 +71,9 @@ Suggests:
     xaringan,
     xaringanthemer,
     showtext
-Remotes: 
+Remotes:  
     gadenbuie/xaringanthemer,
     hadley/emo,
-    gitlab::rostools/r3
+    gitlab::rostools/r3,
+    ropensci/RefManageR
 Encoding: UTF-8
