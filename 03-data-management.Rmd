@@ -10,9 +10,9 @@ and how to create tidy data to simplify your analysis.
     - Subset specific columns and rows of a dataset, with `filter()`and `select()`.
     - Sort rows of a dataset by a specific column, with `arrange()`.
     - Create new or transform existing columns in a dataset, with `mutate()`.
-    - Calculate simple data summaries, with `summarize()`.
+    - Calculate simple data summaries, with `summarise()`.
 1. Learn about and apply the "split-apply-combine" method for doing analyses,
-with `group_by()` and `summarize()`.
+with `group_by()` and `summarise()`.
 1. Write "tidier" and more readable code by using the pipe (`%>%`) operator.
 
 ## "Messy" vs. "tidy" data
@@ -803,10 +803,10 @@ and then combine the results together.
 
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
 
-In dplyr, to summarize on all the data, you would use the function `summarize()`.
+In dplyr, to summarise on all the data, you would use the function `summarise()`.
 If you want to do a split-apply-combine 
 (e.g. find the max height of females and males) analysis,
-you would use the functions `group_by()` and then `summarize()`.
+you would use the functions `group_by()` and then `summarise()`.
 Using `group_by()` splits the data up and
 `summarise()` then applies an analysis 
 and immediately combines it back together. 
@@ -824,13 +824,13 @@ The next arguments work similar to `mutate()` with one difference:
 the output must create a single value (e.g. a max or a mean).
 Like `mutate()`, 
 you can add multiple "summaries" by adding new columns separated by comma `,`.
-You would use `summarize()` to derive basic descriptive statistics of a certain
+You would use `summarise()` to derive basic descriptive statistics of a certain
 variable, including `min()`, `max()`, `mean()`, `median()`, or `sd()` (standard
 deviation).
 
 The `group_by()` function doesn't do anything by itself so should always be used
-in combination with a `summarize()`, `mutate()`, `arrange()`, or other function.
-However, the `summarize()` function can be used on its own. Let's take a look.
+in combination with a `summarise()`, `mutate()`, `arrange()`, or other function.
+However, the `summarise()` function can be used on its own. Let's take a look.
 
 ## Calculating summary statistics
 
@@ -838,7 +838,7 @@ Let's calculate the maximum value of BMI.
 
 ```{r}
 nhanes_small %>%
-    summarize(max_bmi = max(bmi))
+    summarise(max_bmi = max(bmi))
 ```
 
 We get back a result of `NA`, which means "missing". In R, `NA` values
@@ -848,7 +848,7 @@ using `na.rm = TRUE`.
 
 ```{r}
 nhanes_small %>%
-    summarize(max_bmi = max(bmi, na.rm = TRUE))
+    summarise(max_bmi = max(bmi, na.rm = TRUE))
 ```
 
 
@@ -856,17 +856,17 @@ To add another summary column, use `,`.
 
 ```{r}
 nhanes_small %>%
-    summarize(max_bmi = max(bmi, na.rm = TRUE),
+    summarise(max_bmi = max(bmi, na.rm = TRUE),
               min_bmi = min(bmi, na.rm = TRUE))
 ```
 Before you start the exercise, add and commit what you've changed 
 to the Git history with the RStudio Git interface.
 
-## Exercise: Use `summarize()` to calculate basic statistics
+## Exercise: Calculate some basic statistics
 
 Time: 10 min 
 
-Practice using `summarize()` by calculating various summary statistics.
+Practice using `summarise()` by calculating various summary statistics.
 Complete the following tasks:
 
 1. Calculate the `mean()` of `weight` and `age`.
@@ -877,43 +877,43 @@ Git interface.
 
 Don't forget to use `na.rm = TRUE` in the basic statistic functions.
 
-```{r exercise-summarize-basic-stats, eval=FALSE}
+```{r exercise-summarise-basic-stats, eval=FALSE}
 # 1.
 nhanes_small %>%
-    summarize(mean_weight = ___,
+    summarise(mean_weight = ___,
               mean_age = ___)
 
 # 2.
 nhanes_small %>%
-    summarize(max_height = ___,
+    summarise(max_height = ___,
               min_height = ___)
 
 # 3.
 nhanes_small %>%
-    summarize(___ = ___,
+    summarise(___ = ___,
               ___ = ___)
 ```
 
-```{r solution-exercise-summarize-basic-stats, eval=FALSE, solution=TRUE}
+```{r solution-exercise-summarise-basic-stats, eval=FALSE, solution=TRUE}
 # 1.
 nhanes_small %>%
-    summarize(mean_weight = mean(weight, na.rm = TRUE),
+    summarise(mean_weight = mean(weight, na.rm = TRUE),
               mean_age = mean(age, na.rm = TRUE))
 
 # 2.
 nhanes_small %>%
-    summarize(max_height = max(height, na.rm = TRUE),
+    summarise(max_height = max(height, na.rm = TRUE),
               min_height = min(height, na.rm = TRUE))
 
 # 3.
 nhanes_small %>%
-    summarize(median_age = median(height, na.rm = TRUE),
+    summarise(median_age = median(height, na.rm = TRUE),
               median_phys_active_days = median(phys_active_days, na.rm = TRUE))             
 ```
 
-## Summary statistics by a group {#group-by-summarize}
+## Summary statistics by a group {#group-by-summarise}
 
-While the `summarize()` function is partly useful, it really shines when combined with `group_by()`.
+While the `summarise()` function is partly useful, it really shines when combined with `group_by()`.
 Let's find out the mean age and BMI between those with and without Diabetes.
 
 ```{r}
@@ -967,11 +967,11 @@ nhanes_small %>%
 
 Before you start the exercise, add and commit the changes to the Git history.
 
-## Exercise: Use `group_by()` and `summarize()` to answer some questions
+## Exercise: Answer some questions by with grouping and summarising
 
 Time: 5-7 min
 
-Using the `group_by()` with `summarize()`, answer these questions:
+Using the `group_by()` with `summarise()`, answer these questions:
 
 1. What is the mean, max, and min differences in age between
 females and males with or without diabetes?
@@ -1009,17 +1009,17 @@ nhanes_small %>%
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
     group_by(diabetes, sex) %>% 
-    summarize(
+    summarise(
         mean_age = mean(age, na.rm = TRUE),
         max_age = max(age, na.rm = TRUE),
-        min_age = min(age, na.rm = TRUE),
+        min_age = min(age, na.rm = TRUE)
     )
 
 # 2. 
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
     group_by(diabetes, sex) %>% 
-    summarize(
+    summarise(
         mean_height = mean(height, na.rm = TRUE),
         max_height = max(height, na.rm = TRUE),
         min_height = min(height, na.rm = TRUE),
