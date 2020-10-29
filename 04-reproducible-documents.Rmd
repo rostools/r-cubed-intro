@@ -209,7 +209,7 @@ that you'd then put into the document.
 
 Running and including R code in R Markdown is done through "R code chunks".
 You insert these chunks into the document by placing the cursor at the location where you want the chunk to be, then using the shortcut `Ctrl-Alt-I` 
-or using the menu item `Code -> Insert Chunk`.
+or the menu item `Code -> Insert Chunk` to insert a new code chunk.
 Before we do that,
 delete all the text in your R Markdown document (the `rmarkdown-session.Rmd` file),
 excluding the YAML header.
@@ -277,7 +277,7 @@ when using "Document Outline"
 but only if you have this option set in the 
 `Tools -> Global Options -> R Markdown -> Show in document outline`.
 
-The name `setup` also have some significance for R Markdown.
+The name `setup` also has a special meaning for R Markdown.
 When you run other code chunks in the document, R Markdown will first run the code in the `setup` chunk.
 Therefore, this is a good place to put your `library()` calls or, in our case,
 the function `source()` to load all the packages.
@@ -357,6 +357,7 @@ load(here::here("data/nhanes_small.rda"))
 ````
 
 Other common options are:
+
 - `echo`: To show the code. Default value to show is `TRUE`. Use `FALSE` to hide.
 - `results`: To show the output results. Default is `'markup'`. Use `'hide'` to hide.
 - `eval`: To evaluate (run) the R code in the chunk. Default value is `TRUE`, while `FALSE` does not run the code.
