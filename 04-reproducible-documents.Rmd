@@ -41,9 +41,9 @@ way more easily than you could if you did it in Word.
 knitr::include_graphics(here::here("images/art-reproducibility.png"))
 ```
 
-## Creating an R Markdown file
+## What is R Markdown?
 
-**Take about 5 min to read over the next few paragraphs**.
+**Take about 5 min to read over this section**.
 
 [R Markdown][rmarkdown] is a file format (a plain text format like R scripts or
 `.csv` files) that allows you to be more reproducible in your analysis and to be
@@ -102,7 +102,9 @@ because the logic and sequence is shown in the document itself.
 
 **Let's take a look at R Markdown together**.
 
-First, we will create and save an R Markdown file. 
+## Creating an R Markdown file
+
+Now, we will create and save an R Markdown file. 
 Go to `File -> New File -> R Markdown`,
 and a dialog box will then appear.
 Enter "Reproducible documents" in the title section 
@@ -375,10 +377,12 @@ knitr::opts_chunk$set(echo = FALSE)
 `r ''````
 ````
 
+## Creating tables of results
+
 Let's try running some R code to get R Markdown to create a table.
 First, create a new code chunk and name it `mean-age-bmi-table`.
 Second, copy the code from the Data Wrangling session,
-from Section \@ref(group-by-summarize).
+from Section \@ref(group-by-summarise).
 
 ````markdown
 `r ''````{r mean-age-bmi-table}
@@ -588,7 +592,8 @@ Time: 5 min
 Complete these tasks in the `doc/another-one.Rmd` file.
 
 - Right under the YAML header, insert a list item with your name.
-Put your affiliations and your university or institution as items in a sub-list.
+Put your affiliations and your university or institution as other list items 
+below your name.
 - Create three level 1 headers (`#`), called "Intro", "Methods and Results", and
 "Discussion".
 - Create a level 2 header (`##`) under "Methods and Results" called "Analysis".
