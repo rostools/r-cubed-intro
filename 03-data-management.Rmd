@@ -28,7 +28,7 @@ and that has already come up in this course: the [tidyverse].
 The tidyverse is an ecosystem of R packages that are designed to work well together,
 that all follow a strong "[design philosophy]" and common [style guide].
 This makes combining these packages in the tidyverse much easier.
-We teach the tidyverse because of these abovementioned reasons. Here are some additional resources for the tidyverse:
+We teach the tidyverse because of these abovementioned reasons.
 
 [design philosophy]: https://design.tidyverse.org/
 [style guide]: https://style.tidyverse.org/
@@ -101,7 +101,7 @@ in plainer English what you are doing to the data. This is one simple way that y
 
 When working with data, there are a few principles to follow:
 
-- You should always save your origianl raw dataset in the `data-raw/` folder.
+- You should always save your original raw dataset in the `data-raw/` folder.
     - *Note*: Whether or not you save data to `data-raw/` depends on how you collected the data 
     and how many collaborators are on your team. You may end up storing and processing the data in another folder as a project
     of its own.
@@ -240,7 +240,7 @@ Selecting columns of a dataset is a very common data wrangling task. The functio
 For the input arguments, `select()` takes the dataset as the first argument,
 which is the first input position right after the opening bracket `(`,
 and then takes the names of the columns you want to select.
-The argument after the dataset argument is `...`, 
+The argument after the data argument is `...`, 
 which indicates that you can add as many columns as you want, separated by a `,`.
 
 ```{r}
@@ -743,7 +743,7 @@ code to complete the tasks below.
 (*Hint*: Create a new "Section"
 in the R script for this exercise by using `Ctrl-Shift-R`).
 
-1. Filter `nhanes_small` so select only those participants with a BMI of more than or equal to 20 
+1. Filter `nhanes_small` so only those participants with a BMI of more than or equal to 20 
 *and* less than or equal to 40, *and* keep those who have diabetes.
 
 2. Create a new variable called `mean_arterial_pressure` by applying the formula: 
@@ -776,7 +776,7 @@ nhanes_modified
 
 **Take 5 min to read through this section** before we continue.
 
-Summarizing or applying simple (or complex) statistics to data is a key component of any analysis.
+Summarising or applying simple (or complex) statistics to data is a key component of any analysis.
 Simple summaries or statistics can be done either on all of the data 
 or on groups of it.
 There are many data analysis tasks that can be approached 
@@ -785,7 +785,7 @@ and then combining the results together.
 
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
 
-In [dplyr], you can use the function called `summarise()` to summarize on all the data.
+In [dplyr], you can use the function called `summarise()` to summarise on all the data.
 If you want to do a split-apply-combine analysis to, e.g., find the max height of females and males,
 you would use the functions `group_by()` and then `summarise()`.
 Using `group_by()` splits the data up and `summarise()` applies an analysis, then immediately combines it back together. 
@@ -903,9 +903,9 @@ nhanes_small %>%
 ```
 
 *Quick note*: If you are using a version of dplyr >= 1.0.0, you'll get a message informing you that it is `regrouping output`.
-This is simply a notification and can be ignored.
+This is a notification and can be ignored.
 If you don't want the message displayed,
-you can enter `options(dplyr.summarise.inform = FALSE)` at the top of your script
+you can add `options(dplyr.summarise.inform = FALSE)` to the top of your script
 and run it.
 
 We also get a warning about there being missing values in diabetes, 
@@ -977,7 +977,7 @@ nhanes_small %>%
 ```
 
 Then, start replacing the `___` with the appropriate
-code including `group_by()` with `summarize()`, to answer these questions:
+code including `group_by()` with `summarise()`, to answer these questions:
 
 1. What is the mean, max, and min differences in *age* between
 females and males with or without diabetes?
