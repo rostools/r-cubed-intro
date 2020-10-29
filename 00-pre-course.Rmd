@@ -97,6 +97,7 @@ Almost all of the tasks in this course will be entered through the Console.
 In this course, we will only be using the Environment and Git tab.
 - Panel "D" has the Files, Plots, Packages, Help, Build, and Viewer tabs.
 For this course, we will only be going over the Files, Plots, Packages, and Help tabs.
+There can be slight differences in your layout of tabs in each panel.
 
 While we will spend most of the course using R script files to play around with code, 
 we will also be learning and using [RMarkdown][rmarkdown] (`.Rmd`). R Markdown is a dynamic and invaluable
@@ -105,7 +106,7 @@ to enter chunks of code as well as text and images. R runs the code and inserts 
 into the R Markdown file. The R Markdown file can be converted into a wide range
 of document types, including MS Word, PDF, or HTML. Some researchers write and
 manage entire papers, theses, or books using R Markdown, as it can make things
-easier to organize and maintain. In fact, this website is writtenwith R Markdown.
+easier to organize and maintain. In fact, this website is written with R Markdown.
 
 [rmarkdown]: https://rmarkdown.rstudio.com/
 
@@ -176,7 +177,7 @@ databases
 is a powerful way to work with massive datasets (100s of GB), more than 
 what your computer could normally handle. Working with massive data won't 
 be covered in this course, but see this 
-[resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html))
+[resource from Data Carpentry](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html)
 to learn more.
 
 [dplyr]: https://dplyr.tidyverse.org/
@@ -246,7 +247,7 @@ and true to our mission, we practice what we preach.
 The course material is publicly accessible (all on this website) and 
 [openly licensed](license.html) so you can (re-)use it for free!
 The material is organized in the order that we will cover it in the course.
-Even though the course will include lots of hands-on work during the sessions,
+While the course will include lots of hands-on work during the sessions,
 the final group [project assignment](assignment.html) 
 will allow you to practice everything you've learned in a team setting.
 To quickly access the final project assignment from inside RStudio,
