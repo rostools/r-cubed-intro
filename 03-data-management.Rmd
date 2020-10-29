@@ -4,16 +4,15 @@
 
 **Session objectives**:
 
-1. Learn the difference between "messy" and "tidy" data 
-and how to create tidy data to simplify your analysis.
+1. Learn the difference between "messy" and "tidy" data, including how to create tidy data to simplify your analysis.
 1. Perform simple transformations and subsetting of datasets, such as:
     - Subset specific columns and rows of a dataset, with `filter()`and `select()`.
     - Sort rows of a dataset by a specific column, with `arrange()`.
     - Create new or transform existing columns in a dataset, with `mutate()`.
     - Calculate simple data summaries, with `summarize()`.
-1. Learn about and apply the "split-apply-combine" method for doing analyses,
+1. Learn about and apply the "split-apply-combine" method of analyses,
 with `group_by()` and `summarize()`.
-1. Write "tidier" and more readable code by using the pipe (`%>%`) operator.
+1. Write "tidier" and more readable code, with the pipe (`%>%`) operator.
 
 ## "Messy" vs. "tidy" data
 
@@ -23,17 +22,14 @@ and the *Managing and working with data in R* section**.
 The concept of "tidy" data was popularized in an [article] by Hadley Wickham
 and described in more detail in the [Tidy Data chapter] 
 of the *R for Data Science* online book. 
-But before we continue with tidy data,
+Before we continue with tidy data,
 we need to cover something that is related to the concept of "tidy"
-and that will come up often in this course: the [tidyverse].
+and that has already come up in this course: the [tidyverse].
 The tidyverse is an ecosystem of R packages that are designed to work well together,
 that all follow a strong "[design philosophy]" and common [style guide].
 This makes combining these packages in the tidyverse much easier.
-These packages also tend to have excellent, beginner-friendly documentation
-and tutorials on learning and using the packages.
-We teach the tidyverse because of these abovementioned reasons.
+We teach the tidyverse because of these abovementioned reasons. Here are some additional resources for the tidyverse:
 
-[tidyverse]: https://www.tidyverse.org/
 [design philosophy]: https://design.tidyverse.org/
 [style guide]: https://style.tidyverse.org/
 
@@ -48,7 +44,7 @@ Ok, back to "tidy data". A tidy dataset is when:
 
 Take a look at the example "tidy" and "messy" data frames
 (also called "tibbles" in the tidyverse) below.
-Think about why each is "tidy" or "messy". 
+Think about why each may be considered "tidy" or "messy". 
 What do you notice between the tidy versions and the messier versions?
 
 ```{r}
@@ -69,10 +65,11 @@ table4a
 table4b
 ```
 
-The "most" tidy version is `table1` which has columns that describe their values
+The "most" tidy version is `table1` as each column describes their values
 (e.g. population is population size), each row is unique (e.g. first row is for 
 values from Afghanistan from 1999), and each cell is an explicit value
 representative of its column and row. 
+
 `table2` is a "long" version of `table1` so it is partly "tidy", 
 but it doesn't satisfy the rule that each variable has a column,
 since `count` represents both cases and population size.
@@ -80,13 +77,13 @@ since `count` represents both cases and population size.
 On the other hand, `table3` is messy
 because the `rate` column values are a composite of two other column values
 (cases and population), when it should be a single number (a percent). Both
-`table4a` and `table4b` have columns with ambiguous values inside; what does
-values in the `1999` column contain? You can't tell from the data.
+`table4a` and `table4b` have columns with ambiguous values inside. For example, you can't tell from the data what the 
+values in the `1999` column contain.
 
 Tidy data has a few notable benefits:
 
 1. Time spent preparing your data to be tidy from the beginning can save days
-of frustration in the long run.
+of added work and frustration in the long run.
 2. "Tidy data" is a conceptual framework that allows you to easily build off 
 and wrangle (i.e. "manipulate", "clean up", "manage") data in simpler 
 and easy-to-interpret ways, 
@@ -96,40 +93,38 @@ The concept of tidy data also gives rise to "tidy code" for wrangling.
 By using "verbs" (R functions)
 and chaining them together in "sentences" (in a sequential pipeline), 
 you can construct meaningful and readable code that describes 
-in plainer English what you are doing to the data.
+in plainer English what you are doing to the data. This is one simple way that you can enhance the reproducibility of your code.
 
 ## Managing and working with data in R
 
 **Take 5 min and read through this section**.
+
 When working with data, there are a few principles to follow:
 
-- **Never** edit raw data and save it in a separate location 
-(could put in the `data-raw/` folder).
-    - *Note*: Saving to `data-raw/` depends on how you collected the data 
-    and how many collaborators are on your team. 
-    You may end up storing and processing the data in another folder as a project
+- You should always save your origianl raw dataset in the `data-raw/` folder.
+    - *Note*: Whether or not you save data to `data-raw/` depends on how you collected the data 
+    and how many collaborators are on your team. You may end up storing and processing the data in another folder as a project
     of its own.
-- Only work with your raw data using R code, *don't manually edit it*.
+- **Never** edit your raw data directly and save it in a separate location.
+- Only work with your raw data using R code. *Don't manually edit it*.
 Manual editing doesn't leave a history of what you've done to it,
 so you can't go back and see what you've done. 
 Always keep a history of any changes you've made to the data,
 preferably by using R code.
 - Save the edited data as another dataset and store it in the `data/` folder.
 
-When wrangling your data with R code make sure to:
+When wrangling your data with R code, make sure to:
 
-- Document and comment as best you can what you did to your data and why you did
-it to help you remember.
-- Write the code itself to be as descriptive as you can
-and to be readable enough to understand what is being done to the data.
-Keep the code simple: Don't be clever, be clear.
-Clear code is easier to understand than some clever code.
+- Document what you did to your data and why you did it, to help you remember later on (by using hashes to indicate comments and non-code text).
+- Write the code in a way that is as descriptive as possible
+and is readable enough to understand what is being done to the data.
+- Keep the code simple: Don't be clever, be clear. Clear code is easier to understand than clever and sometimes overly-complex code.
 
 In data wrangling, 
 most tasks can be expressed by a few simple "verbs" (actions).
-Wrangling here is used in the sense of maneuvering, managing, controlling, and
-turning your data around to clean it up, to better understand it,
-and to prepare it for later analyses. 
+Wrangling here refers to maneuvering, managing, controlling, and
+turning your data around to clean it up, better understand it,
+and prepare it for later analyses. 
 The table below lists some common "verbs" from the [dplyr] 
 package that come from the tidyverse:
 
@@ -150,19 +145,23 @@ tibble::tribble(
 ```
 
 **Tip**: Sometimes you need to do some complicated wrangling to get your data 
-in appropriate "shape" to use for later analyses.
-To help save some time,
+"in shape" for later analyses.
+To save some time,
 you could save the wrangled data as an "output" dataset in the `data/` folder.
 That way, you can easily use it again later rather 
 than having to run the wrangling code every time you want to work with the data.
 
 ## Load the packages and dataset
 
-We're going to use the US [NHANES] dataset to demonstrate the wrangling functions. 
+We're going to use the US [NHANES] dataset to demonstrate some wrangling functions. 
 There is an [NHANES package] that contains a teaching version of the original dataset, 
 so we'll use that for this lesson. 
-First, make sure the `LearningR` R Project you created previously is open. 
-Then open the `R/package-loading.R` script and add the dataset package to the file,
+
+[NHANES]: https://www.cdc.gov/nchs/nhanes/index.htm
+[NHANES package]: https://CRAN.R-project.org/package=NHANES
+
+First, make sure that you have the `LearningR` R Project open. 
+Second, open the `R/package-loading.R` script and load the NHANES package,
 so it looks like:
 
 ```{r}
@@ -170,11 +169,8 @@ library(tidyverse)
 library(NHANES)
 ```
 
-Then open the `R/wrangling-session.R` script to start typing out the next code. 
-We'll use this file to write the code for this session (but not for the exercises).
-
-[NHANES]: https://www.cdc.gov/nchs/nhanes/index.htm
-[NHANES package]: https://CRAN.R-project.org/package=NHANES
+Third, open the `R/wrangling-session.R` script to begin entering code. 
+We'll use this script file to write the code for this session (but not for the exercises).
 
 ```{r, message=FALSE, warning=FALSE, eval=-(1:2)}
 # Load up the packages
@@ -184,21 +180,21 @@ source(here::here("R/package-loading.R"))
 glimpse(NHANES)
 ```
 
-With the added dataset package and code added to the `R/wrangling-session.R`,
-add and commit the changes to the Git history with the RStudio Git interface.
+Finally, add and commit the changes to the Git history with the RStudio Git interface.
 
-## Exercise: Become familiar with the dataset
+## Exercise: Getting familiar with the dataset
 
 Time: 10 min
 
-Take the time to get familiar with the NHANES dataset.
+Take some time to get to know the NHANES dataset.
 
 1. Create a new R script by typing in the RStudio Console
 `usethis::use_r("exercises-wrangling")`. 
-1. Copy the code below and paste it into the new exercise file.
-1. Replace the `___` with the `NHANES` dataset. 
-1. Run each line of code by using `Ctrl-Enter`.
-1. Once done, add and commit the changes to the Git history with the RStudio Git
+1. Copy the code below and paste it into the new script file.
+1. Replace the `___` with `NHANES`. 
+1. Run each line of code by using the `Ctrl-Enter` shortcut.
+1. Take a look at the output for each command, to see what sorts of data you are able to retrieve. 
+1. Once you have completed each, add and commit the changes to the Git history with the RStudio Git
 interface.
 
 ```{r exercise-familiar-with-data, eval=FALSE}
@@ -237,14 +233,14 @@ summary(NHANES)
 ?NHANES
 ```
 
-## Select specific columns in a dataset
+## Selecting specific columns in a dataset
 
-Selecting columns of a dataset is a very common data wrangling task. The function for this task is appropriately called `select()`. You would use `select()` to extract one or more variables in a dataset that you want to have a closer look at or save as a new data frame to work with. It may be that you wish to explore the clinical characteristics of your study sample, so you may select some basic demographic variables (e.g., the `Age` column) and clinical variables (e.g., `Weight` and `Height` columns) to perform these analyses. 
+Selecting columns of a dataset is a very common data wrangling task. The function for this task in RStudio is appropriately called `select()`. You would use `select()` to extract one or more variables in a dataset that you want to have a closer look at or to save as a new data frame to work with. It may be that you wish to explore the clinical characteristics of your study sample, so you may select some basic demographic variables (e.g., the `Age` column) and clinical variables (e.g., `Weight` and `Height` columns) to perform these analyses. 
 
 For the input arguments, `select()` takes the dataset as the first argument,
 which is the first input position right after the opening bracket `(`,
 and then takes the names of the columns you want to select.
-The argument after the data argument is `...`, 
+The argument after the dataset argument is `...`, 
 which indicates that you can add as many columns as you want, separated by a `,`.
 
 ```{r}
@@ -284,7 +280,7 @@ check out `?select_helpers`.
 
 You'll notice that running these functions doesn't actually change the data itself.
 When you run a function without assigning it using `<-`,
-the only action the function does is to send the output to your screen.
+the only action the function does is to send the output to your screen, and you won't have saved that data anywhere for later use.
 But if you want to create a new dataset with only the columns you selected,
 you'll need to assign the selected dataset to a new object.
 
@@ -306,21 +302,20 @@ nhanes_small
 
 ## Renaming all column names based on the style guide
 
-To match the [style guide], we should change the column names to be all lower case
-and with `_` for spaces between words. There's a package that can do that for us
+In the interests of keeping data tidy and matching the [style guide], we should change the column names to be all lower case
+with `_` for spaces between words. There's a package that can do that for us
 called [snakecase].
 
 [snakecase]: https://tazinho.github.io/snakecase/
 
 In the Console, type out `snakecase::` and hit Tab. You’ll see a list of
-possible functions to use. We want to use the snake case function, so scroll
+possible functions to use. We want to use the snakecase function, so scroll
 down and find the `to_snake_case()`.
 
 To change all the column names to lower
-case, we'll use the function `rename_with()`. This function, like the other dplyr
-functions, takes the data as the first argument while the second argument needs 
-to be a function, which in our case is `to_snake_case()` but without using the 
-`()` at the end. Based on this function, it then renames all columns.
+case, we'll use the function `rename_with()`. This function takes the data as the first argument but the second argument needs 
+to be a function, which in our case is `to_snake_case()` without using the 
+`()` at the end. This function will rename all columns.
 
 ```{r create-nhanes-snakecase}
 # Rename all columns to snake case
@@ -330,21 +325,20 @@ nhanes_small <- rename_with(nhanes_small, snakecase::to_snake_case)
 nhanes_small
 ```
 
-## Rename specific columns
+## Renaming specific columns
 
 Depending on how your data was collected, 
 it may have column names that aren't very descriptive.
 So you'll probably want to rename them to something more explanatory, which is
 particularly important if you're sharing your work with others or in an
 environment where multiple people are working on the same data.
-As with `select()`, to rename columns you use the function called `rename()`.
-Like `select()`, `rename()` takes the dataset as the first argument
-(first position) and then takes as many renaming arguments as you want
+We will use the function called `rename()`.
+Like `select()`, `rename()` takes the dataset as the first argument and then takes as many renaming arguments as you want
 (because the second argument position is `...`).
 When renaming, it takes the form of `newname = oldname`.
 
 Let's rename gender to be sex, since gender is a social construct, while sex is
-biological, which is what the sex variable in the data actually describes.
+biological. This is consistent with what the sex variable in the dataset actually describes too.
 
 ```{r}
 rename(nhanes_small, sex = gender)
@@ -354,7 +348,7 @@ nhanes_small
 ```
 
 Notice that the `rename()` function has not altered the `nhanes_small`
-data frame. To do this, we need to assign the change to `nhanes_small`:
+data frame. To do this, we need to assign the change to `nhanes_small` in a way that saves it:
 
 ```{r create-nhanes-sex}
 nhanes_small <- rename(nhanes_small, sex = gender)
@@ -362,42 +356,41 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
 
-Now the column has been renamed from gender to sex. 
-What if you want to select some columns and then rename some of them, do you have to create a new data object every time? No! We can make use of a very powerful tool called piping with the `%>%` function.
+Now, you can see that the column has been renamed from gender to sex. 
+What if you wanted to select some columns and then rename some of them? Would you have to create a new data object every time? No! We can make use of a very powerful tool called piping with the `%>%` function.
 
 ## Chaining functions with the pipe
 
 **Take 5 minutes and read this section** before we continue.
 
-A key component of the tidy data and tidy code concept is making use of the
-`%>%` operator. You would use the "pipe" operator when you are writing a piece
-of code with multiple operations/intermediate steps that require you to
-save/overwrite each step as an object (see below). One advantage of the "pipe"
+A key component of tidy data and tidy code is making use of the "pipe" operator, 
+`%>%`. You would use the "pipe" operator when you are writing a piece
+of code with multiple operations or intermediate steps that require you to
+save and overwrite each step as an object (see below). One advantage of the "pipe"
 operator is that it will help to ensure that your code is less cluttered with
-unimportant and temporary object names.
+redundant and temporary object names.
 
 This operator allows you to "pipe" the output from one function to the
-input of another function, like a plumbing pipe would do for water.
+input of another function, just like a plumbing pipe would do for water.
 This allows you to easily chain functions together into "sentences".
 Let's use an example based on English words for some action. 
 This is the English sentence:
 
 > We need some eggs. Drive to the grocery store
-and buy some eggs before coming home from work.
+and buy some eggs before arriving home from work.
 
 There are basically two actions here ("drive" and "buy")
-and four inputs ("work", "grocery store", "eggs", "home"),
+with four inputs ("work", "grocery store", "eggs", "home"),
 that are all based on the previous action.
 Since an action in R is a function, 
 the functions would be `drive()` and `buy()`.
-In regular R, if we wanted to chain these functions together, 
-we would have to nest them like this:
+In regular R (without the "pipe" operator), we would have to nest functions (reading from the inside to the outside) together to chain them:
 
 ```{r, eval=FALSE}
 drive(buy(drive(at_work, "grocery store"), "eggs"), "home")
 ```
 
-This is difficult to read. We could also create temporary objects:
+This is difficult to read. Another way to chain functions would be to create temporary objects for each step:
 
 ```{r, eval=FALSE}
 at_grocery_store <- drive(at_work, "grocery store")
@@ -405,7 +398,7 @@ got_eggs <- buy(at_grocery_store, "eggs")
 at_home <- drive(got_eggs, "home")
 ```
 
-But this still isn't too "readable", and we are having to re-name each
+This still isn't very "readable", as we are having to re-name each
 intermediate object with reference to the object before it. The pipe `%>%`
 operator can really simplify this:
 
@@ -417,23 +410,20 @@ at_work %>%
 ```
 
 Do you find this more readable and understandable?
-We read it like how it would actually be done, in order of the steps taken.
+It reads how it would be done, in order of the steps taken.
 
-Instead of nesting functions (reading from the inside to the outside), 
-the idea of piping is to read the functions from left to right.
+The idea of piping is to read the functions from left to right.
 This can help clarify and break down complex data processing workflows,
-and is the basis for all tidyverse and many other packages.
-This is a basic design philosophy of interacting with data when using the tidyverse.
+and is the basis for the tidyverse and many other packages.
 
-The pipe `%>%` takes the output from the object or function on the left hand side
-and puts it into the function on the right hand side.
+The operator `%>%` takes the output from the object or function from the left of the operator
+and puts it into the function on the right of the operator.
 All input goes into the first position argument of the function.
-So within the tidyverse packages,
-all functions take a data frame (or vector) as the first argument in order
+Within the tidyverse packages, all functions take a data frame (or vector) as the first argument in order
 to work with the pipe.
 
-**Ok, let's return back together and try this out**. The
-keyboard shortcut for the pipe is `Ctrl-Shift-M` (M for the magrittr package
+**Let's try this out with an example from NHANES**. The
+keyboard shortcut for the pipe is `Ctrl-Shift-M` (i.e., M for the magrittr package
 that created the pipe).
 
 ```{r}
@@ -444,11 +434,10 @@ nhanes_small %>%
     colnames()
 ```
 
-Because the pipe automatically takes `nhanes_small`
-and puts it into the first position, 
-we don't need to type out `nhanes_small` inside `colnames()` when piping.
+The pipe automatically takes `nhanes_small` and puts it into the first position, 
+so we don't need to specify `nhanes_small` inside `colnames()` when piping.
 
-Let's try the pipe on the `select()` and `rename()` function from the previous section.
+Let's try using the pipe with the `select()` and `rename()` functions from the previous section.
 Remember, both `select()` and `rename()` take a dataset as the first argument,
 which makes them pipe-able.
 
@@ -460,29 +449,29 @@ nhanes_small %>%
 
 We can now "read" these actions as:
 
-> Take the nhanes small dataset *and then* select the "phys active" column 
-*and then* rename the "phys active" column to "physically active".
+> Take the nhanes_small dataset *and then* select the "phys_active" column 
+*and then* rename the "phys_active" column to "physically_active".
 
-Alright, let's add and commit to the Git history with the RStudio Git interface
+Now, let's add and commit changes to the Git history with the RStudio Git interface
 before moving on to the exercise.
 
 ## Exercise: Practice what we've learned
 
 Time: 10 min
 
-In the `exercise-wrangling.R` file, complete these tasks:
+In the `exercise-wrangling.R` script file, complete the following tasks.
 
-1. Copy and paste the below code into the exercise file.
-In the `select()` function, 
-type in the columns `tot_chol`, `bp_sys_ave`, and `poverty`
-where the blank space is.
+Replace the `___` with `NHANES`
+
+1. Copy and paste the code below into the script file.
+Replace the `___` in the `select()` function, with the columns `tot_chol`, `bp_sys_ave`, and `poverty`.
 
     ```r
     nhanes_small %>% 
         select(___)
     ```
     
-2. Copy and paste the below code and fill out the blanks.
+2. Copy and paste the code below and fill out the blanks.
 Rename `diabetes_age` to be `diabetes_diagnosis_age`.
 *Tip*: Recall that renaming is in the form `new = old`.
 
@@ -491,15 +480,13 @@ Rename `diabetes_age` to be `diabetes_diagnosis_age`.
         rename(___ = ___, ___ = ____)
     ```
 
-3. Re-write this bit of code to use the pipe:
+3. Re-write this piece of code using the "pipe" operator:
 
     ```r
     select(nhanes_small, bmi, contains("age"))
     ```
 
-4. Read aloud (under your breath or in your head) the below code.
-How intuitive is it to read?
-Now re-write this code so you don't need to create the temporary
+4. Read through (in your head) the code below. How intuitive is it to read? Now, re-write this code so that you don't need to create the temporary
 `physical_activity` object by using the pipe,
 then re-read the revised version. Which do you feel is easier to "read"?
 
@@ -507,6 +494,7 @@ then re-read the revised version. Which do you feel is easier to "read"?
     physical_activity <- select(nhanes_small, phys_active_days, phys_active)
     rename(physical_activity, days_phys_active = phys_active_days)
     ```
+
 5. Lastly, add and commit these changes to the Git history with the RStudio Git
 interface.
     
@@ -529,41 +517,40 @@ nhanes_small %>%
     rename(days_phys_active = phys_active_days)
 ```
 
-## Filter the data by row
+## Filtering data by row
 
-Filtering data by row is a very common activity in data analysis, 
-for example, to get rid of outliers or to subset by a categorical group. 
-As with the previous functions, the function to subset/filter is called `filter()`. `filter()` is distinct from `select()` in the sense that it operates on rows whereas `select()` operates on columns. 
+Filtering data by row is a very common activity in data analysis, especially if you want to get rid of outliers or to subset by a categorical group. 
+The function to subset or filter is called `filter()`. `filter()` is distinct from `select()` in the sense that it operates on rows, whereas `select()` operates on columns. 
+
 The `filter()` function takes a logic condition (`TRUE` or `FALSE`).
 As with the other functions, the first argument is the dataset
-and all others are the logical conditions to apply to the row filtering.
-With `filter()`, when the logical conditions equal `TRUE`,
-it means that those rows will be **kept** and those that are `FALSE` will be
+and all others are the logical conditions that will apply to the row filtering.
+When the logical conditions equal `TRUE`, it means that those rows will be **kept** and those that are `FALSE` will be
 *dropped*.
 
-*A warning*: Since `filter()` uses logical conditions,
+*Warning*: Since `filter()` uses logical conditions,
 you need to be really careful when writing the logic.
 As you probably know, humans are really *really* bad at logic.
-So if your logical condition starts getting even a little complex,
+If your logical condition starts getting complex,
 double and triple check that you know for certain that your logic code is doing
 what you think it is doing. It's very easy to make mistakes at this stage, even
 for advanced R users.
 
 The simplest kind of logic condition is to test for "equality". 
 In R, "equal to" is represented by `==`.
-For example, if we want to keep only females in the dataset it would be:
+An example: If we wanted to keep only females in the dataset, we would use the logic condition like this:
 
 ```{r}
 nhanes_small %>%
     filter(sex == "female")
 ```
 
-We'd "read" this code as:
+We would "read" this code as:
 
-> Take the nhanes small dataset, *and then* 
+> Take the nhanes_small dataset *and then* 
 filter so that only rows where `sex` is equal to "female" are kept.
 
-So, when a row in the `sex` column has the value `"female"`, that row is kept.
+When a row in the `sex` column has the value `"female"`, that row is kept.
 Otherwise, it is dropped.
 
 There are other logic comparisons to use.
@@ -603,7 +590,7 @@ nhanes_small %>%
 ```
 
 We use the `|` ("or") and `&` ("and") when we want to combine conditions across columns.
-Be especially careful with these operators and whenever combining logic conditions,
+Be careful with these operators and when combining logic conditions,
 as they can sometimes work differently than our human brains interpret them
 (speaking from experience).
 For `&`, both sides must be `TRUE` in order for the combination to be `TRUE`.
@@ -619,7 +606,7 @@ TRUE | FALSE
 FALSE | FALSE
 ```
 
-When used in `filter()` it would be used like:
+When used in `filter()`, combinations of logic conditions may look like this:
 
 ```{r}
 # when BMI is 25 AND sex is female
@@ -631,17 +618,15 @@ nhanes_small %>%
     filter(bmi == 25 | sex == "female")
 ```
 
-## (Re)Arranging the rows of your data by column
+## Arranging the rows of your data by column
 
-You may want to sort your rows by a specific column so that rows
-are arranged with bigger (or smaller) values on top.
-Arranging is done by use of `arrange()`.
+You may want to sort your rows by a specific column so that values are arranged in ascending or descending order. This can be done using the function called `arrange()`.
 Again, `arrange()` takes the dataset as the first argument,
-and anything else it uses is the columns to order by.
+followed by the columns that you wish to arrange data by.
 By default, `arrange()` orders in *ascending* order.
 
 ```{r}
-# ascending order by age
+# Arranging data by age in ascending order
 nhanes_small %>%
     arrange(age)
 ```
@@ -656,27 +641,24 @@ nhanes_small %>%
 If we want to order the column based on descending order, this can be done with `desc()`.
 
 ```{r}
-# descending order
+# Arranging data by age in descending order
 nhanes_small %>%
     arrange(desc(age))
 ```
 
-You can also order your data by multiple columns. For instance,
-first arrange by `sex` and then by `age`.
+You can also order your data by multiple columns. For instance, we could arrange first by `sex` and then by `age`.
 
 ```{r}
-# ascending order by sex and age
+# Arranging data by sex then age in ascending order
 nhanes_small %>%
     arrange(sex, age)
 ```
 
 ## Transform or add columns
 
-To "transform" (modify) an existing column or to add a new one, the function to use is called `mutate()`. Unfortunately, unlike the other functions, the name is not as obvious about what it does. The meaning of mutate though, is to change or modify, so it kind of makes sense why it is called *mutate*. You would use `mutate()` if you wanted to compute a new variable using existing columns in your dataset, such as calculating BMI using `height` and `weight` columns. It may also be that you want to multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the dataset and the other arguments are columns to add or modify.
+To modify an existing column or to add a new one, we can use the function called `mutate()`. You can use `mutate()` to compute a new variable using existing columns in your dataset, such as calculating BMI using `height` and `weight` columns. You can multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the dataset and the other arguments are columns to add or modify.
 
-The form that `mutate()` uses is similar to normal R assignment:
-For instance, since the height's values are in centimeters, 
-maybe we'd rather want them in meters. So, in `mutate()` we'd type out:
+Take this exmaple: Height values are in centimeters, but we want them in meters. So, we would use `mutate()` with the following instruction:
 
 ```
 height = height / 100
@@ -692,7 +674,7 @@ nhanes_small %>%
     mutate(height = height / 100)
 ```
 
-We can also create a new column (maybe log transforming height):
+We can also create a new column (e.g., log transforming height):
 
 ```{r}
 nhanes_small %>% 
@@ -700,8 +682,8 @@ nhanes_small %>%
 ```
 
 We can add multiple modifications 
-or additions with `mutate()` by separating with `,`.
-So if we first wanted to have height as meters and then take the natural logarithm, 
+or additions with `mutate()` by separating them with `,`.
+So, if we first wanted to have height as meters and then take the natural logarithm, 
 it would be:
 
 ```{r}
@@ -710,7 +692,7 @@ nhanes_small %>%
            logged_height = log(height))
 ```
 
-We can also have different values based on a logic conditions using `if_else()`.
+We can also have different values based on logic conditions using `if_else()`.
 Use Table \@ref(tab:logic-operators) to help with creating the logic condition.
 
 ```{r}
@@ -720,7 +702,7 @@ nhanes_small %>%
 
 Recall that the original dataset doesn't change. 
 If we want the added variable to be saved, we must assign it to something with `<-`.
-So putting it all together, it will look like this:
+Putting it all together, you would enter something like this:
 
 ```{r}
 nhanes_update <- nhanes_small %>%
@@ -729,40 +711,23 @@ nhanes_update <- nhanes_small %>%
            highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
 ```
 
-Before you start the exercise, add and commit all the files changes to the Git
+Before you start the following exercise, add and commit all the files changes to the Git
 history with the RStudio Git interface.
 
 ## Exercise: Piping, filtering, and mutating
 
 Time: 20 min
 
-Copy and paste the code below into the script `exercises-wrangling.R`. 
-Then start replacing the `___` with the appropriate
-code to complete the tasks below.
-(*Suggestion*: Create a new "Section"
-in the R script for this exercise by using `Ctrl-Shift-R`).
-
-1. Filter `nhanes_small` so only those with a BMI of more than or equal to 20 
-*and* less than or equal to 40 *and* keep those who have diabetes.
-2. Create a new variable called `mean_arterial_pressure` by applying the formula
-
-$((2 \times DBP) + SBP) / 3$ 
-
-(DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate
-[Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
-*Hint*: In R, use `+` to add, use `*` to multiply, use `/` to divide.
-3. Create a new variable called `young_child` when age is less than 6 years.
-4. Finally, once done, add and commit these changes to the Git history with the
-RStudio Git Interface. Push to GitHub to synchronize with your GitHub repository.
+Copy and paste the code below into the `exercises-wrangling.R` script file. 
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
-# 1. BMI between 20 and 40 and who have diabetes
+# 1. BMI between 20 and 40 with diabetes
 nhanes_small %>%
-    # format: variable >= number or character
+    # Format should follow: variable >= number or character
     filter(___ >= ___ & ___ <= ___ & ___ == ___)
 
 # Pipe the data into mutate function and:
-nhanes_modified <- nhanes_small %>% # dataset
+nhanes_modified <- nhanes_small %>% # Specifying dataset
     mutate(
         # 2. Calculate mean arterial pressure
         ___ = ___,
@@ -773,18 +738,34 @@ nhanes_modified <- nhanes_small %>% # dataset
 nhanes_modified
 ```
 
+Then, start replacing the `___` with the appropriate
+code to complete the tasks below.
+(*Hint*: Create a new "Section"
+in the R script for this exercise by using `Ctrl-Shift-R`).
+
+1. Filter `nhanes_small` so select only those participants with a BMI of more than or equal to 20 
+*and* less than or equal to 40, *and* keep those who have diabetes.
+
+2. Create a new variable called `mean_arterial_pressure` by applying the formula: 
+$((2 \times DBP) + SBP) / 3$ 
+(DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate
+[Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
+*Hint*: In R, use `+` to add, `*` to multiply, and `/` to divide.
+
+3. Create a new variable called `young_child` for cases where age is less than 6 years.
+
+4. Finally, add and commit these changes to the Git history with the
+RStudio Git Interface. Push to GitHub to synchronize with your GitHub repository.
+
 ```{r solution-ex-pipe-filter-mutate, eval=FALSE, solution=TRUE}
-# 1. BMI between 20 and 40 and who have diabetes
+# 1. BMI between 20 and 40, with diabetes
 nhanes_small %>%
-    # format: variable >= number
     filter(bmi >= 20 & bmi <= 40 & diabetes == "Yes")
 
 # Pipe the data into mutate function and:
 nhanes_modified <- nhanes_small %>% # dataset
     mutate(
-        # 2. Calculate mean arterial pressure
         mean_arterial_pressure = ((2 * bp_dia_ave) + bp_sys_ave) / 3,
-        # 3. Create Young_child variable using a condition
         young_child = if_else(age < 6, "Yes", "No")
     )
 
@@ -793,40 +774,34 @@ nhanes_modified
 
 ## Split-apply-combine: Summarizing data
 
-**Take 5 min to read through this section**, 
-before we continue.
+**Take 5 min to read through this section** before we continue.
 
-Summarizing or applying simple (or complex) statistics to data is 
-(obviously) a key component of any analysis.
-Simple summaries or statistics can be done either on all the data 
+Summarizing or applying simple (or complex) statistics to data is a key component of any analysis.
+Simple summaries or statistics can be done either on all of the data 
 or on groups of it.
 There are many data analysis tasks that can be approached 
-using the [split-apply-combine] method:
-split the data into groups, apply some analysis to each group,
-and then combine the results together. 
+using the [split-apply-combine] method, which involves splitting the data into groups, applying some analysis to each group,
+and then combining the results together. 
 
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
 
-In [dplyr], to summarize on all the data, you would use the function `summarize()`.
-If you want to do a split-apply-combine analysis (e.g. find the max height of females and males),
+In [dplyr], you can use the function called `summarize()` to summarize on all the data.
+If you want to do a split-apply-combine analysis to, e.g., find the max height of females and males),
 you would use the functions `group_by()` and then `summarize()`.
-Using `group_by()` splits the data up and
-`summarize()` then applies an analysis 
-and immediately combines it back together. 
+Using `group_by()` splits the data up and `summarize()` applies an analysis, then immediately combines it back together. 
 
 The first position argument to `group_by()` is, as usual, the dataset.
 The next arguments are the columns that contain the values you want to group by.
 These columns must contain **categorical** data (e.g. sex). `group_by()` tells R
-to compute the next operations the data within each grouping, rather than on all
-the data. On its own, `group_by()` does nothing but instead works with other
-functions. For example, `group_by()` works in combination with `mutate()` too.
+to compute the next operations on the data within each grouping, rather than on all
+the data.
 
 As with the other functions, 
 `summarize()` takes the dataset as the first position argument.
 The next arguments work similar to the arguments in `mutate()` with one difference:
-the output must create a single value (e.g. a max or a mean).
+the output must create a single value (e.g. a mean).
 Like `mutate()`, 
-you can add multiple "summaries" by adding new columns separated by comma `,`.
+you can add multiple "summaries" by adding new columns separated by `,`.
 You would use `summarize()` to derive basic descriptive statistics of a certain
 variable, including `min()`, `max()`, `mean()`, `median()`, or `sd()` (standard
 deviation).
@@ -837,7 +812,7 @@ However, the `summarize()` function can be used on its own. Let's take a look.
 
 ## Calculating summary statistics
 
-Let's calculate the maximum value of BMI.
+Let's calculate the maximum value of the BMI variable. See what happens when you enter the following:
 
 ```{r}
 nhanes_small %>%
@@ -845,40 +820,32 @@ nhanes_small %>%
 ```
 
 We get back a result of `NA`, which means "missing". In R, `NA` values
-"propagate" meaning that if there is one missing, then the max or mean will also
-be missing. So we need to tell `max()` to exclude `NA` from the calculation
-using `na.rm = TRUE`.
+"propagate", meaning that if there is one value missing, then the max or mean will also
+be missing. So, we need to tell `max()` to exclude any `NA` values from the calculation
+using the argument `na.rm = TRUE`.
 
 ```{r}
 nhanes_small %>%
     summarize(max_bmi = max(bmi, na.rm = TRUE))
 ```
 
-
-To add another summary column, use `,`.
+To calculate another summary staistic, you would add another summary column using `,`:
 
 ```{r}
 nhanes_small %>%
     summarize(max_bmi = max(bmi, na.rm = TRUE),
               min_bmi = min(bmi, na.rm = TRUE))
 ```
-Before you start the exercise, add and commit what you've changed 
+Before you start the following exercise, add and commit changes 
 to the Git history with the RStudio Git interface.
 
-## Exercise: Use `summarize()` to calculate basic statistics
+## Exercise: Using `summarize()` to calculate basic statistics
 
 Time: 10 min 
 
 Practice using `summarize()` by calculating various summary statistics.
-Complete the following tasks:
 
-1. Calculate the `mean()` of `weight` and `age`.
-2. Calculate the `max()` and `min()` of `height`.
-3. Calculate the `median()` of `age` and `phys_active_days`.
-4. Lastly, add and commit any changes made to the Git history with the RStudio
-Git interface.
-
-Don't forget to use `na.rm = TRUE` in the basic statistic functions.
+Copy and paste the code below into the `exercises-wrangling.R` script file. 
 
 ```{r exercise-summarize-basic-stats, eval=FALSE}
 # 1.
@@ -896,6 +863,15 @@ nhanes_small %>%
     summarize(___ = ___,
               ___ = ___)
 ```
+
+Then, start replacing the `___` with the appropriate
+code to complete the tasks below. Don't forget to use `na.rm = TRUE` in the basic statistic functions.
+
+1. Calculate the mean of `weight` and `age`.
+2. Calculate the max and min of `height`.
+3. Calculate the median of `age` and `phys_active_days`.
+4. Lastly, add and commit any changes made to the Git history with the RStudio
+Git interface.
 
 ```{r solution-exercise-summarize-basic-stats, eval=FALSE, solution=TRUE}
 # 1.
@@ -916,8 +892,9 @@ nhanes_small %>%
 
 ## Summary statistics by a group {#group-by-summarize}
 
-While the `summarize()` function is partly useful, it really shines when combined with `group_by()`.
-Let's find out the mean age and BMI between those with and without diabetes.
+While the `summarize()` function is useful enough on its own, it really shines when combined with `group_by()`.
+
+Let's use these functions to find out the mean age and BMI between those with and without diabetes.
 
 ```{r}
 nhanes_small %>%
@@ -926,15 +903,14 @@ nhanes_small %>%
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
 
-*Quick note*: If you are using dplyr >= 1.0.0,
-you'll get a message informing you that it is `regrouping output`.
-This is simply a message and can be ignored.
+*Quick note*: If you are using a version of dplyr >= 1.0.0, you'll get a message informing you that it is `regrouping output`.
+This is simply a notification and can be ignored.
 If you don't want the message displayed,
-write `options(dplyr.summarise.inform = FALSE)` at the top of your script
-and run it then.
+you can enter `options(dplyr.summarise.inform = FALSE)` at the top of your script
+and run it.
 
-We get a warning about there being missing values in diabetes, 
-so let's first remove rows that have missing diabetes status.
+We also get a warning about there being missing values in diabetes, 
+so we need to remove rows that have missing diabetes status values.
 
 ```{r}
 nhanes_small %>%
@@ -945,7 +921,7 @@ nhanes_small %>%
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
 
-Cool! But we can add more columns to the grouping, so let's do that. 
+Cool! We can add more columns to the grouping, so let's do that. 
 Let's compare mean age and BMI by sex and diabetes status.
 
 ```{r}
@@ -968,19 +944,13 @@ nhanes_small %>%
     ungroup()
 ```
 
-Before you start the exercise, add and commit the changes to the Git history.
+Before you start the following exercise, add and commit changes to the Git history.
 
-## Exercise: Use `group_by()` and `summarize()` to answer statistical questions
+## Exercise: Using `group_by()` and `summarize()` to answer statistical questions
 
 Time: 5-7 min
 
-Using the `group_by()` with `summarize()`, answer these questions:
-
-1. What is the mean, max, and min differences in *age* between
-females and males with or without diabetes?
-2. What is the mean, max, and min differences in *height* and weight between
-females and males with or without diabetes?
-3. Once done, add and commit the changes to the file to the Git history.
+Copy and paste the code below into the `exercises-wrangling.R` script file. 
 
 ```{r exercise-groupby-summarise, eval=FALSE}
 # 1. 
@@ -1006,6 +976,15 @@ nhanes_small %>%
         ___
     )
 ```
+
+Then, start replacing the `___` with the appropriate
+code including `group_by()` with `summarize()`, to answer these questions:
+
+1. What is the mean, max, and min differences in *age* between
+females and males with or without diabetes?
+2. What is the mean, max, and min differences in *height* and weight between
+females and males with or without diabetes?
+3. Add and commit changes to the Git history.
 
 ```{r solution-exercise-groupby-summarise, eval=FALSE, solution=TRUE}
 # 1. 
@@ -1035,14 +1014,15 @@ nhanes_small %>%
 ## Saving datasets as files
 
 The `nhanes_small` data frame you created is only available after you've created
-it from NHAHES, but if you want to access it later, you can save this as an
-`.rda` file into your `data/` folder using the function `usethis::use_data()`. We
-use `overwrite = TRUE` so that we can save the dataset again even if the file
+it from NHAHES, but if you want to access it later, you can save it as an
+`.rda` file in your `data/` folder using the function `usethis::use_data()`. We would add
+`overwrite = TRUE` to this so that we can save the dataset again even if the file
 already exists.
+
 The `usethis::use_data()` function outputs some information, 
-the last ("Document your data") of which we won't cover in this course.
+the last of which ("Document your data") we won't cover in this course.
 The function takes any number of datasets 
-and saves each individually as a `.rda` R dataset file in the `data/` folder.
+and saves them individually as a `.rda` R dataset file in the `data/` folder.
 
 ```{r, eval=FALSE}
 # Saving data as an .rda file in the data folder
@@ -1051,23 +1031,21 @@ usethis::use_data(nhanes_small, overwrite = TRUE)
 
 For many projects, it isn't necessary or advisable to save every single data object
 you create. It's better to let the code create the data you'll use rather than
-save each new wrangled dataset you might create. But sometimes you'll need to or
-want to save the dataset you've been working on, maybe because you've done a lot
-of cleaning to it, preparing it for later analyses, or because you've run an
-analysis and want to save the results. In that case, you should definitely save
+saving each new wrangled dataset you might create. However, sometimes you will want or need to save the dataset you've been working on, perhaps because you've done a lot
+of work to prepare it for later analyses, or because you've run an analysis and want to save the results. In these cases, you should definitely save
 the new cleaned dataset.
 
 ## Loading in a dataset
 
 **Take ~5 min to read through this section**. 
 
-We've so far been using a teaching dataset that we load from a package, mainly
-so we can focus on getting familiar with data wrangling. However, there will come a
+We've been using a teaching dataset that we load from a package, mainly
+so that we can focus on getting familiar with data wrangling. However, there will come a
 time when you want to wrangle your own data.
-There are several ways to load in a dataset, the most common being:
+There are several ways to load in a dataset, with the most common being:
 
 1. Using the RStudio menu `File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata` 
-(depending on your file type you want to import). Copy and paste the R code for importing given from the menu item into the R script you are working in.
+(depending on your file type you want to import).
 
 2. If the file is a `.csv` file, use `readr::read_csv()` to import the dataset:
 
@@ -1081,8 +1059,8 @@ There are several ways to load in a dataset, the most common being:
     load(here::here("data/dataset_name.rda"))    
     ```
 
-    This loads in the dataset into your R session so you can use it again.
-    If you want to see that it works, restart the R session with either
+    This loads the dataset into your R session so that you can use it again.
+    If you want to check that it works, restart the R session with either
     `Ctrl-Shift-F10` or with the menu item `Session -> Restart R`. Then, type out
     and run this:
     
@@ -1100,20 +1078,20 @@ For SAS, SPSS, or Stata files, you can use the package
 
 Time: 30 minutes
 
-Practice using dplyr by starting from the original `NHANES` dataset and wrangling
+Practice using dplyr by using the `NHANES` dataset and wrangling
 the data into a summary output. Don't create any intermediate objects by only
-using the pipe to link each task with the next one.
+using the pipe operator to link each task below with the next one.
 
-1. Rename all the columns so they are snake case.
+1. Rename all columns to use snakecase.
 2. Select the columns `gender`, `age` and `BMI`.
-3. Exclude `"NAs"` from all the selected columns.
+3. Exclude `"NAs"` from all of the selected columns.
 4. Rename `gender` to `sex`.
-5. Create a new column named `age_class`, where anyone under 50 years old is
-labeled `"under 50"` and those at 50 years old and older are labeled `"over 50"`.
+5. Create a new column called `age_class`, where anyone under 50 years old is
+labeled `"under 50"` and those 50 years and older are labeled `"over 50"`.
 6. Group the data according to `sex` and `age_class`.
 7. Calculate the `mean` and `median` BMI according to the grouping to determine the
 difference in BMI between age classes and sex.
-8. Once done, add and commit this new code to the Git history with the RStudio
+8. Add and commit changes to the Git history with the RStudio
 Git interface.
 
 ```{r solution-exercise-combine-all-dplyr, eval=FALSE, solution=TRUE}
@@ -1130,13 +1108,12 @@ NHANES %>%
 
 ## Summary of session {#wrangling-summary}
 
-- In tidy data, each variable has its now column, each observation has its own
+- With tidy data, each variable has its own column, each observation has its own
 row, and each value has its own cell.
-- Use the R package tidyverse to load in multiple packages to tidy up data.
-- Never edit raw data - instead, use R code to make changes and clean up the raw
-data rather than manually editing the dataset.
+- Use the tidyverse to load in multiple packages to tidy up data.
+- Never edit raw data. Instead, use R code to make changes and clean up the raw
+data, rather than manually editing the dataset.
 - Use the functions `select()`, `rename()`, `filter()`, `mutate()` ("change or
-modify"), `arrange()` and `summarise()` from the dplyr package to work with and
-wrangle your data.
+modify"), `arrange()` and `summarise()` from the dplyr package to wrangle your data.
 - Use the pipe (`%>%`) to write easy-to-read code, similar to reading a text
 consisting of multiple sentences.
