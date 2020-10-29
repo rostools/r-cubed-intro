@@ -73,11 +73,11 @@ to make comments and give feedback on the material.
 
 This website and its content are targeted to three groups:
 
-1. For the **learners** to use during the course to follow along in case they get
-lost and for them to use as a reference after the course ends.
+1. For the **learners** to use during the course, both to follow along in case they get
+lost and also to use as a reference after the course ends.
 2. For the **instructors** to use as a guide for when they do the code-along
 sessions and lectures.
-3. For those who are **interested in teaching**, and who may not have much experience
+3. For those who are **interested in teaching**, who may not have much experience
 or may not know where to start, to use this website as a guide to running
 and instructing their own workshops.
 
@@ -101,7 +101,7 @@ There have been two previous "formal" versions of the course given so far:
 
 ## Contributors {#contributors}
 
-Contributors for [version 1](https://gitlab.com/lwjohnst/dda-rcourse/-/tags/v1.0.0) were:
+Contributors for [version 1](https://v1--dda-rcourse.netlify.app/) were:
 
 - Luke Johnston: Brainstormed most of the course material and structure; set up
 the website; organized and coordinated the course; wrote, prepared, and taught
@@ -114,7 +114,7 @@ session material.
 - Omar Silverman (helper) proofread and provided feedback on the material for several
 sessions.
 
-Contributors for [version 2](https://gitlab.com/rostools/r-cubed/-/tags/v2.0) were:
+Contributors for [version 2](https://r-cubed-v2.rostools.org/) were:
 
 - Luke Johnston: Same as with version 1.
 - Daniel Witte: Prepared and taught most of the lectures.
@@ -125,7 +125,8 @@ session material, as well as reviewed multiple other sections.
 
 Contributors for version 2.1 were:
 
-TODO: Add this once done.
+TODO: Add this once done. WE NEED TO ADD THINGS HERE :)
+Luke, Daniel, Helene, Hannah, Bettina, Anders, Malene...
 
 ## Acknowledgements
 
@@ -136,7 +137,7 @@ Other parts were taken and modified from:
 - The [Aarhus University Community of Research Software Users] sessions on
 [project management](https://au-cru.github.io/content/workflow-setup.html),
 [data management and wrangling](https://au-cru.github.io/content/intro-dplyr.html),
-[intermediate dplyr and tidyr usage](https://au-cru.github.io/site/material/2020-01-17-intermediate-dplyr/),
+[intermediate dplyr and tidyr usage](https://au-cru.github.io/),
 [data visualization](https://au-cru.github.io/content/intro-ggplot2.html),
 and [R Markdown](https://au-cru.github.io/content/intro-rmarkdown.html).
 - [A Git session](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
