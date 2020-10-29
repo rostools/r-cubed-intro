@@ -781,7 +781,7 @@ nhanes_modified <- nhanes_small %>% # dataset
         # 2. Calculate mean arterial pressure
         mean_arterial_pressure = ((2 * bp_dia_ave) + bp_sys_ave) / 3,
         # 3. Create Young_child variable using a condition
-        young_child = if_else(Age < 6, "Yes", "No")
+        young_child = if_else(age < 6, "Yes", "No")
     )
 
 nhanes_modified

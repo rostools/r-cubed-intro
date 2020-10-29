@@ -193,8 +193,12 @@ to store the file changes and history of the project.
 So don't delete it!
 
 Another important file for managing the repository is the `.gitignore` file.
-This file tells Git to *not* track (or "watch") certain files,
-such as personal data files or temporary files.
+This file tells Git to *not* track (or "watch") certain files, such as
+temporary files.
+This is *particularly* important for making sure you
+don't save personal data in the Git history. Personal data should be stored in
+a *secure location* and should *only* be accessed in the R Project by loading it
+from that secure location.
 
 ```
 LearningR
@@ -276,7 +280,7 @@ You "commit" it to the history, like you "commit" something to your own memory.
 
 Before we move on, there are some things to know about how Git works.
 In Git, there are three "states" that a file can be in, 
-listed below and summarized in Figure \@ref(fig:image-git-states).
+listed below and summarised in Figure \@ref(fig:image-git-states).
 
 1. The *Working folder* state is where all files are, 
 whether they are "untracked" or "tracked".

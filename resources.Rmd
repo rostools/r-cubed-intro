@@ -23,11 +23,11 @@ For what we need in this course, we are fine with their free service, which only
 ```{r cloud-start, echo=FALSE, fig.cap="This is RStudio Cloud."}
 knitr::include_graphics(here::here("images/cloud-start.jpg"))
 ```
-3. Start a new R Project:  Click the "New Project" button. While you can start a new project from scratch by clicking the button, we won't for the course. To get some practice though, click the right half of the button and you get the option to create a project by cloning a GitHub repository (more on that later):
+3. Start a new R Project:  Click the "New Project" button. To practice using it, click the right half of the button and you get the option to create a project by cloning a GitHub repository (more on that later):
 ```{r cloud-new-project, echo=FALSE, fig.cap="Create a new RStudio Cloud Project."}
 knitr::include_graphics(here::here("images/cloud-new-project.jpg"))
 ```
-For now, we'll start a new project from scratch by clicking the button. Don't forget to click the top panel after the project has been created to rename it to something sensible. Great! Now we've set up an R Project:
+We'll start a new project from scratch by clicking the button. Don't forget to click the top panel after the project has been created to rename it to something sensible. Great! Now we've set up an R Project:
 ```{r cloud-project, echo=FALSE, fig.cap="Our first RStudio Cloud project. The interface is identical to a local instance of RStudio."}
 knitr::include_graphics(here::here("images/cloud-project.jpg"))
 ```
