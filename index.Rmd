@@ -54,7 +54,7 @@ The two main and easiest ways to contribute are by using:
 1. [hypothes.is], a web annotating tool. 
 Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
 comments directly on this website.
-2. [GitLab] and creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+2. [GitLab] and creating a [new issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
 to make comments and give feedback on the material.
 
 [hypothes.is]: https://web.hypothes.is/
@@ -111,7 +111,7 @@ layout; prepared and taught most of the lectures.
 - João Santiago: Taught and edited the R Markdown code-along session material.
 - Anna Schritz: Taught and edited the Data Management and Wrangling code-along
 session material.
-- Omar Silverman (helper) proofread and provided feedback on the material for several
+- Omar Silverman: (helper) proofread and provided feedback on the material for several
 sessions.
 
 Contributors for [version 2](https://r-cubed-v2.rostools.org/) were:
@@ -146,7 +146,7 @@ given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
 
 [Aarhus University Community of Research Software Users]: https://au-cru.github.io/
 
-Content from multiple sources were used as inspiration for this course,
+Content from multiple sources was used as inspiration for this course,
 including the [R for Data Science] book 
 and the [Fundamentals of Data Visualization].
 
