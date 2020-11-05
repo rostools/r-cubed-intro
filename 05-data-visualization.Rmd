@@ -189,7 +189,7 @@ so let's use this geom to visualize those.
 Again, create a new code chunk, then type:
 
 ```{r}
-# create count barplot for sex
+# Create count barplot for sex
 ggplot(nhanes_small, aes(x = sex)) +
     geom_bar()
 ```
@@ -198,7 +198,7 @@ We can see that there are almost equal numbers of females and males.
 Now, we'll do the same for the diabetes status variable. In a new code chunk, type:
 
 ```{r}
-# create count barplot for diabetes status
+# Create count barplot for diabetes status
 ggplot(nhanes_small, aes(x = diabetes)) +
     geom_bar()
 ```
@@ -738,7 +738,7 @@ You can also set the theme for all subsequent plots by using the `theme_set()`
 function, and specifying the theme you want in the parenthesis.
 
 ```{r, eval=FALSE}
-# set the theme for all subsequent plots
+# Set the theme for all subsequent plots
 theme_set(theme_bw())
 ```
 
@@ -765,7 +765,7 @@ At this point, you can set the dimensions of the figure
 using the `width` and `height` arguments.
 
 ```{r, eval=FALSE}
-# save the plot
+# Save the plot
 ggsave(here::here("doc/images/scatterplot.pdf"), 
        base_scatterplot2, width = 7, height = 5)
 ```

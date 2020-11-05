@@ -609,11 +609,11 @@ FALSE | FALSE
 When used in `filter()`, combinations of logic conditions may look like this:
 
 ```{r}
-# when BMI is 25 AND sex is female
+# When BMI is 25 AND sex is female
 nhanes_small %>%
     filter(bmi == 25 & sex == "female")
 
-# when BMI is 25 OR sex is female
+# When BMI is 25 OR sex is female
 nhanes_small %>%
     filter(bmi == 25 | sex == "female")
 ```
