@@ -2,6 +2,9 @@
 
 ## For this course
 
+- For a quick reference to the functions and tools taught in this course, check
+out our [cheatsheet](resources/chcheatsheet.pdf)!
+
 ### Setting up RStudio Cloud
 
 **Are technical issues with your computer preventing you from completing the pre-course tasks or doing the course sessions?** 

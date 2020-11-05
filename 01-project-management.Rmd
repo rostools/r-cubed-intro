@@ -554,8 +554,14 @@ knitr::include_graphics(here::here("images/art-debugging.jpg"))
 ```
 
 You *will* encounter problems and errors when working with R, and you will
-encounter them *all the time*. In fact, a large amount of your time in R will be spent
-figuring out solutions to these errors ("debugging"). Error messages will appear
+encounter them *all the time*. 
+In fact, a large amount of your time in R will be spent
+figuring out solutions to these errors ("debugging"). 
+For this course, we have a short [cheatsheet](resources/cheatsheet.pdf)
+that lists out the tools and functions we will cover, which can help with problems
+forgetting function names or their usage. However, even with the cheatsheet, you
+will still encounter other problems like errors or warnings.
+Error messages will appear
 in red text in your Console and will start with the word "Error:". Warning messages 
 are also in red text, but are often either harmless or informative, 
 so make sure to read the message and see if it says
