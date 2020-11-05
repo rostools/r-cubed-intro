@@ -11,7 +11,7 @@ knitr::opts_chunk$set(message = FALSE)
 1. Learn and apply the basics of creating publication-quality graphs.
 1. Learn the importance of considering the colours you use in your graphs
 and apply tools that are colour-blind friendly.
-1. Avoid using commonly used but inappropriate graphs for presenting results.
+1. Learn why to avoid using commonly used but inappropriate graphs for presenting results.
 1. Create useful graphs such as boxplots, scatterplots, line graphs,
 jitter plots, and (appropriate) barplots.
 
@@ -58,7 +58,7 @@ and/or whether to use a colour for a variable.
 - Geometries, `geom_` functions: Visual representation of the data, as a
 layer. This tells ggplot2 how the aesthetics should be visualized, including whether they should be shown as points, lines, boxes, bins, or bars.
 - Scales, `scale_` functions: Controls the visual properties of the `geom_` layers.
-Can be used to modify the appearance of the axes, to change the colour of dots from (e.g.) red to blue, or to use a different colour palette entirely.
+Can be used to modify the appearance of the axes, to change the colour of dots from, e.g., red to blue, or to use a different colour palette entirely.
 - Themes, `theme_` functions or `theme()`: Directly controls all other aspects of the plot, such as the size, font, and angle of axis text, and the thickness or colour of the axis lines.
 
 There is a massive amount of features in ggplot2.
@@ -134,7 +134,7 @@ Let's visually explore our data.
 In the `LearningR` project, create a new R
 Markdown file called
 `visualization-session.Rmd`. To do this, go to `File -> New File -> R
-Markdown`. Enter “Data visualization” as
+Markdown`. Enter "Data visualization" as
 the title and your name as the author. Choose HTML as the output
 format. When the file is created, keep
 the YAML header but delete all the text and code chunks. Save the file as
