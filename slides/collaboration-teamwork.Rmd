@@ -184,11 +184,11 @@ knitr::include_graphics("../images/workflow.png")
 
 .center[
 ```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../images/datacycle.png")
+knitr::include_graphics("../images/datalifecycle.jpg")
 ```
 ]
 
-.footnote[[Diagram Source](https://data.library.virginia.edu/data-management/lifecycle/).]
+.footnote[[Diagram Source: University of Virginia Library](https://guides.lib.virginia.edu/c.php?g=515290&p=3522215)]
 
 
 ---
