@@ -117,7 +117,7 @@ session is the way you normally interact with R, where you would write
 code in the Console to tell R to do something. Normally, when you open an R
 session without an R Project, the session defaults to assuming you will be
 working in the `~/Desktop` or `~` (your Home folder) location. But this location
-isn't where you actually work - you normally work in the folder that has your R
+isn't where you actually work --- you normally work in the folder that has your R
 scripts or data files. The assumption with R Projects on the other hand, is that
 the R session working directory should be where the R Project is, since that
 is where you have your R scripts and data files.
