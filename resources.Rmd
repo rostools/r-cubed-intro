@@ -3,7 +3,7 @@
 ## For this course
 
 - For a quick reference to the functions and tools taught in this course, check
-out our [cheatsheet](resources/chcheatsheet.pdf)!
+out our [cheatsheet](resources/cheatsheet.pdf)!
 
 ### Setting up RStudio Cloud
 
