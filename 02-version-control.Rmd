@@ -79,14 +79,14 @@ There are so many good reasons to use version control, especially in science:
 
 - Transparency of work done to demonstrate or substantiate your scientific claim.
 - Claim to first discovery, since you have a time-stamped history of your work.
-- Defend against fraud, because of the transparency.
+- Defence against fraud, because of the transparency.
 - Evidence of contributions and work, since who does what is tracked.
-- Easily keep track of changes to files, by looking at the history of changes.
+- Keeping track of changes to files easily, by looking at the history of changes.
 - Easy collaboration, because you can work on a single file/folder rather than
 emailing versions around.
 - Organized files and folders, since there is one single project folder and one
 single version of each file, rather than multiple versions of the same file.
-- Less time findings things, because everything is organized and in one place.
+- Less time finding things, because everything is organized and in one place.
 
 In this session we'll be covering a version control tool called [Git].
 While Git on its own can be quite difficult to use, 
@@ -139,7 +139,7 @@ plain text like R scripts are). You can save files either by adding and
 committing them (as we will learn to do shortly) or by uploading them to your
 repository on GitHub, as pictured below.
 
-```{r image-git-upload-file-github, echo=FALSE, fig.cap="GitHub: Select Upload filea from the Add files drop-down menu."}
+```{r image-git-upload-file-github, echo=FALSE, fig.cap="GitHub: Select "Upload files" from the "Add file" drop-down menu."}
 knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 ```
 
