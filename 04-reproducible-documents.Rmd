@@ -186,7 +186,7 @@ Time: 7 min
 1. Create another R Markdown document using RStudio's interface.
     - Enter "Trying out R Markdown" as the title.
     - Choose "HTML" as the document type.
-1. Save the document in the `doc/` folder and name it `another-one.Rmd`.
+1. Save the document in the `doc/` folder and name it `exercises.Rmd`.
 1. Knit the document with either `Ctrl-Shift-K` 
 or with the RStudio "Knit" button.
 1. Look at the output document, then change the YAML value for the `output:`
@@ -442,7 +442,7 @@ Pretty eh! Let's add and commit these changes into the Git history.
 
 Time: 12 min
 
-1. In the `doc/another-one.Rmd` file,
+1. In the `doc/exercises.Rmd` file,
 create a new code chunk and call it `setup`.
 Include the `source()` function to load the packages and use `load()` with
 `here::here()` to load the `nhanes_small` dataset.
@@ -468,8 +468,7 @@ repository.
 
 ```{r solution-ex-create-table, eval=FALSE, solution=TRUE}
 # 1. Loading libraries
-```{r setup, include=FALSE}
-source(here::here(R/package-loading.R"))
+source(here::here("R/package-loading.R"))
 load(here::here("data/nhanes_small.rda"))
 
 # 2. Calculating mean BMI and Age
@@ -593,7 +592,7 @@ Let’s add and commit these changes into the Git history.
 
 Time: 5 min
 
-Complete these tasks in the `doc/another-one.Rmd` file.
+Complete these tasks in the `doc/exercises.Rmd` file.
 
 - Right under the YAML header, insert a list item with your name.
 Put your affiliations and your university or institution as other list items 
@@ -766,7 +765,7 @@ This last approach is what we will get you to do for the group project.
 
 Time: 20 minutes
 
-Complete these tasks in the `doc/another-one.Rmd` file. 
+Complete these tasks in the `doc/exercises.Rmd` file. 
 
 - Search online for a picture that you like and want to put into the
 R Markdown file. Download it and save the image in `doc/`.
@@ -778,7 +777,7 @@ R Markdown file. Download it and save the image in `doc/`.
 - Go to the R Markdown [documentation] site and look at the different available
 themes for the HTML output. Find a theme you like by changing the `theme` option
 in the YAML header and re-knit the document. 
-- Finally, add and commit the changes you've made to the `doc/another-one.Rmd`. 
+- Finally, add and commit the changes you've made to the `doc/exercises.Rmd`. 
 For now, don't add and commit the HTML output file.
 
 ```{r solution-figures-themes, eval=FALSE, echo=FALSE}
