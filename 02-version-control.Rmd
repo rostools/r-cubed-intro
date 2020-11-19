@@ -139,7 +139,7 @@ plain text like R scripts are). You can save files either by adding and
 committing them (as we will learn to do shortly) or by uploading them to your
 repository on GitHub, as pictured below.
 
-```{r image-git-upload-file-github, echo=FALSE, fig.cap="GitHub: Select "Upload files" from the "Add file" drop-down menu."}
+```{r image-git-upload-file-github, echo=FALSE, fig.cap='GitHub: Select "Upload files" from the "Add file" drop-down menu.'}
 knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 ```
 
