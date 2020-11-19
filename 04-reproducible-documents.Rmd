@@ -468,7 +468,8 @@ repository.
 
 ```{r solution-ex-create-table, eval=FALSE, solution=TRUE}
 # 1. Loading libraries
-library(tidyverse)
+```{r setup, include=FALSE}
+source(here::here(R/package-loading.R"))
 load(here::here("data/nhanes_small.rda"))
 
 # 2. Calculating mean BMI and Age
@@ -586,6 +587,8 @@ which gives...
 But note that using inline R code can *only* insert a *single* number 
 or character value, and nothing more.
 
+Let’s add and commit these changes into the Git history.
+
 ## Exercise: Practice using Markdown for writing text
 
 Time: 5 min
@@ -677,12 +680,12 @@ Now, try to change the width and height to `"50%"`,
 and add a caption like `"Kittens attacking flowers!"`:
 
 ````markdown
-`r ''````{r kitten-image, out.width="50%", out.height="50%", fig.cap="Kittens attacking flowers!"}
+`r ''````{r kitten-image, out.width="50%", out.height="50%", fig.cap="Kitten attacking flowers!"}
 knitr::include_graphics(here::here("images/kitten.jpg"))
 `r ''````
 ````
 
-```{r kitten-image-small, out.width="50%", out.height="50%", fig.cap="Kittens attacking flowers!", echo=FALSE}
+```{r kitten-image-small, out.width="50%", out.height="50%", fig.cap="Kitten attacking flowers!", echo=FALSE}
 knitr::include_graphics(here::here("images/kitten.jpg"))
 ```
 
@@ -696,12 +699,13 @@ Knit again to see how the image changed. Great!
 
 For HTML documents, customizing the appearance (e.g. fonts) is pretty easy,
 since settings to change the theme can be used directly in the YAML header.
-For instance, there's a setting within `html_document` called `theme`.
+Go back to your `rmarkdown-session.Rmd` document.
+You can for instance change a setting within `html_document` called `theme`.
 It would look like this:
 
 ```yaml
 ---
-title: "My report"
+title: "Reproducible documents"
 output:
     html_document:
         theme: sandstone
@@ -729,6 +733,7 @@ manually modify the appearance,
 and then link to that template file with the `reference_docx` 
 option in the YAML header (as a sub-key of `word_document`).
 More detail on this can be found in the [documentation](https://bookdown.org/yihui/rmarkdown/word-document.html).
+Before going further, let's add and commit these changes into the Git history.
 
 ### Collaborating on R Markdown documents
 
@@ -789,8 +794,7 @@ file types such as HTML or Word.
 - Insert R code chucks in R Markdown and automatically include the results in
 the final document.
 - Make tables by using `knitr::kable()`
-- Use headers ( `# Header 1`), text formatting (`**bold**`), lists (`-`),
-and links `[Link](www)` in the R
+- Use headers ( `# Header 1`), text formatting (`**bold**`) and lists (`-`) in the R
 Markdown file.
 - Insert pictures directly into the R Markdown file with `![Caption text](path/to/image.png)` 
 or `knitr::include_graphics("path/to/image.png"))` in a code chunk.
