@@ -23,6 +23,17 @@ bibliography: paper.bib
 ---
 
 ## Description of the Submission
+In the past years, the amount of biological data to be analyzed has increased. 
+Unfortunately, doing a clear and concise data analsysis has not kept pace with the speed of data analysis. 
+Too often, it is not only a matter of replication other results in another data set, but it even because impossible for researchers to reproduce their own results. 
+In this submission, we describe an online and computational learning module which is eglible as an open educational resource. 
+All modules are for immediate use, either for self-learning or by instructors. The learning modules have been developed as a three-day course, but each moduel can be used independently. 
+Throughout the learning module, the focus is put on multiple researchers working on the same project, and how to keep track on changes in the project is in focus. 
+These learning modules are needed to learn how to conduct clear and concise reproducible research. 
+This course is thus not build on novel software, but rather involves how to use exsisting programs as R and GitHub. 
+Furthermore. this module teaches how to find open data sets and make use of free platforms as GitHub. 
+All content is under the CC-BY license, and can be used. 
+
 
 # Explanation of its eligibility for JOSE
 This submission relates to a computational learning module that has been developed and implemented as an open educational resource. The resource can be applied to diverse educational contexts, and is immediately useable for adoption by learners, instructors, and others interested in teaching.
