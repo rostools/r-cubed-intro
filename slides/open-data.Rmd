@@ -32,7 +32,6 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 .footnote[Image source from Foster Open Science [(www.fosteropenscience.eu/resources)](https://www.fosteropenscience.eu/resources).]
 
-
 ---
 
 ## Open Data Principles
@@ -44,11 +43,9 @@ knitr::include_graphics("../images/OpenUniverse.png")
 
 ]
 
-
 .footnote[
 [1] Go FAIR Initiative (https://www.go-fair.org/fair-principles/)
 ]
-
 
 ---
 
@@ -97,7 +94,6 @@ knitr::include_graphics("../images/gofair.png")
 .footnote[
 [1] Go FAIR Initiative (https://www.go-fair.org/fair-principles/)
 ]
-
 
 ---
 
@@ -385,12 +381,6 @@ Finding a suitable license for your data: [(Choose a license)](https://chooseali
 - [Nature recommended data repositories]
 - [ClinicalStudyDataRequest] (Request access to RCT data)
 ]
-
----
-
-class: center
-
-# Thank you!
 
 [Open Science Framework]: https://osf.io/
 [European Data Portal]: https://www.europeandataportal.eu/
