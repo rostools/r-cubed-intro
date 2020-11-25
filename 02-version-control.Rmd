@@ -25,7 +25,7 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
-```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a simple, and more common and complicated 'version control system'."}
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a very common and highly manual 'version control system'."}
 knitr::include_graphics(here::here("images/version-control.jpg"))
 ```
 
@@ -66,7 +66,7 @@ To understand how incredibly powerful version control is,
 think about these questions: 
 
 - How many files of different versions of a manuscript 
-or thesis do you have lying around after getting feedback from your supervisor 
+or thesis do you have laying around after getting feedback from your supervisor 
 or co-authors? 
 - Have you ever wanted to experiment with your code 
 or your manuscript 
@@ -88,11 +88,11 @@ emailing versions around.
 single version of each file, rather than multiple versions of the same file.
 - Less time finding things, because everything is organized and in one place.
 
-In this session we'll be covering a version control tool called [Git].
+In this session we'll be covering a version control tool called [Git][git-doc].
 While Git on its own can be quite difficult to use, 
 RStudio thankfully has an amazing and straight-forward integration to it.
 
-[Git]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+[git-doc]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
 ## What is Git?
 
