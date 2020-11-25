@@ -13,9 +13,9 @@ and synchronize those changes to an online repository (GitHub).
 
 ## What is version control?
 
-**Take 5 min and read through this section**.
+**Take 5 min to read through this section**.
 
-> This session is more text and reading heavy compared to other sessions.
+> This session is more text and reading-heavy compared to other sessions.
 This is mostly because this topic requires a paradigm shift in how you view files,
 and requires you to change your habits of how you normally work.
 While you may get more short-term use out of the R portion of this course,
@@ -25,11 +25,11 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
-```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'."}
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a very common and highly manual 'version control system'."}
 knitr::include_graphics(here::here("images/version-control.jpg"))
 ```
 
-```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming used in the commonly used 'version control'."}
+```{r image-filenaming-version-control-comics, echo=FALSE, fig.cap="Filenaming in a commonly used 'version control'."}
 knitr::include_graphics(here::here("images/informal-version-control.jpg"))
 ```
 
@@ -53,7 +53,7 @@ you have to create a short message on what or why you made a change.
 These "commits" are stored as a log entry in a history.
 This history then has all this information,
 for each commit,
-on what file or files were changed, 
+on which file or files were changed, 
 what was changed within the file(s), 
 who changed it, and a short message about the change.
 This is extremely useful, 
@@ -74,7 +74,7 @@ and need to make a new file so that the original is not modified?
 - Have you ever deleted something and wish you hadn't?
 - Have you ever forgotten what you were doing on a project, or why you chose a particular strategy or analysis?  
 
-All these problems can fixed by using formal version control! 
+All these problems can be fixed by using formal version control! 
 There are so many good reasons to use version control, especially in science:
 
 - Transparency of work done to demonstrate or substantiate your scientific claim.
@@ -96,7 +96,7 @@ RStudio thankfully has an amazing and straight-forward integration to it.
 
 ## What is Git?
 
-**Take 5 min and read through this section**.
+**Take 5 min to read through this section**.
 
 Git is one of several version control system tools available.
 It was developed to help software programmers 
@@ -145,7 +145,7 @@ knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 
 ## Basics of Git
 
-**Take 5 min and read through this section**.
+**Take 5 min to read through this section**.
 
 Git works by tracking changes to files *at the project level* 
 (i.e. for every R Project).
@@ -166,9 +166,10 @@ r3::check_git_config()
 ```
 
 It should run without any error and it should show your email and name.
-What you do with Git is more or less to:
 
-- Set up Git in your project or folder by starting it as a "repository".
+The basic workflow using Git is more or less to:
+
+- Set up Git in your project or folder by creating it as a "repository".
 - Tell Git to track a file by preparing it to be saved to the history.
 - Save changes to files in the history with a message you recorded about the change.
  
@@ -182,7 +183,7 @@ When working with GitHub, there are extra things you can do (more on this later)
 - Synchronize the Git repository on your computer with the repository on your GitHub,
 called "push" (upload) and "pull" (download).
 
-So first off, *what exactly is the Git repository?* 
+So, first off, *what exactly is the Git repository?* 
 The Git repository works at the project (the folder) level
 because it stores the version history in the hidden `.git/` folder.
 In Windows, this folder will probably not be hidden,
@@ -221,7 +222,7 @@ When creating the project from prodigenr, Git is usually automatically set up.
 
 ## Using Git in RStudio
 
-Git was initially created to use in the terminal (i.e command-line). 
+Git was initially created to be used in the terminal (i.e command line). 
 However, because RStudio has a very nice interface for working with Git,
 we'll be using that interface so we don't have to switch to another application.
 While the terminal provides full access to Git's power and features,
@@ -230,7 +231,7 @@ the vast majority of daily use can be done through RStudio's interface.
 To access the Git interface in RStudio, 
 click the Git icon beside the "Go to" search bar 
 (see Figure \@ref(fig:image-rstudio-git-button)) 
-and then click the "Commit..." option (`Ctrl-Alt-M`).
+and then click the "Commit..." option (or use the shortcut `Ctrl-Alt-M`).
 
 ```{r image-rstudio-git-button, echo=FALSE, fig.cap="The location of the Git button in RStudio."}
 knitr::include_graphics(here::here("images/rstudio-git-button.png"))
