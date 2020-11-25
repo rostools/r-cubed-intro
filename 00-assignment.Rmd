@@ -52,7 +52,7 @@ to make this project and to complete the following tasks:
     and to create the following files:
     
     ```r
-    usethis::use_blank_slate()
+    usethis::use_blank_slate("project")
     usethis::use_data_raw("original-data")
     usethis::use_r("generate-figures")
     ```
