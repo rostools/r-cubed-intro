@@ -25,7 +25,7 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
-```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'."}
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common but manual 'version control system'."}
 knitr::include_graphics(here::here("images/version-control.jpg"))
 ```
 
@@ -53,7 +53,7 @@ you have to create a short message on what or why you made a change.
 These "commits" are stored as a log entry in a history.
 This history then has all this information,
 for each commit,
-on what file or files were changed, 
+on which file or files were changed, 
 what was changed within the file(s), 
 who changed it, and a short message about the change.
 This is extremely useful, 
@@ -74,25 +74,25 @@ and need to make a new file so that the original is not modified?
 - Have you ever deleted something and wish you hadn't?
 - Have you ever forgotten what you were doing on a project, or why you chose a particular strategy or analysis?  
 
-All these problems can fixed by using formal version control! 
+All these problems can be fixed by using formal version control! 
 There are so many good reasons to use version control, especially in science:
 
 - Transparency of work done to demonstrate or substantiate your scientific claim.
 - Claim to first discovery, since you have a time-stamped history of your work.
-- Defend against fraud, because of the transparency.
+- Defence against fraud, because of the transparency.
 - Evidence of contributions and work, since who does what is tracked.
-- Easily keep track of changes to files, by looking at the history of changes.
+- Keeping track of changes to files easily, by looking at the history of changes.
 - Easy collaboration, because you can work on a single file/folder rather than
 emailing versions around.
 - Organized files and folders, since there is one single project folder and one
 single version of each file, rather than multiple versions of the same file.
-- Less time findings things, because everything is organized and in one place.
+- Less time finding things, because everything is organized and in one place.
 
-In this session we'll be covering a version control tool called [Git].
+In this session we'll be covering a version control tool called [Git][git-doc].
 While Git on its own can be quite difficult to use, 
 RStudio thankfully has an amazing and straight-forward integration to it.
 
-[Git]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+[git-doc]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
 ## What is Git?
 
@@ -139,7 +139,7 @@ plain text like R scripts are). You can save files either by adding and
 committing them (as we will learn to do shortly) or by uploading them to your
 repository on GitHub, as pictured below.
 
-```{r image-git-upload-file-github, echo=FALSE, fig.cap="GitHub: Select Upload filea from the Add files drop-down menu."}
+```{r image-git-upload-file-github, echo=FALSE, fig.cap='GitHub: Select "Upload files" from the "Add file" drop-down menu.'}
 knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 ```
 
@@ -221,7 +221,7 @@ When creating the project from prodigenr, Git is usually automatically set up.
 
 ## Using Git in RStudio
 
-Git was initially created to use in the terminal (i.e command-line). 
+Git was initially created to be used in the terminal (i.e command-line). 
 However, because RStudio has a very nice interface for working with Git,
 we'll be using that interface so we don't have to switch to another application.
 While the terminal provides full access to Git's power and features,
@@ -247,7 +247,7 @@ knitr::include_graphics(here::here("images/rstudio-git-interface.png"))
 1. This is the "Changes" and "History" buttons that allow you to switch between views.
 Changes is what is currently changed in your files relative to the last history item.
 History is the record of what was done, to what file, when, and by whom.
-2. These are the "Push" and "Pull" buttons that are what synchronize with GitHub, 
+2. These are the "Push" and "Pull" buttons that are used to synchronize with GitHub, 
 which we will cover later in the session.
 3. This is the panel that lists the files that have been modified in some way.
 You add ("stage") files here that you want to be put into the history.
@@ -292,9 +292,9 @@ compared to the version in the history
 and it has been checked ("added") into the "Staged" area 
 (by ticking the checkbox beside the file in the Git interface).
 3. The *History* or *Committed* state is when a "commit" message has been written
-and the file and its changes has been saved into the repository history.
+and the file with its changes has been saved into the repository history.
 
-```{r image-git-states, echo=FALSE, fig.cap="The three states files and folders are in when using Git.", out.width="60%"}
+```{r image-git-states, echo=FALSE, fig.cap="The three states that files and folders can be in, when using Git.", out.width="60%"}
 knitr::include_graphics(here::here("images/git-states.png"))
 ```
 
@@ -313,7 +313,7 @@ about why a change was made, though it's not always the case.
 Sometimes a message like "minor edit" is enough,
 because it was a minor edit.
 
-A general tip for writing an effective commit message is that it is 
+A general tip for writing an effective commit message is to be 
 *concise but meaningful*.
 Writing down meaningful messages can save you a lot of time in
 the future when you come back to a project after some time
@@ -338,11 +338,11 @@ You should now see the added text in green.
 Alright, now "Stage" the change (click the checkbox),
 write a message like "added my name to README file",
 and commit the change. 
-Go back to the history and you should see the two commits done in your repository.
+Go back to the history and you should see the two commits in your repository.
 If you don't see it in the history, 
 you likely need to click the refresh button at the top.
 
-A question that may come up is how often should you commit?
+A question that may come up is "how often should I commit"?
 In general, it's better to commit fairly frequently 
 and to commit changes that are related to each other 
 and to the commit message.
@@ -354,8 +354,10 @@ and make it easier for others as well.
 Time: 12 min
 
 1. Practice the add-commit ("add to staging"-"committing to history") sequence by adding and 
-committing each of the remaining files in your R project one by one into the Git history
-(e.g. the `.gitignore`, the `.R` files, and the `.Rproj` file).
+committing *each* of the remaining files in your R project one at a time into the Git history
+(e.g. the `.gitignore`, the `.R` files, and the `.Rproj` file). You could add and
+commit them all at once, but we want you to do them one at a time so you practice
+using this workflow.
     - Make sure to write a meaningful 
     and short message about what you added and why.
     In this case, the "why" is simply that you are saving the file into the history
@@ -369,7 +371,6 @@ Add and commit that new line you've written.
 ```{r solution-commit-to-history, eval=FALSE, echo=FALSE}
 # There is not R code solution for this section.
 ```
-
 
 ## "Remotes": Storing your repository online {#remotes-setting-up}
 
@@ -395,7 +396,7 @@ The most popular one is [GitHub], with another being [GitLab]
 In this session, we'll be covering GitHub not only because it is very popular,
 but also because the R community is almost entirely on GitHub.
 
-```{r image-git-remotes, echo=FALSE, fig.cap="The 'remote' vs 'local' repository, or online vs on your computer.", out.width="50%"}
+```{r image-git-remotes, echo=FALSE, fig.cap="The 'remote' vs 'local' repository, or online vs on your computer.", out.width="30%"}
 knitr::include_graphics(here::here("images/git-remotes.png"))
 ```
 
@@ -437,8 +438,8 @@ rather than through Git and GitHub.
 Ok, we now have a remote repository to work with.
 The next step depends on whether you have an existing repository with a history
 or you are starting completely from new.
-If you haven't created a Git repository and saved to its history, 
-the easiest way of having your GitHub repository on your computer 
+If you haven't created a Git repository and saved to its history locally, 
+the easiest way of getting your GitHub repository onto your computer 
 as a local repository is to download it (or to "clone" it in Git terms).
 You can "clone" a GitHub repository easily from RStudio's
 "Create Project from Version Control" interface.
@@ -463,7 +464,7 @@ Once the GitHub repository has been created,
 copy and paste the code as shown in the image below 
 (Figure \@ref(fig:image-github-link-existing-repository)).
 
-```{r image-github-link-existing-repository, echo=FALSE, fig.cap="Code to copy and paste to link and upload an existing Git repository in GitHub."}
+```{r image-github-link-existing-repository, echo=FALSE, fig.cap="Code to copy and paste in order to link and upload an existing local Git repository to a remote repository on GitHub."}
 knitr::include_graphics("images/github-link-existing-repository.png")
 ```
 
@@ -474,7 +475,7 @@ It will come up again later on and whenever using remotes, like with GitHub.
 
 Open up the `LearningR` RStudio R Project
 and go to the Terminal tab beside the Console tab, 
-shown in Figure \@ref(fig:image-rstudio-terminal-tab)).
+shown in Figure \@ref(fig:image-rstudio-terminal-tab).
 Paste the code into the Terminal by right-clicking and selecting "Paste"
 (*note*: sometimes `Ctrl-V` does *not* work) and press "Enter".
 You will likely need to type in your GitHub password.
@@ -493,7 +494,7 @@ Get some practice with cloning from GitHub by doing it again with another reposi
 
 1. Create a new practice GitHub repository (name it `practice-repo`),
 and include a README file as well (see image below).
-2. Create a new RStudio R Project of the newly created GitHub repository.
+2. Create a new RStudio R Project from the newly created GitHub repository.
 Clone it to your desktop.
 
 ```{r image-github-add-readme, echo=FALSE, fig.cap="Checkmark to click to add a README to your new repository."}
@@ -519,7 +520,7 @@ so you must do this synchronization manually.
 "Pushing" is when changes to the history are uploaded to GitHub 
 while "pulling" is when the history is downloaded from GitHub.
 
-```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'Pushing' and 'pulling'.", out.width="40%"}
+```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'Pushing' and 'pulling'.", out.width="30%"}
 knitr::include_graphics(here::here("images/git-remotes-synch.png"))
 ```
 
@@ -540,40 +541,44 @@ Since changes saved in the history also reflect the working folder
 knitr::include_graphics(here::here("images/git-states-with-github.png"))
 ```
 
-**Alright, let's go over this together and practice the concepts.**
+**Alright, let's go over this together and practice the concepts of committing and pushing changes.**
 
-Make sure you are in the `LearningR` R Project,
+1. Make sure you are in the `LearningR` R Project,
 which you should see in the top right corner, above the Console pane.
 If you aren't, switch to it by clicking the button in the top right corner
 and selecting the `LearningR` project from the menu.
-Open up the `README.md` 
+2. Open up the `README.md` 
 and add a random sentence somewhere near the top of the file.
-Save, then open the Git interface,
+3. Save the file.
+4. Open the Git interface,
 by hitting `Ctrl-Alt-M` anywhere in RStudio 
-(but not when in the Terminal) or going to the `Git button -> Commit`,
-then add to the staging, and finally, commit the new change.
-Next, click the "Push" button in the top right corner of the Git interface
+(except when in the Terminal) or going to the `Git button -> Commit`.
+5. Stage the file.
+6. Add a commit message.
+7. Commit the new change by clicking the "Commit" button.
+8. Click the "Push" button in the top right corner of the Git interface
 (Box 2 of Figure \@ref(fig:image-rstudio-git-interface)).
 A pop-up will indicate that it's pushing and will tell you when it's done.
 
-Now go to your `LearningR` GitHub repository.
+Now let's try the opposite by committing and pulling changes from GitHub to your local repository. 
+
+1. Go to your `LearningR` GitHub repository.
 You should see the new change is also on the GitHub repository.
-Click the `README.md` file on the GitHub website
+2. Click the `README.md` file on the GitHub website
 and then click the "Edit" button 
 (see the video below, which shows it for the `learning-github` repository).
-Add another random sentence somewhere near the top of the file.
-Scroll down to the commit message box, type out a commit message,
-and click the "Commit" button.
+3. Add another random sentence somewhere near the top of the file.
+4. Scroll down to the commit message box, and type out a commit message.
+5. Click the "Commit" button.
+6. Go back to RStudio, open the Git interface 
+and now click the "Pull" button in the top right corner beside the "Push" button.
+7. Wait for it to finish pulling 
+and check your `README.md` file for the new change.
+You've now updated your project!
 
 ```{r video-github-edit-and-commit-file, echo=FALSE}
 insert_video("videos/github-edit-and-commit-file.mp4")
 ```
-
-Go back to RStudio, open the Git interface 
-and now click the "Pull" button in the top right corner beside the "Push" button.
-Wait for it to finish pulling 
-and check your `README.md` file for the new change.
-You've now updated your project!
 
 ## Exercise: Push and pull
 
@@ -732,7 +737,7 @@ they make commits to their local copy and push up to the remote.
 Then you can pull to your local copy and do the same thing.
 This is illustrated in Figure \@ref(fig:image-git-remotes-collaborate).
 
-```{r image-git-remotes-collaborate, echo=FALSE, fig.cap="Collaborating with others using Git and GitHub by having a shared central GitHub repository.", out.width="60%"}
+```{r image-git-remotes-collaborate, echo=FALSE, fig.cap="Collaborating with others using Git and GitHub by having a shared central GitHub repository.", out.width="50%"}
 knitr::include_graphics(here::here("images/git-remotes-collaborate.png"))
 ```
 
@@ -775,5 +780,5 @@ GitHub is a popular remote repository hosting service.
 a merge conflict occurs that you must deal with manually.
     - Decide on which text to keep between the tags: `<<<<<<< HEAD`, 
     `=======`, and `>>>>>>> origin/master` 
-    (the last name may sometimes look different).
+    (the last name may sometimes look different), and remove tags.
 - Almost all Git actions can be done using RStudio's Git interface.

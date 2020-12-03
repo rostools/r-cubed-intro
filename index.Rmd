@@ -123,10 +123,17 @@ as well as reviewed multiple other sections.
 - Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
 session material, as well as reviewed multiple other sections.
 
-Contributors for version 2.1 were:
+Contributors for version 2.1 all participated in discussions on improving the
+course, updating the course material based on the participant feedback from the
+previous courses, and heavily reviewed and editing the content:
 
-TODO: Add this once done. WE NEED TO ADD THINGS HERE :)
-Luke, Daniel, Helene, Hannah, Bettina, Anders, Malene...
+- Luke Johnston
+- Helene Bæk Juel
+- Bettina Lengger
+- Daniel Witte
+- Hannah Chatwin
+- Malene Revsbech Christiansen
+- Anders Aasted Isaksen
 
 ## Acknowledgements
 

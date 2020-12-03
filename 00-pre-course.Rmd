@@ -160,7 +160,6 @@ Most of the packages we will be using in this course are bundled together into o
 ```r
 install.packages("tidyverse")
 ```
-[tidyverse]: https://tidyverse.org/
 
 The specific packages from tidyverse that we will use are [ggplot2], [dplyr], and [rmarkdown]. These packages provide a set of tools for the most common 
 data analysis tasks, and have excellent documentation and tutorials on how to use them.

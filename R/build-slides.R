@@ -9,18 +9,21 @@ rmarkdown::render(
 
 rmarkdown::render(
     input = here::here("slides/open-data.Rmd"),
-    knit_root_dir = here::here("."),
+    # Not use this because links to images need to translate to website
+    # knit_root_dir = here::here("."),
     quiet = TRUE
 )
 
 rmarkdown::render(
     input = here::here("slides/collaboration-teamwork.Rmd"),
-    knit_root_dir = here::here("."),
+    # Not use this because links to images need to translate to website
+    # knit_root_dir = here::here("."),
     quiet = TRUE
 )
 
 rmarkdown::render(
     input = here::here("slides/open-reproducible-science-era.Rmd"),
-    knit_root_dir = here::here("."),
+    # Not use this because links to images need to translate to website
+    # knit_root_dir = here::here("."),
     quiet = TRUE
 )

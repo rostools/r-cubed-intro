@@ -212,7 +212,7 @@ start with is a "blank slate", meaning no old data are automatically imported in
 This is done by typing the following code in the Console:
 
 ```{r blank-slate, eval=FALSE}
-usethis::use_blank_slate()
+usethis::use_blank_slate("project")
 ```
 
 Now, let's add some R scripts that we will use in later sessions of the course:
