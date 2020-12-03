@@ -20,7 +20,7 @@ source(here::here("R/slide-setup.R"))
 
 ---
 
-## Open Science is part of several large trends (1)
+## Open Science is part of several large trends
 
 - Openness / Transparency
 - Quality: Reproducibility and replicability
@@ -29,7 +29,7 @@ source(here::here("R/slide-setup.R"))
 
 ---
 
-## Open Science is part of several large trends (2)
+## Open Science is part of several large trends
 
 We are in the middle of several exponential growth curves:
 
@@ -41,7 +41,7 @@ We are in the middle of several exponential growth curves:
 
 ---
 
-## Open Science is part of several large trends (3)
+## Open Science is part of several large trends
 
 - Industrialisation of the research work flow
 - Specialisation in research tasks
@@ -62,7 +62,7 @@ knitr::include_graphics("../images/Powerloom.jpg")
 
 ---
 
-## Open Science is part of several large trends (4)
+## Open Science is part of several large trends
 
 .pull-left[
 ```{r, out.height="95%", out.width="95%"}
@@ -78,7 +78,7 @@ knitr::include_graphics("../images/biobank.jpg")
 
 ---
 
-## Open Science is part of several large trends (5)
+## Open Science is part of several large trends
 
 - Changes in the way we work:
 	- Remote work
@@ -112,7 +112,6 @@ knitr::include_graphics("../images/elife.png")
 ```
 ]
 
-
 .footnote[[Lewis LM. eLife 2018;7:e30274 DOI: 10.7554/eLife.30274](https://elifesciences.org/articles/30274).]
 
 ---
@@ -122,7 +121,6 @@ knitr::include_graphics("../images/elife.png")
 PLOS Computational Biology is running a pilot:
 
 *"We will soon be able to offer expert technical peer review specifically checking that submitted systems biology or physiology-based models run according to the results presented in the manuscript submitted to the journal. The peer review will be delivered in addition to our usual scientific assessment.."*
-
 
 .center[
 ```{r, out.height="60%", out.width="60%"}
@@ -254,17 +252,3 @@ knitr::include_graphics("../images/tools-workflow.png")
 
 - Practice reproducible and open science
     - More on this later in session
-
----
-
-## Recognise importance of code and data: Cite them!
-
---
-
-```{r cite-packages, echo=TRUE}
-# Example:
-citation("dplyr")
-```
-
-
-

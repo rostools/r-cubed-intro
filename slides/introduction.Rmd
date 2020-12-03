@@ -30,7 +30,7 @@ source(here::here("R/slide-setup.R"))
 
 - `r emo::ji("check")` Re-install r3 `remotes::install_gitlab("rostools/r3")`
 
-- `r emo::ji("check")` Accept the GitHub Organization invite by going to https://github.com/r-cubed-2020-06
+- `r emo::ji("check")` Accept the GitHub Organization invite
 
 ---
 

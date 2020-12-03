@@ -13,24 +13,24 @@ and making files.
 
 ## What is a project and why use it?
 
-**Take 5 minutes and read through this section**.
+**Take 5 minutes to read through this section**.
 
 Before we create a project, we should first define what we mean by "project".
 What is a project? In this case, a project is a set of files that together
 lead to some type of scientific "output" (for instance a manuscript).
 Use data for your output? That's part of the project. 
 Do any analysis on the data to give some results? Also part of the project.
-Write a document, e.g. a manuscript, based on the data and results? 
+Write a document, for instance a manuscript, based on the data and results? 
 Have figures inserted into the output document? 
 These are also part of the project.
 
-More and more *how we make a claim* in a scientific product is just as important
+More and more *how* we make a claim in a scientific product is just as important
 as the output describing the claim. 
 This includes not only the written description of the methods 
-but also the exact steps taken, i.e. the code used.
+but also the exact steps taken, that is, the code used.
 So, using a project setup can help with keeping things self-contained
 and easier to track and link with the scientific output. 
-Here is some things to consider when doing projects:
+Here are some things to consider when working in projects:
 
 - Organise all R scripts and files in the same folder (also called "directory")
 so it is more *self-contained* (doesn't rely on other components in your computer).
@@ -40,7 +40,7 @@ so it is more *self-contained* (doesn't rely on other components in your compute
 was done.
 - Whenever possible, use code to create output (figures, tables) rather than
 manually creating or editing them.
-- Think of your code and project like you do with your manuscript or thesis:
+- Think of your code and project like you do your manuscript or thesis:
 that other people will eventually look at it and review it, 
 and that it will likely also be published or archived online.
 
@@ -59,7 +59,7 @@ documents.
 
 There are many ways one could organise a project folder. 
 We'll be setting up a project folder and file structure using [prodigenr](https://prodigenr.lukewjohnston.com/index.html).
-We'll use RStudio's New Project menu item under `File -> New Project`.
+We'll use RStudio's "New Project" menu item under `File -> New Project`.
 We'll call the new project **`LearningR`**.
 Save it on your `Desktop/`.
 See Figure \@ref(fig:video-prodigenr-project-creation) for the steps to do it:
@@ -69,7 +69,7 @@ See Figure \@ref(fig:video-prodigenr-project-creation) for the steps to do it:
 knitr::include_graphics(here::here("videos/rstudio-prodigenr-projects.gif"))
 ```
 
-You can also use the Console with the below function, but we won't do that in this session.
+You can also type the below function into the Console, but we won't do that in this session.
 
 ```{r prodigenr-setup, eval=FALSE}
 prodigenr::setup_project("~/Desktop/LearningR")
@@ -117,7 +117,7 @@ session is the way you normally interact with R, where you would write
 code in the Console to tell R to do something. Normally, when you open an R
 session without an R Project, the session defaults to assuming you will be
 working in the `~/Desktop` or `~` (your Home folder) location. But this location
-isn't where you actually work... you would work in the folder that has your R
+isn't where you actually work --- you normally work in the folder that has your R
 scripts or data files. The assumption with R Projects on the other hand, is that
 the R session working directory should be where the R Project is, since that
 is where you have your R scripts and data files.
@@ -130,7 +130,7 @@ be put in the `doc/` directory (including [R Markdown] files which we will cover
 [later](reproducible-documents)).
 1. Data, raw data, and metadata should be in either the `data/` directory or
 in `data-raw/` for the raw data.
-We'll explain the `data-raw/` folder and creating it later in the lesson.
+We'll explain the `data-raw/` folder and create it later in the lesson.
 1. All R files and code should be in the `R/` directory.
 1. Name all new files to reflect their content or function. Follow the tidyverse 
 [style guide for file naming](https://style.tidyverse.org/files.html). Either
@@ -139,7 +139,7 @@ tends to be more commonly used.
 
 [R Markdown]: https://rmarkdown.rstudio.com/
 
-For this course, we'll need to delete the files `fetch_data.R` and `setup.R` in the `R/` folder,
+For this course, we'll delete the files `fetch_data.R` and `setup.R` in the `R/` folder,
 as well as the `.Rbuildignore` file, since we won't need them.
 For any project, it is **highly recommended** to use [version control],
 which we'll cover in more detail [later](version-control).
@@ -197,6 +197,7 @@ manuscript.docx
 new version of analysis.R
 # Bad: Not descriptive and has dots.
 trying.something.here.R
+# Good: Descriptive with - or _
 plotting-regression.R
 utility_functions.R
 # Bad: Not descriptive.
@@ -207,10 +208,11 @@ code.R
 
 Now that we've created a project and associated folders, let's add some more
 options to the project. One option to set is to ensure that every R session you 
-start with is a "blank slate". This is done by typing the following code in the Console:
+start with is a "blank slate", meaning no old data are automatically imported into the Environment. 
+This is done by typing the following code in the Console:
 
 ```{r blank-slate, eval=FALSE}
-usethis::use_blank_slate()
+usethis::use_blank_slate("project")
 ```
 
 Now, let's add some R scripts that we will use in later sessions of the course:
@@ -228,7 +230,7 @@ As you may tell, the [usethis] package can be quite handy.
 
 ## RStudio layout and usage
 
-Open up the `R/project-session.R` file and type out the code in that file for 
+Open up the `R/project-session.R` file now, which you will use to type in code for 
 the code-along parts. 
 You've already gotten a bit familiar with RStudio in the pre-course tasks,
 but if you want more details, RStudio has a great 
@@ -251,7 +253,7 @@ and understandable is to use "Sections".
 They're like "headers" in Word and they split up an R script into sections,
 which then show up when you use the "Document Outline"
 opened by either using `Ctrl-Shift-O` or by going to `Code -> Show Document Outline`. 
-You can use sections through the menu item (`Code -> Insert Section`)
+You can insert sections through the menu item (`Code -> Insert Section`)
 or with the keyboard shortcut (`Ctrl-Shift-R`).
 
 In R, everything is an object and every action is a function. A function is an
@@ -268,12 +270,12 @@ The new object now stores the value we assigned it. We can read it like:
 > "`weight_kilos` contains the number 100" or "put 100 into the object `weight_kilos`"
 
 You can name an object in R almost anything you want, but it's best to stick to
-a [style guide]. For instance, use `snake_case` to name things.
+a [style guide]. For instance, we will use `snake_case` to name things.
 
 There are also several main "classes" (or types) of objects in R: lists,
 vectors, matrices, and data frames. For now, the only two we will cover are
-*vectors* and *data frames*. Vectors are a string of values put together while
-data frames are multiple vectors put together as columns. 
+*vectors* and *data frames*. A vector is a string of values, while a 
+data frame is multiple vectors put together as columns. 
 Data frames are a form of data that you'd typically see as a spreadsheet.
 This type of data is called "rectangular data" since it has two dimensions:
 columns and rows.
@@ -291,22 +293,23 @@ c(1, 5, 6)
 factor(c("low", "high", "medium", "high"))
 ```
 
-While this is what a data frame looks like:
+Notice how we use the `#` to write comments or notes. Whatever we write after
+the "hash" (`#`) tells R to ignore it and not run it.
+
+This is what a data frame looks like:
 
 ```{r dataframes}
 head(CO2)
 ```
 
-Notice how we use the `#` to write comments or notes. Whatever we write after
-the "hash" (`#`) tells R to ignore it and not run it. 
 The `c()` function puts values together and `head()` prints the first 6 rows. 
 Both `c()` and `head()` are *functions* since they do an *action* and
 they can be recognized by the `()` at their end.
 Functions take an *input* (known as *arguments*) and give back an *output*.
 Each argument is separated by a comma `,`.
-Some functions can take unlimited arguments if they have a `...` as an input
-(like `c()`). Others, like `head()` can only take a few arguments.
-In the case of `head()`, the first argument is reserved for the data frame.
+Some functions can take unlimited arguments (like `c()`). 
+Others, like `head()` can only take a few arguments.
+In the case of `head()`, the first argument is reserved for the name of the data frame.
 
 If we want to get more information from data frames, 
 we can use other functions like:
@@ -326,7 +329,7 @@ summary(CO2)
 
 To more quickly type out objects in R, use "tab-completion" to finish an object name for you.
 As you type out an object name, hit the "tab" key to see a list of objects available.
-RStudio will not only list out the objects,
+RStudio will not only list the objects,
 but also shows the possible options and potential help associated with the object.
 
 Try it out. In the RStudio Console, start typing:
@@ -341,7 +344,7 @@ This simple tool can save so much time and can prevent spelling mistakes.
 
 ## R object naming practices
 
-**Take 5 minutes and read this section**, and then complete the exercise.
+**Take 5 minutes to read this section**, and then complete the exercise.
 
 If you've ever seen some old R code,
 you may notice that function and object names are usually short.
@@ -350,11 +353,11 @@ Back then, there were no tab-completion tools,
 so typing out long names was painful. 
 Now we have powerful auto-completion tools.
 So this also means that when you write R code, you should use descriptive names instead of short ones.
-For instance, the object `weight_kilo` would have been named something like `x`.
+For instance, the object `weight_kilo` could have been named something like `x`.
 But this doesn't tell us what that is and doesn't help us write better code.
 
 The ability to read, understand, modify, and write simple pieces of code is an
-essential skill in the tasks and projects for a modern data analysts.
+essential skill for a modern data analysts.
 So! Here's some tips for writing R code:
 
 - *Be descriptive* with your names.
@@ -406,8 +409,8 @@ df $ z
 x <- 1 : 10
 
 # Indenting and brackets
-if (y < 0 && debug)
-message("Y is negative")
+if (y < 0 && debug) {
+message("Y is negative")}
 ```
 
 ```{r solution-ex-wrong-code-naming, eval=FALSE, solution=TRUE}
@@ -417,33 +420,42 @@ message("Y is negative")
 # DayOne
 day_one
 
-# Should not over write existing function names
+# Should not overwrite existing function names
 # T = TRUE, so don't name anything T
 # T <- FALSE
 false <- FALSE
+
 # c is a function name already. Plus c is not descriptive
 # c <- 9
 number_value <- 9
 
 # Spacing
-# Commas should be in correct place
+
+# Commas should be in the correct place
 # x[,1]
 # x[ ,1]
 x[, 1]
-# Spaces should be in correct place
+
+# Spaces should be in the correct place
 # mean (x, na.rm = TRUE)
 # mean( x, na.rm = TRUE )
 mean(x, na.rm = TRUE)
+
+# Add spaces between separate words and symbols
 # height<-feet*12+inches
 height <- feet * 12 + inches
+
+# But don't add spaces interrupting strings of symbols or code
 # df $ z
 df$z
 # x <- 1 : 10
 x <- 1:10
 
+# Indenting and brackets
+
 # Indenting should be done after if, for, else functions
-# if (y < 0 && debug)
-# message("Y is negative")
+# if (y < 0 && debug) {
+# message("Y is negative")}
 if (y < 0 && debug) {
     message("Y is negative")
 }
@@ -451,7 +463,7 @@ if (y < 0 && debug) {
 
 ## Automatic styling in RStudio
 
-You may have completed the exercise by hand, 
+You may have completed the exercise manually, 
 however it is possible to do it automatically. 
 RStudio has an automatic styling tool, 
 found in the menu item `Code -> Reformat Code` (or with `Ctrl-Shift-A`). 
@@ -472,7 +484,7 @@ that simplify doing complex tasks (e.g. running mixed effects models with the
 lme4 package or creating figures with the ggplot2 package) and for anyone to 
 easily install and use that package. So make use of packages!
 
-You load a package by writing:
+You load the tidyverse package by writing:
 
 ```{r loading-packages, eval=FALSE}
 library(tidyverse)
@@ -558,7 +570,7 @@ encounter them *all the time*.
 In fact, a large amount of your time in R will be spent
 figuring out solutions to these errors ("debugging"). 
 For this course, we have a short [cheatsheet](resources/cheatsheet.pdf)
-that lists out the tools and functions we will cover, which can help with problems
+that lists the tools and functions we will cover, which can help with problems
 forgetting function names or their usage. However, even with the cheatsheet, you
 will still encounter other problems like errors or warnings.
 Error messages will appear
@@ -581,11 +593,11 @@ telling you**. Some common error messages include:
 1. **Go over the code again and carefully check for any mistakes:**
     - Missing commas or pipes?
     - Missing end brackets like `]`, `)`, or `}`?
-    - Capitalized something that didn't need to be capitalized?
+    - Capitalized something that shouldn't be capitalized?
     - Object or column name misspelled?
     - Forgot to load your data before working on it?
-    - Forgot to load or re-load your packages? Packages are automatically unload
-    when you exit out of RStudio and R. So you need to load them in each new
+    - Forgot to load or re-load your packages? Packages are automatically unloaded
+    when you exit RStudio and R. So you need to load them each new
     session with the `library()` function.
 1. **Go back to the start of the code and run each line one at a time**, to see
 where the problem occurs. You will get an opportunity to practice this later,
@@ -594,7 +606,7 @@ once you are working with bigger chunks of code.
 If you still can't find the problem, here are some other steps to take:
 
 1. **Restart the R session (`Session -> Restart R` or `Ctrl-Shift-F10`)**. 
-Then run the code from beginning again and track what objects get created, and if
+Then load your packages (and data if needed) and run the code from the beginning, tracking which objects get created, and if
 the proper object name is used later on.
 1. (Rarely need to do) **Close/re-open RStudio and try again.**
 1. **Use `help()` or `?` to access built-in documentation about a function or
@@ -616,7 +628,7 @@ Enter either of the following commands into the Console and run it (hit `Enter`)
     have amazing documentation that you can use to help you with problems you may
     have.
 
-1. **Consider explaining the problem out loud to a colleague or friend.** You
+1. **Consider explaining the problem out loud to a colleague or friend.** (or even a rubber duck!) You
 might find that, in verbally going through the problem and explaining it, 
 you will likely come up with the solution yourself.
 1. **Take a break and come back to it later!**
