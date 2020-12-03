@@ -477,7 +477,7 @@ Rename `diabetes_age` to be `diabetes_diagnosis_age`.
 
     ```r
     nhanes_small %>% 
-        rename(___ = ___, ___ = ____)
+        rename(___ = ___)
     ```
 
 3. Re-write this piece of code using the "pipe" operator:
@@ -576,15 +576,15 @@ tibble::tribble(
 Let's try out a few of these logical conditions with `filter()`.
 
 ```{r}
-# Participants that don't have sex as female
+# Participants who are not female
 nhanes_small %>%
     filter(sex != "female")
 
-# Participants that have BMI equal to 25
+# Participants who have BMI equal to 25
 nhanes_small %>%
     filter(bmi == 25)
 
-# Participants that have BMI equal to or more than 25
+# Participants who have BMI equal to or more than 25
 nhanes_small %>%
     filter(bmi >= 25)
 ```
