@@ -25,7 +25,7 @@ While the concepts are quite difficult,
 the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
 
-```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common and simple 'version control system'."}
+```{r image-version-control-comics, echo=FALSE, fig.cap="'Final' version of a document, using a common but manual 'version control system'."}
 knitr::include_graphics(here::here("images/version-control.jpg"))
 ```
 
@@ -53,7 +53,7 @@ you have to create a short message on what or why you made a change.
 These "commits" are stored as a log entry in a history.
 This history then has all this information,
 for each commit,
-on what file or files were changed, 
+on which file or files were changed, 
 what was changed within the file(s), 
 who changed it, and a short message about the change.
 This is extremely useful, 
@@ -74,7 +74,7 @@ and need to make a new file so that the original is not modified?
 - Have you ever deleted something and wish you hadn't?
 - Have you ever forgotten what you were doing on a project, or why you chose a particular strategy or analysis?  
 
-All these problems can fixed by using formal version control! 
+All these problems can be fixed by using formal version control! 
 There are so many good reasons to use version control, especially in science:
 
 - Transparency of work done to demonstrate or substantiate your scientific claim.
@@ -221,7 +221,7 @@ When creating the project from prodigenr, Git is usually automatically set up.
 
 ## Using Git in RStudio
 
-Git was initially created to use in the terminal (i.e command-line). 
+Git was initially created to be used in the terminal (i.e command-line). 
 However, because RStudio has a very nice interface for working with Git,
 we'll be using that interface so we don't have to switch to another application.
 While the terminal provides full access to Git's power and features,
@@ -247,7 +247,7 @@ knitr::include_graphics(here::here("images/rstudio-git-interface.png"))
 1. This is the "Changes" and "History" buttons that allow you to switch between views.
 Changes is what is currently changed in your files relative to the last history item.
 History is the record of what was done, to what file, when, and by whom.
-2. These are the "Push" and "Pull" buttons that used to synchronize with GitHub, 
+2. These are the "Push" and "Pull" buttons that are used to synchronize with GitHub, 
 which we will cover later in the session.
 3. This is the panel that lists the files that have been modified in some way.
 You add ("stage") files here that you want to be put into the history.
@@ -354,8 +354,10 @@ and make it easier for others as well.
 Time: 12 min
 
 1. Practice the add-commit ("add to staging"-"committing to history") sequence by adding and 
-committing each of the remaining files in your R project one by one into the Git history
-(e.g. the `.gitignore`, the `.R` files, and the `.Rproj` file).
+committing *each* of the remaining files in your R project one at a time into the Git history
+(e.g. the `.gitignore`, the `.R` files, and the `.Rproj` file). You could add and
+commit them all at once, but we want you to do them one at a time so you practice
+using this workflow.
     - Make sure to write a meaningful 
     and short message about what you added and why.
     In this case, the "why" is simply that you are saving the file into the history
@@ -369,7 +371,6 @@ Add and commit that new line you've written.
 ```{r solution-commit-to-history, eval=FALSE, echo=FALSE}
 # There is not R code solution for this section.
 ```
-
 
 ## "Remotes": Storing your repository online {#remotes-setting-up}
 
@@ -519,7 +520,7 @@ so you must do this synchronization manually.
 "Pushing" is when changes to the history are uploaded to GitHub 
 while "pulling" is when the history is downloaded from GitHub.
 
-```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'pushing' and 'pulling'.", out.width="30%"}
+```{r image-git-remotes-synch, echo=FALSE, fig.cap="Synchronizing with GitHub: 'Pushing' and 'pulling'.", out.width="30%"}
 knitr::include_graphics(here::here("images/git-remotes-synch.png"))
 ```
 
@@ -554,12 +555,13 @@ by hitting `Ctrl-Alt-M` anywhere in RStudio
 (except when in the Terminal) or going to the `Git button -> Commit`.
 5. Stage the file.
 6. Add a commit message.
-7. Commit the new change.
+7. Commit the new change by clicking the "Commit" button.
 8. Click the "Push" button in the top right corner of the Git interface
 (Box 2 of Figure \@ref(fig:image-rstudio-git-interface)).
 A pop-up will indicate that it's pushing and will tell you when it's done.
 
-Now let's try the opposite: to commit and pull changes from GitHub to your local repository. 
+Now let's try the opposite by committing and pulling changes from GitHub to your local repository. 
+
 1. Go to your `LearningR` GitHub repository.
 You should see the new change is also on the GitHub repository.
 2. Click the `README.md` file on the GitHub website
@@ -568,16 +570,15 @@ and then click the "Edit" button
 3. Add another random sentence somewhere near the top of the file.
 4. Scroll down to the commit message box, and type out a commit message.
 5. Click the "Commit" button.
-
-```{r video-github-edit-and-commit-file, echo=FALSE}
-insert_video("videos/github-edit-and-commit-file.mp4")
-```
-
 6. Go back to RStudio, open the Git interface 
 and now click the "Pull" button in the top right corner beside the "Push" button.
 7. Wait for it to finish pulling 
 and check your `README.md` file for the new change.
 You've now updated your project!
+
+```{r video-github-edit-and-commit-file, echo=FALSE}
+insert_video("videos/github-edit-and-commit-file.mp4")
+```
 
 ## Exercise: Push and pull
 
