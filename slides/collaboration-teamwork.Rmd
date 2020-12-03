@@ -164,7 +164,6 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 
 .footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
 
-
 ---
 
 ## Collaboration in the research workflow
@@ -176,7 +175,6 @@ knitr::include_graphics("../images/workflow.png")
 ]
 
 .footnote[[Diagram by Pilip Guo](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext).]
-
 
 ---
 
@@ -194,13 +192,11 @@ knitr::include_graphics("../images/datalifecycle.jpg")
 ---
 
 ## Summary
+
 - Collaboration is central to modern science
+
 - Enormous variation in scale and scope
 
 - Central point: efficient coordination
 
 - Central tools: good communication and structured documentation
-
----
-
-## Questions?
