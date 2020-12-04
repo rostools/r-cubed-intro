@@ -28,47 +28,29 @@ date: 5 November 2020
 bibliography: paper.bib
 ---
 
-## Description of the Submission
+# Summary
 
 With each passing year, the capacity to generate massive amount of biological
 data continues to increase and with this capacity comes not only the huge volume
 of data but also greater need for the skills and knowledge necessary to process
-and analyze this data. Tightly coupled to this increase in computational skills
-in science is increasing demands that scientific studies be reproducible and the
-methods and analysis process to be open and transparent.
+and analyze this data. Tightly coupled to this increasing need for computational
+skills in science is an increasing demand that scientific studies be reproducible
+and that the methods and analytic process to be open and transparent.
 
-Unfortunately, the demand for these skills has vastly outpaced to training
-necessary to build these skills.
+Unfortunately, training in modern computational skills has not kept pace and
+this is especially evident in biomedical research. The computational learning
+module we've developed and describe below is aimed at bringing awareness to and
+improving skills in R, reproducibility, and open science for researchers in the
+field of diabetes research. 
 
-doing a clear and concise data analsysis has not kept pace with
+The learning modules are structured as a three-day course, with five sub-modules.
+We've designed it specifically as an open educational resource that either other
+instructors might make use of or modify on for their own lessons or for learners
+to use on their own or as a reference after participating in the course.
+All content is permissively licensed under CC-BY and MIT Licenses, and so
+available for re-used.
 
-the speed of data analysis. Too often, it is not only a matter of replication
-other results in another data set, but it even because impossible for
-researchers to reproduce their own results. 
-
-In this submission, we describe an
-online and computational learning module which is eglible as an open educational
-resource. All modules are for immediate use, either for self-learning or by
-instructors. The learning modules have been developed as a three-day course, but
-each moduel can be used independently. Throughout the learning module, the focus
-is put on multiple researchers working on the same project, and how to keep
-track on changes in the project is in focus. These learning modules are needed
-to learn how to conduct clear and concise reproducible research. This course is
-thus not build on novel software, but rather involves how to use exsisting
-programs as R and GitHub. Furthermore. this module teaches how to find open data
-sets and make use of free platforms as GitHub. All content is under the CC-BY
-license, and can be used.
-
-<!-- Explanation of its eligibility for JOSE -->
-This submission relates to a computational learning module that has been
-developed and implemented as an open educational resource. The resource can be
-applied to diverse educational contexts, and is immediately useable for adoption
-by learners, instructors, and others interested in teaching.
-
-- It is a ready-to-take course that also can be done independently of a class.  
-
-
-## Statement of Need
+# Statement of Need
 
 Reproducibility is very important in modern research. Too often, researchers
 cannot reproduce their own results due to a lot of manual data processing. We
@@ -86,12 +68,13 @@ project, as changes within the project can be tracked when it progresses. This
 will save the persons, using the version control, a lot of time and make it
 "gennemskueligt/clear and consice".
 
-### Contribution to computationally-enabled teaching and learning
+## Contribution to computationally-enabled teaching and learning
+
 (Pending literature review and comparison with existing courses)
 Introduce reproducibility here?
 - Rmarkdown, code-along. Something about it is a useful way to learn by code-along. 
 
-### How the learning modules can be adopted by others
+## How the learning modules can be adopted by others
 
 On the basis of authors' affilitations and fields of research, the content of
 the learning module was developed and framed in the context of the medical
@@ -104,7 +87,7 @@ resources with minimal expertise in RStudio.
 - Maybe we can find someone else who want to test it? Or state that we would be
 happy to hear feedback if others have tested it
 
-### Target audience
+## Target audience
 
 The learning module is suitable for anyone wishing to enhance their
 reproducibility practices and/or be introduced to RStudio as a means of doing
@@ -116,9 +99,9 @@ The learning module is suitable for anyone wishing to enhance their reproducibil
 A very important thing is the introduction of Git/version control. This is a beneficial way for several people to work on the same project and keep track of changes in the project as it progresses. With the "user-friendly" (it is to a certain degree) outline/visualisation/buttons in R, it makes it easy for most people to use, despite the background, and the result from using version control will save many data analysts a lot of time!
 
 
-## Description of Learning Modules
+# Description of Learning Modules
 
-### Learning Objectives
+## Learning Objectives
 
 The objective of this learning module is to teach reproducible research
 practices. 
@@ -132,7 +115,7 @@ language.
 2. Improved data and code literacy.
 3. An ability to conduct a modern and reproducible data analysis.
 
-### Content and sequence of learning materials
+## Content and sequence of learning materials
 
 The learning module encompasses five sub-modules (see Table 1), with each
 sub-module representing about a half-day of lessons.
@@ -159,7 +142,7 @@ lectures (and one introduction lecture) aimed at drawing together
 reproducibility and RStudio skills (see
 [*Section 6: Lecture Slides*](https://r-cubed.rostools.org/lecture-slides.html)).
 
-### Instructional Design
+## Instructional Design
 
 When delivered during in-person workshops, the instructional design uses a
 combination of teaching methods (see Table 2). Content taught using the methods
@@ -181,7 +164,7 @@ Table: Description of pedagogical methods used throughout the course.
 further describes the teaching approach that instructors can adopt in order to
 maximize learning outcomes.
 
-### Experience of use in teaching and learning situations
+## Experience of use in teaching and learning situations
 
 The learning module has presently been delivered three times as 2-3 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
@@ -214,14 +197,14 @@ saved in the repository for use in our efforts to improve the learning module.
 
 (Description of previous self-guided use?)
 
-## Story of the Project
+# Story of the Project
 
 Going from each reseacher sitting with their own data management, a hundred different version controls (PhDcomics) and not being able to reproduce their own results, to a clear and concise data processing with openness about the science going on, so eryone can benefint from the methods and data processing. 
 
-### How it came about and authors' experience
+## How it came about and authors' experience
 
 Very interesting topic to work with, and the authord learned a lot themselves too. Also beneficial for the authors to keep learning, using, making it a habit and distributing the idea of open science. 
 
-## Acknowledgements
+# Acknowledgements
 
 Thank DDA.
