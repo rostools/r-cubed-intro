@@ -13,9 +13,9 @@ authors:
   - name: Luke W. Johnston
     orcid: 0000-0003-4169-2616
     affiliation: 1
-  - name: 
-    orcid: 
-    affiliation: 2
+  - name: Hannah Chatwin
+    orcid: 0000-0001-7248-8568
+    affiliation: 3
   - name: 
     orcid: 
     affiliation: 2
@@ -24,6 +24,8 @@ affiliations:
    index: 1
  - name: Aarhus University, Aarhus, Denmark
    index: 2
+ - name: University of Southern Denmark, Odense, Denmark
+   index: 3
 date: 5 November 2020
 bibliography: paper.bib
 ---
