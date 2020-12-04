@@ -28,22 +28,53 @@ date: 5 November 2020
 bibliography: paper.bib
 ---
 
-## Description of the Submission
+# Summary
 
-<!-- Explanation of its eligibility for JOSE -->
+With each passing year, the capacity to generate massive amount of biological
+data continues to increase and with this capacity comes not only the huge volume
+of data but also greater need for the skills and knowledge necessary to process
+and analyze this data. Tightly coupled to this increasing need for computational
+skills in science is an increasing demand that scientific studies be reproducible
+and that the methods and analytic process to be open and transparent.
 
-This submission relates to a computational learning module that has been
-developed and implemented as an open educational resource. The resource can be
-applied to diverse educational contexts, and is immediately useable for adoption
-by learners, instructors, and others interested in teaching.
+Unfortunately, training in modern computational skills has not kept pace and
+this is especially evident in biomedical research. The computational learning
+module we've developed and describe below is aimed at bringing awareness to and
+improving skills in R, reproducibility, and open science for researchers in the
+field of diabetes research. 
 
-## Statement of Need
+The learning modules are structured as a three-day course, with five sub-modules.
+We've designed it specifically as an open educational resource that either other
+instructors might make use of or modify on for their own lessons or for learners
+to use on their own or as a reference after participating in the course.
+All content is permissively licensed under CC-BY and MIT Licenses, and so
+available for re-used.
 
-### Contribution to computationally-enabled teaching and learning
+# Statement of Need
+
+Reproducibility is very important in modern research. Too often, researchers
+cannot reproduce their own results due to a lot of manual data processing. We
+need more clear guidlines and a concise idea of what has happened to the data.
+This is importnat, not only for the society, but also for the researcher
+him/herself.
+
+- Furthermore, we need more a open data handling process. Too often, when
+reading through materials and method sections in scoientific papers, these are
+very limited and "narrow/small/skrabede"... This makes it difficult for other
+researchers to 1) replicate the data analysis and 2) learn from (a) potentially
+good science/method.
+- Learning how to use version control is very useful for both indivual and group
+project, as changes within the project can be tracked when it progresses. This
+will save the persons, using the version control, a lot of time and make it
+"gennemskueligt/clear and consice".
+
+## Contribution to computationally-enabled teaching and learning
+
 (Pending literature review and comparison with existing courses)
 Introduce reproducibility here?
+- Rmarkdown, code-along. Something about it is a useful way to learn by code-along. 
 
-### How the learning modules can be adopted by others
+## How the learning modules can be adopted by others
 
 On the basis of authors' affilitations and fields of research, the content of
 the learning module was developed and framed in the context of the medical
@@ -53,16 +84,24 @@ resource, for a more comprehensive description of how others may adopt learning
 resources with minimal expertise in RStudio.
 (Introduce DDA events as a clear example)
 
-### Target audience
+- Maybe we can find someone else who want to test it? Or state that we would be
+happy to hear feedback if others have tested it
+
+## Target audience
 
 The learning module is suitable for anyone wishing to enhance their
 reproducibility practices and/or be introduced to RStudio as a means of doing
 so. Based on previous experience of use in teaching and learning, the course has
 suited PhD and post-doctoral level researchers well.
 
-## Description of Learning Modules
+The learning module is suitable for anyone wishing to enhance their reproducibility practices and/or be introduced to RStudio as a means of doing so. Based on previous experience of use in teaching and learning, the course has suited PhD and post-doctoral level researchers well.
+- Probably most suited for people who are doing data analysis and/or research. 
+A very important thing is the introduction of Git/version control. This is a beneficial way for several people to work on the same project and keep track of changes in the project as it progresses. With the "user-friendly" (it is to a certain degree) outline/visualisation/buttons in R, it makes it easy for most people to use, despite the background, and the result from using version control will save many data analysts a lot of time!
 
-### Learning Objectives
+
+# Description of Learning Modules
+
+## Learning Objectives
 
 The objective of this learning module is to teach reproducible research
 practices. 
@@ -76,7 +115,7 @@ language.
 2. Improved data and code literacy.
 3. An ability to conduct a modern and reproducible data analysis.
 
-### Learning Content and Sequence
+## Content and sequence of learning materials
 
 The learning module encompasses five sub-modules (see Table 1), with each
 sub-module representing about a half-day of lessons.
@@ -103,12 +142,14 @@ lectures (and one introduction lecture) aimed at drawing together
 reproducibility and RStudio skills (see
 [*Section 6: Lecture Slides*](https://r-cubed.rostools.org/lecture-slides.html)).
 
-### Instructional Design
+## Instructional Design
 
 When delivered during in-person workshops, the instructional design uses a
 combination of teaching methods (see Table 2). Content taught using the methods
 below are described in 
 [*Section 1: Welcome!*](https://r-cubed.rostools.org/index.html) 
+
+The use of stickies makes the course even more interactive, and is a suitable way to get help fast. 
 
 |Method|Description|Advantages|
 |---|---|---|
@@ -123,7 +164,7 @@ Table: Description of pedagogical methods used throughout the course.
 further describes the teaching approach that instructors can adopt in order to
 maximize learning outcomes.
 
-### Teaching and Learning Experiences
+## Experience of use in teaching and learning situations
 
 The learning module has presently been delivered three times as 2-3 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
@@ -150,12 +191,20 @@ the `r-cubed` learning module, ensuring it gets better structured, continues to
 be relevant, and is beginner-friendly. The anonymous feedback is collected and
 saved in the repository for use in our efforts to improve the learning module.
 
-## Story of the Project
+- Other issues that arose during this course were installation if Rpackages on computers controled by regional institutions, e.g. hospitals. Ways to cconquer such issues have been described in Appendix A2 and can be used in other scenarioes. 
 
-### How it came about and authors' experience
+- The helpers and instructors were not pure R experts (it is though recommened to have at least one (Luke!)). This created a special athmosphere during the course, and it set the standard and tone during the course which created a work-friendly environment.  
 
-XYZ
+(Description of previous self-guided use?)
 
-## Acknowledgements
+# Story of the Project
+
+Going from each reseacher sitting with their own data management, a hundred different version controls (PhDcomics) and not being able to reproduce their own results, to a clear and concise data processing with openness about the science going on, so eryone can benefint from the methods and data processing. 
+
+## How it came about and authors' experience
+
+Very interesting topic to work with, and the authord learned a lot themselves too. Also beneficial for the authors to keep learning, using, making it a habit and distributing the idea of open science. 
+
+# Acknowledgements
 
 Thank DDA.
