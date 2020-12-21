@@ -19,6 +19,10 @@ authors:
   - name: Malene Revsbech Christiansen
     orcid: 0000-0002-9772-3576
     affiliation: 4
+  - name: Bettina Lengger
+    orcid: 0000-0001-9997-7011
+    affiliation: 5
+
 affiliations:
  - name: Steno Diabetes Center Aarhus, Aarhus, Denmark
    index: 1
@@ -28,6 +32,9 @@ affiliations:
    index: 3
   - name: Novo Nordisk Foundation Center for Basic Metabolic Research, University of Copenhagen, Copenhagen, Denmark
    index: 4
+  - name: Novo Nordisk Foundation Center for Biosustainability, Technical University of Denmark, Kongens Lyngby, Denmark
+   index: 5
+
 date: 5 November 2020
 bibliography: paper.bib
 ---
@@ -55,6 +62,11 @@ All content is permissively licensed under CC-BY and MIT Licenses, and so
 available for re-used.
 
 # Statement of Need
+
+# Statement of need
+The amount of data produced in research is growing exponentially, and research projects involve more and more international collaboration. Data handling and data analysis have become crucial and sought after skills in both academia and industry, but training has been running behind. In addition the research world is facing a reproducibility crisis, challenging the validity of published work. Taken together, there is a huge need for training in data analysis, following a reproducible and collaborative approach. To meet this need the online resource R3 has been developed.
+
+R3 is an online educational resource connecting teaching of basic R knowledge with a traceable and reproducible workflow, data reporting using R markdown and collaborative practises using github. This educational resource serves as both as a guide for teaching a 3-day course and for self-study. It is structured as live-coding sessions, individual reading and exercises with additional lectures. R3 introduces the learner to R basics, data wrangling and data visualisation using the tidyverse package. While teaching R, heavy usage is made of git, github and R markdown. To achieve reproducibility and easy understanding of the code for both the learners themselves and other collaborators, the learner is introduced to the R style guide and tools for structuring and safe-keeping of data and code. For collaborative purposes and traceability, git and github is introduced early on in the course and practised throughout it. R markdown is introduced and used to create reports. Finally, a collaborative group project summarises and reinforces the content covered throughout the course. (Bettina)
 
 Reproducibility is very important in modern research. Too often, researchers
 cannot reproduce their own results due to a lot of manual data processing. We
