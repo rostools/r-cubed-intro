@@ -33,7 +33,7 @@ bibliography: paper.bib
 With each passing year, the capacity to generate massive amount of biological
 data continues to increase and with this capacity comes not only the huge volume
 of data but also greater need for the skills and knowledge necessary to process
-and analyze this data. Tightly coupled to this increasing need for computational
+and analyze this data [@Brownson2015]. Tightly coupled to this increasing need for computational
 skills in science is an increasing demand that scientific studies be reproducible
 and that the methods and analytic process to be open and transparent.
 
@@ -73,6 +73,13 @@ will save the persons, using the version control, a lot of time and make it
 (Pending literature review and comparison with existing courses)
 Introduce reproducibility here?
 - Rmarkdown, code-along. Something about it is a useful way to learn by code-along. 
+
+- How it fits with others. Keys: Tight focus on key concepts and functions (aim
+to not overwhelm), focus on key tasks diabetes researchers will use and not on
+programming concepts of R (not focusing on e.g. data types, lists, etc.)
+- Incorporation of hands-on activity, live-coding, lectures, group activities,
+and reading 
+- Focus on open science principles, reproducibility.
 
 ## How the learning modules can be adopted by others
 
