@@ -16,9 +16,9 @@ authors:
   - name: Hannah Chatwin
     orcid: 0000-0001-7248-8568
     affiliation: 3
-  - name: 
-    orcid: 
-    affiliation: 2
+  - name: Malene Revsbech Christiansen
+    orcid: 0000-0002-9772-3576
+    affiliation: 4
 affiliations:
  - name: Steno Diabetes Center Aarhus, Aarhus, Denmark
    index: 1
@@ -26,6 +26,8 @@ affiliations:
    index: 2
  - name: University of Southern Denmark, Odense, Denmark
    index: 3
+  - name: Novo Nordisk Foundation Center for Basic Metabolic Research, University of Copenhagen, Copenhagen, Denmark
+   index: 4
 date: 5 November 2020
 bibliography: paper.bib
 ---
