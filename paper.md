@@ -39,12 +39,12 @@ bibliography: paper.bib
 
 # Summary
 
-With each passing year, the capacity to generate massive amount of biological
-data continues to increase and with this capacity comes not only the huge volume
-of data but also greater need for the skills and knowledge necessary to process
+The capacity to generate massive amounts of biological
+data continues to increase with each year. This comes with not only the huge volume
+of data but also a greater need for the skills and knowledge necessary to process
 and analyze this data [@Brownson2015]. Tightly coupled to this increasing need for computational
 skills in science is an increasing demand that scientific studies be reproducible
-and that the methods and analytic process to be open and transparent.
+and that the methods and analytic process to be open and transparent [@Watson2015].
 
 Unfortunately, training in modern computational skills has not kept pace and
 this is especially evident in biomedical research. The computational learning
@@ -52,85 +52,63 @@ module we've developed and describe below is aimed at bringing awareness to and
 improving skills in R, reproducibility, and open science for researchers in the
 field of diabetes research. 
 
-The learning modules are structured as a three-day workshop, with five sub-modules.
-We've designed it specifically as an open educational resource that either other
-instructors might make use of or modify on for their own lessons or for learners
-to use on their own or as a reference after participating in the workshop.
-All content is permissively licensed under CC-BY and MIT Licenses, and so
-available for re-used.
+The learning modules are structured as a three-day workshop, with five
+sub-modules. We've designed it specifically as an open educational resource that
+either other instructors might make use of or modify on for their own lessons or
+for learners to use on their own or as a reference after participating in the
+workshop. All content are available for re-use under CC-BY and MIT Licenses.
 
 # Statement of Need
 
-## Contribution to computationally-enabled teaching and learning
-
 Reproducibility is a key component to verifying scientific findings.
-Unfortunately, the reproducibility of scientific studies is largely unknown REF,
+Unfortunately, the reproducibility of scientific studies is largely unknown 
+[@Considine2017;@Leek2017],
 as researchers are unaware of, have no training in, or don't have incentives to
-conduct reproducible research. An example of this is the near lack of analysis
-code sharing in biomedical research REF. Improving reproducibility requires not
-only an awareness of the issue, but also training in multiple areas. These areas
-include not only statistical data analysis, but also version control, project management (of
-files), and reproducible reporting. Combined with the continual growth in how
-much research data is generated every year and the increasing need for
-international collaborations, the skills and associated training for data
-management, analysis, reproducibility, and collaboration are crucial to tackle
-these modern demands. 
+conduct reproducible research. Improving reproducibility requires not
+only an awareness, but also training in multiple areas that include 
+not only the statistical analysis, but also version control, project management
+(of files), and reproducible reporting. The need for training of these skills is
+critical to tackling these modern demands.
 
-The r-cubed learning module connects these skills and knowledge to address
-these gaps in training through teaching Git, GitHub, R Markdown, and data
+The `r-cubed` learning module provides training in reproducibility, open
+science, and collaboration by teaching Git, GitHub, R Markdown, and data
 wrangling and visualization in R. While there are other resources for learning R
-and Git, this module includes a greater integration and emphasis on
-reproducibility and the general workflow around doing data analysis, as well as
-instructions and explanations to potential or new instructors to take and modify
-the content so they can use the module to teach their own workshops.
-Finally, this module also focuses on biomedical research, which is an area that
-currently lacks in higher-quality training for these skills. The authors'
-currently work or have experience in biomedical research and used this knowledge
-to create and shape the learning content.
+and Git [@Bryan;@ChesterIsmay2019;@Lee2019], this module includes a greater
+integration and emphasis on reproducibility and the general workflow around
+doing data analysis, as well as instructions targeted to other instructors
+to assist with re-use of the material. Finally, this module also focuses on
+experiences and needs of those doing biomedical research, which is an area that
+currently lacks in enough training for these skills. The authors, all of whom
+work or have worked in biomedical research, used their experience when they
+created and shaped the learning content.
 
-- How it fits with others. Keys: Tight focus on key concepts and functions (aim
-to not overwhelm), focus on key tasks diabetes researchers will use and not on
-programming concepts of R (not focusing on e.g. data types, lists, etc.)
-- Incorporation of hands-on activity, live-coding, lectures, group activities,
-and reading 
-- Focus on open science principles, reproducibility.
-
-## How the learning modules can be adopted by others
-
-The learning module was specifically designed with re-use and adoption in mind.
-Both [Section 1](https://r-cubed.rostools.org/#welcome) and 
-[Appendix C](https://r-cubed.rostools.org/for-instructors.html) give more
+The learning module was specifically designed with **re-use and adoption** in mind.
+Both [*Section 1*](https://r-cubed.rostools.org/#welcome) and 
+[*Appendix C*](https://r-cubed.rostools.org/for-instructors.html) give more
 details on how this module can be re-used.
 
-## Target audience
-
-The specific target audience for this learning resource is described in 
-[Section 1.1](https://r-cubed.rostools.org/index.html#target-audiences). Briefly,
+The specific **target audience** for this learning resource is described in 
+[*Section 1.1*](https://r-cubed.rostools.org/index.html#target-audiences). Briefly,
 we target *learners* to use during the workshop and also afterwards, 
 *instructors of the workshop* to use as a reference while teaching, and
 those *interested in teaching* but don't have the skills or knowledge to build
 their own workshop. The target learner of the workshop is described in 
-[Section 2.1](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
+[*Section 2.1*](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
 
 # Description of Learning Modules
 
-## Learning Objectives
-
-The objective of this learning module is to teach reproducible research
-practices. 
-A detailed description of the learning objectives is found in
-[*Section 2: Syllabus*](https://r-cubed.rostools.org/syllabus.html).
-Briefly, upon completion of the learning module, learners are expected to
+The **learning objectives** of this module are broadly to teach reproducible
+research practices.
+A detailed description of the learning objectives is found in the syllabus in
+[*Section 2*](https://r-cubed.rostools.org/syllabus.html).
+Briefly, upon completing the learning module, learners are expected to
 have: 
 
-1. A basic level of proficiency in using the R statistical programming
-language.
+1. A basic level of proficiency in using the R statistical programming language.
 2. Improved data and code literacy.
-3. An ability to conduct a modern and reproducible data analysis.
+3. The ability to conduct a modern and reproducible data analysis.
 
-## Content and sequence of learning materials
-
-The learning module encompasses five sub-modules (see Table 1), with each
+The learning module encompasses *five sub-modules* (see Table 1), with each
 sub-module representing about a half-day of lessons.
 A general schedule is given in 
 [*Section 2.2*](https://r-cubed.rostools.org/syllabus.html#general-schedule) and 
@@ -147,9 +125,9 @@ details on how these lessons can be used or structured is found in
 
 Table: An overview of the five sub-modules that form the `r-cubed` learning module.
 
-Sub-modules are designed to be completed as a series in the order in which they
-are presented, since concepts taught in later sub-modules are dependent on
-earlier lessons. Principles and applications of reproducibility are highlighted
+Sub-modules are designed to be completed as a series in the order given, since
+concepts taught in later sub-modules are dependent on earlier lessons.
+Principles and applications of reproducibility are highlighted
 throughout sub-modules. Sub-modules are accompanied by three stand-alone
 lectures (and one introduction lecture) aimed at drawing together
 reproducibility and RStudio skills (see
@@ -157,14 +135,13 @@ reproducibility and RStudio skills (see
 
 ## Instructional Design
 
-When delivered during in-person workshops, the instructional design uses a
+The module is designed for in-person settings, where the instructional design uses a
 combination of teaching methods (see Table 2). Content taught using the methods
 below are described in 
 [*Section 1: Welcome!*](https://r-cubed.rostools.org/index.html) 
-We also incorporate the use of sticky notes, as pioneered by the Carpentries REF,
-to help with troubleshooting and to make the workshop a smoother experience overall.
-Lastly, we intentionally include instructors of various skill level to connect
-better to experiences and perspectives of the learners.
+We also incorporate the use of sticky notes, as pioneered by the 
+[Carpentries](https://swcarpentry.github.io/swc-releases/2017.02/instructor-training/15-practices/),
+to help with troubleshooting and to have a smoother experience overall.
 
 |Method|Description|Advantages|
 |---|---|---|
@@ -181,10 +158,10 @@ maximize learning outcomes.
 
 ## Experience of use in teaching and learning situations
 
-The learning module has presently been delivered three times as 2-3 day workshops.
+The learning module has to date been delivered three times as 2-3 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
 fields of within diabetes research. Most of the instructors or helpers had
-had recently learned R themselves or were still in the novice or early intermediate
+recently learned R themselves or were still in the novice or early intermediate
 phase of experience. This was intentional, as it is easier to relate to the 
 challenges and experiences that the learners will face when instructors have
 recent experiential learning themselves. In our experience, a ratio of about 4-6
@@ -193,28 +170,24 @@ the workshop.
 
 Workshop participants were mostly PhD and post-doctoral researchers in the field
 of diabetes, most of whom were beginners in terms of their exposure to R and
-understanding of reproducibility. Participants were grouped into clusters of
+understanding of reproducibility. Participants were grouped into 
 four to five people, in order to facilitate the group assignment work later in
-the workshop. Participants were instructed to use sticky notes placed at the top
-of their laptop screens to indicate whether they had either successfully
-completed the task or were needing further support to troubleshoot a problem
-(as done by Carpentries workshops REF).
+the workshop. 
 
 After each day, participants gave feedback on the structure and content of the
-workshop through a survey. This feedback has been used to improve on and enhance
-the `r-cubed` learning module, ensuring it gets better structured, continues to
-be relevant, and is beginner-friendly. The anonymous feedback is collected and
-saved in the repository for use in our efforts to improve the learning module.
+workshop through a Google Forms survey. This anonymous feedback is saved in the
+repository and is used to improve on and enhance `r-cubed`, ensuring its
+continual improvement and relevance, and that it is beginner-friendly.
 
 # Story of the Project
 
-The learning material from this workshop was slowly built and taught in small
+The learning material from this workshop was built and taught in small
 pieces over many years by Luke Johnston. The initial rationale for creating the
 material was largely due to the near complete lack of relevant training in 
 academic settings on data management, coding and general workflows in data
 analysis, version control, and project management of scientific research. Work
 on the material accelerated when the Danish Diabetes Academy hosted the workshop
-and was heavily updated and revised with the current authors. We greatly enjoy
+and was heavily updated and revised by the current author team. We greatly enjoy
 teaching the workshop and, based on the feedback from surveys, the participants 
 do too!
 
