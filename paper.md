@@ -197,3 +197,5 @@ We want to specifically thank the Danish Diabetes Academy for hosting,
 organizing, and providing a space to build and grow this workshop. We also thank
 the first instructors and helpers of the course (João Santiago, Anna Schritz,
 Omar Silverman) for their early feedback during the first version of the course.
+
+# References
