@@ -142,7 +142,7 @@ Many pieces from the (in development) course [Merely Useful](https://github.com/
 were modified and used in several places throughout the r-cubed course.
 Other parts were taken and modified from:
 
-- The [Aarhus University Community of Research Software Users] sessions on
+- The [Aarhus University CRU] sessions on
 [project management](https://au-cru.github.io/content/workflow-setup.html),
 [data management and wrangling](https://au-cru.github.io/content/intro-dplyr.html),
 [intermediate dplyr and tidyr usage](https://au-cru.github.io/),
@@ -152,7 +152,7 @@ and [R Markdown](https://au-cru.github.io/content/intro-rmarkdown.html).
 given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
 - The [UofTCoders Intro to R course for Ecology students](https://uoftcoders.github.io/rcourse/).
 
-[Aarhus University Community of Research Software Users]: https://au-cru.github.io/
+[Aarhus University CRU]: https://au-cru.github.io/
 
 Content from multiple sources was used as inspiration for this course,
 including the [R for Data Science] book 
