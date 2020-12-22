@@ -61,51 +61,49 @@ available for re-used.
 
 # Statement of Need
 
+## Contribution to computationally-enabled teaching and learning
+
 Reproducibility is a key component to verifying scientific findings.
 Unfortunately, the reproducibility of scientific studies is largely unknown REF,
 as researchers are unaware of, have no training in, or don't have incentives to
 conduct reproducible research. An example of this is the near lack of analysis
 code sharing in biomedical research REF. Improving reproducibility requires not
-only awareness of the issue, but also training in multiple areas, not just in
-statistical data analysis but also version control, project management (of
+only an awareness of the issue, but also training in multiple areas. These areas
+include not only statistical data analysis, but also version control, project management (of
 files), and reproducible reporting. Combined with the continual growth in how
 much research data is generated every year and the increasing need for
 international collaborations, the skills and associated training for data
 management, analysis, reproducibility, and collaboration are crucial to tackle
-these modern demands. The r-cubed learning module connects skills and knowledge
-in Git, GitHub, R Markdown, and data wrangling and visualization in R all
-together in order to address these gaps in training.
+these modern demands. 
 
-## Contribution to computationally-enabled teaching and learning
-
-(Pending literature review and comparison with existing courses)
-Introduce reproducibility here?
-- Rmarkdown, code-along. Something about it is a useful way to learn by code-along. 
+The r-cubed learning module connects these skills and knowledge to address
+these gaps in training through teaching Git, GitHub, R Markdown, and data
+wrangling and visualization in R. While there are other resources for learning R
+and Git, this module includes a greater integration and emphasis on
+reproducibility and the general workflow around doing data analysis, as well as
+instructions and explanations to potential or new instructors to take and modify
+the content so they can use the module to teach their own workshops.
+Finally, this module also focuses on biomedical research, which is an area that
+currently lacks in higher-quality training for these skills. The authors'
+currently work or have experience in biomedical research and used this knowledge
+to create and shape the learning content.
 
 ## How the learning modules can be adopted by others
 
-On the basis of authors' affilitations and fields of research, the content of
-the learning module was developed and framed in the context of the medical
-sciences (diabetes, specifically). Nonetheless, the resource can easily be
-applied to other sciences and disciplines. Refer to Section 1.1 of the online
-resource, for a more comprehensive description of how others may adopt learning
-resources with minimal expertise in RStudio.
-(Introduce DDA events as a clear example)
-
-- Maybe we can find someone else who want to test it? Or state that we would be
-happy to hear feedback if others have tested it
+The learning module was specifically designed with re-use and adoption in mind.
+Both [Section 1](https://r-cubed.rostools.org/#welcome) and 
+[Appendix C](https://r-cubed.rostools.org/for-instructors.html) give more
+details on how this module can be re-used.
 
 ## Target audience
 
-The learning module is suitable for anyone wishing to enhance their
-reproducibility practices and/or be introduced to RStudio as a means of doing
-so. Based on previous experience of use in teaching and learning, the course has
-suited PhD and post-doctoral level researchers well.
-
-The learning module is suitable for anyone wishing to enhance their reproducibility practices and/or be introduced to RStudio as a means of doing so. Based on previous experience of use in teaching and learning, the course has suited PhD and post-doctoral level researchers well.
-- Probably most suited for people who are doing data analysis and/or research. 
-A very important thing is the introduction of Git/version control. This is a beneficial way for several people to work on the same project and keep track of changes in the project as it progresses. With the "user-friendly" (it is to a certain degree) outline/visualisation/buttons in R, it makes it easy for most people to use, despite the background, and the result from using version control will save many data analysts a lot of time!
-
+The specific target audience for this learning resource is described in 
+[Section 1.1](https://r-cubed.rostools.org/index.html#target-audiences). Briefly,
+we target *learners* to use during the course and also afterwards, 
+*instructors of the course* to use as a reference while teaching, and
+those *interested in teaching* but don't have the skills or knowledge to build
+their own course. The target learner of the course is described in 
+[Section 2.1](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
 
 # Description of Learning Modules
 
