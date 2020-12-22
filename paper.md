@@ -204,20 +204,20 @@ the `r-cubed` learning module, ensuring it gets better structured, continues to
 be relevant, and is beginner-friendly. The anonymous feedback is collected and
 saved in the repository for use in our efforts to improve the learning module.
 
-- Other issues that arose during this workshop were installation if Rpackages on computers controled by regional institutions, e.g. hospitals. Ways to cconquer such issues have been described in Appendix A2 and can be used in other scenarioes. 
-
-- The helpers and instructors were not pure R experts (it is though recommened to have at least one (Luke!)). This created a special athmosphere during the workshop, and it set the standard and tone during the workshop which created a work-friendly environment.  
-
-(Description of previous self-guided use?)
-
 # Story of the Project
 
-Going from each reseacher sitting with their own data management, a hundred different version controls (PhDcomics) and not being able to reproduce their own results, to a clear and concise data processing with openness about the science going on, so eryone can benefint from the methods and data processing. 
-
-## How it came about and authors' experience
-
-Very interesting topic to work with, and the authord learned a lot themselves too. Also beneficial for the authors to keep learning, using, making it a habit and distributing the idea of open science. 
+The learning material from this workshop was slowly built and taught in small
+pieces over many years by Luke Johnston. The initial rationale for creating the
+material was largely due to the near complete lack of relevant training in 
+academic settings on data management, coding and general workflows in data
+analysis, version control, and project management of scientific research. Work
+on the material accelerated when the Danish Diabetes Academy hosted the workshop
+and was heavily updated and revised with the current authors. We greatly enjoy
+teaching the workshop and, based on the feedback from surveys, the participants 
+do too!
 
 # Acknowledgements
 
-Thank DDA.
+We want to specifically thank the Danish Diabetes Academy for hosting,
+organizing, and providing a space to build and grow this workshop. We also thank
+the first instructors and helpers of the course (João Santiago, Anna Schritz,
