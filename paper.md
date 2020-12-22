@@ -161,8 +161,10 @@ When delivered during in-person workshops, the instructional design uses a
 combination of teaching methods (see Table 2). Content taught using the methods
 below are described in 
 [*Section 1: Welcome!*](https://r-cubed.rostools.org/index.html) 
-
-The use of stickies makes the workshop even more interactive, and is a suitable way to get help fast. 
+We also incorporate the use of sticky notes, as pioneered by the Carpentries REF,
+to help with troubleshooting and to make the workshop a smoother experience overall.
+Lastly, we intentionally include instructors of various skill level to connect
+better to experiences and perspectives of the learners.
 
 |Method|Description|Advantages|
 |---|---|---|
@@ -221,3 +223,4 @@ do too!
 We want to specifically thank the Danish Diabetes Academy for hosting,
 organizing, and providing a space to build and grow this workshop. We also thank
 the first instructors and helpers of the course (João Santiago, Anna Schritz,
+Omar Silverman) for their early feedback during the first version of the course.
