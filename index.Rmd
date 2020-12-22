@@ -111,7 +111,7 @@ layout; prepared and taught most of the lectures.
 - João Santiago: Taught and edited the R Markdown code-along session material.
 - Anna Schritz: Taught and edited the Data Management and Wrangling code-along
 session material.
-- Omar Silverman (helper): proofread and provided feedback on the material for several
+- Omar Silverman (helper): Proofread and provided feedback on the material for several
 sessions.
 
 Contributors for [version 2](https://r-cubed-v2.rostools.org/) were:
@@ -124,16 +124,17 @@ as well as reviewed multiple other sections.
 session material, as well as reviewed multiple other sections.
 
 Contributors for version 2.1 all participated in discussions on improving the
-course, updating the course material based on the participant feedback from the
-previous courses, and heavily reviewed and editing the content:
+course, extensively updating the course material based on the participant
+feedback from the previous courses, and heavily reviewing and editing the
+content:
 
 - Luke Johnston
+- Daniel Witte
 - Helene Bæk Juel
 - Bettina Lengger
-- Daniel Witte
-- Hannah Chatwin
-- Malene Revsbech Christiansen
-- Anders Aasted Isaksen
+- Malene Revsbech Christiansen (helper from version 2)
+- Anders Aasted Isaksen (helper from version 2)
+- Hannah Chatwin (participant from version 2)
 
 ## Acknowledgements
 
