@@ -52,10 +52,10 @@ module we've developed and describe below is aimed at bringing awareness to and
 improving skills in R, reproducibility, and open science for researchers in the
 field of diabetes research. 
 
-The learning modules are structured as a three-day course, with five sub-modules.
+The learning modules are structured as a three-day workshop, with five sub-modules.
 We've designed it specifically as an open educational resource that either other
 instructors might make use of or modify on for their own lessons or for learners
-to use on their own or as a reference after participating in the course.
+to use on their own or as a reference after participating in the workshop.
 All content is permissively licensed under CC-BY and MIT Licenses, and so
 available for re-used.
 
@@ -106,10 +106,10 @@ details on how this module can be re-used.
 
 The specific target audience for this learning resource is described in 
 [Section 1.1](https://r-cubed.rostools.org/index.html#target-audiences). Briefly,
-we target *learners* to use during the course and also afterwards, 
-*instructors of the course* to use as a reference while teaching, and
+we target *learners* to use during the workshop and also afterwards, 
+*instructors of the workshop* to use as a reference while teaching, and
 those *interested in teaching* but don't have the skills or knowledge to build
-their own course. The target learner of the course is described in 
+their own workshop. The target learner of the workshop is described in 
 [Section 2.1](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
 
 # Description of Learning Modules
@@ -162,16 +162,16 @@ combination of teaching methods (see Table 2). Content taught using the methods
 below are described in 
 [*Section 1: Welcome!*](https://r-cubed.rostools.org/index.html) 
 
-The use of stickies makes the course even more interactive, and is a suitable way to get help fast. 
+The use of stickies makes the workshop even more interactive, and is a suitable way to get help fast. 
 
 |Method|Description|Advantages|
 |---|---|---|
 |Participatory live coding lessons|Participants join with instructors to write and troubleshoot code step-by-step|Encourages participants to actively engage with the material, to build muscle memory through typing, and to learn how to handle mistakes, rather than passively observing content|
 |Independent reading of specific sections|Participants read more concept heavy content at their own pace|Including reading activities provides diverse learning opportunities aside from listening skills, can be advantageous for non-native English speakers, and can slow the pace of learning to hopefully enhance retention|
 |Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace|
-|Group assignment work|Participants collaborate with others to apply skills taught over the course in terms of cleaning, manipulating, analyzing, and visualizing data|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills|
+|Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills|
 
-Table: Description of pedagogical methods used throughout the course.
+Table: Description of pedagogical methods used throughout the workshop.
 
 [*Appendix C: For Instructors*](https://r-cubed.rostools.org/for-instructors.html)
 further describes the teaching approach that instructors can adopt in order to
@@ -189,24 +189,24 @@ recent experiential learning themselves. In our experience, a ratio of about 4-6
 learners for every instructor/helper provided the smoothest experience during
 the workshop.
 
-Course participants were mostly PhD and post-doctoral researchers in the field
+Workshop participants were mostly PhD and post-doctoral researchers in the field
 of diabetes, most of whom were beginners in terms of their exposure to R and
 understanding of reproducibility. Participants were grouped into clusters of
 four to five people, in order to facilitate the group assignment work later in
-the course. Participants were instructed to use sticky notes placed at the top
+the workshop. Participants were instructed to use sticky notes placed at the top
 of their laptop screens to indicate whether they had either successfully
 completed the task or were needing further support to troubleshoot a problem
 (as done by Carpentries workshops REF).
 
 After each day, participants gave feedback on the structure and content of the
-course through a survey. This feedback has been used to improve on and enhance
+workshop through a survey. This feedback has been used to improve on and enhance
 the `r-cubed` learning module, ensuring it gets better structured, continues to
 be relevant, and is beginner-friendly. The anonymous feedback is collected and
 saved in the repository for use in our efforts to improve the learning module.
 
-- Other issues that arose during this course were installation if Rpackages on computers controled by regional institutions, e.g. hospitals. Ways to cconquer such issues have been described in Appendix A2 and can be used in other scenarioes. 
+- Other issues that arose during this workshop were installation if Rpackages on computers controled by regional institutions, e.g. hospitals. Ways to cconquer such issues have been described in Appendix A2 and can be used in other scenarioes. 
 
-- The helpers and instructors were not pure R experts (it is though recommened to have at least one (Luke!)). This created a special athmosphere during the course, and it set the standard and tone during the course which created a work-friendly environment.  
+- The helpers and instructors were not pure R experts (it is though recommened to have at least one (Luke!)). This created a special athmosphere during the workshop, and it set the standard and tone during the workshop which created a work-friendly environment.  
 
 (Description of previous self-guided use?)
 
