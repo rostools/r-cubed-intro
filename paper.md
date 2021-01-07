@@ -22,10 +22,13 @@ authors:
   - name: Bettina Lengger
     orcid: 0000-0001-9997-7011
     affiliation: 5
+  - name: Anders Aasted Isaksen
+    orcid: 0000-0001-8457-5466
+    affiliation: 2
 affiliations:
  - name: Steno Diabetes Center Aarhus, Aarhus, Denmark
    index: 1
- - name: Aarhus University, Aarhus, Denmark
+ - name: Department of Public Health, Aarhus University, Aarhus, Denmark
    index: 2
  - name: University of Southern Denmark, Odense, Denmark
    index: 3
@@ -47,7 +50,7 @@ skills in science is an increasing demand that scientific studies be reproducibl
 and that the methods and analytic process to be open and transparent [@Watson2015].
 
 Unfortunately, training in modern computational skills has not kept pace and
-this is especially evident in biomedical research. The computational learning
+this is especially evident in biomedical research[@Cooper2017]. The computational learning
 module we've developed and describe below is aimed at bringing awareness to and
 improving skills in R, reproducibility, and open science for researchers in the
 field of diabetes research. 
@@ -64,10 +67,8 @@ Reproducibility is a key component to verifying scientific findings.
 Unfortunately, the reproducibility of scientific studies is largely unknown 
 [@Considine2017;@Leek2017],
 as researchers are unaware of, have no training in, or don't have incentives to
-conduct reproducible research. Improving reproducibility requires not
-only an awareness, but also training in multiple areas that include 
-not only the statistical analysis, but also version control, project management
-(of files), and reproducible reporting. The need for training of these skills is
+conduct reproducible research. Improving reproducibility requires both awareness and training in multiple areas that include 
+not only the statistical analysis, but also version control, file management, and reproducible reporting. The need for training of these skills is
 critical to tackling these modern demands.
 
 The `r-cubed` learning module provides training in reproducibility, open
@@ -160,7 +161,7 @@ maximize learning outcomes.
 
 The learning module has to date been delivered three times as 2-3 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
-fields of within diabetes research. Most of the instructors or helpers had
+fields within diabetes research. Most of the instructors or helpers had
 recently learned R themselves or were still in the novice or early intermediate
 phase of experience. This was intentional, as it is easier to relate to the 
 challenges and experiences that the learners will face when instructors have
