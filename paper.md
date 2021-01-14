@@ -39,22 +39,20 @@ bibliography: paper.bib
 
 # Summary
 
-The capacity to generate large amounts of biological data continues to increase
-each year, and is not only associated with significant volumes of data, but with
-a greater need for necessary skills and knowledge to process and analyze this
-data [@Brownson2015]. This increasing need for computational skills in science
-is strongly linked to an increasing demand for scientific studies to be
-reproducible, and methods and analytic processes to be open and transparent
-[@Watson2015].
+The amount of biological data created increases every year, 
+and with it the need for the skills and knowledge to process
+and analyze data [@Brownson2015]. With the open science movement
+on the rise, methods and analytic process are also expected to be open and
+transparent and scientific studies to be reproducible [@Watson2015].
 
 Unfortunately, training in modern computational skills has not kept pace, which
 is particularly evident in biomedical research. The computational learning
-module we've developed and described below aims to bring awareness to and
+module we have developed and described below aims to bring awareness to and
 improve skills in R, reproducibility, and open science for researchers in the
 field of diabetes research.
 
 The `r-cubed` learning module is structured as a three-day workshop, with five
-sub-modules. We've specifically designed the module as an open educational
+sub-modules. We have specifically designed the module as an open educational
 resource that instructors can make use of or modify for their own lessons, or
 learners can use independently or as a reference after participating in the
 workshop. All content is available for re-use under CC-BY and MIT Licenses.
@@ -66,7 +64,7 @@ Unfortunately, it is largely unknown how reproducible scientific studies
 currently are [@Considine2017;@Leek2017], as researchers are unaware of, have no
 training in, or don't have incentives to conduct reproducible research.
 Improving reproducibility requires an awareness and training in multiple areas,
-including version control, project management (of files), and reproducible
+including version control, project and data management, and reproducible
 reporting alongside statistical analysis. Training in these skill areas is
 critical to tackling the modern demands of reproducibility.
 
@@ -159,22 +157,17 @@ maximize learning outcomes.
 
 The learning module has to date been delivered three times as 2-3 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
-fields within diabetes research. Most of the instructors or helpers had
-<<<<<<< HEAD
-recently learned R themselves or were still in the novice or early intermediate
-phase of experience. This was intentional, as it is easier to relate to the 
-=======
-recently learned R themselves or still considered themselves as novice or early intermediate
-users. This was intentional, as it is easier to relate to the 
->>>>>>> 8e874c46ea2e769f82466ad6e354823709f118c7
-challenges and experiences that the learners will face when instructors have
-recent experiential learning themselves. A ratio of about 4-6
-learners for every instructor/helper has proven to be most effective in past workshops.
+fields within diabetes research, of whom most had relatively recently learned R
+themselves. Including late-novice or early-intermediate R users as instructors
+makes communicating and relating to the learners easier and, we believe, provides
+a better learning environment. A ratio of about 4-6 learners for every
+instructor/helper has proven to be most effective in past workshops.
+
 
 Workshop participants were mostly PhD and postdoctoral researchers in the field
 of diabetes, most of whom were beginners in terms of their exposure to R and
-understanding of reproducibility. Participants were grouped into 
-4-5 people, in order to facilitate group assignment work in later workshop sessions.
+understanding of reproducibility. Participants were grouped into groups of
+4-5 people as part of their group assignment.
 
 After each day, participants gave feedback on the structure and content of the
 workshop through a Google Forms survey. This anonymous feedback is saved in the
