@@ -1,43 +1,44 @@
 ---
-title: 'r-cubed: Guiding the overwhelmed researcher from random wrangling to reproducible research in R'
+title: "r-cubed: Guiding the overwhelmed researcher from random wrangling to reproducible research in R"
 tags:
   - R
   - rstats
-  - reproducible-research
+  - reproducible research
   - reproducibility
   - introduction
   - workflow
   - open education
   - open science
+  - data analysis
 authors:
   - name: Luke W. Johnston
     orcid: 0000-0003-4169-2616
     affiliation: 1
-  - name: Hannah Chatwin
-    orcid: 0000-0001-7248-8568
-    affiliation: 3
-  - name: Malene Revsbech Christiansen
-    orcid: 0000-0002-9772-3576
-    affiliation: 4
-  - name: Bettina Lengger
-    orcid: 0000-0001-9997-7011
-    affiliation: 5
-  - name: Anders Aasted Isaksen
-    orcid: 0000-0001-8457-5466
-    affiliation: 2
   - name: Helene Baek Juel
     orcid: 0000-0002-5763-8545
+    affiliation: 2
+  - name: Bettina Lengger
+    orcid: 0000-0001-9997-7011
+    affiliation: 3
+  - name: Hannah Chatwin
+    orcid: 0000-0001-7248-8568
     affiliation: 4
+  - name: Malene Revsbech Christiansen
+    orcid: 0000-0002-9772-3576
+    affiliation: 2
+  - name: Anders Aasted Isaksen
+    orcid: 0000-0001-8457-5466
+    affiliation: 5
 affiliations:
  - name: Steno Diabetes Center Aarhus, Aarhus, Denmark
    index: 1
- - name: Department of Public Health, Aarhus University, Aarhus, Denmark
-   index: 2
- - name: University of Southern Denmark, Odense, Denmark
-   index: 3
  - name: Novo Nordisk Foundation Center for Basic Metabolic Research, University of Copenhagen, Copenhagen, Denmark
-   index: 4
+   index: 2
  - name: Novo Nordisk Foundation Center for Biosustainability, Technical University of Denmark, Kongens Lyngby, Denmark
+   index: 3
+ - name: University of Southern Denmark, Odense, Denmark
+   index: 4
+ - name: Department of Public Health, Aarhus University, Aarhus, Denmark
    index: 5
 date: 5 November 2020
 bibliography: paper.bib
@@ -47,15 +48,15 @@ bibliography: paper.bib
 
 The amount of biological data created increases every year, 
 and with it the need for the skills and knowledge to process
-and analyze data [@Brownson2015]. With the open science movement
+and analyze this data [@Brownson2015]. With the open science movement
 on the rise, methods and analytic process are also expected to be open and
-transparent and scientific studies to be reproducible [@Watson2015].
+transparent and for scientific studies to be reproducible [@Watson2015].
 
 Unfortunately, training in modern computational skills has not kept pace, which
-is particularly evident in biomedical research [@Cooper2017]. The computational learning
-module we have developed and described below aims to bring awareness to and
-improve skills in R, reproducibility, and open science for researchers in the
-field of diabetes research.
+is particularly evident in biomedical research [@Cooper2017;@Attwood2017]. The
+computational learning module we have developed and described below aims to
+introduce and improve skills in R, reproducibility, and open science for
+researchers in the field of diabetes research.
 
 The `r-cubed` learning module is structured as a three-day workshop, with five
 sub-modules. We have specifically designed the module as an open educational
@@ -72,7 +73,7 @@ currently are [@Considine2017;@Leek2017], as researchers are unaware of, have no
 training in, or don't have incentives to conduct reproducible research.
 Improving reproducibility requires an awareness and training in multiple areas,
 including version control, project and data management, and reproducible
-reporting alongside statistical analysis. Training in these skill areas is
+reporting alongside the statistical analysis. Training in these skill areas is
 critical to tackling the modern demands of reproducibility.
 
 The learning module provides training in reproducibility, open science, and
@@ -86,12 +87,12 @@ an area that currently lacks sufficient training for these skills. The authors,
 all of whom work or have worked in biomedical research, used their experience in
 creating and shaping the content.
 
-The learning module was specifically designed with **re-use and adoption** in mind.
+The learning module was specifically designed with *re-use and adoption* in mind.
 Both [*Section 1*](https://r-cubed.rostools.org/#welcome) and 
 [*Appendix C*](https://r-cubed.rostools.org/for-instructors.html) give more
 details on how this module can be re-used.
 
-The **target audience** for this learning resource is described in 
+The *target audience* for this learning resource is described in 
 [*Section 1.1*](https://r-cubed.rostools.org/index.html#target-audiences).
 Briefly, we suggest: *learners* use the material during and after the workshop;
 *instructors* use the module as a reference while teaching; and those
@@ -101,7 +102,7 @@ build their own workshop. The target learner of the workshop is detailed in
 
 # Description of Learning Modules
 
-The **learning objectives** of this module are to provide a broad introduction
+The *learning objectives* of this module are to provide a broad introduction
 to reproducible research practices, in the context of RStudio, Git, and GitHub. A
 detailed description of the learning objectives is found in the syllabus in
 [*Section 2*](https://r-cubed.rostools.org/syllabus.html).
@@ -157,19 +158,18 @@ to help with troubleshooting and to facilitate a positive learning experience ov
 Table: Description of pedagogical methods used throughout the workshop.
 
 [*Appendix C: For Instructors*](https://r-cubed.rostools.org/for-instructors.html)
-further describes the teaching approach that instructors can adopt in order to
-maximize learning outcomes.
+further describes the teaching approach that instructors can adopt to improve
+learning outcomes.
 
 ## Experience of use in teaching and learning situations
 
-The learning module has to date been delivered three times as 2-3 day workshops.
+The learning module has been delivered several times as 3-4 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
 fields within diabetes research, of whom most had relatively recently learned R
 themselves. Including late-novice or early-intermediate R users as instructors
 makes communicating and relating to the learners easier and, we believe, provides
 a better learning environment. A ratio of about 4-6 learners for every
 instructor/helper has proven to be most effective in past workshops.
-
 
 Workshop participants were mostly PhD and postdoctoral researchers in the field
 of diabetes, most of whom were beginners in terms of their exposure to R and
@@ -184,22 +184,22 @@ researchers.
 
 # Story of the Project
 
-The learning material from this workshop was built and taught in smaller
-segments over many years by Luke Johnston. The initial rationale for creating the
-material was due to the near complete lack of relevant training in 
-academic settings on data management, coding and general workflows in data
-analysis, version control, and project management of scientific research. The
-teaching material was compiled in a more structured form when the Danish
-Diabetes Academy hosted the workshop, and was heavily updated and revised by the
-current author team. We greatly enjoy teaching the workshop and, based on the
-feedback from surveys, the participants do too!
+Luke Johnston taught and built the learning material from this workshop in smaller
+segments over many years. The material was initially created because of the
+near complete lack of relevant training in academic settings on data management,
+coding and general workflows in data analysis, version control, and project
+management of scientific research. The teaching material was compiled into a more
+structured form when the Danish Diabetes Academy hosted the workshop, where the
+current author team has since heavily updated and revised it. We greatly enjoy
+teaching the workshop and, based on the feedback from the surveys, the
+participants do too!
 
 # Acknowledgements
 
 We want to specifically thank the [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/)
 for hosting, organizing, and providing a space to build and grow this workshop.
-We also thank the first instructors and helpers of the course (João Santiago,
-Anna Schritz, Omar Silverman) for their early feedback during the first version
-of the course.
+We also thank the instructors and helpers of the first version of the course 
+(João Santiago, Anna Schritz, Omar Silverman) for their early feedback during
+the first version of the course.
 
 # References
