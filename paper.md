@@ -22,13 +22,16 @@ authors:
   - name: Bettina Lengger
     orcid: 0000-0001-9997-7011
     affiliation: 5
+  - name: Anders Aasted Isaksen
+    orcid: 0000-0001-8457-5466
+    affiliation: 2
   - name: Helene Baek Juel
     orcid: 0000-0002-5763-8545
     affiliation: 4
 affiliations:
  - name: Steno Diabetes Center Aarhus, Aarhus, Denmark
    index: 1
- - name: Aarhus University, Aarhus, Denmark
+ - name: Department of Public Health, Aarhus University, Aarhus, Denmark
    index: 2
  - name: University of Southern Denmark, Odense, Denmark
    index: 3
@@ -49,7 +52,7 @@ on the rise, methods and analytic process are also expected to be open and
 transparent and scientific studies to be reproducible [@Watson2015].
 
 Unfortunately, training in modern computational skills has not kept pace, which
-is particularly evident in biomedical research. The computational learning
+is particularly evident in biomedical research [@Cooper2017]. The computational learning
 module we have developed and described below aims to bring awareness to and
 improve skills in R, reproducibility, and open science for researchers in the
 field of diabetes research.
