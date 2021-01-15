@@ -1,5 +1,5 @@
 ---
-title: 'r-cubed: A catchy title'
+title: 'r-cubed: Guiding the overwhelmed researcher from random wrangling to reproducible research in R'
 tags:
   - R
   - rstats
@@ -22,6 +22,9 @@ authors:
   - name: Bettina Lengger
     orcid: 0000-0001-9997-7011
     affiliation: 5
+  - name: Helene Baek Juel
+    orcid: 0000-0002-5763-8545
+    affiliation: 4
 affiliations:
  - name: Steno Diabetes Center Aarhus, Aarhus, Denmark
    index: 1
@@ -53,9 +56,10 @@ field of diabetes research.
 
 The `r-cubed` learning module is structured as a three-day workshop, with five
 sub-modules. We have specifically designed the module as an open educational
-resource that instructors can make use of or modify for their own lessons, or
-learners can use independently or as a reference after participating in the
-workshop. All content is available for re-use under CC-BY and MIT Licenses.
+resource that instructors can make use of directly or modify for their own
+lessons, or learners can use independently or as a reference after participating
+in the workshop. All content is available for re-use under CC-BY and MIT
+Licenses.
 
 # Statement of Need
 
@@ -69,8 +73,8 @@ reporting alongside statistical analysis. Training in these skill areas is
 critical to tackling the modern demands of reproducibility.
 
 The learning module provides training in reproducibility, open science, and
-collaboration, by teaching Git, GitHub, R Markdown, and data wrangling and
-visualization in R. While other resources for learning R and Git exist
+collaboration, by teaching introductions to Git, GitHub, R Markdown, and data
+wrangling and visualization in R. While other resources for learning R and Git exist
 [@Bryan2019;@ChesterIsmay2019;@Lee2019], this module places greater emphasis on
 reproducibility and workflow for data analysis, as well as instructions targeted
 to other instructors to assist with re-use of the material. This module is also
@@ -94,9 +98,9 @@ build their own workshop. The target learner of the workshop is detailed in
 
 # Description of Learning Modules
 
-The **learning objectives** of this module are broadly to teach reproducible
-research practices.
-A detailed description of the learning objectives is found in 
+The **learning objectives** of this module are to provide a broad introduction
+to reproducible research practices, in the context of RStudio, Git, and GitHub. A
+detailed description of the learning objectives is found in the syllabus in
 [*Section 2*](https://r-cubed.rostools.org/syllabus.html).
 Briefly, upon completing the learning module, learners are expected to
 have: 
@@ -116,7 +120,7 @@ Details on how these lessons can be used or structured are found in
 |---|---|
 |Management of R Projects|Introducing RStudio and R Projects; using packages, data, and file paths; and learning how to troubleshoot.|
 |Version Control with Git|Using Git with RStudio; synchronizing Git with GitHub; dealing with file conflicts; and using Git as a collaboration tool.|
-|Data Management and Wrangling|Introducing good working practices (i.e., "tidy" data); loading data and packages in to RStudio; and transforming data using select, rename, filter, arrange, and split-apply-combine functions.|
+|Data Management and Wrangling|Introducing good working practices; loading data and packages into RStudio; and transforming data using select, rename, filter, arrange, and split-apply-combine functions.|
 |Analytically Reproducible Documents|Introducing and using R Markdown to insert code, tables, and figures to make a reproducible document.|
 |Data Visualization|Plotting various combinations of variables and using formatting effectively.|
 
@@ -142,10 +146,10 @@ to help with troubleshooting and to facilitate a positive learning experience ov
 
 |Method|Description|Advantages|
 |---|---|---|
-|Participatory live-coding lessons|Participants join with instructors to write and troubleshoot code step-by-step|Encourages participants to actively engage with the material, to build muscle memory through typing, and to learn how to handle mistakes, rather than passively observing content|
-|Independent reading of specific sections|Participants read more concept heavy content at their own pace|Including reading activities provides diverse learning opportunities aside from listening skills, can be advantageous for non-native English speakers, and can slow the pace of learning to hopefully enhance retention|
-|Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace|
-|Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills|
+|Participatory live-coding lessons|Participants join with instructors to write and troubleshoot code step-by-step.|Encourages participants to actively engage with the material, to build muscle memory through typing, and to learn how to handle mistakes, rather than passively observing content.|
+|Independent reading of specific sections|Participants read more concept-heavy content at their own pace.|Including reading activities provides diverse learning opportunities aside from listening skills, can be advantageous for non-native English speakers, and can slow the pace of learning to enhance retention.|
+|Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content.|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace.|
+|Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data.|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills.|
 
 Table: Description of pedagogical methods used throughout the workshop.
 
@@ -171,8 +175,9 @@ understanding of reproducibility. Participants were grouped into groups of
 
 After each day, participants gave feedback on the structure and content of the
 workshop through a Google Forms survey. This anonymous feedback is saved in the
-repository and is used to improve on and enhance `r-cubed`, and ensure its
-continual improvement, relevance, and beginner-friendliness.
+repository and is used to improve and enhance `r-cubed`, and ensure its
+continual improvement, relevance, and beginner-friendliness to biomedical
+researchers.
 
 # Story of the Project
 
@@ -180,11 +185,11 @@ The learning material from this workshop was built and taught in smaller
 segments over many years by Luke Johnston. The initial rationale for creating the
 material was due to the near complete lack of relevant training in 
 academic settings on data management, coding and general workflows in data
-analysis, version control, and project management of scientific research. Work
-on the material accelerated when the Danish Diabetes Academy hosted the workshop,
-and was heavily updated and revised by the current author team. We greatly enjoy
-teaching the workshop and, based on the feedback from surveys, the participants 
-do too!
+analysis, version control, and project management of scientific research. The
+teaching material was compiled in a more structured form when the Danish
+Diabetes Academy hosted the workshop, and was heavily updated and revised by the
+current author team. We greatly enjoy teaching the workshop and, based on the
+feedback from surveys, the participants do too!
 
 # Acknowledgements
 
