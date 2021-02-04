@@ -16,6 +16,8 @@ course, including the website source files and other associated course
 administration files. 
 
 For more detail on the course, check out the [syllabus](https://r-cubed.rostools.org/syllabus.html).
+For re-using and learning more about the course, check out our [paper](paper.md)
+describing it.
 
 ## Instructional Design
 
