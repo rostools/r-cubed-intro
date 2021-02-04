@@ -1,6 +1,6 @@
 Package: rcubed
-Title: "Reproducible Research in R: An Introductory Workshop on
-    Modern Data Analysis using R"
+Title: "r-cubed: An Introductory Workshop on Modern Data Analyses and Workflows 
+    for Reproducible Research in R"
 Description: Reproducibility and open scientific practices are increasingly demanded of
     scientists and researchers. Training on how to apply these practices in data
     analysis has not kept up with demand. The aim of this course is to begin meeting

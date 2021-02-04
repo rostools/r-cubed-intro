@@ -1,4 +1,4 @@
-# Introduction to Reproducible Research in R course <img src="images/apple-touch-icon.png" align="right" height=100/>
+# r-cubed: An Introductory Workshop on Modern Data Analyses and Workflows for Reproducible Research in R <img src="images/apple-touch-icon.png" align="right" height=100/>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
