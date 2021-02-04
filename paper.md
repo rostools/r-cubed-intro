@@ -43,7 +43,7 @@ affiliations:
    index: 4
  - name: University of Southern Denmark, Odense, Denmark
    index: 5
-date: 5 November 2020
+date: 4 February 2021
 bibliography: paper.bib
 ---
 
@@ -54,24 +54,24 @@ technologies such as high-throughput -omics, real-time monitoring, or high
 resolution imaging as well as greater access to routine administrative data and
 larger study populations. This not only presents operational challenges, but
 also highlights considerable needs for the skills and knowledge to manage,
-process, and analyze this data [@Brownson2015]. With the open science movement
-on the rise, methods and analytic process are also increasingly expected to be
+process, and analyze this data [@Brownson2015]. Along with the open science movement
+on the rise, methods and analytic processes are also increasingly expected to be
 open and transparent and for scientific studies to be reproducible
 [@Watson2015].
 
 Unfortunately, training in modern computational skills has not kept pace, which
 is particularly evident in biomedical research [@Cooper2017;@Attwood2017], where
-training tends to focus on clinical, experimental or wet-lab skills. The
+training tends to focus on clinical, experimental, or wet-lab skills. The
 computational learning module we have developed and described below aims to
 introduce and improve skills in R, reproducibility, and open science for
 researchers in the biomedical field, with a focus on diabetes research.
 
 The `r-cubed` learning module is structured as a three-day workshop, with five
 sub-modules. We have specifically designed the module as an open educational
-resource that instructors can make use of directly or modify for their own
-lessons, or learners can use independently or as a reference after participating
-in the workshop. All content is available for re-use under CC-BY and MIT
-Licenses.
+resource that 1) instructors can make use of directly or modify for their own
+lessons and 2) learners can use independently or as a reference after
+participating in the workshop. All content is available for re-use under CC-BY
+and MIT Licenses.
 
 # Statement of Need
 
@@ -81,19 +81,19 @@ Unfortunately, the reproducibility of scientific studies is largely unknown
 training in, or lack incentives to conduct reproducible research.
 Improving reproducibility requires an awareness and training in multiple areas,
 including version control, project and data management, and reproducible
-reporting alongside the statistical analysis. Training in these skill areas is
-critical to tackling the modern demands of reproducibility.
+reporting alongside the traditional statistical analysis. Training in these
+skill areas is critical to tackling the modern demands of reproducibility.
 
 The learning module provides training in reproducibility, open science, and
-collaboration, by teaching introductions to Git, GitHub, R Markdown, and data
-wrangling and visualization in R. While other resources for learning R and Git exist
-[@Bryan2019;@ChesterIsmay2019;@Lee2019], this module places a greater emphasis on
-reproducibility and the general workflow for data analysis. It also includes instructions targeted
-to other instructors to assist with re-use of the material. This module is also
-based on the experiences and needs of biomedical researchers, as it is
-an area that currently lacks sufficient training for these skills. The authors,
-all of whom work or have worked in biomedical research, used their experience in
-creating and shaping the content.
+collaboration by teaching introductions to Git, GitHub, R Markdown, and data
+wrangling and visualization in R. While other resources for learning R and Git
+exist [@Bryan2019;@ChesterIsmay2019;@Lee2019], this module places a greater
+emphasis on reproducibility and the general workflow for doing data analysis. It
+also includes instructions targeted to other instructors to assist with re-use
+of the material. This module is based on the experiences and needs of
+biomedical researchers, as it is an area that currently lacks sufficient
+training for these skills. The authors, all of whom work or have worked in
+biomedical research, used their experience in creating and shaping the content.
 
 The learning module was specifically designed with *re-use and adoption* in mind.
 Both [*Section 1*](https://r-cubed.rostools.org/#welcome) and 
@@ -104,8 +104,9 @@ The *target audience* for this learning resource is described in
 [*Section 1.1*](https://r-cubed.rostools.org/index.html#target-audiences).
 Briefly, we suggest: *learners* use the material during and after the workshop;
 *instructors of the workshop* use the module as a reference while teaching; and those
-*interested in teaching* but limited in knowledge or skill use the content to
-build their own workshop. The target learner of the workshop is detailed in
+*interested in teaching*, but who are still new to the knowledge or skills
+themselves, can use the content to build their own workshop. The target learner
+of the workshop is detailed in
 [*Section 2.1*](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
 
 # Description of Learning Modules
@@ -118,8 +119,8 @@ Briefly, upon completing the learning module, learners are expected to have:
 
 1. A basic level of proficiency in using R, a statistical programming language.
 2. Improved data and code literacy.
-3. The ability to conduct a modern and reproducible data analysis.
-4. Insight into the main challenges impeding open and reproducible research
+3. The ability to conduct a modern and reproducible data analysis project.
+4. Insight into the main challenges impeding open and reproducible research.
 
 The learning module encompasses *five sub-modules* (Table 1), with each
 sub-module representing about a half-day of lessons.
@@ -151,7 +152,7 @@ reproducibility and the RStudio skills taught during the workshop (see
 The module is designed for in-person settings, where the instructional design uses a
 combination of teaching methods (Table 2). Content taught using the methods
 below are described in 
-[*Section 1: Welcome!*](https://r-cubed.rostools.org/index.html). 
+[*Section 1: Welcome*](https://r-cubed.rostools.org/index.html). 
 We also incorporate the use of sticky notes, as pioneered by the 
 [Carpentries](https://swcarpentry.github.io/swc-releases/2017.02/instructor-training/15-practices/),
 to help with troubleshooting and to facilitate a positive learning experience overall.
@@ -208,6 +209,6 @@ We want to specifically thank the [Danish Diabetes Academy](https://www.danishdi
 for hosting, organizing, and providing a space to build and grow this workshop.
 We also thank the instructors and helpers of the first version of the workshop 
 (João Santiago, Anna Schritz, Omar Silverman) for their early feedback during
-the first version of the workshop.
+the first iteration.
 
 # References
