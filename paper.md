@@ -16,6 +16,9 @@ authors:
   - name: Hannah Chatwin
     orcid: 0000-0001-7248-8568
     affiliation: 3
+  - name: Daniel R. Witte
+    orcid: 0000-0002-0769-2922
+    affiliation: 2
   - name: Malene Revsbech Christiansen
     orcid: 0000-0002-9772-3576
     affiliation: 4
@@ -39,48 +42,21 @@ bibliography: paper.bib
 
 # Summary
 
-The capacity to generate massive amounts of biological
-data continues to increase with each year. This comes with not only the huge volume
-of data but also a greater need for the skills and knowledge necessary to process
-and analyze this data [@Brownson2015]. Tightly coupled to this increasing need for computational
-skills in science is an increasing demand that scientific studies be reproducible
-and that the methods and analytic process to be open and transparent [@Watson2015].
+Humanity's capacity to generate massive amounts of data continues to increase with each year. In the biomedical sciences the strongest drivers have been new high throughput -omics techniques, real-time monitoring of physiological and behavioural biomarkers, high resolution imaging techniques, improved accessibility of routinely collected administrative data and an increase in the size of typical study populations. This unprecedented volume of data not only presents operational challenges but also highlights a far greater need for the skills and knowledge necessary to process and analyze it to generate new insights and knowledge [@Brownson2015]. Tightly coupled to this increasing need for computational skills in science is an increasing demand that scientific studies be reproducible and that the methods and analytic process be open and transparent [@Watson2015].
 
-Unfortunately, training in modern computational skills has not kept pace and
-this is especially evident in biomedical research. The computational learning
-module we've developed and describe below is aimed at bringing awareness to and
-improving skills in R, reproducibility, and open science for researchers in the
-field of diabetes research. 
+Unfortunately, training in modern computational skills has not kept pace. This is especially evident in biomedical research, where training tends to focus on clinical, experimental or wet-lab skills. The computational learning module we have developed and describe below is aimed at bringing awareness about reproducible workflows and open science to researchers and at improving their skills in R. The module has been developed with a thematic focus on diabetes research, but the skills, tools and core problems addressed are equally applicable to many other fields of quantitative (biomedical) research. 
 
-The learning modules are structured as a three-day workshop, with five
-sub-modules. We've designed it specifically as an open educational resource that
-either other instructors might make use of or modify on for their own lessons or
-for learners to use on their own or as a reference after participating in the
-workshop. All content are available for re-use under CC-BY and MIT Licenses.
+The learning module is structured as a three-day workshop, with five sub-modules. We have designed it specifically as an open educational resource that
+other instructors might make use of or modify for their own lessons, or that learners might use on their own or as a reference after participating in the
+workshop. All content is available for re-use under CC-BY and MIT Licenses.
 
 # Statement of Need
 
-Reproducibility is a key component to verifying scientific findings.
-Unfortunately, the reproducibility of scientific studies is largely unknown 
-[@Considine2017;@Leek2017],
-as researchers are unaware of, have no training in, or don't have incentives to
-conduct reproducible research. Improving reproducibility requires not
-only an awareness, but also training in multiple areas that include 
-not only the statistical analysis, but also version control, project management
-(of files), and reproducible reporting. The need for training of these skills is
-critical to tackling these modern demands.
+The ability to reproduce and verify findings and claims is a key component of the scientific process. Unfortunately, the reproducibility of scientific studies is largely unknown 
+[@Considine2017;@Leek2017], or has been found lacking in many specific situations[ ] as researchers are unaware of, have no training in, or lack incentives to
+conduct reproducible research. Improving reproducibility requires not only awareness, but also training in multiple areas including not only the statistical analysis, but also version control, project management (of files), and reproducible reporting. The need for training in these skills is critical to tackling these modern demands.
 
-The `r-cubed` learning module provides training in reproducibility, open
-science, and collaboration by teaching Git, GitHub, R Markdown, and data
-wrangling and visualization in R. While there are other resources for learning R
-and Git [@Bryan;@ChesterIsmay2019;@Lee2019], this module includes a greater
-integration and emphasis on reproducibility and the general workflow around
-doing data analysis, as well as instructions targeted to other instructors
-to assist with re-use of the material. Finally, this module also focuses on
-experiences and needs of those doing biomedical research, which is an area that
-currently lacks in enough training for these skills. The authors, all of whom
-work or have worked in biomedical research, used their experience when they
-created and shaped the learning content.
+The `r-cubed` learning module provides training in reproducibility, open science, and collaboration by teaching Git, GitHub, R Markdown, and data wrangling and visualization in R. While there are other resources for learning R and Git [@Bryan;@ChesterIsmay2019;@Lee2019], this module places a greater emphasis on reproducibility and the general workflow around data analysis and uses examples integrated with these use cases. It also includes instructions targeted to other instructors in order to assist with re-use of the material. Finally, this module also focuses on experiences and needs of those doing biomedical research, which is an area that currently lacks enough training for these skills. The authors, all of whom work or have worked in biomedical research, used their experience when they created and shaped the learning content.
 
 The learning module was specifically designed with **re-use and adoption** in mind.
 Both [*Section 1*](https://r-cubed.rostools.org/#welcome) and 
@@ -89,9 +65,9 @@ details on how this module can be re-used.
 
 The specific **target audience** for this learning resource is described in 
 [*Section 1.1*](https://r-cubed.rostools.org/index.html#target-audiences). Briefly,
-we target *learners* to use during the workshop and also afterwards, 
-*instructors of the workshop* to use as a reference while teaching, and
-those *interested in teaching* but don't have the skills or knowledge to build
+we target *learners* as users during the workshop and also afterwards, 
+*instructors of the workshop* to use the material as a reference while teaching, and
+those who are *interested in teaching* but do not have the skills or knowledge to build
 their own workshop. The target learner of the workshop is described in 
 [*Section 2.1*](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
 
@@ -101,12 +77,12 @@ The **learning objectives** of this module are broadly to teach reproducible
 research practices.
 A detailed description of the learning objectives is found in the syllabus in
 [*Section 2*](https://r-cubed.rostools.org/syllabus.html).
-Briefly, upon completing the learning module, learners are expected to
-have: 
+Briefly, upon completing the learning module, learners are expected to have: 
 
 1. A basic level of proficiency in using the R statistical programming language.
 2. Improved data and code literacy.
 3. The ability to conduct a modern and reproducible data analysis.
+4. Insight into the main challenges impeding open and reproducible research
 
 The learning module encompasses *five sub-modules* (see Table 1), with each
 sub-module representing about a half-day of lessons.
@@ -129,8 +105,8 @@ Sub-modules are designed to be completed as a series in the order given, since
 concepts taught in later sub-modules are dependent on earlier lessons.
 Principles and applications of reproducibility are highlighted
 throughout sub-modules. Sub-modules are accompanied by three stand-alone
-lectures (and one introduction lecture) aimed at drawing together
-reproducibility and RStudio skills (see
+lectures (and one introductory lecture) aimed at drawing together challenges in 
+reproducibility and the RStudio skills taught (see
 [*Section 6: Lecture Slides*](https://r-cubed.rostools.org/lecture-slides.html)).
 
 ## Instructional Design
@@ -160,7 +136,7 @@ maximize learning outcomes.
 
 The learning module has to date been delivered three times as 2-3 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
-fields of within diabetes research. Most of the instructors or helpers had
+fields within diabetes research. Most of the instructors or helpers had
 recently learned R themselves or were still in the novice or early intermediate
 phase of experience. This was intentional, as it is easier to relate to the 
 challenges and experiences that the learners will face when instructors have
