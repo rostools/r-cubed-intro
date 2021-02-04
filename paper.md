@@ -1,5 +1,5 @@
 ---
-title: "r-cubed: Guiding the overwhelmed researcher from random wrangling to reproducible research in R"
+title: "r-cubed: Guiding the overwhelmed scientist from random wrangling to Reproducible Research in R"
 tags:
   - R
   - rstats
