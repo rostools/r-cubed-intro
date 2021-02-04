@@ -37,15 +37,15 @@ Authors@R:
       person(given = "Hannah",
              family = "Chatwin",
              role = "aut",
-             comment = c(ORCID = '0000-0001-7248-8568', affiliation = 'University of Southern Denmark')),
+             comment = c(ORCID = "0000-0001-7248-8568", affiliation = "University of Southern Denmark")),
       person(given = "Malene Revsbech",
              family = "Christiansen",
              role = "aut",
-             comment = c(ORCID = '0000-0002-9772-3576', affiliation = 'Københavns Universitet')),
+             comment = c(ORCID = "0000-0002-9772-3576", affiliation = "Københavns Universitet")),
       person(given = "Anders Aasted",
              family = "Isaksen",
              role = "aut",
-             comment = c(ORCID = '0000-0001-8457-5466', affiliation = 'Aarhus University')))
+             comment = c(ORCID = "0000-0001-8457-5466", affiliation = "Aarhus University")))
 URL: https://gitlab.com/rostools/r-cubed/,
     https://r-cubed.rostools.org
 Depends: 
