@@ -36,20 +36,18 @@ gert::git_archive_zip("r-cubed.zip")
 
 zenodo <- ZenodoManager$new(
     url = "https://zenodo.org/api",
-    logger = "INFO",
-    token = Sys.getenv("ZENODO_TOKEN")
+    logger = "INFO"
 )
 
-update_record <- zenodo$getDepositionByDOI("10.5281/zenodo.3921894")
-
+update_record <- zenodo$getRecordById("3921894")
 pwalk(authors_df, update_record$addCreator)
-update_record$setUploadType("other")
-update_record$setLicense("cc-by")
 update_record$addRelatedIdentifier("isCompiledBy", "https://gitlab.com/rostools/r-cubed")
 update_record$addRelatedIdentifier("isIdenticalTo", "https://gitlab.com/rostools/r-cubed/-/tags/v3.0")
+update_record$setVersion(repo_version)
+# To fix a bug/mistake with zen4R
+update_record$metadata$related_identifiers[[1]]$scheme <- NULL
+update_record$metadata$related_identifiers[[1]]$relation <- "isNewVersionOf"
 
-deposited_record <- zenodo$depositRecordVersion(new_record,
+deposited_record <- zenodo$depositRecordVersion(update_record,
                                                 delete_latest_files = TRUE,
-                                                files = "r-cubed.zip",
-                                                publish = FALSE)
-zenodo$uploadFile("r-cubed-intermediate.zip", deposited_record$id)
+                                                files = "r-cubed.zip")
