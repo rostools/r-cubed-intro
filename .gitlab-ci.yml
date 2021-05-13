@@ -10,7 +10,7 @@ build:
         - R -e "remotes::install_deps(dependencies = c('Depends', 'Imports'))"
         - Rscript _build.R
     only:
-        - master
+        - main
     artifacts:
         paths:
             - public
@@ -24,6 +24,6 @@ deploy:
     script:
         - npx netlify deploy --prod --dir public
     only:
-        - master
+        - main
     dependencies:
         - build

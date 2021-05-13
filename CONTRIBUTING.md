@@ -61,7 +61,7 @@ bigger changes. The more targeted and specific the changes are, the better.
 been added to the repository as a contributor. Otherwise, you'll need to make a 
 [fork](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork)
 of the repository first.
-5. Submit a merge request of the branch into the master branch.
+5. Submit a merge request of the branch into the main branch.
 7. If you receive feedback on your pull request, make further commits to the
 branch on your cloned local copy. These will automatically be added to your merge
 request after you commit and push.

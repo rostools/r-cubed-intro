@@ -189,7 +189,7 @@ complete the process:
 
 ``` bash
 git remote add origin E:/project_directory/git-remote 
-git push -u origin master
+git push -u origin main
 ```
 
 And that's it! Now we have version control shared between all users of the DST
@@ -219,7 +219,7 @@ cd E:/project_directory/LearningR
 git remote add origin E:/project_directory/git-remote 
 
 # Pushes the local repository to the remote
-git push -u origin master 
+git push -u origin main 
 ```
 
 Are we missing out by not having access to GitHub?

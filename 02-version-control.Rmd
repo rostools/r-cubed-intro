@@ -656,29 +656,29 @@ What you should see is something like the below text (it may be slightly differe
 # Here's an example of a conflict
 =======
 # When a conflict happens
->>>>>>> origin/master
+>>>>>>> origin/main
 ```
 
 The text on the top between `<<<<<<< HEAD` 
 and `=======` are the changes found on your *local* repository.
 The text on the bottom between `=======` 
-and `>>>>>>> origin/master` are the changes found on your *remote*
+and `>>>>>>> origin/main` are the changes found on your *remote*
 (GitHub) repository.
 `HEAD` is the term to mean where your files are currently at.
 Think of `HEAD` as meaning the "top" of the history.
-`origin/master` indicates that the commit comes from the `master` 
-(or sometimes called `main`) branch
+`origin/main` indicates that the commit comes from the `main` 
+(or sometimes called `master`) branch
 of the `origin` remote.
 The concept and use of branches is a powerful feature of Git,
 but due to time we won't be covering them.
 You only need to know that every Git repository starts with the default
-`master` (or `main`) branch.
+`main` (or `master`) branch.
 
 At this point, 
 you decide what to keep 
 and what to remove by deleting text within the `version-control-session.R` script in RStudio.
 You'll need to also delete the lines with the `<<<<<<< HEAD`,
-`=======`, and `>>>>>>> origin/master`
+`=======`, and `>>>>>>> origin/main`
 
 After deciding what to keep and removing all the left over merge conflict tags,
 open up the Git interface in RStudio.
@@ -779,6 +779,6 @@ GitHub is a popular remote repository hosting service.
 - When there are differences in changes to the same lines in a file,
 a merge conflict occurs that you must deal with manually.
     - Decide on which text to keep between the tags: `<<<<<<< HEAD`, 
-    `=======`, and `>>>>>>> origin/master` 
+    `=======`, and `>>>>>>> origin/main` 
     (the last name may sometimes look different), and remove tags.
 - Almost all Git actions can be done using RStudio's Git interface.

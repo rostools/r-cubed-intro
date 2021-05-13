@@ -65,8 +65,8 @@ to make comments and give feedback on the material.
 [Netlify]: https://www.netlify.com/
 [`r-cubed`]: https://gitlab.com/rostools/r-cubed
 
-[README]: https://gitlab.com/rostools/r-cubed/-/blob/master/README.md
-[CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/master/CONTRIBUTING.md
+[README]: https://gitlab.com/rostools/r-cubed/-/blob/main/README.md
+[CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md
 
 ## Target audiences
 
@@ -87,7 +87,7 @@ and instructing their own workshops.
 The course material is licensed under the
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
 and the course code is licensed under a 
-[MIT License](https://gitlab.com/rostools/r-cubed/-/blob/master/LICENSE-MIT.md),
+[MIT License](https://gitlab.com/rostools/r-cubed/-/blob/main/LICENSE-MIT.md),
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
 
