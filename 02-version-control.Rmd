@@ -205,9 +205,11 @@ LearningR
 ├── .git/ <-- Git repository stored here
 ├── R/
 ├── data/
+├── data-raw/
 ├── doc/
 ├── .gitignore <-- Tells Git which files NOT to save
 ├── LearningR.Rproj
+├── DESCRIPTION
 └── README.md
 ```
 
@@ -216,8 +218,6 @@ Setting up a Git repository can be done in several ways:
 - When starting a new R Project, the "Create a git repository" option can be 
 selected from the "New Projects" setup instructions in RStudio. 
 - For existing R Projects, you can type in the console `usethis::use_git()`.
-
-When creating the project from prodigenr, Git is usually automatically set up.
 
 ## Using Git in RStudio
 

@@ -58,7 +58,7 @@ workspace (where all the R activity and output is temporarily saved), history, a
 documents.
 
 There are many ways one could organise a project folder. 
-We'll be setting up a project folder and file structure using [prodigenr](https://prodigenr.lukewjohnston.com/index.html).
+We'll be setting up a project folder and file structure using [prodigenr](https://rostools.github.io/prodigenr/).
 We'll use RStudio's "New Project" menu item under `File -> New Project`.
 We'll call the new project **`LearningR`**.
 Save it on your `Desktop/`.
@@ -85,14 +85,13 @@ we'll have a bunch of new files and folders.
 ```
 LearningR
 ├── R
-│   ├── README.md
-│   ├── fetch_data.R
-│   └── setup.R
+│   └── README.md
 ├── data
+│   └── README.md
+├── data-raw
 │   └── README.md
 ├── doc
 │   └── README.md
-├── .Rbuildignore
 ├── .gitignore
 ├── DESCRIPTION
 ├── LearningR.Rproj
@@ -139,12 +138,19 @@ tends to be more commonly used.
 
 [R Markdown]: https://rmarkdown.rstudio.com/
 
-For this course, we'll delete the files `fetch_data.R` and `setup.R` in the `R/` folder,
-as well as the `.Rbuildignore` file, since we won't need them.
-For any project, it is **highly recommended** to use [version control],
-which we'll cover in more detail [later](version-control).
+Since we'll be using Git for [version control] in [later sessions](version-control.html),
+which we **highly recommended** to use for any project,
+we need to add Git to our newly created project by typing in the R Console while
+in the newly created `LearningR` project:
 
 [version control]: https://happygitwithr.com/big-picture.html#why-git
+
+```{r add-git-to-project, eval=FALSE}
+prodigenr::setup_with_git()
+```
+
+This will add the `.gitignore` file to the project as well as to tell Git to track
+our project. We'll cover this more later.
 
 ## Exercise: Reading the READMEs
 
@@ -533,19 +539,22 @@ So your file path `R/packages-loading.R` won't work because there isn't a folder
 called `R/` in the `R/` folder.
 
 ```
-LearningR <--- R Project working directory starts here.
+LearningR <-- R Project working directory starts here.
 ├── R
 │   ├── README.md
-│   ├── fetch_data.R <--- Working directory when running not interactively.
-│   └── setup.R
+│   ├── project-session.R <-- Working directory when running not interactively.
+│   ├── version-control-session.R
+│   ├── wrangling-session.R
+│   └── package-loading.R 
 ├── data
+│   └── README.md
+├── data-raw
 │   └── README.md
 ├── doc
 │   └── README.md
-├── .Rbuildignore
 ├── .gitignore
 ├── DESCRIPTION
-├── LearningR.Rproj <--- here() moves file path to start in this file's folder.
+├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
 ├── README.md
 └── TODO.md
 ```
