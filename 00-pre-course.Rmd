@@ -8,9 +8,9 @@ The deadline for these tasks is (at least) three days before the course starts.
 The first things to do are to:
 
 1. Install the latest version of [R](https://cloud.r-project.org/index.html)
-(at least version 3.6.0, preferably >4.0.0).
+(anything above 4.0.0).
 1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
-(at least version 1.2.5001, preferably >1.3 version).
+(any version above 1.3).
 1. Install [Git](https://git-scm.com/downloads).
 
 For some Windows users, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
@@ -29,7 +29,7 @@ You may encounter problems installing software due to administrative reasons
 (e.g. you don't have permission to install things).
 Even if you have issues installing or updating the latest version of R or RStudio, 
 you will likely be able to continue with the course as long as you have at least
-3.6.0 for R and at least 1.2.5001 for RStudio. 
+4.0.0 for R and at least 1.3 for RStudio. 
 If you have versions of R and RStudio that are older than that,
 you may need to ask your IT department to update your software if you can't do this yourself.
 Unfortunately, Git is not a commonly used software for some organizations, so 
