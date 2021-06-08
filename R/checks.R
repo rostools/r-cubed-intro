@@ -1,10 +1,11 @@
 library(tidyverse)
 library(httr)
+library(rvest)
 library(fs)
 
-text_files <- dir_ls(path = c("slides", "."),
-                     type = "file",
-                     regexp = "[.](md|Rmd)$")
+html_files <- dir_ls(path = "public",
+                     glob = "*.html",
+                     recurse = TRUE)
 stop("To prevent accidental sourcing.")
 
 # Test URL is active or alive ---------------------------------------------
@@ -14,29 +15,28 @@ stop("To prevent accidental sourcing.")
 # is active or not. It isn't always correct, but its a good starting
 # point.
 
-url_pattern <- "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"
-url_links <- map(text_files, read_lines) %>%
-    map(~str_extract_all(.x, url_pattern)) %>%
-    unlist() %>%
-    str_remove("[:,.\\]\\>\\)]+$") %>%
-    str_remove("[:,.\\]\\>\\)]+$") %>%
-    str_remove(".*img.*License.*\\)\\]\\(") %>%
-    str_remove(".*\\.exe$") %>%
-    unique() %>%
-    na_if("") %>%
+get_href_links <- function(x) {
+    x %>%
+        read_html() %>%
+        html_nodes("a") %>%
+        html_attr("href")
+}
+
+url_links <- map(html_files, get_href_links) %>%
+    flatten_chr() %>%
+    str_subset("^https?.*$") %>%
+    str_subset(".*\\.(exe|zip)$", negate = TRUE) %>%
+    str_remove("%3E") %>%
+    unique()
+
+bad_url <- function(x) {
+    bad_url <- NA_character_
+    if (http_error(x))
+        bad_url <- x
+    bad_url
+}
+
+url_tested <- map_chr(url_links, bad_url) %>%
     na.omit()
 
-# Check each URL one by one and determine whether it works
-url_status <-
-    tibble(category = NA_character_,
-           reason = NA_character_,
-           URL = NA_character_)[-1,]
-for (url_link in url_links) {
-    x <- httr::GET(url_link)
-    url_status <- url_status %>%
-        add_row(
-            category = httr::http_status(x)$category,
-            reason = httr::http_status(x)$reason,
-            URL = url_link
-        )
-}
+url_tested
