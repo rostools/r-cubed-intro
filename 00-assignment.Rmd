@@ -78,9 +78,9 @@ Here are some datasets we've identified that would be good for the assignment:
     - [Zika Virus Data](https://github.com/BuzzFeedNews/zika-data/blob/master/data/raw/paho-who/paho-who-cases-reported-latest.csv)
     - [FBI Firearm Stats](https://github.com/hchats/nics-firearm-background-checks/blob/master/data/nics-firearm-background-checks.csv)
     - [New York Squirrel Census Date](https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-29/nyc_squirrels.csv)
-    - [Zindi.africa: Sea Turtle Rescue](https://gitlab.com/rostools/r-cubed/-/blob/master/data/turtles.zip)
-    - [Zindi.africa: Busara Mental Health](https://gitlab.com/rostools/r-cubed/-/blob/master/data/rural_kenya.zip)
-    - [Zindi.africa: Female-Headed Households in South Africa](https://gitlab.com/rostools/r-cubed/-/blob/master/data/rsa_wards.zip)
+    - [Zindi.africa: Sea Turtle Rescue](https://gitlab.com/rostools/r-cubed/-/blob/main/data/turtles.zip)
+    - [Zindi.africa: Busara Mental Health](https://gitlab.com/rostools/r-cubed/-/blob/main/data/rural_kenya.zip)
+    - [Zindi.africa: Female-Headed Households in South Africa](https://gitlab.com/rostools/r-cubed/-/blob/main/data/rsa_wards.zip)
     - [Starbucks Menu Item Data](https://www.kaggle.com/starbucks/starbucks-menu) (It may be required to create a Kaggle account)
     
 [figshare]: https://figshare.com/
