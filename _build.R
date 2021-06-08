@@ -1,15 +1,33 @@
+#!/usr/bin/env Rscript
 
+message("Starting to build the website.")
+library(magrittr)
+bookdown::clean_book(TRUE)
 # Create the course book
-bookdown::render_book('index.Rmd', 'bookdown::gitbook', quiet = TRUE)
+output <- bookdown::render_book('index.Rmd', 'bookdown::bs4_book', quiet = TRUE)
 
-# To move the slides over
-dir.create("public/slides/", showWarnings = FALSE)
-dir.create("public/resources/", showWarnings = FALSE)
+# Create necessary folders in public
+fs::dir_create(here::here("public", c("resources", "slides")))
 
-slide_files <- list.files("slides", pattern = ".*\\.html", full.names = TRUE)
-slide_css <- list.files("resources", pattern = ".*\\.css", full.names = TRUE)
-logo_files <- list.files("images", pattern = ".*logo.*", full.names = TRUE)
-slide_image_files <- list.files("images", pattern = ".*\\.(png|jpg)$", full.names = TRUE)
-file.copy(slide_files, "public/slides", overwrite = TRUE)
-file.copy(slide_css, "public/resources", overwrite = TRUE)
-file.copy(c(logo_files, slide_image_files), "public/images", overwrite = TRUE)
+# Move slide files and resources over
+slide_css <- fs::dir_ls("resources", glob = "*.css")
+fs::file_copy(slide_css, fs::path("public/", slide_css), overwrite = TRUE)
+
+image_files <- fs::dir_ls("images", regexp = ".*\\.(png|jpg)$")
+fs::file_copy(image_files, fs::path("public/", image_files), overwrite = TRUE)
+
+# Fix links to repository
+html_files <- fs::dir_ls("public", glob = "*.html")
+
+html_files %>%
+    purrr::map(readr::read_lines) %>%
+    purrr::map(~ {
+        stringr::str_replace(., "fa-github", "fa-gitlab") %>%
+            stringr::str_replace("rostools/r-cubed/(blob|edit)/master",
+                                 "rostools/r-cubed/\\1/main")
+    }) %>%
+    purrr::iwalk(readr::write_lines)
+
+warnings()
+
+message("Finished building it.")
