@@ -48,12 +48,9 @@ The original source material for this course is found on the
 Want to contribute to this course? 
 Check out the [README] file as well as the [CONTRIBUTING] file
 on the GitLab repository for more details.
-The two main and easiest ways to contribute are by using:
-
-1. [hypothes.is], a web annotating tool. 
-Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
-comments directly on this website.
-2. [GitLab] and creating a [new issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+The main way to contribute is by using 
+[GitLab] and creating a 
+[new issue](https://gitlab.com/rostools/r-cubed/-/issues/new)
 to make comments and give feedback on the material.
 
 [hypothes.is]: https://web.hypothes.is/

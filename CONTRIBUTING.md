@@ -36,12 +36,9 @@ packages like dplyr, tidyr, rmarkdown, ggplot2, and so on. This also means makin
 use of the pipe `%>%` operator.
 6. We follow the tidyverse [*way of writing and styling R code*](https://style.tidyverse.org/).
 
-Anyone can contribute to the course repository by two main ways:
-
-1. Using [hypothes.is](https://web.hypothes.is/), a web annotating tool. 
-Go to ["Get Started"](https://web.hypothes.is/start/) to give feedback and add
-comments directly on this website. This is the easiest approach.
-2. Through Git and [GitLab] (https://gitlab.com/) by creating a [new Issue](https://gitlab.com/rostools/r-cubed-intermediate/-/issues/new)
+Anyone can contribute to the course repository through Git and 
+[GitLab](https://gitlab.com/) by creating a 
+[new Issue](https://gitlab.com/rostools/r-cubed/-/issues/new)
 to make comments and give feedback for the material or via [merge
 requests][merge-requests]. This is the harder but preferred approach.
 
