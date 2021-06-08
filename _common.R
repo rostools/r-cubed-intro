@@ -7,17 +7,17 @@ library(htmltools)
 
 knitr::opts_chunk$set(
     comment = "#>",
-    collapse = TRUE,
     warning = FALSE,
     dpi = 72,
     fig.width = 6,
     fig.height = 6,
-    fig.align = "center"
+    fig.align = "center",
+    out.width = "100%"
 )
 
 knitr::knit_hooks$set(solution = function(before) {
     if (before)
-        "<details><summary><strong>Click for the (possible) solution.</strong></summary><p>"
+        "<details><summary><strong>Click for the (possible) solution.</strong> Click only if you are really struggling or you are out of time for the exercise.</summary><p>"
     else
         "</p></details>"
 })
@@ -31,7 +31,8 @@ BibOptions(
 )
 
 options(knitr.table.format = "html",
-        dplyr.summarise.inform = FALSE)
+        dplyr.summarise.inform = FALSE,
+        downlit.attached = c("here", "prodigenr", "fs", "remotes", "dplyr", "tidyr", "ggplot2"))
 
 set.seed(12345)
 
