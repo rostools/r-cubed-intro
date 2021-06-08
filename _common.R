@@ -32,7 +32,7 @@ BibOptions(
 
 options(knitr.table.format = "html",
         dplyr.summarise.inform = FALSE,
-        downlit.attached = c("here", "prodigenr", "fs", "remotes"))
+        downlit.attached = c("here", "prodigenr", "fs", "remotes", "dplyr", "tidyr", "ggplot2"))
 
 set.seed(12345)
 
