@@ -229,7 +229,7 @@ The r3 package is used as a companion and helper throughout this course to
 making it easier to do certain tasks (like go to the survey). Considering this,
 if you want to use this course material and run a course like this on your 
 own, you can clone the r3 package and modify it as necessary for your own
-purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/master/README.md)
+purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/main/README.md)
 of the r3 package for more details.
 
 ## Lecture Notes
