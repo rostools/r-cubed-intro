@@ -535,7 +535,7 @@ You can see the working directory by looking at the top of the RStudio Console.
 
 But! When you `source()` an R script or run it *not* interactively, the
 R code may likely run *in the folder it is saved in*, e.g. in the `R/` folder.
-So your file path `R/packages-loading.R` won't work because there isn't a folder
+So your file path `R/package-loading.R` won't work because there isn't a folder
 called `R/` in the `R/` folder.
 
 ```
