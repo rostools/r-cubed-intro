@@ -457,7 +457,7 @@ we need to link the GitHub repository to the existing one on your computer.
 Sadly, there is no RStudio interface (yet) for easily doing this,
 and it requires us to use the Terminal (found in RStudio).
 
-First, let's create another new GitHub repository,
+First, let's create **another new** GitHub repository,
 but this time call it `LearningR` to match the name of our existing repository.
 So repeat the process as we did above.
 Once the GitHub repository has been created, 
@@ -468,6 +468,8 @@ copy and paste the code as shown in the image below
 knitr::include_graphics("images/github-link-existing-repository.png")
 ```
 
+You'll have to enter your username and password when you 
+"push"^[If you have troubles logging in, you may need to update Git.]
 One new term here is the word `origin` when referring to remotes.
 The word *origin* is the default short name to refer to the location of the remote
 (the GitHub URL).
