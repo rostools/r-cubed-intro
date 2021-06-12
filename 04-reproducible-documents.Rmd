@@ -586,8 +586,6 @@ which gives...
 But note that using inline R code can *only* insert a *single* number 
 or character value, and nothing more.
 
-Let’s add and commit these changes into the Git history.
-
 ## Exercise: Practice using Markdown for writing text
 
 Time: 5 min
@@ -603,6 +601,7 @@ below your name.
 - Write one random short sentence under each header. 
 Bold (`**word**`) one word in each and italicize (`*word*`) another.
 - Insert a code chunk to make a simple calculation (e.g. `2 + 2`).
+- Finally, add and commit these changes into the Git history.
 
 ```{r solution-use-md-for-text, eval=FALSE, echo=FALSE}
 # This exercise has no R code solution.
