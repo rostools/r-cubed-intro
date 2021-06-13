@@ -25,7 +25,8 @@ team_names <- glue::glue("Team{team_prefix}{team_suffix}") %>%
     as.character()
 
 # Choose n number of teams, based on number of participants.
-team_names_final <- team_names[c(6, 8, 11, 12, 13, 22)]
+# 24/4
+team_names_final <- team_names[c(5, 12, 14, 22, 33, 41)]
 
 # Invite members to organization ------------------------------------------
 
@@ -36,41 +37,58 @@ library(ghclass)
 
 # Get GitHub user name from survey.
 gh_teams_prep <- presurvey_tidy %>%
-    select(github_username, starts_with("perceived")) %>%
-    mutate_at(vars(starts_with("perceived")),  ~ . > 1) %>%
+    select(full_name, github_username, matches("^perceived_.*_updated$")) %>%
+    mutate(across(-c(full_name, github_username), ~as.numeric(.x) > 1)) %>%
     mutate(
         perceived_skill_score =
-            perceived_skill_r + perceived_skill_data_analysis +
-            perceived_skill_programming + perceived_skill_git
+            perceived_skill_r_updated + perceived_skill_data_analysis_updated +
+            perceived_skill_programming_updated + perceived_skill_git_updated
     ) %>%
-    select(github_username, perceived_skill_score)
+    select(full_name, github_username, perceived_skill_score)
 
 # Invite the participants to the GitHub class organization.
-# You'll need a GITHUB_PAT. Check out the ghclass documentation.
-org_invite("r-cubed-2020-06", gh_teams_prep$github_username)
-org_members("r-cubed-2020-06")
-org_pending("r-cubed-2020-06")
+# Use the code below to set the GITHUB_PAT for ghclass. Need to first use:
+# gitcreds::gitcreds_set()
+ghclass::github_set_token(gitcreds::gitcreds_get(use_cache = FALSE)$password)
+# org_invite("r-cubed-2021-06", gh_teams_prep$github_username)
+org_members("r-cubed-2021-06")
+org_pending("r-cubed-2021-06")
+
+# Who to still invite (those that finished pre-course tasks later).
+currently_invited <- c(
+    str_subset(org_members("r-cubed-2021-06"), "lwjohnst86", negate = TRUE),
+    org_pending("r-cubed-2021-06")
+)
+need_to_invite <- setdiff(gh_teams_prep$github_username, currently_invited)
+org_invite("r-cubed-2021-06", need_to_invite)
 
 # Create GitHub teams -----------------------------------------------------
 
-# team_create("r-cubed-2020-06", team_names_final)
+team_create("r-cubed-2021-06", team_names_final)
 
 # Randomly assign participants to groups, weighted by their
 # perceived skill.
 library(randomizr)
 
-set.seed(732477)
+set.seed(4316712)
 gh_teams_assigned <- gh_teams_prep %>%
     mutate(team = (perceived_skill_score > 1) %>%
                block_ra(conditions = team_names_final) %>%
-               as.character())
+               as.character()) %>%
+    arrange(team, perceived_skill_score)
+count(gh_teams_assigned, team)
+View(gh_teams_assigned)
+
+# Manually change if need be.
+# edit(gh_teams_assigned)
+gh_teams_assigned[18, 4] <- "TeamBadassOar"
 
 # Put groups into GitHub teams.
-team_invite("r-cubed-2020-06",
+team_invite("r-cubed-2021-06",
             gh_teams_assigned$github_username,
             gh_teams_assigned$team)
 
 # Create repos for teams --------------------------------------------------
 
-gh_repos <- repo_create("r-cubed-2020-06", team_names_final)
+gh_repos <- repo_create("r-cubed-2021-06", team_names_final)
 repo_add_team(sort(gh_repos), sort(unique(gh_teams_assigned$team)))
