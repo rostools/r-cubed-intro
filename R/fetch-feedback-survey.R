@@ -5,7 +5,7 @@ library(tidyverse)
 
 stop("To prevent accidental sourcing.")
 
-# Import pre-survey data --------------------------------------------------
+# Import feedback survey data --------------------------------------------------
 
 feedback_survey <- drive_get(id = FEEDBACK_SURVEY_ID) %>%
     read_sheet()
