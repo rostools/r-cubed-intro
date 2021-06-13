@@ -748,7 +748,6 @@ in the R script for this exercise by using `Ctrl-Shift-R`).
 
 2. Create a new variable called `mean_arterial_pressure` by applying the formula: 
 $((2 \times DBP) + SBP) / 3$ 
-This formula looks a little wonky on the website
 (DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate
 [Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
 *Hint*: In R, use `+` to add, `*` to multiply, and `/` to divide.
