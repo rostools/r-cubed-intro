@@ -6,7 +6,7 @@ stop("To prevent accidentally sourcing.")
 # Create team names -------------------------------------------------------
 
 # Create random team names
-set.seed(1231)
+set.seed(43787)
 team_prefix <- tibble(adjective = praise::praise_parts$adjective) %>%
     filter(nchar(adjective) <= 7) %>%
     pull(adjective) %>%
