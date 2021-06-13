@@ -747,10 +747,11 @@ in the R script for this exercise by using `Ctrl-Shift-R`).
 *and* less than or equal to 40, *and* keep those who have diabetes.
 
 2. Create a new variable called `mean_arterial_pressure` by applying the formula: 
-$((2 \times DBP) + SBP) / 3$ 
-(DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate
-[Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
-*Hint*: In R, use `+` to add, `*` to multiply, and `/` to divide.
+
+    $$((2 \times DBP) + SBP) / 3$$
+
+    (DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate [Mean Arterial Pressure](https://en.wikipedia.org/wiki/Mean_arterial_pressure).
+    *Hint*: In R, use `+` to add, `*` to multiply, and `/` to divide.
 
 3. Create a new variable called `young_child` for cases where age is less than 6 years.
 
