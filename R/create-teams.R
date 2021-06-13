@@ -97,8 +97,13 @@ repo_add_team(sort(gh_repos), sort(unique(gh_teams_assigned$team)))
 instructors <- c("Daniel", "Helene", "Luke", "Hannah", "Bettina")
 
 set.seed(358677)
-tibble(
+instructor_assigned_teams <- tibble(
     teams = team_names_final,
     primary = sample(instructors),
     secondary = sample(instructors)
 )
+instructor_assigned_teams
+
+instructor_assigned_teams %>%
+    knitr::kable() %>%
+    clipr::write_clip()
