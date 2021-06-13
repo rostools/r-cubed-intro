@@ -797,7 +797,7 @@ to compute the next operations on the data within each grouping, rather than on 
 the data.
 
 As with the other functions, 
-`summarize()` takes the dataset as the first position argument.
+`summarise()` takes the dataset as the first position argument.
 The next arguments work similar to the arguments in `mutate()` with one difference:
 the output must create a single value (e.g. a mean).
 Like `mutate()`, 
@@ -829,7 +829,7 @@ nhanes_small %>%
     summarise(max_bmi = max(bmi, na.rm = TRUE))
 ```
 
-To calculate another summary staistic, you would add another summary column using `,`:
+To calculate another summary statistic, you would add another summary column using `,`:
 
 ```{r}
 nhanes_small %>%
@@ -981,7 +981,7 @@ code including `group_by()` with `summarise()`, to answer these questions:
 
 1. What is the mean, max, and min differences in *age* between
 females and males with or without diabetes?
-2. What is the mean, max, and min differences in *height* and weight between
+2. What is the mean, max, and min differences in *height* and *weight* between
 females and males with or without diabetes?
 3. Once done, add and commit the changes to the file to the Git history.
 
