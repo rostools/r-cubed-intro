@@ -25,8 +25,8 @@ team_names <- glue::glue("Team{team_prefix}{team_suffix}") %>%
     as.character()
 
 # Choose n number of teams, based on number of participants.
-# 24/4
-team_names_final <- team_names[c(5, 12, 14, 22, 33, 41)]
+# 24/5
+team_names_final <- team_names[c(5, 12, 14, 22, 41)]
 
 # Invite members to organization ------------------------------------------
 
