@@ -60,7 +60,7 @@ currently_invited <- c(
     org_pending("r-cubed-2021-06")
 )
 need_to_invite <- setdiff(gh_teams_prep$github_username, currently_invited)
-org_invite("r-cubed-2021-06", need_to_invite)
+# org_invite("r-cubed-2021-06", need_to_invite)
 
 # Create GitHub teams -----------------------------------------------------
 
@@ -81,7 +81,6 @@ View(gh_teams_assigned)
 
 # Manually change if need be.
 # edit(gh_teams_assigned)
-gh_teams_assigned[18, 4] <- "TeamBadassOar"
 
 # Put groups into GitHub teams.
 team_invite("r-cubed-2021-06",
@@ -92,3 +91,14 @@ team_invite("r-cubed-2021-06",
 
 gh_repos <- repo_create("r-cubed-2021-06", team_names_final)
 repo_add_team(sort(gh_repos), sort(unique(gh_teams_assigned$team)))
+
+# Assigning instructors to groups -----------------------------------------
+
+instructors <- c("Daniel", "Helene", "Luke", "Hannah", "Bettina")
+
+set.seed(358677)
+tibble(
+    teams = team_names_final,
+    primary = sample(instructors),
+    secondary = sample(instructors)
+)
