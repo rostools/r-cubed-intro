@@ -162,7 +162,7 @@ In this session, we are going to create a new code chunk for each plot we make t
 a nice readable code, and to practice writing headers and inserting code chunks. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
 chunk below it. Let's take a look at a density distribution plot:
 
-```{r, message=FALSE}
+```{r}
 # Create density plot for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_density()
@@ -170,7 +170,7 @@ ggplot(nhanes_small, aes(x = bmi)) +
 
 Now, let's take a look at a histogram, by creating a new code chunk again:
 
-```{r, message=FALSE}
+```{r}
 # Create histogram for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_histogram()
@@ -271,7 +271,7 @@ hex plot, and a smoothing line plot in a new code chunk.
 First, enter a new Markdown header called `# Plotting two variables` and create the 
 code chunk below that.
 
-```{r, message=FALSE}
+```{r}
 # Using 2 continuous variables
 bmi_chol <- ggplot(nhanes_tidied, aes(x = bmi, y = tot_chol))
 # Standard scatter plot
@@ -281,7 +281,7 @@ bmi_chol +
 
 You can see that, with 10,000 data points, the scatterplot is a little crowded.
 
-```{r, message=FALSE}
+```{r}
 # Standard scatter plot, but with hexagons
 bmi_chol + 
     geom_hex()
@@ -290,7 +290,7 @@ bmi_chol +
 Notice how the hex plot changes the colour of the data 
 based on how many values are in the area of the plot.
 
-```{r, message=FALSE}
+```{r}
 # Runs a smoothing line with confidence interval
 bmi_chol + 
     geom_smooth()
@@ -300,7 +300,7 @@ This makes a nice smoothing line through the data and gives us an idea of
 general trends or relationships between the two variables. You can also combine
 geoms by adding another one with a `+`.
 
-```{r, message=FALSE}
+```{r}
 # Or combine two geoms, hex plot with smoothing line
 bmi_chol + 
     geom_hex() +
