@@ -40,7 +40,8 @@ renaming_columns <- tibble::tribble(
     "How often do you currently use: [GitHub/GitLab and Git]", "uses_git_github",
     "How often do you currently use: [R Markdown]", "uses_rmarkdown",
     "How often do you currently use: [ggplot2]", "uses_ggplot2",
-    "What gender do you identify with?", "gender_identity"
+    "What gender do you identify with?", "gender_identity",
+    "dropped", "dropped"
 )
 
 presurvey <- drive_get(id = PRE_SURVEY_ID) %>%
@@ -69,7 +70,7 @@ presurvey_tidying <- presurvey %>%
             str_remove("\\@"),
         perceived_skill_r_updated = as.character(perceived_skill_r_updated)
           ) %>%
-    filter(year(timestamp) == "2021", month(timestamp) != 1)
+    filter(year(timestamp) == "2021", month(timestamp) != 1, (dropped != TRUE | is.na(dropped)))
 
 # Check who hasn't finished the survey ------------------------------------
 
