@@ -231,7 +231,7 @@ you can read the article on why to [avoid barplots] after the course.
 The image below was taken from that paper, and 
 briefly demonstrates why this plot type is not useful. 
 
-```{r barplots-deceive, fig.cap="Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).", echo=FALSE}
+```{r barplots-deceive, fig.cap="Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).", echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
