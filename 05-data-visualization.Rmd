@@ -159,7 +159,7 @@ There are two good geoms for examining distributions:
 
 It is good practice to create a new code chunk for each plot in R Markdown, to maintain
 a nice readable code, however, in this session, we are going to experiment with parameters and geoms and will not create a new code chunk for every plot we make. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
-chunk below it and name it "continuous-variables". Let's take a look at a density distribution plot:
+chunk below it and name it `continuous-variables`. Let's take a look at a density distribution plot:
 
 ```{r continuous-variables, message=FALSE}
 # Create density plot for BMI
@@ -185,7 +185,7 @@ Well, sadly, there's really only one: `geom_bar()`.
 This isn't a geom for a barplot though; instead, it shows the counts of a discrete variable.
 There are many discrete variables in NHANES, including sex and diabetes, 
 so let's use this geom to visualize those. 
-Again, create a new code chunk, name it "discrete-variables", then type:
+Again, create a new code chunk, name it `discrete-variables`, then type:
 
 ```{r discrete-variables}
 # Create count barplot for sex
@@ -205,7 +205,7 @@ ggplot(nhanes_small, aes(x = diabetes)) +
 For diabetes, it seems that there is some missingness in the data.
 Since diabetes status is an important variable for us, let's remove all missing
 values, save the tidied dataset in the `data/` folder, and plot it again
-in a new code chunk named "remove-missing-diabetes".
+in a new code chunk named `remove-missing-diabetes`.
 
 ```{r remove-missing-diabetes}
 # Remove individuals with missing diabetes status
@@ -268,7 +268,7 @@ Let's check out how BMI may influence cholesterol using a basic scatterplot,
 hex plot, and a smoothing line plot in a new code chunk. 
 
 First, enter a new Markdown header called `# Plotting two variables` and create a 
-code chunk named "2-continuous-variables" below that.
+code chunk named `2-continuous-variables` below that.
 
 ```{r 2-continuous-variables, message=FALSE}
 # Using 2 continuous variables
@@ -315,7 +315,7 @@ Sadly, there are not many options available for plotting two discrete variables,
 The most useful geom for this type of plot is `geom_bar()`, 
 but with an added variable.
 We can use the `geom_bar()` "fill" option to have a certain colour for different levels of a variable.
-Let's use this to see difference in diabetes status between the sexes. Create a new code chunk named "2-discrete-variables" and type:
+Let's use this to see difference in diabetes status between the sexes. Create a new code chunk named `2-discrete-variables` and type:
 
 ```{r 2-discrete-variables}
 # Two categorical/discrete variables
@@ -363,7 +363,7 @@ However, it is not very good when you have lots of data points.
 This geom is great when there is a lot of data 
 and `geom_jitter()` may otherwise appear as a mass of dots.
 
-Let's take a look at these geoms, by plotting how BMI differs between those with or without diabetes. In a new code chunk named "discrete-continuous-variables", type:
+Let's take a look at these geoms, by plotting how BMI differs between those with or without diabetes. In a new code chunk named `discrete-continuous-variables`, type:
 
 ```{r discrete-continuous-variables}
 # Using mixed data
@@ -515,7 +515,7 @@ In this section, we'll be covering many of these capabilities in ggplot2.
 The most common and "prettiest" way of adding a third variable is by using colour.
 Let's try to answer a few of the questions below, to visualize some of these features.
 First, create a new header called `# Plotting three or more variables`
-and a code chunk named "using-colour" below it.
+and a code chunk named `using-colour` below it.
 
 *Question: Is systolic blood pressure different in those with 
 or without diabetes in females and males?*
@@ -574,7 +574,7 @@ The first two arguments are:
 For both `cols` and `rows`, the nominated variable must be wrapped by `vars()`
 (e.g. `vars(diabetes)`).
 Let's try it using an example from the previous answer (instead of using `colour`).
-Make a new code chunk named "using-faceting"
+Make a new code chunk named `using-faceting`
 
 ```{r using-faceting}
 # Plot BMI in relation to systolic blood pressure and diabetes status using
@@ -645,9 +645,9 @@ Time: 10 min
 
 Practice changing colour schemes on a bar plot. Start with a base plot object to work from that has two discrete variables. 
 Create a new Markdown header called `# Exercise for changing colours` and create
-a new code chunk named "discrete-variables" below it. Copy and paste the code below into the new code chunk.
+a new code chunk named `exercise-discrete-variables` below it. Copy and paste the code below into the new code chunk.
 
-```{r discrete-variables}
+```{r exercise-discrete-variables}
 # Barplot to work from, with two discrete variables
 base_barplot <- nhanes_tidied %>% 
     ggplot(aes(x = diabetes, fill = sex)) +
@@ -669,12 +669,12 @@ the viridis scheme function.
 changes. Next, change `"A"` to `"E"`.
 
 3. Now, let's practice using the colour schemes on a plot with continuous
-variables. Copy and paste the code below into a new code chunk named "continuous-variables".
+variables. Copy and paste the code below into a new code chunk named `exercise-continuous-variables`.
 Since we are using `colour` instead of `fill`, the `scale_` will be 
 `scale_colour_viridis_c()`. The `_c` at the end indicates the variable will be
 continuous.
 
-    ```{r continuous-variables}
+    ```{r exercise-continuous-variables}
     # Scatterplot to work from, with three continuous variables
     base_scatterplot <- nhanes_tidied %>% 
         ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
@@ -722,7 +722,7 @@ All built-in themes start with `theme_`.
 [ggplot2 theme webpage]: https://ggplot2.tidyverse.org/reference/theme.html
 
 Create a new section header called `# Changing plot appearance` 
-and make a code chunk named "built-in-themes", then copy the code below:
+and make a code chunk named `built-in-themes`, then copy the code below:
 
 ```{r built-in-themes}
 # Create scatterplot to play with themes
@@ -750,7 +750,7 @@ theme_set(theme_bw())
 To add labels such as axis titles to your plot, you can use the function `labs()`.
 To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`.
-For the whole plot, it is `title`. Add a new code chunk named "labels" and type:
+For the whole plot, it is `title`. Add a new code chunk named `labels` and type:
 
 ```{r labels}
 # Add plot title and change axis titles
