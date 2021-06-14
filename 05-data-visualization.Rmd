@@ -3,7 +3,7 @@
 > When in RStudio, quickly jump to this page by using `r3::open_data_visualization()`.
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(message = FALSE, out.width = NULL)
 ```
 
 **Session objectives**:
@@ -161,7 +161,7 @@ It is good practice to create a new code chunk for each plot in R Markdown, to m
 a nice readable code, however, in this session, we are going to experiment with parameters and geoms and will not create a new code chunk for every plot we make. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
 chunk below it and name it `continuous-variables`. Let's take a look at a density distribution plot:
 
-```{r continuous-variables, message=FALSE}
+```{r continuous-variables}
 # Create density plot for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_density()
@@ -169,7 +169,7 @@ ggplot(nhanes_small, aes(x = bmi)) +
 
 Now, let's take a look at a histogram, by typing in the same code chunk:
 
-```{r, message=FALSE}
+```{r}
 # Create histogram for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_histogram()
@@ -230,7 +230,7 @@ you can read the article on why to [avoid barplots] after the course.
 The image below was taken from that paper, and 
 briefly demonstrates why this plot type is not useful. 
 
-```{r barplots-deceive, fig.cap="Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).", echo=FALSE}
+```{r barplots-deceive, fig.cap="Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).", echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
@@ -270,7 +270,7 @@ hex plot, and a smoothing line plot in a new code chunk.
 First, enter a new Markdown header called `# Plotting two variables` and create a 
 code chunk named `2-continuous-variables` below that.
 
-```{r 2-continuous-variables, message=FALSE}
+```{r 2-continuous-variables}
 # Using 2 continuous variables
 bmi_chol <- ggplot(nhanes_tidied, aes(x = bmi, y = tot_chol))
 # Standard scatter plot
@@ -281,7 +281,7 @@ bmi_chol +
 You can see that, with 10,000 data points, the scatterplot is a little crowded.
 To try a more suitable `geom_`, type in the same code chunk:
 
-```{r, message=FALSE}
+```{r}
 # Standard scatter plot, but with hexagons
 bmi_chol + 
     geom_hex()
@@ -292,7 +292,7 @@ based on how many values are in the area of the plot.
 
 You can also draw a smoothing line:
 
-```{r, message=FALSE}
+```{r}
 # Runs a smoothing line with confidence interval
 bmi_chol + 
     geom_smooth()
@@ -302,7 +302,7 @@ This makes a nice smoothing line through the data and gives us an idea of
 general trends or relationships between the two variables. You can also combine
 geoms by adding another one with a `+`.
 
-```{r, message=FALSE}
+```{r}
 # Or combine two geoms, hex plot with smoothing line
 bmi_chol + 
     geom_hex() +
