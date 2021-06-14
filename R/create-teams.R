@@ -104,6 +104,9 @@ instructor_assigned_teams <- tibble(
 )
 instructor_assigned_teams
 
+org_team_repos <- org_repos("r-cubed-2021-06")
 instructor_assigned_teams %>%
+    mutate(teams = glue::glue("[{teams}](https://github.com/{org_team_repos})")) %>%
+    rename_with(str_to_sentence) %>%
     knitr::kable() %>%
     clipr::write_clip()
