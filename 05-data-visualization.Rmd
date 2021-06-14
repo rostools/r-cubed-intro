@@ -11,7 +11,7 @@ knitr::opts_chunk$set(message = FALSE)
 1. Learn and apply the basics of creating publication-quality graphs.
 1. Learn the importance of considering the colours you use in your graphs
 and apply tools that are colour-blind friendly.
-1. Learn why to avoid using commonly used but inappropriate graphs for presenting results.
+1. Learn why to avoid using commonly used, but inappropriate, graphs for presenting results.
 1. Create useful graphs such as boxplots, scatterplots, line graphs,
 jitter plots, and (appropriate) barplots.
 
@@ -53,7 +53,7 @@ it is easier to then implement those "descriptions" in creating a graph.
 There are at least four aspects to using ggplot2 that relate to its "grammar":
 
 - Aesthetics, `aes()`: How data are mapped to the plot, including what
-data is put on the x and y axes, 
+data are put on the x and y axes, 
 and/or whether to use a colour for a variable.
 - Geometries, `geom_` functions: Visual representation of the data, as a
 layer. This tells ggplot2 how the aesthetics should be visualized, including whether they should be shown as points, lines, boxes, bins, or bars.
@@ -67,7 +67,6 @@ and use its functions and settings using tab auto-completion.
 To demonstrate this feature, try typing out `geom_` and then hitting tab. You will get a list of all the geoms available.
 You can use this with `scale_` or the options inside `theme()`. Try typing out `theme(axis.` and then hiting tab, 
 and a list of theme settings related to the axis will pop up.
-ggplot2 also works best with tidy data.
 
 So, why do we teach ggplot2 and not base R plotting?
 Base R plotting functionality is quite good and you can make really nice
@@ -260,7 +259,7 @@ When you have *two continuous* variables, some geoms to use are:
 
 - `geom_point()`, which is used to create a standard scatterplot.
 - `geom_hex()`, which is used to replace `geom_point()` 
-when your data is *massive* and creating points 
+when your data are *massive* and creating points 
 for each value takes too long to plot.
 - `geom_smooth()`, which applies a "regression-type" line to the data
 (default uses LOESS regression).
@@ -280,6 +279,7 @@ bmi_chol +
 ```    
 
 You can see that, with 10,000 data points, the scatterplot is a little crowded.
+To try a more suitable `geom_`, add a new code chunk and type:
 
 ```{r, message=FALSE}
 # Standard scatter plot, but with hexagons
@@ -290,6 +290,8 @@ bmi_chol +
 Notice how the hex plot changes the colour of the data 
 based on how many values are in the area of the plot.
 
+Now add a new code chunk and type:
+
 ```{r, message=FALSE}
 # Runs a smoothing line with confidence interval
 bmi_chol + 
@@ -298,7 +300,7 @@ bmi_chol +
 
 This makes a nice smoothing line through the data and gives us an idea of
 general trends or relationships between the two variables. You can also combine
-geoms by adding another one with a `+`.
+geoms by adding another one with a `+`. In a new code chunk, type:
 
 ```{r, message=FALSE}
 # Or combine two geoms, hex plot with smoothing line
