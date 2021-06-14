@@ -775,7 +775,6 @@ Add a new section header `# Saving the plot` and create a new code chunk:
 ggsave(here::here("doc/images/scatterplot.pdf"), 
        base_scatterplot2, width = 7, height = 5)
 ```
-#Has the images folder been created? I don't have it?
 
 Lastly, let's save the R Markdown file, add and commit the changes, and push to
 GitHub.
