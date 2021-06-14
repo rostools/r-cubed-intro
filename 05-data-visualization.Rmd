@@ -157,17 +157,17 @@ Since BMI is a strong risk factor for diabetes, let's check out the distribution
 There are two good geoms for examining distributions: 
 `geom_density()` and `geom_histogram()`.
 
-In this session, we are going to create a new code chunk for each plot we make to maintain
-a nice readable code, and to practice writing headers and inserting code chunks. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
-chunk below it. Let's take a look at a density distribution plot:
+It is good practice to create a new code chunk for each plot in R Markdown, to maintain
+a nice readable code, however, in this session, we are going to experiment with parameters and geoms and will not create a new code chunk for every plot we make. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
+chunk below it and name it "continuous-variables". Let's take a look at a density distribution plot:
 
-```{r, message=FALSE}
+```{r continuous-variables, message=FALSE}
 # Create density plot for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_density()
 ```
 
-Now, let's take a look at a histogram, by creating a new code chunk again:
+Now, let's take a look at a histogram, by typing in the same code chunk:
 
 ```{r, message=FALSE}
 # Create histogram for BMI
@@ -185,16 +185,16 @@ Well, sadly, there's really only one: `geom_bar()`.
 This isn't a geom for a barplot though; instead, it shows the counts of a discrete variable.
 There are many discrete variables in NHANES, including sex and diabetes, 
 so let's use this geom to visualize those. 
-Again, create a new code chunk, then type:
+Again, create a new code chunk, name it "discrete-variables", then type:
 
-```{r}
+```{r discrete-variables}
 # Create count barplot for sex
 ggplot(nhanes_small, aes(x = sex)) +
     geom_bar()
 ```
 
 We can see that there are almost equal numbers of females and males.
-Now, we'll do the same for the diabetes status variable. In a new code chunk, type:
+Now, we'll do the same for the diabetes status variable. In the same code chunk, type:
 
 ```{r}
 # Create count barplot for diabetes status
@@ -205,7 +205,7 @@ ggplot(nhanes_small, aes(x = diabetes)) +
 For diabetes, it seems that there is some missingness in the data.
 Since diabetes status is an important variable for us, let's remove all missing
 values, save the tidied dataset in the `data/` folder, and plot it again
-in a new code chunk.
+in a new code chunk named "remove-missing-diabetes".
 
 ```{r remove-missing-diabetes}
 # Remove individuals with missing diabetes status
@@ -267,10 +267,10 @@ for each value takes too long to plot.
 Let's check out how BMI may influence cholesterol using a basic scatterplot,
 hex plot, and a smoothing line plot in a new code chunk. 
 
-First, enter a new Markdown header called `# Plotting two variables` and create the 
-code chunk below that.
+First, enter a new Markdown header called `# Plotting two variables` and create a 
+code chunk named "2-continuous-variables" below that.
 
-```{r, message=FALSE}
+```{r 2-continuous-variables, message=FALSE}
 # Using 2 continuous variables
 bmi_chol <- ggplot(nhanes_tidied, aes(x = bmi, y = tot_chol))
 # Standard scatter plot
@@ -279,7 +279,7 @@ bmi_chol +
 ```    
 
 You can see that, with 10,000 data points, the scatterplot is a little crowded.
-To try a more suitable `geom_`, add a new code chunk and type:
+To try a more suitable `geom_`, type in the same code chunk:
 
 ```{r, message=FALSE}
 # Standard scatter plot, but with hexagons
@@ -290,7 +290,7 @@ bmi_chol +
 Notice how the hex plot changes the colour of the data 
 based on how many values are in the area of the plot.
 
-Now add a new code chunk and type:
+You can also draw a smoothing line:
 
 ```{r, message=FALSE}
 # Runs a smoothing line with confidence interval
@@ -300,7 +300,7 @@ bmi_chol +
 
 This makes a nice smoothing line through the data and gives us an idea of
 general trends or relationships between the two variables. You can also combine
-geoms by adding another one with a `+`. In a new code chunk, type:
+geoms by adding another one with a `+`.
 
 ```{r, message=FALSE}
 # Or combine two geoms, hex plot with smoothing line
@@ -315,9 +315,9 @@ Sadly, there are not many options available for plotting two discrete variables,
 The most useful geom for this type of plot is `geom_bar()`, 
 but with an added variable.
 We can use the `geom_bar()` "fill" option to have a certain colour for different levels of a variable.
-Let's use this to see difference in diabetes status between the sexes.
+Let's use this to see difference in diabetes status between the sexes. Create a new code chunk named "2-discrete-variables" and type:
 
-```{r}
+```{r 2-discrete-variables}
 # Two categorical/discrete variables
 # Note that we can pipe data into ggplot
 two_discrete <- nhanes_tidied %>% 
@@ -363,9 +363,9 @@ However, it is not very good when you have lots of data points.
 This geom is great when there is a lot of data 
 and `geom_jitter()` may otherwise appear as a mass of dots.
 
-Let's take a look at these geoms, by plotting how BMI differs between those with or without diabetes.
+Let's take a look at these geoms, by plotting how BMI differs between those with or without diabetes. In a new code chunk named "discrete-continuous-variables", type:
 
-```{r}
+```{r discrete-continuous-variables}
 # Using mixed data
 two_mixed <- nhanes_tidied %>% 
     ggplot(aes(x = diabetes, y = bmi))
@@ -387,14 +387,15 @@ two_mixed +
 Or a violin plot:
 
 ```{r}
-# Show the distribution with a voilin plot
+# Show the distribution with a violin plot
 two_mixed + 
     geom_violin()
 ```
 
 The violin plot kind of looks like two stingrays, eh?
 Before proceeding with the following exercise, take a moment to add
-and commit changes to the Git history, and then push to Github.
+and commit changes to the Git history, and then push to Github. 
+Also, notice the document outline now has a nice index of how to plot the different data types!
 
 ## Exercise: Creating plots with one or two variables
 
@@ -514,7 +515,7 @@ In this section, we'll be covering many of these capabilities in ggplot2.
 The most common and "prettiest" way of adding a third variable is by using colour.
 Let's try to answer a few of the questions below, to visualize some of these features.
 First, create a new header called `# Plotting three or more variables`
-and a code chunk below it.
+and a code chunk named "using-colour" below it.
 
 *Question: Is systolic blood pressure different in those with 
 or without diabetes in females and males?*
@@ -522,7 +523,7 @@ In this case, we have one continuous variable (`bp_sys_ave`)
 and two discrete variables (`sex` and `diabetes`).
 To plot this, we could use `geom_boxplot()`:
 
-```{r}
+```{r using-colour}
 # Plot systolic blood pressure in relation to sex and diabetes status
 nhanes_tidied %>% 
     ggplot(aes(x = sex, y = bp_sys_ave, colour = diabetes)) +
@@ -573,8 +574,9 @@ The first two arguments are:
 For both `cols` and `rows`, the nominated variable must be wrapped by `vars()`
 (e.g. `vars(diabetes)`).
 Let's try it using an example from the previous answer (instead of using `colour`).
+Make a new code chunk named "using-faceting"
 
-```{r}
+```{r using-faceting}
 # Plot BMI in relation to systolic blood pressure and diabetes status using
 # faceting by column
 nhanes_tidied %>% 
@@ -587,7 +589,6 @@ Try faceting with plots stacked by diabetes status, using the argument `rows =
 vars(diabetes)` instead. Which do you find more informative?
 
 ```{r}
-# Plot BMI in relation to systolic blood pressure and diabetes status using
 # faceting by row
 nhanes_tidied %>% 
     ggplot(aes(x = bmi, y = bp_sys_ave)) +
@@ -599,7 +600,6 @@ We can also facet by `sex` and use `age` as a colour:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure, age, sex and diabetes status
-# using faceting
 nhanes_tidied %>% 
     ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
     geom_point() +
@@ -645,9 +645,9 @@ Time: 10 min
 
 Practice changing colour schemes on a bar plot. Start with a base plot object to work from that has two discrete variables. 
 Create a new Markdown header called `# Exercise for changing colours` and create
-a new code chunk below it. Copy and paste the code below into the new code chunk.
+a new code chunk named "discrete-variables" below it. Copy and paste the code below into the new code chunk.
 
-```{r}
+```{r discrete-variables}
 # Barplot to work from, with two discrete variables
 base_barplot <- nhanes_tidied %>% 
     ggplot(aes(x = diabetes, fill = sex)) +
@@ -664,34 +664,34 @@ and use it on the `base_barplot` graph so that the plot is colour blind
 friendly. Because the variables are discrete, you will need to add `_d` to the end of
 the viridis scheme function.
 
-2. Viridis has several palettes. Add the argument `options = "A"` to the
+2. Viridis has several palettes. Add the argument `option = "A"` to the
 `scale_fill_viridis_d()` function. Run the function again and see how the colour
 changes. Next, change `"A"` to `"E"`.
 
 3. Now, let's practice using the colour schemes on a plot with continuous
-variables. Copy and paste the code below into a new code chunk.
+variables. Copy and paste the code below into a new code chunk named "continuous-variables".
 Since we are using `colour` instead of `fill`, the `scale_` will be 
 `scale_colour_viridis_c()`. The `_c` at the end indicates the variable will be
 continuous.
 
-    ```{r}
+    ```{r continuous-variables}
     # Scatterplot to work from, with three continuous variables
     base_scatterplot <- nhanes_tidied %>% 
         ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
         geom_point()
     ```
     
-4. Similar to #2 above, use the `options` argument to set the palette to `"B"` 
+4. Similar to #2 above, use the `option` argument to set the palette to `"B"` 
 and see how the colour changes.
 
 5. Lastly, add and commit the changes to the R Markdown file into the Git history.
 
 ```{r solution-colour-schemes, eval=FALSE, solution=TRUE}
-# 1. change colors to a viridis color scheme
+# 1. change colors to a viridis colour scheme
 base_barplot +
     scale_fill_viridis_d()
 
-# 2. change colors to another viridis color scheme
+# 2. change colours to another viridis color scheme
 base_barplot +
     scale_fill_viridis_d(option = "A")
 
@@ -702,7 +702,7 @@ base_barplot +
 base_scatterplot +
     scale_color_viridis_c()
 
-# 4. change colors to another viridis color scheme
+# 4. change colours to another viridis color scheme
 base_scatterplot +
     scale_color_viridis_c(option = "B")
 ```
@@ -721,7 +721,10 @@ All built-in themes start with `theme_`.
 
 [ggplot2 theme webpage]: https://ggplot2.tidyverse.org/reference/theme.html
 
-```{r}
+Create a new section header called `# Changing plot appearance` 
+and make a code chunk named "built-in-themes", then copy the code below:
+
+```{r built-in-themes}
 # Create scatterplot to play with themes
 base_scatterplot2 <- base_scatterplot +
     facet_grid(rows = vars(diabetes),
@@ -730,7 +733,7 @@ base_scatterplot2 <- base_scatterplot +
 
 # View the plot with the default theme
 base_scatterplot2
-# Some pre-defined themes
+# Test out some pre-defined themes
 base_scatterplot2 + theme_bw()
 base_scatterplot2 + theme_minimal()
 base_scatterplot2 + theme_classic()
@@ -747,9 +750,9 @@ theme_set(theme_bw())
 To add labels such as axis titles to your plot, you can use the function `labs()`.
 To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`.
-For the whole plot, it is `title`:
+For the whole plot, it is `title`. Add a new code chunk named "labels" and type:
 
-```{r}
+```{r labels}
 # Add plot title and change axis titles
 base_scatterplot2 +
     labs(title = "BMI, systolic blood pressure, and age by diabetes and sex",
@@ -765,12 +768,14 @@ as well as the folder location.
 The next argument says which plot to save.
 At this point, you can set the dimensions of the figure 
 using the `width` and `height` arguments.
+Add a new section header `# Saving the plot` and create a new code chunk:
 
 ```{r, eval=FALSE}
 # Save the plot
 ggsave(here::here("doc/images/scatterplot.pdf"), 
        base_scatterplot2, width = 7, height = 5)
 ```
+#Has the images folder been created? I don't have it?
 
 Lastly, let's save the R Markdown file, add and commit the changes, and push to
 GitHub.
@@ -786,6 +791,5 @@ kind of plot), `scale_` (to make the plot pretty), and `theme()`
 - Only use barplots for discrete values. If applying them on continuous
 variables, it hides the distribution of the data.
 - To plot more dimensions, use colour, the X axis, the Y axis, or `facet_grid()`.
-- Use colour blind-friendly palettes, such as `viridis`
-or `ColorBrewer`.
+- Use colour blind-friendly palettes, such as `viridis`.
 - Save plots using `ggsave()`.
