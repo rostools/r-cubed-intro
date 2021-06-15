@@ -1,4 +1,4 @@
-
+# install.packages("bibtex")
 # Convert slides from Rmd to HTML -----------------------------------------
 
 rmarkdown::render(
