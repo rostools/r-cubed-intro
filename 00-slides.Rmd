@@ -6,12 +6,6 @@
 knitr::include_url("slides/introduction.html", height = "250px")
 ```
 
-## [Finding and obtaining open datasets](slides/open-data.html) {-}
-
-```{r, echo=FALSE, out.width="65%"}
-knitr::include_url("slides/open-data.html", height = "250px")
-```
-
 ## [Collaboration and teamwork](slides/collaboration-teamwork.html) {-}
 
 ```{r, echo=FALSE, out.width="65%"}
