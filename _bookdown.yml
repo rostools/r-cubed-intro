@@ -1,8 +1,6 @@
 output_dir: "public"
 book_filename: "r-cubed"
 delete_merged_file: true
-view: https://gitlab.com/rostools/r-cubed/blob/main/%s
-edit: https://gitlab.com/rostools/r-cubed/edit/main/%s
 language:
   ui:
     chapter_name: ""
