@@ -43,27 +43,6 @@ We are in the middle of several exponential growth curves:
 
 ## Open Science is part of several large trends
 
-- Industrialisation of the research work flow
-- Specialisation in research tasks
-
-.pull-left[
-```{r, out.height="75%", out.width="75%"}
-knitr::include_graphics("../images/Cottage_industry.jpg")
-```
-]
-
-.pull-right[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/Powerloom.jpg")
-```
-]
-
-.footnote[Figure: [Spinners and stocking makers](https://wellcomecollection.org/works/r9h5us6f) and [Powerloom Weavers](https://en.wikipedia.org/wiki/Industrial_Revolution#/media/File:Powerloom_weaving_in_1835.jpg).]
-
----
-
-## Open Science is part of several large trends
-
 .pull-left[
 ```{r, out.height="95%", out.width="95%"}
 knitr::include_graphics("../images/UKBB.png")
