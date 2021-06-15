@@ -257,3 +257,20 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: var(--black);
 }
 
+
+
+/* Extra CSS */
+div.my-footer {
+  background-color: #FFFFFF;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 50px;
+  width: 100%;
+}
+div.my-footer span {
+  font-size: 12pt;
+  position: absolute;
+  left: 15px;
+  bottom: 8px;
+}

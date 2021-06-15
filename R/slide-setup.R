@@ -23,6 +23,24 @@ style_mono_accent(
     text_font_size = "26px",
     header_font_google = google_font("Fira Sans"),
     text_font_google = google_font("Crimson Text"),
-    code_font_google = google_font("Source Code Pro"),
-    outfile = here::here("resources/xaringan-themer.css")
+    code_font_google = google_font("Source Code Pro")
+)
+
+xaringanthemer::style_extra_css(
+    list(
+        "div.my-footer" = list(
+            "background-color" = "#FFFFFF",
+            position = "absolute",
+            bottom = "0px",
+            left = "0px",
+            height = "50px",
+            width = "100%"
+        ),
+        "div.my-footer span" = list(
+            "font-size" = "12pt",
+            position = "absolute",
+            left = "15px",
+            bottom = "8px"
+        )
+    )
 )

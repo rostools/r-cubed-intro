@@ -10,7 +10,7 @@ output <- bookdown::render_book('index.Rmd', 'bookdown::bs4_book', quiet = TRUE)
 fs::dir_create(here::here("public", c("resources", "slides")))
 
 # Move slide files and resources over
-slide_css <- fs::dir_ls("resources", glob = "*.css")
+slide_css <- fs::dir_ls("slides", glob = "*.css")
 fs::file_copy(slide_css, fs::path("public/", slide_css), overwrite = TRUE)
 
 image_files <- fs::dir_ls("images", regexp = ".*\\.(png|jpg)$")

@@ -5,7 +5,7 @@ output:
     xaringan::moon_reader:
         self_contained: false
         lib_dir: libs
-        css: ['../resources/xaringan-themer.css', '../resources/custom.css']
+        css: 'xaringan-themer.css'
         nature:
             ratio: "16:9"
             highlightStyle: github
