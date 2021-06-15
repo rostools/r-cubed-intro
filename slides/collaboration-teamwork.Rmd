@@ -62,10 +62,30 @@ knitr::include_graphics("../images/LHC.jpg")
 
 .footnote[[Image from CERN](https://cds.cern.ch/images/CERN-EX-0510029-03).]
 
+---
+
+## Collaboration is the consequence of specialisation
+
+- Increasing complexity of the research work flow
+- Specialisation in research tasks
+
+.pull-left[
+```{r, out.height="75%", out.width="75%"}
+knitr::include_graphics("../images/Cottage_industry.jpg")
+```
+]
+
+.pull-right[
+```{r, out.height="90%", out.width="90%"}
+knitr::include_graphics("../images/Powerloom.jpg")
+```
+]
+
+.footnote[Figure: [Spinners and stocking makers](https://wellcomecollection.org/works/r9h5us6f) and [Powerloom Weavers](https://en.wikipedia.org/wiki/Industrial_Revolution#/media/File:Powerloom_weaving_in_1835.jpg).]
 
 ---
 
-## Why collaborate?
+## Why do researchers collaborate?
 
 -   Sharing and discussing different perspectives and ideas leads to solutions more rapidly
 
@@ -84,28 +104,16 @@ knitr::include_graphics("../images/LHC.jpg")
 
 ---
 
-## Collaboration is widespread
+## The research workflow
 
 .center[
-```{r, out.height="80%", out.width="80%"}
-knitr::include_graphics("../images/Resnet4.png")
+```{r, out.height="70%", out.width="70%"}
+knitr::include_graphics("../images/datalifecycle.jpg")
 ```
 ]
 
-.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
+.footnote[[Diagram Source: University of Virginia Library](https://guides.lib.virginia.edu/c.php?g=515290&p=3522215)]
 
-
----
-
-## Collaboration is widespread
-
-.center[
-```{r, out.height="75%", out.width="75%"}
-knitr::include_graphics("../images/Resnet3.png")
-```
-]
-
-.footnote[Image source from [here](http://olihb.com/2014/08/11/map-of-scientific-collaboration-redux/).]
 
 ---
 
@@ -122,7 +130,7 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 
 ---
 
-## Collaboration is based on agreement
+## Collaboration throughout the research cycle: Initiation
 
 Agreement is needed on:
 -   Goals
@@ -136,7 +144,7 @@ Agreement is needed on:
 
 ---
 
-## Collaboration is based on agreement
+## Collaboration throughout the research cycle: Initiation
 
 Agreement is needed on:
 -   Goals
@@ -154,7 +162,8 @@ Agreement is needed on:
 
 ---
 
-## Collaboration in the research workflow
+
+## Collaboration in the research workflow: Operation
 
 .center[
 ```{r, out.height="60%", out.width="60%"}
@@ -164,9 +173,10 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 
 .footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
 
+
 ---
 
-## Collaboration in the research workflow
+## Collaboration in the research workflow: Operation
 
 .center[
 ```{r, out.height="70%", out.width="70%"}
@@ -176,17 +186,59 @@ knitr::include_graphics("../images/workflow.png")
 
 .footnote[[Diagram by Pilip Guo](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext).]
 
----
 
-## Collaboration in the research workflow
+
+
+---
+## The Coordinated Work Environment
+
 
 .center[
-```{r, out.height="70%", out.width="70%"}
-knitr::include_graphics("../images/datalifecycle.jpg")
+```{r, out.height="40%", out.width="50%"}
+knitr::include_graphics("../images/CWE1.png")
 ```
 ]
 
-.footnote[[Diagram Source: University of Virginia Library](https://guides.lib.virginia.edu/c.php?g=515290&p=3522215)]
+.footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
+
+
+---
+## The Coordinated Work Environment
+
+
+.center[
+```{r, out.height="50%", out.width="60%"}
+knitr::include_graphics("../images/RadiologyWorkflow.png")
+```
+]
+
+.footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
+
+
+
+---
+## The Coordinated Work Environment
+
+
+.center[
+```{r, out.height="60%", out.width="70%"}
+knitr::include_graphics("../images/ObjectWorld.png")
+```
+]
+
+.footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
+
+
+---
+## Tools for creating a suitable Coordinated Work Environment
+
+.center[
+```{r, out.height="90%", out.width="90%"}
+knitr::include_graphics("../images/tools-workflow.png")
+```
+]
+
+.footnote[Figure from [Innovations in Scholarly Communication](https://101innovations.wordpress.com/workflows/).]
 
 
 ---
@@ -197,6 +249,14 @@ knitr::include_graphics("../images/datalifecycle.jpg")
 
 - Enormous variation in scale and scope
 
-- Central point: efficient coordination
+- Central aim: efficient coordination
 
-- Central tools: good communication and structured documentation
+- Takes place at every stage of the research cycle
+
+- Central tools:
+    - good communication
+    - agreement not just on goals but on process:
+      - The Coordinated Work Environment 
+    - structured documentation
+
+
