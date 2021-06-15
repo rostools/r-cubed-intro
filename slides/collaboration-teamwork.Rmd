@@ -26,8 +26,8 @@ source(here::here("R/slide-setup.R"))
 -   Multiple people working on the same problem and exchanging ideas
 -   People pooling expertise, time and resources to achieve a common goal
 
-For example:
 .pull-left[
+For example:
 -   Two researchers jointly writing a paper
 -   Several labs working on a problem together
 -   Multi-site clinical studies in several countries
@@ -40,18 +40,14 @@ For example:
 -   Multiple people working on the same problem and exchanging ideas
 -   People pooling expertise, time and resources to achieve a common goal
 
-For example:
 .pull-left[
+For example:
 -   Two researchers jointly writing a paper
 -   Several labs working on a problem together
 -   Multi-site clinical studies in several countries
 ---
-Collaboration can be organised at different levels:
--   Individuals
--   Departments
--   Institutions
--   Countries
-
+Collaboration can be organised at different levels: Individuals,
+Departments, Institutions, Countries
 ]
 
 .pull-right[
