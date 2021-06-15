@@ -8,13 +8,6 @@ rmarkdown::render(
 )
 
 rmarkdown::render(
-    input = here::here("slides/open-data.Rmd"),
-    # Not use this because links to images need to translate to website
-    # knit_root_dir = here::here("."),
-    quiet = TRUE
-)
-
-rmarkdown::render(
     input = here::here("slides/collaboration-teamwork.Rmd"),
     # Not use this because links to images need to translate to website
     # knit_root_dir = here::here("."),
