@@ -83,10 +83,10 @@ knitr::include_graphics("../images/reproducibility_spectrum.jpg")
 
 ---
 
-## First computationally reproducible paper (eLife - 2018)
+## First computationally reproducible paper
 
 .center[
-```{r, out.height="65%", out.width="65%"}
+```{r, out.width="65%"}
 knitr::include_graphics("../images/elife.png")
 ```
 ]
@@ -99,10 +99,13 @@ knitr::include_graphics("../images/elife.png")
 
 PLOS Computational Biology is running a pilot:
 
-*"We will soon be able to offer expert technical peer review specifically checking that submitted systems biology or physiology-based models run according to the results presented in the manuscript submitted to the journal. The peer review will be delivered in addition to our usual scientific assessment.."*
 
-.center[
-```{r, out.height="60%", out.width="60%"}
+.pull-left[
+*"We will soon be able to offer expert technical peer review specifically checking that submitted systems biology or physiology-based models run according to the results presented in the manuscript submitted to the journal. The peer review will be delivered in addition to our usual scientific assessment.."*
+]
+
+.pull-right[
+```{r, out.width="80%"}
 knitr::include_graphics("../images/PLOSblog.png")
 ```
 ]
@@ -129,26 +132,30 @@ knitr::include_graphics("../images/expmultiverse.png")
 
 --
 
+.pull-left[
 - Lack of awareness
+
 - Tradition, culture and common practices need to change
+
 - 'Business as usual' seems the shortest route to success
 
---
-
 - Tools and training in specific skills needed
+
 - Takes time and dedicated funding
+]
 
 --
 
+.pull-right[
 - Researchers need to see the value in adopting an open reproducible workflow
+
 - Funding and reward systems need to be adapted:
 	- Peer review and Publication
 	- Academic recognition / careers
 	- Research funding mechanisms
 
---
-
 - Law: privacy concerns about sharing data, IP protection, patents, etc
+]
 
 ---
 
@@ -192,18 +199,6 @@ knitr::include_graphics("../images/code-quality.png")
 ]
 
 .footnote[Source from [xkcd](https://www.xkcd.com/1513/).]
-
----
-
-## Knowing the space and finding an efficient workflow
-
-.center[
-```{r, out.height="90%", out.width="90%"}
-knitr::include_graphics("../images/tools-workflow.png")
-```
-]
-
-.footnote[Figure from [Innovations in Scholarly Communication](https://101innovations.wordpress.com/workflows/).]
 
 ---
 
