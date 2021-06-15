@@ -97,7 +97,6 @@ knitr::include_graphics("../images/Powerloom.jpg")
 
 -   Working together can be more motivating than solitary work
 
-
 ---
 
 ## The research workflow
@@ -110,7 +109,6 @@ knitr::include_graphics("../images/datalifecycle.jpg")
 
 .footnote[[Diagram Source: University of Virginia Library](https://guides.lib.virginia.edu/c.php?g=515290&p=3522215)]
 
-
 ---
 
 ## Collaboration in the research workflow
@@ -122,7 +120,6 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 ]
 
 .footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
-
 
 ---
 
@@ -158,7 +155,6 @@ Agreement is needed on:
 
 ---
 
-
 ## Collaboration in the research workflow: Operation
 
 .center[
@@ -168,7 +164,6 @@ knitr::include_graphics("../images/collaboration_cycle.png")
 ]
 
 .footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
-
 
 ---
 
@@ -182,12 +177,8 @@ knitr::include_graphics("../images/workflow.png")
 
 .footnote[[Diagram by Pilip Guo](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext).]
 
-
-
-
 ---
 ## The Coordinated Work Environment
-
 
 .center[
 ```{r, out.height="40%", out.width="50%"}
@@ -197,10 +188,8 @@ knitr::include_graphics("../images/CWE1.png")
 
 .footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
 
-
 ---
 ## The Coordinated Work Environment
-
 
 .center[
 ```{r, out.height="50%", out.width="60%"}
@@ -210,11 +199,8 @@ knitr::include_graphics("../images/RadiologyWorkflow.png")
 
 .footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
 
-
-
 ---
 ## The Coordinated Work Environment
-
 
 .center[
 ```{r, out.height="60%", out.width="70%"}
@@ -223,7 +209,6 @@ knitr::include_graphics("../images/ObjectWorld.png")
 ]
 
 .footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
-
 
 ---
 ## Tools for creating a suitable Coordinated Work Environment
@@ -236,23 +221,19 @@ knitr::include_graphics("../images/tools-workflow.png")
 
 .footnote[Figure from [Innovations in Scholarly Communication](https://101innovations.wordpress.com/workflows/).]
 
-
 ---
-
 ## Summary
 
 - Collaboration is central to modern science
 
 - Enormous variation in scale and scope
 
-- Central aim: efficient coordination
+- Central aim: Efficient coordination
 
 - Takes place at every stage of the research cycle
 
 - Central tools:
-    - good communication
-    - agreement not just on goals but on process:
+    - Good communication
+    - Agreement not just on goals but on process:
       - The Coordinated Work Environment 
-    - structured documentation
-
-
+    - Structured documentation
