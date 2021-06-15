@@ -20,6 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(xaringanthemer)
 style_mono_accent(
     base_color = "#2a2e44",
+    text_font_size = "26px",
     header_font_google = google_font("Fira Sans"),
     text_font_google = google_font("Crimson Text"),
     code_font_google = google_font("Source Code Pro"),
