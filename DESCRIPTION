@@ -72,7 +72,8 @@ Suggests:
     usethis,
     xaringan,
     xaringanthemer,
-    showtext
+    showtext,
+    bibtex
 Remotes: 
     gadenbuie/xaringanthemer,
     hadley/emo,
