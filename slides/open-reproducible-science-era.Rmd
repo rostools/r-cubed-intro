@@ -83,6 +83,24 @@ knitr::include_graphics("../images/reproducibility_spectrum.jpg")
 
 ---
 
+## Figshare
+
+[Figshare: Diabetes](https://figshare.com/search?q=diabetes&amp;sortBy=posted_date&amp;sortType=desc&amp;licenses=1,2,47,52,3,40,49&amp;itemTypes=3&amp;categories=7,48)
+.center[
+&lt;img src="../images/Figshare.png" width="90%" height="90%" /&gt;
+]
+
+---
+
+## Dryad
+
+[Dryad: Diabetes](https://datadryad.org/search?utf8=%E2%9C%93&amp;q=diabetes)
+.center[
+&lt;img src="../images/Dryad.png" width="90%" height="90%" /&gt;
+]
+
+---
+
 ## First computationally reproducible paper
 
 .center[
