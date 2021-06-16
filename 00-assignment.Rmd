@@ -93,9 +93,10 @@ check that all team members can "see" the dataset. If you have documentation on
 the dataset, e.g. variable definitions, put those files in the `data-raw/`
 folder as well.
 
-5. **Create an R script inside `data-raw/` that cleans up and prepares the raw dataset**
+5. **Use the created `data-raw/original-data.R` script to clean up and prepare the raw dataset**
 (as covered in [Data Management](wrangling.html)).
-Save the new dataset in a folder called `data/`. Again, use Git to make and
+Save the new dataset in a folder called `data/` with `usethis::use_data()`. 
+Again, use Git to make and
 manage these changes. You can (and probably should) distribute the tasks of
 exploring the data and figuring out what should be or needs to be cleaned in the
 dataset. It also makes sure that you as a group have a good understanding of the
@@ -139,7 +140,6 @@ so that each member gets practice in making ggplot2 graphs.
     - Decide which figures to include in the report and presentation.
     - Save these figures in the `doc/images/` folder.
     - Add, commit, and push the new images to GitHub.
-
 
 8. **Add discussion items to the `report.Rmd` file**, where you write up a few sentences on some things you liked about doing the project with
     the tools you learned, and a few sentences on some challenges you had in a
