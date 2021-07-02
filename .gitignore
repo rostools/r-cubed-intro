@@ -10,3 +10,5 @@ R/ignore.R
 .Rbuildignore
 _ignore
 data/nhanes_tidied.rda
+slides/libs
+videos/raw
