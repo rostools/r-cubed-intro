@@ -2,13 +2,15 @@ source(here::here("R/ignore.R"))
 library(googledrive)
 library(googlesheets4)
 library(tidyverse)
+library(lubridate)
 
 stop("To prevent accidental sourcing.")
 
 # Import feedback survey data --------------------------------------------------
 
 feedback_survey <- drive_get(id = FEEDBACK_SURVEY_ID) %>%
-    read_sheet()
+    read_sheet() %>%
+    filter(year(Timestamp) == "2021")
 
 # Any duplicate timestamps?
 any(duplicated(feedback_survey$Timestamp))
@@ -24,7 +26,7 @@ long_feedback_survey <- feedback_survey %>%
 # Keep and save the quantitative feedback
 set.seed(125643)
 quantitative_feedback <- long_feedback_survey %>%
-    filter(str_detect(question, "Please complete these questions")) %>%
+    filter(str_detect(question, "Please complete these personal statements")) %>%
         group_by(time_stamp) %>%
     mutate(question = str_remove(question, "Please .* course. ") %>%
                str_remove_all("\\[|\\]"),
@@ -32,14 +34,14 @@ quantitative_feedback <- long_feedback_survey %>%
         ungroup() %>%
     select(id, survey_item = question, response)
 
-write_csv(quantitative_feedback, here::here("feedback/2020-06-quantitative.csv"))
+write_csv(quantitative_feedback, here::here("feedback/2021-06-quantitative.csv"))
 
 # Keep and save the general feedback
 overall_feedback <- long_feedback_survey %>%
     filter(str_detect(question, "other feedback")) %>%
     select(response)
 
-write_csv(overall_feedback, here::here("feedback/2020-06-overall.csv"))
+write_csv(overall_feedback, here::here("feedback/2021-06-overall.csv"))
 
 # Keep and save the session specific feedback
 session_feedback <- long_feedback_survey %>%
@@ -56,4 +58,4 @@ session_feedback <- long_feedback_survey %>%
     arrange(day, session) %>%
     select(-time_stamp)
 
-write_csv(session_feedback, here::here("feedback/2020-06-session-specific.csv"))
+write_csv(session_feedback, here::here("feedback/2021-06-session-specific.csv"))

@@ -1,0 +1,127 @@
+day,session,worked_well,could_be_improved
+Day 1,Management of R projects,Group sessions,Nothing
+Day 1,Management of R projects,Code-along,It runs really good.
+Day 1,Management of R projects,The hands on were really great,Maybe we need more pre course work to prevent errors?
+Day 1,Management of R projects,Very nice decriptions,A bit confusing with all the abrreivation and what the commands are used for.
+Day 1,Management of R projects,everything,i don´t know
+Day 1,Management of R projects,code-along and help from instructor and helpers,"start with overview of the purpose of codes, as code-along is detail oriented"
+Day 1,Management of R projects,learned alot got alot of help,"it was great, happy to be back in person"
+Day 1,Management of R projects,The hands-on exercises,Maybe a bit more explanation of what the packages are or why we are doing this (but that could be way too advanced - I don't know yet)
+Day 1,Management of R projects,"Intro to structure of file-system and teaching of ""good habits"" when coding in R",Explanation of the use of prodigenr and mentioning alternatives
+Day 1,Management of R projects,The hands-on and explanation. The pace of the class,Nothing specific
+Day 1,Management of R projects,getting started,"personally, I find it difficult to type a lot of commands without using hte commands on a dataset, but we have to start somewhere"
+Day 1,Management of R projects,great introduction,not much
+Day 1,Management of R projects,The code along sessions,"To get a better understanding of the purpose of the different tasks, data examples would be good."
+Day 1,Management of R projects,Nice with code along,"8.7: Clone it to your desktop, was not really clear"
+Day 1,Management of R projects,code-along,more time
+Day 1,Management of R projects,It gave a nice introduction to R studio,"I am still somehow confused about how Rstudio works, but I expect it to change within the next two days :-)"
+Day 1,Management of R projects,"Everything! Especially, code-along and help from the instructors.",More consistence in introduction in why are we doing the small.
+Day 1,Management of R projects,"I think that everything worked well but I am a bit confused in general. However, I guess everything will fall into place during the next days:-)",I don´t have any specific feedback.
+Day 1,Management of R projects,"BAsically everything worked well. The material is clear and it's nice that most of the coding is done as ""code along"".",Perhaps a little more pre-course preparation would be nice to get some background knowledge of git - basically just reading the material that we read during the day. I just find it hard to concentrate on reading rather than listening or watching during the course day.
+Day 1,Management of R projects,There was good time for the practise part of the sessíon,a bit more information on why we load the different packages/background on how R works
+Day 1,Management of R projects,"The whole thing worked well. Especially, the combined code-along and reading-time.","Maybe a little more explanation for certain steps - what does it mean, what does it do, why do we do it. But otherwise very good"
+Day 1,Management of R projects,Coding along worked very well,I don't know
+Day 1,Management of R projects,Very nice that everything is written out in the booklet/material if you loose track (or like me have too bad eyesight to see what is being typed on the overhead).,Maybe a little tiny bit more explanation on the progedinr.
+Day 1,Management of R projects,"Learning the style of ""good code"", how to make a R project, the general structure/setup of a project, the code-alongs",Knowing how to store variables seemed misplaced. Although for less experienced users it might have been needed.
+Day 1,Management of R projects,"Everything! Especially, code-along and help from the instructors.",More consistence in introduction in why are we doing the small.
+Day 1,Management of R projects,following the instructions,understanding what the instructions more- why exactly we put the code the way we do. There could be like slide presentation with few examples where arrows indicate what is what - pre course material for the very beginners
+Day 1,Version control and collaborative practices,Everything,Nothing
+Day 1,Version control and collaborative practices,The stepwise approach,"I would like to move faster, but I guess this would be difficult"
+Day 1,Version control and collaborative practices,This was a really practical session. It is clear why we need version control.,This one moved a lot slower for some reason. Maybe people had more complicated errors.
+Day 1,Version control and collaborative practices,Very nice decriptions,nothing
+Day 1,Version control and collaborative practices,everything,i don´t know
+Day 1,Version control and collaborative practices,code-along and help from instructor and helpers,"start with overview of the purpose of codes, as code-along is detail oriented"
+Day 1,Version control and collaborative practices,all,better projector
+Day 1,Version control and collaborative practices,Hands-on exercises,can't think of anything
+Day 1,Version control and collaborative practices,Introduction to using git,More information on how to collaborate with others and how to collaborate on e.g. a manuscript.
+Day 1,Version control and collaborative practices,Practice exercises and pace,"Got slightly tired by the EOD, (might not be a productive feedback :/). Slightly worried if I will remember this tomorrow."
+Day 1,Version control and collaborative practices,"The alternation between read-youself, lectures and the asignments","Not much, better than the morning session"
+Day 1,Version control and collaborative practices,very interesting and great to be hands on,it is a bit long towards the end of the day
+Day 1,Version control and collaborative practices,Good figures,?
+Day 1,Version control and collaborative practices,"My R didn't really work, so I got a lot of help and didn't follow Luke",I think it is nice if R works
+Day 1,Version control and collaborative practices,The exercises,?
+Day 1,Version control and collaborative practices,"Despite Git being complex, the session gave us a nice insight into how R and Git works and why it is useful",Nothing
+Day 1,Version control and collaborative practices,"Everything! Especially, code-along and help from the instructors. And the repetition of the assignment (repetitions makes perfect)",I have nothing to add here
+Day 1,Version control and collaborative practices,It was nice repeating everything.,I don´t have any specific feedback.
+Day 1,Version control and collaborative practices,"Same as for ""Management of R projects"" session.","See previous answer for ""Management of R projects"" session""."
+Day 1,Version control and collaborative practices,"That we did the commit push pull many times - that helped me understanding better how Rstudio, GIt and Github are linked/connected","I felt that we went a bit fast over the ""Work a long"" parts so I had a hard time actually following the coding"
+Day 1,Version control and collaborative practices,Really good examples and explanations on why Git is handy to use,Learning a bit more about history - that you can see the changes you've made there.
+Day 1,Version control and collaborative practices,I have a hard time telling the different part apart,As above
+Day 1,Version control and collaborative practices,Same as above.,nothing comes to mind
+Day 1,Version control and collaborative practices,See how the edits where saved/or not - how to fix it/deal with it.,"Once the connection between GitHub and the local computer was made, then it was ""easy"", but getting there was a bit difficult, with a lot of rebooting/refreshing - not knowing what the actual problem was."
+Day 1,Version control and collaborative practices,"Everything! Especially, code-along and help from the instructors. And the repetition of the assignment (repetitions makes perfect)",I have nothing to add here
+Day 1,Version control and collaborative practices,communicating with the server,NA
+Day 2,Creating reproducible documents,Everything,Nothing
+Day 2,Creating reproducible documents,x,We didn't have time enough to go through all the exercises
+Day 2,Creating reproducible documents,"really thorough explaination by Hannah, very pedagogical",a little long in the end
+Day 2,Creating reproducible documents,That was a fun and useful session.,It would be good to explain a bit more exactly how that goes into your workflow (like getting stuff right in the scripts and then pasting the relevant bit to the markdown as an example)
+Day 2,Creating reproducible documents,Individual exercises,Information on how to cooperate with non-R users (ie. supervisors).
+Day 2,Creating reproducible documents,repetitive exercises,nothing specific
+Day 2,Creating reproducible documents,"As we went along it started to make sense, why you should do this",Long day....
+Day 2,Creating reproducible documents,learned lots,explain pipes again
+Day 2,Creating reproducible documents,code along and lecture,More time
+Day 2,Creating reproducible documents,Very interesting to learn the knit function to see what we can do,Perhaps spend more time on this section as it was much harder that the earlier session (or could be that we are tired at the end of the day)
+Day 2,Creating reproducible documents,Code-along is working well,?
+Day 2,Creating reproducible documents,Code-along,"Clearer overview, many details"
+Day 2,Creating reproducible documents,everything,nothing
+Day 2,Creating reproducible documents,Nice lecture by Daniel. Very clear rmarkdown session.,NA
+Day 2,Creating reproducible documents,Coding along,I was very tired at the end of the day. Maybe the days should not be this long.
+Day 2,Creating reproducible documents,code-along,It was difficult to do the exercises
+Day 2,Creating reproducible documents,Same answer as above: Doing code-along and then exercises works very well.,I do not have any suggestions.
+Day 2,Creating reproducible documents,The walk-thought was good,"The lack of time, meant that parts were skipped - sadly."
+Day 2,Creating reproducible documents,Really useful and cool thing to learn R markdown.,It went a bit too fast for me/too bad we had to skip some sections due to time. But then again one can just play around later since it's open source learning material B-)
+Day 2,Creating reproducible documents,It was nice to finally get an idea of what markdown is,"a bit more on how it is actually ""build""/structured before starting to add text/code to the document."
+Day 2,Creating reproducible documents,Good lecture but I prefer the code-alongs,See comments above
+Day 2,Creating reproducible documents,following,NA
+Day 2,Creating reproducible documents,"Everything, started simple and then go more complicated. I feel very suited for using Markdown.",I think the advanced exercise could be better described. More specific what and why we are doing?
+Day 2,Creating reproducible documents,Very helpful introduction to RMarkdown. Good examples and it makes great sense as a tool.,A bit more time
+Day 2,Creating reproducible documents,"Everything, started simple and then go more complicated. I feel very suited for using Markdown.",I think the advanced exercise could be better described. More specific what and why we are doing?
+Day 2,Data management and wrangling,Everything,Nothing
+Day 2,Data management and wrangling,We have lots of time to fulfill every exercise,x
+Day 2,Data management and wrangling,easy to follow along,not much
+Day 2,Data management and wrangling,"It was very clear how to use the code, and pipe operators were really great",That session went very slow for me. I think we could have gone faster.
+Day 2,Data management and wrangling,Individual exercises,"More exercises, maybe on group-level, and less code along."
+Day 2,Data management and wrangling,Exercises,Nothing specific
+Day 2,Data management and wrangling,It was nice to start working with data,Went a bit slow
+Day 2,Data management and wrangling,learned tons of hands on data,too much time for some and too little for other tasks
+Day 2,Data management and wrangling,Code along,More breaks
+Day 2,Data management and wrangling,The code-along sessions were very good,We could have sped up a little to finish the exercises
+Day 2,Data management and wrangling,We had some data to work with.,?
+Day 2,Data management and wrangling,Code-along is nice,Less time on 9.1
+Day 2,Data management and wrangling,everything,nothing
+Day 2,Data management and wrangling,"NIce, slow and clear code-along!",NA
+Day 2,Data management and wrangling,It worked very well with coding along and trying it on a real data set. Everything was very concrete and I understood how R could be useful.,NA
+Day 2,Data management and wrangling,That we worked on a real data set,?
+Day 2,Data management and wrangling,Things are starting to fall into place. Doing code-along and then exercises works very well.,I do not have any suggestions.
+Day 2,Data management and wrangling,"Getting to know how to alter/change your dataset, and make simple calculations. This worked well for all session: the stickies :)","The ungroup part made sense, but it still threw an ""error"". Learning how to add error-terms (SDs, CI95%) to the table would be nice"
+Day 2,Data management and wrangling,Code-along was nice.,It's a bit too bad that you visually couldn't see the console output during the wrangling code-along. It's very nice to physically see that you added e.g. the log_height column.
+Day 2,Data management and wrangling,It was nice to get some basic feeling of R-codes and to have focus on the basic Things to do before actually making dataanalysis/figures,"a bit more on why the coding is as it is, i.e. when do we have a function and what is arguments and how do the link to each other"
+Day 2,Data management and wrangling,It was really good to code along. It could be nice to also get an example why it is ness for clean the data.,It is good - no comments
+Day 2,Data management and wrangling,Getting help anytime you need,more Translating R language to our language
+Day 2,Data management and wrangling,"Good introduction of all the basics stuff, and good expertise in the more advance pipelines",Don't have anything on the top of my head
+Day 2,Data management and wrangling,It worked well with the examples on messy and tidy data sets. Really helpful with all renaming tasks etc. - the basics are soo good!,"It may be just me, but I was missing a bit more explanation on the pipe"
+Day 2,Data management and wrangling,"Good introduction of all the basics stuff, and good expertise in the more advance pipelines",Don't have anything on the top of my head
+Day 3,Data visualization,learned lots about plottings,nothing
+Day 3,Data visualization,Everything,Nothing
+Day 3,Data visualization,code-along,Worked well
+Day 3,Data visualization,everything,nothing
+Day 3,Data visualization,There was time to look into the figures.,x
+Day 3,Data visualization,Code along and exercises,Nothing
+Day 3,Data visualization,Data visualization with coding along was great!!!,Learning how to changed name of columns e.g. diabetes yes no
+Day 3,Data visualization,Covered a lot of graphs and how and when to make them. I like how it was organized,"I think we need more resources for how to customize graphs. Maybe an ""optional"" thing with a few key ways to modify graphs? Because otherwise I feel it is hard to convince people to move from something like Prism."
+Day 3,Data visualization,It provides with a great overall skill in data visualization.,"Get to know how choose specific colors, fond and the design of figure"
+Day 3,Data visualization,"Super cool. It was nice to see the feature, and the possibilities.",It was just perfect. The pace and details were appropiate
+Day 3,Data visualization,very pretty graphs,"it sometimes went a little fast and then the screen moved to the image, so we couldnt see the code"
+Day 3,Data visualization,Individual assignments,Maybe do a little less repitition - many of the graphs in the code along was very similar.
+Day 3,Data visualization,Hands-on was great! All of it was nice,Nothing specific
+Day 3,Data visualization,Instructions were very clear and it was really nice to make the figures,can't think of anything
+Day 3,Data visualization,Again I really like the code-along sections. It works very well.,I do not have any feedback.
+Day 3,Data visualization,Code-along,?
+Day 3,Data visualization,NA,all good
+Day 3,Data visualization,Good to see all the examples of different data visualization in R. Coding along is good.,?
+Day 3,Data visualization,"Nice to try a lot of different plots, grams etc. with both discrete and continuous variables. Code-along sessions worked very well",NA
+Day 3,Data visualization,That we were through so many different figure styles,Nothing
+Day 3,Data visualization,The code along was super nice. Very excited to implement ggplot2 in my work.,Nothing comes to mind.
+Day 3,Data visualization,"The instructor was good at saying what she typed, i.e. ""this is the package, this is the function in the package"" etc.",can't come up with anything
+Day 3,Data visualization,Showing how to utilize the %>% together with geom_ . Working directly in the R markdown was also great,"More a general thing; it could also be practical if some of the scripts did not work, and one would have to figure out why/how to fix it."
+Day 3,Data visualization,"As for the previous sessions and days, the code-along format works very well!","Perhaps a few practical examples of why it's better to use ggplot instead of base R plotting? And in general,  a short explanation of how and when different packages work together and when they don't?"
