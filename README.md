@@ -1,7 +1,7 @@
 # r-cubed: An Introductory Workshop on Modern Data Analyses and Workflows for Reproducible Research in R <img src="images/apple-touch-icon.png" align="right" height=100/>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4520016.svg)](https://doi.org/10.5281/zenodo.4520016)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
 [![status](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2/status.svg)](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2)
 
 ## Description
@@ -120,26 +120,31 @@ session material, as well as reviewed multiple other sections.
 
 Please cite the material as:
 
-> Luke W. Johnston, Helene Bæk Juel, Bettina Lengger, & Daniel R. Witte. (2020,
-June). rostools/r-cubed: Reproducible Research in R - An introductory workshop
-on modern data analyses and workflows (Version v2.0). Zenodo.
-http://doi.org/10.5281/zenodo.3921894
+> Johnston, Luke W., Juel, Helene Bæk, Lengger, Bettina, Witte, Daniel R.,
+Chatwin, Hannah, Christiansen, Malene Revsbech, & Isaksen, Anders Aasted. (2020,
+June 29). rostools/r-cubed: Reproducible Research in R - An introductory
+workshop on modern data analyses and workflows. Zenodo.
+https://doi.org/10.5281/zenodo.3921893
 
 Or as BibTeX:
 
 ```
-@misc{luke_w_johnston_2020_3921894,
-  author       = {Luke W. Johnston and
-                  Helene Bæk Juel and
-                  Bettina Lengger and
-                  Daniel R. Witte},
+@misc{johnston_luke_w_2020_3921893,
+  author       = {Johnston, Luke W. and
+                  Juel, Helene Bæk and
+                  Lengger, Bettina and
+                  Witte, Daniel R. and
+                  Chatwin, Hannah and
+                  Christiansen, Malene Revsbech and
+                  Isaksen, Anders Aasted},
   title        = {{rostools/r-cubed: Reproducible Research in R - An 
                    introductory workshop on modern data analyses and
                    workflows}},
   month        = jun,
   year         = 2020,
   publisher    = {Zenodo},
-  version      = {v2.0},
-  doi          = {10.5281/zenodo.3921894},
-  url          = {https://doi.org/10.5281/zenodo.3921894}
-}```
+  version      = {v3.0},
+  doi          = {10.5281/zenodo.3921893},
+  url          = {https://doi.org/10.5281/zenodo.3921893}
+}
+```
