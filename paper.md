@@ -71,7 +71,7 @@ sub-modules. We have specifically designed the module as an open educational
 resource that 1) instructors can make use of directly or modify for their own
 lessons and 2) learners can use independently or as a reference after
 participating in the workshop. All content is available for re-use under CC-BY
-and MIT Licenses.
+License.
 
 # Statement of Need
 

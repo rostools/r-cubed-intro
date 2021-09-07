@@ -25,7 +25,6 @@ knitr::write_bib(
 
 [![GitLab repository](https://img.shields.io/badge/Repository-Source%20material-blue?style=flat&logo=gitlab)](https://gitlab.com/rostools/r-cubed)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921894.svg)](https://doi.org/10.5281/zenodo.3921894)
 
 The course is designed as a series of participatory live-coding lessons, where
@@ -82,9 +81,7 @@ and instructing their own workshops.
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
 
 The course material is licensed under the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-and the course code is licensed under a 
-[MIT License](https://gitlab.com/rostools/r-cubed/-/blob/main/LICENSE-MIT.md),
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/),
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
 

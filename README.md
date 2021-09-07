@@ -1,7 +1,6 @@
 # r-cubed: An Introductory Workshop on Modern Data Analyses and Workflows for Reproducible Research in R <img src="images/apple-touch-icon.png" align="right" height=100/>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4520016.svg)](https://doi.org/10.5281/zenodo.4520016)
 [![status](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2/status.svg)](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2)
 
