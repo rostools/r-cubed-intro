@@ -218,8 +218,6 @@ document ID for the survey results.
 
 Other scripts are used within the material to generate content or do other tasks:
 
-- `extract-solutions.R`: This script contains a function to extract solutions
-from each of the exercises and prints them in the `resources.Rmd` section.
 - `slide-setup.R`: Contains code that sets up the themes, options, and 
 reference management for the slides in `slides/`.
 
