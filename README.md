@@ -54,13 +54,16 @@ conventions from that package.
 [xaringan]: https://github.com/yihui/xaringan
 [bookdown]: https://bookdown.org/yihui/bookdown/
 
-## Contributing
+## Contributing and re-use
 
 If you are interested in contributing to the course material, please refer to
-the [contributing guidelines](CONTRIBUTING.md). Please note that the
-project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to
-abide by its terms.
+the [contributing guidelines](CONTRIBUTING.md). If you want guidelines on how
+to teach or be a helper with this material, check out the 
+[For Instructors](https://r-cubed.rostools.org/for-instructors.html)
+section of the web content.
+Please note that the project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By contributing to or being involved in this project, 
+you agree to abide by its terms.
 
 ## Acknowledgements
 

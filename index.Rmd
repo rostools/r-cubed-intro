@@ -91,6 +91,9 @@ The course material is licensed under the
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/),
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
+Check out the [CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
+guidelines and the [For Instructors](for-instructors.html) section for more
+details and tips on using this material.
 
 ## Previous versions
 
