@@ -4,5 +4,7 @@ bookdown::bs4_book:
     includes:
         before_body:
             - "resources/contribute.html"
-    repo: "https://gitlab.com/rostools/r-cubed"
+    repo:
+        base: "https://gitlab.com/rostools/r-cubed"
+        branch: main
 
