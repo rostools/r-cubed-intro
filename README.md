@@ -54,17 +54,6 @@ conventions from that package.
 [xaringan]: https://github.com/yihui/xaringan
 [bookdown]: https://bookdown.org/yihui/bookdown/
 
-## Installing necessary packages
-
-Packages used and depended on for this course are included in the `DESCRIPTION`
-file. To install the packages, run this function in the root directory (where
-the `r-cubed.Rproj` file is located:
-
-```r
-# install.packages("remotes")
-remotes::install_deps()
-```
-
 ## Contributing
 
 If you are interested in contributing to the course material, please refer to

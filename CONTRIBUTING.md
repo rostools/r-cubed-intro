@@ -17,7 +17,7 @@ In particular, check the
 label to find topics that are specifically to get your feedback and thoughts. As 
 always, make sure to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-## Adding to lesson material :pencil: :computer:
+## Adding to or editing lesson material :pencil: :computer:
 
 The lesson material and website are created using [bookdown](https://bookdown.org/yihui/bookdown/),
 which renders the R Markdown documents and converts the source material into 
@@ -72,6 +72,32 @@ and the below command to reduce the video file size:
 
 ```
 ffmpeg -i input.mp4 -crf 28 output.mp4
+```
+
+### (Re-)Building the website
+
+In order to build the website, you need to have the dependent packages installed.
+Packages used and depended on for this course are included in the `DESCRIPTION`
+file. To install the packages, run this function in the root directory (where
+the `r-cubed.Rproj` file is located:
+
+```r
+# install.packages("remotes")
+remotes::install_deps()
+```
+
+To re-build the slides from the R Markdown source in `slides/` run the
+`R/build-slides.R` script:
+
+```r
+source("R/build-slides.R")
+```
+
+To re-build the website from the source R Markdown files, either hit `Ctrl-Shift-B`
+while in the RStudio `r-cubed.Rproj` Project or run:
+
+```r
+source("_build.R")
 ```
 
 ## Teaching in class :information_desk_person: :speech_balloon:
