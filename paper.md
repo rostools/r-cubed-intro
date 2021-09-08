@@ -66,12 +66,12 @@ computational learning module we have developed and described below aims to
 introduce and improve skills in R, reproducibility, and open science for
 researchers in the biomedical field, with a focus on diabetes research.
 
-The `r-cubed` learning module is structured as a three-day workshop, with five
-sub-modules. We have specifically designed the module as an open educational
-resource that 1) instructors can make use of directly or modify for their own
-lessons and 2) learners can use independently or as a reference after
-participating in the workshop. All content is available for re-use under CC-BY
-License.
+The `r-cubed` (**R**eproducible **R**esearch in **R** or R3) learning module is
+structured as a three-day workshop, with five sub-modules. We have specifically
+designed the module as an open educational resource that 1) instructors can make
+use of directly or modify for their own lessons and 2) learners can use
+independently or as a reference after participating in the workshop. All content
+is available for re-use under CC-BY License.
 
 # Statement of Need
 
@@ -132,9 +132,13 @@ Details on how these lessons can be used or structured are found in
 |Sub-module|Description|
 |---|---|
 |Management of R Projects|Introducing RStudio and R Projects; using packages, data, and file paths; and learning how to troubleshoot.|
+|||
 |Version Control with Git|Using Git with RStudio; synchronizing Git with GitHub; dealing with file conflicts; and using Git as a collaboration tool.|
+|||
 |Data Management and Wrangling|Introducing good working practices; loading data and packages into RStudio; and transforming data using select, rename, filter, arrange, and split-apply-combine functions.|
+|||
 |Analytically Reproducible Documents|Introducing and using R Markdown to insert code, tables, and figures to make a reproducible document.|
+|||
 |Data Visualization|Plotting various combinations of variables and using formatting effectively.|
 
 Table: An overview of the five sub-modules that form the `r-cubed` learning module.
@@ -160,8 +164,11 @@ to help with troubleshooting and to facilitate a positive learning experience ov
 |Method|Description|Advantages|
 |---|---|---|
 |Participatory live-coding lessons|Participants join with instructors to write and troubleshoot code step-by-step.|Encourages participants to actively engage with the material, to build muscle memory through typing, and to learn how to handle mistakes, rather than passively observing content.|
+||||
 |Independent reading of specific sections|Participants read more concept-heavy content at their own pace.|Including reading activities provides diverse learning opportunities aside from listening skills, can be advantageous for non-native English speakers, and can slow the pace of learning to enhance retention.|
+||||
 |Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content.|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace.|
+||||
 |Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data.|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills.|
 
 Table: Description of pedagogical methods used throughout the workshop.
