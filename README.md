@@ -83,30 +83,8 @@ Most of the material comes from a course we taught for the Danish Diabetes Acade
 in March, 2019:
 [*"Reproducible Quantitative Methods: Data analysis workflow using R"*](https://v1--dda-rcourse.netlify.com/).
 
-### Contributions
-
-Contributors for [version 1](https://v1--dda-rcourse.netlify.app/) were:
-
-- Luke Johnston: Brainstormed most of the course material and structure; set up
-the website; organized and coordinated the course; wrote, prepared, and taught
-most of the code-along sessions, as well as several lectures.
-- Daniel Witte: Participated in brainstorming on the course structure and
-laytout; prepared and taught most of the lectures.
-- João Santiago: Taught and edited the R Markdown code-along session material.
-- Anna Schritz: Taught and edited the Data Management and Wrangling code-along
-session material.
-- Omar Silverman (helper) proofread and provided feedback on the material for several
-sessions.
-
-Specific contributions for version 2 (this repository) were:
-
-- Luke Johnston: Coordinated the course, developed the material,
-set up the website, and taught multiple sessions.
-- Daniel Witte: Prepared and taught most of the lectures.
-- Helene Baek Juel: Edited and taught the Data Visualization code-along session material,
-as well as reviewed multiple other sections.
-- Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
-session material, as well as reviewed multiple other sections.
+A list of contributors to each version and their roles can be found on the 
+[website](https://r-cubed.rostools.org/index.html#contributors).
 
 ### How to cite the material
 
