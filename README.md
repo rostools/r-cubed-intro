@@ -65,24 +65,8 @@ Please note that the project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to or being involved in this project, 
 you agree to abide by its terms.
 
-## Acknowledgements
-
-Much of the lesson material was taken and modified from multiple sources (most
-of which Luke W. Johnston has created, been involved in, or contributed to), including:
-
-- [UofTCoders Reproducible Quantitative Methods for EEB](https://uoftcoders.github.io/rcourse/) 
-(which I helped develop and is the inspiration and basis for this course)
-- [Software and Data Carpentry](https://carpentries.org/) workshop material
-- [UofTCoders material](https://uoftcoders.github.io/studyGroup/lessons/)
-and [AU CRU material](https://au-cru.github.io/),
-from the peer led and contributed lessons of each
-- [Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/)
-course template
-
-Most of the material comes from a course we taught for the Danish Diabetes Academy 
-in March, 2019:
-[*"Reproducible Quantitative Methods: Data analysis workflow using R"*](https://v1--dda-rcourse.netlify.com/).
-
+For details of the license and acknowledgement of content used from sources,
+see the [license page of the website](https://r-cubed.rostools.org/license.html).
 A list of contributors to each version and their roles can be found on the 
 [website](https://r-cubed.rostools.org/index.html#contributors).
 
