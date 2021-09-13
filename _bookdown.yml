@@ -7,6 +7,7 @@ language:
 rmd_files:
     - "index.Rmd"
     - "content/00-syllabus.Rmd"
+    - "content/00-schedule.Rmd"
     - "content/01-project-management.Rmd"
     - "content/02-version-control.Rmd"
     - "content/03-data-management.Rmd"

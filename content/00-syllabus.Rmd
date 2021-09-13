@@ -71,18 +71,3 @@ perspective (i.e. by including a collaborative group project that uses a transpa
 and reproducible analysis workflow).
 - We *do* teach using practical, applied, and hands-on lessons and exercises, 
 with a few short lectures that introduce a topic.
-
-## General schedule
-
-The course is structured as a series of participatory live-coding sessions interspersed with hands-on exercises
-and group work, using either a practice dataset or some other real-world dataset.
-There are some lectures given, mainly at the start and end of the course.
-The general schedule outline is shown in the below table. This is not a fixed
-schedule of the timings of each session --- some may be shorter and others may be
-longer. Instead, it is meant to be an approximate guide and overview.
-
-```{r schedule-table, echo=FALSE, message=FALSE, warning=FALSE}
-options(knitr.kable.NA = "")
-schedule <- readr::read_csv(here::here("resources/schedule.csv"))
-knitr::kable(schedule, align = "l", caption = "General schedule for the 3 days of the course.")
-```
