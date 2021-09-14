@@ -38,7 +38,7 @@ use relevant examples where possible.
 
 [R]: https://www.r-project.org/
 
-## Is this course for you?
+## Is this course for you? {#is-it-for-you}
 
 To help manage expectations and develop the material for this course, we make a
 few assumptions about *who you are* as a participant in the course:

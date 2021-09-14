@@ -76,7 +76,11 @@ to make comments and give feedback on the material.
 This website and its content are targeted to three groups:
 
 1. For the **learners** to use during the course, both to follow along in case they get
-lost and also to use as a reference after the course ends.
+lost and also to use as a reference after the course ends. The learner is someone
+who is currently or will soon actively be doing research (e.g. a PhD or postdoc),
+who is likely in biomedical research, and who has no or little knowledge on coding
+in R. A more detailed description of who the learner is can be found in
+Section \@ref(is-it-for-you).
 2. For the **instructors** to use as a guide for when they do the code-along
 sessions and lectures.
 3. For those who are **interested in teaching**, who may not have much experience
