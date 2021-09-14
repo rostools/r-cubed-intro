@@ -41,10 +41,10 @@ and is designed to be completed in RStudio using the R Markdown format.
 The teaching material is found mainly in the main project folder:
 
 - `index.Rmd`: Contains the overview of the course.
-- `00-syllabus.Rmd`: Contains the syllabus and the schedule files.
-- Files starting with a number: 
-Contains the code-along teaching material, as well as
-associated links to the lecture slides. 
+- `content/` folder: Contains the files used during the course (e.g. code-along
+material) as well as the syllabus and schedule.
+- `appendix/` folder: Contains the files used to support the course, such as
+pre-course tasks, code of conduct, resources, and instructions for instructors.
 - `slides/`: The lecture slides are rendered into HTML slides using
 the [xaringan] package. 
 
