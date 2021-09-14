@@ -3,6 +3,7 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
 [![status](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2/status.svg)](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2)
+[![pipeline status](https://gitlab.com/rostools/r-cubed/badges/main/pipeline.svg)](https://gitlab.com/rostools/r-cubed/-/commits/main) 
 
 ## Description
 
