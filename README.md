@@ -15,7 +15,8 @@ This repository contains the lesson, lecture, and assignment material for the
 course, including the website source files and other associated course
 administration files. 
 
-For more detail on the course, check out the [syllabus](https://r-cubed.rostools.org/syllabus.html).
+For more detail on the course, check out the [welcome page](https://r-cubed.rostools.org/)
+and the [syllabus](https://r-cubed.rostools.org/syllabus.html).
 For re-using and learning more about the course, check out our [paper](paper.md)
 describing it.
 
