@@ -25,7 +25,7 @@ which this course aims to address.
 However, being reproducible isn't just about doing better science. It can also mean that:
 
 1. You are much more efficient and productive, as less time is spent between
-coding and transfering your results to a document. No need to copy and paste!
+coding and transferring your results to a document. No need to copy and paste!
 1. You can be confident in your results, 
 since what you report 
 and show as figures or tables will be exactly what you get from your analysis. 
@@ -76,7 +76,7 @@ project](https://www.collabra.org/article/10.1525/collabra.71/)).
 - Book chapters (including the guide to
 [bookdown](https://github.com/rstudio/bookdown/blob/master/inst/examples/01-introduction.Rmd)).
 
-For now, we're going to focus on the main reason that RMarkdown is used:
+For now, we're going to focus on the main reason that R Markdown is used:
 to incorporate R code and output into a single document.
 By using R code in a document, 
 you can have seamless integration between data analysis and document-writing.
