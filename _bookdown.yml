@@ -20,7 +20,7 @@ rmd_files:
     - "appendix/slides.Rmd"
     - "appendix/post-course.Rmd"
     - "appendix/resources.Rmd"
-    - "appendix/for-instructors.md"
+    - "appendix/for-instructors.Rmd"
     - "LICENSE.md"
     - "appendix/references.Rmd"
 before_chapter_script: "_common.R"
