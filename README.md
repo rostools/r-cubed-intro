@@ -39,7 +39,7 @@ and is designed to be completed in RStudio using the R Markdown format.
 
 ## Lesson content
 
-The teaching material is found mainly in the main project folder:
+The teaching material is found mainly in these locations:
 
 - `index.Rmd`: Contains the overview of the course.
 - `content/` folder: Contains the files used during the course (e.g. code-along
@@ -62,7 +62,9 @@ If you are interested in contributing to the course material, please refer to
 the [contributing guidelines](CONTRIBUTING.md). If you want guidelines on how
 to teach or be a helper with this material, check out the 
 [For Instructors](https://r-cubed.rostools.org/for-instructors.html)
-section of the web content.
+section of the web content. 
+For details on using or adapting the material for your own course, 
+check out the [section in the For Instructors page](https://r-cubed.rostools.org/for-instructors.html#adapt-material).
 Please note that the project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to or being involved in this project, 
 you agree to abide by its terms.

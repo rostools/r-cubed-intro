@@ -5,7 +5,7 @@ For details about adding to or editing the content, check out the
 guidelines. All other guidelines, tips, and instructions for teaching or helping
 with this course are found on this page.
 
-## General tips for teaching or helping out
+## Tips for teaching or helping out
 
 Here are some steps and guidelines when you are an **instructor**:
 
@@ -18,13 +18,23 @@ quite hard, but try as best you can. The lead organizer may take notes and
 provide feedback after your lesson or clarify concepts to the participants. Try
 to (briefly) explain as much aspects as possible of what you are doing,
 including how to open RStudio or how to run code (e.g. press `Shift-Enter` in RStudio).
-- The majority of the lesson material is *participatory live-coding*, so use of
-slides is minimal. The purpose of the course is to *type with the participants*,
-to show by doing.
 - **Check in with participants**: We distribute colored sticky notes to each
 participant so that they can flag problems with one color and success with
 another color. Use these indicators to check your pacing and where the
 class is at.
+    - Check in with the learners to see where they are at by saying something like:
+    "Do you see the same thing as is on the screen? 
+    If yes, put the 'all good' sticky on your laptop. 
+    If no, use the 'need help' sticky."
+    - For the reading activities, before starting, say:
+    "Please read this section as instructed. 
+    When you are done, put the 'all good' sticky up."
+    - For exercises, before starting, say:
+    "Please complete the exercise. When you are done,
+    please put the 'all good' sticky up.
+    If you need help, put the 'need help' sticky up."
+    - Throughout the exercises and code-along sessions, reinforce the use of
+    troubleshooting techniques including finding help from other resources.
 - We teach the *[tidyverse][tidyverse] way of using R*, meaning we use
 packages like dplyr, tidyr, rmarkdown, ggplot2, and so on. This also means making
 use of the pipe `%>%` operator.
@@ -33,22 +43,9 @@ use of the pipe `%>%` operator.
 "basically", "its just", "as simple as", and so on. This is difficult, but at least
 try.
 
-Being a **helper** is much simpler. When you see a participant with a "help" sticky
-on their laptop, go and see what help you can provide. A couple things to review
-and to keep in mind when helping:
-
-- Review the curriculum the instructors will be teaching.
-- We teach the [tidyverse](https://www.tidyverse.org/) way of using R, meaning we use packages
-like dplyr, tidyr, rmarkdown, ggplot2, and so on. 
-- We follow the tidyverse way of [writing and styling R code](https://style.tidyverse.org/).
-- Be kind, and remember, your words and how you help *matter a lot*. They can 
-make participants feel better or worse. So be kind, considerate, and understanding!
-
-Before coming to help, we would recommend taking a look at the tidyverse style
-guide as well a quick skim through of the [R for Data Science book](https://r4ds.had.co.nz/).
-
-### More on "Participatory Live-Coding"
-
+The majority of the lesson material is *participatory live-coding*, so use of
+slides is minimal. The purpose of the course is to *type with the participants*,
+to show by doing. 
 Live-coding is a hands-on method of teaching coding to a group in which the
 instructor shares their screen with the group and types out and narrates all the 
 commands in real-time on their own computer while the group follows along.
@@ -66,6 +63,20 @@ Software Carpentry has lots of great resources explaining the why and how of liv
 - [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html).
 - The Software Carpentry [instructor training manual](https://carpentries.github.io/instructor-training/) 
 includes many resources about programming education.
+
+Being a **helper** is much simpler. When you see a participant with a "help" sticky
+on their laptop, go and see what help you can provide. A couple things to review
+and to keep in mind when helping:
+
+- Review the curriculum the instructors will be teaching.
+- We teach the [tidyverse](https://www.tidyverse.org/) way of using R, meaning we use packages
+like dplyr, tidyr, rmarkdown, ggplot2, and so on. 
+- We follow the tidyverse way of [writing and styling R code](https://style.tidyverse.org/).
+- Be kind, and remember, your words and how you help *matter a lot*. They can 
+make participants feel better or worse. So be kind, considerate, and understanding!
+
+Before coming to help, we would recommend taking a look at the tidyverse style
+guide as well a quick skim through of the [R for Data Science book](https://r4ds.had.co.nz/).
 
 ## Workshop details
 
@@ -91,6 +102,13 @@ and then assign people to these teams and to repositories.
 them throughout the course and especially during the final group project.
 
 [ghclass]: https://rundel.github.io/ghclass
+
+### About the schedule
+
+The schedule is not designed to be a fixed sequence of sessions. Some sessions
+may run shorter so you can move on to the next session afterwards, while other
+sessions may run longer and go into the next session. That is ok if that happens.
+The schedule is a guide only, an overview of what will be covered, and when.
 
 ### Before your session
 
@@ -181,22 +199,6 @@ You have two options to take so that all code stays on the screen
             geom_point()
         ```
 
-### Making use of the stickies
-
-- Check in with the learners to see where they are at by saying something like:
-"Do you see the same thing as is on the screen? 
-If yes, put the 'all good' sticky on your laptop. 
-If no, use the 'need help' sticky."
-- For the reading activities, before starting, say:
-"Please read this section as instructed. 
-When you are done, put the 'all good' sticky up."
-- For exercises, before starting, say:
-"Please complete the exercise. When you are done,
-please put the 'all good' sticky up.
-If you need help, put the 'need help' sticky up."
-- Throughout the exercises and code-along sessions, reinforce the use of
-troubleshooting techniques including finding help from other resources.
-
 ### After the workshop
 
 It's a good idea to do a debrief with all the instructors on what worked and
@@ -208,7 +210,7 @@ instructors' (and your own) teaching. During the debrief we'll each say one
 thing each of us should continue doing and two things that they could improve
 on.
 
-## Content and other details
+## Content-specific details
 
 ### Version control
 
@@ -235,7 +237,7 @@ For the section on the bar-with-standard-error plots, make sure to go over the p
 and major flaws with using this type of plot. Really try to reinforce the concept
 here.
 
-### About the slides
+### Using the slides
 
 The slides are generated from the [xaringan] R package,
 which uses [remark.js].
@@ -248,6 +250,8 @@ check out the [remark.js keyword shortcuts].
 [remark.js]: https://remarkjs.com/#1
 [xaringan]: https://github.com/yihui/xaringan
 [remark.js keyword shortcuts]: https://github.com/gnab/remark/wiki/Keyboard-shortcuts
+
+## General course admin
 
 ### About using surveys
 
@@ -284,16 +288,7 @@ list of questions to include (depending on the survey):
     - Questions about current usage of the tools they learned during the course.
     - Questions about and reflections on the course.
 
-### About the schedule
-
-The schedule is not designed to be a fixed sequence of sessions. Some sessions
-may run shorter so you can move on to the next session afterwards, while other
-sessions may run longer and go into the next session. That is ok if that happens.
-The schedule is a guide only, an overview of what will be covered, and when.
-    
-## General course admin
-
-### Helper R scripts
+### Helper R scripts {#helper-r-scripts}
 
 There are several R scripts in the `R/` folder of the repository that can be
 modified and used to help manage and organize some administrative aspects of the course. Here is a brief
@@ -327,6 +322,29 @@ if you want to use this course material and run a course like this on your
 own, you can clone the r3 package and modify it as necessary for your own
 purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/main/README.md)
 of the r3 package for more details.
+
+## Using the material for your own course {#adapt-material}
+
+The course is largely designed to be taught in the order given, as each session
+builds off of the previous ones. The easiest way to use this material is to 
+use it as-is, making use of the tips and instructions found throughout this
+page. The only thing you might want to make as your own would be the slides,
+however, they are also good enough to use on their own too.
+
+But if you want to customize a bit more, the best approach is to 
+[fork the repository](https://gitlab.com/rostools/r-cubed/-/forks/new)
+into your own GitLab account and modify it to fit your needs from there. The
+website is built automatically through GitLab's Continuous Integration and than
+published as a website through Netlify. We'd suggest removing the "deploy" stage
+in the [`.gitlab-ci.yml`](https://gitlab.com/rostools/r-cubed/-/blob/main/.gitlab-ci.yml)
+file and replace it with GitLab's Pages building instead. To install the
+necessary packages and build a preview of the website on your own computer,
+check out the
+[contributing](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
+guidelines.
+
+There are a number of R scripts, as described above in Subsection \@ref(helper-r-scripts),
+that you can use to help manage and administrate the course.
 
 ## Lecture Notes
 
@@ -440,10 +458,10 @@ To summarise, we have seen that open data is only a part of the wider Open Scien
 
 To conclude, I think we can say that we have started on the right path towards a situation where research data is open, but that we still have a long way to go.
 
-## Collaboration and Teamwork
+### Collaboration and Teamwork
 
 To be transcribed.
 
-## The Era of Reproducible and Open Science
+### The Era of Reproducible and Open Science
 
 To be transcribed.
