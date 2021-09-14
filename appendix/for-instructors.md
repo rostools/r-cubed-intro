@@ -1,21 +1,90 @@
 # For Instructors
 
+For details about adding to or editing the content, check out the
+[CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
+guidelines. All other guidelines, tips, and instructions for teaching or helping
+with this course are found on this page.
+
+## General tips for teaching or helping out
+
+Here are some steps and guidelines when you are an **instructor**:
+
+- Start by *introducing a bit about yourself* and perhaps why you're interested
+in teaching R and data analysis.
+- Keep mindful of the time and try to *stay on time*. The lead organizer will be
+also be keeping track of time and wave to you to continue on or slow down.
+- Try to assume the participants *know as little as possible*. This is actually
+quite hard, but try as best you can. The lead organizer may take notes and
+provide feedback after your lesson or clarify concepts to the participants. Try
+to (briefly) explain as much aspects as possible of what you are doing,
+including how to open RStudio or how to run code (e.g. press `Shift-Enter` in RStudio).
+- The majority of the lesson material is *participatory live-coding*, so use of
+slides is minimal. The purpose of the course is to *type with the participants*,
+to show by doing.
+- **Check in with participants**: We distribute colored sticky notes to each
+participant so that they can flag problems with one color and success with
+another color. Use these indicators to check your pacing and where the
+class is at.
+- We teach the *[tidyverse][tidyverse] way of using R*, meaning we use
+packages like dplyr, tidyr, rmarkdown, ggplot2, and so on. This also means making
+use of the pipe `%>%` operator.
+- We follow the tidyverse [*way of writing and styling R code*](https://style.tidyverse.org/).
+- Be kind, and remember, your words *matter a lot*. Try to avoid words like
+"basically", "its just", "as simple as", and so on. This is difficult, but at least
+try.
+
+Being a **helper** is much simpler. When you see a participant with a "help" sticky
+on their laptop, go and see what help you can provide. A couple things to review
+and to keep in mind when helping:
+
+- Review the curriculum the instructors will be teaching.
+- We teach the [tidyverse](https://www.tidyverse.org/) way of using R, meaning we use packages
+like dplyr, tidyr, rmarkdown, ggplot2, and so on. 
+- We follow the tidyverse way of [writing and styling R code](https://style.tidyverse.org/).
+- Be kind, and remember, your words and how you help *matter a lot*. They can 
+make participants feel better or worse. So be kind, considerate, and understanding!
+
+Before coming to help, we would recommend taking a look at the tidyverse style
+guide as well a quick skim through of the [R for Data Science book](https://r4ds.had.co.nz/).
+
+### More on "Participatory Live-Coding"
+
+Live-coding is a hands-on method of teaching coding to a group in which the
+instructor shares their screen with the group and types out and narrates all the 
+commands in real-time on their own computer while the group follows along.
+Live-coding is a very effective teaching technique: it forces the instructor to
+go slowly and ensures that participants get to try out every command being used.
+It allows learners to experience common errors themselves, to see errors occur
+when for the instructors (thus demystifying that everyone no matter the skill level
+experiences errors) and debug them in a supportive environment, to explore
+variations on material as they go, and to immediately check their understanding
+by trying things hands-on.
+
+Live-coding is a technique used by [Software Carpentry](https://software-carpentry.org/about/). 
+Software Carpentry has lots of great resources explaining the why and how of live-coding:
+
+- [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html).
+- The Software Carpentry [instructor training manual](https://carpentries.github.io/instructor-training/) 
+includes many resources about programming education.
+
 ## Workshop details
 
 ### Instructor and helper number
 
 - The recommended number of instructors for a 25-35 class size is about 3-6
-instructors (~1 instructors for every 1-2 sessions). 
+instructors (~1 instructors for every 1-2 sessions).
 If there are more instructors, than less helpers are needed. 
-The recommended combined total number of helpers
-and instructors is about 6 for a smooth workflow experience for the learners.
-- Once you have confirmed your team of instructors and helpers, use WhatsApp or another preferred messenger app to set up a group message that supports easy communication.
+- A recommended ratio of instructor/helper to participant is about 1 to 4-6,
+which we've found ensures the smoothest learning experience.
+- Once you have confirmed your team of instructors and helpers, use a
+messenging app (WhatsApp, Telegram, Signal, or Slack) to set up a group chat
+that supports easy communication.
 
 ### Setting up teams
 
 - Before the introduction session (maybe the day before),
 assign people into groups 
-and create GitHub teams for them using the [ghclass] package.
+and create GitHub teams for them using the [ghclass][ghclass] package.
 Use the R script `R/create-teams.R` to generate random group names,
 and then assign people to these teams and to repositories.
 - Once teams are created, assign one instructor or helper to each group to help
@@ -32,6 +101,11 @@ put a higher zoom value and increase the font size (maybe around 14).
 Exact zoom and font size depends on the projector.
 - Put the Console and Script panes side by side rather than stacked. 
 This can be changed in the `Global Options -> Pane Layout` 
+- If you use Vim or Emacs keybindings in RStudio, change to the default that
+the learners use, so that 1) they see similar behaviour as what you are doing
+2) doing fancy/quick stuff is *not* going to help them learn, and 3)
+it slows you down a lot more since your muscle memory for the default keybindings
+will probably be similar to the learners muscle memory.
 
 ### First day
 
@@ -57,18 +131,30 @@ and/or why they want to learn R.
 there are sections that tell the participants to read on their own.
 Know beforehand where these sections are and
 get them to read over the section when you come to it.
-Ask for any questions about what they read, 
-and if you want to elaborate you can, 
-but it's not necessary given they just read it.
+You can briefly go over the content again, to reinforce what they read and to
+address any questions, but its not necessary to spend too much time on it.
 - For the exercises, 
 make sure to get the learners are helping each other out in their groups.
 - Exercise solutions do not need to be covered by the instructor,
-given the solution is provided already.
+given the solution is provided already. However, if there is time, it can be useful
+to the participants to have the instructor narrate about how the code works and
+why we used this code.
 - Try to keep the screen on your RStudio as much as possible 
 and don't switch applications often, 
 only when you need to go to the course material or to show an exercise.
-- For the "Project Management and Best Practices" session (Section \@ref(r-project-management)), talk through the basics of R, including how to troubleshoot or get help. Check for participants' understanding using the stickies (see next section).
-- For code-along sessions, narrate what you are doing as you are coding by providing explanations of what you hope to achieve with each function/piece of code. This is particularly important for the wrangling sessions, where you should explain what each function does and examples of instances where you would use each function.
+Otherwise people get lost, since they have to be looking up to the screen and
+then down to their own laptops, which takes a lot more time.
+- For the "Project Management and Best Practices" session (Section
+\@ref(r-project-management)), talk through the basics of R, including how to
+troubleshoot or get help. Check for participants' understanding using the
+stickies (see next section).
+- For code-along sessions, narrate what you are doing as you are coding by
+providing explanations of what you hope to achieve with each function/piece of
+code. This is particularly important for the wrangling sessions, where you
+should explain what each function does and examples of instances where you would
+use each function.
+- Try not to deviate too much or go on tangents during the code along. The
+code-along should have almost the exact same code as is on the website.
 - Be aware of how much space you have on the projector screen 
 and don't let R code go too long. 
 You have two options to take so that all code stays on the screen
@@ -108,7 +194,19 @@ When you are done, put the 'all good' sticky up."
 "Please complete the exercise. When you are done,
 please put the 'all good' sticky up.
 If you need help, put the 'need help' sticky up."
-- Throughout the exercises and code-along sessions, reinforce the use of troubleshooting techniques including finding help from other resources.
+- Throughout the exercises and code-along sessions, reinforce the use of
+troubleshooting techniques including finding help from other resources.
+
+### After the workshop
+
+It's a good idea to do a debrief with all the instructors on what worked and
+what could be improved after the workshop finishes. It's also a time to give
+peer feedback. Workshops aren't just a source of learning for the participants,
+but also for the instructors! So, while you are teaching or helping out, keep
+note of any feedback or comments you could give to improve the other
+instructors' (and your own) teaching. During the debrief we'll each say one
+thing each of us should continue doing and two things that they could improve
+on.
 
 ## Content and other details
 
@@ -218,8 +316,6 @@ document ID for the survey results.
 
 Other scripts are used within the material to generate content or do other tasks:
 
-- `extract-solutions.R`: This script contains a function to extract solutions
-from each of the exercises and prints them in the `resources.Rmd` section.
 - `slide-setup.R`: Contains code that sets up the themes, options, and 
 reference management for the slides in `slides/`.
 
@@ -233,9 +329,11 @@ purposes. See the [README](https://gitlab.com/rostools/r3/-/blob/main/README.md)
 of the r3 package for more details.
 
 ## Lecture Notes
+
 The lecture notes provided in this section are an edited transcript of the oral presentation of the lectures as given during the course in June 2020. They serve as a general reference for the line of thought behind the slide set but should not be seen as prescriptive. Particularly the examples could be adapted according to the needs of the intended audience.
 
 ### Finding and Obtaining Open Datasets
+
 In this section, we will look at some practical ways to find and access open data. This introduction is by no means exhaustive but is designed to help you find datasets that you can use to: 1) practice your data wrangling and analysis skills; 2) check the reproducibility of published papers; and 3) conduct original research. Along the way, we will see how researchers and institutions are currently publishing datasets and analytical code. We will also see that the situation is not as good as it could be.
 
 To start with, it is worth pointing out that accessible data is only one part of a wider set of principles guiding open and reproducible science.
@@ -344,6 +442,8 @@ To conclude, I think we can say that we have started on the right path towards a
 
 ## Collaboration and Teamwork
 
+To be transcribed.
 
 ## The Era of Reproducible and Open Science
 
+To be transcribed.

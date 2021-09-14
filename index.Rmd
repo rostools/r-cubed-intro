@@ -1,7 +1,15 @@
 --- 
 title: "Reproducible Research in R"
 subtitle: "An introductory workshop on modern data analyses and workflows"
-date: "Updated: `r format(Sys.time(), '%B %d %Y')`"
+date: "`r format(Sys.time(), '%B %d %Y')`"
+author:
+  - Luke W. Johnston
+  - Helene Baek Juel
+  - Bettina Lengger
+  - Daniel R. Witte
+  - Hannah Chatwin
+  - Malene Revsbech Christiansen
+  - Anders Aasted Isaksen
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [resources/refs.bib, resources/packages.bib]
@@ -23,10 +31,8 @@ knitr::write_bib(
 )
 ```
 
-[![GitLab repository](https://img.shields.io/badge/Repository-Source%20material-blue?style=flat&logo=gitlab)](https://gitlab.com/rostools/r-cubed)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921894.svg)](https://doi.org/10.5281/zenodo.3921894)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
 
 The course is designed as a series of participatory live-coding lessons, where
 the instructor and learner code together, along with hands-on
@@ -70,7 +76,11 @@ to make comments and give feedback on the material.
 This website and its content are targeted to three groups:
 
 1. For the **learners** to use during the course, both to follow along in case they get
-lost and also to use as a reference after the course ends.
+lost and also to use as a reference after the course ends. The learner is someone
+who is currently or will soon actively be doing research (e.g. a PhD or postdoc),
+who is likely in biomedical research, and who has no or little knowledge on coding
+in R. A more detailed description of who the learner is can be found in
+Section \@ref(is-it-for-you).
 2. For the **instructors** to use as a guide for when they do the code-along
 sessions and lectures.
 3. For those who are **interested in teaching**, who may not have much experience
@@ -82,18 +92,21 @@ and instructing their own workshops.
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
 
 The course material is licensed under the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-and the course code is licensed under a 
-[MIT License](https://gitlab.com/rostools/r-cubed/-/blob/main/LICENSE-MIT.md),
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/),
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
+Check out the [CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
+guidelines and the [For Instructors](for-instructors.html) section for more
+details and tips on using this material.
 
 ## Previous versions
 
-There have been two previous "formal" versions of the course given so far:
+There have been three previous "formal" versions of the course given so far:
 
 - [Version 1](https://v1--dda-rcourse.netlify.app/) taught in March 2019.
 - [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
+- Version 3 taught in June 2021 (no individual website, but source material is archived 
+[here](https://gitlab.com/rostools/r-cubed/-/releases/v3.0)).
 
 ## Contributors {#contributors}
 
@@ -119,7 +132,7 @@ as well as reviewed multiple other sections.
 - Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
 session material, as well as reviewed multiple other sections.
 
-Contributors for version 2.1 all participated in discussions on improving the
+Contributors for version 3 all participated in discussions on improving the
 course, extensively updating the course material based on the participant
 feedback from the previous courses, and heavily reviewing and editing the
 content:

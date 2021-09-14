@@ -4,8 +4,7 @@ There are a few ways in which you can contribute:
 
 - Participating in the discussions on issues.
 - Adding to lesson material.
-- Instructing a lesson.
-- Helping during the course.
+- Instructing a lesson or helping out.
 
 ## Participating in issue discussions :thought_balloon: :question:
 
@@ -17,7 +16,7 @@ In particular, check the
 label to find topics that are specifically to get your feedback and thoughts. As 
 always, make sure to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-## Adding to lesson material :pencil: :computer:
+## Adding to or editing lesson material :pencil: :computer:
 
 The lesson material and website are created using [bookdown](https://bookdown.org/yihui/bookdown/),
 which renders the R Markdown documents and converts the source material into 
@@ -74,71 +73,37 @@ and the below command to reduce the video file size:
 ffmpeg -i input.mp4 -crf 28 output.mp4
 ```
 
+### (Re-)Building the website
+
+In order to build the website, you need to have the dependent packages installed.
+Packages used and depended on for this course are included in the `DESCRIPTION`
+file. To install the packages, run this function in the root directory (where
+the `r-cubed.Rproj` file is located:
+
+```r
+# install.packages("remotes")
+remotes::install_deps()
+```
+
+To re-build the slides from the R Markdown source in `slides/` run the
+`R/build-slides.R` script:
+
+```r
+source("R/build-slides.R")
+```
+
+To re-build the website from the source R Markdown files, either hit `Ctrl-Shift-B`
+while in the RStudio `r-cubed.Rproj` Project or run:
+
+```r
+source("_build.R")
+```
+
 ## Teaching in class :information_desk_person: :speech_balloon:
 
-Here are some steps and guidelines when you instruct a class:
-
-- Start by *introducing a bit about yourself* and perhaps why you're interested
-in teaching R and data analysis.
-- Keep mindful of the time and try to *stay on time*. The lead organizer will be
-also be keeping track of time and wave to you to continue on or slow down.
-- Try to assume the participants *know as little as possible*. This is actually
-quite hard, but just try as best you can. The lead organizer may take notes and
-provide feedback after your lesson or clarify concepts to the participants. Try
-to (briefly) explain as much aspects as possible of what you are doing,
-including how to open RStudio or how to run code (e.g. press `Shift-Enter` in RStudio).
-- The majority of the lesson material is *participatory live-coding*, so use of
-slides is minimal. The purpose of the course is to *type with the participants*,
-to show by doing.
-- **Check in with participants**: We distribute coloured sticky notes to each
-participant so that they can flag problems with one colour and success with
-another colour. Use these indicators to check your pacing and where the
-class is at.
-- We teach the *[tidyverse][tidyverse] way of using R*, meaning we use
-packages like dplyr, tidyr, rmarkdown, ggplot2, and so on. This also means making
-use of the pipe `%>%` operator.
-- We follow the tidyverse [*way of writing and styling R code*](https://style.tidyverse.org/).
-- Be kind, and remember, your words *matter a lot*. Try to avoid words like
-"basically", "its just", "as simple as", and so on. This is difficult, but at least
-try. :smile:
-
-Note: The lead organizer may provide feedback on your teaching. It isn't
-criticism, but rather are areas to improve and become a better teacher!
-:smiley_cat:
-
-### More on "Participatory Live-Coding"
-
-Live-coding is a hands-on method of teaching coding to a group in which the
-instructor shares their screen with the group and types all commands on their
-computer while the group follows along. Live-coding is a very effective teaching
-technique: it forces the instructor to go slowly and ensures that participants
-get to try out every command being used. It allows learners to experience common
-errors themselves and debug them in a supportive environment, to explore
-variations on material as they go, and to immediately check their understanding
-by trying things hands-on.
-
-Live-coding is a technique used by [Software Carpentry](https://software-carpentry.org/about/). 
-Software Carpentry has lots of great resources explaining the why and how of live-coding:
-
-- [10 tips and tricks for instructing and teaching by means of live coding](https://software-carpentry.org/blog/2016/04/tips-tricks-live-coding.html).
-- The Software Carpentry [instructor training manual](https://carpentries.github.io/instructor-training/) 
-includes many resources about programming education.
-
-## Being a helper :raising_hand: 
-
-Being a helper is fairly simple! When you see a participant with a "help" sticky
-on their laptop, go and see what help you can provide! A couple things to review
-and to keep in mind when helping:
-
-- Review the curriculum the instructors will be teaching.
-- We teach the [tidyverse](https://www.tidyverse.org/) way of using R, meaning we use packages
-like dplyr, tidyr, rmarkdown, ggplot2, and so on. 
-- We follow the tidyverse way of [writing and styling R code](https://style.tidyverse.org/).
-- Be kind, and remember, your words and how you help *matter a lot*. They can 
-make participants feel better or worse. So be kind, considerate, and understanding!
-
-Before coming to help, we would recommend taking a look at the tidyverse style
-guide as well a quick skim through of the [R for Data Science book](https://r4ds.had.co.nz/).
+More detailed instructions and guidance on teaching or helping is found
+in the [For Instructors](https://r-cubed.rostools.org/for-instructors.html)
+section of the website.
 
 ## Code of Conduct
 

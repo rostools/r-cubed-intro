@@ -66,12 +66,12 @@ computational learning module we have developed and described below aims to
 introduce and improve skills in R, reproducibility, and open science for
 researchers in the biomedical field, with a focus on diabetes research.
 
-The `r-cubed` learning module is structured as a three-day workshop, with five
-sub-modules. We have specifically designed the module as an open educational
-resource that 1) instructors can make use of directly or modify for their own
-lessons and 2) learners can use independently or as a reference after
-participating in the workshop. All content is available for re-use under CC-BY
-and MIT Licenses.
+The `r-cubed` (**R**eproducible **R**esearch in **R** or R3) learning module is
+structured as a three-day workshop, with five sub-modules. We have specifically
+designed the module as an open educational resource that 1) instructors can make
+use of directly or modify for their own lessons and 2) learners can use
+independently or as a reference after participating in the workshop. All content
+is available for re-use under CC-BY License.
 
 # Statement of Need
 
@@ -96,25 +96,25 @@ training for these skills. The authors, all of whom work or have worked in
 biomedical research, used their experience in creating and shaping the content.
 
 The learning module was specifically designed with *re-use and adoption* in mind.
-Both [*Section 1*](https://r-cubed.rostools.org/#welcome) and 
-[*Appendix C*](https://r-cubed.rostools.org/for-instructors.html) give more
+Both the [*Welcome*](https://r-cubed.rostools.org/#welcome) and 
+[*For Instructors*](https://r-cubed.rostools.org/for-instructors.html) sections give more
 details on how this module can be re-used.
 
 The *target audience* for this learning resource is described in 
-[*Section 1.1*](https://r-cubed.rostools.org/index.html#target-audiences).
+[*Welcome*](https://r-cubed.rostools.org/index.html#target-audiences) page.
 Briefly, we suggest: *learners* use the material during and after the workshop;
 *instructors of the workshop* use the module as a reference while teaching; and those
 *interested in teaching*, but who are still new to the knowledge or skills
 themselves, can use the content to build their own workshop. The target learner
-of the workshop is detailed in
-[*Section 2.1*](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
+of the workshop is detailed in the
+[*syllabus*](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
 
 # Description of Learning Modules
 
 The *learning objectives* of this module are to provide a broad introduction
 to reproducible research practices, in the context of RStudio, Git, and GitHub. A
-detailed description of the learning objectives is found in the syllabus in
-[*Section 2*](https://r-cubed.rostools.org/syllabus.html).
+detailed description of the learning objectives is found in the
+[*syllabus*](https://r-cubed.rostools.org/syllabus.html).
 Briefly, upon completing the learning module, learners are expected to have: 
 
 1. A basic level of proficiency in using R, a statistical programming language.
@@ -124,17 +124,21 @@ Briefly, upon completing the learning module, learners are expected to have:
 
 The learning module encompasses *five sub-modules* (Table 1), with each
 sub-module representing about a half-day of lessons.
-A general schedule is given in 
-[*Section 2.2*](https://r-cubed.rostools.org/syllabus.html#general-schedule).  
+A general schedule is given in the
+[*Schedule*](https://r-cubed.rostools.org/schedule.html) section.
 Details on how these lessons can be used or structured are found in
-[*Appendix C: For Instructors*](https://r-cubed.rostools.org/for-instructors.html).
+[*For Instructors*](https://r-cubed.rostools.org/for-instructors.html) section.
 
 |Sub-module|Description|
 |---|---|
 |Management of R Projects|Introducing RStudio and R Projects; using packages, data, and file paths; and learning how to troubleshoot.|
+|||
 |Version Control with Git|Using Git with RStudio; synchronizing Git with GitHub; dealing with file conflicts; and using Git as a collaboration tool.|
+|||
 |Data Management and Wrangling|Introducing good working practices; loading data and packages into RStudio; and transforming data using select, rename, filter, arrange, and split-apply-combine functions.|
+|||
 |Analytically Reproducible Documents|Introducing and using R Markdown to insert code, tables, and figures to make a reproducible document.|
+|||
 |Data Visualization|Plotting various combinations of variables and using formatting effectively.|
 
 Table: An overview of the five sub-modules that form the `r-cubed` learning module.
@@ -145,14 +149,14 @@ Principles and applications of reproducibility are highlighted
 throughout sub-modules. Sub-modules are accompanied by three stand-alone
 lectures (and one introductory lecture) aimed at drawing together challenges in
 reproducibility and the RStudio skills taught during the workshop (see
-[*Section 6: Lecture Slides*](https://r-cubed.rostools.org/lecture-slides.html)).
+[*Lecture Slides* section](https://r-cubed.rostools.org/lecture-slides.html)).
 
 ## Instructional Design
 
 The module is designed for in-person settings, where the instructional design uses a
 combination of teaching methods (Table 2). Content taught using the methods
-below are described in 
-[*Section 1: Welcome*](https://r-cubed.rostools.org/index.html). 
+below are described in the
+[*Welcome*](https://r-cubed.rostools.org/index.html) section.
 We also incorporate the use of sticky notes, as pioneered by the 
 [Carpentries](https://swcarpentry.github.io/swc-releases/2017.02/instructor-training/15-practices/),
 to help with troubleshooting and to facilitate a positive learning experience overall.
@@ -160,13 +164,16 @@ to help with troubleshooting and to facilitate a positive learning experience ov
 |Method|Description|Advantages|
 |---|---|---|
 |Participatory live-coding lessons|Participants join with instructors to write and troubleshoot code step-by-step.|Encourages participants to actively engage with the material, to build muscle memory through typing, and to learn how to handle mistakes, rather than passively observing content.|
+||||
 |Independent reading of specific sections|Participants read more concept-heavy content at their own pace.|Including reading activities provides diverse learning opportunities aside from listening skills, can be advantageous for non-native English speakers, and can slow the pace of learning to enhance retention.|
+||||
 |Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content.|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace.|
+||||
 |Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data.|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills.|
 
 Table: Description of pedagogical methods used throughout the workshop.
 
-[*Appendix C: For Instructors*](https://r-cubed.rostools.org/for-instructors.html)
+The [*For Instructors*](https://r-cubed.rostools.org/for-instructors.html) section
 further describes the teaching approach that instructors can adopt to improve
 learning outcomes.
 

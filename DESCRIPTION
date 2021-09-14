@@ -63,7 +63,10 @@ Imports:
     r3 (>= 0.0.0.9000),
     snakecase,
     downlit,
-    bslib
+    bslib,
+    fontawesome,
+    purrr,
+    gt
 Suggests: 
     fs,
     prodigenr,
