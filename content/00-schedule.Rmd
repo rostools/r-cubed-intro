@@ -17,7 +17,7 @@ fa_link <- function(icon, link) {
     html(paste0("<a href=\"", link, "\">", as.character(fontawesome::fa(icon, fill = "#2471a3")), "</a>"))
 }
 schedule <- readr::read_csv(here::here("resources/schedule.csv"),
-                            show_col_types = FALSE) %>% 
+                            col_types = "ccccc") %>% 
         mutate(across(everything(), ~if_else(is.na(.x), "", .x))) %>% 
         mutate(Links = purrr::map2(icon, link, fa_link)) %>% 
         select(-icon, -link)
