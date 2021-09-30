@@ -12,7 +12,7 @@ Description: Reproducibility and open scientific practices are increasingly dema
     material for the course, from reading material to exercises to images. It is
     structured as a book, with "chapters" as lessons. For
     more detail on the course, check out the <a href='https://r-cubed.rostools.org'>website</a>.
-Version: 3.0
+Version: 4.0
 Authors@R: 
     c(person(given = "Luke",
              family = "Johnston",
