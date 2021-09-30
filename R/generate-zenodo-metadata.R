@@ -28,26 +28,42 @@ authors_df <- desc_get_field("Authors@R") %>%
 #     str_replace_all(" +", " ")
 
 repo_version <- str_c("v", as.character(desc::desc_get_version()))
-version_tag <- gert::git_tag_create(
+version_tag <- git_tag_create(
     name = repo_version,
-    message = "Learning module heavily updated based on feedback from previous workshops. Used as the base for the JOSE submission."
+    message = "Learning module updated based on JOSE reviews and accepted for publication."
 )
-gert::git_archive_zip("r-cubed.zip")
+git_push()
+git_tag_push(repo_version)
+tag_archive_file <- str_c("r-cubed-", repo_version, ".zip")
+git_archive_zip(tag_archive_file)
 
 zenodo <- ZenodoManager$new(
+    # url = "https://sandbox.zenodo.org/api",
     url = "https://zenodo.org/api",
-    logger = "INFO"
+    logger = "INFO",
+    token = askpass::askpass()
 )
 
-update_record <- zenodo$getRecordById("3921894")
-pwalk(authors_df, update_record$addCreator)
+update_record <- zenodo$getDepositionById("4520016")
+update_record <- zenodo$editRecord(update_record$id)
+# pwalk(authors_df, update_record$addCreator)
 update_record$addRelatedIdentifier("isCompiledBy", "https://gitlab.com/rostools/r-cubed")
-update_record$addRelatedIdentifier("isIdenticalTo", "https://gitlab.com/rostools/r-cubed/-/tags/v3.0")
+# To remove old reference.
+update_record$removeRelatedIdentifier(
+    "isIdenticalTo",
+    "https://gitlab.com/rostools/r-cubed/-/tags/v3.0"
+)
+update_record$addRelatedIdentifier(
+    "isIdenticalTo",
+    str_c("https://gitlab.com/rostools/r-cubed/-/tags/", repo_version)
+)
 update_record$setVersion(repo_version)
-# To fix a bug/mistake with zen4R
-update_record$metadata$related_identifiers[[1]]$scheme <- NULL
-update_record$metadata$related_identifiers[[1]]$relation <- "isNewVersionOf"
+# To fix an occasional bug/mistake with zen4R
+# update_record$metadata$related_identifiers[[1]]$scheme <- NULL
+# update_record$metadata$related_identifiers[[1]]$relation <- "isNewVersionOf"
+update_record$metadata
+update_record
 
 deposited_record <- zenodo$depositRecordVersion(update_record,
-                                                delete_latest_files = TRUE,
-                                                files = "r-cubed.zip")
+                                                files = tag_archive_file)
+fs::file_delete(tag_archive_file)
