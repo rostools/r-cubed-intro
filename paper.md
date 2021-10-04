@@ -51,7 +51,7 @@ bibliography: paper.bib
 
 The amount of biological data created increases every year, driven largely by
 technologies such as high-throughput -omics, real-time monitoring, or high
-resolution imaging as well as greater access to routine administrative data and
+resolution imaging in addition to greater access to routine administrative data and
 larger study populations. This not only presents operational challenges, but
 also highlights considerable needs for the skills and knowledge to manage,
 process, and analyze this data [@Brownson2015]. Along with the open science movement
@@ -68,20 +68,20 @@ researchers in the biomedical field, with a focus on diabetes research.
 
 The `r-cubed` (**R**eproducible **R**esearch in **R** or R3) learning module is
 structured as a three-day workshop, with five sub-modules. We have specifically
-designed the module as an open educational resource that 1) instructors can make
-use of directly or modify for their own lessons and 2) learners can use
+designed the module as an open educational resource that: 1) instructors can make
+use of directly or modify for their own lessons; and, 2) learners can use
 independently or as a reference after participating in the workshop. All content
 is available for re-use under CC-BY License.
 
 # Statement of Need
 
 Reproducibility is a key component to verifying scientific findings.
-Unfortunately, the reproducibility of scientific studies is largely unknown
-[@Considine2017;@Leek2017], as researchers are unaware of, have no
+Unfortunately, the reproducibility of scientific studies is difficult to estimate
+[@Considine2017;@Leek2017] as researchers may be unaware of, have no
 training in, or lack incentives to conduct reproducible research.
 Improving reproducibility requires an awareness and training in multiple areas,
 including version control, project and data management, and reproducible
-reporting alongside the traditional statistical analysis. Training in these
+reporting alongside the traditional curriculum of statistical analysis. Training in these
 skill areas is critical to tackling the modern demands of reproducibility.
 
 The learning module provides training in reproducibility, open science, and
@@ -183,7 +183,7 @@ The learning module has been delivered several times as 3-4 day workshops.
 Instructors were graduate students or postdoctoral researchers from diverse
 fields within diabetes research, of whom most had relatively recently learned R
 themselves. Including late-novice or early-intermediate R users as instructors
-makes communicating and relating to the learners easier and, we believe, provides
+makes communicating and relating to the learners easier and we believe it provides
 a better learning environment. A ratio of about 4-6 learners for every
 instructor/helper has proven to be most effective in past workshops.
 
