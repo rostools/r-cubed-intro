@@ -3,6 +3,7 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
 [![status](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2/status.svg)](https://jose.theoj.org/papers/21c31bd9b6cd58e154de3f7b44d527b2)
+[![pipeline status](https://gitlab.com/rostools/r-cubed/badges/main/pipeline.svg)](https://gitlab.com/rostools/r-cubed/-/commits/main) 
 
 ## Description
 
@@ -15,7 +16,8 @@ This repository contains the lesson, lecture, and assignment material for the
 course, including the website source files and other associated course
 administration files. 
 
-For more detail on the course, check out the [syllabus](https://r-cubed.rostools.org/syllabus.html).
+For more detail on the course, check out the [welcome page](https://r-cubed.rostools.org/)
+and the [syllabus](https://r-cubed.rostools.org/syllabus.html).
 For re-using and learning more about the course, check out our [paper](paper.md)
 describing it.
 
@@ -37,13 +39,13 @@ and is designed to be completed in RStudio using the R Markdown format.
 
 ## Lesson content
 
-The teaching material is found mainly in the main project folder:
+The teaching material is found mainly in these locations:
 
 - `index.Rmd`: Contains the overview of the course.
-- `00-syllabus.Rmd`: Contains the syllabus and the schedule files.
-- Files starting with a number: 
-Contains the code-along teaching material, as well as
-associated links to the lecture slides. 
+- `content/` folder: Contains the files used during the course (e.g. code-along
+material) as well as the syllabus and schedule.
+- `appendix/` folder: Contains the files used to support the course, such as
+pre-course tasks, code of conduct, resources, and instructions for instructors.
 - `slides/`: The lecture slides are rendered into HTML slides using
 the [xaringan] package. 
 
@@ -60,53 +62,17 @@ If you are interested in contributing to the course material, please refer to
 the [contributing guidelines](CONTRIBUTING.md). If you want guidelines on how
 to teach or be a helper with this material, check out the 
 [For Instructors](https://r-cubed.rostools.org/for-instructors.html)
-section of the web content.
+section of the web content. 
+For details on using or adapting the material for your own course, 
+check out the [section in the For Instructors page](https://r-cubed.rostools.org/for-instructors.html#adapt-material).
 Please note that the project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to or being involved in this project, 
 you agree to abide by its terms.
 
-## Acknowledgements
-
-Much of the lesson material was taken and modified from multiple sources (most
-of which Luke W. Johnston has created, been involved in, or contributed to), including:
-
-- [UofTCoders Reproducible Quantitative Methods for EEB](https://uoftcoders.github.io/rcourse/) 
-(which I helped develop and is the inspiration and basis for this course)
-- [Software and Data Carpentry](https://carpentries.org/) workshop material
-- [UofTCoders material](https://uoftcoders.github.io/studyGroup/lessons/)
-and [AU CRU material](https://au-cru.github.io/),
-from the peer led and contributed lessons of each
-- [Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/)
-course template
-
-Most of the material comes from a course we taught for the Danish Diabetes Academy 
-in March, 2019:
-[*"Reproducible Quantitative Methods: Data analysis workflow using R"*](https://v1--dda-rcourse.netlify.com/).
-
-### Contributions
-
-Contributors for [version 1](https://v1--dda-rcourse.netlify.app/) were:
-
-- Luke Johnston: Brainstormed most of the course material and structure; set up
-the website; organized and coordinated the course; wrote, prepared, and taught
-most of the code-along sessions, as well as several lectures.
-- Daniel Witte: Participated in brainstorming on the course structure and
-laytout; prepared and taught most of the lectures.
-- João Santiago: Taught and edited the R Markdown code-along session material.
-- Anna Schritz: Taught and edited the Data Management and Wrangling code-along
-session material.
-- Omar Silverman (helper) proofread and provided feedback on the material for several
-sessions.
-
-Specific contributions for version 2 (this repository) were:
-
-- Luke Johnston: Coordinated the course, developed the material,
-set up the website, and taught multiple sessions.
-- Daniel Witte: Prepared and taught most of the lectures.
-- Helene Baek Juel: Edited and taught the Data Visualization code-along session material,
-as well as reviewed multiple other sections.
-- Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
-session material, as well as reviewed multiple other sections.
+For details of the license and acknowledgement of content used from sources,
+see the [license page of the website](https://r-cubed.rostools.org/license.html).
+A list of contributors to each version and their roles can be found on the 
+[website](https://r-cubed.rostools.org/index.html#contributors).
 
 ### How to cite the material
 
