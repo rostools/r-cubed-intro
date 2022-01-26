@@ -1,9 +1,38 @@
 # Pre-course tasks {#pre-course}
 
-Complete everything in this chapter, then complete the survey at the end.
-The deadline for these tasks is (at least) three days before the course starts.
+In order to participate in this course, you must complete everything in this
+pre-course tasks section and finish with *completing the survey* at the end.
+These tasks are designed to make it easier for everyone to start the course
+with everything set up. For some of the tasks, you might not understand why
+you need to do them, but you will likely understand why once the course begins.
 
-## Installing programs
+Depending on your skills and knowledge, these tasks could take between **3-5 hrs
+to finish**, so we suggest planning a full day to complete them. Depending on
+your institution and how they handle installing software on work computers, you
+also might have to contact IT *very early* to make sure everything is properly
+installed and setup.
+
+## Summary of tasks
+
+Here's a quick overview of the tasks you need to do. Specific details about
+them are found as you work through the tasks.
+
+1. Install R, RStudio, and Git. For some people, depending on their institution,
+this task can take the longest because you have to contact your IT to install these
+programs.
+1. Install necessary R packages.
+1. Read about and become familiar with RStudio.
+1. Read some of the course sections on Git. 
+1. Configure Git on your computer and create a GitHub account.
+1. Run a check to see if everything works (you'll later need to paste this output
+into the survey).
+1. Read the syllabus.
+1. Read the Code of Conduct.
+1. Complete the pre-course survey. This survey is pretty quick, maybe ~10 minutes.
+
+Check each section for exact details on completing these tasks.
+
+## Installing the latest programs
 
 The first things to do are to:
 
