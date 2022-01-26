@@ -10,10 +10,10 @@ The first things to do are to:
 1. Install the latest version of [R](https://cloud.r-project.org/index.html)
 (anything above 4.0.0).
 1. Install the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
-(any version above 1.3).
+(any version above 1.4).
 1. Install [Git](https://git-scm.com/downloads).
 
-For some Windows users, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
+For some Windows users, you need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
 in order for some R packages to be installed (which you'll do shortly).
 
 All these programs are required for the course, even Git. 
@@ -29,7 +29,7 @@ You may encounter problems installing software due to administrative reasons
 (e.g. you don't have permission to install things).
 Even if you have issues installing or updating the latest version of R or RStudio, 
 you will likely be able to continue with the course as long as you have at least
-4.0.0 for R and at least 1.3 for RStudio. 
+4.0.0 for R and at least 1.4 for RStudio. 
 If you have versions of R and RStudio that are older than that,
 you may need to ask your IT department to update your software if you can't do this yourself.
 Unfortunately, Git is not a commonly used software for some organizations, so 
@@ -188,9 +188,18 @@ to learn more.
 
 ## Setting up Git and GitHub
 
-We'll cover what Git and GitHub are during the course, 
-but for now, we need you to prepare things so that you are ready for the course.
-In order to use Git properly, 
+We'll cover more on what Git and GitHub are during the course, 
+but for now, please read sections \@ref(what-is-version-control),
+\@ref(what-is-git), and \@ref(basics-of-git).
+Git and version control are some of the more harder things you will learn in 
+this course, because they are fundamentally very different ways of working
+than you are probably used to. They require changing how you see and interact
+with your projects and computer in pretty big ways. So we want you to read this now 
+so you can start to mentally process the concepts we will cover. We'll also 
+get you to read it again during the course, to reinforce the concepts.
+
+After reading about Git, we need you to prepare things so that you are ready for
+the course. In order to use Git properly, 
 you need to inform your computer that you are using Git.
 Since we've installed the r3 package and 
 we only want to use a specific function from it, 

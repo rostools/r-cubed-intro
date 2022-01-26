@@ -11,7 +11,7 @@ View changes to files, record and save those changes to a history,
 and synchronize those changes to an online repository (GitHub).
 1. Use GitHub to collaborate with others on a project.
 
-## What is version control?
+## What is version control? {#what-is-version-control}
 
 **Take 5 min and read through this section**.
 
@@ -94,7 +94,7 @@ RStudio thankfully has an amazing and straight-forward integration to it.
 
 [git-doc]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
-## What is Git?
+## What is Git? {#what-is-git}
 
 **Take 5 min and read through this section**.
 
@@ -143,7 +143,7 @@ repository on GitHub, as pictured below.
 knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 ```
 
-## Basics of Git
+## Basics of Git {#basics-of-git}
 
 **Take 5 min and read through this section**.
 
