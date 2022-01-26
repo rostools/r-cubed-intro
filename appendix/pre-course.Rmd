@@ -150,6 +150,16 @@ There are so many R packages available
 that there is likely an R package for anything you'd like to do in R.
 Making use of R packages can greatly help you out when doing your research.
 
+Before we continue, we need to briefly explain what some terms mean.
+
+- **R code** is any individual piece of text that R interprets as commands
+to do something. For instance, `mean()` is a complete piece of text that tells
+R to calculate the mean of some numbers.
+- **R script** is any file with the ending `.R` that contains R code that
+completes tasks in a sequence (from the top of the file to the bottom).
+- **R package** is a set of R scripts that contain bundles of R code that
+work together to expand on or improve R code and R functionality.
+
 For this course, we will be focusing on R packages that are powerful and
 general-purpose enough to help you in multiple aspects of your research. 
 To install these packages, we'll need to install the r3 helper package. For
@@ -186,7 +196,14 @@ We prefer this way as we only want to use the `install_gitlab()` function from t
 remotes package without having to load all the other functions. 
 We will be using `::` often during this course.
 
-Most of the packages we will be using in this course are bundled together into one package called [tidyverse]. tidyverse is a collection of packages that are designed for common tasks in data science, ranging from data exploration to data visualization. As the name suggests, tidyverse is an attempt to organize the "universe" of data analysis by providing packages that guide workflows and lead to more reproducible analysis projects. Tidyverse will be installed for you now that you've installed r3, as it was already a part of that helper package. If you wanted to install tidyverse normally, you would type in the Console:
+Most of the packages we will be using in this course are bundled together into
+one package called [tidyverse]. tidyverse is a collection of packages that are
+designed for common tasks in data science, ranging from data exploration to data
+visualization. As the name suggests, tidyverse is an attempt to organize the
+"universe" of data analysis by providing packages that guide workflows and lead
+to more reproducible analysis projects. Tidyverse will be installed for you now
+that you've installed r3, as it was already a part of that helper package. If
+you wanted to install tidyverse normally, you would type in the Console:
 
 ```r
 install.packages("tidyverse")
