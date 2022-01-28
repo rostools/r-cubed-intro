@@ -111,6 +111,9 @@ Check out Figure \@ref(fig:rstudio-introduction) below.
 You can see that RStudio has four "panels", 
 dividing the screen into the four sections.
 
+> **Note**, this image, along with the other images and videos below, may look
+slightly different from your own computer.
+
 ```{r rstudio-introduction, echo=FALSE, fig.cap="Interface to RStudio."}
 knitr::include_graphics(here::here("images/rstudio-introduction.png"))
 ```
