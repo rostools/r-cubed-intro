@@ -78,31 +78,23 @@ A list of contributors to each version and their roles can be found on the
 
 Please cite the material as:
 
-> Johnston, Luke W., Juel, Helene Bæk, Lengger, Bettina, Witte, Daniel R.,
-Chatwin, Hannah, Christiansen, Malene Revsbech, & Isaksen, Anders Aasted. (2020,
-June 29). rostools/r-cubed: Reproducible Research in R - An introductory
-workshop on modern data analyses and workflows. Zenodo.
-https://doi.org/10.5281/zenodo.3921893
+> Johnston LW, Juel HB, Lengger B, Witte DR, Chatwin H, Christiansen MR, Isaksen A.
+r-cubed: Guiding the overwhelmed scientist from random wrangling to Reproducible
+Research in R. Journal of Open Source Education. 2021 Oct 9;4(44):122.
 
 Or as BibTeX:
 
 ```
-@misc{johnston_luke_w_2020_3921893,
-  author       = {Johnston, Luke W. and
-                  Juel, Helene Bæk and
-                  Lengger, Bettina and
-                  Witte, Daniel R. and
-                  Chatwin, Hannah and
-                  Christiansen, Malene Revsbech and
-                  Isaksen, Anders Aasted},
-  title        = {{rostools/r-cubed: Reproducible Research in R - An 
-                   introductory workshop on modern data analyses and
-                   workflows}},
-  month        = jun,
-  year         = 2020,
-  publisher    = {Zenodo},
-  version      = {v3.0},
-  doi          = {10.5281/zenodo.3921893},
-  url          = {https://doi.org/10.5281/zenodo.3921893}
+@article{Johnston2021,
+  doi = {10.21105/jose.00122},
+  url = {https://doi.org/10.21105/jose.00122},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {4},
+  number = {44},
+  pages = {122},
+  author = {Luke Johnston and Helene Juel and Bettina Lengger and Daniel Witte and Hannah Chatwin and Malene Christiansen and Anders Isaksen},
+  title = {r-cubed: Guiding the overwhelmed scientist from random wrangling to Reproducible Research in R},
+  journal = {Journal of Open Source Education}
 }
 ```
