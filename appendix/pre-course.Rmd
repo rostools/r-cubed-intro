@@ -272,6 +272,8 @@ r3::check_setup()
 After you are done, you need to [create a GitHub account](https://github.com/join). 
 See Figure \@ref(fig:github-account-creation) for a demonstration of how to do that.
 Make note of your username, as we will ask you for it in the pre-course survey.
+Make sure to **remember your password**, either write it down somewhere or 
+(even better) use a password manager to store your password for you.
 
 > Note: *GitHub* is a company and website, while *Git* is a software.
 There is sometimes confusion about these two things since they both say "Git".
