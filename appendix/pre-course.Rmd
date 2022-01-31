@@ -35,8 +35,8 @@ Check each section for exact details on completing these tasks.
 ## Installing the latest programs
 
 The first thing to do is to install these programs. You may already have some of
-them and if you do, please make sure that they are at least the minimum versions
-listed below. If not, you will need to update them.
+them installed and if you do, please make sure that they are at least the
+minimum versions listed below. If not, you will need to update them.
 
 1. Install the latest version of [R](https://cloud.r-project.org/index.html)
 (anything above 4.0.0).
@@ -44,8 +44,8 @@ listed below. If not, you will need to update them.
 (any version above 1.4).
 1. Install [Git](https://git-scm.com/downloads).
 
-For some Windows users, you need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
-in order for some R packages to be installed (which you'll do shortly).
+For most Windows users, you will need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
+in order for some R packages to be installed correctly (which you'll do shortly).
 
 All these programs are required for the course, even Git.
 Git, which is a software program to formally manage versions of files, 
@@ -70,21 +70,28 @@ be able to install it for you prior to the course.
 
 Once R, RStudio, and Git have been installed, open RStudio. 
 *If you encounter any troubles during these pre-course tasks*, 
-try as best you can to complete the task and then let us know about the
-issues in the pre-course survey (at the end of this section). 
+try as best as you can to complete the task and then let us know about the
+issues in the pre-course survey (at the end of this section).
 If you continue having problems, indicate on the survey that you need help
 and we can try to book a quick video call to fix the problem. 
 Otherwise, you can come to the course 15-20 minutes earlier to get help.
 
-If you're unable to complete the setup procedure due to unfixable technical issues, you can use RStudio Cloud as a last-ditch solution to participate in the course. For help setting up RStudio Cloud for this course, refer to the [RStudio Cloud setup guide](resources#setting-up-rstudio-cloud).
+If you're unable to complete the setup procedure due to unfixable technical
+issues, you can use RStudio Cloud as a final solution in order to participate in the
+course. For help setting up RStudio Cloud for this course, refer to the [RStudio
+Cloud setup guide](resources#setting-up-rstudio-cloud).
 
 ## What is R?
 
-During this course, we will be spending most of our time in RStudio. RStudio is an environment that we use to interact with R. R is like an engine, while RStudio is like the tools we use to actually work with that engine. Prior to taking a look at what RStudio looks like, let's talk briefly about R as a programming language.
+During this course, we will be spending most of our time in RStudio. RStudio is
+an environment that we use to interact with R. R is like an engine, while
+RStudio is like the tools we use to actually work with that engine. Prior to
+taking a look at what RStudio looks like, let's talk briefly about R as a
+programming language.
 
 R is a free programming language/environment used in statistical computing, data
 analytics, and scientific research. R is used to clean, organize, analyze, and
-report data. R has powerful visualization features, so it is a particularly
+report on data. R has powerful visualization features, so it is a particularly
 useful tool for creating charts and figures. R is different from SPSS and
 other statistical programs in that you run analyses by typing commands in a
 console rather than using click-based, drop-down menus.
@@ -97,6 +104,9 @@ In recent years, R has become one of the most popular languages among statistici
 - It provides access to a vast array of packages that can complete nearly any task
 or statistical approach.
 - There is a huge online community to help you problem-solve any issue.
+- It is free, which means you can continue using the skills you gain in R
+throughout your entire career without worrying about expensive licensing fees
+(for example, if your employer can't or doesn't pay for the software).
 
 However, like many programming languages, R is not easy to learn. Some
 functions are spread across packages, which means that you need to have prior
@@ -107,12 +117,14 @@ challenge!
 
 ## Getting familiar with RStudio
 
+Let's start learning about RStudio and how to use it.
 Check out Figure \@ref(fig:rstudio-introduction) below.
 You can see that RStudio has four "panels", 
 dividing the screen into the four sections.
 
-> **Note**, this image, along with the other images and videos below, may look
-slightly different from your own computer.
+> **Note**: This image, along with the other images and videos below, may look
+slightly different from your own computer depending on your operating system
+and other settings.
 
 ```{r rstudio-introduction, echo=FALSE, fig.cap="Interface to RStudio."}
 knitr::include_graphics(here::here("images/rstudio-introduction.png"))
@@ -134,9 +146,10 @@ For this course, we will only be going over the Files, Plots, Packages, and Help
 There can be slight differences in your layout of tabs in each panel.
 
 While we will spend most of the course using R script files to play around with code, 
-we will also be learning and using [RMarkdown][rmarkdown] (`.Rmd`). R Markdown is a dynamic and invaluable
+we will also be learning and using [R Markdown][rmarkdown] (`.Rmd`). R Markdown
+is a dynamic and invaluable
 tool that will help make your analysis more reproducible. R Markdown allows you
-to enter chunks of code as well as text and images. R runs the code and inserts the code output
+to interweave chunks of code along with text and images. R runs the code and inserts the code output
 into the R Markdown file. The R Markdown file can be converted into a wide range
 of document types, including MS Word, PDF, or HTML. Some researchers write and
 manage entire papers, theses, or books using R Markdown, as it can make things
@@ -187,26 +200,28 @@ remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 insert_video("videos/console-installing-r3.mp4")
 ```
 
-It is important to understand what you are commanding when you enter a function 
+It is important to understand what you are doing when you enter a function 
 like `something::something()`. In the example of `remotes::install_gitlab()`, 
 you would "read" this as:
 
 > R, can you please use the `install_gitlab` function from the remotes package?
 
-You could load the package with `library(remotes)` and then run the `install_gitlab` function.
-However, using the `::` tells R that we want to use a function directly from a package.
+You could load the package with `library(remotes)` and then run the
+`install_gitlab()` function. However, using the `::` (pronounced "colon colon")
+tells R that we want to use a function directly from a package.
 We prefer this way as we only want to use the `install_gitlab()` function from the 
 remotes package without having to load all the other functions. 
 We will be using `::` often during this course.
 
 Most of the packages we will be using in this course are bundled together into
-one package called [tidyverse]. tidyverse is a collection of packages that are
+one package called [tidyverse]. Tidyverse is a collection of packages that are
 designed for common tasks in data science, ranging from data exploration to data
 visualization. As the name suggests, tidyverse is an attempt to organize the
 "universe" of data analysis by providing packages that guide workflows and lead
-to more reproducible analysis projects. Tidyverse will be installed for you now
-that you've installed r3, as it was already a part of that helper package. If
-you wanted to install tidyverse normally, you would type in the Console:
+to more reproducible analysis projects. When you installed the r3 helper package,
+it already installed tidyverse for you. If
+you wanted to install tidyverse normally, you would (but don't right now) type
+in the Console:
 
 ```r
 install.packages("tidyverse")
@@ -233,16 +248,19 @@ to learn more.
 [dplyr]: https://dplyr.tidyverse.org/
 [tidyr]: https://tidyr.tidyverse.org/
 
-- [ggplot2] is a data visualization package that can be used to create bar charts, pie charts, histograms, scatterplots, error charts, and more. It uses high-level API that means you are able to customize the aesthetics of your plot and add different components or layers. 
+- [ggplot2] is a data visualization package that can be used to create bar
+charts, pie charts, histograms, scatterplots, error charts, and more. It uses
+a "grammar" as a way to construct and customize your graphs in a layered, 
+descriptive approach.
 
 [ggplot2]: https://ggplot2.tidyverse.org/
 
 ## Setting up Git and GitHub
 
-We'll cover more on what Git and GitHub are during the course, 
+We'll cover more about Git and GitHub during the course, 
 but for now, please read sections \@ref(what-is-version-control),
 \@ref(what-is-git), and \@ref(basics-of-git).
-Git and version control are some of the more harder things you will learn in 
+Git and version control are some of the more difficult things you will learn in 
 this course, because they are fundamentally very different ways of working
 than you are probably used to. They require changing how you see and interact
 with your projects and computer in pretty big ways. So we want you to read this now 
@@ -252,10 +270,8 @@ get you to read it again during the course, to reinforce the concepts.
 After reading about Git, we need you to prepare things so that you are ready for
 the course. In order to use Git properly, 
 you need to inform your computer that you are using Git.
-Since we've installed the r3 package and 
-we only want to use a specific function from it, 
-we'll be using `r3::` often. 
-So, type in the RStudio Console:
+The r3 course helper package has a function to help with this.
+Type in the RStudio Console:
 
 ```r
 r3::setup_git_config()
