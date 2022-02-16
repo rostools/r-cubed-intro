@@ -497,7 +497,6 @@ Get some practice with cloning from GitHub by doing it again with another reposi
 1. Create a new practice GitHub repository (name it `practice-repo`),
 and include a README file as well (see image below).
 2. Create a new RStudio R Project from the newly created GitHub repository.
-Clone it to your desktop.
 
 ```{r image-github-add-readme, echo=FALSE, fig.cap="Checkmark to click to add a README to your new repository."}
 knitr::include_graphics(here::here("images/github-add-readme.png"))
