@@ -324,11 +324,13 @@ and true to our mission, we practice what we preach.
 The course material is publicly accessible (all on this website) and 
 [openly licensed](license.html) so you can (re-)use it for free!
 The material is organized in the order that we will cover it in the course.
+
 While the course will include lots of hands-on work during the sessions,
 the final group [project assignment](assignment.html) 
 will allow you to practice everything you've learned in a team setting.
 To quickly access the final project assignment from inside RStudio,
-run the function `r3::open_assignment()`.
+run the function `r3::open_assignment()`. **Please read it** to get familiar
+with what is expected of you.
 
 We have a [Code of Conduct](conduct.html). 
 If you haven't read it, **read it now**.

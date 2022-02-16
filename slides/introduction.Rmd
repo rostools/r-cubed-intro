@@ -191,7 +191,7 @@ and skills for using R anywhere you go.
 - Course is mix of:
     - "Code-alongs" (we type and explain, you type along)
     - Hands-on exercises
-    - Final group work for [assignment](assignment.html)
+    - Final group work for [assignment](assignment.html) (quickly go over it)
 
 - Use r3 package to help with learning
 

@@ -2,7 +2,9 @@
 
 To maximize how much you learn and how much you will retain, 
 you as a group will take what you learn in the course
-and apply it to create a reproducible project. This project, based on a simple data analysis of a dataset of your choice, will have a GitHub repository and an HTML document as a report to demonstrate the reproducibility of the analysis. 
+and apply it to create a reproducible project. This project, based on a simple
+data analysis of a dataset of your choice, will have a GitHub repository and an
+HTML document as a report to demonstrate the reproducibility of the analysis.
 The dataset **cannot be the same** as the one we used in class,
 and it must be an open dataset obtained from an online archive (we recommend a few
 below). Preferably, different teams choose different datasets so not everyone
