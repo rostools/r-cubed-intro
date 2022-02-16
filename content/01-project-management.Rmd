@@ -386,7 +386,6 @@ Read through these specific sections of the [style guide]:
 - [Object naming](https://style.tidyverse.org/syntax.html#object-names)
 - [Spacing](https://style.tidyverse.org/syntax.html#spacing)
 - [Function calls](https://style.tidyverse.org/syntax.html#function-calls)
-- [Control Flow: Indenting](https://style.tidyverse.org/syntax.html#indenting)
 
 Then try to make the below code more readable. 
 Copy and paste the code below into the `R/project-session.R` file.
@@ -413,10 +412,6 @@ mean( x, na.rm = TRUE )
 height<-feet*12+inches
 df $ z
 x <- 1 : 10
-
-# Indenting and brackets
-if (y < 0 && debug) {
-message("Y is negative")}
 ```
 
 ```{r solution-ex-wrong-code-naming, eval=FALSE, solution=TRUE}
@@ -456,15 +451,6 @@ height <- feet * 12 + inches
 df$z
 # x <- 1 : 10
 x <- 1:10
-
-# Indenting and brackets
-
-# Indenting should be done after if, for, else functions
-# if (y < 0 && debug) {
-# message("Y is negative")}
-if (y < 0 && debug) {
-    message("Y is negative")
-}
 ```
 
 ## Automatic styling in RStudio
