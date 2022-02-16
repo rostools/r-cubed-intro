@@ -461,8 +461,6 @@ Time: 10 min
 
 In the `exercise-wrangling.R` script file, complete the following tasks.
 
-Replace the `___` with `NHANES`
-
 1. Copy and paste the code below into the script file.
 Replace the `___` in the `select()` function, with the columns `tot_chol`, `bp_sys_ave`, and `poverty`.
 
