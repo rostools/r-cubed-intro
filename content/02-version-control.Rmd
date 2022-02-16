@@ -766,6 +766,14 @@ since you've all been added as collaborators to your group's repository.
 But you will get practice collaborating on a Git project in the group work later 
 in the course.
 
+> **Note**: A big challenge you'll encounter with becoming better with this
+way of collaborating is that most of your collaborators will likely not be
+familiar with it (at least until they take this course). Sadly, even experienced
+people struggle with this and there is no easy answer on how to handle this.
+The best way (in our opinion) is to start training any colleague who is interested
+in collaborating this way and slowly you'll surround yourself with collaborators
+who also work this way.
+
 ## Summary of session {#version-control-summary}
 
 - Use the version control system Git to track changes to your files,
