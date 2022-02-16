@@ -695,7 +695,7 @@ Use Table \@ref(tab:logic-operators) to help with creating the logic condition.
 
 ```{r}
 nhanes_small %>%
-    mutate(highly_active = if_else(phys_active_days >= 5, "yes", "no"))
+    mutate(highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
 ```
 
 Recall that the original dataset doesn't change. 
