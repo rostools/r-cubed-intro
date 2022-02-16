@@ -240,6 +240,11 @@ The Git interface should look something like
 Figure \@ref(fig:image-rstudio-git-interface) below.
 A short written description is given below the image.
 
+`r details_for_instructors("
+Take your time going through the RStudio Git interface, showing where things
+are and what things to focus on for this course.
+")`
+
 ```{r image-rstudio-git-interface, echo=FALSE, fig.cap="The Git interface in RStudio."}
 knitr::include_graphics(here::here("images/rstudio-git-interface.png"))
 ```
