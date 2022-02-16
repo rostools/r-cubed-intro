@@ -23,7 +23,9 @@ rmd_files:
     - "appendix/for-instructors.Rmd"
     - "LICENSE.md"
     - "appendix/references.Rmd"
-before_chapter_script: "_common.R"
+before_chapter_script:
+    - "_common.R"
+    - "R/functions.R"
 clean:
     - "resources/packages.bib"
     - "r-cubed.rds"
