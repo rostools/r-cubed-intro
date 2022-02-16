@@ -5,10 +5,11 @@ you as a group will take what you learn in the course
 and apply it to create a reproducible project. This project, based on a simple data analysis of a dataset of your choice, will have a GitHub repository and an HTML document as a report to demonstrate the reproducibility of the analysis. 
 The dataset **cannot be the same** as the one we used in class,
 and it must be an open dataset obtained from an online archive (we recommend a few
-below).
+below). Preferably, different teams choose different datasets so not everyone
+is using the same dataset. The lead instructor will coordinate this.
 
-On the last day of the course, 
-you as a group will give a ~10 min presentation of your analysis and report.
+In the last session of the course, 
+you as a group will give a ~5-10 min presentation of your analysis and report.
 Before the presentation, the lead instructor will download your project
 from GitHub and re-generate your report to check that it is reproducible.
 Then, during the presentation, you as a group will:
@@ -18,13 +19,6 @@ Then, during the presentation, you as a group will:
 - Describe what you did and the reasons behind what you did.
 - Explain any challenges you encountered or things you would do differently.
 - Explain anything you liked and would do more of in the future.
-
-When your group isn't presenting, 
-you as an audience member can participate in the discussion by:
-
-- Asking questions to *clarify* anything you may not understand or are confused about.
-- Give *constructive* feedback on what could have been improved on.
-- Give *concrete* suggestions on how things they found challenging could have been handled.
 
 ## Specific tasks
 
@@ -41,34 +35,15 @@ any substantial work on the assignment. You are likely to push and pull a lot of
 content (which you will learn how to do later), so you will need to maintain regular
 and open communication with your team members.
 
-For the group project, your specific tasks (based on lesson order) are to:
+To make things a bit easier for you to start on the project sooner, we've
+created the repositories with the appropriate file and folder structure for you.
+So, your specific tasks (based on lesson order) are to:
 
-1. **Create a new project** using the "New Project" setup with the necessary files
-(covered in [Management of R Projects](r-project-management.html)) 
-by using the prodigenr package. Then assign one person to be the "coordinator"
-to make this project and to complete the following tasks:
-    - Name the project the *same* as your team name (which is given for your group).
-    - Run the below functions from the usethis package to setup the project 
-    and to create the following files:
-    
-    ```r
-    usethis::use_blank_slate("project")
-    usethis::use_data_raw("original-data")
-    usethis::use_r("generate-figures")
-    ```
+1. All team members need to **clone your team's repository to their own computer**,
+using the process we learned in cloning exercise \@ref(#ex-clone-from-github) in
+the Version Control session.
 
-2. **Put the project under Git version control and upload to GitHub**.
-    - The coordinator needs to add and commit all the files in the R Project.
-    - The coordinator must connect the project to GitHub and push ("upload") the
-    repository (covered in [Version Control](version-control.html)).
-    - All other team members must clone their team's GitHub repository onto their
-    computers.
-    - Each team member must open up the `README.md` file and write a few
-    sentences about themselves *below* the first Markdown header (`#`). After
-    saving the changes, add and commit them into the Git repository.
-    - Push and pull the changes and deal with the resulting merge conflicts.
-
-3. **Find an open dataset** to use for your analysis and report. You have two
+2. **Find an open dataset** to use for your analysis and report. You have two
 options: 1) choose from one of the datasets provided below; or 2) search
 for another dataset from an online data archive (e.g., [figshare]). If you choose
 the second option, make sure to select a dataset that isn't too big (maybe
@@ -85,68 +60,69 @@ Here are some datasets we've identified that would be good for the assignment:
     
 [figshare]: https://figshare.com/
 
-4. **Download the dataset** and put it into the `data-raw/` folder of your
-project. For the GitHub-linked datasets above, you should be able to click on the
-"Raw" or "Download" buttons, then use the keyboard shortcut (`Ctrl-S`) to save
-the page (as a `.csv` file). It is advised that you push/pull appropriately and
-check that all team members can "see" the dataset. If you have documentation on
-the dataset, e.g. variable definitions, put those files in the `data-raw/`
-folder as well.
+3. Assign one team member to **download the dataset** and put it into the
+`data-raw/` folder of your project. 
+    - For the GitHub-linked datasets above, you should be able to click on the "Raw"
+    or "Download" buttons, then use the keyboard shortcut (`Ctrl-S`) to save the
+    page (as a `.csv` file). 
+    - If there is any documentation on the dataset, e.g. variable definitions,
+    put those files in the `data-raw/` folder as well.
+    - This team member should then add and commit the new file(s) in the project,
+    so it gets saved to the Git history. Then push the changes to the team's
+    GitHub repository.
+    - Next, have all team members pull the new changes to their own computers.
 
-5. **Use the created `data-raw/original-data.R` script to clean up and prepare the raw dataset**
-(as covered in [Data Management](wrangling.html)).
-Save the new dataset in a folder called `data/` with `usethis::use_data()`. 
-Again, use Git to make and
-manage these changes. You can (and probably should) distribute the tasks of
-exploring the data and figuring out what should be or needs to be cleaned in the
-dataset. It also makes sure that you as a group have a good understanding of the
-data.
+4. **Use the created `data-raw/original-data.R` script to clean up and prepare
+the raw dataset** (as covered in [Data Management](wrangling.html)).
+A (strongly) suggested way of working here is to assign one team member as the
+"coder" and as a group discuss and decide on how to clean up the data by telling
+the "coder" what to do. After you've cleaned it up enough that you as a group
+are satisfied, save the new dataset in a folder called `data/` with
+`usethis::use_data()`. The coder should eventually add and comment these changes
+to the data before pushing to the team GitHub repository so the other members
+can access the data too.
 
-6. **Create an R Markdown file** named `report.Rmd` in the `doc/` folder of your project
-(covered in [Reproducible Documents](reproducible-documents.html)).
-Do some simple analyses of the dataset in this report file 
-and do the tasks below.
-Distribute the tasks so each team member is (mostly) doing something different.
+5. **Create an R Markdown file** named `report-YOURNAME.Rmd` (replacing
+`YOURNAME` with your actual name) in the `doc/` folder of your project (covered
+in [Reproducible Documents](reproducible-documents.html)). This means that each 
+team member will have their own R Markdown document to work in without conflicting
+with the other team members. **Note**, if there are several members with the
+same name, make sure your `Rmd` documents are unique (for instance, by using
+your full name).
+Distribute the tasks (listed below) so each team member is (mostly) doing something different,
+like doing some simple analyses of the dataset, making figures (as covered
+in [Data Visualization](visualization.html)), and so on.
 Keep using the "Git workflow" by adding to the staged area, commit, push, and
-pull the changes you've made. You'll likely deal with merge conflicts, which is
-a good chance to practice some more with Git.
+pull the changes you've made. You may end up with some merge conflicts, ask
+instructors or helpers for support to resolving them.
     - Create section headers (e.g. "Introduction", "Methods", "Results", "Discussion").
     - In a "Methods" section, write up a basic description of what the dataset is, where you got it
     from, and what you did to process or analyze the data.
-    - Create a table in the report that is generated from the data in a "Results"
-    section.
-    - Create one R Markdown file for each team member,
-    and each person works on their own file.
-    Later this file will be merged into the final report.
+    - Create at least one table in the report that is generated from the data in
+    a "Results" section.
+    - Create several different figures of your data that is generated in the 
+    "Results" section. 
     - Try to "knit" your document to HTML often, 
     to make sure the analysis is reproducible.
     - **Note**: For now, *do not* add and commit the HTML output file.
 
+6. Once you as a group are happy with the results, each team member should
+**write in the "Discussion" section of their report file** a few
+sentences on some things you liked about doing the project with the tools you
+learned and a few sentences on some challenges you experienced. Add any thoughts
+that you as a group came up with as well.
+    
+7. Assign one team member as the "report coordinator" and have them **merge all the individual
+`report-YOURNAME.Rmd` into one `report.Rmd`** file. They do this by copying and pasting
+the content of the reports into the appropriate sections of the report. After
+they are done, add and commit the `report.Rmd`. Lastly, delete all the report files
+*except* the `report.Rmd` and add and commit these deleted files to the Git history.
+There should only be the `report.Rmd` file in the repository.
+    - As the report coordinator merges the report file, assign another team member
+    to update the `README.md` file with some details about the project and about who
+    was on the team. Save, add, commit, and push these changes to the GitHub repository.
 
-7. **Create R code chunks in the `report.Rmd` file that create 
-one or more figures** to visualize the cleaned dataset 
-(covered in [Data Visualization](visualization.html)). 
-A good place to get started on this is to explore your data by making
-some ggplot2 graphs and find a few you'd like to include in the report.
-It's a good idea to distribute exploration to each group member,
-so that each member gets practice in making ggplot2 graphs.
-    - Each member creates an R script in the `R/` folder
-    to start visually exploring the data.
-    Name these new files with your name at the start and end it with `-exploring.R`.
-    - Add, commit, and push these files to your GitHub repository.
-    - Find some visually interesting
-    and insightful plots that you could show in the presentation 
-    and in the report.
-    - Decide which figures to include in the report and presentation.
-    - Save these figures in the `doc/images/` folder.
-    - Add, commit, and push the new images to GitHub.
-
-8. **Add discussion items to the `report.Rmd` file**, where you write up a few sentences on some things you liked about doing the project with
-    the tools you learned, and a few sentences on some challenges you had in a
-    "Discussion" section.
-    Add your thoughts as a group as well.
-
-9. **Generate an HTML of the report** and commit it to Git, then push it up to 
+8. **Generate an HTML of the report** and commit it to Git, then push it up to 
 GitHub. Include all the updated code and files on GitHub for the presentation.
 
 These tasks may seem like a lot, with a lot of new terminology and tools to use. 
@@ -154,7 +130,7 @@ But don't worry! We will be going over many of these topics and you will have ti
 to complete the project over the three days.
 
 At the end, the lead instructor will download each of the teams' Git projects,
-knit the R Markdown documents, 
+knit the R Markdown documents to test its reproducibility, 
 and show them on the screen for each team to present on.
 
 ## Quick "checklist" for a good project

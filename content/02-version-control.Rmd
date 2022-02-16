@@ -505,7 +505,7 @@ You should now have your project files on GitHub!
 knitr::include_graphics(here::here("images/rstudio-terminal-tab.png"))
 ```
 
-## Exercise: Clone GitHub repository from RStudio
+## Exercise: Clone GitHub repository from RStudio {#ex-clone-from-github}
 
 Time: 10 min
 
