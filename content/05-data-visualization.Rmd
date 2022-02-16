@@ -220,6 +220,12 @@ ggplot(nhanes_tidied, aes(x = diabetes)) +
     geom_bar()
 ```
 
+`r details_for_instructors("
+For this section on the bar-with-standard-error plots, make sure to go over and
+emphasize the problems and major flaws with using this type of plot. Really try
+to reinforce the concept here.
+")`
+
 Let's take a minute to talk about commonly used barplots with mean and error bars.
 In all cases, barplots should **only** be used for discrete (categorical) data
 where you want to show counts or proportions. As a general rule, they should **not** be used for continuous data.

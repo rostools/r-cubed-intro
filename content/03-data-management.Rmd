@@ -16,6 +16,12 @@ with `group_by()` and `summarise()`.
 
 ## "Messy" vs. "tidy" data
 
+`r details_for_instructors("
+This session usually takes a fair amount of time relative to the other sessions.
+The R Markdown session is right afterwards and since it usually is done quicker
+than other sessions, it's fine if this session takes up time in the R Markdown session.
+")`
+
 **Take 10 min to read through this *"Messy" vs "tidy" data* section
 and the *Managing and working with data in R* section**.
 

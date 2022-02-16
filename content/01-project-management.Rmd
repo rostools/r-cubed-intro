@@ -13,6 +13,12 @@ and making files.
 
 ## What is a project and why use it?
 
+`r details_for_instructors("
+Throughout this session, because it is the first session, take it slowly.
+Talk through the basics of R, including emphasizing how to troubleshoot or get
+help. Check for participants' understanding using the stickies.
+")`
+
 **Take 5 minutes to read through this section**.
 
 Before we create a project, we should first define what we mean by "project".
