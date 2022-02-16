@@ -3,6 +3,7 @@ bookdown::bs4_book:
         primary: "#2471a3"
     includes:
         before_body:
+            - "resources/site-counter.html"
             - "resources/contribute.html"
     repo:
         base: "https://gitlab.com/rostools/r-cubed"
