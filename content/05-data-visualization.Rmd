@@ -664,9 +664,9 @@ and use it on the `base_barplot` graph so that the plot is colour blind
 friendly. Because the variables are discrete, you will need to add `_d` to the end of
 the viridis scheme function.
 
-2. Viridis has several palettes. Add the argument `option = "A"` to the
+2. Viridis has several palettes. Add the argument `option = "magma"` to the
 `scale_fill_viridis_d()` function. Run the function again and see how the colour
-changes. Next, change `"A"` to `"E"`.
+changes. Next, change `"magma"` to `"cividis"`.
 
 3. Now, let's practice using the colour schemes on a plot with continuous
 variables. Copy and paste the code below into a new code chunk named `exercise-continuous-variables`.
@@ -681,7 +681,7 @@ continuous.
         geom_point()
     ```
     
-4. Similar to #2 above, use the `option` argument to set the palette to `"B"` 
+4. Similar to #2 above, use the `option` argument to set the palette to `"inferno"` 
 and see how the colour changes.
 
 5. Lastly, add and commit the changes to the R Markdown file into the Git history.
@@ -693,10 +693,10 @@ base_barplot +
 
 # 2. change colours to another viridis color scheme
 base_barplot +
-    scale_fill_viridis_d(option = "A")
+    scale_fill_viridis_d(option = "magma")
 
 base_barplot +
-    scale_fill_viridis_d(option = "E")
+    scale_fill_viridis_d(option = "cividis")
 
 # 3. change colours to a viridis color scheme
 base_scatterplot +
@@ -704,7 +704,7 @@ base_scatterplot +
 
 # 4. change colours to another viridis color scheme
 base_scatterplot +
-    scale_color_viridis_c(option = "B")
+    scale_color_viridis_c(option = "inferno")
 ```
 
 ## Titles, axis labels, and themes
