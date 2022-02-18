@@ -219,6 +219,7 @@ with of course our help too!
 - We're all learning here!
     - This is a supportive and safe environment
     - Remember our [Code of Conduct](conduct.html)
+- We have a [cheatsheet](resources/cheatsheet.pdf)!
 ]
 
 
