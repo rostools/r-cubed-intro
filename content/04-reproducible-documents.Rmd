@@ -263,7 +263,7 @@ An error may not necessarily occur if you don't follow this rule,
 but there can be unintended side effects that you may not realize
 and R will likely not tell you about it,
 probably causing you quite a bit of annoyance and frustration. 
-Note that you can't have duplicate code chunk labels throughout your document.
+**Note**, you can't use duplicate code chunk labels in your document.
 
 [chunk labels]: https://yihui.name/knitr/options/#chunk-options
 
