@@ -83,3 +83,4 @@ Remotes:
     gitlab::rostools/r3,
     ropensci/RefManageR
 Encoding: UTF-8
+LazyData: true
