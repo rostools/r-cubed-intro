@@ -1,7 +1,5 @@
 # Analytically reproducible documents {#reproducible-documents}
 
-> When in RStudio, quickly jump to this page using `r3::open_reproducible_documents()`.
-
 **Session objectives**:
 
 1. Learn what a reproducible document is,

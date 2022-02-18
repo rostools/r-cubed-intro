@@ -1,7 +1,5 @@
 # Management of R projects {#r-project-management}
 
-> When in RStudio, quickly jump to this page using `r3::open_rproject_management()`.
-
 **Session objectives**:
 
 1. Create self-contained projects to be more reproducible.

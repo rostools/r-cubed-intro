@@ -1,7 +1,5 @@
 # Data visualization {#visualization}
 
-> When in RStudio, quickly jump to this page by using `r3::open_data_visualization()`.
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message = FALSE, out.width = NULL)
 ```

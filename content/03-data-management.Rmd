@@ -1,7 +1,5 @@
 # Data management and wrangling {#wrangling}
 
-> When in RStudio, quickly jump to this page using `r3::open_data_wrangling()`.
-
 **Session objectives**:
 
 1. Learn the difference between "messy" and "tidy" data, including how to create tidy data to simplify your analysis.
