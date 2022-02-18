@@ -291,16 +291,15 @@ But if you want to create a new dataset with only the columns you selected,
 you'll need to assign the selected dataset to a new object.
 
 The full NHANES dataset is 10,000 individuals (rows) with 76 parameters
-(columns). Since we are only interested in some of these parameters, we will
-subset the large dataset and save it for later use as a new dataset.
+(columns). To make it easier to look at and since we are only interested in some
+of these parameters, we will subset the large dataset into something smaller and
+save it for later use as a new dataset.
 
 ```{r create-smaller-nhanes}
 # Save the selected columns as a new data frame
 # Recall the style guide for naming objects
-nhanes_small <- select(NHANES, Age, Gender, Height, 
-                       Weight, BMI, Diabetes, DiabetesAge, 
-                       PhysActiveDays, PhysActive, TotChol, 
-                       BPSysAve, BPDiaAve, SmokeNow, Poverty)
+nhanes_small <- select(NHANES, Age, Gender, BMI, Diabetes,
+                       PhysActive, BPSysAve, BPDiaAve, Education)
 
 # View the new data frame
 nhanes_small
@@ -468,7 +467,7 @@ Time: 10 min
 In the `exercise-wrangling.R` script file, complete the following tasks.
 
 1. Copy and paste the code below into the script file.
-Replace the `___` in the `select()` function, with the columns `tot_chol`, `bp_sys_ave`, and `poverty`.
+Replace the `___` in the `select()` function, with the columns `bp_sys_ave`, and `education`.
 
     ```r
     nhanes_small %>% 
@@ -476,12 +475,14 @@ Replace the `___` in the `select()` function, with the columns `tot_chol`, `bp_s
     ```
     
 2. Copy and paste the code below and fill out the blanks.
-Rename `diabetes_age` to be `diabetes_diagnosis_age`.
+Rename the `bp_` variables so they don't end in `_ave`,
+so they look like `bp_sys` and `bp_dia`.
 *Tip*: Recall that renaming is in the form `new = old`.
 
     ```r
     nhanes_small %>% 
-        rename(___ = ___)
+        rename(___ = ___,
+               ___ = ___)
     ```
 
 3. Re-write this piece of code using the "pipe" operator:
@@ -490,13 +491,14 @@ Rename `diabetes_age` to be `diabetes_diagnosis_age`.
     select(nhanes_small, bmi, contains("age"))
     ```
 
-4. Read through (in your head) the code below. How intuitive is it to read? Now, re-write this code so that you don't need to create the temporary
-`physical_activity` object by using the pipe,
+4. Read through (in your head) the code below. How intuitive is it to read? Now,
+re-write this code so that you don't need to create the temporary
+`blood_pressure` object by using the pipe,
 then re-read the revised version. Which do you feel is easier to "read"?
 
     ```r
-    physical_activity <- select(nhanes_small, phys_active_days, phys_active)
-    rename(physical_activity, days_phys_active = phys_active_days)
+    blood_pressure <- select(nhanes_small, starts_with("bp_"))
+    rename(blood_pressure, bp_systolic = bp_sys)
     ```
 
 5. Lastly, add and commit these changes to the Git history with the RStudio Git
@@ -505,11 +507,12 @@ interface.
 ```{r solution-ex-practice-dplyr, eval=FALSE, solution=TRUE}
 # 1. Select specific columns
 nhanes_small %>%
-    select(tot_chol, bp_sys_ave, poverty)
+    select(bp_sys_ave, education)
 
 # 2. Rename columns
 nhanes_small %>%
-    rename(diabetes_diagnosis_age = diabetes_age)
+    rename(bp_sys = bp_sys_ave,
+           bp_dia = bp_dia_ave)
 
 # 3. Re-write with pipe
 nhanes_small %>% 
@@ -517,8 +520,8 @@ nhanes_small %>%
 
 # 4. Re-write with pipe
 nhanes_small %>% 
-    select(phys_active_days, phys_active) %>% 
-    rename(days_phys_active = phys_active_days)
+    select(starts_with("bp_")) %>% 
+    rename(bp_systolic = bp_sys_ave)
 ```
 
 ## Filtering data by row
@@ -546,15 +549,15 @@ An example: If we wanted to keep only females in the dataset, we would use the l
 
 ```{r}
 nhanes_small %>%
-    filter(sex == "female")
+    filter(phys_active == "No")
 ```
 
 We would "read" this code as:
 
 > Take the nhanes_small dataset *and then* 
-filter so that only rows where `sex` is equal to "female" are kept.
+filter so that only rows where `phys_active` is equal to "No" are kept.
 
-When a row in the `sex` column has the value `"female"`, that row is kept.
+When a row in the `phys_active` column has the value `"No"`, that row is kept.
 Otherwise, it is dropped.
 
 There are other logic comparisons to use.
@@ -582,7 +585,7 @@ Let's try out a few of these logical conditions with `filter()`.
 ```{r}
 # Participants who are not female
 nhanes_small %>%
-    filter(sex != "female")
+    filter(phys_active != "No")
 
 # Participants who have BMI equal to 25
 nhanes_small %>%
@@ -613,13 +616,13 @@ FALSE | FALSE
 When used in `filter()`, combinations of logic conditions may look like this:
 
 ```{r}
-# When BMI is 25 AND sex is female
+# When BMI is 25 AND phys_active is No
 nhanes_small %>%
-    filter(bmi == 25 & sex == "female")
+    filter(bmi == 25 & phys_active == "No")
 
-# When BMI is 25 OR sex is female
+# When BMI is 25 OR phys_active is No
 nhanes_small %>%
-    filter(bmi == 25 | sex == "female")
+    filter(bmi == 25 | phys_active == "No")
 ```
 
 ## Arranging the rows of your data by column
@@ -639,7 +642,7 @@ nhanes_small %>%
 
 ```{r}
 nhanes_small %>% 
-    arrange(sex)
+    arrange(education)
 ```
 
 If we want to order the column based on descending order, this can be done with `desc()`.
@@ -650,22 +653,24 @@ nhanes_small %>%
     arrange(desc(age))
 ```
 
-You can also order your data by multiple columns. For instance, we could arrange first by `sex` and then by `age`.
+You can also order your data by multiple columns. For instance, we could arrange first by `education` and then by `age`.
 
 ```{r}
-# Arranging data by sex then age in ascending order
+# Arranging data by education then age in ascending order
 nhanes_small %>%
-    arrange(sex, age)
+    arrange(education, age)
 ```
 
 ## Transform or add columns
 
-To modify an existing column or to add a new one, we can use the function called `mutate()`. You can use `mutate()` to compute a new variable using existing columns in your dataset, such as calculating BMI using `height` and `weight` columns. You can multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the dataset and the other arguments are columns to add or modify.
+To modify an existing column or to add a new one, we can use the function called `mutate()`. You can use `mutate()` to compute a new variable using existing columns in your dataset. You can multiply all values in a certain column by 2, or combine columns into a new variable. Like the other functions, the first input is the dataset and the other arguments are columns to add or modify.
 
-Take this exmaple: Height values are in centimeters, but we want them in meters. So, we would use `mutate()` with the following instruction:
+Take this example: In some analyses, sometimes age is reflected as months, not 
+years. Since NHANES has age in years, to convert to months we would multiply by
+12. So, we would use `mutate()` with the following instruction:
 
 ```
-height = height / 100
+age = age * 12
 ```
 
 This form is similar to how math works. 
@@ -675,25 +680,23 @@ When using `mutate()`, it looks like this:
 
 ```{r}
 nhanes_small %>%
-    mutate(height = height / 100)
+    mutate(age = age * 12)
 ```
 
-We can also create a new column (e.g., log transforming height):
+We can also create a new column (e.g., log transforming BMI):
 
 ```{r}
 nhanes_small %>% 
-    mutate(logged_height = log(height))
+    mutate(logged_bmi = log(bmi))
 ```
 
 We can add multiple modifications 
 or additions with `mutate()` by separating them with `,`.
-So, if we first wanted to have height as meters and then take the natural logarithm, 
-it would be:
 
 ```{r}
 nhanes_small %>% 
-    mutate(height = height / 100,
-           logged_height = log(height))
+    mutate(age = age * 12,
+           logged_bmi = log(bmi))
 ```
 
 We can also have different values based on logic conditions using `if_else()`.
@@ -701,18 +704,17 @@ Use Table \@ref(tab:logic-operators) to help with creating the logic condition.
 
 ```{r}
 nhanes_small %>%
-    mutate(highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
+    mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
 
 Recall that the original dataset doesn't change. 
 If we want the added variable to be saved, we must assign it to something with `<-`.
-Putting it all together, you would enter something like this:
+Putting it all together, you would enter something like this (no need to type this
+out yourself):
 
 ```{r}
 nhanes_update <- nhanes_small %>%
-    mutate(height = height / 100,
-           logged_height = log(height),
-           highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
+    mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
 
 Before you start the following exercise, add and commit all the files changes to the Git
@@ -791,13 +793,13 @@ and then combining the results together.
 [split-apply-combine]: https://www.jstatsoft.org/article/view/v040i01
 
 In [dplyr], you can use the function called `summarise()` to summarise on all the data.
-If you want to do a split-apply-combine analysis to, e.g., find the max height of females and males,
+If you want to do a split-apply-combine analysis to, e.g., find the max height by education status,
 you would use the functions `group_by()` and then `summarise()`.
 Using `group_by()` splits the data up and `summarise()` applies an analysis, then immediately combines it back together. 
 
 The first position argument to `group_by()` is, as usual, the dataset.
 The next arguments are the columns that contain the values you want to group by.
-These columns must contain **categorical** data (e.g. sex). `group_by()` tells R
+These columns must contain **categorical** data (e.g. education). `group_by()` tells R
 to compute the next operations on the data within each grouping, rather than on all
 the data.
 
@@ -854,44 +856,33 @@ Copy and paste the code below into the `exercises-wrangling.R` script file.
 ```{r exercise-summarise-basic-stats, eval=FALSE}
 # 1.
 nhanes_small %>%
-    summarise(mean_weight = ___,
+    summarise(mean_bp_sys = ___,
               mean_age = ___)
 
 # 2.
 nhanes_small %>%
-    summarise(max_height = ___,
-              min_height = ___)
-
-# 3.
-nhanes_small %>%
-    summarise(___ = ___,
-              ___ = ___)
+    summarise(max_bp_dia = ___,
+              min_bp_dia = ___)
 ```
 
 Then, start replacing the `___` with the appropriate
 code to complete the tasks below. Don't forget to use `na.rm = TRUE` in the basic statistic functions.
 
-1. Calculate the mean of `weight` and `age`.
-2. Calculate the max and min of `height`.
-3. Calculate the median of `age` and `phys_active_days`.
-4. Lastly, add and commit any changes made to the Git history with the RStudio
+1. Calculate the mean of `bp_sys_ave` and `age`.
+2. Calculate the max and min of `bp_dia`.
+3. Lastly, add and commit any changes made to the Git history with the RStudio
 Git interface.
 
 ```{r solution-exercise-summarise-basic-stats, eval=FALSE, solution=TRUE}
 # 1.
 nhanes_small %>%
-    summarise(mean_weight = mean(weight, na.rm = TRUE),
+    summarise(mean_bp_sys = mean(bp_sys_ave, na.rm = TRUE),
               mean_age = mean(age, na.rm = TRUE))
 
 # 2.
 nhanes_small %>%
-    summarise(max_height = max(height, na.rm = TRUE),
-              min_height = min(height, na.rm = TRUE))
-
-# 3.
-nhanes_small %>%
-    summarise(median_age = median(height, na.rm = TRUE),
-              median_phys_active_days = median(phys_active_days, na.rm = TRUE))             
+    summarise(max_bp_dia = max(bp_dia_ave, na.rm = TRUE),
+              min_bp_dia = min(bp_dia_ave, na.rm = TRUE))
 ```
 
 ## Summary statistics by a group {#group-by-summarise}
@@ -926,12 +917,12 @@ nhanes_small %>%
 ```
 
 Cool! We can add more columns to the grouping, so let's do that. 
-Let's compare mean age and BMI by sex and diabetes status.
+Let's compare mean age and BMI by physical activity and diabetes status.
 
 ```{r}
 nhanes_small %>%
     filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) %>% 
+    group_by(diabetes, phys_active) %>% 
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE))
 ```
@@ -942,7 +933,7 @@ grouping with `ungroup()`.
 ```{r}
 nhanes_small %>%
     filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) %>% 
+    group_by(diabetes, phys_active) %>% 
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
     ungroup()
@@ -985,16 +976,16 @@ Then, start replacing the `___` with the appropriate
 code including `group_by()` with `summarise()`, to answer these questions:
 
 1. What is the mean, max, and min differences in *age* between
-females and males with or without diabetes?
-2. What is the mean, max, and min differences in *height* and *weight* between
-females and males with or without diabetes?
+active and inactive persons with or without diabetes?
+2. What is the mean, max, and min differences in *systolic BP* and *diastolic BP* between
+active and inactive persons with or without diabetes?
 3. Once done, add and commit the changes to the file to the Git history.
 
 ```{r solution-exercise-groupby-summarise, eval=FALSE, solution=TRUE}
 # 1. 
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) %>% 
+    group_by(diabetes, phys_active) %>% 
     summarise(
         mean_age = mean(age, na.rm = TRUE),
         max_age = max(age, na.rm = TRUE),
@@ -1004,14 +995,14 @@ nhanes_small %>%
 # 2. 
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, sex) %>% 
+    group_by(diabetes, phys_active) %>% 
     summarise(
-        mean_height = mean(height, na.rm = TRUE),
-        max_height = max(height, na.rm = TRUE),
-        min_height = min(height, na.rm = TRUE),
-        mean_weight = mean(weight, na.rm = TRUE),
-        max_weight = max(weight, na.rm = TRUE),
-        min_weight = min(weight, na.rm = TRUE)
+        mean_bp_sys = mean(bp_sys_ave, na.rm = TRUE),
+        max_bp_sys = max(bp_sys_ave, na.rm = TRUE),
+        min_bp_sys = min(bp_sys_ave, na.rm = TRUE),
+        mean_bp_dia = mean(bp_dia_ave, na.rm = TRUE),
+        max_bp_dia = max(bp_dia_ave, na.rm = TRUE),
+        min_bp_dia = min(bp_dia_ave, na.rm = TRUE)
     )
 ```
 
