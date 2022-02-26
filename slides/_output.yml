@@ -1,0 +1,10 @@
+xaringan::moon_reader:
+    self_contained: false
+    lib_dir: libs
+    css: 'xaringan-themer.css'
+    nature:
+        slideNumberFormat: ""
+        ratio: "16:9"
+        highlightStyle: github
+        highlightLines: true
+        countIncrementalSlides: false
