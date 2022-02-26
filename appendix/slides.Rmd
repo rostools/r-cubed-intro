@@ -3,17 +3,17 @@
 ## [Introduction to the course](slides/introduction.html) {-}
 
 ```{r, echo=FALSE, out.width="65%"}
-knitr::include_url("slides/introduction.html", height = "250px")
+knitr::include_url("slides/introduction.html", height = "255px")
 ```
 
 ## [Collaboration and teamwork](slides/collaboration-teamwork.html) {-}
 
 ```{r, echo=FALSE, out.width="65%"}
-knitr::include_url("slides/collaboration-teamwork.html", height = "250px")
+knitr::include_url("slides/collaboration-teamwork.html", height = "255px")
 ```
 
 ## [Era of reproducible and open science](slides/open-reproducible-science-era.html) {-}
 
 ```{r, echo=FALSE, out.width="65%"}
-knitr::include_url("slides/open-reproducible-science-era.html", height = "250px")
+knitr::include_url("slides/open-reproducible-science-era.html", height = "255px")
 ```
