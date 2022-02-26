@@ -76,7 +76,8 @@ Suggests:
     xaringan,
     xaringanthemer,
     showtext,
-    bibtex
+    bibtex,
+    callr
 Remotes: 
     gadenbuie/xaringanthemer,
     hadley/emo,
