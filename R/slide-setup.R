@@ -11,7 +11,6 @@ BibOptions(
     cite.style = "numeric",
     style = "markdown",
     max.names = 2
-    # hyperlink = FALSE,
 )
 bib <- ReadBib(here::here("resources/refs.bib"), check = FALSE)
 knitr::opts_chunk$set(echo = FALSE)
@@ -20,28 +19,11 @@ knitr::opts_chunk$set(echo = FALSE)
 library(xaringanthemer)
 style_mono_accent(
     base_color = "#2a2e44",
-    text_font_size = "26px",
+    text_font_size = "1.1rem",
     link_color = "#5e6799",
-    header_font_google = google_font("Fira Sans"),
-    text_font_google = google_font("Crimson Text"),
+    header_font_google = google_font("Prompt"),
+    text_font_google = google_font("Overpass"),
     code_font_google = google_font("Source Code Pro")
 )
 
-xaringanthemer::style_extra_css(
-    list(
-        "div.my-footer" = list(
-            "background-color" = "#FFFFFF",
-            position = "absolute",
-            bottom = "0px",
-            left = "0px",
-            height = "50px",
-            width = "100%"
-        ),
-        "div.my-footer span" = list(
-            "font-size" = "12pt",
-            position = "absolute",
-            left = "15px",
-            bottom = "8px"
-        )
-    )
-)
+progress_bar_colour <- "#2E442A"
