@@ -380,7 +380,8 @@ knitr::opts_chunk$set(echo = FALSE)
 Let's try running some R code to get R Markdown to create a table.
 First, create a new code chunk and label it `mean-age-bmi-table`.
 Second, copy the code from the Data Wrangling session,
-from Section \@ref(group-by-summarise).
+from Section \@ref(group-by-summarise). But instead of using `phys_active`,
+let's change that to `education`.
 
 ````markdown
 `r ''````{r mean-age-bmi-table}
@@ -407,7 +408,9 @@ This output is almost in a table format.
 We have the columns that would be the table headers 
 and rows that would be meaningful table rows. 
 Ideally, we would want this to be report-ready. 
-To convert it into a more elegant table in the R Markdown HTML output document,
+The first thing we should remove are the `NA` education rows, just like
+we did with `diabetes`. Then, we'll 
+convert it into a more elegant table in the R Markdown HTML output document,
 we use the `kable()` function from the knitr package.
 Because we don't want to load all of the knitr functions,
 we'll use `knitr::kable()` instead:
@@ -415,7 +418,7 @@ we'll use `knitr::kable()` instead:
 ````markdown
 `r ''````{r mean-age-bmi-table}
 nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
+    filter(!is.na(diabetes), !is.na(education)) %>% 
     group_by(diabetes, education) %>% 
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
@@ -426,7 +429,7 @@ nhanes_small %>%
 
 ```{r mean-age-bmi-table, echo=FALSE}
 nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
+    filter(!is.na(diabetes), !is.na(education)) %>% 
     group_by(diabetes, education) %>% 
     summarise(mean_age = mean(age, na.rm = TRUE),
               mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
