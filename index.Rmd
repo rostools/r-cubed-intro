@@ -12,7 +12,7 @@ author:
   - Anders Aasted Isaksen
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [resources/refs.bib, resources/packages.bib]
+bibliography: "resources/refs.bib"
 link-citations: yes
 description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
 apple-touch-icon: "images/apple-touch-icon.png"
@@ -22,14 +22,6 @@ url: 'https\://r-cubed.rostools.org'
 ---
 
 # Welcome!
-
-```{r, include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(
-    c(.packages(), "bookdown", "knitr", "rmarkdown"),
-    here::here('resources/packages.bib')
-)
-```
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
