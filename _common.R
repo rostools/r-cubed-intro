@@ -5,6 +5,8 @@ library(knitr)
 library(tidyverse)
 library(htmltools)
 
+options(width = 60)
+
 knitr::opts_chunk$set(
     comment = "#>",
     warning = FALSE,
