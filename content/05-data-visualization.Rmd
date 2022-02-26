@@ -159,18 +159,30 @@ It is good practice to create a new code chunk for each plot in R Markdown, to m
 a nice readable code, however, in this session, we are going to experiment with parameters and geoms and will not create a new code chunk for every plot we make. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
 chunk below it and name it `continuous-variables`. Let's take a look at a density distribution plot:
 
-```{r continuous-variables}
+```{r continuous-variables, warning=TRUE}
 # Create density plot for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
     geom_density()
 ```
 
-Now, let's take a look at a histogram, by typing in the same code chunk:
+You'll notice we get a warning about dropping missing values. That's ggplot2 
+letting us know we have some missing values. So, like with `median()` and
+many of the other summary statistic functions, we can set `na.rm = TRUE` to
+`geom_density()` and other `geom_*` functions.
+
+```{r continuous-variables-no-na}
+# Create density plot for BMI
+ggplot(nhanes_small, aes(x = bmi)) +
+    geom_density(na.rm = TRUE)
+```
+
+Now, let's take a look at a histogram, by typing in the same code chunk,
+adding `na.rm = TRUE` to this function too:
 
 ```{r}
 # Create histogram for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
-    geom_histogram()
+    geom_histogram(na.rm = TRUE)
 ```
 
 Note that it is good practice to always create a new line after the `+`.
@@ -191,6 +203,7 @@ ggplot(nhanes_small, aes(x = education)) +
     geom_bar()
 ```
 
+We didn't use `na.rm = TRUE` here because `geom_bar()` includes that as a column.
 We can see that there are almost equal numbers of females and males.
 Now, we'll do the same for the diabetes status variable. In the same code chunk, type:
 
@@ -200,7 +213,8 @@ ggplot(nhanes_small, aes(x = diabetes)) +
     geom_bar()
 ```
 
-For diabetes, it seems that there is some missingness in the data. Same with education.
+For diabetes, it seems that there is some missingness in the data. 
+Same thing with education.
 Since both are important variables for us, let's remove all missing
 values, save the tidied dataset in the `data/` folder, and plot it again
 in a new code chunk named `remove-missing-diabetes`.
@@ -272,14 +286,15 @@ Let's check out how BMI may influence systolic blood pressure using a basic scat
 hex plot, and a smoothing line plot in a new code chunk. 
 
 First, enter a new Markdown header called `# Plotting two variables` and create a 
-code chunk named `2-continuous-variables` below that.
+code chunk named `2-continuous-variables` below that. Like with the previous
+plot we created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
 # Using 2 continuous variables
 bmi_bp <- ggplot(nhanes_tidied, aes(x = bmi, y = bp_sys_ave))
 # Standard scatter plot
 bmi_bp + 
-    geom_point()
+    geom_point(na.rm = TRUE)
 ```    
 
 You can see that, with 10,000 data points, the scatterplot is a little crowded.
@@ -288,7 +303,7 @@ To try a more suitable `geom_`, type in the same code chunk:
 ```{r}
 # Standard scatter plot, but with hexagons
 bmi_bp + 
-    geom_hex()
+    geom_hex(na.rm = TRUE)
 ```   
 
 Notice how the hex plot changes the colour of the data 
@@ -299,7 +314,7 @@ You can also draw a smoothing line:
 ```{r}
 # Runs a smoothing line with confidence interval
 bmi_bp + 
-    geom_smooth()
+    geom_smooth(na.rm = TRUE)
 ```
 
 This makes a nice smoothing line through the data and gives us an idea of
@@ -309,8 +324,8 @@ geoms by adding another one with a `+`.
 ```{r}
 # Or combine two geoms, hex plot with smoothing line
 bmi_bp + 
-    geom_hex() +
-    geom_smooth()
+    geom_hex(na.rm = TRUE) +
+    geom_smooth(na.rm = TRUE)
 ```
 
 ### Two discrete variables
@@ -376,7 +391,7 @@ two_mixed <- nhanes_tidied %>%
 
 # Standard boxplot with outliers
 two_mixed + 
-    geom_boxplot()
+    geom_boxplot(na.rm = TRUE)
 ```
 
 However, the boxplot is still hiding your actual data points. Instead, data points can be shown
@@ -385,7 +400,7 @@ with a jitter plot:
 ```{r}
 # Show the actual data using a jitter plot
 two_mixed + 
-    geom_jitter()
+    geom_jitter(na.rm = TRUE)
 ```
 
 Or a violin plot:
@@ -393,7 +408,7 @@ Or a violin plot:
 ```{r}
 # Show the distribution with a violin plot
 two_mixed + 
-    geom_violin()
+    geom_violin(na.rm = TRUE)
 ```
 
 The violin plot kind of looks like two stingrays, eh?
@@ -411,6 +426,13 @@ one or two variables`, followed by a new code chunk.
 Copy and paste the below code into that code chunk.
 
 ```{r exercise-2-var-plots, eval=FALSE}
+# Use the original NHANES dataset
+library(NHANES)
+nhanes_full_tidied <- NHANES %>% 
+    rename_with(snakecase::to_snake_case) %>% 
+    rename(sex = gender) %>% 
+    filter(!is.na(diabetes), !is.na(education))
+
 # 1a. Distribution of age
 ggplot(___, aes(x = ___)) +
     ___()
@@ -444,7 +466,9 @@ ggplot(___, aes(x = ___, y = ___)) +
     ___()
 ```
 
-Complete as many tasks as you can below.
+Complete as many tasks as you can below. Don't forget to use `na.rm = TRUE`
+where necessary. Use the provided `nhanes_full_tidied` version when creating
+plots with `ggplot()`.
 
 1. Using `geom_histogram()`, find out what the distribution is for the two variables below.
     a. `age` (participant's age at collection).
@@ -473,37 +497,44 @@ what can you conclude about how poverty may be associated with diabetes status?
 Git history.
 
 ```{r solution-2-var-plots, eval=FALSE, solution=TRUE}
+# Use the original NHANES dataset
+library(NHANES)
+nhanes_full_tidied <- NHANES %>% 
+    rename_with(snakecase::to_snake_case) %>% 
+    rename(sex = gender) %>% 
+    filter(!is.na(diabetes), !is.na(education))
+
 # 1a. Distribution of age
-ggplot(nhanes_tidied, aes(x = age)) +
-    geom_histogram()
+ggplot(nhanes_full_tidied, aes(x = age)) +
+    geom_histogram(na.rm = TRUE)
     
 # 1b. Distribution of age at diabetes diagnosis
-ggplot(nhanes_tidied, aes(x = diabetes_age)) +
-    geom_histogram()
+ggplot(nhanes_full_tidied, aes(x = diabetes_age)) +
+    geom_histogram(na.rm = TRUE)
 
 # 2a. Number of people who smoke now
-ggplot(nhanes_tidied, aes(x = smoke_now)) +
+ggplot(nhanes_full_tidied, aes(x = smoke_now)) +
     geom_bar()
 
 # 2b. Number of people who are physically active
-ggplot(nhanes_tidied, aes(x = phys_active)) +
+ggplot(nhanes_full_tidied, aes(x = phys_active)) +
     geom_bar()
 
 # 3a. BMI in relation to systolic blood pressure
-ggplot(nhanes_tidied, aes(x = bmi, y = bp_sys_ave)) +
-    geom_hex()
+ggplot(nhanes_full_tidied, aes(x = bmi, y = bp_sys_ave)) +
+    geom_hex(na.rm = TRUE)
 
 # 3b. BMI relation to diastolic blood pressure
-ggplot(nhanes_tidied, aes(x = bmi, y = bp_dia_ave)) +
-    geom_hex()
+ggplot(nhanes_full_tidied, aes(x = bmi, y = bp_dia_ave)) +
+    geom_hex(na.rm = TRUE)
     
 # 4. Physically active people with or without diabetes
-ggplot(nhanes_tidied, aes(x = diabetes, fill = phys_active)) +
+ggplot(nhanes_full_tidied, aes(x = diabetes, fill = phys_active)) +
     geom_bar(position = position_dodge())
 
 # 5. Poverty levels between those with or without diabetes
-ggplot(nhanes_tidied, aes(x = diabetes, y = poverty)) +
-    geom_violin()
+ggplot(nhanes_full_tidied, aes(x = diabetes, y = poverty)) +
+    geom_violin(na.rm = TRUE)
 ```
 
 ## Visualizing three or more variables
@@ -531,7 +562,7 @@ To plot this, we could use `geom_boxplot()`:
 # Plot systolic blood pressure in relation to education and diabetes status
 nhanes_tidied %>% 
     ggplot(aes(x = education, y = bp_sys_ave, colour = diabetes)) +
-    geom_boxplot()
+    geom_boxplot(na.rm = TRUE)
 ```
 
 Do you see differences in systolic blood pressure between the education statuses? Between diabetics and non-diabetics?
@@ -545,7 +576,7 @@ so we could use `geom_point()`:
 # Plot BMI in relation to systolic blood pressure and age
 nhanes_tidied %>%
     ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
-    geom_point()
+    geom_point(na.rm = TRUE)
 ```
 
 Can you see any associations between systolic blood pressure and BMI or age?
@@ -559,7 +590,7 @@ We could use `geom_point()`:
 # Plot BMI in relation to systolic blood pressure and diabetes status
 nhanes_tidied %>% 
     ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
-    geom_point()
+    geom_point(na.rm = TRUE)
 ```
 
 For this latter plot, it's really hard to see what's different. 
@@ -585,7 +616,7 @@ Make a new code chunk named `using-faceting`
 # faceting by column
 nhanes_tidied %>% 
     ggplot(aes(x = bmi, y = bp_sys_ave)) +
-    geom_point() +
+    geom_point(na.rm = TRUE) +
     facet_grid(cols = vars(diabetes))
 ```
 
@@ -596,7 +627,7 @@ vars(diabetes)` instead. Which do you find more informative?
 # faceting by row
 nhanes_tidied %>% 
     ggplot(aes(x = bmi, y = bp_sys_ave)) +
-    geom_point() +
+    geom_point(na.rm = TRUE) +
     facet_grid(rows = vars(diabetes))
 ```
 
@@ -606,7 +637,7 @@ We can also facet by `education` and use `age` as a colour:
 # Plot BMI in relation to systolic blood pressure, age, education and diabetes status
 nhanes_tidied %>% 
     ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
-    geom_point() +
+    geom_point(na.rm = TRUE) +
     facet_grid(rows = vars(diabetes),
                cols = vars(education))
 ```
@@ -682,7 +713,7 @@ continuous.
     # Scatterplot to work from, with three continuous variables
     base_scatterplot <- nhanes_tidied %>% 
         ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
-        geom_point()
+        geom_point(na.rm = TRUE)
     ```
     
 4. Similar to #2 above, use the `option` argument to set the palette to `"inferno"` 
