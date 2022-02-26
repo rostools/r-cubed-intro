@@ -1,15 +1,5 @@
 ---
 title: "Welcome to the R^3^ course!"
-output:
-    xaringan::moon_reader:
-        self_contained: false
-        lib_dir: libs
-        css: 'xaringan-themer.css'
-        nature:
-            ratio: "16:9"
-            highlightStyle: github
-            highlightLines: true
-            countIncrementalSlides: false
 ---
 
 layout: true
@@ -18,7 +8,9 @@ layout: true
 source(here::here("R/slide-setup.R"))
 ```
 
-<!-- Introduce instructors and helpers. -->
+```{r}
+xaringanExtra::use_progress_bar(color = progress_bar_colour, location = "top")
+```
 
 ---
 
@@ -32,15 +24,20 @@ source(here::here("R/slide-setup.R"))
 
 - `r emo::ji("check")` Accept the GitHub Organization invite
 
+- `r emo::ji("check")` Accept the Slack channel invite
+
+???
+
+Introduce instructors and helpers after welcoming everyone and getting them to
+do this.
+
 ---
 
-class: center, middle
+class: middle
 
 # Question: 
 
-## Before this course...
-
-## How many knew or have heard about <u>reproducibility</u>?
+## Before this course... How many knew or have heard about <u>reproducibility</u>?
 
 ???
 
@@ -48,55 +45,57 @@ Raise your hands.
 
 ---
 
-class: center, middle
+class: middle
 
 # Question: 
 
-## Before this course...
-
-## How many knew or have heard about <u>open science</u>?
+## Before this course... How many knew or have heard about <u>open science</u>?
 
 ---
 
-class: center, middle
+class: middle
 
 # Question: 
 
-## Before this course...
-
-## ...or even <u>open access, open data, open methods/protocols, or open source</u>?
+## Before this course... or even <u>open access, open data, open methods/protocols, or open source</u>?
 
 ---
 
-class: middle, center
+class: middle
 
-# How many have read a method in a paper and wondered how they <u>actually</u> did it? 
+# Question: 
 
---
-
-## ... you've probably realize by now, way more is done than shown in the "Methods"
+## How many have read a method in a paper and wondered how they <u>actually</u> did it? 
 
 ???
 
 Because you are trying to do the same or similar?
 
+And you've probably realize by now, way more is done than shown in the "Methods".
+
 ---
 
-class: center, middle
+class: middle
 
-# Have you ever received confusing code? Or maybe have written your own confusing code?
+# Question: 
+
+## Have you ever received confusing code? Or maybe have written your own confusing code?
 
 ???
 
-I definitely have in my research career.
-We want to change the culture around code by encouraging 
-and teaching how to share code and to write better code in general.
+I definitely have in my research career. We want to change the culture around
+code by encouraging and teaching how to share code and to write better code in
+general.
 
 ---
 
 ## Code sharing: From scientific principle of "reproducibility" 
 
 ... often confused with "replicability" `r Cite(bib, "Plesser2018a")`<sup>1</sup>
+
+???
+
+How many know the difference between replicating and reproducing?
 
 --
 
@@ -126,31 +125,33 @@ to replicate it?
     
 ---
 
-class: middle, center
+class: middle
 
-# Biomedical studies almost entirely don't publish code with the published paper
+# Problem: Biomedical studies almost entirely don't publish code with the published paper `r Cite(bib, c("Leek2017a", "Considine2017a"))`
 
 ???
 
-Very few papers provide code `r Cite(bib, c("Leek2017a", "Considine2017a"))`.
-Except maybe bioinformatics, where about 60% of studies do.
-
-Why? Likely due to:
-
-- Lack of awareness and training
-- Difficulty of adoption
-- No incentive or reward
-- Little to no culture to do it
+Vast majority of papers *still* don't provide code. Except for maybe in
+bioinformatics, where a bit more than half of studies do. There are lots of
+reasons for this, that I talk more about tomorrow.
 
 ---
 
-class: middle, center
+class: middle
 
 # These issues can be fixed by creating and nurturing a culture of openness
 
+???
+
+All of this is because of a problem with our culture in research. We aren't
+open, we don't really share, and don't often follow basic principles of science.
+To fix this, we need to start creating and nurturing a better and healthier
+culture. We all can be involved in that, we all have that power to do something,
+even if its small thing.
+
 ---
 
-class: middle, center
+class: middle
 
 # Goal of this course? Start changing the culture by providing the training
 
@@ -160,8 +161,10 @@ class: middle, center
 
 .pull-left[
 - Open source, free
+
 - Very large online community
     - Learning resources, support, help
+
 - Massive selection of packages
     - Latest statistical methods
     - Productivity tools
@@ -172,7 +175,9 @@ class: middle, center
 .pull-right[
 - Recent push to improve teaching, usability
     - e.g. with tidyverse, RStudio
+
 - One of best visualization tools available
+
 - Powerful capabilities
     - Big Data
     - Programming
@@ -186,14 +191,35 @@ and skills for using R anywhere you go.
 
 ---
 
+## Often asked: Why are we spending time on learning things other than R?
+
+Because the course is about doing *open and reproducible research*, while using R.
+
+???
+
+At least a few times, we get feedback in our survey about the fact we didn't
+spend enough time learning R or they expected more R. That's because we're
+teaching open and reproducible research, and that involves more than just R.
+
+--
+
+| Session | Reason |
+|--|--|
+| Management of R projects | Reproducibility starts at the file level |
+| Version control | Openness and reproducibility is about transparency and inspection |
+| Data management and wrangling | This one is about R `r emo::ji("smile_cat")`|
+| Creating reproducible documents | Hopefully obvious `r emo::ji("stuck_out_tongue")` |
+| Data visualization | Also about R! |
+
+---
+
 ## Course setup and layout
 
 - Course is mix of:
     - "Code-alongs" (we type and explain, you type along)
     - Hands-on exercises
-    - Final group work for [assignment](assignment.html) (quickly go over it)
-
-- Use r3 package to help with learning
+    - Final group work for [assignment](../assignment.html) (quickly go over it)
+    - Groups were made with range of skill and knowledge
 
 - True to our mission, material publicly accessible and [openly licensed](https://r-cubed.rostools.org/license.html)
     - <https://r-cubed.rostools.org/>
@@ -204,6 +230,9 @@ With the final group project, you'll be in the same group for the course,
 working together on it and on the final exercises.
 As a team, you'll help each other out with learning and overcoming any struggles,
 with of course our help too!
+
+I've tried to organize the groups to include a range of skills 
+and experiences, so there is a mix of novice and more experienced users.
 
 ---
 
@@ -219,21 +248,23 @@ with of course our help too!
 - We're all learning here!
     - This is a supportive and safe environment
     - Remember our [Code of Conduct](conduct.html)
+
 - We have a [cheatsheet](resources/cheatsheet.pdf)!
 ]
 
+---
+
+class: middle
+
+# Practice using stickies: Have you re-installed r3 and joined the GitHub Organization as well as the Slack group?
 
 ---
 
-class: middle, center
+class: middle
 
-## Practice using stickies: Have you re-installed r3 and joined the GitHub Organization?
+# Activity: 
 
----
-
-class: middle, center
-
-## Activity: Stand and arrange based on question
+## Stand and arrange `r emo::ji("walking_man")` or raise hand `r emo::ji("raising_hand_woman")` based on question
 
 ???
 
@@ -241,7 +272,7 @@ We're going to do a "stand and re-arrange yourself" activity based on some quest
 
 ---
 
-class: middle, center
+class: middle
 
 ## Who has not yet used R?
 
@@ -251,9 +282,9 @@ Go into different corners for "yes" and "no".
 
 ---
 
-class: middle, center
+class: middle
 
-## Those who've used R, how do you perceive your skill in R?
+## Those who've used R, how do you perceive your skill in R? `r emo::ji("walking_man")`
 
 ???
 
@@ -261,19 +292,9 @@ Along the wall, arrange to one side is "novice/basic" and other side is "advance
 
 ---
 
-class: middle, center
+class: middle
 
-## Those who've used R, have you had formal training in "coding" in R or in general?
-
-???
-
-Raise hands.
-
----
-
-class: middle, center
-
-## Who has struggled with using R?
+## Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? `r emo::ji("raising_hand_woman")`
 
 ???
 
@@ -281,9 +302,9 @@ Raise hands.
 
 ---
 
-class: middle, center
+class: middle
 
-## How do you perceive your general skill in data analysis?
+## How do you perceive your general skill in data analysis? `r emo::ji("walking_man")`
 
 ???
 
@@ -291,19 +312,15 @@ Along the wall, arrange from "novice/basic" to "advanced".
 
 ---
 
-class: middle, center
+class: middle
 
 ## Get back into your groups and get to know each other a bit more
 
 ???
 
-I've tried to organize the groups to include a range of skills 
-and experiences, so there is a mix of novice and more experienced users.
-
-So, as we prepare for the next session, introduce yourselves to the group
-and get to know each other more.
-You'll be relying on them for help,
-so find out who is the "more experienced" R user.
+So, as we prepare for the next session, introduce yourselves to the group and
+get to know each other more. You'll be relying on them for help, so find out who
+is the "more experienced" R user.
 
 ---
 
