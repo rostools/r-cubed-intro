@@ -40,3 +40,6 @@ url_tested <- map_chr(url_links, bad_url) %>%
     na.omit()
 
 url_tested
+
+# TODO: check if all images are used. Check directly from md and include_graphics?
+
