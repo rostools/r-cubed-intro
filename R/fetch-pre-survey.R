@@ -5,6 +5,8 @@ library(tidyverse)
 library(lubridate)
 conflicted::conflict_prefer("filter", "dplyr")
 
+course_date <- "2022-03"
+
 # Import pre-survey data --------------------------------------------------
 
 renaming_columns <- tibble::tribble(
@@ -22,7 +24,7 @@ renaming_columns <- tibble::tribble(
     "What programs have you previously used for data analysis?", "previously_used_stat_programs",
     "What is your GitHub user name?", "github_username",
     "Copy and paste the results of your \"r3::check_setup()\" into the text box below.", "check_setup_output",
-    "What do you expect to learn from this course and what would you like to be able to do afterward with what you've learned?", "course_expectations",
+    "Why do you want to attend this course?", "why_attend_course",
     "Does your expectations match with what is described in the syllabus?", "expectations_match_syllabus",
     "Does our \"assumptions about who you are\" (in the syllabus) match with who you actually are? Why or why not?", "matched_assumptions",
     "Do you accept the conditions laid out in the Code of Conduct?", "accept_conduct",
@@ -41,6 +43,7 @@ renaming_columns <- tibble::tribble(
     "How often do you currently use: [R Markdown]", "uses_rmarkdown",
     "How often do you currently use: [ggplot2]", "uses_ggplot2",
     "What gender do you identify with?", "gender_identity",
+    "What do you expect to learn and what would you like to be able to do with what you've learned?", "course_expectations",
     "dropped", "dropped"
 )
 
@@ -70,7 +73,7 @@ presurvey_tidying <- presurvey %>%
             str_remove("\\@"),
         perceived_skill_r_updated = as.character(perceived_skill_r_updated)
           ) %>%
-    filter(year(timestamp) == "2021", month(timestamp) != 1, (dropped != TRUE | is.na(dropped)))
+    filter(year(timestamp) == str_sub(course_date, 1, 4), (dropped != TRUE | is.na(dropped)))
 
 # Check who hasn't finished the survey ------------------------------------
 
@@ -128,10 +131,11 @@ basic_overview <- prep_for_saving %>%
     select(-Questions, Questions = original_column_names) %>%
     relocate(Questions)
 
-write_csv(basic_overview, here::here("data/2021-06-participant-overview.csv"))
+write_csv(basic_overview, here::here(glue::glue("data/{course_date}-participant-overview.csv")))
 
 precourse_feedback <- prep_for_saving %>%
-    select(contains("feedback"), describe_problems, contains("course_expectations")) %>%
+    select(contains("feedback"), describe_problems, contains("course_expectations"),
+           why_attend_course) %>%
     pivot_longer(everything(), names_to = "Questions", values_to = "Responses") %>%
     arrange(Questions, Responses) %>%
     left_join(renaming_columns, by = c("Questions" = "new_column_names")) %>%
@@ -139,5 +143,4 @@ precourse_feedback <- prep_for_saving %>%
     select(-Questions, Questions = original_column_names) %>%
     relocate(Questions)
 
-write_csv(precourse_feedback, here::here("feedback/2021-06-precourse-feedback.csv"))
-
+write_csv(precourse_feedback, here::here(glue::glue("feedback/{course_date}-precourse-feedback.csv")))
