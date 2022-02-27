@@ -10,7 +10,7 @@ github_set_token(gitcreds::gitcreds_get(use_cache = FALSE)$password)
 
 # Course name for GitHub. YYYY-MM is when the course takes place.
 org_gh_course_name <- "r-cubed-2022-03"
-instructors <- c("Daniel", "Helene", "Luke", "Hannah", "Bettina")
+instructors <- c("Anders", "Helene", "Luke", "Isabell", "Sufyan", "Stine")
 
 # Create team names -------------------------------------------------------
 
