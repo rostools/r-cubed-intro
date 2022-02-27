@@ -1,0 +1,36 @@
+Questions,Responses,Count
+What city do you work in or near?,Aarhus,6
+What city do you work in or near?,Copenhagen,15
+What city do you work in or near?,Malmö,2
+What city do you work in or near?,Odense,4
+What gender do you identify with?,Man,11
+What gender do you identify with?,Woman,16
+How do you perceive your skill/knowledge of [data analysis in general?],Beginner,7
+How do you perceive your skill/knowledge of [data analysis in general?],Beginner-Intermediate,7
+How do you perceive your skill/knowledge of [data analysis in general?],Intermediate,9
+How do you perceive your skill/knowledge of [data analysis in general?],Intermediate-Advanced,4
+How do you perceive your skill/knowledge of [formal version control (e.g. Git)?],Beginner,27
+How do you perceive your skill/knowledge of [programming in general?],Beginner,22
+How do you perceive your skill/knowledge of [programming in general?],Beginner-Intermediate,3
+How do you perceive your skill/knowledge of [programming in general?],Intermediate,2
+How do you perceive your skill/knowledge of [using R?],Beginner,22
+How do you perceive your skill/knowledge of [using R?],Beginner-Intermediate,5
+What programs have you previously used for data analysis?,Excel,3
+What programs have you previously used for data analysis?,"Excel, GraphPad Prism",10
+What programs have you previously used for data analysis?,"Excel, SigmaPlot, GraphPad Prism",1
+What programs have you previously used for data analysis?,R,1
+What programs have you previously used for data analysis?,"SigmaPlot, GraphPad Prism",1
+What programs have you previously used for data analysis?,SPSS,2
+What programs have you previously used for data analysis?,"SPSS, Excel, GraphPad Prism",2
+What programs have you previously used for data analysis?,"SPSS, R",1
+What programs have you previously used for data analysis?,"SPSS, Stata",1
+What programs have you previously used for data analysis?,"SPSS, Stata, GraphPad Prism",1
+What programs have you previously used for data analysis?,Stata,2
+What programs have you previously used for data analysis?,"Stata, Excel",1
+What programs have you previously used for data analysis?,"Stata, GraphPad Prism",1
+What is your formal position?,Assistant professor,1
+What is your formal position?,PhD student,13
+What is your formal position?,Postdoc,10
+What is your formal position?,Research assistnat,1
+What is your formal position?,Research year student,1
+What is your formal position?,Researcher,1
