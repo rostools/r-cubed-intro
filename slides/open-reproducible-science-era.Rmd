@@ -1,15 +1,5 @@
 ---
-title: "Research in the era of (ir)reproducibility and Open Science"
-output:
-    xaringan::moon_reader:
-        self_contained: false
-        lib_dir: libs
-        css: 'xaringan-themer.css'
-        nature:
-            ratio: "16:9"
-            highlightStyle: github
-            highlightLines: true
-            countIncrementalSlides: false
+title: "Research in the era of reproducibility and open science"
 ---
 
 layout: true
@@ -18,55 +8,86 @@ layout: true
 source(here::here("R/slide-setup.R"))
 ```
 
----
-
-## Open Science is part of several large trends
-
-- Openness / Transparency
-- Quality: Reproducibility and replicability
-- Collaboration / Team work / Remote work
-- Communication / Public Engagement / Social Media
+```{r}
+xaringanExtra::use_progress_bar(color = progress_bar_colour, location = "top")
+```
 
 ---
 
-## Open Science is part of several large trends
+class: middle
+
+# Open science and reproducibility are some of multiple large trends
+
+## Like quality/rigor, team science, communication, computing, data, meta-analysis, and meta-research
+
+???
 
 We are in the middle of several exponential growth curves:
 
-- Data production
-- Data storage and transfer
-- Computing power
-- Published research
-- Complexity of methods (e.g. AI)
-
----
-
-## Open Science is part of several large trends
-
-.pull-left[
-```{r, out.height="95%", out.width="95%"}
-knitr::include_graphics("../images/UKBB.png")
-```
-]
-
-.pull-right[
-```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../images/biobank.jpg")
-```
-]
-
----
-
-## Open Science is part of several large trends
-
-- Changes in the way we work:
-	- Remote work
-	- Online communities
-	- Ad hoc teams
-
+- Higher demands for transparency and rigor in research
+- Higher need for (potentially highly distributed and virtual) team science 
+- Higher public attention with Internet and social media
+- Higher computing power and massive datasets, leading to rise of machine learning and AI
+- Meta-analysis where your output is someone else's in
 - Research on research:
 	- Meta analysis (your output is somebody else's input)
 	- Metaresearch: evidence-based evaluation and development of research methods
+	
+???
+- Quality: Reproducibility and replicability
+Collaboration / Team work / Remote work
+Communication / Public Engagement / Social Media
+
+
+---
+
+# Activity
+
+- Consider times either tried to reproduce labmates work or your own
+- Or got code from another labmate and had no idea what was going on
+- Or your own, older code.
+
+
+- think of times you've tried to find code or more detail about how a publication
+or even your group has done something and its next to impossible to find.
+
+---
+
+
+
+class: middle
+
+# Code sharing is abysmal across health sciences `r Cite(bib, c("Considine2017a", "Leek2017a", "Seibold2021"))`
+
+## How can we check reproducibility if no code is given?
+
+???
+
+But that doesn't even matter, because we can't have reproducibility if no one shares
+their code!
+
+And this is no joke. Getting data on this is difficult, but the research that has
+been done shows that almost no one is sharing their code. The estimates range 
+between fields in health science from zero to maybe five percent of published
+studies. The only area that is doing pretty well is bioinformatics, at about 60%
+of published studies.
+
+We as researchers try to find our niche, make our own space in the research world.
+Sometimes its a real struggle to find that niche.. but guys! No one is doing this,
+no one is sharing their code! You start doing the simplest thing of sharing your
+code and you will be one of very very few people who do. And this isn't a niche,
+this is a gaping hole in our modern scientific process. A huge hole.
+
+---
+
+class: middle
+
+## Open science debates and initiatives don't recognize role of software
+
+.footnote[E.g. [EU H2020 Open Science Mandate] only mentions data and publications.]
+
+[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
+
 
 ---
 
@@ -78,32 +99,7 @@ knitr::include_graphics("../images/reproducibility_spectrum.jpg")
 ```
 ]
 
-
-.footnote[[Peng RD. Science 2011. DOI: 10.1126/science.1213847](https://science.sciencemag.org/content/334/6060/1226).]
-
----
-
-## Figshare
-
-.center[
-```{r, out.width="50%"}
-knitr::include_graphics("../images/Figshare.png")
-```
-]
-
-.footnote[[Figshare: Diabetes](https://figshare.com/search?q=diabetes&amp;sortBy=posted_date&amp;sortType=desc&amp;licenses=1,2,47,52,3,40,49&amp;itemTypes=3&amp;categories=7,48)]
-
----
-
-## Dryad
-
-.center[
-```{r, out.width="60%"}
-knitr::include_graphics("../images/Dryad.png")
-```
-]
-
-.footnote[[Dryad: Diabetes](https://datadryad.org/search?utf8=%E2%9C%93&amp;q=diabetes)]
+.footnote[From `r Cite(bib, "Peng2011")`]
 
 ---
 
@@ -134,119 +130,221 @@ knitr::include_graphics("../images/PLOSblog.png")
 ```
 ]
 
----
+## Recent large study on general reproducibility of projects that shared code.
 
-## Developments in making manuscripts interactive
+Those in Dataverse.org, so there's some bias in that those who upload are probably
+a bit more aware and knowledgeable about general reproducibility and coding then
+the average researcher.
 
-- "[Explorable Multiverse Analysis]" and [example Likert scales]
+Initially only 25% of the R scripts could be *executed* (doesn't mean results were
+reproduced though)
 
-.center[
-```{r, out.height="60%", out.width="60%"}
-knitr::include_graphics("../images/expmultiverse.png")
-```
-]
+Trisovic2022
 
-[Explorable Multiverse Analysis]: https://explorablemultiverse.github.io/
-
-[example Likert scales]: https://explorablemultiverse.github.io/examples/likert/
 
 ---
 
-## There are still very strong barriers
+class: middle
+
+# Current scientific culture not prepared for analytic and computation era
+
+## Sadly, not going to lie, there are very strong barriers...
+
+
+---
+
+## Institutional barriers
+
+???
+
+You will encounter a lot of resistance, a lot of barriers and hardship.
 
 --
 
+- Lack of adequate awareness, support, infrastructure, training
+
+???
+
+At the institutional level, there is no real awareness of this,
+no support or infrastructure. You're basically doing this on your own.
+Which probably isn't that uncommon anyway.
+
+--
+
+- Research culture values publications over all else
+
+???
+
+Research culture and incentives pretty much only care about publishing journal
+articles. Creating software tools or datasets to be shared, meh. Making teaching
+materials to help other researchers, meh. Communicating your science to the
+public and doing outreach, meh. Doing actual science that might take years and
+not lead to any "hard papers", meh.
+
+--
+
+- Legal and privacy concerns about sharing data, intellectual property
+protection, patents, etc
+
+???
+
+Legal and privacy concerns are big topics that institutions in particular
+focus on a lot, about ownership and so on, since research can lead to commercialization
+and the potential for profit. For individual researchers, we often worry about
+these concerns too much and sometimes stops us from doing work because we're
+afraid we're doing something wrong
+
+--
+
+- More traditional academics don't understand or resist change
+
+???
+
+We have a large portion of traditional academics who have benefited from and
+succeeded in this system and are invested in continuing it. They often say
+there's nothing wrong with the system. This is what we in epidemiology call
+"survivorship bias". There's nothing wrong, for them, because they succeeded. But
+all the others that didn't succeed? We don't count that data. 
+
+--
+
+- 'Business as usual' is easier
+
+???
+
+We have a system that favours each individual person repeating the same mistakes
+that others make because the system doesn't allow for us to take the time to
+create tools and infrastructure that helps ourselves and others out.
+
+Because business as usual is the easiest way in the short term. Our current
+scientific culture is just not prepared for this, for the rising modern analytic
+and computational era.
+
+---
+
+## ...and personal barriers
+
 .pull-left[
-- Lack of awareness
-
-- Tradition, culture and common practices need to change
-
-- 'Business as usual' seems the shortest route to success
-
-- Tools and training in specific skills needed
-
-- Takes time and dedicated funding
+- Fear of:
+    - Fear of being scooped or ideas being stolen
+    - Not being credited for ideas
+    - Errors and public humiliation
+    - Risk to reputation
 ]
+
+???
+
+And there aren't just institutional barriers. We as researchers have fears of
+being scooped, of embarrassment and humiliation for your methods being *gasp*
+wrong. Which is actually just part of science.
 
 --
 
 .pull-right[
-- Researchers need to see the value in adopting an open reproducible workflow
+- Overwhelmed with everything that needs to be done
 
-- Funding and reward systems need to be adapted:
-	- Peer review and Publication
-	- Academic recognition / careers
-	- Research funding mechanisms
+- Need to constantly stay updated
 
-- Law: privacy concerns about sharing data, IP protection, patents, etc
+- Finding better opportunities outside of academia
 ]
+
+???
+
+It is also really overwhelming, having so many things to think about to make sure
+you're doing solid science. No researcher in the past had to consider and think
+and know as much as we have to know and to do. Another reason why we need more
+team science, to distribute the tasks and skills.
+
+You also have to constantly stay updated, and that can be tiring.
+
+And the last barrier, which may actually be a benefit, is that one reason you
+don't see a lot of researchers sharing their code or being more reproducible
+is.. they end up getting picked up by industry and paid really well or decide
+to leave academia for the reasons I mentioned. 
+
+Just as an example, I found a Norwegian group who had a really inefficient 
+workflow and decided to re-build their workflow to make use of programming,
+to be reproducible, to have a pipeline. I looked up the lead author as well as 
+several other of the co-authors and guess what... many of them now work in really
+great companies as data scientists or software engineers, probably making a lot 
+of money and having potentially a less stressful life.
 
 ---
 
-## Personal barriers
+## Activity: Think `r emo::ji("thought_balloon")` than discuss `r fontawesome::fa("far fa-comments")`
 
-Fear of:
+> Imagine if the number of publications and where you published didn't matter
+for getting funding or getting a research job. 
 
-- Scooping or ideas being stolen
-- Not being credited for ideas
-- Errors and public humiliation
-- Risk to reputation
-- Reduced scientific quality
-- Information overload
+- Take 2 minutes (instructor will set time) and consider:
+    - What would you spend your time on? 
+    - What would you do differently compared to now?
 
-.footnote[[Tennant (2017)](https://doi.org/10.6084/m9.figshare.5383711.v1)]
+- *With your neighbour*, share what you've thought
+    - Each person has 2 minutes
+    
+- After, we'll share some of the thoughts
 
 ---
 
 class: middle
 
-## Current scientific culture not prepared for analytic and computation era
+# So... what can you do right now?
+
+## Easiest thing: Start sharing your code
+
+.footnote[No matter how ugly. It also doesn't mean it'll be reproducible, but
+at least it will be *inspectable*. ]
+
+???
+
+If you do nothing else: share your code.
+
+If its ugly, that's fine! The point is you start and that you get more
+comfortable doing it until it becomes second nature to share and in the process,
+your code gets better because you know someone might look at your code. 
+
+And even if your code isn't reproducible, even if others can't run it own their 
+own, sharing is the first step to becoming better. At the least, others can
+inspect your code for its overall logic.
+
+---
+
+## How do you share?
+
+.pull-left[
+- [GitHub](https://github.com/)
+
+- [GitLab](https://gitlab.com/)
+
+- [Zenodo](https://zenodo.org/)
+
+- [figshare](https://figshare.com/)
+
+- [Open Science Framework](https://osf.io/)
+]
+
+???
+
+How do you share? Put your code up on any of these sites. I prefer a combination
+of GitHub and Zenodo, but the others are also quite good as well. And we're 
+already showing you how to use GitHub, so you're one step closer to sharing
+on your own!
+
+--
+
+.pull-right[
+**Yea, but when do you share?**
+]
+
+???
+
+Next question might, when do you share? I say right away. As soon as I have an
+analysis project, my code is up on either GitHub or GitLab (another service like
+GitHub). Alternatively, you can upload it when you also finish your manuscript.
 
 ---
 
 class: middle
 
-## Open science debates and initiatives don't recognize role of software
-
-.footnote[E.g. [EU H2020 Open Science Mandate] only mentions data and publications.]
-
-[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
-
----
-
-## Little to no training in software or programming
-
-.center[
-```{r self-taught-comic, echo=FALSE, out.width="100%", out.height="100%"}
-knitr::include_graphics("../images/code-quality.png")
-```
-]
-
-.footnote[Source from [xkcd](https://www.xkcd.com/1513/).]
-
----
-
-## What does it mean for you?
-
-- Need to stay updated: Keep learning
-    - Read [bookdown](https://bookdown.org/) books (most free)
-    - Ask (and answer!) questions on [StackOverflow](https://stackoverflow.com/)
-    - Teach others!! Great way to learn
-    - Read e.g. [Open Science Handbook](https://open-science-training-handbook.gitbook.io/book/)
-
---
-
-- Find and collaborate with those familiar with these concepts (online and/or in real life)
-
---
-
-- Cite research that is or tries to be more reproducible
-
---
-
-- Keep the principles of reproducibility in mind, then find the tools
-
---
-
-- Practice reproducible and open science
-    - More on this later in session
+## ... and after that? Use R Markdown, which we'll teach you! `r emo::ji("stuck_out_tongue_winking_eye")`
