@@ -459,15 +459,37 @@ as a local repository is to download it (or to "clone" it in Git terms).
 You can "clone" a GitHub repository easily from RStudio's
 "Create Project from Version Control" interface.
 We'll do that now, 
-as detailed in the video below.
+as detailed in the videos below.
 Where you save the new project doesn't matter,
 but to make things easy, save it to the Desktop.
+
+First we will find our repository link and create a new project from version 
+control.
 
 ```{r video-rstudio-clone-repository, echo=FALSE}
 insert_video("videos/rstudio-clone-repository.mp4")
 ```
 
-For *existing* repositories, 
+When attempting to clone your repository, GitHub will require you to 
+authenticate.
+In most cases when using Github, you can  use the password created during 
+signup. However, when indirectly communicating with GitHub using RStudio, we 
+need to use a "Personal access token". These tokens are needs to be manually
+generated on Github, and is a more secure way for us to communicate with our 
+Github account and repositories.
+As the process of creating a token can be confusing, the entire process 
+is shown in the video below.
+
+```{r video-github-create-token, echo=FALSE}
+insert_video("videos/github-create-token.mp4")
+```
+
+After creating the personal access token, we can copy it into the password field
+in RStudio.
+The personal access token will only be visible at the time of its creation, so 
+remember to copy it before closing the browser window.
+
+For *existing* repositories,  
 we need to link the GitHub repository to the existing one on your computer.
 Sadly, there is no RStudio interface (yet) for easily doing this,
 and it requires us to use the Terminal (found in RStudio).
