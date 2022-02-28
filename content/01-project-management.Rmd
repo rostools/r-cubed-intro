@@ -309,7 +309,7 @@ the "hash" (`#`) tells R to ignore it and not run it.
 This is what a data frame looks like:
 
 ```{r dataframes}
-head(CO2)
+head(airquality)
 ```
 
 The `c()` function puts values together and `head()` prints the first 6 rows. 
@@ -326,13 +326,13 @@ we can use other functions like:
 
 ```{r examining-dataframes}
 # Column names
-colnames(CO2)
+colnames(airquality)
 
 # Structure
-str(CO2)
+str(airquality)
 
 # Summary statistics
-summary(CO2)
+summary(airquality)
 ```
 
 ## Using auto-completion in RStudio
