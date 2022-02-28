@@ -1,5 +1,6 @@
 source(here::here("R/fetch-pre-survey.R"))
 library(tidyverse)
+# remotes::install_github("rundel/ghclass")
 library(ghclass)
 
 stop("To prevent accidentally sourcing.")
@@ -15,16 +16,16 @@ instructors <- c("Anders", "Helene", "Luke", "Isabell", "Sufyan", "Stine")
 # Create team names -------------------------------------------------------
 
 # Create random team names
-set.seed(43787)
+set.seed(23)
 team_prefix <- tibble(adjective = praise::praise_parts$adjective) %>%
-    filter(nchar(adjective) <= 7) %>%
+    filter(nchar(adjective) <= 9) %>%
     pull(adjective) %>%
     str_to_sentence() %>%
     sample()
 
 team_suffix <- tidytext::parts_of_speech %>%
     filter(str_detect(pos, "^Noun$"),
-           nchar(word) <= 6,
+           nchar(word) <= 9,
            !str_detect(word, "\\d|/|-")) %>%
     sample_n(length(team_prefix)) %>%
     pull(word) %>%
@@ -34,15 +35,14 @@ team_names <- glue::glue("Team{team_prefix}{team_suffix}") %>%
     as.character()
 
 # Choose n number of teams, based on number of participants.
-# 24/5
-team_names_final <- team_names[c(5, 12, 14, 22, 41)]
+# 30/4 # Is about 8 teams
+# Note: If this changes, refer to the GitHub team names
+# ghclass::org_teams(org_gh_course_name)
+team_names_final <- team_names[c(17, 27, 37, 38, 57, 5, 2, 39)]
 
 # Invite members to organization ------------------------------------------
 
 # Need to create the organization on GitHub.
-
-# remotes::install_github("rundel/ghclass")
-library(ghclass)
 
 # Get GitHub user name from survey.
 gh_teams_prep <- presurvey_tidy %>%
@@ -62,10 +62,14 @@ org_pending(org_gh_course_name)
 
 # Who to still invite (those that finished pre-course tasks later).
 currently_invited <- c(
-    str_subset(org_members(org_gh_course_name), "lwjohnst86", negate = TRUE),
-    org_pending(org_gh_course_name)
+    org_members(org_gh_course_name) %>%
+        str_subset("lwjohnst86", negate = TRUE) %>%
+        str_to_lower(),
+    str_to_lower(org_pending(org_gh_course_name))
 )
-need_to_invite <- setdiff(gh_teams_prep$github_username, currently_invited)
+need_to_invite <- gh_teams_prep$github_username %>%
+    str_to_lower() %>%
+    setdiff(currently_invited)
 # org_invite(org_gh_course_name, need_to_invite)
 
 # Create GitHub teams -----------------------------------------------------
@@ -100,33 +104,39 @@ repo_add_team(sort(gh_repos), sort(unique(gh_teams_assigned$team)))
 
 # Setup project and other settings for teams ------------------------------
 
-# TODO: This is untested right now
-create_team_projects <- function(directory) {
-    prodigenr::setup_project(directory)
-    withr::local_dir(directory)
+create_team_projects <- function(repo_path, parent_directory) {
+    project_folder <- fs::path(parent_directory, repo_path)
+    ghclass::local_repo_clone(
+        repo_path,
+        fs::path_dir(project_folder)
+    )
+    prodigenr::setup_project(project_folder)
+    withr::local_dir(project_folder)
     usethis::use_blank_slate("project")
-    usethis::use_data_raw("original-data")
+    usethis::use_data_raw("original-data", open = FALSE)
     gert::git_status()$file %>%
         gert::git_add()
     gert::git_commit("Setup project")
     gert::git_push()
 }
 
-team_repos <- org_repos(org_gh_course_name)
-fs::dir_create(org_gh_course_name)
-fs::path("~/Desktop/", team_repos) %>%
-    walk(local_repo_clone) %>%
-    walk(create_team_projects)
+course_team_repos <- org_repos(org_gh_course_name)
+fs::dir_create(fs::path("~", "Desktop", org_gh_course_name))
+course_team_repos %>%
+    walk(create_team_projects,
+         parent_directory = fs::path("~", "Desktop"))
 
 # Assigning instructors to groups -----------------------------------------
 
-set.seed(358677)
+set.seed(121)
 instructor_assigned_teams <- tibble(
     teams = team_names_final,
-    primary = sample(instructors),
-    secondary = sample(instructors)
+    primary = sample(c(instructors, "Luke", "Helene")),
+    secondary = sample(c(instructors, "Anders", "Stine"))
 )
 instructor_assigned_teams
+
+# TODO: Assign instructors to team
 
 org_team_repos <- org_repos(org_gh_course_name)
 instructor_assigned_teams %>%
@@ -134,3 +144,8 @@ instructor_assigned_teams %>%
     rename_with(str_to_sentence) %>%
     knitr::kable() %>%
     clipr::write_clip()
+
+
+# Add people to Slack -----------------------------------------------------
+
+
