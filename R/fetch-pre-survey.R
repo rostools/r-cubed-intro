@@ -97,6 +97,24 @@ View(participants_list)
 #     pull(email) %>%
 #     clipr::write_clip()
 
+
+# Check who has problems --------------------------------------------------
+
+check_problems <- presurvey_tidying %>%
+    filter(encounter_problems == "Yes") %>%
+    select(full_name, email, check_setup_output,
+           encounter_problems, describe_problems)
+
+# View(check_problems)
+pull(check_problems, check_setup_output)
+pull(check_problems, describe_problems)
+
+# Output to paste into tracker (whatever you use)
+check_problems %>%
+    pull(full_name) %>%
+    str_c("- ", ., collapse = "\n") %>%
+    clipr::write_clip()
+
 # Save some details and the feedback --------------------------------------
 
 fix_skill_levels <- function(x) {
