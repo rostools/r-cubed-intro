@@ -4,6 +4,7 @@
     <title>Welcome to the R3 course!</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
+    <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -19,7 +20,26 @@ layout: true
 
 
 
-&lt;!-- Introduce instructors and helpers. --&gt;
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #2E442A;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
 
 ---
 
@@ -33,15 +53,20 @@ layout: true
 
 - ✅ Accept the GitHub Organization invite
 
+- ✅ Accept the Slack channel invite
+
+???
+
+Introduce instructors and helpers after welcoming everyone and getting them to
+do this.
+
 ---
 
-class: center, middle
+class: middle
 
 # Question: 
 
-## Before this course...
-
-## How many knew or have heard about &lt;u&gt;reproducibility&lt;/u&gt;?
+## Before this course... How many knew or have heard about &lt;u&gt;reproducibility&lt;/u&gt;?
 
 ???
 
@@ -49,55 +74,57 @@ Raise your hands.
 
 ---
 
-class: center, middle
+class: middle
 
 # Question: 
 
-## Before this course...
-
-## How many knew or have heard about &lt;u&gt;open science&lt;/u&gt;?
+## Before this course... How many knew or have heard about &lt;u&gt;open science&lt;/u&gt;?
 
 ---
 
-class: center, middle
+class: middle
 
 # Question: 
 
-## Before this course...
-
-## ...or even &lt;u&gt;open access, open data, open methods/protocols, or open source&lt;/u&gt;?
+## Before this course... or even &lt;u&gt;open access, open data, open methods/protocols, or open source&lt;/u&gt;?
 
 ---
 
-class: middle, center
+class: middle
 
-# How many have read a method in a paper and wondered how they &lt;u&gt;actually&lt;/u&gt; did it? 
+# Question: 
 
---
-
-## ... you've probably realize by now, way more is done than shown in the "Methods"
+## How many have read a method in a paper and wondered how they &lt;u&gt;actually&lt;/u&gt; did it? 
 
 ???
 
 Because you are trying to do the same or similar?
 
+And you've probably realize by now, way more is done than shown in the "Methods".
+
 ---
 
-class: center, middle
+class: middle
 
-# Have you ever received confusing code? Or maybe have written your own confusing code?
+# Question: 
+
+## Have you ever received confusing code? Or maybe have written your own confusing code?
 
 ???
 
-I definitely have in my research career.
-We want to change the culture around code by encouraging 
-and teaching how to share code and to write better code in general.
+I definitely have in my research career. We want to change the culture around
+code by encouraging and teaching how to share code and to write better code in
+general.
 
 ---
 
 ## Code sharing: From scientific principle of "reproducibility" 
 
 ... often confused with "replicability" &lt;a name=cite-Plesser2018a&gt;&lt;/a&gt;[[1](https://doi.org/10.3389/fninf.2017.00076)]&lt;sup&gt;1&lt;/sup&gt;
+
+???
+
+How many know the difference between replicating and reproducing?
 
 --
 
@@ -127,31 +154,33 @@ to replicate it?
     
 ---
 
-class: middle, center
+class: middle
 
-# Biomedical studies almost entirely don't publish code with the published paper
+# Problem: Biomedical studies almost entirely don't publish code with the published paper &lt;a name=cite-Leek2017a&gt;&lt;/a&gt;&lt;a name=cite-Considine2017a&gt;&lt;/a&gt;[[2](https://doi.org/10.1146/annurev-statistics-060116-054104); [3](https://doi.org/10.1007/s11306-017-1299-3)]
 
 ???
 
-Very few papers provide code &lt;a name=cite-Leek2017a&gt;&lt;/a&gt;&lt;a name=cite-Considine2017a&gt;&lt;/a&gt;[[2](https://doi.org/10.1146/annurev-statistics-060116-054104); [3](https://doi.org/10.1007/s11306-017-1299-3)].
-Except maybe bioinformatics, where about 60% of studies do.
-
-Why? Likely due to:
-
-- Lack of awareness and training
-- Difficulty of adoption
-- No incentive or reward
-- Little to no culture to do it
+Vast majority of papers *still* don't provide code. Except for maybe in
+bioinformatics, where a bit more than half of studies do. There are lots of
+reasons for this, that I talk more about tomorrow.
 
 ---
 
-class: middle, center
+class: middle
 
 # These issues can be fixed by creating and nurturing a culture of openness
 
+???
+
+All of this is because of a problem with our culture in research. We aren't
+open, we don't really share, and don't often follow basic principles of science.
+To fix this, we need to start creating and nurturing a better and healthier
+culture. We all can be involved in that, we all have that power to do something,
+even if its small thing.
+
 ---
 
-class: middle, center
+class: middle
 
 # Goal of this course? Start changing the culture by providing the training
 
@@ -161,8 +190,10 @@ class: middle, center
 
 .pull-left[
 - Open source, free
+
 - Very large online community
     - Learning resources, support, help
+
 - Massive selection of packages
     - Latest statistical methods
     - Productivity tools
@@ -173,7 +204,9 @@ class: middle, center
 .pull-right[
 - Recent push to improve teaching, usability
     - e.g. with tidyverse, RStudio
+
 - One of best visualization tools available
+
 - Powerful capabilities
     - Big Data
     - Programming
@@ -187,14 +220,35 @@ and skills for using R anywhere you go.
 
 ---
 
+## Often asked: Why are we spending time on learning things other than R?
+
+Because the course is about doing *open and reproducible research*, while using R.
+
+???
+
+At least a few times, we get feedback in our survey about the fact we didn't
+spend enough time learning R or they expected more R. That's because we're
+teaching open and reproducible research, and that involves more than just R.
+
+--
+
+| Session | Reason |
+|--|--|
+| Management of R projects | Reproducibility starts at the file level |
+| Version control | Openness and reproducibility is about transparency and inspection |
+| Data management and wrangling | This one is about R 😸|
+| Creating reproducible documents | Hopefully obvious 😛 |
+| Data visualization | Also about R! |
+
+---
+
 ## Course setup and layout
 
 - Course is mix of:
     - "Code-alongs" (we type and explain, you type along)
     - Hands-on exercises
-    - Final group work for [assignment](assignment.html)
-
-- Use r3 package to help with learning
+    - Final group work for [assignment](../assignment.html) (quickly go over it)
+    - Groups were made with range of skill and knowledge
 
 - True to our mission, material publicly accessible and [openly licensed](https://r-cubed.rostools.org/license.html)
     - &lt;https://r-cubed.rostools.org/&gt;
@@ -205,6 +259,9 @@ With the final group project, you'll be in the same group for the course,
 working together on it and on the final exercises.
 As a team, you'll help each other out with learning and overcoming any struggles,
 with of course our help too!
+
+I've tried to organize the groups to include a range of skills 
+and experiences, so there is a mix of novice and more experienced users.
 
 ---
 
@@ -220,20 +277,23 @@ with of course our help too!
 - We're all learning here!
     - This is a supportive and safe environment
     - Remember our [Code of Conduct](conduct.html)
+
+- We have a [cheatsheet](resources/cheatsheet.pdf)!
 ]
 
+---
+
+class: middle
+
+# Practice using stickies: Have you re-installed r3 and joined the GitHub Organization as well as the Slack group?
 
 ---
 
-class: middle, center
+class: middle
 
-## Practice using stickies: Have you re-installed r3 and joined the GitHub Organization?
+# Activity: 
 
----
-
-class: middle, center
-
-## Activity: Stand and arrange based on question
+## Stand and arrange 🚶 or raise hand 🙋 based on question
 
 ???
 
@@ -241,7 +301,7 @@ We're going to do a "stand and re-arrange yourself" activity based on some quest
 
 ---
 
-class: middle, center
+class: middle
 
 ## Who has not yet used R?
 
@@ -251,9 +311,9 @@ Go into different corners for "yes" and "no".
 
 ---
 
-class: middle, center
+class: middle
 
-## Those who've used R, how do you perceive your skill in R?
+## Those who've used R, how do you perceive your skill in R? 🚶
 
 ???
 
@@ -261,19 +321,9 @@ Along the wall, arrange to one side is "novice/basic" and other side is "advance
 
 ---
 
-class: middle, center
+class: middle
 
-## Those who've used R, have you had formal training in "coding" in R or in general?
-
-???
-
-Raise hands.
-
----
-
-class: middle, center
-
-## Who has struggled with using R?
+## Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? 🙋
 
 ???
 
@@ -281,9 +331,9 @@ Raise hands.
 
 ---
 
-class: middle, center
+class: middle
 
-## How do you perceive your general skill in data analysis?
+## How do you perceive your general skill in data analysis? 🚶
 
 ???
 
@@ -291,51 +341,40 @@ Along the wall, arrange from "novice/basic" to "advanced".
 
 ---
 
-class: middle, center
+class: middle
 
 ## Get back into your groups and get to know each other a bit more
 
 ???
 
-I've tried to organize the groups to include a range of skills 
-and experiences, so there is a mix of novice and more experienced users.
-
-So, as we prepare for the next session, introduce yourselves to the group
-and get to know each other more.
-You'll be relying on them for help,
-so find out who is the "more experienced" R user.
+So, as we prepare for the next session, introduce yourselves to the group and
+get to know each other more. You'll be relying on them for help, so find out who
+is the "more experienced" R user.
 
 ---
 
 # References
 
-&lt;a
-name=bib-Plesser2018a&gt;&lt;/a&gt;[[1]](#cite-Plesser2018a)
-H. E. Plesser. "Reproducibility Vs.
-Replicability: A Brief History of a Confused
-Terminology". In: _Frontiers in
-Neuroinformatics_ 11 (Jan. 2018). DOI:
+&lt;a name=bib-Plesser2018a&gt;&lt;/a&gt;[[1]](#cite-Plesser2018a) H. E. Plesser.
+"Reproducibility Vs. Replicability: A Brief History of a Confused
+Terminology". In: _Frontiers in Neuroinformatics_ 11 (Jan. 2018). DOI:
 [10.3389/fninf.2017.00076](https://doi.org/10.3389%2Ffninf.2017.00076).
 
-&lt;a
-name=bib-Leek2017a&gt;&lt;/a&gt;[[2]](#cite-Leek2017a)
-J. T. Leek and L. R. Jager. "Is Most Published
-Research Really False?" In: _Annual Review of
-Statistics and Its Application_ 4.1 (Mar.
-2017), pp. 109-122. DOI:
+&lt;a name=bib-Leek2017a&gt;&lt;/a&gt;[[2]](#cite-Leek2017a) J. T. Leek and L. R.
+Jager. "Is Most Published Research Really False?" In: _Annual Review of
+Statistics and Its Application_ 4.1 (Mar. 2017), pp. 109-122. DOI:
 [10.1146/annurev-statistics-060116-054104](https://doi.org/10.1146%2Fannurev-statistics-060116-054104).
 
-&lt;a
-name=bib-Considine2017a&gt;&lt;/a&gt;[[3]](#cite-Considine2017a)
-E. C. Considine, G. Thomas, et al. "Critical
-Review of Reporting of the Data Analysis Step
-in Metabolomics". In: _Metabolomics_ 14.1 (Dec.
-2017). DOI:
+&lt;a name=bib-Considine2017a&gt;&lt;/a&gt;[[3]](#cite-Considine2017a) E. C.
+Considine, G. Thomas, et al. "Critical Review of Reporting of the Data
+Analysis Step in Metabolomics". In: _Metabolomics_ 14.1 (Dec. 2017).
+DOI:
 [10.1007/s11306-017-1299-3](https://doi.org/10.1007%2Fs11306-017-1299-3).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
+"slideNumberFormat": "",
 "ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,

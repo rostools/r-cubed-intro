@@ -4,6 +4,7 @@
     <title>Collaboration and teamwork in research</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
+    <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -11,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 # Collaboration and teamwork in research
-## Reproducibility working in teams
+## Reproducibility while working in teams
 
 ---
 
@@ -20,206 +21,145 @@ layout: true
 
 
 
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #2E442A;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
 ---
 
-## What is collaboration?
+## Forming groups to collaborate on research projects
 
--   Multiple people working on the same problem and exchanging ideas
--   People pooling expertise, time and resources to achieve a common goal
+???
+
+Collaboration has increasingly become a required activity of doing science. Maybe
+in the past you could do good science on your own, but not anymore. We're more
+and more getting into an era of team-based science, with specialists to handle
+multiple areas of a project, with teams that can sometimes span multiple
+countries and timezones.
+
+Collaborating on projects means you need to form a group of some type. There's
+a fair amount of research on the various phases of collaboration.
+
+--
 
 .pull-left[
-For example:
--   Two researchers jointly writing a paper
--   Several labs working on a problem together
--   Multi-site clinical studies in several countries
-]
-
----
-
-## What is collaboration?
-
--   Multiple people working on the same problem and exchanging ideas
--   People pooling expertise, time and resources to achieve a common goal
-
-.pull-left[
-For example:
--   Two researchers jointly writing a paper
--   Several labs working on a problem together
--   Multi-site clinical studies in several countries
----
-Collaboration can be organised at different levels: Individuals,
-Departments, Institutions, Countries
+&lt;img src="../images/collaboration-cycle.png" width="100%" height="100%" /&gt;
 ]
 
 .pull-right[
-&lt;img src="../images/LHC.jpg" width="80%" height="80%" /&gt;
+**Start of group is important phase**:
+
+- Consider how humans behave in groups (example: resolving conflicts or disagreements)
+- Communicating clearly about things like expectations (example: this course's
+Code of Conduct and syllabus)
+- *Written* agreements! About ownership, sharing, IP, authorship, publication, etc
+- And... *how* to work together
 ]
 
-.footnote[[Image from CERN](https://cds.cern.ch/images/CERN-EX-0510029-03).]
+.footnote[Image from: &lt;a name=cite-Tellioglu2008&gt;&lt;/a&gt;[[1](https://doi.org/10.1109/cts.2008.4543951)]]
+
+???
+
+(Go over image.)
+
+I would say one of the most important phases is this initial phase when you are
+just starting out. This is exactly when you need to establish boundaries,
+how you deal with disagreements, deciding on formal written agreements like
+ownership, publishing, etc.
+But I think an overlooked part of that is *how* you work together. I think there's
+an implicit assumption that you'll work together by emailing around word documents.
+Because that's how we've basically been taught during university, and it continues
+like that.
+But we should be critical of this assumption. Is that correct to think that? 
+Are there better ways?
 
 ---
 
-## Collaboration is the consequence of specialisation
+## Activity: Think 💭 than discuss <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M532 386.2c27.5-27.1 44-61.1 44-98.2 0-80-76.5-146.1-176.2-157.9C368.3 72.5 294.3 32 208 32 93.1 32 0 103.6 0 192c0 37 16.5 71 44 98.2-15.3 30.7-37.3 54.5-37.7 54.9-6.3 6.7-8.1 16.5-4.4 25 3.6 8.5 12 14 21.2 14 53.5 0 96.7-20.2 125.2-38.8 9.2 2.1 18.7 3.7 28.4 4.9C208.1 407.6 281.8 448 368 448c20.8 0 40.8-2.4 59.8-6.8C456.3 459.7 499.4 480 553 480c9.2 0 17.5-5.5 21.2-14 3.6-8.5 1.9-18.3-4.4-25-.4-.3-22.5-24.1-37.8-54.8zm-392.8-92.3L122.1 305c-14.1 9.1-28.5 16.3-43.1 21.4 2.7-4.7 5.4-9.7 8-14.8l15.5-31.1L77.7 256C64.2 242.6 48 220.7 48 192c0-60.7 73.3-112 160-112s160 51.3 160 112-73.3 112-160 112c-16.5 0-33-1.9-49-5.6l-19.8-4.5zM498.3 352l-24.7 24.4 15.5 31.1c2.6 5.1 5.3 10.1 8 14.8-14.6-5.1-29-12.3-43.1-21.4l-17.1-11.1-19.9 4.6c-16 3.7-32.5 5.6-49 5.6-54 0-102.2-20.1-131.3-49.7C338 339.5 416 272.9 416 192c0-3.4-.4-6.7-.7-10C479.7 196.5 528 238.8 528 288c0 28.7-16.2 50.6-29.7 64z"/></svg>
 
-- Increasing complexity of the research work flow
-- Specialisation in research tasks
-
-.pull-left[
-&lt;img src="../images/Cottage_industry.jpg" width="75%" height="75%" /&gt;
-]
-
-.pull-right[
-&lt;img src="../images/Powerloom.jpg" width="90%" height="90%" /&gt;
-]
-
-.footnote[Figure: [Spinners and stocking makers](https://wellcomecollection.org/works/r9h5us6f) and [Powerloom Weavers](https://en.wikipedia.org/wiki/Industrial_Revolution#/media/File:Powerloom_weaving_in_1835.jpg).]
-
----
-
-## Why do researchers collaborate?
-
--   Sharing and discussing different perspectives and ideas leads to solutions more rapidly
-
--   Large undertakings require a joint effort: Many hands make light work
-
--   Teams with the best mix of competences
-
--   Access to specific material, equipment or know-how
-
--   Some projects need geographic distribution or capacity of parallel sites
-
--   Collaborations publish more and get more citations
-
--   Working together can be more motivating than solitary work
+- For 2 minutes, think back to collaborations you've had and consider:
+    - What worked well and why
+    - Some struggles you've had, what didn't work so well, and why
+    - *How* you actually collaborated. Was it mostly discussing things
+    together? Did you distribute tasks? How did you coordinate your documents,
+    your work, your tasks?
+    
+- In your group, share what you've thought
+    - Each person has 2 minutes (instructor will set time)
+    
+- After, we'll share some of the thoughts
 
 ---
 
-## The research workflow
+## How and where to collaborate when the research workflow has many parts
 
 .center[
-&lt;img src="../images/datalifecycle.jpg" width="70%" height="70%" /&gt;
+&lt;img src="../images/research-workflow.png" width="65%" height="65%" /&gt;
 ]
 
-.footnote[[Diagram Source: University of Virginia Library](https://guides.lib.virginia.edu/c.php?g=515290&amp;p=3522215)]
+.footnote[[Diagram by Philip Guo.](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext)]
+
+???
+
+How do you decide who does what? How do you decide what you all use to do the tasks?
+For instance, how do you take notes for meetings and how do you share those notes?
+When you run analyses and have discussions with your collaborators, how do you
+share those analyses or how do you work together on them? There are so many more
+questions, because... (next slide)
 
 ---
 
-## Collaboration in the research workflow
+## MANY tools for doing research... how do you coordinate and decide when collaborating?
 
 .center[
-&lt;img src="../images/collaboration_cycle.png" width="60%" height="60%" /&gt;
+&lt;img src="../images/tools-workflow.png" width="72%" height="72%" /&gt;
 ]
 
-.footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
+.footnote[Image from: &lt;a name=cite-Bosman2017&gt;&lt;/a&gt;[[2](https://doi.org/10.31219/osf.io/6c2xt)]]
 
 ---
 
-## Collaboration throughout the research cycle: Initiation
+class: middle
 
-Agreement is needed on:
--   Goals
--   Participants, their roles and responsibilities
--   Timing and deadlines
--   Commitment of time and resources
--   Expectations on quality
--   Data sharing, ownership, access
--   Intellectual property rights
--   Publication of results and authorships
+## We'll teach you one powerful way of collaborating: Git and GitHub!
+
+.footnote[Though it can often be difficult to learn 😢]
 
 ---
 
-## Collaboration throughout the research cycle: Initiation
+# References
 
-Agreement is needed on:
--   Goals
--   Participants, their roles and responsibilities
--   Timing and deadlines
--   Commitment of time and resources
--   Expectations on quality
--   Data sharing, ownership, access
--   Intellectual property rights
--   Publication of results and authorships
+&lt;a name=bib-Tellioglu2008&gt;&lt;/a&gt;[[1]](#cite-Tellioglu2008) H. Tellioglu.
+"Collaboration life cycle". In: _2008 International Symposium on
+Collaborative Technologies and Systems_. IEEE, May. 2008. DOI:
+[10.1109/cts.2008.4543951](https://doi.org/10.1109%2Fcts.2008.4543951).
 
-==&gt; **Need to communicate clearly about these issues**
-
-==&gt; **Need to clearly document agreements and expectations**
-
----
-
-## Collaboration in the research workflow: Operation
-
-.center[
-&lt;img src="../images/collaboration_cycle.png" width="60%" height="60%" /&gt;
-]
-
-.footnote[[Tellioglu, Hilda. (2008). Collaboration life cycle. 357 - 366. 10.1109/CTS.2008.4543951. ](https://ieeexplore.ieee.org/document/4543951?arnumber=4543951).]
-
----
-
-## Collaboration in the research workflow: Operation
-
-.center[
-&lt;img src="../images/workflow.png" width="70%" height="70%" /&gt;
-]
-
-.footnote[[Diagram by Pilip Guo](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext).]
-
----
-## The Coordinated Work Environment
-
-.center[
-&lt;img src="../images/CWE1.png" width="50%" height="40%" /&gt;
-]
-
-.footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
-
----
-## The Coordinated Work Environment
-
-.center[
-&lt;img src="../images/RadiologyWorkflow.png" width="60%" height="50%" /&gt;
-]
-
-.footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
-
----
-## The Coordinated Work Environment
-
-.center[
-&lt;img src="../images/ObjectWorld.png" width="70%" height="60%" /&gt;
-]
-
-.footnote[Figure from [Tellioglu, Hilda (2003). The Journal of Supercomputing, 24, 161–171, 2003](https://link.springer.com/article/10.1023/A:1021750826139).]
-
----
-## Tools for creating a suitable Coordinated Work Environment
-
-.center[
-&lt;img src="../images/tools-workflow.png" width="90%" height="90%" /&gt;
-]
-
-.footnote[Figure from [Innovations in Scholarly Communication](https://101innovations.wordpress.com/workflows/).]
-
----
-## Summary
-
-- Collaboration is central to modern science
-
-- Enormous variation in scale and scope
-
-- Central aim: Efficient coordination
-
-- Takes place at every stage of the research cycle
-
-- Central tools:
-    - Good communication
-    - Agreement not just on goals but on process:
-      - The Coordinated Work Environment 
-    - Structured documentation
+&lt;a name=bib-Bosman2017&gt;&lt;/a&gt;[[2]](#cite-Bosman2017) J. Bosman, I. Bruno,
+et al. "The Scholarly Commons - principles and practices to guide
+research communication". In: _OSF Preprints_ (Sep. 2017). DOI:
+[10.31219/osf.io/6c2xt](https://doi.org/10.31219%2Fosf.io%2F6c2xt).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
+"slideNumberFormat": "",
 "ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
