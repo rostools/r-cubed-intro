@@ -94,7 +94,7 @@ gh_teams_assigned <- gh_teams_prep %>%
                as.character()) %>%
     arrange(team, perceived_skill_score)
 count(gh_teams_assigned, team)
-View(gh_teams_assigned)
+# View(gh_teams_assigned)
 
 # Manually change if need be.
 # edit(gh_teams_assigned)
@@ -103,6 +103,23 @@ View(gh_teams_assigned)
 team_invite(org_gh_course_name,
             gh_teams_assigned$github_username,
             gh_teams_assigned$team)
+
+# Format teams and names so its easier to put name tags when physically
+# putting groups together.
+format_teams <- function(data) {
+    append(
+        paste0("# ", unique(data$team), "\n"),
+        data$full_name
+    ) %>%
+        str_c(collapse = "\n- ")
+}
+
+gh_teams_assigned %>%
+    select(team, full_name) %>%
+    group_split(team) %>%
+    map_chr(format_teams) %>%
+    str_c(collapse = "\n\n") %>%
+    clipr::write_clip()
 
 # Create repos for teams --------------------------------------------------
 
@@ -144,6 +161,8 @@ instructor_assigned_teams <- tibble(
 instructor_assigned_teams
 
 # TODO: Assign instructors to team
+org_invite(org_gh_course_name,
+           c("sufyansuleman", "helenejuel"))
 
 org_team_repos <- org_repos(org_gh_course_name)
 instructor_assigned_teams %>%
