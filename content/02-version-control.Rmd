@@ -471,13 +471,13 @@ insert_video("videos/rstudio-clone-repository.mp4")
 ```
 
 When attempting to clone your repository, GitHub will require you to 
-authenticate.
-In most cases when using Github, you can  use the password created during 
+authenticate yourself.
+In most cases when using GitHub, you can use the password created during 
 signup. However, when indirectly communicating with GitHub using RStudio, we 
-need to use a "Personal access token". These tokens are needs to be manually
-generated on Github, and is a more secure way for us to communicate with our 
-Github account and repositories.
-As the process of creating a token can be confusing, the entire process 
+need to use a "Personal Access Token" (PAT). These tokens need to be manually
+generated on GitHub, and gives us a more secure way to communicate with our 
+GitHub account and repositories.
+Creating a token can be confusing, so the entire process 
 is shown in the video below.
 
 ```{r video-github-create-token, echo=FALSE}
@@ -486,8 +486,10 @@ insert_video("videos/github-create-token.mp4")
 
 After creating the personal access token, we can copy it into the password field
 in RStudio.
-The personal access token will only be visible at the time of its creation, so 
-remember to copy it before closing the browser window.
+The personal access token will *only be visible at the time it is created*, so 
+remember to **copy it somewhere** before closing the browser window.
+Otherwise you will need to create a new token (which also isn't
+a problem).
 
 For *existing* repositories,  
 we need to link the GitHub repository to the existing one on your computer.
