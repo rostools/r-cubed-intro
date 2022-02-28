@@ -480,6 +480,8 @@ GitHub account and repositories.
 Creating a token can be confusing, so the entire process 
 is shown in the video below.
 
+**Note, for some people the video might not load. [Go here directly to see the video](videos/github-create-token.mp4).**
+
 ```{r video-github-create-token, echo=FALSE}
 insert_video("videos/github-create-token.mp4")
 ```
