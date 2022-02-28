@@ -493,6 +493,14 @@ remember to **copy it somewhere** before closing the browser window.
 Otherwise you will need to create a new token (which also isn't
 a problem).
 
+As an altenative to manually navigating the GitHub settings section, you can open a
+direct link to the personal access token website directly from RStudio by typing the 
+following code in the Console.
+
+```{r github_token, eval=FALSE}
+usethis::create_github_token()
+```
+
 For *existing* repositories, we need to link the GitHub repository to the
 existing one on your computer. Sadly, there is no RStudio interface (yet) for
 easily doing this, and it requires us to use the Terminal (found in RStudio).
