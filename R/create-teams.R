@@ -70,7 +70,14 @@ currently_invited <- c(
 need_to_invite <- gh_teams_prep$github_username %>%
     str_to_lower() %>%
     setdiff(currently_invited)
-# org_invite(org_gh_course_name, need_to_invite)
+org_invite(org_gh_course_name, need_to_invite)
+
+# Send invites to Slack ---------------------------------------------------
+
+presurvey_tidy %>%
+    pull(email_from_survey) %>%
+    str_c(collapse = ", ") %>%
+    clipr::write_clip()
 
 # Create GitHub teams -----------------------------------------------------
 
