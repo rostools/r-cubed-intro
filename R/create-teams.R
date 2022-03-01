@@ -160,9 +160,7 @@ instructor_assigned_teams <- tibble(
 )
 instructor_assigned_teams
 
-# TODO: Assign instructors to team
-org_invite(org_gh_course_name,
-           c("sufyansuleman", "helenejuel"))
+# TODO: Code to assign instructors to teams
 
 org_team_repos <- org_repos(org_gh_course_name)
 instructor_assigned_teams %>%
