@@ -28,70 +28,62 @@ We are in the middle of several exponential growth curves:
 - Higher need for (potentially highly distributed and virtual) team science 
 - Higher public attention with Internet and social media
 - Higher computing power and massive datasets, leading to rise of machine learning and AI
-- Meta-analysis where your output is someone else's in
-- Research on research:
-	- Meta analysis (your output is somebody else's input)
-	- Metaresearch: evidence-based evaluation and development of research methods
-	
-???
-- Quality: Reproducibility and replicability
-Collaboration / Team work / Remote work
-Communication / Public Engagement / Social Media
-
+- Meta-analysis where your output is someone else's input
+- Meta-research: evidence-based evaluation and development of research methods
 
 ---
 
-# Activity
+# Activity: Think `r emo::ji("thought_balloon")` than discuss `r fontawesome::fa("far fa-comments")`
 
-- Consider times either tried to reproduce labmates work or your own
-- Or got code from another labmate and had no idea what was going on
-- Or your own, older code.
+> Consider times you've either tried to reproduce labmates work or your own. Or
+tried to figure out how a paper did their analysis.
 
+- On your own, for 2 min (instructor will time):
+    - What were some challenges you encountered?
+    - Could you figure it out?
+    - What did you end up doing?
 
-- think of times you've tried to find code or more detail about how a publication
-or even your group has done something and its next to impossible to find.
+- As a group, take 2 min per person and share and discuss what you each thought
+
+- Then we'll discuss all together
 
 ---
-
-
 
 class: middle
 
 # Code sharing is abysmal across health sciences `r Cite(bib, c("Considine2017a", "Leek2017a", "Seibold2021"))`
 
-## How can we check reproducibility if no code is given?
+## ...Even open science debates and initiatives don't really recognize role of software and code
+
+.footnote[For instance, [EU H2020 Open Science Mandate] only mentions data and publications.]
+
+[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
 
 ???
 
-But that doesn't even matter, because we can't have reproducibility if no one shares
-their code!
+We can't have reproducibility if no one shares their code!
 
-And this is no joke. Getting data on this is difficult, but the research that has
-been done shows that almost no one is sharing their code. The estimates range 
-between fields in health science from zero to maybe five percent of published
-studies. The only area that is doing pretty well is bioinformatics, at about 60%
-of published studies.
-
-We as researchers try to find our niche, make our own space in the research world.
-Sometimes its a real struggle to find that niche.. but guys! No one is doing this,
-no one is sharing their code! You start doing the simplest thing of sharing your
-code and you will be one of very very few people who do. And this isn't a niche,
-this is a gaping hole in our modern scientific process. A huge hole.
+And this is no joke. Getting data on this is difficult, but the research that
+has been done shows that almost no one is sharing their code. The estimates
+range between fields in health science from zero to maybe five percent of
+published studies. The only area that is doing pretty well is bioinformatics, at
+about 60% of published studies.
 
 ---
 
 class: middle
 
-## Open science debates and initiatives don't recognize role of software
+## How can we check reproducibility if no code is given?
 
-.footnote[E.g. [EU H2020 Open Science Mandate] only mentions data and publications.]
+.footnote[This is a little bit of a rhetorical question `r emo::ji("stuck_out_tongue_closed_eyes")`]
 
-[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
+???
 
+This is a little bit of a rhetorical question, but how might we?
 
 ---
 
-## How do we move towards reproducibility?
+## Reproducibility is a spectrum, not a binary state
 
 .center[
 ```{r, out.height="85%", out.width="85%"}
@@ -103,22 +95,9 @@ knitr::include_graphics("../images/reproducibility_spectrum.jpg")
 
 ---
 
-## First computationally reproducible paper
-
-.center[
-```{r, out.width="65%"}
-knitr::include_graphics("../images/elife.png")
-```
-]
-
-.footnote[[Lewis LM. eLife 2018;7:e30274 DOI: 10.7554/eLife.30274](https://elifesciences.org/articles/30274).]
-
----
-
 ## Some journals are moving in this direction
 
 PLOS Computational Biology is running a pilot:
-
 
 .pull-left[
 *"We will soon be able to offer expert technical peer review specifically checking that submitted systems biology or physiology-based models run according to the results presented in the manuscript submitted to the journal. The peer review will be delivered in addition to our usual scientific assessment.."*
@@ -130,26 +109,45 @@ knitr::include_graphics("../images/PLOSblog.png")
 ```
 ]
 
-## Recent large study on general reproducibility of projects that shared code.
+---
 
-Those in Dataverse.org, so there's some bias in that those who upload are probably
-a bit more aware and knowledgeable about general reproducibility and coding then
-the average researcher.
+## First computationally reproducible paper `r Cite(bib, "Lewis2018")`
 
-Initially only 25% of the R scripts could be *executed* (doesn't mean results were
-reproduced though)
-
-Trisovic2022
-
+.center[
+```{r, out.width="65%"}
+knitr::include_graphics("../images/elife.png")
+```
+]
 
 ---
 
 class: middle
 
-# Current scientific culture not prepared for analytic and computation era
+## Recent study: Only 25% could be *executed* without some "cleaning up" `r Cite(bib, "Trisovic2022")`
 
-## Sadly, not going to lie, there are very strong barriers...
+- Code taken from [Dataverse Project](https://dataverse.org/) data repositories
+- After some automatic cleaning, ~half could *execute*
 
+???
+
+Recent large study on general reproducibility of projects that shared code.
+
+Initially only 25% of the R scripts could be *executed* (doesn't mean results
+were reproduced though). After doing automatic and some manual code cleaning,
+than about half could be executed. That's not bad.
+
+Since scripts were taken from Dataverse.org, researchers who upload their code
+and projects to it probably are a bit more aware and knowledgeable about general
+reproducibility and coding then the average researcher, so the results are a bit
+biased.
+
+---
+
+class: middle
+
+# But scientific culture is not well-prepared for analytic and computation era
+
+## Sadly (not going to lie) there are still very strong barriers to progress...
 
 ---
 
@@ -271,7 +269,7 @@ of money and having potentially a less stressful life.
 
 ---
 
-## Activity: Think `r emo::ji("thought_balloon")` than discuss `r fontawesome::fa("far fa-comments")`
+# Activity: Think `r emo::ji("thought_balloon")` than discuss `r fontawesome::fa("far fa-comments")`
 
 > Imagine if the number of publications and where you published didn't matter
 for getting funding or getting a research job. 
@@ -307,6 +305,14 @@ your code gets better because you know someone might look at your code.
 And even if your code isn't reproducible, even if others can't run it own their 
 own, sharing is the first step to becoming better. At the least, others can
 inspect your code for its overall logic.
+
+We as researchers try to find our niche, make our own space in the research
+world. Sometimes its a real struggle to find that niche.. but guys! No one is
+doing this, no one is sharing their code! You start doing the simplest thing of
+sharing your code and you will be one of very very few people who do. And this
+isn't a niche, this is a gaping hole in our modern scientific process. A huge
+hole.
+
 
 ---
 
@@ -348,3 +354,11 @@ GitHub). Alternatively, you can upload it when you also finish your manuscript.
 class: middle
 
 ## ... and after that? Use R Markdown, which we'll teach you! `r emo::ji("stuck_out_tongue_winking_eye")`
+
+---
+
+# References
+
+```{r refs, results="asis", echo=FALSE}
+PrintBibliography(bib)
+```

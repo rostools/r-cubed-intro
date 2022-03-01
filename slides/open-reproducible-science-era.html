@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Research in the era of (ir)reproducibility and Open Science</title>
+    <title>Research in the era of reproducibility and open science</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
+    <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Research in the era of (ir)reproducibility and Open Science
+# Research in the era of reproducibility and open science
 
 ---
 
@@ -19,99 +20,111 @@ layout: true
 
 
 
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #2E442A;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
 ---
 
-## Open Science is part of several large trends
+class: middle
 
-- Openness / Transparency
-- Quality: Reproducibility and replicability
-- Collaboration / Team work / Remote work
-- Communication / Public Engagement / Social Media
+# Open science and reproducibility are some of multiple large trends
 
----
+## Like quality/rigor, team science, communication, computing, data, meta-analysis, and meta-research
 
-## Open Science is part of several large trends
+???
 
 We are in the middle of several exponential growth curves:
 
-- Data production
-- Data storage and transfer
-- Computing power
-- Published research
-- Complexity of methods (e.g. AI)
+- Higher demands for transparency and rigor in research
+- Higher need for (potentially highly distributed and virtual) team science 
+- Higher public attention with Internet and social media
+- Higher computing power and massive datasets, leading to rise of machine learning and AI
+- Meta-analysis where your output is someone else's input
+- Meta-research: evidence-based evaluation and development of research methods
 
 ---
 
-## Open Science is part of several large trends
+# Activity: Think 💭 than discuss <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M532 386.2c27.5-27.1 44-61.1 44-98.2 0-80-76.5-146.1-176.2-157.9C368.3 72.5 294.3 32 208 32 93.1 32 0 103.6 0 192c0 37 16.5 71 44 98.2-15.3 30.7-37.3 54.5-37.7 54.9-6.3 6.7-8.1 16.5-4.4 25 3.6 8.5 12 14 21.2 14 53.5 0 96.7-20.2 125.2-38.8 9.2 2.1 18.7 3.7 28.4 4.9C208.1 407.6 281.8 448 368 448c20.8 0 40.8-2.4 59.8-6.8C456.3 459.7 499.4 480 553 480c9.2 0 17.5-5.5 21.2-14 3.6-8.5 1.9-18.3-4.4-25-.4-.3-22.5-24.1-37.8-54.8zm-392.8-92.3L122.1 305c-14.1 9.1-28.5 16.3-43.1 21.4 2.7-4.7 5.4-9.7 8-14.8l15.5-31.1L77.7 256C64.2 242.6 48 220.7 48 192c0-60.7 73.3-112 160-112s160 51.3 160 112-73.3 112-160 112c-16.5 0-33-1.9-49-5.6l-19.8-4.5zM498.3 352l-24.7 24.4 15.5 31.1c2.6 5.1 5.3 10.1 8 14.8-14.6-5.1-29-12.3-43.1-21.4l-17.1-11.1-19.9 4.6c-16 3.7-32.5 5.6-49 5.6-54 0-102.2-20.1-131.3-49.7C338 339.5 416 272.9 416 192c0-3.4-.4-6.7-.7-10C479.7 196.5 528 238.8 528 288c0 28.7-16.2 50.6-29.7 64z"/></svg>
 
-.pull-left[
-&lt;img src="../images/UKBB.png" width="95%" height="95%" /&gt;
-]
+&gt; Consider times you've either tried to reproduce labmates work or your own. Or
+tried to figure out how a paper did their analysis.
 
-.pull-right[
-&lt;img src="../images/biobank.jpg" width="85%" height="85%" /&gt;
-]
+- On your own, for 2 min (instructor will time):
+    - What were some challenges you encountered?
+    - Could you figure it out?
+    - What did you end up doing?
 
----
+- As a group, take 2 min per person and share and discuss what you each thought
 
-## Open Science is part of several large trends
-
-- Changes in the way we work:
-	- Remote work
-	- Online communities
-	- Ad hoc teams
-
-- Research on research:
-	- Meta analysis (your output is somebody else's input)
-	- Metaresearch: evidence-based evaluation and development of research methods
+- Then we'll discuss all together
 
 ---
 
-## How do we move towards reproducibility?
+class: middle
+
+# Code sharing is abysmal across health sciences &lt;a name=cite-Considine2017a&gt;&lt;/a&gt;&lt;a name=cite-Leek2017a&gt;&lt;/a&gt;&lt;a name=cite-Seibold2021&gt;&lt;/a&gt;[[1](https://doi.org/10.1007/s11306-017-1299-3); [2](https://doi.org/10.1146/annurev-statistics-060116-054104); [3](https://doi.org/10.1371/journal.pone.0251194)]
+
+## ...Even open science debates and initiatives don't really recognize role of software and code
+
+.footnote[For instance, [EU H2020 Open Science Mandate] only mentions data and publications.]
+
+[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
+
+???
+
+We can't have reproducibility if no one shares their code!
+
+And this is no joke. Getting data on this is difficult, but the research that
+has been done shows that almost no one is sharing their code. The estimates
+range between fields in health science from zero to maybe five percent of
+published studies. The only area that is doing pretty well is bioinformatics, at
+about 60% of published studies.
+
+---
+
+class: middle
+
+## How can we check reproducibility if no code is given?
+
+.footnote[This is a little bit of a rhetorical question 😝]
+
+???
+
+This is a little bit of a rhetorical question, but how might we?
+
+---
+
+## Reproducibility is a spectrum, not a binary state
 
 .center[
 &lt;img src="../images/reproducibility_spectrum.jpg" width="85%" height="85%" /&gt;
 ]
 
-
-.footnote[[Peng RD. Science 2011. DOI: 10.1126/science.1213847](https://science.sciencemag.org/content/334/6060/1226).]
-
----
-
-## Figshare
-
-.center[
-&lt;img src="../images/Figshare.png" width="50%" /&gt;
-]
-
-.footnote[[Figshare: Diabetes](https://figshare.com/search?q=diabetes&amp;amp;sortBy=posted_date&amp;amp;sortType=desc&amp;amp;licenses=1,2,47,52,3,40,49&amp;amp;itemTypes=3&amp;amp;categories=7,48)]
-
----
-
-## Dryad
-
-.center[
-&lt;img src="../images/Dryad.png" width="60%" /&gt;
-]
-
-.footnote[[Dryad: Diabetes](https://datadryad.org/search?utf8=%E2%9C%93&amp;amp;q=diabetes)]
-
----
-
-## First computationally reproducible paper
-
-.center[
-&lt;img src="../images/elife.png" width="65%" /&gt;
-]
-
-.footnote[[Lewis LM. eLife 2018;7:e30274 DOI: 10.7554/eLife.30274](https://elifesciences.org/articles/30274).]
+.footnote[From &lt;a name=cite-Peng2011&gt;&lt;/a&gt;[[4](https://doi.org/10.1126/science.1213847)]]
 
 ---
 
 ## Some journals are moving in this direction
 
 PLOS Computational Biology is running a pilot:
-
 
 .pull-left[
 *"We will soon be able to offer expert technical peer review specifically checking that submitted systems biology or physiology-based models run according to the results presented in the manuscript submitted to the journal. The peer review will be delivered in addition to our usual scientific assessment.."*
@@ -123,120 +136,288 @@ PLOS Computational Biology is running a pilot:
 
 ---
 
-## Developments in making manuscripts interactive
-
-- "[Explorable Multiverse Analysis]" and [example Likert scales]
+## First computationally reproducible paper &lt;a name=cite-Lewis2018&gt;&lt;/a&gt;[[5](https://doi.org/10.7554/elife.30274)]
 
 .center[
-&lt;img src="../images/expmultiverse.png" width="60%" height="60%" /&gt;
+&lt;img src="../images/elife.png" width="65%" /&gt;
 ]
-
-[Explorable Multiverse Analysis]: https://explorablemultiverse.github.io/
-
-[example Likert scales]: https://explorablemultiverse.github.io/examples/likert/
 
 ---
 
-## There are still very strong barriers
+class: middle
+
+## Recent study: Only 25% could be *executed* without some "cleaning up" &lt;a name=cite-Trisovic2022&gt;&lt;/a&gt;[[6](https://doi.org/10.1038/s41597-022-01143-6)]
+
+- Code taken from [Dataverse Project](https://dataverse.org/) data repositories
+- After some automatic cleaning, ~half could *execute*
+
+???
+
+Recent large study on general reproducibility of projects that shared code.
+
+Initially only 25% of the R scripts could be *executed* (doesn't mean results
+were reproduced though). After doing automatic and some manual code cleaning,
+than about half could be executed. That's not bad.
+
+Since scripts were taken from Dataverse.org, researchers who upload their code
+and projects to it probably are a bit more aware and knowledgeable about general
+reproducibility and coding then the average researcher, so the results are a bit
+biased.
+
+---
+
+class: middle
+
+# But scientific culture is not well-prepared for analytic and computation era
+
+## Sadly (not going to lie) there are still very strong barriers to progress...
+
+---
+
+## Institutional barriers
+
+???
+
+You will encounter a lot of resistance, a lot of barriers and hardship.
 
 --
 
+- Lack of adequate awareness, support, infrastructure, training
+
+???
+
+At the institutional level, there is no real awareness of this,
+no support or infrastructure. You're basically doing this on your own.
+Which probably isn't that uncommon anyway.
+
+--
+
+- Research culture values publications over all else
+
+???
+
+Research culture and incentives pretty much only care about publishing journal
+articles. Creating software tools or datasets to be shared, meh. Making teaching
+materials to help other researchers, meh. Communicating your science to the
+public and doing outreach, meh. Doing actual science that might take years and
+not lead to any "hard papers", meh.
+
+--
+
+- Legal and privacy concerns about sharing data, intellectual property
+protection, patents, etc
+
+???
+
+Legal and privacy concerns are big topics that institutions in particular
+focus on a lot, about ownership and so on, since research can lead to commercialization
+and the potential for profit. For individual researchers, we often worry about
+these concerns too much and sometimes stops us from doing work because we're
+afraid we're doing something wrong
+
+--
+
+- More traditional academics don't understand or resist change
+
+???
+
+We have a large portion of traditional academics who have benefited from and
+succeeded in this system and are invested in continuing it. They often say
+there's nothing wrong with the system. This is what we in epidemiology call
+"survivorship bias". There's nothing wrong, for them, because they succeeded. But
+all the others that didn't succeed? We don't count that data. 
+
+--
+
+- 'Business as usual' is easier
+
+???
+
+We have a system that favours each individual person repeating the same mistakes
+that others make because the system doesn't allow for us to take the time to
+create tools and infrastructure that helps ourselves and others out.
+
+Because business as usual is the easiest way in the short term. Our current
+scientific culture is just not prepared for this, for the rising modern analytic
+and computational era.
+
+---
+
+## ...and personal barriers
+
 .pull-left[
-- Lack of awareness
-
-- Tradition, culture and common practices need to change
-
-- 'Business as usual' seems the shortest route to success
-
-- Tools and training in specific skills needed
-
-- Takes time and dedicated funding
+- Fear of:
+    - Fear of being scooped or ideas being stolen
+    - Not being credited for ideas
+    - Errors and public humiliation
+    - Risk to reputation
 ]
+
+???
+
+And there aren't just institutional barriers. We as researchers have fears of
+being scooped, of embarrassment and humiliation for your methods being *gasp*
+wrong. Which is actually just part of science.
 
 --
 
 .pull-right[
-- Researchers need to see the value in adopting an open reproducible workflow
+- Overwhelmed with everything that needs to be done
 
-- Funding and reward systems need to be adapted:
-	- Peer review and Publication
-	- Academic recognition / careers
-	- Research funding mechanisms
+- Need to constantly stay updated
 
-- Law: privacy concerns about sharing data, IP protection, patents, etc
+- Finding better opportunities outside of academia
 ]
+
+???
+
+It is also really overwhelming, having so many things to think about to make sure
+you're doing solid science. No researcher in the past had to consider and think
+and know as much as we have to know and to do. Another reason why we need more
+team science, to distribute the tasks and skills.
+
+You also have to constantly stay updated, and that can be tiring.
+
+And the last barrier, which may actually be a benefit, is that one reason you
+don't see a lot of researchers sharing their code or being more reproducible
+is.. they end up getting picked up by industry and paid really well or decide
+to leave academia for the reasons I mentioned. 
+
+Just as an example, I found a Norwegian group who had a really inefficient 
+workflow and decided to re-build their workflow to make use of programming,
+to be reproducible, to have a pipeline. I looked up the lead author as well as 
+several other of the co-authors and guess what... many of them now work in really
+great companies as data scientists or software engineers, probably making a lot 
+of money and having potentially a less stressful life.
 
 ---
 
-## Personal barriers
+# Activity: Think 💭 than discuss <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M532 386.2c27.5-27.1 44-61.1 44-98.2 0-80-76.5-146.1-176.2-157.9C368.3 72.5 294.3 32 208 32 93.1 32 0 103.6 0 192c0 37 16.5 71 44 98.2-15.3 30.7-37.3 54.5-37.7 54.9-6.3 6.7-8.1 16.5-4.4 25 3.6 8.5 12 14 21.2 14 53.5 0 96.7-20.2 125.2-38.8 9.2 2.1 18.7 3.7 28.4 4.9C208.1 407.6 281.8 448 368 448c20.8 0 40.8-2.4 59.8-6.8C456.3 459.7 499.4 480 553 480c9.2 0 17.5-5.5 21.2-14 3.6-8.5 1.9-18.3-4.4-25-.4-.3-22.5-24.1-37.8-54.8zm-392.8-92.3L122.1 305c-14.1 9.1-28.5 16.3-43.1 21.4 2.7-4.7 5.4-9.7 8-14.8l15.5-31.1L77.7 256C64.2 242.6 48 220.7 48 192c0-60.7 73.3-112 160-112s160 51.3 160 112-73.3 112-160 112c-16.5 0-33-1.9-49-5.6l-19.8-4.5zM498.3 352l-24.7 24.4 15.5 31.1c2.6 5.1 5.3 10.1 8 14.8-14.6-5.1-29-12.3-43.1-21.4l-17.1-11.1-19.9 4.6c-16 3.7-32.5 5.6-49 5.6-54 0-102.2-20.1-131.3-49.7C338 339.5 416 272.9 416 192c0-3.4-.4-6.7-.7-10C479.7 196.5 528 238.8 528 288c0 28.7-16.2 50.6-29.7 64z"/></svg>
 
-Fear of:
+&gt; Imagine if the number of publications and where you published didn't matter
+for getting funding or getting a research job. 
 
-- Scooping or ideas being stolen
-- Not being credited for ideas
-- Errors and public humiliation
-- Risk to reputation
-- Reduced scientific quality
-- Information overload
+- Take 2 minutes (instructor will set time) and consider:
+    - What would you spend your time on? 
+    - What would you do differently compared to now?
 
-.footnote[[Tennant (2017)](https://doi.org/10.6084/m9.figshare.5383711.v1)]
+- *With your neighbour*, share what you've thought
+    - Each person has 2 minutes
+    
+- After, we'll share some of the thoughts
 
 ---
 
 class: middle
 
-## Current scientific culture not prepared for analytic and computation era
+# So... what can you do right now?
+
+## Easiest thing: Start sharing your code
+
+.footnote[No matter how ugly. It also doesn't mean it'll be reproducible, but
+at least it will be *inspectable*. ]
+
+???
+
+If you do nothing else: share your code.
+
+If its ugly, that's fine! The point is you start and that you get more
+comfortable doing it until it becomes second nature to share and in the process,
+your code gets better because you know someone might look at your code. 
+
+And even if your code isn't reproducible, even if others can't run it own their 
+own, sharing is the first step to becoming better. At the least, others can
+inspect your code for its overall logic.
+
+We as researchers try to find our niche, make our own space in the research
+world. Sometimes its a real struggle to find that niche.. but guys! No one is
+doing this, no one is sharing their code! You start doing the simplest thing of
+sharing your code and you will be one of very very few people who do. And this
+isn't a niche, this is a gaping hole in our modern scientific process. A huge
+hole.
+
+
+---
+
+## How do you share?
+
+.pull-left[
+- [GitHub](https://github.com/)
+
+- [GitLab](https://gitlab.com/)
+
+- [Zenodo](https://zenodo.org/)
+
+- [figshare](https://figshare.com/)
+
+- [Open Science Framework](https://osf.io/)
+]
+
+???
+
+How do you share? Put your code up on any of these sites. I prefer a combination
+of GitHub and Zenodo, but the others are also quite good as well. And we're 
+already showing you how to use GitHub, so you're one step closer to sharing
+on your own!
+
+--
+
+.pull-right[
+**Yea, but when do you share?**
+]
+
+???
+
+Next question might, when do you share? I say right away. As soon as I have an
+analysis project, my code is up on either GitHub or GitLab (another service like
+GitHub). Alternatively, you can upload it when you also finish your manuscript.
 
 ---
 
 class: middle
 
-## Open science debates and initiatives don't recognize role of software
-
-.footnote[E.g. [EU H2020 Open Science Mandate] only mentions data and publications.]
-
-[EU H2020 Open Science Mandate]: https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-pilot-guide_en.pdf
+## ... and after that? Use R Markdown, which we'll teach you! 😜
 
 ---
 
-## Little to no training in software or programming
+# References
 
-.center[
-&lt;img src="../images/code-quality.png" width="100%" height="100%" /&gt;
-]
+&lt;a name=bib-Considine2017a&gt;&lt;/a&gt;[[1]](#cite-Considine2017a) E. C.
+Considine, G. Thomas, et al. "Critical Review of Reporting of the Data
+Analysis Step in Metabolomics". In: _Metabolomics_ 14.1 (Dec. 2017).
+DOI:
+[10.1007/s11306-017-1299-3](https://doi.org/10.1007%2Fs11306-017-1299-3).
 
-.footnote[Source from [xkcd](https://www.xkcd.com/1513/).]
+&lt;a name=bib-Leek2017a&gt;&lt;/a&gt;[[2]](#cite-Leek2017a) J. T. Leek and L. R.
+Jager. "Is Most Published Research Really False?" In: _Annual Review of
+Statistics and Its Application_ 4.1 (Mar. 2017), pp. 109-122. DOI:
+[10.1146/annurev-statistics-060116-054104](https://doi.org/10.1146%2Fannurev-statistics-060116-054104).
 
----
+&lt;a name=bib-Seibold2021&gt;&lt;/a&gt;[[3]](#cite-Seibold2021) H. Seibold, S.
+Czerny, et al. "A computational reproducibility study of PLOS ONE
+articles featuring longitudinal data analyses". In: _PLOS ONE_ 16.6
+(Jun. 2021). Ed. by J. M. Wicherts, p. e0251194. DOI:
+[10.1371/journal.pone.0251194](https://doi.org/10.1371%2Fjournal.pone.0251194).
 
-## What does it mean for you?
+&lt;a name=bib-Peng2011&gt;&lt;/a&gt;[[4]](#cite-Peng2011) R. D. Peng.
+"Reproducible Research in Computational Science". In: _Science_
+334.6060 (Dec. 2011), pp. 1226-1227. DOI:
+[10.1126/science.1213847](https://doi.org/10.1126%2Fscience.1213847).
 
-- Need to stay updated: Keep learning
-    - Read [bookdown](https://bookdown.org/) books (most free)
-    - Ask (and answer!) questions on [StackOverflow](https://stackoverflow.com/)
-    - Teach others!! Great way to learn
-    - Read e.g. [Open Science Handbook](https://open-science-training-handbook.gitbook.io/book/)
+&lt;a name=bib-Lewis2018&gt;&lt;/a&gt;[[5]](#cite-Lewis2018) L. M. Lewis, M. C.
+Edwards, et al. "Replication Study: Transcriptional amplification in
+tumor cells with elevated c-Myc". In: _eLife_ 7 (Jan. 2018). DOI:
+[10.7554/elife.30274](https://doi.org/10.7554%2Felife.30274).
 
---
-
-- Find and collaborate with those familiar with these concepts (online and/or in real life)
-
---
-
-- Cite research that is or tries to be more reproducible
-
---
-
-- Keep the principles of reproducibility in mind, then find the tools
-
---
-
-- Practice reproducible and open science
-    - More on this later in session
+&lt;a name=bib-Trisovic2022&gt;&lt;/a&gt;[[6]](#cite-Trisovic2022) A. Trisovic, M.
+K. Lau, et al. "A large-scale study on research code quality and
+execution". In: _Scientific Data_ 9.1 (Feb. 2022). DOI:
+[10.1038/s41597-022-01143-6](https://doi.org/10.1038%2Fs41597-022-01143-6).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
+"slideNumberFormat": "",
 "ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
