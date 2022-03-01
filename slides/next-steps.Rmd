@@ -1,6 +1,5 @@
 ---
 title: "What can you do next after this course?"
-subtitle: "Doing it and learning from other researchers"
 ---
 
 layout: true
