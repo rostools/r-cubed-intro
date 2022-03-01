@@ -23,9 +23,20 @@ What do you expect to learn and what would you like to be able to do with what y
 What do you expect to learn and what would you like to be able to do with what you've learned?,"I would like to improve my data and code literacy, and to conduct a modern and reproducible data analysis"
 What do you expect to learn and what would you like to be able to do with what you've learned?,Learn how to create an algorithm for clear and systematic data analyses.
 What do you expect to learn and what would you like to be able to do with what you've learned?,Learn more about how to organize my work in R and how to apply it on my data
+What do you expect to learn and what would you like to be able to do with what you've learned?,own data analysis
 What do you expect to learn and what would you like to be able to do with what you've learned?,Sequencing data
 What do you expect to learn and what would you like to be able to do with what you've learned?,Some R basics on how to handle big data sets and how to visualize them. I would like to some it for especially visualization of the data I work with myself.
+What do you expect to learn and what would you like to be able to do with what you've learned?,statistical analysis
+What do you expect to learn and what would you like to be able to do with what you've learned?,to be able to manage my results
 What do you expect to learn and what would you like to be able to do with what you've learned?,useful data
+Please describe the problems you've had.,"Error: Must install the following packages to use bs4_book():
+* bslib
+Execution halted
+
+library(""sass"")
+Error: package ‘sass’ is not installed for 'arch = x64'
+library(""bslib"")
+DLL ‘sass’ not found: maybe not installed for this architecture?"
 Please describe the problems you've had.,Git in the R studio
 Please describe the problems you've had.,"I can easily download packages from CRAN but they are not automatically installed. I need to ""activate"" them in the sidebar afterwards. This is not the case in the video. R says that: ""‘lib’ is unspecified"". How to handle this?"
 Please describe the problems you've had.,The IT servicedesk at RegionH have to approve installing Git and Rtools and it takes longer than expected.
@@ -38,6 +49,7 @@ Content type 'application/x-gzip' length 395393 bytes (386 KB)
 downloaded 386 KB"
 Please describe the problems you've had.,When I do the check_setup it seems something is not working right
 "In your opinion, what could be improved?","Depending on what is taught at the course, maybe you could create some small optional tasks/tutorials on how to use RStudio for complete beginners."
+"In your opinion, what could be improved?",error debug
 "In your opinion, what could be improved?","Everything worked in my hands, I have no suggestions"
 "In your opinion, what could be improved?","For now, I do not know exactly."
 "In your opinion, what could be improved?",How to install and input the code into R
@@ -54,6 +66,8 @@ Please describe the problems you've had.,When I do the check_setup it seems some
 "In your opinion, what could be improved?","Maybe you should include more of the ""Version control with Git"" in the pre-course material."
 "In your opinion, what could be improved?",Messages on the console are not always as shown and it left me wondering if it was fine or not. But the final verification suggests everything is fine :)
 "In your opinion, what could be improved?","More detailed information about Rtools and how to link Rtools with R in windows. A video would help a lot. Even though I followed the instructions, I am still uncertain whether R and Git runs as it should - a way to check this would be great!"
+"In your opinion, what could be improved?",none
+"In your opinion, what could be improved?",None
 "In your opinion, what could be improved?",None
 "In your opinion, what could be improved?",Nothing
 "In your opinion, what could be improved?",Nothing so far
@@ -69,6 +83,8 @@ Please describe the problems you've had.,When I do the check_setup it seems some
 "In your opinion, what worked well?",All the instructions or commands provided in the pre-course tasks worked well.
 "In your opinion, what worked well?",Detailed description on how to interpret the coding. Great videos.
 "In your opinion, what worked well?",Downloading the softwares
+"In your opinion, what worked well?",everything
+"In your opinion, what worked well?",Everything so far :)
 "In your opinion, what worked well?",Everything was fairly smooth.
 "In your opinion, what worked well?","Everything worked in my hands, I have no suggestions"
 "In your opinion, what worked well?",For this type of a course it is necessary to get started with the setup before the course. The basic explanations worked well in general.
@@ -78,6 +94,7 @@ Please describe the problems you've had.,When I do the check_setup it seems some
 "In your opinion, what worked well?",I think the installation guide worked really well for getting ready for the course both with R and Git.
 "In your opinion, what worked well?",I'm not sure i have everything installed correct so I don't Know
 "In your opinion, what worked well?",instructions were clear and easy to apply
+"In your opinion, what worked well?",intallation
 "In your opinion, what worked well?",It was really easy to follow and understand the tasks and the rules.
 "In your opinion, what worked well?",My mind was blown my the amount of work and effort that has been put into this material. I have never seen anything similar. It could not be more perfect!
 "In your opinion, what worked well?","Setting up RStudio and Git is a prerequisite for the course, and you made sure that everyone did that right. I found the introduction to Git very useful."
@@ -108,6 +125,9 @@ Why do you want to attend this course?,I would like to learn fundamental tools a
 Why do you want to attend this course?,I would like to learn how to make interesting plots
 Why do you want to attend this course?,"I would like to learn how to use R, and my primary intention would be to use to analyse RNA-seq data(s)"
 Why do you want to attend this course?,Improve my data visualisation skills
+Why do you want to attend this course?,improve my programing skills
+Why do you want to attend this course?,improving skils
+Why do you want to attend this course?,learn more on R
 Why do you want to attend this course?,Learn new ways to probe and handle large datasets in proteomics / automate frequently-used workflows.
 Why do you want to attend this course?,Most important reason is to get an introduction on how to start using R.
 Why do you want to attend this course?,To be able to get better at R and creating scripts with code I can reuse in other project
