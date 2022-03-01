@@ -27,7 +27,7 @@ xaringanExtra::use_progress_bar(color = progress_bar_colour, location = "top")
 
 - Teach or help out with R courses `r emo::ji("wink")` 
 
-- Join initiatives 
+- Join local initiatives that follow these guidelines
 
 ???
 
@@ -43,8 +43,8 @@ to improve it. We review manuscripts, why not code?
 I personally though have had a really hard time getting groups I've been part of
 now and in the past to do this, but baby steps.
 
-Lastly.. you can teach. Teach others. Use these teaching materials. Or get involved
-with this course next year. Or now. Actually, several participants from the beginner
-course are or will soon be helping to improve the material for next year. 
-There are also so many other things you can get involved in, aside from this course.
+You can teach. Teach others. Use these teaching materials. Or get involved with
+this course next year. Or now. Actually, several participants from the beginner
+course are or will soon be helping to improve the material for next year. There
+are also so many other things you can get involved in, aside from this course.
 Let me know if you're interested!

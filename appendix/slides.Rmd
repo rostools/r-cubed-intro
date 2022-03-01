@@ -17,3 +17,9 @@ knitr::include_url("slides/collaboration-teamwork.html", height = "255px")
 ```{r, echo=FALSE, out.width="65%"}
 knitr::include_url("slides/open-reproducible-science-era.html", height = "255px")
 ```
+
+## [Final remarks and next steps](slides/next-steps.html) {-}
+
+```{r, echo=FALSE, out.width="65%"}
+knitr::include_url("slides/next-steps.html", height = "255px")
+```
