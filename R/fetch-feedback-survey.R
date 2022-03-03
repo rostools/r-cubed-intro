@@ -10,7 +10,7 @@ stop("To prevent accidental sourcing.")
 
 feedback_survey <- drive_get(id = FEEDBACK_SURVEY_ID) %>%
     read_sheet() %>%
-    filter(year(Timestamp) == "2021")
+    filter(year(Timestamp) == "2022")
 
 # Any duplicate timestamps?
 any(duplicated(feedback_survey$Timestamp))
@@ -34,14 +34,14 @@ quantitative_feedback <- long_feedback_survey %>%
         ungroup() %>%
     select(id, survey_item = question, response)
 
-write_csv(quantitative_feedback, here::here("feedback/2021-06-quantitative.csv"))
+write_csv(quantitative_feedback, here::here("feedback/2022-03-quantitative.csv"))
 
 # Keep and save the general feedback
 overall_feedback <- long_feedback_survey %>%
     filter(str_detect(question, "other feedback")) %>%
     select(response)
 
-write_csv(overall_feedback, here::here("feedback/2021-06-overall.csv"))
+write_csv(overall_feedback, here::here("feedback/2022-03-overall.csv"))
 
 # Keep and save the session specific feedback
 session_feedback <- long_feedback_survey %>%
@@ -58,4 +58,4 @@ session_feedback <- long_feedback_survey %>%
     arrange(day, session) %>%
     select(-time_stamp)
 
-write_csv(session_feedback, here::here("feedback/2021-06-session-specific.csv"))
+write_csv(session_feedback, here::here("feedback/2022-03-session-specific.csv"))
