@@ -5,14 +5,14 @@ library(tidyverse)
 library(lubridate)
 conflicted::conflict_prefer("filter", "dplyr")
 
-course_date <- "2022-03"
+course_date <- "2020-06"
 
 # Import pre-survey data --------------------------------------------------
 
 renaming_columns <- tibble::tribble(
     ~original_column_names, ~new_column_names,
     "Timestamp", "timestamp",
-    "Email", "email",
+    "Email Address", "email",
     "What is your full name?", "full_name",
     "What is your formal position?", "research_position",
     "What city do you work in or near?", "city_work_in",
@@ -49,7 +49,7 @@ renaming_columns <- tibble::tribble(
 
 presurvey <- drive_get(id = PRE_SURVEY_ID) %>%
     read_sheet() %>%
-    set_names(renaming_columns$new_column_names)
+    select(deframe(renaming_columns[2:1]))
 # nrow(presurvey)
 # View(presurvey)
 
@@ -73,7 +73,8 @@ presurvey_tidying <- presurvey %>%
             str_remove("\\@"),
         perceived_skill_r_updated = as.character(perceived_skill_r_updated)
           ) %>%
-    filter(year(timestamp) == str_sub(course_date, 1, 4), (dropped != TRUE | is.na(dropped)))
+    filter(str_detect(as.character(timestamp), course_date), (dropped != TRUE | is.na(dropped)))
+    # Need to drop an instructor from list.
 
 # Check who hasn't finished the survey ------------------------------------
 
@@ -130,19 +131,17 @@ fix_skill_levels <- function(x) {
 }
 
 # This is for creating the teams in `create-teams.R` script.
-presurvey_tidy <- presurvey_with_participants %>%
-    filter(name_from_survey == name_from_list) %>%
-    mutate(across(matches("^perceived_.*_updated$"), fix_skill_levels))
-
-prep_for_saving <- presurvey_tidy %>%
+prep_for_saving <- presurvey_tidying %>%
+    mutate(across(matches("^perceived_.*_updated$"), fix_skill_levels)) %>%
     select(-contains("email"), -contains("name"), -github_username, -timestamp) %>%
     select(where(~!all(is.na(.x)))) %>%
     mutate(across(perceived_skill_r_updated, as.character))
 
 basic_overview <- prep_for_saving %>%
-    select(starts_with("perceived"), starts_with("uses"), gender_identity,
+    select(starts_with("perceived"),
            research_position, city_work_in, previously_used_stat_programs) %>%
-    pivot_longer(everything(), names_to = "Questions", values_to = "Responses") %>%
+    pivot_longer(everything(), names_to = "Questions", values_to = "Responses",
+                 values_transform = as.character) %>%
     count(Questions, Responses, name = "Count") %>%
     arrange(Questions, Responses, Count) %>%
     left_join(renaming_columns, by = c("Questions" = "new_column_names")) %>%
@@ -161,4 +160,4 @@ precourse_feedback <- prep_for_saving %>%
     select(-Questions, Questions = original_column_names) %>%
     relocate(Questions)
 
-write_csv(precourse_feedback, here::here(glue::glue("feedback/{course_date}-precourse-feedback.csv")))
+write_csv(precourse_feedback, here::here(glue::glue("feedback/{course_date}-precourse.csv")))
