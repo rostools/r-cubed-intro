@@ -1,12 +1,12 @@
 Version: 1.0
 
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
+RestoreWorkspace: No
+SaveWorkspace: No
+AlwaysSaveHistory: No
 
 EnableCodeIndexing: Yes
 UseSpacesForTab: Yes
-NumSpacesForTab: 4
+NumSpacesForTab: 2
 Encoding: UTF-8
 
 RnwWeave: knitr
@@ -17,3 +17,7 @@ StripTrailingWhitespace: Yes
 
 BuildType: Custom
 CustomScriptPath: _build.R
+
+MarkdownWrap: Column
+MarkdownWrapAtColumn: 72
+MarkdownCanonical: Yes
