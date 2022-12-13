@@ -50,8 +50,25 @@ zenodo <- ZenodoManager$new(
     token = askpass::askpass()
 )
 
-update_record <- zenodo$getDepositionById("4520016")
+update_record <- zenodo$getDepositionById("5548398")
 update_record <- zenodo$editRecord(update_record$id)
+
+previous_tag <- git_tag_list()
+previous_tag <- tail(previous_tag, n = 2)[1]
+update_record$removeRelatedIdentifier(
+    "isIdenticalTo",
+    str_c("https://gitlab.com/rostools/r-cubed-intermediate/-/tags/v4.1")
+)
+update_record$addRelatedIdentifier(
+    "isIdenticalTo",
+    str_c("https://gitlab.com/rostools/r-cubed-intermediate/-/tags/", repo_version)
+)
+
+update_record$setPublicationDate(lubridate::as_date("2022-03-01"))
+update_record$setVersion(repo_version)
+deposited_record <- zenodo$depositRecordVersion(update_record, files = tag_archive_file)
+fs::file_delete(tag_archive_file)
+
 # pwalk(authors_df, update_record$addCreator)
 update_record$addRelatedIdentifier("isCompiledBy", "https://gitlab.com/rostools/r-cubed")
 # To remove old reference.
