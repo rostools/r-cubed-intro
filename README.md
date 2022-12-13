@@ -25,7 +25,7 @@ describing it.
 
 The lectures and lessons in this course are designed to be presented primarily
 with a participatory live-coding approach. This involves an instructor typing
-and running code in [RStudio](https://www.rstudio.com/) in front of the class,
+and running code in [RStudio](https://posit.co/products/open-source/rstudio/) in front of the class,
 while the class follows along using their own computers. Challenges are
 interspersed in the lesson material, allowing participants to collaboratively
 work on smaller coding problems for a few minutes. All lesson materials are
