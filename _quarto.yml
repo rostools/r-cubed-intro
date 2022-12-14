@@ -1,0 +1,101 @@
+project:
+  type: book
+  output-dir: public
+  execute-dir: project
+  # pre-render: quarto render slides/*
+  # resources:
+  #   - slides/*.html
+  #   - slides/introduction_files
+
+book:
+  title: "Reproducible Research in R"
+  subtitle: "An introductory workshop on modern data analyses and workflows"
+  description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
+  author:
+    - Luke W. Johnston
+    - Helene Baek Juel
+    - Bettina Lengger
+    - Daniel R. Witte
+    - Hannah Chatwin
+    - Malene Revsbech Christiansen
+    - Anders Aasted Isaksen
+  favicon: "images/favicon.ico"
+  site-url: "https://r-cubed.rostools.org"
+  repo-url: "https://gitlab.com/rostools/r-cubed"
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  search:
+    location: navbar
+    type: overlay
+  chapters:
+    - index.Rmd
+    - part: "Preamble"
+      chapters:
+      - preamble/syllabus.qmd
+      - preamble/schedule.qmd
+      - preamble/pre-course.qmd
+    # - part: "Sessions"
+    #   chapters:
+      # - sessions/introduction.qmd
+      # - sessions/project-management.Rmd
+      # - sessions/version-control.Rmd
+      # - sessions/data-management.Rmd
+      # - sessions/reproducible-documents.Rmd
+      # - sessions/data-visualization.Rmd
+  appendices:
+    # - appendix/social.qmd
+    # - appendix/slides.Rmd
+    # - appendix/assignment.Rmd
+    - appendix/conduct.Rmd
+    # - appendix/resources.Rmd
+    # - appendix/post-course.Rmd
+    # - appendix/for-instructors.Rmd
+    - appendix/references.Rmd
+  page-footer:
+    center:
+      - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
+        href: LICENSE.md
+
+bibliography:
+  - includes/references.bib
+  - includes/packages.bib
+csl: includes/vancouver.csl
+
+callout-appearance: minimal
+reference-location: margin
+citation-location: margin
+crossref:
+  chapters: true
+
+editor_options:
+  markdown:
+    wrap: 72
+    canonical: true
+
+format:
+  html:
+    df-print: tibble
+    code-overflow: scroll
+    from: markdown+emoji
+    code-link: true
+    theme:
+      - litera
+      - includes/theme.scss
+    include-before-body:
+      - "includes/site-counter.html"
+      - "includes/contribute.html"
+
+knitr:
+  opts_chunk:
+    class-output: sourceCode
+    comment: "#>"
+    fig-dpi: 72
+    fig-width: 5.5
+    fig-height: 5
+    fig-align: center
+    out-width: 100%
+
+execute:
+  freeze: auto
+  warning: false
+

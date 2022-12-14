@@ -7,16 +7,6 @@ library(htmltools)
 
 options(width = 60)
 
-knitr::opts_chunk$set(
-    comment = "#>",
-    warning = FALSE,
-    dpi = 72,
-    fig.width = 5.5,
-    fig.height = 5,
-    fig.align = "center",
-    out.width = "100%"
-)
-
 knitr::knit_hooks$set(solution = function(before) {
     if (before)
         "<details><summary><strong>Click for the (possible) solution.</strong> Click only if you are really struggling or you are out of time for the exercise.</summary><p>"
