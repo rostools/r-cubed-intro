@@ -1,4 +1,4 @@
-# Pre-course tasks {#pre-course}
+# Pre-course tasks {#sec-pre-course}
 
 In order to participate in this course, you must complete everything in
 this pre-course tasks section and finish with *completing the survey* at
@@ -235,14 +235,15 @@ function from the remotes package without having to load all the other
 functions. We will be using `::` often during this course.
 
 Most of the packages we will be using in this course are bundled
-together into one package called [tidyverse]. Tidyverse is a collection
-of packages that are designed for common tasks in data science, ranging
-from data exploration to data visualization. As the name suggests,
-tidyverse is an attempt to organize the "universe" of data analysis by
-providing packages that guide workflows and lead to more reproducible
-analysis projects. When you installed the r3 helper package, it already
-installed tidyverse for you. If you wanted to install tidyverse
-normally, you would (but don't right now) type in the Console:
+together into one package called \[tidyverse\]. Tidyverse is a
+collection of packages that are designed for common tasks in data
+science, ranging from data exploration to data visualization. As the
+name suggests, tidyverse is an attempt to organize the "universe" of
+data analysis by providing packages that guide workflows and lead to
+more reproducible analysis projects. When you installed the r3 helper
+package, it already installed tidyverse for you. If you wanted to
+install tidyverse normally, you would (but don't right now) type in the
+Console:
 
 ``` r
 install.packages("tidyverse")
@@ -377,3 +378,4 @@ r3::open_pre_survey()
 ```
 
 See you at the course!
+
