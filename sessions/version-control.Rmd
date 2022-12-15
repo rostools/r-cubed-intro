@@ -1,4 +1,4 @@
-# Version control with Git {#version-control}
+# Version control with Git {#sec-version-control}
 
 **Session objectives**:
 
@@ -9,7 +9,7 @@ View changes to files, record and save those changes to a history,
 and synchronize those changes to an online repository (GitHub).
 1. Use GitHub to collaborate with others on a project.
 
-## What is version control? {#what-is-version-control}
+## What is version control? {#sec-what-is-version-control}
 
 `r details_for_instructors("
 For the reading parts, let them read it first and then walk through the material
@@ -104,7 +104,7 @@ RStudio thankfully has an amazing and straight-forward integration to it.
 
 [git-doc]: https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
-## What is Git? {#what-is-git}
+## What is Git? {#sec-what-is-git}
 
 **Take 5 min and read through this section**.
 
@@ -153,7 +153,7 @@ repository on GitHub, as pictured below.
 knitr::include_graphics(here::here("images/git-upload-file-github.png"))
 ```
 
-## Basics of Git {#basics-of-git}
+## Basics of Git {#sec-basics-of-git}
 
 **Take 5 min and read through this section**.
 
