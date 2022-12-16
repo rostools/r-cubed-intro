@@ -1,0 +1,28 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code');
+
+$font-family-monospace: "Fira Code", monospace;
+$font-family-serif: "Nanum Gothic", sans-serif;
+$font-family-sans-serif: "Nanum Gothic", sans-serif;
+$headings-font-family: "Cabin", sans-serif;
+$font-size-root: 18px;
+$code-block-border-left: "grey60";
+
+/*-- scss:rules --*/
+
+svg {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto !important;
+  width: auto !important;
+}
+
+.slide-deck {
+  border: 3px solid #203C6E;
+  width: 100%;
+  height: 475px;
+}
