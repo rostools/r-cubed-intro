@@ -1,5 +1,7 @@
 # Group project assignment {#sec-assignment}
 
+{{< include ../includes/_wip.qmd >}}
+
 To maximize how much you learn and how much you will retain, you as a
 group will take what you learn in the course and apply it to create a
 reproducible project. This project, based on a simple data analysis of a
@@ -47,8 +49,8 @@ structure for you. So, your specific tasks (based on lesson order) are
 to:
 
 1.  All team members need to **clone your team's repository to their own
-    computer**, using the process we learned in cloning exercise
-    \@ref(#ex-clone-from-github) in the Version Control session.
+    computer**, using the process we learned in cloning exercise in the
+    Version Control session.
 
 2.  **Find an open dataset** to use for your analysis and report. You
     have two options: 1) choose from one of the datasets provided below;
@@ -76,9 +78,6 @@ to:
         Data](https://www.kaggle.com/starbucks/starbucks-menu) (It may
         be required to create a Kaggle account)
 
-```{=html}
-<!-- -->
-```
 3.  Assign one team member to **download the dataset** and put it into
     the `data-raw/` folder of your project.
 
