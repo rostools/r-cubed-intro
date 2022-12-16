@@ -3,7 +3,8 @@ project:
   output-dir: public
   execute-dir: project
   # pre-render: quarto render slides/*
-  # resources:
+  resources:
+    - videos/*
   #   - slides/*.html
   #   - slides/introduction_files
 
