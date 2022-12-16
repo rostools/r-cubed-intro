@@ -1,0 +1,49 @@
+# Schedule {#sec-schedule}
+
+{{< include ../includes/_wip.qmd >}}
+
+The course is structured as a series of participatory live-coding
+sessions interspersed with hands-on exercises and group work, using
+either a practice dataset or some other real-world dataset. There are
+some lectures given, mainly at the start and end of the course. The
+general schedule outline is shown in the below table. This is not a
+fixed schedule of the timings of each session --- some may be shorter
+and others may be longer. Instead, it is meant to be an approximate
+guide and overview.
+
+::: panel-tabset
+```{r schedule-table}
+#| eval: true
+#| echo: false
+#| output: asis
+library(dplyr)
+add_link <- function(text, icon, link) {
+  colour <- "#138d75"
+  added_link <- paste0("<i class='fa-solid fa-", icon, "' style='color:", colour, "'></i>&nbsp;&nbsp;<a href=\"", link, "\">", text, "</a>")
+  if (link == "") {
+    added_link <- paste0("<i class='fa-solid fa-", icon, "' style='color:", colour, "'></i>&nbsp;&nbsp;", text)
+  }
+  return(htmltools::HTML(added_link))
+}
+
+schedule <- here::here("includes/schedule.csv") %>%
+  readr::read_csv(col_types = "ccccc") %>%
+  mutate(across(everything(), ~ if_else(is.na(.x), "", .x))) %>%
+  mutate(
+    `Session topic` = list(`Session topic`, icon, link) %>%
+      purrr::pmap(~ add_link(..1, ..2, ..3)) %>%
+      unlist()
+  ) %>%
+  select(-icon, -link)
+
+unique(schedule$Day) %>% 
+  purrr::map_chr( \(day) {
+    knitr::knit_child(
+      input = here::here("includes/templates/_schedule-days.qmd"),
+      envir = environment(),
+      quiet = TRUE
+    )
+  }) %>% 
+  cat(sep = "\n")
+```
+:::

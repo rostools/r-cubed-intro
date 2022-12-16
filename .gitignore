@@ -12,3 +12,5 @@ _ignore
 data/nhanes_tidied.rda
 slides/libs
 videos/raw
+
+/.quarto/

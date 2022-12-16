@@ -1,176 +1,166 @@
---- 
-title: "Reproducible Research in R"
-subtitle: "An introductory workshop on modern data analyses and workflows"
-date: "`r format(Sys.time(), '%B %d %Y')`"
-author:
-  - Luke W. Johnston
-  - Helene Baek Juel
-  - Bettina Lengger
-  - Daniel R. Witte
-  - Hannah Chatwin
-  - Malene Revsbech Christiansen
-  - Anders Aasted Isaksen
-site: bookdown::bookdown_site
-documentclass: book
-bibliography: "resources/refs.bib"
-link-citations: yes
-description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
-apple-touch-icon: "images/apple-touch-icon.png"
-apple-touch-icon-size: 180
-favicon: "images/favicon.ico"
-url: 'https\://r-cubed.rostools.org'
----
+# Welcome! {.unnumbered}
 
-# Welcome!
+```{r write-packages-to-bib, include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(
+  unique(desc::desc_get_deps()$package[-1]),
+  here::here("includes/packages.bib")
+)
+```
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
-[![JOSE DOI](https://jose.theoj.org/papers/10.21105/jose.00122/status.svg)](https://doi.org/10.21105/jose.00122)
+[![License: CC BY
+4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Zenodo
+DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
+[![JOSE
+DOI](https://jose.theoj.org/papers/10.21105/jose.00122/status.svg)](https://doi.org/10.21105/jose.00122)
 
-The course is designed as a series of participatory live-coding lessons, where
-the instructor and learner code together, along with hands-on
-exercises interspersed throughout the course
-and a final group assignment to do a simple data analysis project.
-This website contains all of the
-material for the course, from reading material to exercises to code to images. It is
-structured as a book, with "chapters" as lessons, given in order of appearance.
-We make heavy use of the website throughout the course
-where code-along sessions almost identically follow the material on the website 
-(with slight modifications for time or more detailed explanations).
+The course is designed as a series of participatory live-coding lessons,
+where the instructor and learner code together, along with reading
+activities and hands-on practical exercises interspersed throughout the
+course and a final group assignment to do a simple data analysis
+project. This website contains all of the material for the course, from
+reading material to exercises to code to images. It is structured as a
+book, with "chapters" as lessons, given in order of appearance. We make
+heavy use of the website throughout the course where code-along sessions
+almost identically follow the material on the website (with slight
+modifications for time or more detailed explanations).
 
-The course material was created using [rmarkdown] to write the lessons,
-[bookdown] to create the book format, [GitLab] to host the [Git] 
-repository of the material, and [GitLab CI] with [Netlify] to create the website.
-The original source material for this course is found on the 
-[`r-cubed`] GitLab repository.
+The course material was created using [Quarto](https://quarto.org) to
+write the lessons and create the book format,
+[GitLab](https://gitlab.com/) to host the [Git](https://git-scm.com/)
+repository of the material (and mirrored to
+[GitHub](https://github.com)), and [GitHub
+Actions](https://github.com/features/actions) with
+[Netlify](https://www.netlify.com/) to build and host the website. The
+original source material for this course is found on the
+[`r-cubed`](https://gitlab.com/rostools/r-cubed) GitLab repository.
 
-Want to contribute to this course? 
-Check out the [README] file as well as the [CONTRIBUTING] file
-on the GitLab repository for more details.
-The main way to contribute is by using 
-[GitLab] and creating a 
-[new issue](https://gitlab.com/rostools/r-cubed/-/issues/new)
-to make comments and give feedback on the material.
-
-[hypothes.is]: https://web.hypothes.is/
-[rmarkdown]: https://rmarkdown.rstudio.com/
-[bookdown]: https://bookdown.org/yihui/bookdown/
-[GitLab]: https://gitlab.com/
-[Git]: https://git-scm.com/
-[GitLab CI]: https://docs.gitlab.com/ee/ci/
-[Netlify]: https://www.netlify.com/
-[`r-cubed`]: https://gitlab.com/rostools/r-cubed
-
-[README]: https://gitlab.com/rostools/r-cubed/-/blob/main/README.md
-[CONTRIBUTING]: https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md
+Want to contribute to this course? Check out the
+[README](https://gitlab.com/rostools/r-cubed/-/blob/main/README.md) file
+as well as the
+[CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
+file on the GitLab repository for more details. The main way to
+contribute is by using [GitLab](https://gitlab.com/) and creating a [new
+issue](https://gitlab.com/rostools/r-cubed/-/issues/new) to make
+comments and give feedback on the material.
 
 ## Target audiences
 
 This website and its content are targeted to three groups:
 
-1. For the **learners** to use during the course, both to follow along in case they get
-lost and also to use as a reference after the course ends. The learner is someone
-who is currently or will soon actively be doing research (e.g. a PhD or postdoc),
-who is likely in biomedical research, and who has no or little knowledge on coding
-in R. A more detailed description of who the learner is can be found in
-Section \@ref(is-it-for-you).
-2. For the **instructors** to use as a guide for when they do the code-along
-sessions and lectures.
-3. For those who are **interested in teaching**, who may not have much experience
-or may not know where to start, to use this website as a guide to running
-and instructing their own workshops.
+1.  For the **learners** to use during the course, both to follow along
+    in case they get lost and also to use as a reference after the
+    course ends. The learner is someone who is currently or will soon
+    actively be doing research (e.g. a PhD or postdoc), who is likely in
+    biomedical research, and who has no or little knowledge on coding
+    in R. A more detailed description of who the learner is can be found
+    in @sec-is-it-for-you.
+2.  For the **instructors** to use as a guide for when they do the
+    code-along sessions and lectures.
+3.  For those who are **interested in teaching**, who may not have much
+    experience or may not know where to start, to use this website as a
+    guide to running and instructing their own workshops.
 
-## Re-use and licensing {#licensing}
+## Re-use and licensing
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/80x15.png" alt="Creative Commons License" style="border-width:0"/></a>
 
-The course material is licensed under the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/),
-so the material can be used, re-used, and modified, 
-as long as there is attribution to this source.
-Check out the [CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
-guidelines and the [For Instructors](for-instructors.html) section for more
-details and tips on using this material.
+The course material is licensed under the [Creative Commons Attribution
+4.0 International
+License](https://creativecommons.org/licenses/by/4.0/), so the material
+can be used, re-used, and modified, as long as there is attribution to
+this source. Check out the
+[CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
+guidelines and the [For Instructors](for-instructors.html) section for
+more details and tips on using this material.
 
 ## Previous versions
 
-There have been three previous "formal" versions of the course given so far:
+There have been three previous "formal" versions of the course given so
+far:
 
-- [Version 1](https://v1--dda-rcourse.netlify.app/) taught in March 2019.
-- [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
-- Version 3 taught in June 2021 (no individual website, but source material is archived 
-[here](https://gitlab.com/rostools/r-cubed/-/releases/v3.0)).
+-   [Version 1](https://v1--dda-rcourse.netlify.app/) taught March 2019.
+-   [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
+-   Version 3 taught in June 2021 (no individual website, but source
+    material is archived
+    [here](https://gitlab.com/rostools/r-cubed/-/releases/v3.0)).
 
 ## Contributors {#contributors}
 
 Contributors for [version 1](https://v1--dda-rcourse.netlify.app/) were:
 
-- Luke Johnston: Brainstormed most of the course material and structure; set up
-the website; organized and coordinated the course; wrote, prepared, and taught
-most of the code-along sessions, as well as several lectures.
-- Daniel Witte: Participated in brainstorming on the course structure and
-layout; prepared and taught most of the lectures.
-- João Santiago: Taught and edited the R Markdown code-along session material.
-- Anna Schritz: Taught and edited the Data Management and Wrangling code-along
-session material.
-- Omar Silverman (helper): Proofread and provided feedback on the material for several
-sessions.
+-   Luke Johnston: Brainstormed most of the course material and
+    structure; set up the website; organized and coordinated the course;
+    wrote, prepared, and taught most of the code-along sessions, as well
+    as several lectures.
+-   Daniel Witte: Participated in brainstorming on the course structure
+    and layout; prepared and taught most of the lectures.
+-   João Santiago: Taught and edited the R Markdown code-along session
+    material.
+-   Anna Schritz: Taught and edited the Data Management and Wrangling
+    code-along session material.
+-   Omar Silverman (helper): Proofread and provided feedback on the
+    material for several sessions.
 
 Contributors for [version 2](https://r-cubed-v2.rostools.org/) were:
 
-- Luke Johnston: Same as with version 1.
-- Daniel Witte: Prepared and taught most of the lectures.
-- Helene Bæk Juel: Edited and taught the Data Visualization code-along session material,
-as well as reviewed multiple other sections.
-- Bettina Lengger: Edited and taught the Data Management and Wrangling code-along
-session material, as well as reviewed multiple other sections.
+-   Luke Johnston: Same as with version 1.
+-   Daniel Witte: Prepared and taught most of the lectures.
+-   Helene Bæk Juel: Edited and taught the Data Visualization code-along
+    session material, as well as reviewed multiple other sections.
+-   Bettina Lengger: Edited and taught the Data Management and Wrangling
+    code-along session material, as well as reviewed multiple other
+    sections.
 
-Contributors for version 3 all participated in discussions on improving the
-course, extensively updating the course material based on the participant
-feedback from the previous courses, and heavily reviewing and editing the
-content:
+Contributors for version 3 all participated in discussions on improving
+the course, extensively updating the course material based on the
+participant feedback from the previous courses, and heavily reviewing
+and editing the content:
 
-- Luke Johnston
-- Daniel Witte
-- Helene Bæk Juel
-- Bettina Lengger
-- Malene Revsbech Christiansen (helper from version 2)
-- Anders Aasted Isaksen (helper from version 2)
-- Hannah Chatwin (participant from version 2)
+-   Luke Johnston
+-   Daniel Witte
+-   Helene Bæk Juel
+-   Bettina Lengger
+-   Malene Revsbech Christiansen (helper from version 2)
+-   Anders Aasted Isaksen (helper from version 2)
+-   Hannah Chatwin (participant from version 2)
 
 ## Acknowledgements
 
-Many pieces from the (in development) course [Merely Useful](https://github.com/merely-useful/merely-useful.github.io)
-were modified and used in several places throughout the r-cubed course.
-Other parts were taken and modified from:
+Many pieces from the (in development) course [Merely
+Useful](https://github.com/merely-useful/merely-useful.github.io) were
+modified and used in several places throughout the r-cubed course. Other
+parts were taken and modified from:
 
-- The [Aarhus University CRU] sessions on
-[project management](https://au-cru.github.io/content/workflow-setup.html),
-[data management and wrangling](https://au-cru.github.io/content/intro-dplyr.html),
-[intermediate dplyr and tidyr usage](https://au-cru.github.io/),
-[data visualization](https://au-cru.github.io/content/intro-ggplot2.html),
-and [R Markdown](https://au-cru.github.io/content/intro-rmarkdown.html).
-- [A Git session](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
-given for the [UofTCoders](https://uoftcoders.github.io/studyGroup/).
-- The [UofTCoders Intro to R course for Ecology students](https://uoftcoders.github.io/rcourse/).
-
-[Aarhus University CRU]: https://au-cru.github.io/
+-   The [Aarhus University CRU](https://au-cru.github.io/) sessions on
+    [project
+    management](https://au-cru.github.io/content/workflow-setup.html),
+    [data management and
+    wrangling](https://au-cru.github.io/content/intro-dplyr.html),
+    [intermediate dplyr and tidyr usage](https://au-cru.github.io/),
+    [data
+    visualization](https://au-cru.github.io/content/intro-ggplot2.html),
+    and [R
+    Markdown](https://au-cru.github.io/content/intro-rmarkdown.html).
+-   [A Git
+    session](https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/),
+    given for the
+    [UofTCoders](https://uoftcoders.github.io/studyGroup/).
+-   The [UofTCoders Intro to R course for Ecology
+    students](https://uoftcoders.github.io/rcourse/).
 
 Content from multiple sources was used as inspiration for this course,
-including the [R for Data Science] book 
-and the [Fundamentals of Data Visualization].
+including the [R for Data Science](https://r4ds.had.co.nz/) book and the
+[Fundamentals of Data Visualization](https://serialmentor.com/dataviz/).
 
-[Fundamentals of Data Visualization]: https://serialmentor.com/dataviz/
-[R for Data Science]: https://r4ds.had.co.nz/
+The [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/)
+hosted, organized, and sponsored versions 1 and 2 of the course. A huge
+thanks to them for their involvement, support, and sponsorship! Both
+[Steno Diabetes Center Aarhus](https://www.stenoaarhus.dk/) and [Aarhus
+University](https://www.au.dk/) were employers of Luke Johnston and
+Daniel Witte (the initial founders and creators).
 
-The [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/) hosted,
-organized, and sponsored versions 1 and 2 of the course. A huge thanks to them
-for their involvement, support, and sponsorship! 
-Both [Steno Diabetes Center Aarhus](https://www.stenoaarhus.dk/)
-and [Aarhus University](https://www.au.dk/) were employers of Luke Johnston
-and Daniel Witte (the initial founders and creators).
-
-![Danish Diabetes Academy](images/logo-dda.png){width=90px}
-![Steno Diabetes Center Aarhus](images/logo-sdca.png){width=55px}
-![Aarhus University](images/logo-au.png){width=140px}
-
+![Danish Diabetes Academy](images/logo-dda.png){width="90px"} ![Steno
+Diabetes Center Aarhus](images/logo-sdca.png){width="55px"} ![Aarhus
+University](images/logo-au.png){width="140px"}

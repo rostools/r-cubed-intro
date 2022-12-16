@@ -15,9 +15,6 @@ LaTeX: pdfLaTeX
 AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
 
-BuildType: Custom
-CustomScriptPath: _build.R
-
 MarkdownWrap: Column
 MarkdownWrapAtColumn: 72
 MarkdownCanonical: Yes

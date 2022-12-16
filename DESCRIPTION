@@ -50,22 +50,16 @@ URL: https://gitlab.com/rostools/r-cubed/,
 Depends: 
     R (>= 3.6.0)
 Imports: 
-    bookdown,
     dplyr,
-    emo,
     ggplot2,
     here,
     hexbin,
     NHANES,
-    RefManageR (>= 1.3.0),
     tidyr,
     r3 (>= 0.0.0.9000),
     snakecase,
     downlit,
-    bslib,
-    fontawesome,
-    purrr,
-    gt
+    purrr
 Suggests: 
     fs,
     prodigenr,
@@ -75,12 +69,12 @@ Suggests:
     xaringan,
     xaringanthemer,
     showtext,
-    bibtex,
-    callr
+    rmarkdown,
+    knitr,
+    markdown,
+    quarto
 Remotes: 
     gadenbuie/xaringanthemer,
-    hadley/emo,
-    gitlab::rostools/r3,
-    ropensci/RefManageR
+    gitlab::rostools/r3
 Encoding: UTF-8
 LazyData: true
