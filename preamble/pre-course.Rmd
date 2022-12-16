@@ -273,10 +273,6 @@ video below to see how to do this:
 
 {{< video ../videos/rstudio-installing-remotes.mp4 >}}
 
-```{r rstudio-installing-remotes, echo=FALSE}
-insert_video("videos/rstudio-installing-remotes.mp4")
-```
-
 Copy and paste the function below into the RStudio Console. Hit Enter
 and the r3 helper package will be installed. Watch the video below to
 see how to do this:
@@ -286,10 +282,6 @@ remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 ```
 
 {{< video ../videos/console-installing-r3.mp4 >}}
-
-```{r console-installing-r3, echo=FALSE}
-insert_video("videos/console-installing-r3.mp4")
-```
 
 It is important to understand what you are doing when you enter a
 function like `something::something()`. In the example of
