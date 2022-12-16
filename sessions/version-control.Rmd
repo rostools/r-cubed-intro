@@ -2,11 +2,6 @@
 
 {{< include ../includes/_wip.qmd >}}
 
-```{r setup}
-#| include: false
-source(here::here("_common.R"))
-```
-
 **Session objectives**:
 
 1.  Learn about "formal" version control and its importance.
