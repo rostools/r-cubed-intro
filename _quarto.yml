@@ -32,21 +32,21 @@ book:
     - index.Rmd
     - part: "Preamble"
       chapters:
-      - preamble/syllabus.qmd
-      - preamble/schedule.qmd
-      - preamble/pre-course.qmd
-    # - part: "Sessions"
-    #   chapters:
+      - preamble/syllabus.Rmd
+      - preamble/schedule.Rmd
+      - preamble/pre-course.Rmd
+    - part: "Sessions"
+      chapters:
       # - sessions/introduction.qmd
       # - sessions/project-management.Rmd
-      # - sessions/version-control.Rmd
+      - sessions/version-control.Rmd
       # - sessions/data-management.Rmd
       # - sessions/reproducible-documents.Rmd
       # - sessions/data-visualization.Rmd
   appendices:
     # - appendix/social.qmd
     # - appendix/slides.Rmd
-    # - appendix/assignment.Rmd
+    - appendix/assignment.Rmd
     - appendix/conduct.Rmd
     # - appendix/resources.Rmd
     # - appendix/post-course.Rmd
