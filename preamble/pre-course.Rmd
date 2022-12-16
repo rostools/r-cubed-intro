@@ -74,6 +74,10 @@ this website to be aware of:
     haven't loaded the package with `library()`. For instance, to
     install packages from GitHub using the `{remotes}` package we use
     `remotes::install_github()`. You'll learn about this more later.
+-   Reading tasks always start with a statement "Reading task" and are
+    enclosed in a "callout block". Read within this block. We will
+    usually go over the section again to reinforce the concepts and
+    address any questions.
 
 ## Installing the latest programs
 
