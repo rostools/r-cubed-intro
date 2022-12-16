@@ -196,7 +196,7 @@ Let's start learning about RStudio and how to use it. Check out
 > operating system and other settings.
 
 ![Interface to
-RStudio.](../images/rstudio-introduction.png){#fig-rstudion-introduction}
+RStudio.](../images/rstudio-introduction.png){#fig-rstudio-introduction}
 
 While you can customize where the individual panels go, the default
 layout is how the panels are shown.
