@@ -5,6 +5,7 @@ project:
   # pre-render: quarto render slides/*
   resources:
     - videos/*
+    - includes/cheatsheet.pdf
   #   - slides/*.html
   #   - slides/introduction_files
 
@@ -48,7 +49,7 @@ book:
     # - appendix/slides.Rmd
     - appendix/assignment.Rmd
     - appendix/conduct.Rmd
-    # - appendix/resources.Rmd
+    - appendix/resources.Rmd
     # - appendix/post-course.Rmd
     # - appendix/for-instructors.Rmd
     - appendix/references.Rmd

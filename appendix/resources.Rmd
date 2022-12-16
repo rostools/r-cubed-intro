@@ -3,131 +3,134 @@
 ## For this course
 
 -   For a quick reference to the functions and tools taught in this
-    course, check out our [cheatsheet](resources/cheatsheet.pdf)!
+    course, check out our [cheatsheet](../includes/cheatsheet.pdf)!
 
-## Setting up RStudio Cloud {#sec-setting-up-rstudio-cloud}
+## Using Posit Cloud {#sec-using-posit-cloud}
+
+{{< include ../includes/_wip.qmd >}}
+
+> Note: RStudio recently changed to Posit, so Posit Cloud (formerly
+> RStudio Cloud) looks different from the images we show below. However,
+> the concepts and general orientation are fairly similar.
 
 **Are technical issues with your computer preventing you from completing
 the pre-course tasks or doing the course sessions?**
 
-A last-ditch solution may be to use the RStudio Cloud platform to do the
+A last-ditch solution may be to use the Posit Cloud platform to do the
 course. *What is it?*
 
-RStudio Cloud is a cloud computing service hosted by RStudio. It runs
-RStudio in your web browser with full functionality, including built-in
-integration of R Projects and Git. It looks slightly different from a
-local RStudio session, and it treats R Projects and Git a little
-different, but the overall R user experience is virtually identical. For
-what we need in this course, we are fine with their free service, which
-only requires a little work to register and set up.
+Posit Cloud is a cloud computing service hosted by Posit (formerly
+called RStudio). It runs allows you to run the RStudio app in your web
+browser with full functionality, including built-in integration of R
+Projects and Git. It looks slightly different from a local RStudio
+session, and it treats R Projects and Git a little different, but the
+overall R user experience is virtually identical. For what we need in
+this course, we are fine with their free service, which only requires a
+little work to register and set up.
 
-**Setting up RStudio Cloud**
+### Setting up Posit Cloud
 
-1.  Register a free account: Go to the [RStudio Cloud
-    website](https://rstudio.cloud/plans/free) and complete the sign-up
-    process for a free account.
-2.  Log in to the account. After logging in, we start on the "Personal
-    Workspace" page. Here we can create new R Projects (which we'll do
-    next), set up additional workspaces (which we don't need for this
-    course) or read the R guides and cheatsheets available in the
-    "Learn" section of the menu panel (we can explore those after the
-    course, there's a lot of good content):
+<!-- TODO: Update images to reflect Posit Cloud change. -->
 
-```{r cloud-start, echo=FALSE, fig.cap="This is RStudio Cloud."}
-knitr::include_graphics(here::here("images/cloud-start.jpg"))
-```
+Register a free account: Go to the [Posit Cloud
+website](https://posit.cloud/plans/free) and complete the sign-up
+process for a free account.
 
-3.  Start a new R Project: Click the "New Project" button. To practice
-    using it, click the right half of the button and you get the option
-    to create a project by cloning a GitHub repository (more on that
-    later):
+Log in to the account. After logging in, we start on the "Personal
+Workspace" page. Here we can create new R Projects (which we'll do
+next), set up additional workspaces (which we don't need for this
+course) or read the R guides and cheatsheets available in the "Learn"
+section of the menu panel (we can explore those after the course,
+there's a lot of good content):
 
-```{r cloud-new-project, echo=FALSE, fig.cap="Create a new RStudio Cloud Project."}
-knitr::include_graphics(here::here("images/cloud-new-project.jpg"))
-```
+![This is Posit Cloud.](../images/cloud-start.jpg)
+
+Start a new R Project: Click the "New Project" button. To practice using
+it, click the right half of the button and you get the option to create
+a project by cloning a GitHub repository (more on that later):
+
+![Create a new Posit Cloud Project.](../images/cloud-new-project.jpg)
 
 We'll start a new project from scratch by clicking the button. Don't
 forget to click the top panel after the project has been created to
 rename it to something sensible. Great! Now we've set up an R Project:
 
-```{r cloud-project, echo=FALSE, fig.cap="Our first RStudio Cloud project. The interface is identical to a local instance of RStudio."}
-knitr::include_graphics(here::here("images/cloud-project.jpg"))
-```
+![Our first Posit Cloud project. The interface is identical to a local
+instance of RStudio.](../images/cloud-project.jpg)
 
 Before we get ahead of ourselves, however, we'll tune the cloud
 computing settings for the project to get more monthly run-time out of
-our free account. 4. Throttle CPU and memory usage down: For this
-course, we don't need a lot of computer power, so we can get by with
-just the minimum memory and CPU settings. With these settings, we get 30
-hours of run-time per month, which should be plenty for this course. To
-do so, click the gear-icon in the top right of the screen, then the
-"Resources" tab, toggle both sliders to the far left, and click "Apply
-Changes":
+our free account.
 
-```{r cloud-cpu-memory, echo=FALSE, fig.cap="Tuning cloud resources. Slow and steady wins the race!"}
-knitr::include_graphics(here::here("images/cloud-cpu-memory.jpg"))
-```
+Throttle CPU and memory usage down: For this course, we don't need a lot
+of computer power, so we can get by with just the minimum memory and CPU
+settings. With these settings, we get 30 hours of run-time per month,
+which should be plenty for this course. To do so, click the gear-icon in
+the top right of the screen, then the "Resources" tab, toggle both
+sliders to the far left, and click "Apply Changes":
+
+![Tuning cloud resources. Slow and steady wins the
+race!](../images/cloud-cpu-memory.jpg)
 
 If you end up requiring more memory or CPU power, you can always turn
 these settings up later. Cloud run-time is only accumulated while your
 project is active, so if you find yourself running low on run-time, make
-sure to exit your project when you're not actively coding. 6. Set up
-access to GitHub: Finally, we need to allow access to private GitHub
-repositories, which we'll be using in this course. Click on your user
-name in the top-right corner, and then the "Authentication" tab. This
-will take us to the authentication options, where we tick both boxes at
-the bottom for enabling GitHub, including the one labeled "Private repo
-access also enabled":
+sure to exit your project when you're not actively coding.
 
-```{r cloud-settings-github, echo=FALSE, fig.cap="Enable access to private repositories on GitHub."}
-knitr::include_graphics(here::here("images/cloud-settings-github.jpg"))
-```
+Set up access to GitHub: Finally, we need to allow access to private
+GitHub repositories, which we'll be using in this course. Click on your
+user name in the top-right corner, and then the "Authentication" tab.
+This will take us to the authentication options, where we tick both
+boxes at the bottom for enabling GitHub, including the one labeled
+"Private repo access also enabled":
 
-7.  Setting up Git on RStudio Cloud projects: Git cannot be set up
-    inside the project using packages, so prodigenr and
-    `usethis::use_git()` will not work. However, it can easily be done
-    through the RStudio menu interface:
-    `Tools -> Version Control -> Project Setup -> Version Control System: Git`
+![Enable access to private repositories on
+GitHub.](../images/cloud-settings-github.jpg)
 
-8.  Now you're good to go! You should have no issues completing the
-    [pre-course tasks](pre-course#getting-familiar-with-rstudio) and
-    have a course experience similar to those using a local
-    installation.
+Setting up Git on Posit Cloud projects: Git cannot be set up inside the
+project using packages, so `{prodigenr}` and `usethis::use_git()` will
+not work. However, it can easily be done through the RStudio menu
+interface:
+`Tools -> Version Control -> Project Setup -> Version Control System: Git`
 
-9.  There are just a few more differences between local and RStudio
-    Cloud sessions to be aware of:
+Now you're good to go! You should have no issues completing the
+pre-course tasks (@sec-pre-course) and have a course experience similar
+to those using a local installation.
 
-    -   **Uploading files to RStudio Cloud projects:** To make files
-        available to RStudio Cloud projects, we have to upload the files
-        to it. Thankfully, this is very easy! In RStudio Cloud, the
-        "Files" tab of Panel D (Figure \@ref(fig:rstudio-introduction))
-        contains a new icon "Upload File", which allows us to easily
-        upload a file from our local computer (or several files within a
-        zip file) to the RStudio Cloud folder we're currently in:
+There are just a few more differences between local and Posit Cloud
+sessions to be aware of:
 
-    ```{r cloud-upload, echo=FALSE, fig.cap="Uploading files, e.g. datasets to the cloud is easy."}
-    knitr::include_graphics(here::here("images/cloud-upload.jpg"))
-    ```
+-   **Uploading files to Posit Cloud projects:** To make files available
+    to Posit Cloud projects, we have to upload the files to it.
+    Thankfully, this is very easy! In Posit Cloud, the "Files" tab of
+    Panel D (@fig-rstudio-introduction) contains a new icon "Upload
+    File", which allows us to easily upload a file from our local
+    computer (or several files within a zip file) to the Posit Cloud
+    folder we're currently in:
 
-    Another way of loading files to RStudio Cloud is to synchronize the
+    ![Uploading files, e.g. datasets to the cloud is
+    easy.](../images/cloud-upload.jpg)
+
+    Another way of loading files to Posit Cloud is to synchronize the
     project with a remote repository, which will download all the
-    tracked files to the RStudio Cloud project.
+    tracked files to the Posit Cloud project.
 
-    -   **R projects and folder structure in RStudio Cloud:** Since we
-        start every R session inside of a project on RStudio Cloud,
-        RStudio in the cloud session doesn't let us set up projects from
-        inside of the R session. The prodigenr package can still be used
-        *through the console* to set up the basic folder structure of
-        our projects. However, the root folder of any project is fixed
-        to `/cloud/project/`, so when setting up our folder structure
-        with prodigenr, we should have this in mind (e.g.
-        `prodigenr::setup_project("LearningR")` creates the prodigenr
-        folders inside`/cloud/project/LearningR` and avoids
-        unnecessarily long file paths).
-    -   **Cloning a GitHub remote repository in RStudio Cloud:** Can be
-        done when setting up a new project in the RStudio Cloud
-        workspace ("New Project from Git Repo"), or from the terminal,
-        but it cannot be done through the RStudio main menu interface.
+-   **R projects and folder structure in Posit Cloud:** Since we start
+    every R session inside of a project on Posit Cloud, RStudio in the
+    cloud session doesn't let us set up projects from inside of the R
+    session. The `{prodigenr}` package can still be used *through the
+    console* to set up the basic folder structure of our projects.
+    However, the root folder of any project is fixed to
+    `/cloud/project/`, so when setting up our folder structure with
+    `{prodigenr}`, we should have this in mind (e.g.
+    `prodigenr::setup_project("LearningR")` creates the prodigenr
+    folders inside`/cloud/project/LearningR` and avoids unnecessarily
+    long file paths).
+
+-   **Cloning a GitHub remote repository in Posit Cloud:** Can be done
+    when setting up a new project in the Posit Cloud workspace ("New
+    Project from Git Repo"), or from the terminal, but it cannot be done
+    through the RStudio main menu interface.
 
 ## More formatting syntax in Markdown {#post-course-markdown}
 
@@ -218,12 +221,14 @@ palettes by installing new R packages, including scientific journal
 colour palettes ([ggsci](https://nanx.me/ggsci/index.html)) and even a
 Wes Anderson ([wesanderson](https://github.com/karthik/wesanderson)) or
 a Stubio Ghibli ([ghibli](https://ewenme.github.io/ghibli/)) colour
-palette! Also check out the Data Visualization book in the
-[Resources](resources.html#further-learning)
+palette! Also check out the Data Visualization book in the section
+below.
 
 chapter for more information and learning on visualizing data.
 
 ## For learning {#further-learning}
+
+<!-- TODO: Move this over into the guides section? Or a new website? Like a base r-cubed? -->
 
 **Free online books**:
 
@@ -315,6 +320,8 @@ knitr::kable(r3::useful_packages_list, caption = "Useful and common packages to 
 
 ## Frequently Asked Questions (FAQ)
 
+<!-- TODO: Move this into a new file called FAQ, maybe on the guides site. -->
+
 ### Installation Problems
 
 **Q: What do I do if I don't have admin rights and can't install the
@@ -326,8 +333,8 @@ newest versions of programs?**
     you are able to access an updated version. While you could attempt
     to use the older version of these programs available to you, you may
     notice that some things either look quite different or not work at
-    all. One solution is to use the RStudio Cloud platform, as per the
-    instructions in the section [Setting up RStudio
+    all. One solution is to use the Posit Cloud platform, as per the
+    instructions in the section [Setting up Posit
     Cloud](#setting-up-rstudio-cloud).
 
 **Q: Why did my output have so much red text when I tried to install
@@ -349,6 +356,5 @@ packages?**
 instructions.**
 
 -   A: This is the most common problem you will face, so we've dedicated
-    Section \@ref(encountering-problems-and-finding-help) to
-    troubleshooting solutions in the [Management of R
-    Projects](r-project-management.html) section.
+    Section @sec-encountering-problems-and-finding-help to
+    troubleshooting solutions in the Management of R Projects section.
