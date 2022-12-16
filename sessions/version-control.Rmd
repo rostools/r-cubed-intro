@@ -49,7 +49,7 @@ doing.
 
 !['Final' version of a document, using a common but manual 'version
 control
-system'.](../images/version-control.jpg){#fig-version-control-comics)
+system'.](../images/version-control.jpg){#fig-version-control-comics}
 
 ![Filenaming used in the commonly used 'version
 control'.](../images/informal-version-control.jpg){#fig-filenaming-version-control-comics}
@@ -329,7 +329,7 @@ summarised in @fig-git-states.
     repository history.
 
 ![The three states that files and folders can be in, when using
-Git.](../images/git-states.png){#fig-git-states, width=60%}
+Git.](../images/git-states.png){#fig-git-states width="60%"}
 
 This system allows us to keep a journal (a *log*) of what has been
 changed, why it has been changed, who changed it, and when.
@@ -424,7 +424,7 @@ but also because the R community is almost entirely on GitHub.
 <!-- TODO: Switch to mermaid instead? -->
 
 ![The 'remote' vs 'local' repository, or online vs on your
-computer.](../images/git-remotes.png){#fig-git-remotes, width=30%}
+computer.](../images/git-remotes.png){#fig-git-remotes width="30%"}
 :::
 
 Let's get familiar with GitHub. First, open up GitHub in a browser, make
@@ -529,8 +529,8 @@ then go to the `LearningR` GitHub repository. You should now have your
 project files on GitHub!
 
 ![Location of Terminal in
-RStudio.](../images/rstudio-terminal-tab.png){#fig-rstudio-terminal-tab,
-width=50%}
+RStudio.](../images/rstudio-terminal-tab.png){#fig-rstudio-terminal-tab
+width="50%"}
 
 ## Exercise: Clone GitHub repository from RStudio {#ex-clone-from-github}
 
@@ -563,8 +563,8 @@ the history are uploaded to GitHub while "pulling" is when the history
 is downloaded from GitHub.
 
 ![Synchronizing with GitHub: 'Pushing' and
-'pulling'.](../images/git-remotes-synch.png){#fig-git-remotes-synch,
-width=30%}
+'pulling'.](../images/git-remotes-synch.png){#fig-git-remotes-synch
+width="30%"}
 
 So, when we put the concepts back into the framework of the "states",
 first introduced in @sec-basics-of-git, pushing and pulling *happen only
@@ -577,8 +577,8 @@ folder (the files and folders you actually see and interact with),
 "pulling" also updates the files and folders.
 
 ![Which states get 'pushed' and
-'pulled'.](../images/git-states-with-github.png){#fig-git-states-with-github,
-width=60%}
+'pulled'.](../images/git-states-with-github.png){#fig-git-states-with-github
+width="60%"}
 :::
 
 1.  Make sure you are in the `LearningR` R Project, which you should see
@@ -745,8 +745,8 @@ thing. This is illustrated in Figure @fig-git-remotes-collaborate.
 
 ![Collaborating with others using Git and GitHub by having a shared
 central GitHub
-repository.](../images/git-remotes-collaborate.png){#fig-git-remotes-collaborate,
-width=50%}
+repository.](../images/git-remotes-collaborate.png){#fig-git-remotes-collaborate
+width="50%"}
 
 For public GitHub repositories, anyone can copy your repository and
 contribute back, so working with collaborators is easy. When you have a
@@ -795,3 +795,4 @@ collaborating on a Git project in the group work later in the course.
         `=======`, and `>>>>>>> origin/main` (the last name may
         sometimes look different), and remove tags.
 -   Almost all Git actions can be done using RStudio's Git interface.
+
