@@ -44,7 +44,7 @@ course will place particular emphasis on research in diabetes and
 metabolism; it will be taught by instructors working in this field and
 it will use relevant examples where possible.
 
-## Is this course for you? {#is-it-for-you}
+## Is this course for you? {#sec-is-it-for-you}
 
 To help manage expectations and develop the material for this course, we
 make a few assumptions about *who you are* as a participant in the
