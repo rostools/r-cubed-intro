@@ -1,4 +1,12 @@
-# Welcome!
+# Welcome! {.unnumbered}
+
+```{r write-packages-to-bib, include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(
+  unique(desc::desc_get_deps()$package[-1]),
+  here::here("includes/packages.bib")
+)
+```
 
 [![License: CC BY
 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -8,24 +16,24 @@ DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/1
 DOI](https://jose.theoj.org/papers/10.21105/jose.00122/status.svg)](https://doi.org/10.21105/jose.00122)
 
 The course is designed as a series of participatory live-coding lessons,
-where the instructor and learner code together, along with hands-on
-exercises interspersed throughout the course and a final group
-assignment to do a simple data analysis project. This website contains
-all of the material for the course, from reading material to exercises
-to code to images. It is structured as a book, with "chapters" as
-lessons, given in order of appearance. We make heavy use of the website
-throughout the course where code-along sessions almost identically
-follow the material on the website (with slight modifications for time
-or more detailed explanations).
+where the instructor and learner code together, along with reading
+activities and hands-on practical exercises interspersed throughout the
+course and a final group assignment to do a simple data analysis
+project. This website contains all of the material for the course, from
+reading material to exercises to code to images. It is structured as a
+book, with "chapters" as lessons, given in order of appearance. We make
+heavy use of the website throughout the course where code-along sessions
+almost identically follow the material on the website (with slight
+modifications for time or more detailed explanations).
 
-The course material was created using
-[rmarkdown](https://rmarkdown.rstudio.com/) to write the lessons,
-[bookdown](https://bookdown.org/yihui/bookdown/) to create the book
-format, [GitLab](https://gitlab.com/) to host the
-[Git](https://git-scm.com/) repository of the material, and [GitLab
-CI](https://docs.gitlab.com/ee/ci/) with
-[Netlify](https://www.netlify.com/) to create the website. The original
-source material for this course is found on the
+The course material was created using [Quarto](https://quarto.org) to
+write the lessons and create the book format,
+[GitLab](https://gitlab.com/) to host the [Git](https://git-scm.com/)
+repository of the material (and mirrored to
+[GitHub](https://github.com)), and [GitHub
+Actions](https://github.com/features/actions) with
+[Netlify](https://www.netlify.com/) to build and host the website. The
+original source material for this course is found on the
 [`r-cubed`](https://gitlab.com/rostools/r-cubed) GitLab repository.
 
 Want to contribute to this course? Check out the
@@ -47,14 +55,14 @@ This website and its content are targeted to three groups:
     actively be doing research (e.g. a PhD or postdoc), who is likely in
     biomedical research, and who has no or little knowledge on coding
     in R. A more detailed description of who the learner is can be found
-    in Section \@ref(is-it-for-you).
+    in @sec-is-it-for-you.
 2.  For the **instructors** to use as a guide for when they do the
     code-along sessions and lectures.
 3.  For those who are **interested in teaching**, who may not have much
     experience or may not know where to start, to use this website as a
     guide to running and instructing their own workshops.
 
-## Re-use and licensing {#licensing}
+## Re-use and licensing
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/80x15.png" alt="Creative Commons License" style="border-width:0"/></a>
 
@@ -72,8 +80,7 @@ more details and tips on using this material.
 There have been three previous "formal" versions of the course given so
 far:
 
--   [Version 1](https://v1--dda-rcourse.netlify.app/) taught in March
-    2019. 
+-   [Version 1](https://v1--dda-rcourse.netlify.app/) taught March 2019.
 -   [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
 -   Version 3 taught in June 2021 (no individual website, but source
     material is archived
