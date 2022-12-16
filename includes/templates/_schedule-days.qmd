@@ -1,0 +1,9 @@
+## `r day` {.unnumbered}
+
+```{r}
+#| echo: false
+schedule %>%
+  filter(Day == day) %>%
+  select(-Day) %>%
+  knitr::kable()
+```
