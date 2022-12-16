@@ -271,7 +271,7 @@ video below to see how to do this:
 
 <!-- TODO: Switch to using pak instead of remotes. -->
 
-{{< video ../video/rstudio-installing-remotes.mp4 >}}
+{{< video ../videos/rstudio-installing-remotes.mp4 >}}
 
 ```{r rstudio-installing-remotes, echo=FALSE}
 insert_video("videos/rstudio-installing-remotes.mp4")
@@ -285,7 +285,7 @@ see how to do this:
 remotes::install_gitlab("rostools/r3", upgrade = TRUE)
 ```
 
-{{< video ../video/console-installing-r3.mp4 >}}
+{{< video ../videos/console-installing-r3.mp4 >}}
 
 ```{r console-installing-r3, echo=FALSE}
 insert_video("videos/console-installing-r3.mp4")
