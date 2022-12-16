@@ -400,10 +400,6 @@ store your password for you.
 ![Creating a GitHub
 account.](../videos/github-account-creation.gif){#fig-github-account-creation}
 
-```{r github-account-creation, echo=FALSE, fig.cap="Creating a GitHub account."}
-knitr::include_graphics(here::here("videos/github-account-creation.gif"))
-```
-
 ## Course introduction
 
 Most of the description of the course is found in the syllabus
