@@ -75,6 +75,6 @@ Suggests:
     quarto
 Remotes: 
     gadenbuie/xaringanthemer,
-    gitlab::rostools/r3
+    github::rostools/r3
 Encoding: UTF-8
 LazyData: true

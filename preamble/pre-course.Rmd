@@ -278,22 +278,22 @@ and the r3 helper package will be installed. Watch the video below to
 see how to do this:
 
 ``` r
-remotes::install_gitlab("rostools/r3", upgrade = TRUE)
+remotes::install_github("rostools/r3", upgrade = TRUE)
 ```
 
 {{< video ../videos/console-installing-r3.mp4 >}}
 
 It is important to understand what you are doing when you enter a
 function like `something::something()`. In the example of
-`remotes::install_gitlab()`, you would "read" this as:
+`remotes::install_github()`, you would "read" this as:
 
-> R, can you please use the `install_gitlab` function from the
+> R, can you please use the `install_github` function from the
 > `{remotes}` package?
 
 You could load the package with `library(remotes)` and then run the
-`install_gitlab()` function. However, using the `::` (pronounced "colon
+`install_github()` function. However, using the `::` (pronounced "colon
 colon") tells R that we want to use a function directly from a package.
-We prefer this way as we only want to use the `install_gitlab()`
+We prefer this way as we only want to use the `install_github()`
 function from the remotes package without having to load all the other
 functions. We will be using `::` often during this course.
 

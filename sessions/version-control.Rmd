@@ -416,8 +416,7 @@ only copies over the changes made as commits in the history.
 
 One of the biggest reasons why we teach Git is because of the popularity
 of several Git repository hosting sites. The most popular one is
-[GitHub](https://github.com/), with another being
-[GitLab](https://gitlab.com/) (which this course is hosted on). In this
+[GitHub](https://github.com/) (which this course is hosted on). In this
 session, we'll be covering GitHub not only because it is very popular,
 but also because the R community is almost entirely on GitHub.
 
@@ -795,4 +794,3 @@ collaborating on a Git project in the group work later in the course.
         `=======`, and `>>>>>>> origin/main` (the last name may
         sometimes look different), and remove tags.
 -   Almost all Git actions can be done using RStudio's Git interface.
-
