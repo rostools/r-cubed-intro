@@ -1,0 +1,45 @@
+# Networking and social activities
+
+## Day 1 {#social-day-1 .unnumbered}
+
+We'll all get into two circles, one inside the other and facing each
+other. A timer will go off every 4 minutes, afterwards the inner circle
+rotates to the next person. There is another timer every 2 minutes,
+where you have time to introduce yourself (your name only) and to share
+your thoughts on one of these questions. Choose at least two questions
+that you would like to share, so you don't always repeat the same
+question.
+
+-   How do you currently collaborate with others and are you happy with
+    it?
+-   What would an easy and smooth research collaboration look like (to
+    you)?
+-   How could you make it easier for others to collaborate on our
+    project(s)?
+-   Why are you here and what do you want to learn besides R?
+
+## Day 2 {#social-day-2 .unnumbered}
+
+After lunch, get in your group and walk outside while discussing this
+topic and questions:
+
+-   Share a positive or exciting experience you had related to data
+    analysis, coding in R, or actively collaborating with others. It can
+    be recent or in the past, but as long as it was a memorable and
+    positive. What made it positive? Do you try to repeat that
+    experience, or at least the feeling of it?
+
+## Day 3 {#social-day-3 .unnumbered}
+
+Find someone you haven't talked with yet, or have interacted with the
+least compared to everyone else and talk about these questions and
+topics. You can walk outside, find a table, or do whatever.
+
+-   What would you spend your work time on if you had learned efficient
+    and effective coding skills earlier in your career and were in a
+    research culture that encouraged sharing and supporting these
+    skills?
+-   If instead of working, you could take those extra hours saved from
+    being efficient for personal activities, what would you spend your
+    time on?
+
