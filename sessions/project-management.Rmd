@@ -131,11 +131,11 @@ session" means. An R session is the way you normally interact with R,
 where you would write code in the Console to tell R to do something.
 Normally, when you open an R session without an R Project, the session
 defaults to assuming you will be working in the `~/Desktop` or `~` (your
-Home folder) location. But this location isn't where you actually work
---- you normally work in the folder that has your R scripts or data
-files. The assumption with R Projects on the other hand, is that the R
-session working directory should be where the R Project is, since that
-is where you have your R scripts and data files.
+Home folder) location. But this location isn't where you actually work.
+You normally work in the folder that has your R scripts or data files.
+The assumption with R Projects on the other hand, is that the R session
+working directory should be where the R Project is, since that is where
+you have your R scripts and data files.
 
 Within the project we created, there are several README files in each
 folder that explain a bit about what should be placed there. Briefly:
@@ -175,9 +175,11 @@ Git to track our project. We'll cover this more later.
 1.  Briefly read through each of the `README.md` files by opening them
     up in RStudio.
 
-## Exercise: Better file naming
+## What's in a (file) name?
 
-> Time: 10 minutes.
+It might seem so basic, but how you name your files can have a huge
+impact on how easy it is for others, yourself in the future, as well as
+computers, to work on your project.
 
 Take some time to think about file naming. Look at the list of file
 names below. Which file names are good names and which aren't? We'll
@@ -262,20 +264,36 @@ a file. You send code to the Console from the opened file by typing
 `Ctrl-Enter` (or clicking the "Run" button). In the "Source" tab (where
 R scripts and R Markdown files are shown), there is a "Document Outline"
 button (top right beside the "Run" button) that shows you the headers or
-"Sections" (more on that later). Click it to enable the outline from now
-on.
+"Sections" (more on that later). To open it you can either click the
+button, use the keybinding `Ctrl-Shift-O`, go through the menu to
+`Code -> Show Document Outline`, or, through the "Command Palette". The
+Command Palette is a very useful tool to learn, since you can easily
+access almost all features and options inside RStudio through it.
+Because of this reason, we will be using it a lot throughout the course.
+Open it up with `Ctrl-Shift-P` and then in the pop-up search bar, type
+out "document outline". The first item should be the one we want, so hit
+`Enter` to activate the Outline.
 
 ## Basics of using R
 
 One useful thing to do to make your R script more readable and
 understandable is to use "Sections". They're like "headers" in Word and
-they split up an R script into sections, which then show up when you use
-the "Document Outline" opened by either using `Ctrl-Shift-O` or by going
-to `Code -> Show Document Outline`. You can insert sections through the
-menu item (`Code -> Insert Section`) or with the keyboard shortcut
-(`Ctrl-Shift-R`). You can also access all of these options with the
-Command Palette (`Ctrl-Shift-P`), which we will use throughout the
-course.
+they split up an R script into sections, which then show up in the
+"Document Outline". We can insert a section using the Command Palette by
+typing `Ctrl-Shift-P` and then typing "code section" followed by
+`Enter`. You can also insert the sections through the menu
+`Code -> Insert Section`.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Let them read it over, then briefly go over the content again. We don't
+need to do a code-along for this, since we will be using them a lot over
+the later sessions.
+:::
+
+::: callout-info
+## Reading task: \~5 minutes
 
 In R, everything is an object and every action is a function. A function
 is an object, but an object isn't always a function. To create an
@@ -348,11 +366,12 @@ str(airquality)
 # Summary statistics
 summary(airquality)
 ```
+:::
 
 ## Using auto-completion in RStudio
 
 To more quickly type out objects in R, use "tab-completion" to finish an
-object name for you. As you type out an object name, hit the "tab" key
+object name for you. As you type out an object name, hit the `Tab` key
 to see a list of objects available. RStudio will not only list the
 objects, but also shows the possible options and potential help
 associated with the object.
@@ -441,48 +460,6 @@ df $ z
 x <- 1 : 10
 ```
 
-```{r solution-wrong-code-naming}
-#| eval: false
-#| code-fold: true
-#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-# Object names
-
-# Should be snake case (looks like `snake_case`)
-# DayOne
-day_one
-
-# Should not overwrite existing function names
-# T = TRUE, so don't name anything T
-# T <- FALSE
-false <- FALSE
-
-# c is a function name already. Plus c is not descriptive
-# c <- 9
-number_value <- 9
-
-# Spacing
-
-# Commas should be in the correct place
-# x[,1]
-# x[ ,1]
-x[, 1]
-
-# Spaces should be in the correct place
-# mean (x, na.rm = TRUE)
-# mean( x, na.rm = TRUE )
-mean(x, na.rm = TRUE)
-
-# Add spaces between separate words and symbols
-# height<-feet*12+inches
-height <- feet * 12 + inches
-
-# But don't add spaces interrupting strings of symbols or code
-# df $ z
-df$z
-# x <- 1 : 10
-x <- 1:10
-```
-
 ## Automatic styling in RStudio
 
 You may have completed the exercise manually, however it is possible to
@@ -496,6 +473,15 @@ package called [styler](https://styler.r-lib.org/) that automatically is
 fixing code to fit the style guide. With styler you can fix styling on
 multiple files at once. We won't be covering styler though, so this is
 just a reference to a possible future tool to try out.
+
+We can do that through the Command Palette (`Ctrl-Shift-P`) and typing
+"style file", which should show the "Style active file" option. You'll
+try it out in the next exercise.
+
+The thing to note, though, is that `{styler}` isn't perfect, so by using
+it together with `{lintr}` and sometimes manually running reformatting
+(`Ctrl-Shift-A` or with the Command Palette `Ctrl-Shift-P` then
+"reformat") you will be able to fix most syntax issues.
 
 <!-- TODO: Move brief section on styler to here, using advanced material -->
 
