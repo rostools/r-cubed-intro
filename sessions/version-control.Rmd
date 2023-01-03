@@ -30,17 +30,17 @@ doing.
 :::
 
 ::: callout-info
-## Reading task: \~5 minutes
+## Reading task: \~8 minutes
 
-> This session is more text and reading heavy compared to other
-> sessions. This is mostly because this topic requires a paradigm shift
-> in how you view files, and requires you to change your habits of how
-> you normally work. While you may get more short-term use out of the R
-> portion of this course, knowing and using version control concepts and
-> tools will fundamentally change how you work over the long term. While
-> the concepts are quite difficult, the tools to use the concepts
-> aren't, and using them often will make the concepts easier to
-> understand.
+> This session is *very* text and reading heavy compared to other
+> sessions. This is mostly because this topic requires a mental paradigm
+> shift in how you view files, and requires you to change your habits of
+> how you normally work. While you may get more short-term use out of
+> the R portion of this course, knowing and using version control
+> concepts and tools will fundamentally change how you work over the
+> long term. While the concepts are quite difficult, the tools to use
+> the concepts aren't, and using them often will make the concepts
+> easier to understand.
 
 !['Final' version of a document, using a common but manual 'version
 control
@@ -141,7 +141,7 @@ learning curve, like learning R, it is ultimately an investment into
 your future productivity and effectiveness as a researcher. It is *very
 much worth it* to learn and use it as often as you can.
 
-While many people may use Git to manage their R Projects, you can also
+While many people may use Git to manage their R scripts, you can also
 manage other non-code based files like Word or images in Git. Version
 control is useful for any project that uses any type of files since they
 can be saved in the Git history (though there are some limitations to
@@ -157,7 +157,7 @@ menu.](../images/git-upload-file-github.png){#fig-git-upload-file-github}
 ## Basics of Git {#sec-basics-of-git}
 
 ::: callout-info
-## Reading task: \~5 minutes
+## Reading task: \~8 minutes
 
 Git works by tracking changes to files *at the project level* (i.e. for
 every R Project). So you won't track your entire, for instance,
@@ -252,7 +252,8 @@ interface.
 
 To access the Git interface in RStudio, click the Git icon beside the
 "Go to" search bar (see @fig-rstudio-git-button) and then click the
-"Commit..." option (`Ctrl-Alt-M`).
+"Commit..." option (`Ctrl-Alt-M`). You can also use the Command Palette
+by using `Ctrl-Shift-P` and then typing "commit".
 
 ![The location of the Git button in
 RStudio.](../images/rstudio-git-button.png){#fig-rstudio-git-button}
@@ -374,12 +375,12 @@ Git interface. Here you can see what has been done in previous commits.
 Next, open up the `README.md` file in RStudio using the Files tab. At
 the top of the file, write your name and your field of research, and
 then save the file. Open up the Git interface again (with the Git icon
-or with `Ctrl-Alt-M`). You should now see the added text in green.
-Alright, now "Stage" the change (click the checkbox), write a message
-like "added my name to README file", and commit the change. Go back to
-the history and you should see the two commits in your repository. If
-you don't see it in the history, you likely need to click the refresh
-button at the top.
+or with `r palette_git_commit`). You should now see the added text in
+green. Alright, now "Stage" the change (click the checkbox), write a
+message like "added my name to README file", and commit the change. Go
+back to the history and you should see the two commits in your
+repository. If you don't see it in the history, you likely need to click
+the refresh button at the top.
 
 A question that may come up is "how often should I commit"? In general,
 it's better to commit fairly frequently and to commit changes that are
@@ -391,19 +392,25 @@ easier for others as well.
 
 > Time: 12 minutes.
 
+When working on your own projects and when you use Git, you will be
+committing a *lot* of changes to your files into the Git history. Part
+of the initial barrier is simply getting used to this workflow of
+committing what you've changed. Use this exercise to get some practice.
+We will be using this workflow often throughout the rest of the course.
+
 1.  Practice the add-commit ("add to staging"-"committing to history")
     sequence by adding and committing *each* of the remaining files in
-    your R project one at a time into the Git history (e.g. the
-    `.gitignore`, the `.R` files, and the `.Rproj` file). You could add
-    and commit them all at once, but we want you to do them one at a
-    time so you practice using this workflow.
+    your R project *one at a time* into the Git history (e.g. the
+    `.gitignore`, the `.R` files, and the `.Rproj` file). While you
+    could add and commit them all at once, we want you to do them one at
+    a time so you practice using this workflow.
     -   Make sure to write a meaningful and short message about what you
         added and why. In this case, the "why" is simply that you are
         saving the file into the history for the first time.
 2.  Once all the files have been added and committed, add a new line to
-    the `R/version-control-session.R` with an R comment (starts with a
-    `#`). Type out something like "This will be used for testing out
-    Git". Add and commit that new line you've written.
+    the `R/learning.R` with an R comment (starts with a `#`). Type out
+    something like "This will be used for testing out Git". Add and
+    commit that new line you've written.
 
 ## "Remotes": Storing your repository online {#sec-remotes-setting-up}
 
@@ -531,7 +538,8 @@ referring to remotes. The word *origin* is the default short name to
 refer to the location of the remote (the GitHub URL). It will come up
 again later on and whenever using remotes, like with GitHub.
 
-[^version-control-1]: 1
+[^version-control-1]: If you have troubles logging in, you may need to
+    update Git.
 
 Open up the `LearningR` RStudio R Project and go to the Terminal tab
 beside the Console tab, shown in Figure @fig-rstudio-terminal-tab).
@@ -544,21 +552,6 @@ project files on GitHub!
 ![Location of Terminal in
 RStudio.](../images/rstudio-terminal-tab.png){#fig-rstudio-terminal-tab
 width="50%"}
-
-## Exercise: Clone GitHub repository from RStudio {#ex-clone-from-github}
-
-> Time: 10 minutes.
-
-Get some practice with cloning from GitHub by doing it again with
-another repository.
-
-1.  Create a new practice GitHub repository (name it `practice-repo`),
-    and include a README file as well (see image below).
-2.  Create a new RStudio R Project from the newly created GitHub
-    repository.
-
-![Checkmark to click to add a README to your new
-repository.](../images/github-add-readme.png){#fig-github-add-readme}
 
 ## Synchronizing with GitHub
 
@@ -658,16 +651,15 @@ to your local repository.
 
 > Time: 15 minutes.
 
-1.  Using the `practice-repo` project you created in the previous
-    exercise, open up the `README.md` file in RStudio.
+1.  Open up the `README.md` file.
 2.  Add one or two sentences of a simple and fake description of the
     project to the `README.md` file. Add and commit the change.
 3.  Push the changes up to GitHub.
 4.  Confirm that the change was synchronized to your GitHub repository.
-5.  In the GitHub `practice-repo` repository, directly edit your
-    `README.md` file there. Commit the changes.
-6.  Open up your RStudio `practice-repo` project and pull the changes
-    you made on GitHub.
+5.  In the GitHub `LearningR` repository, directly edit your `README.md`
+    file there. Commit the changes.
+6.  In your RStudio `LearningR.Rproj` project, pull the changes you made
+    on GitHub.
 
 ## Dealing with file conflicts between the local and remote
 
@@ -746,19 +738,20 @@ and view that the changes have taken place.
 
 > Time: 12 minutes.
 
-1.  In your GitHub `practice-repo` repository, edit the `README.md` file
-    by replacing one word with a random word (e.g. "blahblah"). Commit
-    the change.
-2.  Go to your RStudio `practice-repo` project and, **without pulling
+1.  In your GitHub `LearningR` repository, edit the `README.md` file by
+    replacing one word with a random word (e.g. "blahblah"). Commit the
+    change.
+2.  Go to your RStudio `LearningR.Rproj` project and, **without pulling
     from GitHub**, replace the same word you did on the GitHub version
     of the `README.md` file, but instead use a different random word
     (e.g. "ticktock" instead of "blahblah" from above). Add to the
-    staging and commit the change with RStudio's Git interface.
-3.  Using RStudio's Git interface, pull the changes from GitHub. There
-    should be a warning about merge conflicts. Now you can practice
-    dealing with and fixing merge conflicts. Add the changes to the
-    staging after you fixed them and click the commit button (you don't
-    need to type out a commit message).
+    staging and commit the change with RStudio's Git interface
+    (`r palette_git_commit`).
+3.  While in RStudio's Git interface, pull the changes from GitHub.
+    There should be a warning about merge conflicts. Now you can
+    practice dealing with and fixing merge conflicts. Add the changes to
+    the staging **after** you fixed them and click the commit button
+    (you don't need to type out a commit message).
 4.  Push the changes up to GitHub and view them there to make sure they
     have been synchronized (you may need to refresh the browser).
 
@@ -832,3 +825,4 @@ collaborating on a Git project in the group work later in the course.
         `=======`, and `>>>>>>> origin/main` (the last name may
         sometimes look different), and remove tags.
 -   Almost all Git actions can be done using RStudio's Git interface.
+
