@@ -323,8 +323,19 @@ summarised in @fig-git-states.
     been written and the file with its changes has been saved into the
     repository history.
 
-![The three states that files and folders can be in, when using
-Git.](../images/git-states.png){#fig-git-states width="60%"}
+```{mermaid fig-git-states}
+%%| label: fig-git-states
+%%| fig-cap: The three states that files and folders can be in, when using Git.
+%%| echo: false
+%%| eval: true
+%%{init:{'themeCSS': ".actor {stroke: DarkBlue;fill: White;stroke-width:1.5px;}", 'sequence':{'mirrorActors': false}}}%%
+sequenceDiagram
+    participant W as Working folder
+    participant S as Staged
+    participant H as History
+    W->>S: Add
+    S->>H: Commit
+```
 
 This system allows us to keep a journal (a *log*) of what has been
 changed, why it has been changed, who changed it, and when.
@@ -415,10 +426,18 @@ of several Git repository hosting sites. The most popular one is
 session, we'll be covering GitHub not only because it is very popular,
 but also because the R community is almost entirely on GitHub.
 
-<!-- TODO: Switch to mermaid instead? -->
+```{mermaid fig-git-remotes}
+%%| label: fig-git-remotes
+%%| fig-cap: The 'remote' vs 'local' repository, or online vs on your computer.
+%%| echo: false
+%%| eval: true
+graph TB
+    linkStyle default interpolate basis
+    A('Remote':<br>GitHub) --- B('Local':<br>Your computer)
 
-![The 'remote' vs 'local' repository, or online vs on your
-computer.](../images/git-remotes.png){#fig-git-remotes width="30%"}
+    style A fill:White,stroke:DarkBlue,stroke-width:1.5px;
+    style B fill:White,stroke:DarkBlue,stroke-width:1.5px;
+```
 :::
 
 Let's get familiar with GitHub. First, open up GitHub in a browser, make
@@ -556,9 +575,19 @@ you must do this synchronization manually. "Pushing" is when changes to
 the history are uploaded to GitHub while "pulling" is when the history
 is downloaded from GitHub.
 
-![Synchronizing with GitHub: 'Pushing' and
-'pulling'.](../images/git-remotes-synch.png){#fig-git-remotes-synch
-width="30%"}
+```{mermaid fig-git-remotes-synch}
+%%| label: fig-git-remotes-synch
+%%| fig-cap: "Synchronizing with GitHub: 'Pushing' and 'pulling'."
+%%| echo: false
+%%| eval: true
+graph TB
+    linkStyle default interpolate basis
+    A('Remote':<br>GitHub) -- Pull --> B('Local':<br>Your computer)
+    B -- Push --> A
+
+    style A fill:White,stroke:DarkBlue,stroke-width:1.5px;
+    style B fill:White,stroke:DarkBlue,stroke-width:1.5px;
+```
 
 So, when we put the concepts back into the framework of the "states",
 first introduced in @sec-basics-of-git, pushing and pulling *happen only
@@ -570,9 +599,23 @@ GitHub. Since changes saved in the history also reflect the working
 folder (the files and folders you actually see and interact with),
 "pulling" also updates the files and folders.
 
-![Which states get 'pushed' and
-'pulled'.](../images/git-states-with-github.png){#fig-git-states-with-github
-width="60%"}
+```{mermaid fig-git-states-with-github}
+%%| label: fig-git-states-with-github
+%%| fig-cap: Which states get 'pushed' and 'pulled'.
+%%| echo: false
+%%| eval: true
+%%{init:{'themeCSS': ".actor {stroke: DarkBlue;fill: White;stroke-width:1.5px;}", 'sequence':{'mirrorActors': false}}}%%
+sequenceDiagram
+    participant W as Working folder
+    participant S as Staged
+    participant H as History
+    participant R as GitHub
+    W->>S: Add
+    S->>H: Commit
+    H->>R: Push
+    R->>H: Pull
+    R->>W: Pull
+```
 :::
 
 1.  Make sure you are in the `LearningR` R Project, which you should see
@@ -582,9 +625,9 @@ width="60%"}
 2.  Open up the `README.md` and add a random sentence somewhere near the
     top of the file.
 3.  Save the file.
-4.  Open the Git interface, by hitting `Ctrl-Alt-M` anywhere in RStudio
-    (except when in the Terminal) or going to the
-    `Git button -> Commit`.
+4.  Open the Git interface, by hitting `Ctrl-Alt-M` (or
+    `r palette_git_commit`) anywhere in RStudio (except when in the
+    Terminal) or going to the `Git button -> Commit`.
 5.  Stage the file.
 6.  Add a commit message.
 7.  Commit the new change by clicking the "Commit" button.
