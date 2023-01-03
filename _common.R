@@ -25,16 +25,3 @@ BibOptions(
 options(knitr.table.format = "html",
         dplyr.summarise.inform = FALSE,
         downlit.attached = c("here", "prodigenr", "fs", "remotes", "dplyr", "tidyr", "ggplot2"))
-
-set.seed(12345)
-
-insert_video <- function(video_file) {
-    htmltools::tags$video(
-        htmltools::tags$source(
-            src = video_file,
-            type = "video/mp4"
-        ),
-        controls = NA,
-        width = "100%"
-    )
-}
