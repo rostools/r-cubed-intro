@@ -2,7 +2,16 @@
 
 {{< include ../includes/_wip.qmd >}}
 
+```{r setup}
+#| include: false
+source(here::here("R/functions.R"))
+```
+
+<!-- TODO: Add an introduction here -->
+
 **Session objectives**:
+
+<!-- TODO: Revise objectives to fit how I did it in advanced -->
 
 1.  Create self-contained projects to be more reproducible.
 2.  Use built-in tools in RStudio to make it easier to manage R

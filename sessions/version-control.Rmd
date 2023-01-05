@@ -2,7 +2,16 @@
 
 {{< include ../includes/_wip.qmd >}}
 
+```{r setup}
+#| include: false
+source(here::here("R/functions.R"))
+```
+
+<!-- TODO: Add an introduction here -->
+
 **Session objectives**:
+
+<!-- TODO: Revise objectives to fit how I did it in advanced -->
 
 1.  Learn about "formal" version control and its importance.
 2.  Learn about Git for version control and apply RStudio's integrated
@@ -849,4 +858,3 @@ collaborating on a Git project in the group work later in the course.
         `=======`, and `>>>>>>> origin/main` (the last name may
         sometimes look different), and remove tags.
 -   Almost all Git actions can be done using RStudio's Git interface.
-
