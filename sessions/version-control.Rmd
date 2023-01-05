@@ -817,14 +817,15 @@ collaborating on a Git project in the group work later in the course.
 
 > **Note**: A big challenge you'll encounter with becoming better with
 > this way of collaborating is that most of your collaborators will
-> likely not be familiar with it (at least until they take this course).
-> Sadly, even experienced people struggle with this and there is no easy
-> answer on how to handle this. The best way (in our opinion) is to
-> start training any colleague who is interested in collaborating this
-> way and slowly you'll surround yourself with collaborators who also
-> work this way.
+> likely not be familiar with it, at least until they take this course.
+> :wink: Sadly, even experienced people struggle with this and there is
+> no easy answer on how to handle this. The best way (in our opinion) is
+> to start training any colleague who is interested in collaborating
+> this way and slowly you'll surround yourself with collaborators who
+> also work this way.
+:::
 
-## Summary of session {#version-control-summary}
+## Summary
 
 -   Use the version control system Git to track changes to your files,
     to more easily manage your project, and to more easily collaborate
