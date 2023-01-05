@@ -757,6 +757,17 @@ and view that the changes have taken place.
 
 ## Collaborating using Git and GitHub
 
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+After they've read the activity, briefly go over the image and emphasize
+why collaborating this way makes things easier. If you have some
+personal experiences, please share them!
+:::
+
+::: callout-note
+## Reading task: \~10 minutes
+
 While all of the previous Git tools we covered are extremely useful when
 working alone, we've been building up to using Git for it's main and
 biggest advantage: to easily collaborate with others on a project.
