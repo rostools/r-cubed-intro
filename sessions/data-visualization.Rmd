@@ -6,140 +6,150 @@ knitr::opts_chunk$set(message = FALSE, out.width = NULL)
 
 **Session objectives**:
 
-1. Learn and apply the basics of creating publication-quality graphs.
-1. Learn the importance of considering the colours you use in your graphs
-and apply tools that are colour-blind friendly.
-1. Learn why to avoid using commonly used, but inappropriate, graphs for presenting results.
-1. Create useful graphs such as boxplots, scatterplots, line graphs,
-jitter plots, and (appropriate) barplots.
+1.  Learn and apply the basics of creating publication-quality graphs.
+2.  Learn the importance of considering the colours you use in your
+    graphs and apply tools that are colour-blind friendly.
+3.  Learn why to avoid using commonly used, but inappropriate, graphs
+    for presenting results.
+4.  Create useful graphs such as boxplots, scatterplots, line graphs,
+    jitter plots, and (appropriate) barplots.
 
 ## Basic principles for creating graphs
 
-**Please take ~10 min to read through this section, as well as the next one**.
+**Please take \~10 min to read through this section, as well as the next
+one**.
 
-Making graphs in R is surprisingly easy and can be done with very little code.
-Because of the ease with which you can make them,
-it gives you some time to consider: *why* you are making them;
-whether the graph you've selected is the *most appropriate* for your data or results;
-and how you can design your graphs to be as accessible 
-and understandable as possible.
+Making graphs in R is surprisingly easy and can be done with very little
+code. Because of the ease with which you can make them, it gives you
+some time to consider: *why* you are making them; whether the graph
+you've selected is the *most appropriate* for your data or results; and
+how you can design your graphs to be as accessible and understandable as
+possible.
 
 To start, here are some tips for making a graph:
 
-- Whenever possible or reasonable, show raw data values rather than summaries 
-(e.g. means).
-- Though commonly used in scientific papers, 
-*[avoid barplots]* with means and error bars as they greatly misrepresent the data
-(we'll cover why later).
-- Use colour to highlight and enhance your message, and make the plot visually appealing.
-- Use a colour-blind friendly palette to make the plot more accessible to others
-(more on this later too).
+-   Whenever possible or reasonable, show raw data values rather than
+    summaries (e.g. means).
+-   Though commonly used in scientific papers, [*avoid
+    barplots*](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)
+    with means and error bars as they greatly misrepresent the data
+    (we'll cover why later).
+-   Use colour to highlight and enhance your message, and make the plot
+    visually appealing.
+-   Use a colour-blind friendly palette to make the plot more accessible
+    to others (more on this later too).
 
-There are also excellent online books on this that are included in the 
+There are also excellent online books on this that are included in the
 [resources](resources.html) chapter.
-
-[avoid barplots]: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
 
 ## Basic structure of using ggplot2
 
-ggplot2 is an implementation of the ["Grammar of Graphics"](https://www.springer.com/gp/book/9780387245447) (gg). 
-This is a powerful approach to creating plots 
-because it provides a set of structured rules (a "grammar") 
-that allow you to expressively describe components (or "layers") of a graph.
-Since you are able to describe the components,
-it is easier to then implement those "descriptions" in creating a graph.
-There are at least four aspects to using ggplot2 that relate to its "grammar":
+ggplot2 is an implementation of the ["Grammar of
+Graphics"](https://www.springer.com/gp/book/9780387245447) (gg). This is
+a powerful approach to creating plots because it provides a set of
+structured rules (a "grammar") that allow you to expressively describe
+components (or "layers") of a graph. Since you are able to describe the
+components, it is easier to then implement those "descriptions" in
+creating a graph. There are at least four aspects to using ggplot2 that
+relate to its "grammar":
 
-- Aesthetics, `aes()`: How data are mapped to the plot, including what
-data are put on the x and y axes, 
-and/or whether to use a colour for a variable.
-- Geometries, `geom_` functions: Visual representation of the data, as a
-layer. This tells ggplot2 how the aesthetics should be visualized, including whether they should be shown as points, lines, boxes, bins, or bars.
-- Scales, `scale_` functions: Controls the visual properties of the `geom_` layers.
-Can be used to modify the appearance of the axes, to change the colour of dots from, e.g., red to blue, or to use a different colour palette entirely.
-- Themes, `theme_` functions or `theme()`: Directly controls all other aspects of the plot, such as the size, font, and angle of axis text, and the thickness or colour of the axis lines.
+-   Aesthetics, `aes()`: How data are mapped to the plot, including what
+    data are put on the x and y axes, and/or whether to use a colour for
+    a variable.
+-   Geometries, `geom_` functions: Visual representation of the data, as
+    a layer. This tells ggplot2 how the aesthetics should be visualized,
+    including whether they should be shown as points, lines, boxes,
+    bins, or bars.
+-   Scales, `scale_` functions: Controls the visual properties of the
+    `geom_` layers. Can be used to modify the appearance of the axes, to
+    change the colour of dots from, e.g., red to blue, or to use a
+    different colour palette entirely.
+-   Themes, `theme_` functions or `theme()`: Directly controls all other
+    aspects of the plot, such as the size, font, and angle of axis text,
+    and the thickness or colour of the axis lines.
 
-There is a massive amount of features in ggplot2.
-Thankfully, ggplot2 was specifically designed to make it easy to find 
-and use its functions and settings using tab auto-completion.
-To demonstrate this feature, try typing out `geom_` and then hitting tab. You will get a list of all the geoms available.
-You can use this with `scale_` or the options inside `theme()`. Try typing out `theme(axis.` and then hiting tab, 
-and a list of theme settings related to the axis will pop up.
+There is a massive amount of features in ggplot2. Thankfully, ggplot2
+was specifically designed to make it easy to find and use its functions
+and settings using tab auto-completion. To demonstrate this feature, try
+typing out `geom_` and then hitting tab. You will get a list of all the
+geoms available. You can use this with `scale_` or the options inside
+`theme()`. Try typing out `theme(axis.` and then hiting tab, and a list
+of theme settings related to the axis will pop up.
 
-So, why do we teach ggplot2 and not base R plotting?
-Base R plotting functionality is quite good and you can make really nice
-publication-quality graphs.
-However, there are several major limitations to base R plots from a beginner
-and a user-interface perspective: 
+So, why do we teach ggplot2 and not base R plotting? Base R plotting
+functionality is quite good and you can make really nice
+publication-quality graphs. However, there are several major limitations
+to base R plots from a beginner and a user-interface perspective:
 
-- Function and argument names are inconsistent 
-and opaque (e.g. the `cex` argument can be used to magnify text and symbols, 
-but you can't immediately tell from the name that it does that).
-- User-friendly documentation that is accessible to a broad range of people
-is not much of a priority, 
-so often the help documentation isn't written with beginners in mind.
-- Graphs are built similar to painting on a canvas; make a mistake and you need to start all over (e.g. restart R).
+-   Function and argument names are inconsistent and opaque (e.g. the
+    `cex` argument can be used to magnify text and symbols, but you
+    can't immediately tell from the name that it does that).
+-   User-friendly documentation that is accessible to a broad range of
+    people is not much of a priority, so often the help documentation
+    isn't written with beginners in mind.
+-   Graphs are built similar to painting on a canvas; make a mistake and
+    you need to start all over (e.g. restart R).
 
-These limitations are due to the fact that base R plotting was developed:
+These limitations are due to the fact that base R plotting was
+developed:
 
-- By different people over different periods of time.
-- By people who were/are mostly from statistics and maths backgrounds.
-- By people who (generally) don't have training in principles of
-software user-design, user-interface, or engineering.
-- Without a strong "design philosophy" to guide development.
-- During a time when auto-completion didn't really exist or was sub-optimal,
-so short function and object names were more important than they are today.
+-   By different people over different periods of time.
+-   By people who were/are mostly from statistics and maths backgrounds.
+-   By people who (generally) don't have training in principles of
+    software user-design, user-interface, or engineering.
+-   Without a strong "design philosophy" to guide development.
+-   During a time when auto-completion didn't really exist or was
+    sub-optimal, so short function and object names were more important
+    than they are today.
 
 On the other hand, ggplot2:
 
-- Has excellent documentation for help and learning.
-- Has a strong design philosophy that makes it easier to use.
-- Works in "layers", so you don't have to start over if you make a mistake.
-- Works very well with auto-completion.
-- Uses function and argument naming that is consistent and *descriptive* (in plain English).
+-   Has excellent documentation for help and learning.
+-   Has a strong design philosophy that makes it easier to use.
+-   Works in "layers", so you don't have to start over if you make a
+    mistake.
+-   Works very well with auto-completion.
+-   Uses function and argument naming that is consistent and
+    *descriptive* (in plain English).
 
-These are the reasons we teach and use ggplot2. 
+These are the reasons we teach and use ggplot2.
 
 ## Graph individual variables
 
 **Let's make our first graphs together now**.
 
-Very often you want to get a sense of your data, 
-one variable (i.e. column in a data frame) at a time.
-You create plots to see the distribution of a variable
-and visually inspect the data for any problems.
-There are several ways of plotting continuous variables 
-like age or BMI in ggplot2. 
-For discrete variables like education status,
-there is really only one way. 
+Very often you want to get a sense of your data, one variable (i.e.
+column in a data frame) at a time. You create plots to see the
+distribution of a variable and visually inspect the data for any
+problems. There are several ways of plotting continuous variables like
+age or BMI in ggplot2. For discrete variables like education status,
+there is really only one way.
 
-You may notice that, since the [data wrangling chapter](wrangling),
-we have been using the term "column" to describe the columns in the data frame,
-but from this point forward, we will instead refer to "variable".
-There's a reason for this: ggplot2 really only works with tidy data.
-If we recall the definition of tidy data,
-it consists of "variables" (columns) and "observations" (rows) of a data frame.
-To us, a "variable" is something that we are interested in analyzing or visualizing, 
-and which only contains values relevant to that measurement
-(e.g. `age` variable must only contain values for age).
+You may notice that, since the [data wrangling chapter](wrangling), we
+have been using the term "column" to describe the columns in the data
+frame, but from this point forward, we will instead refer to "variable".
+There's a reason for this: ggplot2 really only works with tidy data. If
+we recall the definition of tidy data, it consists of "variables"
+(columns) and "observations" (rows) of a data frame. To us, a "variable"
+is something that we are interested in analyzing or visualizing, and
+which only contains values relevant to that measurement (e.g. `age`
+variable must only contain values for age).
 
-The `NHANES` dataset is already pretty tidy:
-rows are participants at the survey year, and
-columns are the variables that were measured.
+The `NHANES` dataset is already pretty tidy: rows are participants at
+the survey year, and columns are the variables that were measured.
 
-Let's visually explore our data. 
-In the `LearningR` project, create a new R
-Markdown file called
-`visualization-session.Rmd`. To do this, go to `File -> New File -> R
-Markdown`. Enter "Data visualization" as
-the title and your name as the author. Choose HTML as the output
-format. When the file is created, keep
-the YAML header but delete all the text and code chunks. Save the file as
-`visualization-session.Rmd` in the `doc/` folder. We will use this file for
-the code-along exercises in this session.
+Let's visually explore our data. In the `LearningR` project, create a
+new R Markdown file called `visualization-session.Rmd`. To do this, go
+to `File -> New File -> R Markdown`. Enter "Data visualization" as the
+title and your name as the author. Choose HTML as the output format.
+When the file is created, keep the YAML header but delete all the text
+and code chunks. Save the file as `visualization-session.Rmd` in the
+`doc/` folder. We will use this file for the code-along exercises in
+this session.
 
-We need to load the packages and dataset, so we will add a new code chunk by either using the shortcut `Ctrl-Alt-I` or the menu
-item `Code -> Insert Chunk`. Name the new chunk label as `setup` and then add
+We need to load the packages and dataset, so we will add a new code
+chunk by either using the shortcut `Ctrl-Alt-I` or the menu item
+`Code -> Insert Chunk`. Name the new chunk label as `setup` and then add
 this to the first code chunk:
 
 ```{r, eval=FALSE}
@@ -150,14 +160,18 @@ source(here::here("R/package-loading.R"))
 load(here::here("data/nhanes_small.rda"))
 ```
 
-Now, we are ready to start creating the first plot! 
-Since BMI is a strong risk factor for diabetes, let's check out the distribution of BMI among the participants.
-There are two good geoms for examining distributions: 
-`geom_density()` and `geom_histogram()`.
+Now, we are ready to start creating the first plot! Since BMI is a
+strong risk factor for diabetes, let's check out the distribution of BMI
+among the participants. There are two good geoms for examining
+distributions: `geom_density()` and `geom_histogram()`.
 
-It is good practice to create a new code chunk for each plot in R Markdown, to maintain
-a nice readable code, however, in this session, we are going to experiment with parameters and geoms and will not create a new code chunk for every plot we make. Write out a new header called `# One variable plots` in the free text area after the setup code chunk. Then add a new code
-chunk below it and name it `continuous-variables`. Let's take a look at a density distribution plot:
+It is good practice to create a new code chunk for each plot in R
+Markdown, to maintain a nice readable code, however, in this session, we
+are going to experiment with parameters and geoms and will not create a
+new code chunk for every plot we make. Write out a new header called
+`# One variable plots` in the free text area after the setup code chunk.
+Then add a new code chunk below it and name it `continuous-variables`.
+Let's take a look at a density distribution plot:
 
 ```{r continuous-variables, warning=TRUE}
 # Create density plot for BMI
@@ -165,10 +179,10 @@ ggplot(nhanes_small, aes(x = bmi)) +
     geom_density()
 ```
 
-You'll notice we get a warning about dropping missing values. That's ggplot2 
-letting us know we have some missing values. So, like with `median()` and
-many of the other summary statistic functions, we can set `na.rm = TRUE` to
-`geom_density()` and other `geom_*` functions.
+You'll notice we get a warning about dropping missing values. That's
+ggplot2 letting us know we have some missing values. So, like with
+`median()` and many of the other summary statistic functions, we can set
+`na.rm = TRUE` to `geom_density()` and other `geom_*` functions.
 
 ```{r continuous-variables-no-na}
 # Create density plot for BMI
@@ -186,16 +200,17 @@ ggplot(nhanes_small, aes(x = bmi)) +
 ```
 
 Note that it is good practice to always create a new line after the `+`.
-Our plot shows that, for the most part, there is a good distribution with BMI,
-although there are several values that are quite large, including some at 80 BMI units!
+Our plot shows that, for the most part, there is a good distribution
+with BMI, although there are several values that are quite large,
+including some at 80 BMI units!
 
-The geoms above are appropriate for plotting continuous variables, 
-but what about plotting discrete variables?
-Well, sadly, there's really only one: `geom_bar()`.
-This isn't a geom for a barplot though; instead, it shows the counts of a discrete variable.
-There are many discrete variables in NHANES, including education and diabetes, 
-so let's use this geom to visualize those. 
-Again, create a new code chunk, name it `discrete-variables`, then type:
+The geoms above are appropriate for plotting continuous variables, but
+what about plotting discrete variables? Well, sadly, there's really only
+one: `geom_bar()`. This isn't a geom for a barplot though; instead, it
+shows the counts of a discrete variable. There are many discrete
+variables in NHANES, including education and diabetes, so let's use this
+geom to visualize those. Again, create a new code chunk, name it
+`discrete-variables`, then type:
 
 ```{r discrete-variables}
 # Create count barplot for education
@@ -203,9 +218,10 @@ ggplot(nhanes_small, aes(x = education)) +
     geom_bar()
 ```
 
-We didn't use `na.rm = TRUE` here because `geom_bar()` includes that as a column.
-We can see that there are almost equal numbers of females and males.
-Now, we'll do the same for the diabetes status variable. In the same code chunk, type:
+We didn't use `na.rm = TRUE` here because `geom_bar()` includes that as
+a column. We can see that there are almost equal numbers of females and
+males. Now, we'll do the same for the diabetes status variable. In the
+same code chunk, type:
 
 ```{r}
 # Create count barplot for diabetes status
@@ -213,11 +229,11 @@ ggplot(nhanes_small, aes(x = diabetes)) +
     geom_bar()
 ```
 
-For diabetes, it seems that there is some missingness in the data. 
-Same thing with education.
-Since both are important variables for us, let's remove all missing
-values, save the tidied dataset in the `data/` folder, and plot it again
-in a new code chunk named `remove-missing-diabetes`.
+For diabetes, it seems that there is some missingness in the data. Same
+thing with education. Since both are important variables for us, let's
+remove all missing values, save the tidied dataset in the `data/`
+folder, and plot it again in a new code chunk named
+`remove-missing-diabetes`.
 
 ```{r remove-missing-diabetes}
 # Remove individuals with missing diabetes status and education
@@ -232,62 +248,60 @@ ggplot(nhanes_tidied, aes(x = diabetes)) +
     geom_bar()
 ```
 
-`r details_for_instructors("
-For this section on the bar-with-standard-error plots, make sure to go over and
-emphasize the problems and major flaws with using this type of plot. Really try
-to reinforce the concept here.
-")`
+`r details_for_instructors(" For this section on the bar-with-standard-error plots, make sure to go over and emphasize the problems and major flaws with using this type of plot. Really try to reinforce the concept here. ")`
 
-Let's take a minute to talk about commonly used barplots with mean and error bars.
-In all cases, barplots should **only** be used for discrete (categorical) data
-where you want to show counts or proportions. As a general rule, they should **not** be used for continuous data.
-This is because the commonly used "bar plot of means with error bars" 
-actually hides the underlying distribution of the data.
-To have a better explanation of this,
-you can read the article on why to [avoid barplots] after the course. 
-The image below was taken from that paper, and 
-briefly demonstrates why this plot type is not useful. 
+Let's take a minute to talk about commonly used barplots with mean and
+error bars. In all cases, barplots should **only** be used for discrete
+(categorical) data where you want to show counts or proportions. As a
+general rule, they should **not** be used for continuous data. This is
+because the commonly used "bar plot of means with error bars" actually
+hides the underlying distribution of the data. To have a better
+explanation of this, you can read the article on why to [avoid
+barplots](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)
+after the course. The image below was taken from that paper, and briefly
+demonstrates why this plot type is not useful.
 
 ```{r barplots-deceive, fig.cap="Bars deceive what the data actually look like. Image sourced from a [PLoS Biology article](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).", echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images/barplots-deceive.png"))
 ```
 
-If you *do* want to create a barplot, 
-you'll quickly find out that it is actually quite hard to do in ggplot2.
-The reason it is difficult to create in ggplot2 is by design:
-it's a bad plot to use, so use something else.
+If you *do* want to create a barplot, you'll quickly find out that it is
+actually quite hard to do in ggplot2. The reason it is difficult to
+create in ggplot2 is by design: it's a bad plot to use, so use something
+else.
 
 ```{r image-art-bar-error-plot, fig.cap="Barplots hide interesting results. Artwork by [\\@allison_horst](https://github.com/allisonhorst/stats-illustrations).", echo=FALSE, out.width="70%"}
 knitr::include_graphics(here::here("images/art-bar-error-plot.png"))
 ```
 
-Before we move on, let’s add and commit the new files we created into the Git history and push up to your GitHub repository.
+Before we move on, let's add and commit the new files we created into
+the Git history and push up to your GitHub repository.
 
 ## Plotting two variables
 
 There are many more types of "geoms" to use when plotting two variables.
 Your choice of which one to use depends on what you are trying to show
-or communicate, and the nature of the data. 
-Usually, the variable that you "control or influence" 
-(the independent variable) in an experimental setting goes on the x-axis,
-and the variable that "responds" (the dependent variable)
-goes on the y-axis.
+or communicate, and the nature of the data. Usually, the variable that
+you "control or influence" (the independent variable) in an experimental
+setting goes on the x-axis, and the variable that "responds" (the
+dependent variable) goes on the y-axis.
 
 When you have *two continuous* variables, some geoms to use are:
 
-- `geom_point()`, which is used to create a standard scatterplot.
-- `geom_hex()`, which is used to replace `geom_point()` 
-when your data are *massive* and creating points 
-for each value takes too long to plot.
-- `geom_smooth()`, which applies a "regression-type" line to the data
-(default uses LOESS regression).
+-   `geom_point()`, which is used to create a standard scatterplot.
+-   `geom_hex()`, which is used to replace `geom_point()` when your data
+    are *massive* and creating points for each value takes too long to
+    plot.
+-   `geom_smooth()`, which applies a "regression-type" line to the data
+    (default uses LOESS regression).
 
-Let's check out how BMI may influence systolic blood pressure using a basic scatterplot,
-hex plot, and a smoothing line plot in a new code chunk. 
+Let's check out how BMI may influence systolic blood pressure using a
+basic scatterplot, hex plot, and a smoothing line plot in a new code
+chunk.
 
-First, enter a new Markdown header called `# Plotting two variables` and create a 
-code chunk named `2-continuous-variables` below that. Like with the previous
-plot we created using `bmi`, we'll use `na.rm` again.
+First, enter a new Markdown header called `# Plotting two variables` and
+create a code chunk named `2-continuous-variables` below that. Like with
+the previous plot we created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
 # Using 2 continuous variables
@@ -295,19 +309,19 @@ bmi_bp <- ggplot(nhanes_tidied, aes(x = bmi, y = bp_sys_ave))
 # Standard scatter plot
 bmi_bp + 
     geom_point(na.rm = TRUE)
-```    
+```
 
-You can see that, with 10,000 data points, the scatterplot is a little crowded.
-To try a more suitable `geom_`, type in the same code chunk:
+You can see that, with 10,000 data points, the scatterplot is a little
+crowded. To try a more suitable `geom_`, type in the same code chunk:
 
 ```{r}
 # Standard scatter plot, but with hexagons
 bmi_bp + 
     geom_hex(na.rm = TRUE)
-```   
+```
 
-Notice how the hex plot changes the colour of the data 
-based on how many values are in the area of the plot.
+Notice how the hex plot changes the colour of the data based on how many
+values are in the area of the plot.
 
 You can also draw a smoothing line:
 
@@ -317,9 +331,9 @@ bmi_bp +
     geom_smooth(na.rm = TRUE)
 ```
 
-This makes a nice smoothing line through the data and gives us an idea of
-general trends or relationships between the two variables. You can also combine
-geoms by adding another one with a `+`.
+This makes a nice smoothing line through the data and gives us an idea
+of general trends or relationships between the two variables. You can
+also combine geoms by adding another one with a `+`.
 
 ```{r}
 # Or combine two geoms, hex plot with smoothing line
@@ -330,11 +344,13 @@ bmi_bp +
 
 ### Two discrete variables
 
-Sadly, there are not many options available for plotting two discrete variables, without major data wrangling. 
-The most useful geom for this type of plot is `geom_bar()`, 
-but with an added variable.
-We can use the `geom_bar()` "fill" option to have a certain colour for different levels of a variable.
-Let's use this to see difference in diabetes status between education levels. Create a new code chunk named `2-discrete-variables` and type:
+Sadly, there are not many options available for plotting two discrete
+variables, without major data wrangling. The most useful geom for this
+type of plot is `geom_bar()`, but with an added variable. We can use the
+`geom_bar()` "fill" option to have a certain colour for different levels
+of a variable. Let's use this to see difference in diabetes status
+between education levels. Create a new code chunk named
+`2-discrete-variables` and type:
 
 ```{r 2-discrete-variables}
 # Two categorical/discrete variables
@@ -347,12 +363,12 @@ two_discrete +
     geom_bar()
 ```
 
-By default, `geom_bar()` will make "fill" groups stacked on top of each other.
-In this case, it isn't really that useful, so let's change them to be sitting side by side. 
-For that, we need to use the `position` argument with a function called
-`position_dodge()`.
-This new function takes the "fill" grouping variable and "dodges" them 
-(moves them) to be side by side.
+By default, `geom_bar()` will make "fill" groups stacked on top of each
+other. In this case, it isn't really that useful, so let's change them
+to be sitting side by side. For that, we need to use the `position`
+argument with a function called `position_dodge()`. This new function
+takes the "fill" grouping variable and "dodges" them (moves them) to be
+side by side.
 
 ```{r}
 # "dodged" (side-by-side) bar plot
@@ -360,29 +376,30 @@ two_discrete +
     geom_bar(position = position_dodge())
 ```
 
-Now you can see that there are slightly more men that have diabetes than women.
+Now you can see that there are slightly more men that have diabetes than
+women.
 
 ### Discrete and continuous variables
 
-When the variable types are mixed (continuous and discrete),
-there are many more geoms available to use.
-A couple of good ones are:
+When the variable types are mixed (continuous and discrete), there are
+many more geoms available to use. A couple of good ones are:
 
-- `geom_boxplot()`, which makes boxplots that show the median 
-and a measure of range in the data. 
-Boxplots are generally pretty good at showing the spread of data.
-- `geom_jitter()`, which makes a type of scatterplot, 
-but for discrete and continuous variables. 
-A useful argument to `geom_jitter()` is `width`,
-which controls how wide the jittered points span from the center line.
-This plot is much better than the boxplot since it shows the *actual data*,
-and not summaries like a boxplot does.
-However, it is not very good when you have lots of data points.
-- `geom_violin()`, which shows a density distribution like `geom_density()`.
-This geom is great when there is a lot of data 
-and `geom_jitter()` may otherwise appear as a mass of dots.
+-   `geom_boxplot()`, which makes boxplots that show the median and a
+    measure of range in the data. Boxplots are generally pretty good at
+    showing the spread of data.
+-   `geom_jitter()`, which makes a type of scatterplot, but for discrete
+    and continuous variables. A useful argument to `geom_jitter()` is
+    `width`, which controls how wide the jittered points span from the
+    center line. This plot is much better than the boxplot since it
+    shows the *actual data*, and not summaries like a boxplot does.
+    However, it is not very good when you have lots of data points.
+-   `geom_violin()`, which shows a density distribution like
+    `geom_density()`. This geom is great when there is a lot of data and
+    `geom_jitter()` may otherwise appear as a mass of dots.
 
-Let's take a look at these geoms, by plotting how BMI differs between those with or without diabetes. In a new code chunk named `discrete-continuous-variables`, type:
+Let's take a look at these geoms, by plotting how BMI differs between
+those with or without diabetes. In a new code chunk named
+`discrete-continuous-variables`, type:
 
 ```{r discrete-continuous-variables}
 # Using mixed data
@@ -394,8 +411,8 @@ two_mixed +
     geom_boxplot(na.rm = TRUE)
 ```
 
-However, the boxplot is still hiding your actual data points. Instead, data points can be shown
-with a jitter plot:
+However, the boxplot is still hiding your actual data points. Instead,
+data points can be shown with a jitter plot:
 
 ```{r}
 # Show the actual data using a jitter plot
@@ -411,17 +428,18 @@ two_mixed +
     geom_violin(na.rm = TRUE)
 ```
 
-The violin plot kind of looks like two stingrays, eh?
-Before proceeding with the following exercise, take a moment to add
-and commit changes to the Git history, and then push to Github. 
-Also, notice the document outline now has a nice index of how to plot the different data types!
+The violin plot kind of looks like two stingrays, eh? Before proceeding
+with the following exercise, take a moment to add and commit changes to
+the Git history, and then push to Github. Also, notice the document
+outline now has a nice index of how to plot the different data types!
 
 ## Exercise: Creating plots with one or two variables
 
 Time: 15 min
 
-Create a new header in the R Markdown file called `# Exercise to make plots with
-one or two variables`, followed by a new code chunk.
+Create a new header in the R Markdown file called
+`# Exercise to make plots with one or two variables`, followed by a new
+code chunk.
 
 Copy and paste the below code into that code chunk.
 
@@ -466,35 +484,36 @@ ggplot(___, aes(x = ___, y = ___)) +
     ___()
 ```
 
-Complete as many tasks as you can below. Don't forget to use `na.rm = TRUE`
-where necessary. Use the provided `nhanes_full_tidied` version when creating
-plots with `ggplot()`.
+Complete as many tasks as you can below. Don't forget to use
+`na.rm = TRUE` where necessary. Use the provided `nhanes_full_tidied`
+version when creating plots with `ggplot()`.
 
-1. Using `geom_histogram()`, find out what the distribution is for the two variables below.
-    a. `age` (participant's age at collection).
-    b. `diabetes_age` (age of diabetes diagnosis).
-2. Using `geom_bar()`, find out how many people have data recorded for each of the two discrete variables below.
-What can you say about most people for these variables?
-    a. `smoke_now` (current smoking status).
-    b. `phys_active` (does moderate to vigorous physical activity).
-3. Using `geom_hex()`, find out how BMI relates to the two blood pressure variables below.
-Do you notice anything about the data from the plots?
-    a. `bp_sys_ave` (average systolic blood pressure).
-    b. `bp_dia_ave` (average diastolic blood pressure).
-4. Using `geom_bar()`, find out how `phys_active` those with or without `diabetes` are.
-Put `diabetes` on the x-axis.
-What can you say based on the data? 
-Note the differences in missingness between groups.
-Don't forget to use `position_dodge()` in the `position` argument, in order to arrange the bars side by side.
-7. Using `geom_violin()`, 
-find how `poverty` levels are different for those with or without `diabetes`.
-Put `diabetes` on the x-axis.
-Looking at the distributions, 
-what can you conclude about how poverty may be associated with diabetes status?
-    - The `poverty` variable is calculated as a ratio between income and a poverty threshold. 
-    Smaller numbers mean higher poverty.
-8. Save, add, and commit the changes to the
-Git history.
+1.  Using `geom_histogram()`, find out what the distribution is for the
+    two variables below.
+    a.  `age` (participant's age at collection).
+    b.  `diabetes_age` (age of diabetes diagnosis).
+2.  Using `geom_bar()`, find out how many people have data recorded for
+    each of the two discrete variables below. What can you say about
+    most people for these variables?
+    a.  `smoke_now` (current smoking status).
+    b.  `phys_active` (does moderate to vigorous physical activity).
+3.  Using `geom_hex()`, find out how BMI relates to the two blood
+    pressure variables below. Do you notice anything about the data from
+    the plots?
+    a.  `bp_sys_ave` (average systolic blood pressure).
+    b.  `bp_dia_ave` (average diastolic blood pressure).
+4.  Using `geom_bar()`, find out how `phys_active` those with or without
+    `diabetes` are. Put `diabetes` on the x-axis. What can you say based
+    on the data? Note the differences in missingness between groups.
+    Don't forget to use `position_dodge()` in the `position` argument,
+    in order to arrange the bars side by side.
+5.  Using `geom_violin()`, find how `poverty` levels are different for
+    those with or without `diabetes`. Put `diabetes` on the x-axis.
+    Looking at the distributions, what can you conclude about how
+    poverty may be associated with diabetes status?
+    -   The `poverty` variable is calculated as a ratio between income
+        and a poverty threshold. Smaller numbers mean higher poverty.
+6.  Save, add, and commit the changes to the Git history.
 
 ```{r solution-2-var-plots, eval=FALSE, solution=TRUE}
 # Use the original NHANES dataset
@@ -539,24 +558,23 @@ ggplot(nhanes_full_tidied, aes(x = diabetes, y = poverty)) +
 
 ## Visualizing three or more variables
 
-There are many ways to visualize additional variables in a plot 
-and further explore your data.
-For that, we can use ggplot2's colour, shape, size, transparency ("alpha"), 
-and fill aesthetics, as well as "facets".
-Faceting in ggplot2 is a way of splitting the plot up into multiple plots 
-when the underlying aesthetics are the same or similar. 
-In this section, we'll be covering many of these capabilities in ggplot2.
+There are many ways to visualize additional variables in a plot and
+further explore your data. For that, we can use ggplot2's colour, shape,
+size, transparency ("alpha"), and fill aesthetics, as well as "facets".
+Faceting in ggplot2 is a way of splitting the plot up into multiple
+plots when the underlying aesthetics are the same or similar. In this
+section, we'll be covering many of these capabilities in ggplot2.
 
-The most common and "prettiest" way of adding a third variable is by using colour.
-Let's try to answer a few of the questions below, to visualize some of these features.
-First, create a new header called `# Plotting three or more variables`
-and a code chunk named `using-colour` below it.
+The most common and "prettiest" way of adding a third variable is by
+using colour. Let's try to answer a few of the questions below, to
+visualize some of these features. First, create a new header called
+`# Plotting three or more variables` and a code chunk named
+`using-colour` below it.
 
-*Question: Is systolic blood pressure different in those with 
-or without diabetes in females and males?*
-In this case, we have one continuous variable (`bp_sys_ave`)
-and two discrete variables (`education` and `diabetes`).
-To plot this, we could use `geom_boxplot()`:
+*Question: Is systolic blood pressure different in those with or without
+diabetes in females and males?* In this case, we have one continuous
+variable (`bp_sys_ave`) and two discrete variables (`education` and
+`diabetes`). To plot this, we could use `geom_boxplot()`:
 
 ```{r using-colour}
 # Plot systolic blood pressure in relation to education and diabetes status
@@ -565,12 +583,12 @@ nhanes_tidied %>%
     geom_boxplot(na.rm = TRUE)
 ```
 
-Do you see differences in systolic blood pressure between the education statuses? Between diabetics and non-diabetics?
+Do you see differences in systolic blood pressure between the education
+statuses? Between diabetics and non-diabetics?
 
-*Question: How does BMI relate to systolic blood pressure 
-and age?*
-Here, we have three continuous variables (`bmi`, `bp_sys_ave`, and `age`),
-so we could use `geom_point()`:
+*Question: How does BMI relate to systolic blood pressure and age?*
+Here, we have three continuous variables (`bmi`, `bp_sys_ave`, and
+`age`), so we could use `geom_point()`:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and age
@@ -579,12 +597,13 @@ nhanes_tidied %>%
     geom_point(na.rm = TRUE)
 ```
 
-Can you see any associations between systolic blood pressure and BMI or age?
+Can you see any associations between systolic blood pressure and BMI or
+age?
 
-*Question: How does BMI relate to systolic blood pressure, 
-and what is different between those with and without diabetes?*
-In this case, we have two continuous variables (`bmi` and `bp_sys_ave`) and one discrete variable (`diabetes`).
-We could use `geom_point()`:
+*Question: How does BMI relate to systolic blood pressure, and what is
+different between those with and without diabetes?* In this case, we
+have two continuous variables (`bmi` and `bp_sys_ave`) and one discrete
+variable (`diabetes`). We could use `geom_point()`:
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and diabetes status
@@ -593,23 +612,22 @@ nhanes_tidied %>%
     geom_point(na.rm = TRUE)
 ```
 
-For this latter plot, it's really hard to see what's different. 
-But there is another way of visualizing a third (or fourth, and fifth) variable:
-with "faceting"!
-Faceting splits the plot up into multiple subplots
-using the function `facet_grid()`.
-For faceting to work, at least one of the first two arguments to `facet_grid()` is needed.
-The first two arguments are:
+For this latter plot, it's really hard to see what's different. But
+there is another way of visualizing a third (or fourth, and fifth)
+variable: with "faceting"! Faceting splits the plot up into multiple
+subplots using the function `facet_grid()`. For faceting to work, at
+least one of the first two arguments to `facet_grid()` is needed. The
+first two arguments are:
 
-- `cols`: The discrete variable to use to facet the plot column-wise 
-(i.e. side-by-side).
-- `rows`: The discrete variable to use to facet the plot row-wise 
-(i.e. stacked on top of each other).
+-   `cols`: The discrete variable to use to facet the plot column-wise
+    (i.e. side-by-side).
+-   `rows`: The discrete variable to use to facet the plot row-wise
+    (i.e. stacked on top of each other).
 
-For both `cols` and `rows`, the nominated variable must be wrapped by `vars()`
-(e.g. `vars(diabetes)`).
-Let's try it using an example from the previous answer (instead of using `colour`).
-Make a new code chunk named `using-faceting`
+For both `cols` and `rows`, the nominated variable must be wrapped by
+`vars()` (e.g. `vars(diabetes)`). Let's try it using an example from the
+previous answer (instead of using `colour`). Make a new code chunk named
+`using-faceting`
 
 ```{r using-faceting}
 # Plot BMI in relation to systolic blood pressure and diabetes status using
@@ -620,8 +638,8 @@ nhanes_tidied %>%
     facet_grid(cols = vars(diabetes))
 ```
 
-Try faceting with plots stacked by diabetes status, using the argument `rows =
-vars(diabetes)` instead. Which do you find more informative?
+Try faceting with plots stacked by diabetes status, using the argument
+`rows = vars(diabetes)` instead. Which do you find more informative?
 
 ```{r}
 # faceting by row
@@ -642,45 +660,44 @@ nhanes_tidied %>%
                cols = vars(education))
 ```
 
-Before moving on, let's save the file, add and commit the new changes to the Git
-history, and push to GitHub.
+Before moving on, let's save the file, add and commit the new changes to
+the Git history, and push to GitHub.
 
 ## Colours: Make your graphs more accessible
 
-**Please take ~5 min to read through this section and then complete the exercise that follows.**
+**Please take \~5 min to read through this section and then complete the
+exercise that follows.**
 
-Colour blindness is common in the general population, 
-with red-green colour blindness affecting about 8% of men 
-and 0.5% of women. 
-To make your graph more accessible to people with colour blindness,
-you need to consider the colours you use.
-For more detail on how colours look to those with colour blindness, 
-check out this
-[documentation](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) 
-from the [viridis] package. 
-The viridis colour scheme (also developed as an R package)
-was specifically designed to represent data to all colour visions
-(including as a grayscale, e.g. from black to white). 
-There is a really informative 
-[talk on YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU) on this topic.
+Colour blindness is common in the general population, with red-green
+colour blindness affecting about 8% of men and 0.5% of women. To make
+your graph more accessible to people with colour blindness, you need to
+consider the colours you use. For more detail on how colours look to
+those with colour blindness, check out this
+[documentation](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+from the [viridis](https://cran.r-project.org/package=viridis) package.
+The viridis colour scheme (also developed as an R package) was
+specifically designed to represent data to all colour visions (including
+as a grayscale, e.g. from black to white). There is a really informative
+[talk on YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU) on this
+topic.
 
-[viridis]: https://cran.r-project.org/package=viridis
-
-When using colours, think about what you are trying to convey in your figure 
-and how your choice of colours will be interpreted. 
-You can use built-in colour schemes or create your own. 
-For now, let's stick to using built-in ones.
-There are two we can start with: the viridis and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. 
-Both are well designed and are colour blind friendly.
-For this course, we will only cover the viridis package.
+When using colours, think about what you are trying to convey in your
+figure and how your choice of colours will be interpreted. You can use
+built-in colour schemes or create your own. For now, let's stick to
+using built-in ones. There are two we can start with: the viridis and
+the [ColorBrewer](https://colorbrewer2.org/) colour schemes. Both are
+well designed and are colour blind friendly. For this course, we will
+only cover the viridis package.
 
 ## Exercise: Changing the colour schemes
 
 Time: 10 min
 
-Practice changing colour schemes on a bar plot. Start with a base plot object to work from that has two discrete variables. 
-Create a new Markdown header called `# Exercise for changing colours` and create
-a new code chunk named `exercise-discrete-variables` below it. Copy and paste the code below into the new code chunk.
+Practice changing colour schemes on a bar plot. Start with a base plot
+object to work from that has two discrete variables. Create a new
+Markdown header called `# Exercise for changing colours` and create a
+new code chunk named `exercise-discrete-variables` below it. Copy and
+paste the code below into the new code chunk.
 
 ```{r exercise-discrete-variables}
 # Barplot to work from, with two discrete variables
@@ -689,25 +706,27 @@ base_barplot <- nhanes_tidied %>%
     geom_bar(position = position_dodge())
 ```
 
-Use the `scale_fill_` function set to add the colour scheme. If you need help,
-use the `help()` or `?` functions in RStudio to look over the documentation 
-for more information or to see the other `scale_` functions. Use tab auto-completion
-to find the correct function.
+Use the `scale_fill_` function set to add the colour scheme. If you need
+help, use the `help()` or `?` functions in RStudio to look over the
+documentation for more information or to see the other `scale_`
+functions. Use tab auto-completion to find the correct function.
 
-1. Change the colour to the viridis scheme with the `scale_fill_viridis_d()` function
-and use it on the `base_barplot` graph so that the plot is colour blind
-friendly. Because the variables are discrete, you will need to add `_d` to the end of
-the viridis scheme function.
+1.  Change the colour to the viridis scheme with the
+    `scale_fill_viridis_d()` function and use it on the `base_barplot`
+    graph so that the plot is colour blind friendly. Because the
+    variables are discrete, you will need to add `_d` to the end of the
+    viridis scheme function.
 
-2. Viridis has several palettes. Add the argument `option = "magma"` to the
-`scale_fill_viridis_d()` function. Run the function again and see how the colour
-changes. Next, change `"magma"` to `"cividis"`.
+2.  Viridis has several palettes. Add the argument `option = "magma"` to
+    the `scale_fill_viridis_d()` function. Run the function again and
+    see how the colour changes. Next, change `"magma"` to `"cividis"`.
 
-3. Now, let's practice using the colour schemes on a plot with continuous
-variables. Copy and paste the code below into a new code chunk named `exercise-continuous-variables`.
-Since we are using `colour` instead of `fill`, the `scale_` will be 
-`scale_colour_viridis_c()`. The `_c` at the end indicates the variable will be
-continuous.
+3.  Now, let's practice using the colour schemes on a plot with
+    continuous variables. Copy and paste the code below into a new code
+    chunk named `exercise-continuous-variables`. Since we are using
+    `colour` instead of `fill`, the `scale_` will be
+    `scale_colour_viridis_c()`. The `_c` at the end indicates the
+    variable will be continuous.
 
     ```{r exercise-continuous-variables}
     # Scatterplot to work from, with three continuous variables
@@ -715,11 +734,12 @@ continuous.
         ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
         geom_point(na.rm = TRUE)
     ```
-    
-4. Similar to #2 above, use the `option` argument to set the palette to `"inferno"` 
-and see how the colour changes.
 
-5. Lastly, add and commit the changes to the R Markdown file into the Git history.
+4.  Similar to #2 above, use the `option` argument to set the palette to
+    `"inferno"` and see how the colour changes.
+
+5.  Lastly, add and commit the changes to the R Markdown file into the
+    Git history.
 
 ```{r solution-colour-schemes, eval=FALSE, solution=TRUE}
 # 1. change colors to a viridis colour scheme
@@ -744,20 +764,17 @@ base_scatterplot +
 
 ## Titles, axis labels, and themes
 
-There are so many options in RStudio to modify a ggplot2 figure.
-Almost all of them are found in the `theme()` function. 
-We won't cover individual theme items,
-since the `?theme` help page
-and [ggplot2 theme webpage] already document `theme()` really well.
-Instead, we'll cover a few of the built-in themes,
-as well as setting the axes labels and plot title.
-We'll build off of the previously created `base_scatterplot`.
-All built-in themes start with `theme_`.
+There are so many options in RStudio to modify a ggplot2 figure. Almost
+all of them are found in the `theme()` function. We won't cover
+individual theme items, since the `?theme` help page and [ggplot2 theme
+webpage](https://ggplot2.tidyverse.org/reference/theme.html) already
+document `theme()` really well. Instead, we'll cover a few of the
+built-in themes, as well as setting the axes labels and plot title.
+We'll build off of the previously created `base_scatterplot`. All
+built-in themes start with `theme_`.
 
-[ggplot2 theme webpage]: https://ggplot2.tidyverse.org/reference/theme.html
-
-Create a new section header called `# Changing plot appearance` 
-and make a code chunk named `built-in-themes`, then copy the code below:
+Create a new section header called `# Changing plot appearance` and make
+a code chunk named `built-in-themes`, then copy the code below:
 
 ```{r built-in-themes}
 # Create scatterplot to play with themes
@@ -774,18 +791,19 @@ base_scatterplot2 + theme_minimal()
 base_scatterplot2 + theme_classic()
 ```
 
-You can also set the theme for all subsequent plots by using the `theme_set()`
-function, and specifying the theme you want in the parenthesis.
+You can also set the theme for all subsequent plots by using the
+`theme_set()` function, and specifying the theme you want in the
+parenthesis.
 
 ```{r, eval=FALSE}
 # Set the theme for all subsequent plots
 theme_set(theme_bw())
 ```
 
-To add labels such as axis titles to your plot, you can use the function `labs()`.
-To change the y-axis title, use the `y` argument in `labs()`.
-For the x-axis, it is `x`.
-For the whole plot, it is `title`. Add a new code chunk named `labels` and type:
+To add labels such as axis titles to your plot, you can use the function
+`labs()`. To change the y-axis title, use the `y` argument in `labs()`.
+For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
+code chunk named `labels` and type:
 
 ```{r labels}
 # Add plot title and change axis titles
@@ -797,13 +815,12 @@ base_scatterplot2 +
 
 ## Saving the plot
 
-To save the plot you created, use the `ggsave()` function.
-The first argument says where to save the graph. Give the name of the newly created file,
-as well as the folder location.
-The next argument says which plot to save.
-At this point, you can set the dimensions of the figure 
-using the `width` and `height` arguments.
-Add a new section header `# Saving the plot` and create a new code chunk:
+To save the plot you created, use the `ggsave()` function. The first
+argument says where to save the graph. Give the name of the newly
+created file, as well as the folder location. The next argument says
+which plot to save. At this point, you can set the dimensions of the
+figure using the `width` and `height` arguments. Add a new section
+header `# Saving the plot` and create a new code chunk:
 
 ```{r, eval=FALSE}
 # Save the plot
@@ -811,19 +828,20 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
        base_scatterplot2, width = 7, height = 5)
 ```
 
-Lastly, let's save the R Markdown file, add and commit the changes, and push to
-GitHub.
+Lastly, let's save the R Markdown file, add and commit the changes, and
+push to GitHub.
 
-## Summary of session {#dataviz-summary}
+## Summary
 
-- Use the "Grammar of Graphics" approach in conjunction with the ggplot2 package within the tidyverse to
-plot your data.
-- Prioritize plotting raw data instead of summaries whenever possible.
-- ggplot2 has 4 levels of grammar: `aes()` (which data to plot), `geom_` (what
-kind of plot), `scale_` (to make the plot pretty), and `theme()`
-(to control the specifics of the plot).
-- Only use barplots for discrete values. If applying them on continuous
-variables, it hides the distribution of the data.
-- To plot more dimensions, use colour, the X axis, the Y axis, or `facet_grid()`.
-- Use colour blind-friendly palettes, such as `viridis`.
-- Save plots using `ggsave()`.
+-   Use the "Grammar of Graphics" approach in conjunction with the
+    ggplot2 package within the tidyverse to plot your data.
+-   Prioritize plotting raw data instead of summaries whenever possible.
+-   ggplot2 has 4 levels of grammar: `aes()` (which data to plot),
+    `geom_` (what kind of plot), `scale_` (to make the plot pretty), and
+    `theme()` (to control the specifics of the plot).
+-   Only use barplots for discrete values. If applying them on
+    continuous variables, it hides the distribution of the data.
+-   To plot more dimensions, use colour, the X axis, the Y axis, or
+    `facet_grid()`.
+-   Use colour blind-friendly palettes, such as `viridis`.
+-   Save plots using `ggsave()`.
