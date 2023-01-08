@@ -443,10 +443,10 @@ guide](https://style.tidyverse.org/):
     calls](https://style.tidyverse.org/syntax.html#function-calls)
 
 Then try to make the below code more readable. Copy and paste the code
-below into the `R/project-session.R` file. **NOTE**: *Don't* run this
-code, just edit it to improve the code style and object naming. There
-are some tricks in here that we haven't covered yet, but will when we go
-through the exercise.
+below into the `R/learning.R` file. **NOTE**: *Don't* run this code,
+just edit it to improve the code style and object naming. There are some
+tricks in here that we haven't covered yet, but will when we go through
+the exercise.
 
 The code below is in some way either *wrong* or incorrectly written.
 Edit the code so it follows the correct style and so it's easier to
@@ -649,3 +649,4 @@ regularly and perhaps join an online coding community.
 -   Use the `here()` function from the `{here}` package.
 -   Use tab auto-completion when writing code.
 -   Use `?` to get help on an R object.
+
