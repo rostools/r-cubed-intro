@@ -1120,9 +1120,11 @@ which ("Document your data") we won't cover in this course. The function
 takes any number of datasets and saves them individually as a `.rda` R
 dataset file in the `data/` folder.
 
-```{r, eval=FALSE}
-# Saving data as an .rda file in the data folder
-usethis::use_data(nhanes_small, overwrite = TRUE)
+```{r save-data-as-csv, eval=FALSE}
+readr::write_csv(
+  nhanes_small,
+  here::here("data/nhanes_small.csv")
+)
 ```
 
 For many projects, it isn't necessary or advisable to save every single
