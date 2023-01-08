@@ -467,6 +467,8 @@ now, type out `learning-github` as a name for the repository and leave
 everything else blank. Make the repository "Private" for now. The video
 below can be used as a reference.
 
+<!-- TODO: Replace with only LearningR project, not learning-github -->
+
 {{< video ../videos/github-new-repository.mp4 >}}
 
 A quick side note: When using GitHub, especially in relation to health
