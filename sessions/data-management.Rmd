@@ -52,7 +52,7 @@ an ecosystem of R packages that are designed to work well together, that
 all follow a strong "[design philosophy](https://design.tidyverse.org/)"
 and common [style guide](https://style.tidyverse.org/). This makes
 combining these packages in the tidyverse much easier. We teach the
-tidyverse because of these abovementioned reasons.
+tidyverse because of these above mentioned reasons.
 
 Ok, back to "tidy data". A tidy dataset is when:
 
@@ -281,7 +281,7 @@ bracket `(`, and then takes the names of the columns you want to select.
 The argument after the data argument is `...`, which indicates that you
 can add as many columns as you want, separated by a `,`.
 
-```{r}
+```{r using-select}
 # Select one column by its name, without quotes
 select(NHANES, Age)
 
@@ -302,7 +302,7 @@ functions and to get help on them. Some commonly used helpers are:
 -   `ends_with()`: Select columns that end with a pattern.
 -   `contains()`: Select columns that contain a pattern.
 
-```{r}
+```{r using-tidyselect-helpers}
 # All columns starting with letters "BP" (blood pressure)
 select(NHANES, starts_with("BP"))
 
@@ -343,8 +343,7 @@ nhanes_small
 In the interests of keeping data tidy and matching the [style
 guide](https://style.tidyverse.org/), we should change the column names
 to be all lower case with `_` for spaces between words. There's a
-package that can do that for us called
-[snakecase](https://tazinho.github.io/snakecase/).
+package that can do that for us called `{snakecase}`.
 
 In the Console, type out `snakecase::` and hit Tab. You'll see a list of
 possible functions to use. We want to use the snakecase function, so
