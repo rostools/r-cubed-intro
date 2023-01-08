@@ -159,82 +159,79 @@ In data wrangling, most tasks can be expressed by a few simple "verbs"
 (actions). Wrangling here refers to maneuvering, managing, controlling,
 and turning your data around to clean it up, better understand it, and
 prepare it for later analyses. The table below lists some common "verbs"
-from the [dplyr](https://dplyr.tidyverse.org/) package that come from
-the tidyverse:
+from the `{dplyr}` package that come from the `{tidyverse}`:
 
-```{r table-wrangling-verbs, echo=FALSE}
-tibble::tribble(
-    ~Task, ~Example, ~Function,
-    "Select columns", "Remove data entry columns such as the person's name who entered the data.", "`select()`",
-    "Rename columns", "Changing a column name from 'Q1' to 'participant_name'.", "`rename()`",
-    "Transform or modify columns", "Multiplying or taking the log of a column's values.", "`mutate()`",
-    "Subset/filter rows", "Keeping rows with glucose values above 4.", "`filter()`",
-    "Sort rows", "Show rows with the smallest value at the top.", "`arrange()`",
-    "Calculate summaries of the data", "Calculating the maximum, median, and minimum age.", "`summarise()`",
-    "Run an analysis by a group", "Calculate means of age by males and females.", "`group_by()` with `summarise()`"
-) %>% 
-    knitr::kable(caption = "List of common data wrangling tasks, along with an example and the function used for the wrangling.")
-```
+| Task                        | Example                                                                   | Function                        |
+|:----------------------------|:--------------------------------------------------------------------------|:--------------------------------|
+| Select columns              | Remove data entry columns such as the person's name who entered the data. | `select()`                      |
+| Rename columns              | Changing a column name from 'Q1' to 'participant_name'.                   | `rename()`                      |
+| Transform or modify columns | Multiplying or taking the log of a column's values.                       | `mutate()`                      |
+| Subset/filter rows          | Keeping rows with glucose values above 4.                                 | `filter()`                      |
+| Sort rows                   | Show rows with the smallest value at the top.                             | `arrange()`                     |
+| Calculate summaries         | Calculating the maximum, median, and minimum age.                         | ,                               |
+| Run code by a group         | Calculate means of age by males and females.                              | `group_by()` with `summarise()` |
+
+: List of common data wrangling tasks, along with an example and the
+function used for the wrangling.
 
 **Tip**: Sometimes you need to do some complicated wrangling to get your
 data "in shape" for later analyses. To save some time, you could save
 the wrangled data as an "output" dataset in the `data/` folder. That
 way, you can easily use it again later rather than having to run the
 wrangling code every time you want to work with the data.
+:::
 
 ## Load the packages and dataset
 
 We're going to use the US
 [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) dataset to
-demonstrate some wrangling functions. There is an [NHANES
-package](https://CRAN.R-project.org/package=NHANES) that contains a
-teaching version of the original dataset, so we'll use that for this
-lesson.
+demonstrate some wrangling functions. There is a R package called
+`{NHANES}` that contains a teaching version of the original dataset, so
+we'll use that for this course.
 
 First, make sure that you have the `LearningR` R Project open. Second,
-open the `R/package-loading.R` script and load the NHANES package, so it
-looks like:
+open the `R/learning.R` script and write code to load the `{NHANES}`
+package. It should look like this now:
 
-```{r}
+```{r add-packages-to-script}
 library(tidyverse)
 library(NHANES)
 ```
 
-Third, open the `R/wrangling-session.R` script to begin entering code.
-We'll use this script file to write the code for this session (but not
-for the exercises).
+There are many ways of loading in data into R. This method loads data
+that is included in a package, in this case `{NHANES}`. We will cover
+how to load a dataset from a file at the end of this session.
 
-```{r, message=FALSE, warning=FALSE, eval=-(1:2)}
-# Load up the packages
-source(here::here("R/package-loading.R"))
+Then, below the `library()`, let's take a `glimpse()` at the NHANES
+dataset. Run this function by hitting `Alt-Enter` while the cursor is on
+the code to send it from the script to the R Console.
 
+```{r glimpse-nhanes}
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
 ```
 
-Finally, add and commit the changes to the Git history with the RStudio
-Git interface.
+This gives us a quick overview of what variables are in the dataset and
+the data types that they are. Once we've run the code, we will commit
+the changes to the Git history with the RStudio Git interface (with
+`r palette_git_commit`).
 
-## Exercise: Getting familiar with the dataset
+## Exercise: Get familiar with the NHANES dataset
 
-Time: 10 min
+> Time: 10 minutes.
 
 Take some time to get to know the NHANES dataset.
 
-1.  Create a new R script by typing in the RStudio Console
-    `usethis::use_r("exercises-wrangling")`.
-2.  Copy the code below and paste it into the new script file.
-3.  Replace the `___` with `NHANES`.
-4.  Run each line of code by using the `Ctrl-Enter` shortcut.
-5.  Take a look at the output for each command, to see what sorts of
+1.  Copy the code below and paste it into the `R/learning.R` script
+    file.
+2.  Replace the `___` with `NHANES`.
+3.  Run each line of code by using the `Ctrl-Enter` shortcut.
+4.  Take a look at the output for each command, to see what sorts of
     data you are able to retrieve.
-6.  Once you have completed each, add and commit the changes to the Git
+5.  Once you have completed each, add and commit the changes to the Git
     history with the RStudio Git interface.
 
-```{r exercise-familiar-with-data, eval=FALSE}
-# Load the packages
-source(here::here("R/package-loading.R"))
-
+``` r
 # Check column names
 colnames(___)
 
