@@ -462,10 +462,11 @@ left of the operator and puts it into the function on the right of the
 operator. All input goes into the first position argument of the
 function. Within the tidyverse packages, all functions take a data frame
 (or vector) as the first argument in order to work with the pipe.
+:::
 
-**Let's try this out with an example from NHANES**. The keyboard
-shortcut for the pipe is `Ctrl-Shift-M` (i.e., M for the magrittr
-package that created the pipe).
+Let's try this out on NHANES. The keyboard shortcut for the pipe is
+`Ctrl-Shift-M` (i.e., M for the `{magrittr}` package that created the
+pipe).
 
 ```{r}
 # These two ways are the same
@@ -1234,3 +1235,4 @@ NHANES %>%
     package to wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
+
