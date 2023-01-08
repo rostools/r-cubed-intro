@@ -2,7 +2,16 @@
 
 {{< include ../includes/_wip.qmd >}}
 
+```{r setup}
+#| include: false
+source(here::here("R/functions.R"))
+```
+
+<!-- TODO: Add an introduction here -->
+
 **Session objectives**:
+
+<!-- TODO: Revise objectives to fit how I did it in advanced -->
 
 1.  Learn the difference between "messy" and "tidy" data, including how
     to create tidy data to simplify your analysis.
@@ -1211,7 +1220,7 @@ NHANES %>%
               bmi_median = median(bmi, na.rm = TRUE))
 ```
 
-## Summary of session {#wrangling-summary}
+## Summary
 
 -   With tidy data, each variable has its own column, each observation
     has its own row, and each value has its own cell.
