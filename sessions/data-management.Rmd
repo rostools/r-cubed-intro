@@ -375,35 +375,33 @@ argument and then takes as many renaming arguments as you want (because
 the second argument position is `...`). When renaming, it takes the form
 of `newname = oldname`.
 
-Let's rename gender to be sex, since gender is a social construct, while
-sex is biological. This is consistent with what the sex variable in the
-dataset actually describes too.
+The "gender" variable in the dataset actually describes "sex", so let's
+rename it to accurately reflect the data itself. Note that gender is a
+*social construct*, while sex is *biological*. This unfortunately is
+often incorrectly named in many scientific papers, where accuracy of
+terms is critical. Because we want to rename the variable in the dataset
+so it stays renamed, we need to assign it again to `nhanes_small`.
 
-```{r}
-rename(nhanes_small, sex = gender)
-
-# View data frame
-nhanes_small
-```
-
-Notice that the `rename()` function has not altered the `nhanes_small`
-data frame. To do this, we need to assign the change to `nhanes_small`
-in a way that saves it:
-
-```{r create-nhanes-sex}
+```{r rename-to-gender}
 nhanes_small <- rename(nhanes_small, sex = gender)
-# View data frame
 nhanes_small
 ```
 
-Now, you can see that the column has been renamed from gender to sex.
-What if you wanted to select some columns and then rename some of them?
-Would you have to create a new data object every time? No! We can make
-use of a very powerful tool called piping with the `%>%` function.
+::: callout-tip
+We've re-assigned the object `nhanes_small` multiple times. If you make
+a mistake, the easiest solution is to re-run the code from the start
+again, which should fix any issues.
+:::
+
+Now, you can see that the column has been renamed from `gender` to
+`sex`. What if you wanted to select some columns and then rename some of
+them? Would you have to create a new data object every time? No! We can
+make use of a very powerful tool called piping with the `%>%` function.
 
 ## Chaining functions with the pipe
 
-**Take 5 minutes and read this section** before we continue.
+::: callout-note
+## Reading task: \~5 minutes
 
 A key component of tidy data and tidy code is making use of the "pipe"
 operator, `%>%`. You would use the "pipe" operator when you are writing
