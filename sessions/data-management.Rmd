@@ -118,7 +118,15 @@ code.
 
 ## Managing and working with data in R
 
-**Take 5 min and read through this section**.
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+After they read it, go over and emphasize the functions shown in the
+table that we will be teaching.
+:::
+
+::: callout-note
+## Reading task: \~5 minutes
 
 When working with data, there are a few principles to follow:
 
