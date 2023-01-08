@@ -246,10 +246,10 @@ summary(___)
 ?___
 ```
 
-```{r solution-exercise-familiar-with-data, eval=FALSE, solution=TRUE}
-# Load the packages
-source(here::here("R/package-loading.R"))
-
+```{r solution-get-familiar-with-data}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # Check column names
 colnames(NHANES)
 
