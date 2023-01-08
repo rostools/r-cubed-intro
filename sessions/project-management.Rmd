@@ -502,63 +502,20 @@ models with the `{lme4}` package or creating figures with the
 `{ggplot2}` package) and for anyone to easily install and use that
 package. So make use of packages!
 
-If instance, a "metapackage" we will use throughout the course is called
-`{tidyverse}`, which we can load by writing this at the top of a file:
+For instance, a "metapackage" we will use throughout the course is
+called `{tidyverse}`, which we can load by writing this at the top of
+our script files:
 
 ```{r loading-packages}
 #| eval: false
 library(tidyverse)
 ```
 
-Working with multiple R scripts and files, it quickly gets tedious to
-always write out each library function at the top of each script. We
-cover package dependency management in the intermediate and advanced
-courses in a lot more detail. In this course, we will get you to write
-`library()` at the top of each file for each package that the file
-needs.
-
-<!-- TODO: move this here section to another area -->
-
-You see there's a new thing `here`! The `{here}` package uses a function
-called `here()` that makes it easier to manage *file paths* within an R
-Project.
-
-So, what is a file path and why is this here package necessary? A file
-path is the list of folders a file is found in. For instance, your CV
-may be found in `/Users/Documents/personal_things/CV.docx`. The problem
-with file paths in R is that when you run a script interactively (e.g.
-what we do in class and normally), the file path and "working directory"
-(the R Session) are located at the Project level (where the `.Rproj`
-file is found). You can see the working directory by looking at the top
-of the RStudio Console.
-
-But! When you `source()` an R script or run it *not* interactively, the
-R code may likely run *in the folder it is saved in*, e.g. in the `R/`
-folder. So your file path `R/package-loading.R` won't work because there
-isn't a folder called `R/` in the `R/` folder.
-
-    LearningR <-- R Project working directory starts here.
-    ├── R
-    │   ├── README.md
-    │   └── learning.R <-- Working directory when running not interactively.
-    ├── data
-    │   └── README.md
-    ├── data-raw
-    │   └── README.md
-    ├── doc
-    │   └── README.md
-    ├── .gitignore
-    ├── DESCRIPTION
-    ├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
-    ├── README.md
-    └── TODO.md
-
-Often people use the function `setwd()` in scripts, but this is *never*
-a good idea since using it makes your script *runnable only on your
-computer*... which makes it no longer reproducible. We use the `here()`
-function to tell R to go to the project root (where the `.Rproj` file is
-found) and then use that file path. This simple function can make your
-work more reproducible and easier for you to use later on.
+Managing which packages our analysis depends on is covered in the
+intermediate and advanced courses. In this course, we will get you to
+write `library()` at the top of the file for each package that the
+file's code depends on. Open up the `R/learning.R` file and add it to
+the top of the script.
 
 ## Encountering problems and finding help
 
