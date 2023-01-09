@@ -161,7 +161,7 @@ These tasks may seem like a lot, with a lot of new terminology and tools
 to use. But don't worry! We will be going over many of these topics and
 you will have time to complete the project over the three days. Make use
 of the website to remind you and use our
-[cheatsheet](resources/cheatsheet.pdf) as a reference.
+[cheatsheet](../includes/cheatsheet.pdf) as a reference.
 
 At the end, the lead instructor will download each of the teams' Git
 projects, knit the R Markdown documents to test its reproducibility, and
