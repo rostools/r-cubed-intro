@@ -1,0 +1,45 @@
+## What next?
+
+It is one thing to learn the principles of how to do reproducible
+research. It is quite another thing to do so in daily practice. So, how
+can we practice these skills and tools we learned during the course?
+
+-   If you have your own data already, then it's easy: Just start using
+    these tools bit by bit. Slowly and steadily use the tools from this
+    course and continue learning. It isn't a race, use what you can
+    without getting totally overwhelmed.
+-   If you don't have access to your data yet, check out Section
+    \@ref(further-learning) in the Resources Appendix \@ref(resources).
+-   If your collaborators or supervisor don't use these tools from the
+    course, are not supportive, or are supportive but not able to learn
+    and use these tools themselves, e.g. they are too busy, there are
+    several steps you can take. This situtation is definitely
+    challenging and is likely to be most commonly encountered. Use the
+    tools as best you can, small bits at a time, so you continue
+    learning but don't get completely overwhelmed with all the new
+    things and ways to do things. Below are some potential small steps
+    to take that you can choose from to start incorporating and using R
+    and reproducibility in your work:
+    -   As much as possible, setup your projects, folders, and files in
+        a more reproducible way (e.g. through using the structure
+        created from the prodigenr package).
+    -   Create all your figures entirely in R and using R scripts or R
+        Markdown files.
+    -   Write everything research related in R Markdown and convert to a
+        Word document when you need to send to co-authors. If they make
+        edits or comments, include the edits in the original R Markdown
+        file, and *do not* keep them in the Word document.
+    -   Start slowly making use of Git, even if you can't or are not
+        comfortable yet with sharing on GitHub. Git and GitHub are two
+        separate things and Git can still be used on your computer
+        without putting it up online.
+    -   Use R entirely to wrangle and clean your data rather than, e.g.
+        opening up Excel and editing the data there.
+-   If you're restricted to working with your data in a virtual remote
+    environment (e.g. in Denmark Statistics), you may not have
+    authorization to install some programs. However, most remote
+    environments have the latest software used for data analysis type
+    tasks. Check out Section \@ref(real-world-r3) below for details
+    about doing reproducible research with R in the Denmark Statistics
+    servers.
+
