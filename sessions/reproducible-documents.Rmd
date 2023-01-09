@@ -561,7 +561,7 @@ which gives...
 2.  item 2
 3.  item 3
 
-### General text formatting
+### Text formatting
 
 -   `**bold**` gives **bold**.
 -   `*italics*` gives *italics*.
@@ -583,6 +583,97 @@ which gives...
 
 But note that using inline R code can *only* insert a *single* number or
 character value, and nothing more.
+
+::: callout-note
+## Reading task: \~10 minutes
+
+There is a lot more Markdown syntax that let's you do quite a bit for
+formatting. Quarto's [Markdown
+Basics](https://quarto.org/docs/authoring/markdown-basics.html) page is
+a good reference for learning more. We only will cover and demonstrate
+the syntax above in the course, however, below are some additional
+things you can do with Markdown.
+
+### Block quotes
+
+Block quotes are used when you want to emphasize a block of text,
+usually for quoting someone. You create a block quote by putting a `>`
+at the beginning of the line, and as with the lists and headers, it
+needs empty lines before and after the text. So it looks like this:
+
+``` markdown
+> Block quote 
+```
+
+which gives...
+
+> Block quote
+
+### Adding footnotes
+
+Footnotes are added by enclosing a number or word in square brackets
+(`[]`) and beginning with an uptick (`^`). It looks like this:
+
+``` markdown
+Footnote[^1] or this[^note].
+
+[^1]: Footnote content
+[^note]: Another footnote
+```
+
+which gives...
+
+Footnote[^reproducible-documents-1] or this[^reproducible-documents-2].
+
+Now, if you scroll down to the bottom of the page, you will see these
+footnotes.
+
+### Adding links to websites
+
+Including a link to a website in your document is done by surrounding
+the link text with square brackets (`[]`) followed by the link URL in
+brackets (`()`). There must **not** be any space between the square
+brackets and the regular brackets (it should look like `[]()`).
+
+``` markdown
+[Link](https://google.com)
+```
+
+which gives...
+
+[Link](https://google.com)
+
+### Inserting (simple) tables
+
+While you can insert tables using Markdown too, it isn't recommended to
+do that for complicated or large tables. Tables are created by
+separating columns with `|`, with the table header being separated by a
+line that looks like `|:--|`. A simple example is:
+
+    |   | Fun | Serious |
+    |:--|----:|--------:|
+    | **Happy** | 1234 | 5678 |
+    | **Sad** | 123 | 456 |
+
+which gives...
+
+|           | Fun  | Serious |
+|:----------|:----:|:-------:|
+| **Happy** | 1234 |  5678   |
+| **Sad**   | 123  |   456   |
+
+The `|---:|` or `|:---|` tell the table to left-align or right-align the
+values in the column. Center-align is `|:----:|`.
+
+So you can probably imagine, doing this for larger or even slightly more
+complicated tables is not practical. A good alternative approach is to
+create the table in a spreadsheet, importing that table into R within a
+code chunk, and using `knitr::kable()` to create the table after that.
+:::
+
+[^reproducible-documents-1]: Footnote content
+
+[^reproducible-documents-2]: Another footnote
 
 ## Exercise: Practice using Markdown for writing text
 
