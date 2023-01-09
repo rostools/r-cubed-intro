@@ -689,6 +689,16 @@ the [ColorBrewer](https://colorbrewer2.org/) colour schemes. Both are
 well designed and are colour blind friendly. For this course, we will
 only cover the viridis package.
 
+## Other colour schemes in ggplot2
+
+You can modify ggplot2 colour schemes using many other pre-defined
+palettes by installing new R packages, including scientific journal
+colour palettes ([ggsci](https://nanx.me/ggsci/index.html)) and even a
+Wes Anderson ([wesanderson](https://github.com/karthik/wesanderson)) or
+a Stubio Ghibli ([ghibli](https://ewenme.github.io/ghibli/)) colour
+palette! Also check out the Data Visualization book in the section
+below.
+
 ## Exercise: Changing the colour schemes
 
 Time: 10 min
