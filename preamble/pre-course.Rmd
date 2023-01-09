@@ -30,7 +30,8 @@ about them are found as you work through the tasks.
 6.  Run a check to see if everything works (you'll later need to paste
     this output into the survey).
 7.  Read the syllabus (@sec-syllabus).
-8.  Read the Code of Conduct (@sec-conduct).
+8.  Read the [Code of
+    Conduct](https://guides.rostools.org/conduct.html).
 9.  Complete the pre-course
     [survey](https://docs.google.com/forms/d/e/1FAIpQLSeuMe485zZXlG9uQlUgcgsWBJvpHUB_-bMVkEtA4moWK_oUoQ/viewform?usp=sf_link).
     This survey is pretty quick, maybe \~10 minutes. There will be some
@@ -420,10 +421,10 @@ the final group project assignment (@sec-assignment) will allow you to
 practice everything you've learned in a team setting. **Please read it**
 to get familiar with what is expected of you.
 
-We have a Code of Conduct (@sec-conduct). If you haven't read it, **read
-it now**. The survey involves a question about Conduct. We want to make
-sure this course is a supportive and safe environment for learning, so
-this Code of Conduct is quite important.
+We have a [Code of Conduct](https://guides.rostools.org/conduct.html).
+If you haven't read it, **read it now**. The survey involves a question
+about Conduct. We want to make sure this course is a supportive and safe
+environment for learning, so this Code of Conduct is quite important.
 
 You're almost done. Please fill out the pre-course survey to finish this
 section, either [at this
