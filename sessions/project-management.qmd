@@ -1,7 +1,5 @@
 # Management of R projects {#sec-rproject-management}
 
-{{< include ../includes/_wip.qmd >}}
-
 ```{r setup}
 #| include: false
 source(here::here("R/functions.R"))
