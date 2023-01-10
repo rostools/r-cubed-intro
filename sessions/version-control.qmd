@@ -1,7 +1,5 @@
 # Version control with Git {#sec-version-control}
 
-{{< include ../includes/_wip.qmd >}}
-
 ```{r setup}
 #| include: false
 source(here::here("R/functions.R"))
@@ -25,6 +23,12 @@ source(here::here("R/functions.R"))
 
 ::: {.callout-note collapse="true"}
 ## Instructor note
+
+They will have already read it once before, during the pre-course tasks.
+Tell them that they'll read it again to refresh their memories and
+reinforce the concepts. This is important because Git and version
+control is something that is *very* difficult to conceptually understand
+and takes some time and practice.
 
 For the reading parts, let them read it first and then walk through the
 material again, to reinforce the importance of version control and doing
@@ -60,7 +64,7 @@ control'.](../images/informal-version-control.jpg){#fig-filenaming-version-contr
 
 Does this way of saving files and keeping track of versions look
 familiar? While the above images are teasing a bit, there is truth to
-it: it is the most commonly used "version control".
+it: It is the most commonly used "version control".
 
 This form of version control, while common, is fairly primitive,
 informal, and very manual. It isn't ideal because it requires making
@@ -73,13 +77,14 @@ manage changes to a file or files. These formal version control systems
 take snapshots of changes done to files, which are usually called
 "revisions" or "commits". These "commits" record what was changed since
 the previous "commit". When you make these "commits", you have to create
-a short message on what or why you made a change. These "commits" are
-stored as a log entry in a history. This history then has all this
-information, for each commit, on which file or files were changed, what
-was changed within the file(s), who changed it, and a short message
-about the change. This is extremely useful, especially when working in
-teams, or for yourself 6 months in the future (because you *will* forget
-things), since you can go back and quickly see what happened and why.
+a short message on what or why you made a change. These "commits" and
+their messages are stored as a log entry in a history. This history then
+has all this information, for each commit, on which file or files were
+changed, what was changed within the file(s), who changed it, and a
+short message about the change. This is extremely useful, especially
+when working in teams, or for yourself 6 months in the future (because
+you *will* forget things), since you can go back and quickly see what
+happened and why.
 
 To understand how incredibly powerful version control is, think about
 these questions:
@@ -131,15 +136,15 @@ programmers and not for non-programming users like us researchers. So
 why do we teach it? Because Git has so many great features that fit with
 how science and data analysis is done.
 
--   Like R, it is open source, so it's free and anyone can check that
-    the code is correct.
+-   Like R, it is open source, so it's free and anyone verify how
+    trustworthy and correct the code is.
 -   It is very popular and so has a very large online community that
     provides support, documentation, and tutorials on how to use it.
 -   The vast majority of open source projects and work, such as making R
-    packages, is done using Git and is hosted on
+    packages, are done using Git and are hosted on
     [GitHub](https://github.com/), which is a company that hosts Git
     "repositories" (i.e. projects) online.
-    -   All RStudio code and tidyverse packages are on GitHub.
+    -   All RStudio code and `{tidyverse}` packages are on GitHub.
 -   There are many open scientific projects that use Git and are hosted
     on GitHub, e.g. [rOpenSci](https://github.com/ropensci) organization
     or [MRC Integrated Epidemiology Unit](https://github.com/MRCIEU).
@@ -164,6 +169,16 @@ menu.](../images/git-upload-file-github.png){#fig-git-upload-file-github}
 :::
 
 ## Basics of Git {#sec-basics-of-git}
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Just like above, they've already read this section but should read it
+again to reinforce the concepts. Briefly go over it again, especially
+making sure everyone has their Git properly configured. Even though they
+do that already during the pre-course tasks, sometimes things happen in
+the meantime, so its good to check again.
+:::
 
 ::: callout-info
 ## Reading task: \~8 minutes
@@ -467,8 +482,6 @@ now, type out `learning-github` as a name for the repository and leave
 everything else blank. Make the repository "Private" for now. The video
 below can be used as a reference.
 
-<!-- TODO: Replace with only LearningR project, not learning-github -->
-
 {{< video ../videos/github-new-repository.mp4 >}}
 
 A quick side note: When using GitHub, especially in relation to health
@@ -503,10 +516,13 @@ When attempting to clone your repository, GitHub will require you to
 authenticate yourself. In most cases when using GitHub, you can use the
 password created during signup. However, when indirectly communicating
 with GitHub using RStudio, we need to use a "Personal Access Token"
-(PAT). These tokens need to be manually generated on GitHub, and gives
-us a more secure way to communicate with our GitHub account and
-repositories. Creating a token can be confusing, so the entire process
-is shown in the video below.
+(PAT).
+
+::: callout-tip
+These tokens need to be manually generated on GitHub, and gives us a
+more secure way to communicate with our GitHub account and repositories.
+Creating a token can be confusing, so the entire process is shown in the
+video below.
 
 **Note, for some people the video might not load. [Go here directly to
 see the video](../videos/github-create-token.mp4).**
@@ -518,51 +534,17 @@ password field in RStudio. The personal access token will *only be
 visible at the time it is created*, so remember to **copy it somewhere**
 before closing the browser window. Otherwise you will need to create a
 new token (which also isn't a problem).
+:::
 
-As an altenative to manually navigating the GitHub settings section, you
-can open a direct link to the personal access token website directly
-from RStudio by typing the following code in the Console.
+## Exercise: Creating a GitHub token with usethis
 
-```{r github_token}
-#| eval: false
-usethis::create_github_token()
-```
+> Time: \~15 minutes
 
-For *existing* repositories, we need to link the GitHub repository to
-the existing one on your computer. Sadly, there is no RStudio interface
-(yet) for easily doing this, and it requires us to use the Terminal
-(found in RStudio).
-
-First, let's create **another new** GitHub repository, but this time
-call it `LearningR` to match the name of our existing repository. So
-repeat the process as we did above. Once the GitHub repository has been
-created, copy and paste the code as shown in the image below
-(@fig-github-link-existing-repository).
-
-![Code to copy and paste in order to link and upload an existing local
-Git repository to a remote repository on
-GitHub.](../images/github-link-existing-repository.png){#fig-github-link-existing-repository}
-
-You'll have to enter your username and password when you "push"
-[^version-control-1] One new term here is the word `origin` when
-referring to remotes. The word *origin* is the default short name to
-refer to the location of the remote (the GitHub URL). It will come up
-again later on and whenever using remotes, like with GitHub.
-
-[^version-control-1]: If you have troubles logging in, you may need to
-    update Git.
-
-Open up the `LearningR` RStudio R Project and go to the Terminal tab
-beside the Console tab, shown in Figure @fig-rstudio-terminal-tab).
-Paste the code into the Terminal by right-clicking and selecting "Paste"
-(*note*: sometimes `Ctrl-V` does *not* work) and press "Enter". You will
-likely need to type in your GitHub password. Wait for it to finish and
-then go to the `LearningR` GitHub repository. You should now have your
-project files on GitHub!
-
-![Location of Terminal in
-RStudio.](../images/rstudio-terminal-tab.png){#fig-rstudio-terminal-tab
-width="50%"}
+As an alternative to manually navigating the GitHub settings section,
+you can open a direct link to the personal access token website directly
+from RStudio. Complete the [Connect to GitHub]() guide for this
+exercise. In the end, you should have your `LearningR` project on
+GitHub.
 
 ## Synchronizing with GitHub
 
@@ -630,8 +612,8 @@ sequenceDiagram
     top of the file.
 3.  Save the file.
 4.  Open the Git interface, by hitting `Ctrl-Alt-M` (or
-    `r palette_git_commit`) anywhere in RStudio (except when in the
-    Terminal) or going to the `Git button -> Commit`.
+    `r palette_git_commit`) anywhere in RStudio or going to the
+    `Git button -> Commit`.
 5.  Stage the file.
 6.  Add a commit message.
 7.  Commit the new change by clicking the "Commit" button.
@@ -658,21 +640,15 @@ to your local repository.
 
 {{< video ../videos/github-edit-and-commit-file.mp4 >}}
 
-## Exercise: Push and pull
-
-> Time: 15 minutes.
-
-1.  Open up the `README.md` file.
-2.  Add one or two sentences of a simple and fake description of the
-    project to the `README.md` file. Add and commit the change.
-3.  Push the changes up to GitHub.
-4.  Confirm that the change was synchronized to your GitHub repository.
-5.  In the GitHub `LearningR` repository, directly edit your `README.md`
-    file there. Commit the changes.
-6.  In your RStudio `LearningR.Rproj` project, pull the changes you made
-    on GitHub.
-
 ## Dealing with file conflicts between the local and remote
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Walk through this section slowly, really making sure to **not** push
+when they shouldn't push. Otherwise they won't get to see the merge
+conflicts. Emphasize that they *always* need to fix merge conflicts.
+:::
 
 Normally Git is very good at synchronizing and merging changes between a
 local repository and its remote repository. However, sometimes, when it
@@ -692,17 +668,16 @@ control to resolve it.
 
 Let's force a conflict to happen. In your `LearningR` RStudio R Project,
 open up the Git interface and make sure that you don't see
-`R/version-control-session.R` anywhere in the list and that you've
-pushed and pulled already with your GitHub repository. Then, open up
-`R/version-control-session.R` and add the text
-`# Here's an example of a conflict` to the very first line. In the Git
-interface, add and commit this change but **don't push the changes**!
+`R/learning.R` anywhere in the list and that you've pushed and pulled
+already with your GitHub repository. Then, open up `R/learning.R` and
+add the text `# Here's an example of a conflict` to the very first line.
+In the Git interface, add and commit this change but **don't push the
+changes**!
 
-Then, go to your GitHub repository and open up the
-`version-control-session.R` file in the `R/` folder. Click the "Edit"
-button, as you learned previously in the session. In the first line of
-the file, add the text `# When a conflict happens`. Write a simple
-commit message and commit the change.
+Then, go to your GitHub repository and open up the `R/learning.R` file.
+Click the "Edit" button, as you learned previously in the session. In
+the first line of the file, add the text `# When a conflict happens`.
+Write a simple commit message and commit the change.
 
 Now, go back to your RStudio project, open the Git interface and click
 "Pull". You can try to push first, but when there are differences
@@ -731,8 +706,8 @@ time we won't be covering them. You only need to know that every Git
 repository starts with the default `main` (or `master`) branch.
 
 At this point, you decide what to keep and what to remove by deleting
-text within the `version-control-session.R` script in RStudio. You'll
-need to also delete the lines with the `<<<<<<< HEAD`, `=======`, and
+text within the `R/learning.R` script in RStudio. You'll need to also
+delete the lines with the `<<<<<<< HEAD`, `=======`, and
 `>>>>>>> origin/main`
 
 After deciding what to keep and removing all the left over merge
@@ -748,6 +723,10 @@ and view that the changes have taken place.
 ## Exercise: Dealing with merge conflicts
 
 > Time: 12 minutes.
+
+Throughout this course you *hopefully* won't encounter many merge
+conflicts, including during the group project. Because of this, we want
+you to get some more practice with dealing with them.
 
 1.  In your GitHub `LearningR` repository, edit the `README.md` file by
     replacing one word with a random word (e.g. "blahblah"). Commit the
@@ -822,9 +801,10 @@ video below).
 
 {{< video ../videos/github-add-collaborator.mp4 >}}
 
-We won't have you do this for this session, since you've all been added
-as collaborators to your group's repository. But you will get practice
-collaborating on a Git project in the group work later in the course.
+We won't have you do this for this course, since you've all been added
+as collaborators to your group's repository. Instead, you can focus on
+getting practice collaborating on a Git project in the group work later
+in the course.
 
 > **Note**: A big challenge you'll encounter with becoming better with
 > this way of collaborating is that most of your collaborators will
