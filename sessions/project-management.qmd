@@ -97,9 +97,20 @@ that in this session.
 prodigenr::setup_project("~/Desktop/LearningR")
 ```
 
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Emphasize and reinforce what this `::` is doing and why we are doing it.
+:::
+
 Just a reminder, when we use the `::` colon here, we are saying:
 
-> Hey R, from the prodigenr package use the setup_project function.
+> Hey R, from the prodigenr package use the `setup_project` function.
+
+That way, we are directly requesting R to look in the `{prodigenr}`
+package and use the `setup_project()` function. We do this because we
+want to be explicit about what we want to use and since we don't need to
+load the full package.
 
 After we've created a New Project in RStudio, we'll have a bunch of new
 files and folders.
@@ -656,3 +667,4 @@ regularly and perhaps join an online coding community.
 -   Keep R scripts simple, focused, and short.
 -   Use tab auto-completion when writing code.
 -   Use `?` to get help on an R object.
+
