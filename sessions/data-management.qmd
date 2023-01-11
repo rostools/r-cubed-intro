@@ -1,7 +1,5 @@
 # Data management and wrangling {#wrangling}
 
-{{< include ../includes/_wip.qmd >}}
-
 ```{r setup}
 #| include: false
 source(here::here("R/functions.R"))
@@ -36,6 +34,9 @@ This session usually takes a fair amount of time relative to the other
 sessions. The R Markdown session is right afterwards and since it
 usually is done quicker than other sessions, it's fine if this session
 takes up time in the R Markdown session.
+
+For the reading section, emphasize the characteristics of a "tidy"
+dataset.
 :::
 
 ::: callout-info
@@ -216,54 +217,6 @@ the data types that they are. Once we've run the code, we will commit
 the changes to the Git history with the RStudio Git interface (with
 `r palette_git_commit`).
 
-## Exercise: Get familiar with the NHANES dataset
-
-> Time: 10 minutes.
-
-Take some time to get to know the NHANES dataset.
-
-1.  Copy the code below and paste it into the `R/learning.R` script
-    file.
-2.  Replace the `___` with `NHANES`.
-3.  Run each line of code by using the `Ctrl-Enter` shortcut.
-4.  Take a look at the output for each command, to see what sorts of
-    data you are able to retrieve.
-5.  Once you have completed each, add and commit the changes to the Git
-    history with the RStudio Git interface.
-
-``` r
-# Check column names
-colnames(___)
-
-# Look at contents
-str(___)
-glimpse(___)
-
-# See summary
-summary(___)
-
-# Look over the dataset documentation
-?___
-```
-
-```{r solution-get-familiar-with-data}
-#| eval: false
-#| code-fold: true
-#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-# Check column names
-colnames(NHANES)
-
-# Look at contents
-str(NHANES)
-glimpse(NHANES)
-
-# See summary
-summary(NHANES)
-
-# Look over the dataset documentation
-?NHANES
-```
-
 ## Selecting specific columns in a dataset
 
 Selecting columns of a dataset is a very common data wrangling task. The
@@ -345,15 +298,11 @@ guide](https://style.tidyverse.org/), we should change the column names
 to be all lower case with `_` for spaces between words. There's a
 package that can do that for us called `{snakecase}`.
 
-In the Console, type out `snakecase::` and hit Tab. You'll see a list of
-possible functions to use. We want to use the snakecase function, so
-scroll down and find the `to_snake_case()`.
-
-To change all the column names to lower case, we'll use the function
+To change all the column names to snakecase, we'll use the function
 `rename_with()`. This function takes the data as the first argument but
-the second argument needs to be a function, which in our case is
-`to_snake_case()` without using the `()` at the end. This function will
-rename all columns.
+the second argument needs to be a function, which in our case is called
+`snakecase::to_snake_case()`, but exclude the `()` at the end. This
+function will rename all columns.
 
 ```{r create-nhanes-snakecase}
 # Rename all columns to snake case
@@ -426,14 +375,14 @@ would be `drive()` and `buy()`. In regular R (without the "pipe"
 operator), we would have to nest functions (reading from the inside to
 the outside) together to chain them:
 
-```{r, eval=FALSE}
+``` r
 drive(buy(drive(at_work, "grocery store"), "eggs"), "home")
 ```
 
 This is difficult to read. Another way to chain functions would be to
 create temporary objects for each step:
 
-```{r, eval=FALSE}
+``` r
 at_grocery_store <- drive(at_work, "grocery store")
 got_eggs <- buy(at_grocery_store, "eggs")
 at_home <- drive(got_eggs, "home")
@@ -443,7 +392,7 @@ This still isn't very "readable", as we are having to re-name each
 intermediate object with reference to the object before it. The pipe
 `%>%` operator can really simplify this:
 
-```{r, eval=FALSE}
+``` r
 at_work %>% 
     drive("grocery store") %>% 
     buy("eggs") %>% 
@@ -468,7 +417,7 @@ Let's try this out on NHANES. The keyboard shortcut for the pipe is
 `Ctrl-Shift-M` (i.e., M for the `{magrittr}` package that created the
 pipe).
 
-```{r}
+```{r show-pipe-with-colnames}
 # These two ways are the same
 colnames(nhanes_small)
 
@@ -484,7 +433,7 @@ Let's try using the pipe with the `select()` and `rename()` functions
 from the previous section. Remember, both `select()` and `rename()` take
 a dataset as the first argument, which makes them pipe-able.
 
-```{r}
+```{r piping-select-to-rename}
 nhanes_small %>% 
     select(phys_active) %>% 
     rename(physically_active = phys_active)
@@ -501,9 +450,9 @@ Git interface before moving on to the exercise.
 
 ## Exercise: Practice what we've learned
 
-Time: 10 min
+> Time: 10 minutes.
 
-In the `exercise-wrangling.R` script file, complete the following tasks.
+In the `R/learning.R` script file, complete the following tasks.
 
 1.  Copy and paste the code below into the script file. Replace the
     `___` in the `select()` function, with the columns `bp_sys_ave`, and
@@ -541,10 +490,16 @@ In the `exercise-wrangling.R` script file, complete the following tasks.
     rename(blood_pressure, bp_systolic = bp_sys)
     ```
 
-5.  Lastly, add and commit these changes to the Git history with the
-    RStudio Git interface.
+5.  Run `{styler}` on the `R/learning.R` file with
+    `r palette_styler_file`.
 
-```{r solution-ex-practice-dplyr, eval=FALSE, solution=TRUE}
+6.  Lastly, add and commit these changes to the Git history with the
+    RStudio Git interface (`r palette_git_commit`).
+
+```{r solution-practice-dplyr}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # 1. Select specific columns
 nhanes_small %>%
     select(bp_sys_ave, education)
@@ -602,11 +557,12 @@ We would "read" this code as:
 When a row in the `phys_active` column has the value `"No"`, that row is
 kept. Otherwise, it is dropped.
 
-There are other logic comparisons to use. Table
-\@ref(tab:logic-operators) can be used as a reference for logical
-conditions in R.
+There are other logic comparisons to use. @tbl-logic-operators can be
+used as a reference for logical conditions in R.
 
 ```{r logic-operators, echo=FALSE}
+#| label: tbl-logic-operators
+#| tbl-cap: "Logical operators in R."
 tibble::tribble(
     ~Operator, ~ Description,
     "<", "less than",
@@ -619,7 +575,7 @@ tibble::tribble(
     "x | y", "x OR y",
     "x & y", "x AND y"
 ) %>% 
-    kable(caption = "Logical operators in R.")
+    kable()
 ```
 
 Let's try out a few of these logical conditions with `filter()`.
@@ -749,8 +705,8 @@ nhanes_small %>%
 ```
 
 We can also have different values based on logic conditions using
-`if_else()`. Use Table \@ref(tab:logic-operators) to help with creating
-the logic condition.
+`if_else()`. Use @tbl-logic-operators to help with creating the logic
+condition.
 
 ```{r}
 nhanes_small %>%
@@ -767,15 +723,15 @@ nhanes_update <- nhanes_small %>%
     mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
 
-Before you start the following exercise, add and commit all the files
-changes to the Git history with the RStudio Git interface.
+Before you start the following exercise, run `{styler}`
+(`r palette_styler_file`) and commit all the files changes to the Git
+history with the RStudio Git interface (`r palette_git_commit`).
 
 ## Exercise: Piping, filtering, and mutating
 
-Time: 20 min
+> Time: 20 minutes.
 
-Copy and paste the code below into the `exercises-wrangling.R` script
-file.
+Copy and paste the code below into the `learning.R` script file.
 
 ```{r ex-pipe-filter-mutate, eval=FALSE}
 # 1. BMI between 20 and 40 with diabetes
@@ -820,7 +776,10 @@ this exercise by using `Ctrl-Shift-R`).
     RStudio Git Interface. Push to GitHub to synchronize with your
     GitHub repository.
 
-```{r solution-ex-pipe-filter-mutate, eval=FALSE, solution=TRUE}
+```{r solution-pipe-filter-mutate}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # 1. BMI between 20 and 40, with diabetes
 nhanes_small %>%
     filter(bmi >= 20 & bmi <= 40 & diabetes == "Yes")
@@ -837,7 +796,8 @@ nhanes_modified
 
 ## Split-apply-combine: Summarizing data
 
-**Take 5 min to read through this section** before we continue.
+::: callout-note
+## Reading task: \~5 minutes
 
 Summarising or applying simple (or complex) statistics to data is a key
 component of any analysis. Simple summaries or statistics can be done
@@ -847,12 +807,12 @@ analysis tasks that can be approached using the
 method, which involves splitting the data into groups, applying some
 analysis to each group, and then combining the results together.
 
-In [dplyr](https://dplyr.tidyverse.org/), you can use the function
-called `summarise()` to summarise on all the data. If you want to do a
-split-apply-combine analysis to, e.g., find the max height by education
-status, you would use the functions `group_by()` and then `summarise()`.
-Using `group_by()` splits the data up and `summarise()` applies an
-analysis, then immediately combines it back together.
+In `{dplyr}`, you can use the function called `summarise()` to summarise
+on all the data. If you want to do a split-apply-combine analysis to,
+e.g., find the max height by education status, you would use the
+functions `group_by()` and then `summarise()`. Using `group_by()` splits
+the data up and `summarise()` applies an analysis, then immediately
+combines it back together.
 
 The first position argument to `group_by()` is, as usual, the dataset.
 The next arguments are the columns that contain the values you want to
@@ -872,7 +832,8 @@ variable, including `min()`, `max()`, `mean()`, `median()`, or `sd()`
 The `group_by()` function doesn't do anything by itself so should always
 be used in combination with a `summarise()`, `mutate()`, `arrange()`, or
 other function. However, the `summarise()` function can be used on its
-own. Let's take a look.
+own.
+:::
 
 ## Calculating summary statistics
 
@@ -908,11 +869,10 @@ Git history with the RStudio Git interface.
 
 ## Exercise: Calculate some basic statistics
 
-Time: 10 min
+> Time: 10 minutes.
 
 Practice using `summarise()` by calculating various summary statistics.
-Copy and paste the code below into the `exercises-wrangling.R` script
-file.
+Copy and paste the code below into the `R/learning.R` script file.
 
 ```{r exercise-summarise-basic-stats, eval=FALSE}
 # 1.
@@ -935,7 +895,10 @@ statistic functions.
 3.  Lastly, add and commit any changes made to the Git history with the
     RStudio Git interface.
 
-```{r solution-exercise-summarise-basic-stats, eval=FALSE, solution=TRUE}
+```{r solution-summarise-basic-stats}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # 1.
 nhanes_small %>%
     summarise(mean_bp_sys = mean(bp_sys_ave, na.rm = TRUE),
@@ -1003,15 +966,15 @@ nhanes_small %>%
     ungroup()
 ```
 
-Before you start the following exercise, add and commit changes to the
-Git history.
+Before you start the following exercise, run `{styler}`
+(`r palette_styler_file`) and commit changes to the Git history
+(`r palette_git_commit`).
 
 ## Exercise: Answer some statistical questions with group by and summarise
 
-Time: 5-7 min
+> Time: \~7 minutes.
 
-Copy and paste the code below into the `exercises-wrangling.R` script
-file.
+Copy and paste the code below into the `R/learning.R` script file.
 
 ```{r exercise-groupby-summarise, eval=FALSE}
 # 1. 
@@ -1049,7 +1012,10 @@ Then, start replacing the `___` with the appropriate code including
 3.  Once done, add and commit the changes to the file to the Git
     history.
 
-```{r solution-exercise-groupby-summarise, eval=FALSE, solution=TRUE}
+```{r solution-group-by-summarise}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # 1. 
 nhanes_small %>% 
     filter(!is.na(diabetes)) %>% 
@@ -1076,26 +1042,47 @@ nhanes_small %>%
 
 ## Saving datasets as files
 
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Go over how to save data to a file, but don't cover the `{here}` package
+right away. Let them read about it in the section below and then briefly
+cover it again.
+:::
+
+The `nhanes_small` data frame you created is only available after you've
+created it from NHAHES, but if you want to access it later, you can save
+it as a `.csv` file in your `data/` folder using the function
+`readr::write_csv()`.
+
+```{r save-data-as-csv}
+#| eval: false
+readr::write_csv(
+  nhanes_small,
+  here::here("data/nhanes_small.csv")
+)
+```
+
 ::: callout-note
 ## Reading task: \~5 minutes
 
-You see there's a new thing `here`! The `{here}` package uses a function
-called `here()` that makes it easier to manage *file paths* within an R
+There's a new thing `here()`! The `{here}` package uses a function
+called `here()` to make it easier to manage *file paths* within an R
 Project.
 
-So, what is a file path and why is this here package necessary? A file
-path is the list of folders a file is found in. For instance, your CV
-may be found in `/Users/Documents/personal_things/CV.docx`. The problem
-with file paths in R is that when you run a script interactively (e.g.
-what we do in class and normally), the file path and "working directory"
-(the R Session) are located at the Project level (where the `.Rproj`
-file is found). You can see the working directory by looking at the top
-of the RStudio Console.
+So, what is a file path and why is this `{here}` package necessary? A
+file path is the list of folders a file is found in. For instance, your
+CV may be found in `/Users/Documents/personal_things/CV.docx`. The
+problem with file paths when running code (like with R) is that when you
+run a script interactively (e.g. what we do in class and normally), the
+file path and "working directory" (the R Session) are located at the
+Project level (where the `.Rproj` file is found). You can see the
+working directory by looking at the top of the RStudio Console.
 
 But! When you `source()` an R script or run it *not* interactively, the
 R code may likely run *in the folder it is saved in*, e.g. in the `R/`
-folder. So your file path `R/package-loading.R` won't work because there
-isn't a folder called `R/` in the `R/` folder.
+folder. So your file path `data/nhanes_small.csv` won't work because
+there isn't a folder called `data/` in the `R/` folder.
 
     LearningR <-- R Project working directory starts here.
     ├── R
@@ -1121,24 +1108,6 @@ found) and then use that file path. This simple function can make your
 work more reproducible and easier for you to use later on.
 :::
 
-The `nhanes_small` data frame you created is only available after you've
-created it from NHAHES, but if you want to access it later, you can save
-it as an `.rda` file in your `data/` folder using the function
-`usethis::use_data()`. We would add `overwrite = TRUE` to this so that
-we can save the dataset again even if the file already exists.
-
-The `usethis::use_data()` function outputs some information, the last of
-which ("Document your data") we won't cover in this course. The function
-takes any number of datasets and saves them individually as a `.rda` R
-dataset file in the `data/` folder.
-
-```{r save-data-as-csv, eval=FALSE}
-readr::write_csv(
-  nhanes_small,
-  here::here("data/nhanes_small.csv")
-)
-```
-
 For many projects, it isn't necessary or advisable to save every single
 data object you create. It's better to let the code create the data
 you'll use rather than saving each new wrangled dataset you might
@@ -1150,7 +1119,8 @@ new cleaned dataset.
 
 ## Loading in a dataset
 
-**Take \~5 min to read through this section**.
+::: callout-note
+## Reading task: \~5 minutes
 
 We've been using a teaching dataset that we load from a package, mainly
 so that we can focus on getting familiar with data wrangling. However,
@@ -1162,10 +1132,10 @@ several ways to load in a dataset, with the most common being:
     (depending on your file type you want to import).
 
 2.  If the file is a `.csv` file, use `readr::read_csv()` to import the
-    dataset:
+    dataset, for instance with the `nhanes_small`:
 
     ``` r
-    dataset_name <- readr::read_csv(here::here("data/dataset_name.csv"))
+    nhanes_small <- readr::read_csv(here::here("data/nhanes_small.csv"))
     ```
 
 3.  If the dataset is a `.rda` file, use `load()`:
@@ -1175,26 +1145,16 @@ several ways to load in a dataset, with the most common being:
     ```
 
     This loads the dataset into your R session so that you can use it
-    again. If you want to check that it works, restart the R session
-    with either `Ctrl-Shift-F10` or with the menu item
-    `Session -> Restart R`. Then, type out and run this:
-
-    ```{r, eval=FALSE}
-    load(here::here("data/nhanes_small.rda"))
-    ```
-
-    You should now see this dataset in the Environment tab. This is how
-    you save and load data.
+    again.
 
 For SAS, SPSS, or Stata files, you can use the package
 [haven](https://haven.tidyverse.org/) to import those types of data
 files into R.
+:::
 
-## Exercise: Practicing the dplyr functions
+## Optional exercise: Practicing the dplyr functions
 
-Time: 30 minutes
-
-Practice using dplyr by using the `NHANES` dataset and wrangling the
+Practice using `{dplyr}` by using the `NHANES` dataset and wrangling the
 data into a summary output. Don't create any intermediate objects by
 only using the pipe operator to link each task below with the next one.
 
@@ -1208,10 +1168,14 @@ only using the pipe operator to link each task below with the next one.
 6.  Group the data according to `sex` and `age_class`.
 7.  Calculate the `mean` and `median` BMI according to the grouping to
     determine the difference in BMI between age classes and sex.
-8.  Add and commit changes to the Git history with the RStudio Git
-    interface.
+8.  Run `{styler}` on the file (`r palette_styler_file`).
+9.  Add and commit changes to the Git history with the RStudio Git
+    interface (`r palette_git_commit`).
 
-```{r solution-exercise-combine-all-dplyr, eval=FALSE, solution=TRUE}
+```{r solution-combine-all-dplyr}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 NHANES %>% 
     rename_with(snakecase::to_snake_case) %>% 
     select(gender, age,  bmi) %>% 
@@ -1235,4 +1199,3 @@ NHANES %>%
     package to wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
-
