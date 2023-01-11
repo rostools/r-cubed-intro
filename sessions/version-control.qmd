@@ -260,8 +260,9 @@ Setting up a Git repository can be done in several ways:
 ::: {.callout-note collapse="true"}
 ## Instructor note
 
-Take your time going through the RStudio Git interface, showing where
-things are and what things to focus on for this course.
+Since they will be using the Git interface quite a bit, really take your
+time walking through it and describing it. Show where things are and
+what things to focus on for this course.
 :::
 
 ::: callout-info
