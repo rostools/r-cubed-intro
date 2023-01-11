@@ -910,7 +910,7 @@ nhanes_small %>%
               min_bp_dia = min(bp_dia_ave, na.rm = TRUE))
 ```
 
-## Summary statistics by a group {#group-by-summarise}
+## Summary statistics by a group {#sec-group-by-summarise}
 
 While the `summarise()` function is useful enough on its own, it really
 shines when combined with `group_by()`.
