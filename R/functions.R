@@ -1,2 +1,5 @@
 palette_git_commit <- '`Ctrl-Shift-P`, then type "commit"'
-palette_styler_file <- 'Ctrl-Shift-P`, then type "style file"'
+palette_styler_file <- '`Ctrl-Shift-P`, then type "style file"'
+palette_chunk <- '`Ctrl-Shift-P`, then type "chunk"'
+keybind_knit <- '`Ctrl-Shift-K` for "Knit"'
+keybind_chunk <- '`Ctrl-Shift-I` for "Insert"'
