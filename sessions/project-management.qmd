@@ -175,13 +175,6 @@ prodigenr::setup_with_git()
 This will add the `.gitignore` file to the project as well as to tell
 Git to track our project. We'll cover this more later.
 
-## Exercise: Reading the READMEs
-
-> Time: 7 minutes.
-
-1.  Briefly read through each of the `README.md` files by opening them
-    up in RStudio.
-
 ## What's in a (file) name?
 
 It might seem so basic, but how you name your files can have a huge

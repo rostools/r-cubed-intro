@@ -722,7 +722,7 @@ and view that the changes have taken place.
 
 ## Exercise: Dealing with merge conflicts
 
-> Time: 12 minutes.
+> Time: \~15 minutes.
 
 Throughout this course you *hopefully* won't encounter many merge
 conflicts, including during the group project. Because of this, we want
