@@ -612,8 +612,7 @@ If you still can't find the problem, here are some other steps to take:
     RStudio (bottom right-hand corner). **Try it out:** Enter either of
     the following commands into the Console and run it (hit `Enter`).
 
-    ```{r using-help}
-    #| eval: false
+    ``` r
     ?colnames
 
     help(colnames)
