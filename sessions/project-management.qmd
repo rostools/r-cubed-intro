@@ -293,6 +293,10 @@ lot over the later sessions. However, do a code-along showing how to
 assign data to objects, the difference between unassigned (not saved)
 and assigned (saved; this will be helpful in the wrangling section and
 piping without assigning), and how to send code to the Console.
+
+Emphasize that, in general, code with `()` means it is a function and
+that it does an action. Mention that, like everything, there are some
+situations where that isn't completely true but it mostly is.
 :::
 
 ::: callout-info
