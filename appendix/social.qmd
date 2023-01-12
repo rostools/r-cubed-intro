@@ -2,44 +2,48 @@
 
 ## Day 1 {#social-day-1 .unnumbered}
 
-We'll all get into two circles, one inside the other and facing each
-other. A timer will go off every 4 minutes, afterwards the inner circle
-rotates to the next person. There is another timer every 2 minutes,
-where you have time to introduce yourself (your name only) and to share
-your thoughts on one of these questions. Choose at least two questions
-that you would like to share, so you don't always repeat the same
-question.
+After lunch, with your group, go and walk outside or in the building and
+discuss this general topic on your experiences and workflows with
+tracking different versions of your files and managing changes made to
+those files. If no one has any experiences or workflows to share, you
+can instead brainstorm or generally discuss these topics.
 
--   How do you currently collaborate with others and are you happy with
-    it?
--   What would an easy and smooth research collaboration look like (to
-    you)?
--   How could you make it easier for others to collaborate on our
-    project(s)?
--   Why are you here and what do you want to learn besides R?
+-   Share an experience where you might have deleted text or code but
+    thought you might have saved it somewhere in a backup or something.
+    What did you do? Did you solve it? How did it make you feel?
+
+-   Share how you manage your files and the different versions? When you
+    send a paper for review to co-authors, how do you manage all the
+    comments you get back? How do you save the files? When you work on a
+    project, where do you save all your files related to that project?
+    When you are writing documents, do you have a version for each day
+    or keep working on that file?
+
+-   Share any other experiences or ways that you manage how you work
+    with files and how you make changes to them.
 
 ## Day 2 {#social-day-2 .unnumbered}
 
-After lunch, get in your group and walk outside while discussing this
-topic and questions:
+After lunch, get in your group and walk outside (or inside) while
+discussing the general topic around the experiences and workflows of
+working on a paper or document that had results, either alone or with
+collaborators. If no one has any experiences or workflows to share, you
+can instead brainstorm or generally discuss these topics.
 
--   Share a positive or exciting experience you had related to data
-    analysis, coding in R, or actively collaborating with others. It can
-    be recent or in the past, but as long as it was a memorable and
-    positive. What made it positive? Do you try to repeat that
-    experience, or at least the feeling of it?
+-   Share an experience where you might have had to re-do an analysis
+    and update some figures and numbers in your document. How did you
+    feel while doing that? How long did it take? Was it a good
+    experience or would you rather have spent that time doing something
+    else?
 
-## Day 3 {#social-day-3 .unnumbered}
+-   Share an experience where you were working with a collaborator,
+    reviewing a paper they were the lead on and it seemed like some of
+    the figures or tables weren't updated based on recent discussions.
+    What did you do? How did you get an updated version and how long did
+    it take? How did you feel about having to rely on and wait for
+    someone else to complete something after you may (or may not have)
+    scheduled time to do the review of it?
 
-Find someone you haven't talked with yet, or have interacted with the
-least compared to everyone else and talk about these questions and
-topics. You can walk outside, find a table, or do whatever.
-
--   What would you spend your work time on if you had learned efficient
-    and effective coding skills earlier in your career and were in a
-    research culture that encouraged sharing and supporting these
-    skills?
--   If instead of working, you could take those extra hours saved from
-    being efficient for personal activities, what would you spend your
-    time on?
-
+-   What other experiences do you have around working with analysis
+    results, including them into documents, and collaborating with
+    others or at least getting feedback?
