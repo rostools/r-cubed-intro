@@ -24,6 +24,9 @@ source(here::here("R/functions.R"))
 ::: {.callout-note collapse="true"}
 ## Instructor note
 
+Before starting this session, get them to share some of the things they
+discussed during the social activity.
+
 They will have already read it once before, during the pre-course tasks.
 Tell them that they'll read it again to refresh their memories and
 reinforce the concepts. This is important because Git and version
@@ -255,6 +258,21 @@ Setting up a Git repository can be done in several ways:
     `usethis::use_git()`.
 :::
 
+## Exercise: How might you use Git in your work?
+
+> Time: \~10 minutes.
+
+One of the biggest comments people make when first learning about Git
+is: "I see some of the benefits, but can't see how I would use it in my
+own work. How or why would I?" So, to tackle that question right away,
+take some time to brainstorm and discuss with your neighbour how you
+might use Git *right now or in the near future*.
+
+1.  Take 1 minute to think to yourself.
+2.  Take 6 minutes to discuss and brainstorm with your neighbour.
+3.  In the final few minutes, we will all share with the group some
+    thoughts.
+
 ## Using Git in RStudio
 
 ::: {.callout-note collapse="true"}
@@ -415,7 +433,7 @@ easier for others as well.
 
 ## Exercise: Committing to history
 
-> Time: 12 minutes.
+> Time: 15 minutes.
 
 When working on your own projects and when you use Git, you will be
 committing a *lot* of changes to your files into the Git history. Part
@@ -745,6 +763,21 @@ you to get some more practice with dealing with them.
     (you don't need to type out a commit message).
 4.  Push the changes up to GitHub and view them there to make sure they
     have been synchronized (you may need to refresh the browser).
+
+## Exercise: How can you use Git to collaborate better?
+
+> Time: \~10 minutes.
+
+Before actually learning about how you might collaborate with others
+(and future you) by using Git and GitHub, let's brainstorm and discuss
+how you might do it. Based on what you have learned so far, take some
+time to think about how you might use Git and GitHub to collaborate more
+easily between collaborators and future you.
+
+1.  Take 1 minute to think to yourself.
+2.  Take 6 minutes to brainstorm and discuss with your neighbour.
+3.  In the final few minutes, we will share what you discussed with the
+    group.
 
 ## Collaborating using Git and GitHub
 

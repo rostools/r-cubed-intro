@@ -71,6 +71,19 @@ you'll not only make your science better and more rigorous, it also
 makes your life easier too!
 :::
 
+## Exercise: How do you organise your files and projects?
+
+> Time: \~8 minutes.
+
+This seems so basic, how files are organized on computers. We literally
+work with files all the time on computers. But consider, how do you
+organize them? Take some time to discuss and share with your neighbour.
+
+1.  Take 1 minute to think to yourself.
+2.  Take 5 minutes to discuss and share with your neighbour.
+3.  For the remaining time, we will all share our thoughts with the
+    group.
+
 ## RStudio and R Projects
 
 RStudio helps us with managing projects by making use of [R
