@@ -2,6 +2,7 @@
 
 ```{r setup}
 #| include: false
+library(tidyverse)
 source(here::here("R/functions.R"))
 ```
 
@@ -579,7 +580,7 @@ tibble::tribble(
     "x | y", "x OR y",
     "x & y", "x AND y"
 ) %>% 
-    kable()
+    knitr::kable()
 ```
 
 Let's try out a few of these logical conditions with `filter()`.
@@ -1060,7 +1061,6 @@ it as a `.csv` file in your `data/` folder using the function
 `readr::write_csv()`.
 
 ```{r save-data-as-csv}
-#| eval: false
 readr::write_csv(
   nhanes_small,
   here::here("data/nhanes_small.csv")
@@ -1203,4 +1203,3 @@ NHANES %>%
     package to wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
-

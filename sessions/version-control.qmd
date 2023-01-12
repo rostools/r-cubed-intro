@@ -561,7 +561,8 @@ new token (which also isn't a problem).
 
 As an alternative to manually navigating the GitHub settings section,
 you can open a direct link to the personal access token website directly
-from RStudio. Complete the [Connect to GitHub]() guide for this
+from RStudio. Complete the [Connect to
+GitHub](https://guides.rostools.org/connect-github.html) guide for this
 exercise. In the end, you should have your `LearningR` project on
 GitHub.
 
@@ -874,3 +875,4 @@ in the course.
         `=======`, and `>>>>>>> origin/main` (the last name may
         sometimes look different), and remove tags.
 -   Almost all Git actions can be done using RStudio's Git interface.
+

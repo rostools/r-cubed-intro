@@ -48,8 +48,6 @@ book:
     - appendix/social.qmd
     # - appendix/slides.Rmd
     - appendix/assignment.qmd
-    - text: "Conduct"
-      href: "https://guides.rostools.org/conduct.html"
     # - appendix/resources.Rmd
     - appendix/for-instructors.qmd
     - appendix/references.qmd
@@ -57,6 +55,8 @@ book:
     center:
       - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
         href: LICENSE.md
+      - text: "Code of Conduct"
+        href: "https://guides.rostools.org/conduct.html"
 
 bibliography:
   - includes/references.bib

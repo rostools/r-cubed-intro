@@ -193,7 +193,7 @@ dashes surrounding it). Make sure that the YAML key `format:` is set to
 `html`.
 
 Then, place your cursor two lines below the YAML header and insert a
-code chunk (`r keybind_chunk` or `r palette_code_chunk`). The code chunk
+code chunk (`r keybind_chunk` or `r palette_chunk`). The code chunk
 should look something like this:
 
     ```{{r}}
@@ -735,30 +735,31 @@ in the [Figures](https://quarto.org/docs/authoring/figures.html) guide.
 :::
 
 Knit the document again (`Ctrl-Shift-K`) and view the HTML document with
-the new picture. Now, let's change the width and height of the image,
-and add a figure caption. We do this with these code chunk options:
+the new picture. Now, let's change the width and height of the image as
+well as its alignment. We do this by adding a `{}` to the end of the
+Markdown image tag and put options inside there.
 
--   `fig.cap`: To write the figure caption.
--   `fig.align`: To align the figure, either in `"center"`, `"left"`, or
+-   `fig-align`: To align the figure, either in `"center"`, `"left"`, or
     `"right"`.
--   `out.width` and `out.height`: To set the image width and height for
-    external images (not created by R). You can use percent to set the
-    size as well, e.g. `"75%"`.
+-   `width` and `height`: To set the image width and height for external
+    images (not created by R). You can use percent to set the size as
+    well, e.g. `"75%"`.
+-   `#fig-LABEL`: Use this to add a label so you can cross-reference it
+    by typing inline `@fig-LABEL`.
 
-Now, try to change the width and height to `"50%"`, and add a caption
-like `"Kittens attacking flowers!"`:
+Now, try to change the width and height to `"50%"`, and change the
+caption to something like `"Kittens attacking flowers!"`, and add a
+label and reference:
 
-``` markdown
-`r ''````{r kitten-image, out.width="50%", out.height="50%", fig.cap="Kitten attacking flowers!"}
-knitr::include_graphics(here::here("images/kitten.jpg"))
-`r ''````
-```
+    Cute kitten in @fig-kitten-attack!
 
-```{r kitten-image-small, out.width="50%", out.height="50%", fig.cap="Kitten attacking flowers!", echo=FALSE}
-knitr::include_graphics(here::here("images/kitten.jpg"))
-```
+    ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack, width="50%", height="50%"}
 
-Knit again to see how the image changed. Great!
+![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack,
+width="50%", height="50%"}
+
+Now in @fig-kitten-attack, we see a kitten! Render again
+(`r keybind_knit` or `r palette_render`) to see how the image changes.
 
 ## Other R Markdown features
 
