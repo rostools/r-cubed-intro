@@ -4,6 +4,8 @@
 knitr::opts_chunk$set(message = FALSE, out.width = NULL)
 ```
 
+<!-- TODO: Add text about using Quarto options for figures -->
+
 **Session objectives**:
 
 1.  Learn and apply the basics of creating publication-quality graphs.
