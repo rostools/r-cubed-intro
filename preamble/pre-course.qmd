@@ -102,7 +102,8 @@ them.
 4.  Install [Git](https://git-scm.com/downloads). We'll use this
     throughout the course.
 5.  For some Windows users, you may need to install
-    [Rtools](https://cran.r-project.org/bin/windows/Rtools/Rtools35.exe)
+    [Rtools42](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html)
+    (direct download link [here](https://cran.r-project.org/bin/windows/Rtools/rtools42/files/rtools42-5355-5357.exe))
     in order for some R packages to be successfully installed (which
     you'll do shortly). For some computers, installing Rtools can take
     some time. *You need this in order for some packages to work.*
