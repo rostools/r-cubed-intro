@@ -30,29 +30,29 @@ book:
     location: navbar
     type: overlay
   chapters:
-    - index.Rmd
+    - index.qmd
     - part: "Preamble"
       chapters:
-      - preamble/syllabus.Rmd
-      - preamble/schedule.Rmd
-      - preamble/pre-course.Rmd
+      - preamble/syllabus.qmd
+      - preamble/schedule.qmd
+      - preamble/pre-course.qmd
     - part: "Sessions"
       chapters:
       # - sessions/introduction.qmd
-      # - sessions/project-management.Rmd
-      - sessions/version-control.Rmd
-      # - sessions/data-management.Rmd
-      # - sessions/reproducible-documents.Rmd
-      # - sessions/data-visualization.Rmd
+      - sessions/project-management.qmd
+      - sessions/version-control.qmd
+      - sessions/data-management.qmd
+      - sessions/reproducible-documents.qmd
+      # - sessions/data-visualization.qmd
   appendices:
-    # - appendix/social.qmd
+    - appendix/social.qmd
     # - appendix/slides.Rmd
-    - appendix/assignment.Rmd
-    - appendix/conduct.Rmd
-    - appendix/resources.Rmd
-    # - appendix/post-course.Rmd
-    # - appendix/for-instructors.Rmd
-    - appendix/references.Rmd
+    - appendix/assignment.qmd
+    - text: "Conduct"
+      href: "https://guides.rostools.org/conduct.html"
+    # - appendix/resources.Rmd
+    - appendix/for-instructors.qmd
+    - appendix/references.qmd
   page-footer:
     center:
       - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
