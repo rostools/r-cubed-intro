@@ -95,9 +95,12 @@ temporarily saved), history, and documents.
 
 There are many ways one could organise a project folder. We'll be
 setting up a project folder and file structure using `{prodigenr}` We'll
-use RStudio's "New Project" menu item under `File -> New Project`. We'll
-call the new project **`LearningR`**. Save it on your `Desktop/`. See
-@fig-prodigenr-project-creation for the steps to do it:
+use RStudio's "New Project" menu item under:
+
+    File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
+
+We'll call the new project **`LearningR`**. Save it on your `Desktop/`.
+See @fig-prodigenr-project-creation for the steps to do it:
 
 ![Creating a new analysis project in
 RStudio.](../videos/rstudio-prodigenr-projects.gif){#fig-prodigenr-project-creation}
@@ -396,10 +399,12 @@ Really emphasize how use auto-completion is.
 :::
 
 To more quickly type out objects in R, use "tab-completion" to finish an
-object name for you. As you type out an object name, hit the `Tab` key
-to see a list of objects available. RStudio will not only list the
-objects, but also shows the possible options and potential help
-associated with the object.
+object name for you. Normally RStudio will start auto-completing for you
+as you type code, but you can manually trigger auto-completion with
+`Tab`. As you type out an object name, hit the `Tab` key to see a list
+of objects available. RStudio will not only list the objects, but also
+shows the possible options and potential help associated with the
+object.
 
 Try it out. In the RStudio Console, start typing:
 
