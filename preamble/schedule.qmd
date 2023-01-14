@@ -1,7 +1,5 @@
 # Schedule {#sec-schedule}
 
-{{< include ../includes/_wip.qmd >}}
-
 The course is structured as a series of participatory live-coding
 sessions interspersed with hands-on exercises and group work, using
 either a practice dataset or some other real-world dataset. There are
