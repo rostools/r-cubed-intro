@@ -93,6 +93,20 @@ RStudio R Projects make it easy to divide your work projects into a
 your analysis occurs), workspace (where all the R activity and output is
 temporarily saved), history, and documents.
 
+::: {.callout-warning appearance="default"}
+File synchronizing and backup services like OneDrive or Dropbox are
+super common. Unfortunately, they also can be a major source of
+frustration and challenge when working with data analysis projects. This
+is mainly due to they way the synchronizing, by constantly looking at
+changes to files and then synchronizing when a change occurs. When doing
+data analysis, especially as you get more advanced and use reproducible
+documents and version control systems, changes to files can happen very
+often and very quickly. This can essentially cause these services to
+"spasm" and may overwrite the changes that are happening. Whenever
+possible, always save your work *on your computer and **not** on these
+services*.
+:::
+
 There are many ways one could organise a project folder. We'll be
 setting up a project folder and file structure using `{prodigenr}` We'll
 use RStudio's "New Project" menu item under:
