@@ -290,7 +290,11 @@ usethis::use_r("learning")
 ```
 
 The `usethis::use_r()` command creates R scripts in the `R/` folder. As
-you may tell, the `{usethis}` package can be quite handy.
+you may tell, the `{usethis}` package can be quite handy. For the first
+few sessions, we will be working the R scripts and then later will move
+over to Quarto files instead. Why? Working with R, you will be doing a
+lot of coding and writing in both types of files, so we want you to get
+practice using both.
 
 ## RStudio layout and usage
 
@@ -718,4 +722,3 @@ you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
 -   Keep R scripts simple, focused, and short.
 -   Use tab auto-completion when writing code.
 -   Use `?` to get help on an R object.
-
