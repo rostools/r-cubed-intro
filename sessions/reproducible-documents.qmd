@@ -753,10 +753,10 @@ label and reference:
 
     Cute kitten in @fig-kitten-attack!
 
-    ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack, width="50%", height="50%"}
+    ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height="50%"}
 
-![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack,
-width="50%", height="50%"}
+![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack
+width="50%" height="50%"}
 
 Now in @fig-kitten-attack, we see a kitten! Render again
 (`r keybind_knit` or `r palette_render`) to see how the image changes.
@@ -878,3 +878,4 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your R Markdown output document.
+
