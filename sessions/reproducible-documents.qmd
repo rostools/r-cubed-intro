@@ -302,9 +302,9 @@ option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
 remove this message. Chunk options are used to change how code chunks
 work. You can change them either by clicking on the gear/cog symbol in
 the top right corner of the chunk (looks a bit like in
-@fig-image-rstudio-code-chunk-gear) or by typing them inside the code
-chunk at the top. When adding them inside the code chunk, they always
-need to start with `#|`.
+@fig-rstudio-code-chunk-gear) or by typing them inside the code chunk at
+the top. When adding them inside the code chunk, they always need to
+start with `#|`.
 
 ![Changing the settings for the code chunk
 actions.](../images/rstudio-code-chunk-gear.png){#fig-rstudio-code-chunk-gear,
@@ -878,4 +878,3 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your R Markdown output document.
-
