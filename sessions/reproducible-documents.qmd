@@ -175,9 +175,9 @@ in the `doc/` folder.
 So, how do we create a HTML (or Word) document from the this document?
 We do that by "rendering" it. At the top of the pane near the "Save"
 button, there is a button with the word "Render" (if it's R Markdown, it
-will be called "Knit" with a yarn symbol beside it). To knit, you either
-click that button or use the shortcut `Ctrl-Shift-K` anywhere in the R
-Markdown document.
+will be called "Knit" with a yarn symbol beside it). To render, you
+either click that button or use the shortcut `Ctrl-Shift-K` anywhere in
+the R Markdown document.
 
 When you click the "Render" button, a bunch of processing messages
 should appear in a new pane beside the Console, followed by a new window
@@ -186,8 +186,8 @@ document may pop up in the "Viewer" pane.
 
 You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
-knit the document again with the "Knit" button or `r keybind_knit` (or
-using the Command Palette with `r palette_render`). A Word document
+render the document again with the "Render" button or `r keybind_knit`
+(or using the Command Palette with `r palette_render`). A Word document
 should open up. This is the basic approach to creating documents from R
 Markdown or Quarto. Before continuing, let's add and commit the newly
 created file into the Git history (`r palette_git_commit`).
@@ -228,7 +228,7 @@ it in an R script. Typing `Ctrl-Enter` on the line will send the code
 `2 + 2` to the console, with the output appearing directly below the
 code chunk in the document. Note that this output is *temporary*.
 
-To ensure that the output is inserted into the HTML document, knit
+To ensure that the output is inserted into the HTML document, render
 (`Ctrl-Shift-K` or `r palette_render`) the document and see what happens
 in the resulting HTML document. The output `4` should appear below the
 code chunk in the HTML document, something like this:
@@ -319,12 +319,12 @@ option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
 remove this message. Chunk options are used to change how code chunks
 work. You can change them either by clicking on the gear/cog symbol in
 the top right corner of the chunk (looks a bit like in
-@fig-image-rstudio-code-chunk-gear) or by typing them inside the code
-chunk at the top. When adding them inside the code chunk, they always
-need to start with `#|`.
+@fig-rstudio-code-chunk-gear) or by typing them inside the code chunk at
+the top. When adding them inside the code chunk, they always need to
+start with `#|`.
 
 ![Changing the settings for the code chunk
-actions.](../images/rstudio-code-chunk-gear.png){#fig-rstudio-code-chunk-gear,
+actions.](../images/rstudio-code-chunk-gear.png){#fig-rstudio-code-chunk-gear
 width="60%"}
 
 If you want to run the code but not show those messages and warnings,
@@ -417,7 +417,7 @@ nhanes_small %>%
     mean_bmi = mean(bmi, na.rm = TRUE)
   ) %>%
   ungroup() %>%
-  knitr::kable(caption = "Table caption. Mean values of Age and BMI for each education and diabetes status.")
+  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
 
 Now, render (`r keybind_knit` or `r palette_render`) and view the output
@@ -743,7 +743,7 @@ Gives...
 ![Image by
 <a href="https://pixabay.com/users/Dimhou-5987327/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Dimitri
 Houtteman</a> from
-<a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Pixabay</a>](images/kitten.jpg)
+<a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2536662">Pixabay</a>](../images/kitten.jpg)
 
 You can include a link to a picture instead of downloading the image,
 though this may only work in HTML documents and only if you have
@@ -751,10 +751,10 @@ internet access. Quarto has amazing image capabilities, which they show
 in the [Figures](https://quarto.org/docs/authoring/figures.html) guide.
 :::
 
-Knit the document again (`Ctrl-Shift-K`) and view the HTML document with
-the new picture. Now, let's change the width and height of the image as
-well as its alignment. We do this by adding a `{}` to the end of the
-Markdown image tag and put options inside there.
+Render the document again (`Ctrl-Shift-K`) and view the HTML document
+with the new picture. Now, let's change the width and height of the
+image as well as its alignment. We do this by adding a `{}` to the end
+of the Markdown image tag and put options inside there.
 
 -   `fig-align`: To align the figure, either in `"center"`, `"left"`, or
     `"right"`.
@@ -770,10 +770,10 @@ label and reference:
 
     Cute kitten in @fig-kitten-attack!
 
-    ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack, width="50%", height="50%"}
+    ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height="50%"}
 
-![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack,
-width="50%", height="50%"}
+![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack
+width="50%" height="50%"}
 
 Now in @fig-kitten-attack, we see a kitten! Render again
 (`r keybind_knit` or `r palette_render`) to see how the image changes.
