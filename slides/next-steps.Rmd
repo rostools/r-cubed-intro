@@ -12,38 +12,177 @@ source(here::here("R/slide-setup.R"))
 xaringanExtra::use_progress_bar(color = progress_bar_colour, location = "top")
 ```
 
----
+------------------------------------------------------------------------
 
-## What else can you do?
+## Reproducibility is a spectrum, not a binary state
 
-- Find or start building a community of people using R
+.center\[
 
-- Start reviewing each others code
+```{r, out.height="85%", out.width="85%"}
+knitr::include_graphics("../images/reproducibility_spectrum.jpg")
+```
 
-- Start sharing your code
+\]
 
-- Think about how your code will be reproducible
+.footnote\[From `r Cite(bib, "Peng2011")`\]
 
-- Teach or help out with R courses `r emo::ji("wink")` 
+## Sadly (not going to lie) there are still very strong barriers to progress...
 
-- Join local initiatives that follow these guidelines
+------------------------------------------------------------------------
+
+## Institutional barriers
 
 ???
 
-The other things you can start doing is find or start building a community of
-people who also use R or are doing reproducibility or any other computational
-work. Use them as support and help and also give back too.
+You will encounter a lot of resistance, a lot of barriers and hardship.
 
-Start doing code reviews in your research group. Code review would be where you
-look over each others code, check that it works, check that it makes sense, 
-that it's readable and understandable. The nice thing with doing code reviews
-is that it dispels the mystery around code and about criticising it and trying
-to improve it. We review manuscripts, why not code?
-I personally though have had a really hard time getting groups I've been part of
-now and in the past to do this, but baby steps.
+--
 
-You can teach. Teach others. Use these teaching materials. Or get involved with
-this course next year. Or now. Actually, several participants from the beginner
-course are or will soon be helping to improve the material for next year. There
-are also so many other things you can get involved in, aside from this course.
-Let me know if you're interested!
+-   Lack of adequate awareness, support, infrastructure, training
+
+???
+
+At the institutional level, there is no real awareness of this, no
+support or infrastructure. You're basically doing this on your own.
+Which probably isn't that uncommon anyway.
+
+--
+
+-   Research culture values publications over all else
+
+???
+
+Research culture and incentives pretty much only care about publishing
+journal articles. Creating software tools or datasets to be shared, meh.
+Making teaching materials to help other researchers, meh. Communicating
+your science to the public and doing outreach, meh. Doing actual science
+that might take years and not lead to any "hard papers", meh.
+
+--
+
+-   Legal and privacy concerns about sharing data, intellectual property
+    protection, patents, etc
+
+???
+
+Legal and privacy concerns are big topics that institutions in
+particular focus on a lot, about ownership and so on, since research can
+lead to commercialization and the potential for profit. For individual
+researchers, we often worry about these concerns too much and sometimes
+stops us from doing work because we're afraid we're doing something
+wrong
+
+--
+
+-   More traditional academics don't understand or resist change
+
+???
+
+We have a large portion of traditional academics who have benefited from
+and succeeded in this system and are invested in continuing it. They
+often say there's nothing wrong with the system. This is what we in
+epidemiology call "survivorship bias". There's nothing wrong, for them,
+because they succeeded. But all the others that didn't succeed? We don't
+count that data.
+
+--
+
+-   'Business as usual' is easier
+
+???
+
+We have a system that favours each individual person repeating the same
+mistakes that others make because the system doesn't allow for us to
+take the time to create tools and infrastructure that helps ourselves
+and others out.
+
+Because business as usual is the easiest way in the short term. Our
+current scientific culture is just not prepared for this, for the rising
+modern analytic and computational era.
+
+------------------------------------------------------------------------
+
+## ...and personal barriers
+
+.pull-left\[ - Fear of: - Fear of being scooped or ideas being stolen -
+Not being credited for ideas - Errors and public humiliation - Risk to
+reputation\]
+
+???
+
+And there aren't just institutional barriers. We as researchers have
+fears of being scooped, of embarrassment and humiliation for your
+methods being *gasp* wrong. Which is actually just part of science.
+
+--
+
+.pull-right\[ - Overwhelmed with everything that needs to be done
+
+-   Need to constantly stay updated
+
+-   Finding better opportunities outside of academia \]
+
+???
+
+It is also really overwhelming, having so many things to think about to
+make sure you're doing solid science. No researcher in the past had to
+consider and think and know as much as we have to know and to do.
+Another reason why we need more team science, to distribute the tasks
+and skills.
+
+You also have to constantly stay updated, and that can be tiring.
+
+And the last barrier, which may actually be a benefit, is that one
+reason you don't see a lot of researchers sharing their code or being
+more reproducible is.. they end up getting picked up by industry and
+paid really well or decide to leave academia for the reasons I
+mentioned.
+
+Just as an example, I found a Norwegian group who had a really
+inefficient workflow and decided to re-build their workflow to make use
+of programming, to be reproducible, to have a pipeline. I looked up the
+lead author as well as several other of the co-authors and guess what...
+many of them now work in really great companies as data scientists or
+software engineers, probably making a lot of money and having
+potentially a less stressful life.
+
+# So... what can you do right now?
+
+## Easiest thing: Start sharing your code
+
+.footnote\[No matter how ugly. It also doesn't mean it'll be
+reproducible, but at least it will be *inspectable*. \]
+
+???
+
+If you do nothing else: share your code.
+
+If its ugly, that's fine! The point is you start and that you get more
+comfortable doing it until it becomes second nature to share and in the
+process, your code gets better because you know someone might look at
+your code.
+
+And even if your code isn't reproducible, even if others can't run it
+own their own, sharing is the first step to becoming better. At the
+least, others can inspect your code for its overall logic.
+
+We as researchers try to find our niche, make our own space in the
+research world. Sometimes its a real struggle to find that niche.. but
+guys! No one is doing this, no one is sharing their code! You start
+doing the simplest thing of sharing your code and you will be one of
+very very few people who do. And this isn't a niche, this is a gaping
+hole in our modern scientific process. A huge hole.
+
+# Activity: Think `r emo::ji("thought_balloon")` than discuss `r fontawesome::fa("far fa-comments")`
+
+<!-- TODO: Not actually have them do it, just get them thinking -->
+
+> Imagine if the number of publications and where you published didn't
+> matter for getting funding or getting a research job.
+
+-   Take 2 minutes (instructor will set time) and consider:
+    -   What would you spend your time on?
+    -   What would you do differently compared to now?
+-   *With your neighbour*, share what you've thought
+    -   Each person has 2 minutes
+-   After, we'll share some of the thoughts

@@ -1,276 +1,280 @@
----
-title: "Welcome to the R^3^ course!"
----
+# Welcome to the Introductory R^3^ course!
 
-layout: true
+-   :heavy_check_mark: Go to your assigned table
+-   :heavy_check_mark: Introduce yourself to your group members
+-   :heavy_check_mark: Re-install r3
+    `remotes::install_gitlab("rostools/r3")`
+-   :heavy_check_mark: Accept the GitHub Organization invite
+-   :heavy_check_mark: Accept the Slack channel invite
 
-```{r setup, include=FALSE}
-source(here::here("R/slide-setup.R"))
-```
+::: notes
+Introduce instructors and helpers after welcoming everyone and getting
+them to do this.
+:::
 
-```{r}
-xaringanExtra::use_progress_bar(color = progress_bar_colour, location = "top")
-```
+## :raising_hand_woman: Before this course... How many knew or have heard about <u>reproducibility</u>? {.center}
 
----
-
-# Please do these as we get ready:
-
-- `r emo::ji("check")` Go to your assigned table and group (see list)
-
-- `r emo::ji("check")` Introduce yourself to your group members
-
-- `r emo::ji("check")` Re-install r3 `remotes::install_gitlab("rostools/r3")`
-
-- `r emo::ji("check")` Accept the GitHub Organization invite
-
-- `r emo::ji("check")` Accept the Slack channel invite
-
-???
-
-Introduce instructors and helpers after welcoming everyone and getting them to
-do this.
-
----
-
-class: middle
-
-# Question: 
-
-## Before this course... How many knew or have heard about <u>reproducibility</u>?
-
-???
-
+::: notes
 Raise your hands.
+:::
 
----
+## :raising_hand_woman: Before this course... How many knew or have heard about <u>open science</u>? {.center}
 
-class: middle
+## :raising_hand_man: Before this course... or even <u>open access, open data, open methods/protocols, or open source</u>? {.center}
 
-# Question: 
+## :raising_hand_woman: How many have read a method in a paper and wondered how they <u>actually</u> did it? {.center}
 
-## Before this course... How many knew or have heard about <u>open science</u>?
-
----
-
-class: middle
-
-# Question: 
-
-## Before this course... or even <u>open access, open data, open methods/protocols, or open source</u>?
-
----
-
-class: middle
-
-# Question: 
-
-## How many have read a method in a paper and wondered how they <u>actually</u> did it? 
-
-???
-
+::: notes
 Because you are trying to do the same or similar?
 
-And you've probably realize by now, way more is done than shown in the "Methods".
+And you've probably realize by now, way more is done than shown in the
+"Methods".
+:::
 
----
+## :raising_hand_man: Have you ever received confusing code? Or maybe have written your own confusing code?
 
-class: middle
+::: notes
+For those that have worked with code.
 
-# Question: 
+I definitely have in my research career. We want to change the culture
+around code by encouraging and teaching how to share code and to write
+better code in general.
+:::
 
-## Have you ever received confusing code? Or maybe have written your own confusing code?
+## The scientific principle of "reproducibility" and code sharing {.smaller}
 
-???
+... often confused with "replicability" [@Plesser2018a]
+[^introduction-1]
 
-I definitely have in my research career. We want to change the culture around
-code by encouraging and teaching how to share code and to write better code in
-general.
+[^introduction-1]: Also from [American Statistical
+    Association](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).
 
----
+::: notes
+How many could tell me the difference between replicable and
+reproducible?
+:::
 
-## Code sharing: From scientific principle of "reproducibility" 
+. . .
 
-... often confused with "replicability" `r Cite(bib, "Plesser2018a")`<sup>1</sup>
-
-???
-
-How many know the difference between replicating and reproducing?
-
---
-
-.pull-left[
+::: columns
+::: {.column width="50%"}
 ### Replicability
 
-- Repeating a study by *independently* performing another identical study
-- Difficult, usually needs funding
-- Linked to the "irreproducibility crisis"<sup>2</sup>
-]
+-   Same analysis + same methods + new data = same result?
+-   *Independently* conducted study
+-   Difficult, usually needs funding
+-   Linked to the "irreproducibility crisis"[^introduction-2]
+:::
 
---
-
-.pull-right[
+::: {.column width="50%"}
 ### Reproducibility
 
-- Generating the exact same results when using the same data and code
-- Should be easy right? Wrong, often just as hard
-- *Question*: If we can't even *reproduce* a studies results, how can we expect 
-to replicate it?
-]
+-   Same data + same code = same result?
+-   Should be easy right? Wrong, often just as hard
+-   *Question*: If we can't even *reproduce* a studies results, how can
+    we expect to replicate it?
+:::
+:::
 
-.footnote[
-1. Also from an American Statistical Association [statement](https://www.amstat.org/asa/files/pdfs/POL-ReproducibleResearchRecommendations.pdf).  
-2. Or rather "irreplicability crisis".
-]
-    
----
+[^introduction-2]: Or rather "irreplicability crisis".
 
-class: middle
+# Big problem... {.center}
 
-# Problem: Biomedical studies almost entirely don't publish code with the published paper `r Cite(bib, c("Leek2017a", "Considine2017a"))`
+## Biomedical studies almost entirely don't publish code with the published paper [@Leek2017a, Considine2017a] {.center}
 
-???
+## Code sharing is abysmal across health sciences `r Cite(bib, c("Considine2017a", "Leek2017a", "Seibold2021"))`
 
+::: notes
 Vast majority of papers *still* don't provide code. Except for maybe in
-bioinformatics, where a bit more than half of studies do. There are lots of
-reasons for this, that I talk more about tomorrow.
+bioinformatics, where a bit more than half of studies do. There are lots
+of reasons for this, that I talk more about tomorrow.
 
----
+We can't have reproducibility if no one shares their code!
 
-class: middle
+And this is no joke. Getting data on this is difficult, but the research
+that has been done shows that almost no one is sharing their code. The
+estimates range between fields in health science from zero to maybe five
+percent of published studies. The only area that is doing pretty well is
+bioinformatics, at about 60% of published studies.
+:::
 
-# These issues can be fixed by creating and nurturing a culture of openness
+## How can we check reproducibility if no code is given? [^introduction-3]
+
+[^introduction-3]: This is a little bit of a rhetorical question
+    :stuck_out_tongue_closed_eyes:
+
+::: notes
+This is a little bit of a rhetorical question, but how might we?
+:::
+
+## Recent study: Only 25% could be *executed* without some "cleaning up" `r Cite(bib, "Trisovic2022")`
+
+-   Code taken from [Dataverse Project](https://dataverse.org/) data
+    repositories
+-   After some automatic cleaning, \~half could *execute*
 
 ???
 
-All of this is because of a problem with our culture in research. We aren't
-open, we don't really share, and don't often follow basic principles of science.
-To fix this, we need to start creating and nurturing a better and healthier
-culture. We all can be involved in that, we all have that power to do something,
-even if its small thing.
+Recent large study on general reproducibility of projects that shared
+code.
 
----
+Initially only 25% of the R scripts could be *executed* (doesn't mean
+results were reproduced though). After doing automatic and some manual
+code cleaning, than about half could be executed. That's not bad.
 
-class: middle
+Since scripts were taken from Dataverse.org, researchers who upload
+their code and projects to it probably are a bit more aware and
+knowledgeable about general reproducibility and coding then the average
+researcher, so the results are a bit biased.
 
-# Goal of this course? Start changing the culture by providing the training
+# But scientific culture is not well-prepared for analytic and computation era
 
----
+# Open science and reproducibility are some of multiple large trends
+
+## Like quality/rigor, team science, communication, computing, data, meta-analysis, and meta-research
+
+## These issues can be fixed by creating and nurturing a culture of openness {.center}
+
+::: notes
+All of this is because of a problem with our culture in research. We
+aren't open, we don't really share, and don't often follow basic
+principles of science. To fix this, we need to start creating and
+nurturing a better and healthier culture. We all can be involved in
+that, we all have that power to do something, even if its small thing.
+:::
+
+# Goal of this course? {.center}
+
+## Start changing the culture by providing the training {.center}
 
 ## Often asked: So why are we using R and why learn it?
 
-.pull-left[
-- Open source, free
+.pull-left\[ - Open source, free
 
-- Very large online community
-    - Learning resources, support, help
+-   Very large online community
+    -   Learning resources, support, help
+-   Massive selection of packages
+    -   Latest statistical methods
+    -   Productivity tools
+    -   Report writing
+    -   Visualization \]
 
-- Massive selection of packages
-    - Latest statistical methods
-    - Productivity tools
-    - Report writing
-    - Visualization
-]
-    
-.pull-right[
-- Recent push to improve teaching, usability
-    - e.g. with tidyverse, RStudio
+.pull-right\[ - Recent push to improve teaching, usability - e.g. with
+tidyverse, RStudio
 
-- One of best visualization tools available
+-   One of best visualization tools available
 
-- Powerful capabilities
-    - Big Data
-    - Programming
-    - Reproducibility
-]    
+-   Powerful capabilities
+
+    -   Big Data
+    -   Programming
+    -   Reproducibility \]
 
 ???
 
-Regarding it being free, that means that you can take the knowledge 
-and skills for using R anywhere you go.
+Regarding it being free, that means that you can take the knowledge and
+skills for using R anywhere you go.
 
----
+------------------------------------------------------------------------
 
 ## Often asked: Why are we spending time on learning things other than R?
 
-Because the course is about doing *open and reproducible research*, while using R.
+Because the course is about doing *open and reproducible research*,
+while using R.
 
-???
+::: notes
+At least a few times, we get feedback in our survey about the fact we
+didn't spend enough time learning R or they expected more R. That's
+because we're teaching open and reproducible research, and that involves
+more than just R.
+:::
 
-At least a few times, we get feedback in our survey about the fact we didn't
-spend enough time learning R or they expected more R. That's because we're
-teaching open and reproducible research, and that involves more than just R.
+| Session                         | Reason                                                            |
+|---------------------------------|-------------------------------------------------------------------|
+| Management of R projects        | Reproducibility starts at the file level                          |
+| Version control                 | Openness and reproducibility is about transparency and inspection |
+| Data management and wrangling   | This one is about R :smiley_cat:                                  |
+| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes:                  |
+| Data visualization              | Also about R!                                                     |
 
---
+# Course details
 
-| Session | Reason |
-|--|--|
-| Management of R projects | Reproducibility starts at the file level |
-| Version control | Openness and reproducibility is about transparency and inspection |
-| Data management and wrangling | This one is about R `r emo::ji("smile_cat")`|
-| Creating reproducible documents | Hopefully obvious `r emo::ji("stuck_out_tongue")` |
-| Data visualization | Also about R! |
+## Setup and layout {.smaller}
 
----
+::: columns
+::: {.column width="50%"}
+-   Course is mix of:
+    -   "Code-alongs" (we type and explain, you type along)
+    -   Hands-on coding, discussing, and reading exercises
+    -   Group project (quickly go over it)
+-   All material is online (and [openly
+    licensed](https://r-cubed-advanced.rostools.org/LICENSE.html))
+-   [Resources
+    Appendix](https://r-cubed-advanced.rostools.org/resources.html)
+    -   Material for further learning
+:::
+
+::: {.column width="50%"}
+-   Less about coding, more about connecting with others
+    -   Draw table name from bowl each morning
+    -   During lunch, sit beside someone you don't know
+    -   Several networking activities (usually after lunch)
+-   *Warning*: You will be making a lot of functions!
+:::
+:::
 
 ## Course setup and layout
 
-- Course is mix of:
-    - "Code-alongs" (we type and explain, you type along)
-    - Hands-on exercises
-    - Final group work for [assignment](../assignment.html) (quickly go over it)
-    - Groups were made with range of skill and knowledge
-
-- True to our mission, material publicly accessible and [openly licensed](https://r-cubed.rostools.org/license.html)
-    - <https://r-cubed.rostools.org/>
+-   Course is mix of:
+    -   "Code-alongs" (we type and explain, you type along)
+    -   Hands-on exercises
+    -   Groups were made with range of skill and knowledge
+-   True to our mission, material publicly accessible and [openly
+    licensed](https://r-cubed.rostools.org/license.html)
+    -   <https://r-cubed.rostools.org/>
 
 ???
 
-With the final group project, you'll be in the same group for the course,
-working together on it and on the final exercises.
-As a team, you'll help each other out with learning and overcoming any struggles,
+With the final group project, you'll be in the same group for the
+course, working together on it and on the final exercises. As a team,
+you'll help each other out with learning and overcoming any struggles,
 with of course our help too!
 
-I've tried to organize the groups to include a range of skills 
-and experiences, so there is a mix of novice and more experienced users.
+I've tried to organize the groups to include a range of skills and
+experiences, so there is a mix of novice and more experienced users.
 
----
+------------------------------------------------------------------------
 
 ## Getting or asking for help `r emo::ji("raising_hand_woman")`
 
-.pull-left[
-- Put the sticky on your laptop to get help
-    - There are lots of helpers
-    - Team members, try to help out too
-]
+.pull-left\[ - Put the sticky on your laptop to get help - There are
+lots of helpers - Team members, try to help out too\]
 
-.pull-right[
-- We're all learning here!
-    - This is a supportive and safe environment
-    - Remember our [Code of Conduct](conduct.html)
+.pull-right\[ - We're all learning here! - This is a supportive and safe
+environment - Remember our [Code of Conduct](conduct.html)
 
-- We have a [cheatsheet](resources/cheatsheet.pdf)!
-]
+-   We have a [cheatsheet](resources/cheatsheet.pdf)! \]
 
----
+------------------------------------------------------------------------
 
 class: middle
 
 # Practice using stickies: Have you re-installed r3 and joined the GitHub Organization as well as the Slack group?
 
----
+------------------------------------------------------------------------
 
 class: middle
 
-# Activity: 
+# Activity:
 
 ## Stand and arrange `r emo::ji("walking_man")` or raise hand `r emo::ji("raising_hand_woman")` based on question
 
 ???
 
-We're going to do a "stand and re-arrange yourself" activity based on some questions I ask.
+We're going to do a "stand and re-arrange yourself" activity based on
+some questions I ask.
 
----
+------------------------------------------------------------------------
 
 class: middle
 
@@ -280,7 +284,7 @@ class: middle
 
 Go into different corners for "yes" and "no".
 
----
+------------------------------------------------------------------------
 
 class: middle
 
@@ -288,9 +292,10 @@ class: middle
 
 ???
 
-Along the wall, arrange to one side is "novice/basic" and other side is "advanced".
+Along the wall, arrange to one side is "novice/basic" and other side is
+"advanced".
 
----
+------------------------------------------------------------------------
 
 class: middle
 
@@ -300,7 +305,7 @@ class: middle
 
 Raise hands.
 
----
+------------------------------------------------------------------------
 
 class: middle
 
@@ -310,7 +315,7 @@ class: middle
 
 Along the wall, arrange from "novice/basic" to "advanced".
 
----
+------------------------------------------------------------------------
 
 class: middle
 
@@ -318,14 +323,27 @@ class: middle
 
 ???
 
-So, as we prepare for the next session, introduce yourselves to the group and
-get to know each other more. You'll be relying on them for help, so find out who
-is the "more experienced" R user.
+So, as we prepare for the next session, introduce yourselves to the
+group and get to know each other more. You'll be relying on them for
+help, so find out who is the "more experienced" R user.
 
----
+------------------------------------------------------------------------
+
+# Activities
+
+## :walking_woman::walking_man: Who has not yet used R? {.center}
+
+## :walking_woman::walking_man: Those who have, how do you perceive your skill in R? {.center}
+
+::: notes
+Along the wall, arrange to one side is "novice/basic" and other side is
+"advanced".
+:::
 
 # References
 
-```{r refs, results="asis", echo=FALSE}
-PrintBibliography(bib)
-```
+-   Less about coding, more about connecting with others
+    -   Draw table name from bowl each morning
+    -   During lunch, sit beside someone you don't know
+    -   Several networking activities (usually after lunch)
+

@@ -1,0 +1,16 @@
+for some it may feel a bit slow. Remember, this is an introduction
+course, so we're assuming little to no knowledge on these things. We're
+assuming no prior knowledge, so for those with some knowledge, it will
+feel slow at times.
+
+We are in the middle of several exponential growth curves:
+
+-   Higher demands for transparency and rigor in research
+-   Higher need for (potentially highly distributed and virtual) team
+    science
+-   Higher public attention with Internet and social media
+-   Higher computing power and massive datasets, leading to rise of
+    machine learning and AI
+-   Meta-analysis where your output is someone else's input
+-   Meta-research: evidence-based evaluation and development of research
+    methods
