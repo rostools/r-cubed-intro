@@ -145,8 +145,8 @@ earlier to get help.
 If you're unable to complete the setup procedure due to unfixable
 technical issues, you can use Posit Cloud (to use RStudio on the cloud)
 as a final solution in order to participate in the course. For help
-setting up Posit Cloud for this course, refer to the Posit Cloud setup
-guide (@sec-using-posit-cloud).
+setting up Posit Cloud for this course, refer to the [Posit Cloud setup
+guide](https://guides.rostools.org/posit-cloud.html).
 
 ## What is R?
 
