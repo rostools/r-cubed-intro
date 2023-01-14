@@ -36,13 +36,11 @@ can instead brainstorm or generally discuss these topics.
     experience or would you rather have spent that time doing something
     else?
 
--   Share an experience where you were working with a collaborator,
-    reviewing a paper they were the lead on and it seemed like some of
-    the figures or tables weren't updated based on recent discussions.
-    What did you do? How did you get an updated version and how long did
-    it take? How did you feel about having to rely on and wait for
-    someone else to complete something after you may (or may not have)
-    scheduled time to do the review of it?
+-   Share some experiences you have where you've collaborated on a
+    project. How did you collaborate? Was it mostly discussing things
+    together? Did you distribute tasks? How did you coordinate your
+    documents, your work, your tasks? How did you keep updated on the
+    latest versions of the files?
 
 -   What other experiences do you have around working with analysis
     results, including them into documents, and collaborating with
