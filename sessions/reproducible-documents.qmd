@@ -158,9 +158,9 @@ in the `doc/` folder.
 So, how do we create a HTML (or Word) document from the this document?
 We do that by "rendering" it. At the top of the pane near the "Save"
 button, there is a button with the word "Render" (if it's R Markdown, it
-will be called "Knit" with a yarn symbol beside it). To knit, you either
-click that button or use the shortcut `Ctrl-Shift-K` anywhere in the R
-Markdown document.
+will be called "Knit" with a yarn symbol beside it). To render, you
+either click that button or use the shortcut `Ctrl-Shift-K` anywhere in
+the R Markdown document.
 
 When you click the "Render" button, a bunch of processing messages
 should appear in a new pane beside the Console, followed by a new window
@@ -169,8 +169,8 @@ document may pop up in the "Viewer" pane.
 
 You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
-knit the document again with the "Knit" button or `r keybind_knit` (or
-using the Command Palette with `r palette_render`). A Word document
+render the document again with the "Render" button or `r keybind_knit`
+(or using the Command Palette with `r palette_render`). A Word document
 should open up. This is the basic approach to creating documents from R
 Markdown or Quarto. Before continuing, let's add and commit the newly
 created file into the Git history (`r palette_git_commit`).
@@ -211,7 +211,7 @@ it in an R script. Typing `Ctrl-Enter` on the line will send the code
 `2 + 2` to the console, with the output appearing directly below the
 code chunk in the document. Note that this output is *temporary*.
 
-To ensure that the output is inserted into the HTML document, knit
+To ensure that the output is inserted into the HTML document, render
 (`Ctrl-Shift-K` or `r palette_render`) the document and see what happens
 in the resulting HTML document. The output `4` should appear below the
 code chunk in the HTML document, something like this:
@@ -400,7 +400,7 @@ nhanes_small %>%
     mean_bmi = mean(bmi, na.rm = TRUE)
   ) %>%
   ungroup() %>%
-  knitr::kable(caption = "Table caption. Mean values of Age and BMI for each education and diabetes status.")
+  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
 
 Now, render (`r keybind_knit` or `r palette_render`) and view the output
@@ -734,10 +734,10 @@ internet access. Quarto has amazing image capabilities, which they show
 in the [Figures](https://quarto.org/docs/authoring/figures.html) guide.
 :::
 
-Knit the document again (`Ctrl-Shift-K`) and view the HTML document with
-the new picture. Now, let's change the width and height of the image as
-well as its alignment. We do this by adding a `{}` to the end of the
-Markdown image tag and put options inside there.
+Render the document again (`Ctrl-Shift-K`) and view the HTML document
+with the new picture. Now, let's change the width and height of the
+image as well as its alignment. We do this by adding a `{}` to the end
+of the Markdown image tag and put options inside there.
 
 -   `fig-align`: To align the figure, either in `"center"`, `"left"`, or
     `"right"`.
