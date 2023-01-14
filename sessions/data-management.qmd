@@ -546,8 +546,9 @@ logic code is doing what you think it is doing. It's very easy to make
 mistakes at this stage, even for advanced R users.
 
 The simplest kind of logic condition is to test for "equality". In R,
-"equal to" is represented by `==`. An example: If we wanted to keep only
-females in the dataset, we would use the logic condition like this:
+"equal to" is represented by `==`. For example, if we wanted to keep
+only people who are not physically active in the dataset, we would use
+the logic condition like this:
 
 ```{r}
 nhanes_small %>%
@@ -586,7 +587,7 @@ tibble::tribble(
 Let's try out a few of these logical conditions with `filter()`.
 
 ```{r}
-# Participants who are not female
+# Participants who are physically active
 nhanes_small %>%
     filter(phys_active != "No")
 

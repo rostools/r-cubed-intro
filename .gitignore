@@ -9,7 +9,7 @@ resources/packages.bib
 R/ignore.R
 .Rbuildignore
 _ignore
-data/nhanes_tidied.rda
+data/nhanes_tidied.csv
 slides/libs
 videos/raw
 

@@ -93,11 +93,28 @@ RStudio R Projects make it easy to divide your work projects into a
 your analysis occurs), workspace (where all the R activity and output is
 temporarily saved), history, and documents.
 
+::: {.callout-warning appearance="default"}
+File synchronizing and backup services like OneDrive or Dropbox are
+super common. Unfortunately, they also can be a major source of
+frustration and challenge when working with data analysis projects. This
+is mainly due to they way the synchronizing, by constantly looking at
+changes to files and then synchronizing when a change occurs. When doing
+data analysis, especially as you get more advanced and use reproducible
+documents and version control systems, changes to files can happen very
+often and very quickly. This can essentially cause these services to
+"spasm" and may overwrite the changes that are happening. Whenever
+possible, always save your work *on your computer and **not** on these
+services*.
+:::
+
 There are many ways one could organise a project folder. We'll be
 setting up a project folder and file structure using `{prodigenr}` We'll
-use RStudio's "New Project" menu item under `File -> New Project`. We'll
-call the new project **`LearningR`**. Save it on your `Desktop/`. See
-@fig-prodigenr-project-creation for the steps to do it:
+use RStudio's "New Project" menu item under:
+
+    File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
+
+We'll call the new project **`LearningR`**. Save it on your `Desktop/`.
+See @fig-prodigenr-project-creation for the steps to do it:
 
 ![Creating a new analysis project in
 RStudio.](../videos/rstudio-prodigenr-projects.gif){#fig-prodigenr-project-creation}
@@ -273,7 +290,11 @@ usethis::use_r("learning")
 ```
 
 The `usethis::use_r()` command creates R scripts in the `R/` folder. As
-you may tell, the `{usethis}` package can be quite handy.
+you may tell, the `{usethis}` package can be quite handy. For the first
+few sessions, we will be working the R scripts and then later will move
+over to Quarto files instead. Why? Working with R, you will be doing a
+lot of coding and writing in both types of files, so we want you to get
+practice using both.
 
 ## RStudio layout and usage
 
@@ -396,10 +417,12 @@ Really emphasize how use auto-completion is.
 :::
 
 To more quickly type out objects in R, use "tab-completion" to finish an
-object name for you. As you type out an object name, hit the `Tab` key
-to see a list of objects available. RStudio will not only list the
-objects, but also shows the possible options and potential help
-associated with the object.
+object name for you. Normally RStudio will start auto-completing for you
+as you type code, but you can manually trigger auto-completion with
+`Tab`. As you type out an object name, hit the `Tab` key to see a list
+of objects available. RStudio will not only list the objects, but also
+shows the possible options and potential help associated with the
+object.
 
 Try it out. In the RStudio Console, start typing:
 
@@ -699,4 +722,3 @@ you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
 -   Keep R scripts simple, focused, and short.
 -   Use tab auto-completion when writing code.
 -   Use `?` to get help on an R object.
-

@@ -95,7 +95,7 @@ them.
 2.  Have the latest version of
     [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
     installed (or at least any version above `v2021.09.0+351`). Check by
-    going to the menu "Help -\> About RStudio" (if you have used RStudio
+    going to the menu `Help -> About RStudio` (if you have used RStudio
     before, otherwise, just install the latest version).
 3.  [Quarto](https://quarto.org/docs/get-started/). This is necessary
     for the reproducible documents session.
@@ -145,8 +145,8 @@ earlier to get help.
 If you're unable to complete the setup procedure due to unfixable
 technical issues, you can use Posit Cloud (to use RStudio on the cloud)
 as a final solution in order to participate in the course. For help
-setting up Posit Cloud for this course, refer to the Posit Cloud setup
-guide (@sec-using-posit-cloud).
+setting up Posit Cloud for this course, refer to the [Posit Cloud setup
+guide](https://guides.rostools.org/posit-cloud.html).
 
 ## What is R?
 
