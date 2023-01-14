@@ -307,7 +307,7 @@ the top. When adding them inside the code chunk, they always need to
 start with `#|`.
 
 ![Changing the settings for the code chunk
-actions.](../images/rstudio-code-chunk-gear.png){#fig-rstudio-code-chunk-gear,
+actions.](../images/rstudio-code-chunk-gear.png){#fig-rstudio-code-chunk-gear
 width="60%"}
 
 If you want to run the code but not show those messages and warnings,
