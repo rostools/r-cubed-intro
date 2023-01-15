@@ -2,12 +2,12 @@ project:
   type: book
   output-dir: public
   execute-dir: project
-  # pre-render: quarto render slides/*
+  pre-render: quarto render slides/*.qmd
   resources:
     - videos/*
     - includes/cheatsheet.pdf
-  #   - slides/*.html
-  #   - slides/introduction_files
+    - slides/*.html
+    # - slides/introduction_files
 
 book:
   title: "Reproducible Research in R"
@@ -38,7 +38,7 @@ book:
       - preamble/pre-course.qmd
     - part: "Sessions"
       chapters:
-      # - sessions/introduction.qmd
+      - sessions/introduction.qmd
       - sessions/project-management.qmd
       - sessions/version-control.qmd
       - sessions/data-management.qmd
@@ -48,7 +48,6 @@ book:
     - appendix/social.qmd
     # - appendix/slides.Rmd
     - appendix/assignment.qmd
-    # - appendix/resources.Rmd
     - appendix/for-instructors.qmd
     - appendix/references.qmd
   page-footer:

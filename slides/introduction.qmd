@@ -10,6 +10,8 @@ format:
     progress: true
     logo: ../images/favicon.ico
 search: false
+bibliography: ../includes/references.bib
+csl: ../includes/vancouver.csl
 ---
 
 # Welcome to the Introductory R^3^ course!
@@ -43,7 +45,7 @@ And you've probably realize by now, way more is done than shown in the
 "Methods".
 :::
 
-## :raising_hand_man: Have you ever received confusing code? Or maybe have written your own confusing code?
+## :raising_hand_man: Have you ever received confusing code? Or maybe have written your own confusing code? {.center}
 
 ::: notes
 For those that have worked with code.
@@ -106,14 +108,10 @@ percent of published studies. The only area that is doing pretty well is
 bioinformatics, at about 60% of published studies.
 :::
 
-## How can we check reproducibility if no code is given? [^introduction-3]
+## How can we check reproducibility if no code is given? {.center}
 
-[^introduction-3]: This is a little bit of a rhetorical question
-    :stuck_out_tongue_closed_eyes:
-
-::: notes
-This is a little bit of a rhetorical question, but how might we?
-:::
+This is a little bit of a rhetorical question
+:stuck_out_tongue_closed_eyes:
 
 ## Recent study: Only 25% could be *executed* without some "cleaning up" [@Trisovic2022]
 
@@ -186,56 +184,6 @@ I've tried to organize the groups to include a range of skills and
 experiences, so there is a mix of novice and more experienced users.
 :::
 
-## Often asked: So why are we using R and why learn it? {.smaller}
-
-::: columns
-::: {.column width="50%"}
--   Open source, free
--   Very large online community
-    -   Learning resources, support, help
--   Massive selection of packages
-    -   Latest statistical methods
-    -   Productivity tools
-    -   Report writing
-    -   Visualization
-:::
-
-::: {.column width="50%"}
--   Recent push to improve teaching, usability - e.g. with tidyverse,
-    RStudio
--   One of best visualization tools available
--   Powerful capabilities
-    -   Big Data
-    -   Programming
-    -   Reproducibility
-:::
-:::
-
-::: notes
-Regarding it being free, that means that you can take the knowledge and
-skills for using R anywhere you go.
-:::
-
-## Often asked: Why are we spending time on learning things other than R? {.smaller}
-
-Because the course is about doing *open and reproducible research*,
-while using R.
-
-::: notes
-At least a few times, we get feedback in our survey about the fact we
-didn't spend enough time learning R or they expected more R. That's
-because we're teaching open and reproducible research, and that involves
-more than just R.
-:::
-
-| Session                         | Reason                                                            |
-|---------------------------------|-------------------------------------------------------------------|
-| Management of R projects        | Reproducibility starts at the file level                          |
-| Version control                 | Openness and reproducibility is about transparency and inspection |
-| Data management and wrangling   | This one is about R :smiley_cat:                                  |
-| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes:                  |
-| Data visualization              | Also about R!                                                     |
-
 ## Getting or asking for help :raising_hand_woman::raising_hand_man: {.smaller}
 
 -   Put the sticky on your laptop to get help
@@ -266,6 +214,11 @@ Arrange along the wall from beginner to advanced.
 
 ## :walking::walking_man::walking_woman:How do you perceive your general skill in data analysis? {.center}
 
-## Ok, get back into your groups
+## Ok, get back into your groups and read through the introduction section {.center}
+
+::: notes
+As we prepare for the next session, please read through the rest of the
+introduction section.
+:::
 
 # References

@@ -1,16 +1,118 @@
-for some it may feel a bit slow. Remember, this is an introduction
-course, so we're assuming little to no knowledge on these things. We're
-assuming no prior knowledge, so for those with some knowledge, it will
-feel slow at times.
+# Introduction to course {#sec-introduction}
 
-We are in the middle of several exponential growth curves:
+> [**Introduction slides**](../slides/introduction.html)
 
--   Higher demands for transparency and rigor in research
--   Higher need for (potentially highly distributed and virtual) team
-    science
--   Higher public attention with Internet and social media
--   Higher computing power and massive datasets, leading to rise of
-    machine learning and AI
--   Meta-analysis where your output is someone else's input
--   Meta-research: evidence-based evaluation and development of research
-    methods
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="../slides/introduction.html"></iframe>
+```
+
+</div>
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+The slides contain speaking notes that you can view by pressing 'S' on
+the keyboard.
+:::
+
+## The Big Picture
+
+You've read the syllabus and already know an overall idea of why we are
+teaching this course. But we'd like to take another chance to emphasize
+the big picture context of this course and its material.
+
+We are in a special time in research. We are facing several large scale
+technological and societal changes:
+
+-   We researchers are experiencing higher demands from funding
+    agencies, universities, and peers for transparency and rigor in our
+    research.
+-   Our work is getting more and more complex, which requires higher
+    degrees of (potentially highly distributed and virtual) team-based
+    science.
+-   There is a higher public attention on research, with mass
+    participation and attention through the Internet and social media.
+-   Our access to powerful computing resources and massive datasets is
+    leading to an increasing rise in more complex analytics and data
+    processing, such as through machine learning and AI.
+-   Increasingly your research output is someone else's research input,
+    such as with meta-research[^introduction-1] or meta-analysis.
+
+[^introduction-1]: Evidence-based evaluation and development of research
+    methods.
+
+In this course, our ultimate aim is to start creating data analysis
+projects that are: self-contained (within a single folder); have a
+record of changes made to the files; make it easier for others to
+collaborate; make it simpler to connect the project with a scientific
+output like a paper; and, to structure analyses to be more reproducible
+(or at least more easily *inspectable*).
+
+## Common questions
+
+Over the number of times we've taught this course (and the others), we
+get asked a lot of questions. Well, sometimes questions, sometimes
+comments, and sometimes complaints. We value feedback because it
+improves on the material! But there are a few with a common theme that
+deserve to be mentioned early on!
+
+### Why R?
+
+<!-- TODO: Move to FAQ? -->
+
+We often get asked: So why are we using R and why learn it? There are
+many many reasons, some of which are listed below:
+
+-   It is open source and free. Which means that you can take the
+    knowledge and skills you gain for using R anywhere you go in your
+    career.
+-   There is very large, fairly friendly online community.
+    -   So many learning resources, support, and help!
+-   There is a **massive** selection of packages. Need to do something?
+    There's probably already a package to do it for you.
+    -   Latest statistical methods.
+    -   Productivity tools.
+    -   Report writing.
+    -   Visualization.
+    -   Many many more.
+-   Recent push to improve teaching, usability, for example with the
+    tidyverse and RStudio.
+-   R has one of the best data visualization tools available with
+    ggplot2.
+-   So many more powerful capabilities when it comes to:
+    -   Big Data
+    -   Programming
+    -   Reproducibility
+
+## Why are we learning things other than R?
+
+At least a few times we've gotten feedback in our survey about the fact
+that we didn't spend enough time learning R or they expected more R.
+That's because there is more to doing data analysis than *just* R.
+
+We need to teach about being open, about being reproducible, and about
+using better research practices in our work. All of which involves more
+than just R.
+
+| Session                         | Reason                                                             |
+|---------------------------------|--------------------------------------------------------------------|
+| Management of R projects        | Reproducibility starts at the file level.                          |
+| Version control                 | Openness and reproducibility is about transparency and inspection. |
+| Data management and wrangling   | This one is about R :smiley_cat:                                   |
+| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes:                   |
+| Data visualization              | Also about R!                                                      |
+
+: Some reasons why we teach what we do in each of the sessions.
+
+## Small reminder
+
+We always get feedback that for some it is too fast and for others it is
+too slow. Ideally, everyone would say it was the perfect speed. But that
+won't likely happen. So insteads, we aim as much as possible to have
+fewer people say it was too fast than there are people saying it was too
+slow. This is an introduction course, so we're trying to assume as
+little to no knowledge on many of these concepts. So, for those with
+some knowledge, it *will* feel slow at times! You can always help your
+neighbour out!
