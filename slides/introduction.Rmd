@@ -2,8 +2,6 @@
 
 -   :heavy_check_mark: Go to your assigned table
 -   :heavy_check_mark: Introduce yourself to your group members
--   :heavy_check_mark: Re-install r3
-    `remotes::install_gitlab("rostools/r3")`
 -   :heavy_check_mark: Accept the GitHub Organization invite
 -   :heavy_check_mark: Accept the Slack channel invite
 
@@ -40,6 +38,8 @@ I definitely have in my research career. We want to change the culture
 around code by encouraging and teaching how to share code and to write
 better code in general.
 :::
+
+# These highlight a problem in science... {.center}
 
 ## The scientific principle of "reproducibility" and code sharing {.smaller}
 
@@ -78,18 +78,12 @@ reproducible?
 
 [^introduction-2]: Or rather "irreplicability crisis".
 
-# Big problem... {.center}
-
-## Biomedical studies almost entirely don't publish code with the published paper [@Leek2017a, Considine2017a] {.center}
-
-## Code sharing is abysmal across health sciences `r Cite(bib, c("Considine2017a", "Leek2017a", "Seibold2021"))`
+## Biomedical studies almost entirely don't publish code with the published paper [@Leek2017a, @Considine2017a, @Seibold2021] {.center}
 
 ::: notes
 Vast majority of papers *still* don't provide code. Except for maybe in
 bioinformatics, where a bit more than half of studies do. There are lots
 of reasons for this, that I talk more about tomorrow.
-
-We can't have reproducibility if no one shares their code!
 
 And this is no joke. Getting data on this is difficult, but the research
 that has been done shows that almost no one is sharing their code. The
@@ -107,7 +101,7 @@ bioinformatics, at about 60% of published studies.
 This is a little bit of a rhetorical question, but how might we?
 :::
 
-## Recent study: Only 25% could be *executed* without some "cleaning up" `r Cite(bib, "Trisovic2022")`
+## Recent study: Only 25% could be *executed* without some "cleaning up" [@Trisovic2022]
 
 -   Code taken from [Dataverse Project](https://dataverse.org/) data
     repositories
@@ -127,11 +121,7 @@ their code and projects to it probably are a bit more aware and
 knowledgeable about general reproducibility and coding then the average
 researcher, so the results are a bit biased.
 
-# But scientific culture is not well-prepared for analytic and computation era
-
-# Open science and reproducibility are some of multiple large trends
-
-## Like quality/rigor, team science, communication, computing, data, meta-analysis, and meta-research
+## Scientific culture is not well-prepared for analytic and computation era {.center}
 
 ## These issues can be fixed by creating and nurturing a culture of openness {.center}
 
@@ -143,59 +133,7 @@ nurturing a better and healthier culture. We all can be involved in
 that, we all have that power to do something, even if its small thing.
 :::
 
-# Goal of this course? {.center}
-
-## Start changing the culture by providing the training {.center}
-
-## Often asked: So why are we using R and why learn it?
-
-.pull-left\[ - Open source, free
-
--   Very large online community
-    -   Learning resources, support, help
--   Massive selection of packages
-    -   Latest statistical methods
-    -   Productivity tools
-    -   Report writing
-    -   Visualization \]
-
-.pull-right\[ - Recent push to improve teaching, usability - e.g. with
-tidyverse, RStudio
-
--   One of best visualization tools available
-
--   Powerful capabilities
-
-    -   Big Data
-    -   Programming
-    -   Reproducibility \]
-
-???
-
-Regarding it being free, that means that you can take the knowledge and
-skills for using R anywhere you go.
-
-------------------------------------------------------------------------
-
-## Often asked: Why are we spending time on learning things other than R?
-
-Because the course is about doing *open and reproducible research*,
-while using R.
-
-::: notes
-At least a few times, we get feedback in our survey about the fact we
-didn't spend enough time learning R or they expected more R. That's
-because we're teaching open and reproducible research, and that involves
-more than just R.
-:::
-
-| Session                         | Reason                                                            |
-|---------------------------------|-------------------------------------------------------------------|
-| Management of R projects        | Reproducibility starts at the file level                          |
-| Version control                 | Openness and reproducibility is about transparency and inspection |
-| Data management and wrangling   | This one is about R :smiley_cat:                                  |
-| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes:                  |
-| Data visualization              | Also about R!                                                     |
+## Goal of this course: Start changing the culture by providing the training {.center}
 
 # Course details
 
@@ -216,24 +154,14 @@ more than just R.
 
 ::: {.column width="50%"}
 -   Less about coding, more about connecting with others
-    -   Draw table name from bowl each morning
-    -   During lunch, sit beside someone you don't know
+    -   During lunch, try to sit beside someone you don't know
     -   Several networking activities (usually after lunch)
--   *Warning*: You will be making a lot of functions!
 :::
 :::
 
-## Course setup and layout
-
--   Course is mix of:
-    -   "Code-alongs" (we type and explain, you type along)
-    -   Hands-on exercises
-    -   Groups were made with range of skill and knowledge
--   True to our mission, material publicly accessible and [openly
-    licensed](https://r-cubed.rostools.org/license.html)
-    -   <https://r-cubed.rostools.org/>
-
-???
+::: notes
+Explain a bit more about the reading, why doing it, and that this course
+in particular has a lot more of it than more advanced courses.
 
 With the final group project, you'll be in the same group for the
 course, working together on it and on the final exercises. As a team,
@@ -242,108 +170,88 @@ with of course our help too!
 
 I've tried to organize the groups to include a range of skills and
 experiences, so there is a mix of novice and more experienced users.
-
-------------------------------------------------------------------------
-
-## Getting or asking for help `r emo::ji("raising_hand_woman")`
-
-.pull-left\[ - Put the sticky on your laptop to get help - There are
-lots of helpers - Team members, try to help out too\]
-
-.pull-right\[ - We're all learning here! - This is a supportive and safe
-environment - Remember our [Code of Conduct](conduct.html)
-
--   We have a [cheatsheet](resources/cheatsheet.pdf)! \]
-
-------------------------------------------------------------------------
-
-class: middle
-
-# Practice using stickies: Have you re-installed r3 and joined the GitHub Organization as well as the Slack group?
-
-------------------------------------------------------------------------
-
-class: middle
-
-# Activity:
-
-## Stand and arrange `r emo::ji("walking_man")` or raise hand `r emo::ji("raising_hand_woman")` based on question
-
-???
-
-We're going to do a "stand and re-arrange yourself" activity based on
-some questions I ask.
-
-------------------------------------------------------------------------
-
-class: middle
-
-## Who has not yet used R?
-
-???
-
-Go into different corners for "yes" and "no".
-
-------------------------------------------------------------------------
-
-class: middle
-
-## Those who've used R, how do you perceive your skill in R? `r emo::ji("walking_man")`
-
-???
-
-Along the wall, arrange to one side is "novice/basic" and other side is
-"advanced".
-
-------------------------------------------------------------------------
-
-class: middle
-
-## Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? `r emo::ji("raising_hand_woman")`
-
-???
-
-Raise hands.
-
-------------------------------------------------------------------------
-
-class: middle
-
-## How do you perceive your general skill in data analysis? `r emo::ji("walking_man")`
-
-???
-
-Along the wall, arrange from "novice/basic" to "advanced".
-
-------------------------------------------------------------------------
-
-class: middle
-
-## Get back into your groups and get to know each other a bit more
-
-???
-
-So, as we prepare for the next session, introduce yourselves to the
-group and get to know each other more. You'll be relying on them for
-help, so find out who is the "more experienced" R user.
-
-------------------------------------------------------------------------
-
-# Activities
-
-## :walking_woman::walking_man: Who has not yet used R? {.center}
-
-## :walking_woman::walking_man: Those who have, how do you perceive your skill in R? {.center}
-
-::: notes
-Along the wall, arrange to one side is "novice/basic" and other side is
-"advanced".
 :::
 
+## Often asked: So why are we using R and why learn it? {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   Open source, free
+-   Very large online community
+    -   Learning resources, support, help
+-   Massive selection of packages
+    -   Latest statistical methods
+    -   Productivity tools
+    -   Report writing
+    -   Visualization
+:::
+
+::: {.column width="50%"}
+-   Recent push to improve teaching, usability - e.g. with tidyverse,
+    RStudio
+-   One of best visualization tools available
+-   Powerful capabilities
+    -   Big Data
+    -   Programming
+    -   Reproducibility
+:::
+:::
+
+::: notes
+Regarding it being free, that means that you can take the knowledge and
+skills for using R anywhere you go.
+:::
+
+## Often asked: Why are we spending time on learning things other than R? {.smaller}
+
+Because the course is about doing *open and reproducible research*,
+while using R.
+
+::: notes
+At least a few times, we get feedback in our survey about the fact we
+didn't spend enough time learning R or they expected more R. That's
+because we're teaching open and reproducible research, and that involves
+more than just R.
+:::
+
+| Session                         | Reason                                                            |
+|---------------------------------|-------------------------------------------------------------------|
+| Management of R projects        | Reproducibility starts at the file level                          |
+| Version control                 | Openness and reproducibility is about transparency and inspection |
+| Data management and wrangling   | This one is about R :smiley_cat:                                  |
+| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes:                  |
+| Data visualization              | Also about R!                                                     |
+
+## Getting or asking for help :raising_hand_woman::raising_hand_man: {.smaller}
+
+-   Put the sticky on your laptop to get help
+-   There are lots of helpers
+-   Team members, try to help out too
+-   We're all learning here!
+    -   This is a supportive and safe environment
+    -   Remember our [Code of Conduct](conduct.html)
+-   We have a [cheatsheet](../includes/cheatsheet.pdf)!
+
+## Practice using stickies: Have you joined the GitHub Organization and the Slack group? {.center}
+
+# Activities {.center}
+
+## 🚶🚶‍♀️ Who has not yet used R? {.center}
+
+::: notes
+Go to different sides of the room for "Yes" and "No"
+:::
+
+## 🚶‍♀️🚶Those who've used R, how do you perceive your skill in R? {.center}
+
+::: notes
+Arrange along the wall from beginner to advanced.
+:::
+
+## 🙋Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? {.center}
+
+## 🚶🚶‍♂️🚶‍♀️How do you perceive your general skill in data analysis? {.center}
+
+## Ok, bet back into your groups
+
 # References
-
--   Less about coding, more about connecting with others
-    -   Draw table name from bowl each morning
-    -   During lunch, sit beside someone you don't know
-    -   Several networking activities (usually after lunch)
-
