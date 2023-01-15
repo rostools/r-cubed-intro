@@ -1,0 +1,53 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Outfit&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Fira+Code);
+
+$font-family-serif: "Quicksand", sans-serif !default;
+$font-family-sans-serif: "Quicksand", sans-serif !default;
+$font-family-monospace: "Fira Code", monospace !default;
+$presentation-heading-font: "Outfit", sans-serif !default;
+
+/*
+From litera:
+$primary: #4582ec !default;
+$secondary: #adb5bd !default;
+*/
+
+/*
+# For background
+monochromeR::generate_palette("#ffffff", "go_darker", n_colours = 20, view_palette = TRUE)
+# For headers (primary)
+monochromeR::generate_palette("#4582ec", "go_darker", n_colours = 4, view_palette = TRUE)
+# For links
+monochromeR::generate_palette("#4582ec", "go_lighter", n_colours = 4, view_palette = TRUE)
+
+*/
+$primary: #203C6E !default;
+$secondary: #adb5bd !default;
+
+$presentation-heading-color: $primary !default;
+
+$presentation-font-size-root: 38px;
+$presentation-h2-font-size: 2em;
+$body-bg: #E9E9E9;
+$link-color: #4582ec;
+/* sets color of controls as well as links */
+/*
+$body-color: #403E4A;
+$highlight-color: #574997;
+$selection-bg: #9A91C0;
+*/
+
+/*-- scss:rules --*/
+
+.reveal .progress {
+  height: 8px;
+  color: $primary;
+  top: 0;
+}
+
+.reveal .slide-logo {
+  top: 0;
+}
