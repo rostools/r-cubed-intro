@@ -1,18 +1,16 @@
 ---
-title: "What can you do next after this course?"
+format:
+  revealjs:
+    embed-resources: true
+    from: markdown+emoji
+    theme:
+      - simple
+      - theme.scss
+    menu: true
+    progress: true
+    logo: ../images/favicon.ico
+search: false
 ---
-
-layout: true
-
-```{r setup, include=FALSE}
-source(here::here("R/slide-setup.R"))
-```
-
-```{r}
-xaringanExtra::use_progress_bar(color = progress_bar_colour, location = "top")
-```
-
-------------------------------------------------------------------------
 
 ## Reproducibility is a spectrum, not a binary state
 
