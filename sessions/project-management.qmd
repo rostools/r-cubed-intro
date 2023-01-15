@@ -30,7 +30,7 @@ troubleshoot or get help. Check for participants' understanding using
 the stickies.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~5 minutes
 
 Before we create a project, we should first define what we mean by
@@ -346,7 +346,7 @@ that it does an action. Mention that, like everything, there are some
 situations where that isn't completely true but it mostly is.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~5 minutes
 
 In R, everything is an object and every action is a function. A function
@@ -450,7 +450,7 @@ summary(airquality)
 
 ## R object naming practices
 
-::: callout-info
+::: callout-note
 ## Reading task: \~5 minutes
 
 If you've ever seen some old R code, you may notice that function and
@@ -582,7 +582,7 @@ R", reading the error or warning message, and checking for missing
 commas, brackets or misspelled words.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~10 minutes
 
 ![A common and frequent experience when working in R. Artwork by

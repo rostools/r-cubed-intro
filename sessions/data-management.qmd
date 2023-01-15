@@ -1,4 +1,4 @@
-# Data management and wrangling {#wrangling}
+# Data management and wrangling {#sec-wrangling}
 
 ```{r setup}
 #| include: false
@@ -40,7 +40,7 @@ For the reading section, emphasize the characteristics of a "tidy"
 dataset.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~10 minutes
 
 The concept of "tidy" data was popularized in an

@@ -45,7 +45,7 @@ same page. Make use of stickies frequently to assess how everyone is
 doing.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~8 minutes
 
 > This session is *very* text and reading heavy compared to other
@@ -128,7 +128,7 @@ has an amazing and straight-forward integration to it.
 
 ## What is Git? {#sec-what-is-git}
 
-::: callout-info
+::: callout-note
 ## Reading task: \~5 minutes
 
 Git is one of several version control system tools available. It was
@@ -183,7 +183,7 @@ do that already during the pre-course tasks, sometimes things happen in
 the meantime, so its good to check again.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~8 minutes
 
 Git works by tracking changes to files *at the project level* (i.e. for
@@ -283,7 +283,7 @@ time walking through it and describing it. Show where things are and
 what things to focus on for this course.
 :::
 
-::: callout-info
+::: callout-note
 ## Reading task: \~10 minutes
 
 Git was initially created to be used in the terminal (i.e command-line).
@@ -348,7 +348,7 @@ one of the files. The box on the right side is where you type out your
 changes. You "commit" it to the history, like you "commit" something to
 your own memory.
 
-::: callout-info
+::: callout-note
 ## Reading task: \~5 minutes
 
 Before we move on, there are some things to know about how Git works. In
@@ -473,7 +473,7 @@ We will be using this workflow often throughout the rest of the course.
 
 ## "Remotes": Storing your repository online {#sec-remotes-setting-up}
 
-::: callout-info
+::: callout-note
 ## Reading task: \~3 minutes
 
 A version control system that didn't include a type of external backup
@@ -584,7 +584,7 @@ GitHub.
 
 ## Synchronizing with GitHub
 
-::: callout-info
+::: callout-note
 ## Reading task: \~3 minutes
 
 Making and cloning a GitHub repository is the first step to linking a
