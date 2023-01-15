@@ -68,15 +68,11 @@ Suggests:
     styler,
     tidyverse,
     usethis,
-    xaringan,
-    xaringanthemer,
-    showtext,
     rmarkdown,
     knitr,
     markdown,
     quarto
 Remotes: 
-    gadenbuie/xaringanthemer,
     github::rostools/r3
 Encoding: UTF-8
 LazyData: true
