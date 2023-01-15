@@ -121,8 +121,7 @@ This is a little bit of a rhetorical question, but how might we?
     repositories
 -   After some automatic cleaning, \~half could *execute*
 
-???
-
+::: notes
 Recent large study on general reproducibility of projects that shared
 code.
 
@@ -134,6 +133,7 @@ Since scripts were taken from Dataverse.org, researchers who upload
 their code and projects to it probably are a bit more aware and
 knowledgeable about general reproducibility and coding then the average
 researcher, so the results are a bit biased.
+:::
 
 ## Scientific culture is not well-prepared for analytic and computation era {.center}
 
