@@ -1,3 +1,17 @@
+---
+format:
+  revealjs:
+    embed-resources: true
+    from: markdown+emoji
+    theme:
+      - simple
+      - theme.scss
+    menu: true
+    progress: true
+    logo: ../images/favicon.ico
+search: false
+---
+
 # Welcome to the Introductory R^3^ course!
 
 -   :heavy_check_mark: Go to your assigned table
@@ -236,21 +250,21 @@ more than just R.
 
 # Activities {.center}
 
-## 🚶🚶‍♀️ Who has not yet used R? {.center}
+## :walking::walking_woman: Who has not yet used R? {.center}
 
 ::: notes
 Go to different sides of the room for "Yes" and "No"
 :::
 
-## 🚶‍♀️🚶Those who've used R, how do you perceive your skill in R? {.center}
+## :walking_woman::walking:Those who've used R, how do you perceive your skill in R? {.center}
 
 ::: notes
 Arrange along the wall from beginner to advanced.
 :::
 
-## 🙋Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? {.center}
+## :raising_hand:Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? {.center}
 
-## 🚶🚶‍♂️🚶‍♀️How do you perceive your general skill in data analysis? {.center}
+## :walking::walking_man::walking_woman:How do you perceive your general skill in data analysis? {.center}
 
 ## Ok, bet back into your groups
 
