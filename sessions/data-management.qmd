@@ -354,12 +354,15 @@ make use of a very powerful tool called piping with the `%>%` function.
 ## Reading task: \~5 minutes
 
 A key component of tidy data and tidy code is making use of the "pipe"
-operator, `%>%`[^data-management-1]. You would use the "pipe" operator
-when you are writing a piece of code with multiple operations or
-intermediate steps that require you to save and overwrite each step as
-an object (see below). One advantage of the "pipe" operator is that it
-will help to ensure that your code is less cluttered with redundant and
-temporary object names.
+operator, `%>%`. There is also the base R pipe `|>`, which works
+basically the same but with some small differences. For this course we
+will use `%>%`, though you can use either.
+
+You would use the "pipe" operator when you are writing a piece of code
+with multiple operations or intermediate steps that require you to save
+and overwrite each step as an object (see below). One advantage of the
+"pipe" operator is that it will help to ensure that your code is less
+cluttered with redundant and temporary object names.
 
 This operator allows you to "pipe" the output from one function to the
 input of another function, just like a plumbing pipe would do for water.
@@ -414,9 +417,6 @@ operator. All input goes into the first position argument of the
 function. Within the tidyverse packages, all functions take a data frame
 (or vector) as the first argument in order to work with the pipe.
 :::
-
-[^data-management-1]: Or the base R pipe `|>`. Both work basically the
-    same, with some small differences.
 
 Let's try this out on NHANES. The keyboard shortcut for the pipe is
 `Ctrl-Shift-M` (i.e., M for the `{magrittr}` package that created the
