@@ -16,10 +16,12 @@ csl: ../includes/vancouver.csl
 
 # Welcome to the Introductory R^3^ course!
 
--   :heavy_check_mark: Go to your assigned table
--   :heavy_check_mark: Introduce yourself to your group members
 -   :heavy_check_mark: Accept the GitHub Organization invite
 -   :heavy_check_mark: Accept the Slack channel invite
+-   :heavy_check_mark: Find your group name on the GitHub course page:
+    https://github.com/orgs/r-cubed-2023-01/teams
+-   :heavy_check_mark: Go to the table with the group name
+-   :heavy_check_mark: Introduce yourself to your group members
 
 ::: notes
 Introduce instructors and helpers after welcoming everyone and getting
