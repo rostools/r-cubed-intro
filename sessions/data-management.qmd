@@ -689,11 +689,14 @@ nhanes_small %>%
     mutate(age = age * 12)
 ```
 
-We can also create a new column (e.g., log transforming BMI):
+Like with `filter()`, you can continue to add or modify more columns by
+using `,`. So let's do that to a new column (e.g., log transforming
+BMI):
 
 ```{r}
-nhanes_small %>% 
-    mutate(logged_bmi = log(bmi))
+nhanes_small %>%
+    mutate(age = age * 12,
+           logged_bmi = log(bmi))
 ```
 
 We can add multiple modifications or additions with `mutate()` by
@@ -763,7 +766,7 @@ this exercise by using `Ctrl-Shift-R`).
 2.  Create a new variable called `mean_arterial_pressure` by applying
     the formula:
 
-    $$((2 \times DBP) + SBP) / 3$$
+    $$((2 * SBP) + SBP) / 3$$
 
     (DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate [Mean
     Arterial
