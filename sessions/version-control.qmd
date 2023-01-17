@@ -700,23 +700,25 @@ different):
     # Here's an example of a conflict
     =======
     # When a conflict happens
-    >>>>>>> origin/main
+    >>>>>>> ad3fsd45bsdd23lda2304
 
 The text on the top between `<<<<<<< HEAD` and `=======` are the changes
 found on your *local* repository. The text on the bottom between
-`=======` and `>>>>>>> origin/main` are the changes found on your
-*remote* (GitHub) repository. `HEAD` is the term to mean where your
+`=======` and `>>>>>>> ad3fsd45bsdd23lda2304` are the changes found on
+your *remote* (GitHub) repository. `HEAD` is the term to mean where your
 files are currently at. Think of `HEAD` as meaning the "top" of the
-history. `origin/main` indicates that the commit comes from the `main`
-(or sometimes called `master`) branch of the `origin` remote. The
-concept and use of branches is a powerful feature of Git, but due to
-time we won't be covering them. You only need to know that every Git
-repository starts with the default `main` (or `master`) branch.
+history. The long string with numbers and letters (like
+`ad3fsd45bsdd23lda2304`) represents the ID for the commit (the "commit
+hash") and, in this case, comes from `main` (or sometimes called
+`master`) branch of the `origin` remote. The concept and use of branches
+is a powerful feature of Git, but due to time we won't be covering them.
+You only need to know that every Git repository starts with the default
+`main` (or `master`) branch.
 
 At this point, you decide what to keep and what to remove by deleting
 text within the `R/learning.R` script in RStudio. You'll need to also
 delete the lines with the `<<<<<<< HEAD`, `=======`, and
-`>>>>>>> origin/main`
+`>>>>>>> ad3fsd45bsdd23lda2304` (or something that looks similar).
 
 After deciding what to keep and removing all the left over merge
 conflict tags, open up the Git interface in RStudio. The files listed in
