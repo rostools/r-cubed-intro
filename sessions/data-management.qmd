@@ -868,49 +868,6 @@ nhanes_small %>%
 Before you start the following exercise, add and commit changes to the
 Git history with the RStudio Git interface.
 
-## Exercise: Calculate some basic statistics
-
-> Time: 10 minutes.
-
-Practice using `summarise()` by calculating various summary statistics.
-Copy and paste the code below into the `R/learning.R` script file.
-
-```{r exercise-summarise-basic-stats, eval=FALSE}
-# 1.
-nhanes_small %>%
-    summarise(mean_bp_sys = ___,
-              mean_age = ___)
-
-# 2.
-nhanes_small %>%
-    summarise(max_bp_dia = ___,
-              min_bp_dia = ___)
-```
-
-Then, start replacing the `___` with the appropriate code to complete
-the tasks below. Don't forget to use `na.rm = TRUE` in the basic
-statistic functions.
-
-1.  Calculate the mean of `bp_sys_ave` and `age`.
-2.  Calculate the max and min of `bp_dia`.
-3.  Lastly, add and commit any changes made to the Git history with the
-    RStudio Git interface.
-
-```{r solution-summarise-basic-stats}
-#| eval: false
-#| code-fold: true
-#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-# 1.
-nhanes_small %>%
-    summarise(mean_bp_sys = mean(bp_sys_ave, na.rm = TRUE),
-              mean_age = mean(age, na.rm = TRUE))
-
-# 2.
-nhanes_small %>%
-    summarise(max_bp_dia = max(bp_dia_ave, na.rm = TRUE),
-              min_bp_dia = min(bp_dia_ave, na.rm = TRUE))
-```
-
 ## Summary statistics by a group {#sec-group-by-summarise}
 
 While the `summarise()` function is useful enough on its own, it really
@@ -970,76 +927,6 @@ nhanes_small %>%
 Before you start the following exercise, run `{styler}`
 (`r palette_styler_file`) and commit changes to the Git history
 (`r palette_git_commit`).
-
-## Exercise: Answer some statistical questions with group by and summarise
-
-> Time: \~7 minutes.
-
-Copy and paste the code below into the `R/learning.R` script file.
-
-```{r exercise-groupby-summarise, eval=FALSE}
-# 1. 
-nhanes_small %>% 
-    filter(!is.na(diabetes)) %>% 
-    ___(___, ___) %>% 
-    ___(
-        ___,
-        ___,
-        ___
-    )
-
-# 2. 
-nhanes_small %>% 
-    filter(!is.na(diabetes)) %>% 
-    ___(___, ___) %>% 
-    ___(
-        ___,
-        ___,
-        ___,
-        ___,
-        ___,
-        ___
-    )
-```
-
-Then, start replacing the `___` with the appropriate code including
-`group_by()` with `summarise()`, to answer these questions:
-
-1.  What is the mean, max, and min differences in *age* between active
-    and inactive persons with or without diabetes?
-2.  What is the mean, max, and min differences in *systolic BP* and
-    *diastolic BP* between active and inactive persons with or without
-    diabetes?
-3.  Once done, add and commit the changes to the file to the Git
-    history.
-
-```{r solution-group-by-summarise}
-#| eval: false
-#| code-fold: true
-#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-# 1. 
-nhanes_small %>% 
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, phys_active) %>% 
-    summarise(
-        mean_age = mean(age, na.rm = TRUE),
-        max_age = max(age, na.rm = TRUE),
-        min_age = min(age, na.rm = TRUE)
-    )
-
-# 2. 
-nhanes_small %>% 
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, phys_active) %>% 
-    summarise(
-        mean_bp_sys = mean(bp_sys_ave, na.rm = TRUE),
-        max_bp_sys = max(bp_sys_ave, na.rm = TRUE),
-        min_bp_sys = min(bp_sys_ave, na.rm = TRUE),
-        mean_bp_dia = mean(bp_dia_ave, na.rm = TRUE),
-        max_bp_dia = max(bp_dia_ave, na.rm = TRUE),
-        min_bp_dia = min(bp_dia_ave, na.rm = TRUE)
-    )
-```
 
 ## Saving datasets as files
 
@@ -1151,41 +1038,6 @@ For SAS, SPSS, or Stata files, you can use the package
 [haven](https://haven.tidyverse.org/) to import those types of data
 files into R.
 :::
-
-## Optional exercise: Practicing the dplyr functions
-
-Practice using `{dplyr}` by using the `NHANES` dataset and wrangling the
-data into a summary output. Don't create any intermediate objects by
-only using the pipe operator to link each task below with the next one.
-
-1.  Rename all columns to use snakecase.
-2.  Select the columns `gender`, `age` and `BMI`.
-3.  Exclude `"NAs"` from all of the selected columns.
-4.  Rename `gender` to `sex`.
-5.  Create a new column called `age_class`, where anyone under 50 years
-    old is labeled `"under 50"` and those 50 years and older are labeled
-    `"over 50"`.
-6.  Group the data according to `sex` and `age_class`.
-7.  Calculate the `mean` and `median` BMI according to the grouping to
-    determine the difference in BMI between age classes and sex.
-8.  Run `{styler}` on the file (`r palette_styler_file`).
-9.  Add and commit changes to the Git history with the RStudio Git
-    interface (`r palette_git_commit`).
-
-```{r solution-combine-all-dplyr}
-#| eval: false
-#| code-fold: true
-#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-NHANES %>% 
-    rename_with(snakecase::to_snake_case) %>% 
-    select(gender, age,  bmi) %>% 
-    filter(!is.na(gender) & !is.na(age) & !is.na(bmi)) %>% 
-    rename(sex = gender) %>% 
-    mutate(age_class = if_else(age < 50, "under 50", "over 50")) %>%
-    group_by(age_class, sex) %>% 
-    summarize(bmi_mean = mean(bmi, na.rm = TRUE), 
-              bmi_median = median(bmi, na.rm = TRUE))
-```
 
 ## Summary
 
