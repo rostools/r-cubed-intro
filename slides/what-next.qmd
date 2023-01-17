@@ -22,7 +22,7 @@ knitr::include_graphics("../images/reproducibility_spectrum.jpg")
 
 \]
 
-.footnote\[From `r Cite(bib, "Peng2011")`\]
+[@Peng2011]
 
 ## Sadly (not going to lie) there are still very strong barriers to progress...
 
