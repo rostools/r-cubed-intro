@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
 public/*
 *_files/*
 resources/packages.bib
@@ -11,6 +12,7 @@ R/ignore.R
 _ignore
 data/nhanes_tidied.csv
 slides/libs
+slides/*.html
 videos/raw
 
 /.quarto/
