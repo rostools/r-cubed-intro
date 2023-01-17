@@ -1,6 +1,6 @@
-## Exercise: Calculate some basic statistics
+# Extra exercises {#sec-extra-exercises}
 
-> Time: 10 minutes.
+## Calculate some basic statistics
 
 Practice using `summarise()` by calculating various summary statistics.
 Copy and paste the code below into the `R/learning.R` script file.
@@ -41,9 +41,7 @@ nhanes_small %>%
               min_bp_dia = min(bp_dia_ave, na.rm = TRUE))
 ```
 
-## Exercise: Answer some statistical questions with group by and summarise
-
-> Time: \~7 minutes.
+## Answer some statistical questions with group by and summarise
 
 Copy and paste the code below into the `R/learning.R` script file.
 
