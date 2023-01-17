@@ -656,6 +656,10 @@ You can include a link to a picture instead of downloading the image,
 though this may only work in HTML documents and only if you have
 internet access. Quarto has amazing image capabilities, which they show
 in the [Figures](https://quarto.org/docs/authoring/figures.html) guide.
+
+::: {.callout-warning appearance="default"}
+Image files are **always** relative to the `.qmd` file.
+:::
 :::
 
 Render the document again (`Ctrl-Shift-K`) and view the HTML document
