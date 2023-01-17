@@ -1,0 +1,56 @@
+# Extra details about GitHub
+
+## Manually create a repo on GitHub {#sec-extra-create-repo-github}
+
+Open up GitHub in a browser, make sure you are logged in, and create a
+new, empty repository. New repositories can be created by either
+clicking the green "New" button on the left sidebar or by clicking the
+`+` symbol at the top right to open a menu and selecting the "New
+repository" item.
+
+You'll be sent to a screen with some options for the new repository. For
+now, type out `learning-github` as a name for the repository and leave
+everything else blank. Make the repository "Private" for now. The video
+below can be used as a reference.
+
+{{< video ../videos/github-new-repository.mp4 >}}
+
+Ok, we now have a remote repository to work with. The next step depends
+on whether you have an existing repository with a history or you are
+starting completely from new. If you haven't created a Git repository
+and saved to its history locally, the easiest way of getting your GitHub
+repository onto your computer as a local repository is to download it
+(or to "clone" it in Git terms). You can "clone" a GitHub repository
+easily from RStudio's "Create Project from Version Control" interface.
+We'll do that now, as detailed in the videos below. Where you save the
+new project doesn't matter, but to make things easy, save it to the
+Desktop.
+
+First we will find our repository link and create a new project from
+version control.
+
+{{< video ../videos/rstudio-clone-repository.mp4 >}}
+
+When attempting to clone your repository, GitHub will require you to
+authenticate yourself. In most cases when using GitHub, you can use the
+password created during signup. However, when indirectly communicating
+with GitHub using RStudio, we need to use a "Personal Access Token"
+(PAT).
+
+::: callout-tip
+These tokens need to be manually generated on GitHub, and gives us a
+more secure way to communicate with our GitHub account and repositories.
+Creating a token can be confusing, so the entire process is shown in the
+video below.
+
+**Note, for some people the video might not load. [Go here directly to
+see the video](../videos/github-create-token.mp4).**
+
+{{< video ../videos/github-create-token.mp4 >}}
+
+After creating the personal access token, we can copy it into the
+password field in RStudio. The personal access token will *only be
+visible at the time it is created*, so remember to **copy it somewhere**
+before closing the browser window. Otherwise you will need to create a
+new token (which also isn't a problem).
+:::

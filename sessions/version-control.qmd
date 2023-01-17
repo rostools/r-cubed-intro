@@ -506,22 +506,21 @@ graph TB
 ```
 :::
 
-Let's get familiar with GitHub. First, open up GitHub in a browser, make
-sure you are logged in, and create a new, empty repository. New
-repositories can be created by either clicking the green "New" button on
-the left sidebar or by clicking the `+` symbol at the top right to open
-a menu and selecting the "New repository" item.
+Let's get familiar with GitHub. More details about manually creating
+repositories on GitHub is found in @sec-extra-create-repo-github.
 
-You'll be sent to a screen with some options for the new repository. For
-now, type out `learning-github` as a name for the repository and leave
-everything else blank. Make the repository "Private" for now. The video
-below can be used as a reference.
+::: {.callout-note collapse="true"}
+## Instructor note
 
-{{< video ../videos/github-new-repository.mp4 >}}
+Go over the interface of GitHub, especially where repositories are
+listed, the sidebar of the landing page (of your account), and where
+your account settings are.
+:::
 
-A quick side note: When using GitHub, especially in relation to health
-research, you need to be mindful of what you save into the Git history
-and what you put up online. Some things to think about are:
+::: {.callout-warning appearance="default"}
+When using GitHub, especially in relation to health research, you need
+to be mindful of what you save into the Git history and what you put up
+online. Some things to think about are:
 
 -   **Do not** save any personal or sensitive data or files in your Git
     repository.
@@ -530,57 +529,30 @@ and what you put up online. Some things to think about are:
 
 In both cases, it's better to use another tool to store files like that,
 rather than through Git and GitHub.
-
-Ok, we now have a remote repository to work with. The next step depends
-on whether you have an existing repository with a history or you are
-starting completely from new. If you haven't created a Git repository
-and saved to its history locally, the easiest way of getting your GitHub
-repository onto your computer as a local repository is to download it
-(or to "clone" it in Git terms). You can "clone" a GitHub repository
-easily from RStudio's "Create Project from Version Control" interface.
-We'll do that now, as detailed in the videos below. Where you save the
-new project doesn't matter, but to make things easy, save it to the
-Desktop.
-
-First we will find our repository link and create a new project from
-version control.
-
-{{< video ../videos/rstudio-clone-repository.mp4 >}}
-
-When attempting to clone your repository, GitHub will require you to
-authenticate yourself. In most cases when using GitHub, you can use the
-password created during signup. However, when indirectly communicating
-with GitHub using RStudio, we need to use a "Personal Access Token"
-(PAT).
-
-::: callout-tip
-These tokens need to be manually generated on GitHub, and gives us a
-more secure way to communicate with our GitHub account and repositories.
-Creating a token can be confusing, so the entire process is shown in the
-video below.
-
-**Note, for some people the video might not load. [Go here directly to
-see the video](../videos/github-create-token.mp4).**
-
-{{< video ../videos/github-create-token.mp4 >}}
-
-After creating the personal access token, we can copy it into the
-password field in RStudio. The personal access token will *only be
-visible at the time it is created*, so remember to **copy it somewhere**
-before closing the browser window. Otherwise you will need to create a
-new token (which also isn't a problem).
 :::
+
+Interacting with GitHub through R requires us to use something called a
+"personal access token", which you will learn about and create in the
+next exercise.
 
 ## Exercise: Creating a GitHub token with usethis
 
-> Time: \~15 minutes
+> Time: \~20 minutes
 
-As an alternative to manually navigating the GitHub settings section,
-you can open a direct link to the personal access token website directly
-from RStudio. Complete the [Connect to
+Since we use R, there is a really useful set of functions from
+`{usethis}` to make it easy interact with and setup connections to
+GitHub from RStudio. Complete the [Connect to
 GitHub](https://guides.rostools.org/connect-github.html) guide for this
 exercise. In the end, you should have your `LearningR` project on
 GitHub.
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+On your own, run the commands in the guides. After they complete the
+tasks, make sure that they have the "Push" and "Pull" buttons as well as
+having the `LearningR` on GitHub.
+:::
 
 ## Synchronizing with GitHub
 
@@ -663,8 +635,8 @@ to your local repository.
 1.  Go to your `LearningR` GitHub repository. You should see the new
     change is also on the GitHub repository.
 2.  Click the `README.md` file on the GitHub website and then click the
-    "Edit" button (see the video below, which shows it for the
-    `learning-github` repository).
+    "Edit" button (see the video below, which shows it for random
+    repository called `learning-github`).
 3.  Add another random sentence somewhere near the top of the file.
 4.  Scroll down to the commit message box, and type out a commit
     message.
