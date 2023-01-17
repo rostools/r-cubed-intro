@@ -487,7 +487,7 @@ In the `R/learning.R` script file, complete the following tasks.
 
     ``` r
     blood_pressure <- select(nhanes_small, starts_with("bp_"))
-    rename(blood_pressure, bp_systolic = bp_sys)
+    rename(blood_pressure, bp_systolic = bp_sys_ave)
     ```
 
 5.  Run `{styler}` on the `R/learning.R` file with
