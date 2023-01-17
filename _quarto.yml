@@ -7,7 +7,6 @@ project:
     - videos/*
     - includes/cheatsheet.pdf
     - slides/*.html
-    # - slides/introduction_files
 
 book:
   title: "Reproducible Research in R"
@@ -44,11 +43,14 @@ book:
       - sessions/data-management.qmd
       - sessions/reproducible-documents.qmd
       - sessions/data-visualization.qmd
-      # - sessions/what-next.qmd
+      - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
     - appendix/assignment.qmd
     - appendix/for-instructors.qmd
+    - appendix/extra-exercises.qmd
+    - appendix/extra-github.qmd
+    - appendix/extra-markdown.qmd
     - appendix/references.qmd
     - LICENSE.md
   page-footer:
