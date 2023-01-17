@@ -160,13 +160,16 @@ that, we all have that power to do something, even if its small thing.
     -   Hands-on coding, discussing, and reading exercises
     -   Group project (quickly go over it)
 -   All material is online (and [openly
-    licensed](https://r-cubed-advanced.rostools.org/LICENSE.html))
--   [Resources
-    Appendix](https://r-cubed-advanced.rostools.org/resources.html)
+    licensed](https://r-cubed.rostools.org/LICENSE.html))
+-   [Resources Appendix](https://guides.rostools.org/learning.html)
     -   Material for further learning
 :::
 
 ::: {.column width="50%"}
+-   Reading tasks are "callout" blocks marked by the blue line on the
+    left side of the text
+-   Schedule listed is a *guide* only, some sessions are longer, others
+    shorter
 -   Less about coding, more about connecting with others
     -   During lunch, try to sit beside someone you don't know
     -   Several networking activities (usually after lunch)
