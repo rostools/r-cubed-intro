@@ -242,12 +242,14 @@ realize and R will likely not tell you about it, probably causing you
 quite a bit of annoyance and frustration. **Note**, you can't use
 duplicate code chunk labels in your document.
 
+::: {.callout-tip appearance="default"}
 A nifty thing about using chunk labels is that you can get an overview
 of your code chunks using the "Document Outline" (found using
 `Ctrl-Shift-O`), but only if you have this option set up in:
 `Tools -> Global Options -> R Markdown -> Show in document outline`.
 These settings can also be found with the Command Palette
 (`Ctrl-Shift-P`) followed by typing "document outline".
+:::
 
 The name `setup` also has a special meaning for R Markdown. When you run
 other code chunks in the document, R Markdown will know to first look
