@@ -214,9 +214,7 @@ glimpse(NHANES)
 ```
 
 This gives us a quick overview of what variables are in the dataset and
-the data types that they are. Once we've run the code, we will commit
-the changes to the Git history with the RStudio Git interface (with
-`r palette_git_commit`).
+the data types that they are.
 
 ## Selecting specific columns in a dataset
 
@@ -449,9 +447,6 @@ We can now "read" these actions as:
 > Take the nhanes_small dataset *and then* select the "phys_active"
 > column *and then* rename the "phys_active" column to
 > "physically_active".
-
-Now, let's add and commit changes to the Git history with the RStudio
-Git interface before moving on to the exercise.
 
 ## Exercise: Practice what we've learned
 
