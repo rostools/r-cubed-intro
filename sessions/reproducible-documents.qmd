@@ -49,23 +49,6 @@ easier to produce than if you had done it in Word.
 by \@allison_horst.](../images/art-reproducibility.png){width="70%"}
 :::
 
-## Exercise: Discuss your experiences or thoughts around reproducing work
-
-> Time: \~6 minutes
-
-Consider times that you've either: tried to reproduce a labmate's or
-collaborators work or your own; or, tried to figure out how a paper did
-their analysis. What were some challenges you encountered? Could you
-figure it out? What did you end up doing? If you have not had any of
-those experiences yet, instead brainstorm some possible challenges you
-might face.
-
--   Take 1 minute to think on your own.
--   Take 3 minutes to discuss with your neighbour what your experiences
-    or what you think.
--   In the remaining time, as a whole group we will all share some
-    thoughts on what you've talked about.
-
 ## What is R Markdown and Quarto?
 
 ::: callout-note
