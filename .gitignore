@@ -11,6 +11,7 @@ R/ignore.R
 .Rbuildignore
 _ignore
 data/nhanes_tidied.csv
+slides/*_files
 slides/libs
 slides/*.html
 videos/raw
