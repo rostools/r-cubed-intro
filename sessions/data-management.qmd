@@ -699,15 +699,6 @@ nhanes_small %>%
            logged_bmi = log(bmi))
 ```
 
-We can add multiple modifications or additions with `mutate()` by
-separating them with `,`.
-
-```{r}
-nhanes_small %>% 
-    mutate(age = age * 12,
-           logged_bmi = log(bmi))
-```
-
 We can also have different values based on logic conditions using
 `if_else()`. Use @tbl-logic-operators to help with creating the logic
 condition.
@@ -717,6 +708,7 @@ nhanes_small %>%
     mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
 
+::: {.callout-tip appearance="default"}
 Recall that the original dataset doesn't change. If we want the added
 variable to be saved, we must assign it to something with `<-`. Putting
 it all together, you would enter something like this (no need to type
@@ -726,6 +718,7 @@ this out yourself):
 nhanes_update <- nhanes_small %>%
     mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
+:::
 
 Before you start the following exercise, run `{styler}`
 (`r palette_styler_file`) and commit all the files changes to the Git
