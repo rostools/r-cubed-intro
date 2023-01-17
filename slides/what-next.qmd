@@ -12,83 +12,80 @@ format:
 search: false
 ---
 
-## Reproducibility is a spectrum, not a binary state
+# What next? Many steps to take! Small reminder though... {.center}
 
-.center\[
+## ... There are still very strong barriers to progress... {.center}
 
-```{r, out.height="85%", out.width="85%"}
-knitr::include_graphics("../images/reproducibility_spectrum.jpg")
-```
-
-\]
-
-[@Peng2011]
-
-## Sadly (not going to lie) there are still very strong barriers to progress...
-
-------------------------------------------------------------------------
+::: notes
+Not going to lie, there are major barriers.
+:::
 
 ## Institutional barriers
 
-???
-
+::: notes
 You will encounter a lot of resistance, a lot of barriers and hardship.
+:::
 
---
+. . .
 
 -   Lack of adequate awareness, support, infrastructure, training
 
-???
-
+::: notes
 At the institutional level, there is no real awareness of this, no
 support or infrastructure. You're basically doing this on your own.
 Which probably isn't that uncommon anyway.
+:::
 
---
+. . .
 
 -   Research culture values publications over all else
+    -   What would you spend your time on if we didn't have this
+        publication-obsession?
 
-???
-
+::: notes
 Research culture and incentives pretty much only care about publishing
 journal articles. Creating software tools or datasets to be shared, meh.
 Making teaching materials to help other researchers, meh. Communicating
 your science to the public and doing outreach, meh. Doing actual science
 that might take years and not lead to any "hard papers", meh.
 
---
+Imagine if the number of publications and where you published didn't
+matter for getting funding or getting a research job. What would you
+spend your time on? What would you do differently compared to now?
+:::
+
+. . .
 
 -   Legal and privacy concerns about sharing data, intellectual property
     protection, patents, etc
 
-???
-
+::: notes
 Legal and privacy concerns are big topics that institutions in
 particular focus on a lot, about ownership and so on, since research can
 lead to commercialization and the potential for profit. For individual
 researchers, we often worry about these concerns too much and sometimes
 stops us from doing work because we're afraid we're doing something
 wrong
+:::
 
---
+## Institutional barriers
 
 -   More traditional academics don't understand or resist change
 
-???
-
+::: notes
 We have a large portion of traditional academics who have benefited from
 and succeeded in this system and are invested in continuing it. They
 often say there's nothing wrong with the system. This is what we in
 epidemiology call "survivorship bias". There's nothing wrong, for them,
 because they succeeded. But all the others that didn't succeed? We don't
 count that data.
+:::
 
---
+. . .
 
 -   'Business as usual' is easier
 
-???
-
+::: notes
 We have a system that favours each individual person repeating the same
 mistakes that others make because the system doesn't allow for us to
 take the time to create tools and infrastructure that helps ourselves
@@ -97,31 +94,35 @@ and others out.
 Because business as usual is the easiest way in the short term. Our
 current scientific culture is just not prepared for this, for the rising
 modern analytic and computational era.
-
-------------------------------------------------------------------------
+:::
 
 ## ...and personal barriers
 
-.pull-left\[ - Fear of: - Fear of being scooped or ideas being stolen -
-Not being credited for ideas - Errors and public humiliation - Risk to
-reputation\]
+::: columns
+::: {.column width="50%"}
+-   Fear of:
+    -   Fear of being scooped or ideas being stolen
+    -   Not being credited for ideas
+    -   Errors and public humiliation
+    -   Risk to reputation
 
-???
-
+::: notes
 And there aren't just institutional barriers. We as researchers have
 fears of being scooped, of embarrassment and humiliation for your
 methods being *gasp* wrong. Which is actually just part of science.
 
---
+Mention Black Hole imaging issue for reputation/not being credited.
+:::
+:::
 
-.pull-right\[ - Overwhelmed with everything that needs to be done
+::: {.column width="50%"}
+-   Overwhelmed with everything that needs to be done
 
 -   Need to constantly stay updated
 
--   Finding better opportunities outside of academia \]
+-   Finding better opportunities outside of academia
 
-???
-
+::: notes
 It is also really overwhelming, having so many things to think about to
 make sure you're doing solid science. No researcher in the past had to
 consider and think and know as much as we have to know and to do.
@@ -143,16 +144,20 @@ lead author as well as several other of the co-authors and guess what...
 many of them now work in really great companies as data scientists or
 software engineers, probably making a lot of money and having
 potentially a less stressful life.
+:::
+:::
+:::
 
-# So... what can you do right now?
+# So... what can you do right now? {.center}
 
-## Easiest thing: Start sharing your code
+## Remember: Reproducibility is a spectrum, not a binary state {.center}
 
-.footnote\[No matter how ugly. It also doesn't mean it'll be
-reproducible, but at least it will be *inspectable*. \]
+## Easiest thing right now? Start sharing your code {.center}
 
-???
+No matter how ugly. It also doesn't mean it'll be reproducible, but at
+least it will be *inspectable*.
 
+::: notes
 If you do nothing else: share your code.
 
 If its ugly, that's fine! The point is you start and that you get more
@@ -170,17 +175,4 @@ guys! No one is doing this, no one is sharing their code! You start
 doing the simplest thing of sharing your code and you will be one of
 very very few people who do. And this isn't a niche, this is a gaping
 hole in our modern scientific process. A huge hole.
-
-# Activity: Think `r emo::ji("thought_balloon")` than discuss `r fontawesome::fa("far fa-comments")`
-
-<!-- TODO: Not actually have them do it, just get them thinking -->
-
-> Imagine if the number of publications and where you published didn't
-> matter for getting funding or getting a research job.
-
--   Take 2 minutes (instructor will set time) and consider:
-    -   What would you spend your time on?
-    -   What would you do differently compared to now?
--   *With your neighbour*, share what you've thought
-    -   Each person has 2 minutes
--   After, we'll share some of the thoughts
+:::

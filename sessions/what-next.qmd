@@ -1,34 +1,53 @@
-## What next?
+# What next?
+
+> [**What Next slides**](../slides/what-next.html)
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="../slides/what-next.html"></iframe>
+```
+
+</div>
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+The slides contain speaking notes that you can view by pressing 'S' on
+the keyboard.
+:::
 
 It is one thing to learn the principles of how to do reproducible
 research. It is quite another thing to do so in daily practice. So, how
-can we practice these skills and tools we learned during the course?
+can you practice these skills and tools you learned during the course?
 
--   If you have your own data already, then it's easy: Just start using
-    these tools bit by bit. Slowly and steadily use the tools from this
-    course and continue learning. It isn't a race, use what you can
-    without getting totally overwhelmed.
--   If you don't have access to your data yet, check out Section
-    \@ref(further-learning) in the Resources Appendix \@ref(resources).
+-   If you have your own data already, then it's easy: Start using these
+    tools bit by bit, step by step. It doesn't have to be all at once.
+    Slowly and steadily use the tools and skills from this course and
+    continue learning. It isn't a race, use what you can without getting
+    totally overwhelmed.
+-   Check out the [Learning](https://guides.rostools.org/learning.html)
+    page of the Guides website for resources on continued learning.
 -   If your collaborators or supervisor don't use these tools from the
     course, are not supportive, or are supportive but not able to learn
     and use these tools themselves, e.g. they are too busy, there are
-    several steps you can take. This situtation is definitely
-    challenging and is likely to be most commonly encountered. Use the
-    tools as best you can, small bits at a time, so you continue
-    learning but don't get completely overwhelmed with all the new
-    things and ways to do things. Below are some potential small steps
-    to take that you can choose from to start incorporating and using R
-    and reproducibility in your work:
+    several steps you can take. This situation is definitely challenging
+    and is likely to be most commonly encountered. Use the tools as best
+    you can, small bits at a time, so that you continue learning but
+    don't get completely overwhelmed with all the new things and ways to
+    do things. Below are some potential small steps to take that you can
+    choose from to start incorporating and using R and reproducibility
+    in your work:
     -   As much as possible, setup your projects, folders, and files in
         a more reproducible way (e.g. through using the structure
-        created from the prodigenr package).
+        created from the `{prodigenr}` package).
     -   Create all your figures entirely in R and using R scripts or R
         Markdown files.
-    -   Write everything research related in R Markdown and convert to a
-        Word document when you need to send to co-authors. If they make
-        edits or comments, include the edits in the original R Markdown
-        file, and *do not* keep them in the Word document.
+    -   Write everything research related in R Markdown/Quarto and
+        convert to a Word document when you need to send to co-authors.
+        If they make edits or comments, include the edits in the
+        original R Markdown/Quarto file, and *do not* keep them in the
+        Word document.
     -   Start slowly making use of Git, even if you can't or are not
         comfortable yet with sharing on GitHub. Git and GitHub are two
         separate things and Git can still be used on your computer
@@ -39,87 +58,22 @@ can we practice these skills and tools we learned during the course?
     environment (e.g. in Denmark Statistics), you may not have
     authorization to install some programs. However, most remote
     environments have the latest software used for data analysis type
-    tasks. Check out Section \@ref(real-world-r3) below for details
-    about doing reproducible research with R in the Denmark Statistics
-    servers.
+    tasks.
 
 ## How do you share?
 
-.pull-left\[ - [GitHub](https://github.com/)
-
--   [GitLab](https://gitlab.com/)
-
--   [Zenodo](https://zenodo.org/)
-
--   [figshare](https://figshare.com/)
-
--   [Open Science Framework](https://osf.io/) \]
-
-???
-
-How do you share? Put your code up on any of these sites. I prefer a
+How do you share? Put your code up on any of these sites. We recommend a
 combination of GitHub and Zenodo, but the others are also quite good as
 well. And we're already showing you how to use GitHub, so you're one
 step closer to sharing on your own!
 
---
+-   [GitHub](https://github.com/)
+-   [GitLab](https://gitlab.com/)
+-   [Zenodo](https://zenodo.org/)
+-   [figshare](https://figshare.com/)
+-   [Open Science Framework](https://osf.io/)
 
-.pull-right\[ **Yea, but when do you share?**\]
-
-???
-
-Next question might, when do you share? I say right away. As soon as I
-have an analysis project, my code is up on either GitHub or GitLab
-(another service like GitHub). Alternatively, you can upload it when you
-also finish your manuscript.
-
-## What else can you do?
-
--   Find or start building a community of people using R
-
--   Start reviewing each others code
-
--   Start sharing your code
-
--   Think about how your code will be reproducible
-
--   Teach or help out with R courses `r emo::ji("wink")`
-
--   Join local initiatives that follow these guidelines
-
-???
-
-The other things you can start doing is find or start building a
-community of people who also use R or are doing reproducibility or any
-other computational work. Use them as support and help and also give
-back too.
-
-Start doing code reviews in your research group. Code review would be
-where you look over each others code, check that it works, check that it
-makes sense, that it's readable and understandable. The nice thing with
-doing code reviews is that it dispels the mystery around code and about
-criticising it and trying to improve it. We review manuscripts, why not
-code? I personally though have had a really hard time getting groups
-I've been part of now and in the past to do this, but baby steps.
-
-You can teach. Teach others. Use these teaching materials. Or get
-involved with this course next year. Or now. Actually, several
-participants from the beginner course are or will soon be helping to
-improve the material for next year. There are also so many other things
-you can get involved in, aside from this course. Let me know if you're
-interested!
-
-# So... what can you do right now?
-
-## Easiest thing: Start sharing your code
-
-.footnote\[No matter how ugly. It also doesn't mean it'll be
-reproducible, but at least it will be *inspectable*. \]
-
-???
-
-If you do nothing else: share your code.
-
+Next question might, when do you share? Right away! No matter how ugly.
 If its ugly, that's fine! The point is you start and that you get more
 comfortable doing it until it becomes second nature to share and in the
 process, your code gets better because you know someone might look at
@@ -130,10 +84,32 @@ own their own, sharing is the first step to becoming better. At the
 least, others can inspect your code for its overall logic.
 
 We as researchers try to find our niche, make our own space in the
-research world. Sometimes its a real struggle to find that niche.. but
-guys! No one is doing this, no one is sharing their code! You start
-doing the simplest thing of sharing your code and you will be one of
-very very few people who do. And this isn't a niche, this is a gaping
-hole in our modern scientific process. A huge hole.
+research world. Sometimes its a real struggle to find that niche... but
+this is one of those niches! Very few people are sharing their code! You
+start doing the simplest thing of sharing your code and you will be one
+of very very few people who do. And this isn't a niche, this is a gaping
+hole in our modern scientific process.
 
-See the [Continuing learning]() page in the Guides website.
+So as soon as you have an analysis project set up, put it up on either
+GitHub or GitLab (another service like GitHub). Alternatively, you can
+upload it when you also finish your manuscript.
+
+## What else can you do?
+
+The other things you can start doing is find or start building a
+community of people who also use R or are doing reproducibility or any
+other computational work. Use them as support and help and also give
+back too.
+
+Start doing code reviews in your research group. Code review would be
+where you look over each others code, check that it works, check that it
+makes sense, that it's readable and understandable. The nice thing with
+doing code reviews is that it dispels the mystery around code and about
+criticizing it and trying to improve it. We review manuscripts, why not
+code? Do note though, that this is way easier said than done!
+
+You can teach! Teach others. Use these teaching materials. Or get
+involved with this course next year. Or now! Several participants from
+these courses are or will soon be helping to improve the material for
+next year. There are also so many other things you can get involved in,
+aside from this course. Let us know if you're interested!
