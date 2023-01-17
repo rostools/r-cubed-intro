@@ -175,7 +175,7 @@ area. Below it add a code chunk (`r keybind_chunk` or
 ```{r}
 # Create histogram for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
-    geom_histogram()
+  geom_histogram()
 ```
 
 You'll notice we get a warning about dropping missing values. That's
@@ -186,7 +186,7 @@ You'll notice we get a warning about dropping missing values. That's
 ```{r}
 # Create histogram for BMI
 ggplot(nhanes_small, aes(x = bmi)) +
-    geom_histogram(na.rm = TRUE)
+  geom_histogram(na.rm = TRUE)
 ```
 
 Note that it is good practice to always create a new line after the `+`.
@@ -198,8 +198,8 @@ can use `aes()` right away rather than put in the data object to the
 first argument position.
 
 ```{r}
-nhanes_small %>% 
-  filter(bmi <= 60) %>% 
+nhanes_small %>%
+  filter(bmi <= 60) %>%
   ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
 ```
@@ -216,8 +216,8 @@ we can reference it in the text by using `@fig-LABEL`. Figure labels
 #| echo: fenced
 #| fig-cap: "Distribution of BMI."
 #| label: fig-bmi-histo
-nhanes_small %>% 
-  filter(bmi <= 60) %>% 
+nhanes_small %>%
+  filter(bmi <= 60) %>%
   ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
 ```
@@ -238,7 +238,7 @@ geom to visualize those. Again, create a new code chunk
 ```{r discrete-variables}
 # Create count barplot for education
 ggplot(nhanes_small, aes(x = education)) +
-    geom_bar()
+  geom_bar()
 ```
 
 We can't use `na.rm = TRUE` here because `geom_bar()` includes that
@@ -250,7 +250,7 @@ same for the diabetes status variable. In the same code chunk, type:
 ```{r}
 # Create count barplot for diabetes status
 ggplot(nhanes_small, aes(x = diabetes)) +
-    geom_bar()
+  geom_bar()
 ```
 
 For diabetes, it seems that there is some missingness in the data. Same
@@ -261,13 +261,13 @@ with diabetes and then copy and paste the code, replacing `diabetes`
 with `education`.
 
 ```{r}
-nhanes_small %>% 
-  filter(!is.na(diabetes)) %>% 
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>%
   ggplot(aes(x = diabetes)) +
   geom_bar()
 
-nhanes_small %>% 
-  filter(!is.na(education)) %>% 
+nhanes_small %>%
+  filter(!is.na(education)) %>%
   ggplot(aes(x = education)) +
   geom_bar()
 ```
@@ -283,17 +283,17 @@ page. We can then combine it with captions and sub-captions using
 #| echo: fenced
 #| label: fig-diabetes-education
 #| fig-cap: "Counts of Diabetes and Education."
-#| fig-subcap: 
+#| fig-subcap:
 #|   - "Number of those with or without Diabetes."
 #|   - "Number of those with different educational status."
-#| layout-ncol: 2 
-nhanes_small %>% 
-  filter(!is.na(diabetes)) %>% 
+#| layout-ncol: 2
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>%
   ggplot(aes(x = diabetes)) +
   geom_bar()
 
-nhanes_small %>% 
-  filter(!is.na(education)) %>% 
+nhanes_small %>%
+  filter(!is.na(education)) %>%
   ggplot(aes(x = education)) +
   geom_bar()
 ```
@@ -343,7 +343,7 @@ Barplots hide interesting results. Artwork by
 
 Before we move on, let's run `{styler}` (`r palette_styler_file`), then
 add and commit the new files we created into the Git history
-(`r palette_commit`) and push up to your GitHub repository.
+(`r palette_git_commit`) and push up to your GitHub repository.
 
 ## Plotting two variables
 
@@ -405,8 +405,8 @@ between education levels. Create a new code chunk (`r keybind_chunk` or
 ```{r 2-discrete-variables}
 # Two categorical/discrete variables
 # Note that we can pipe data into ggplot
-nhanes_small %>% 
-  filter(!is.na(education), !is.na(diabetes)) %>% 
+nhanes_small %>%
+  filter(!is.na(education), !is.na(diabetes)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
   geom_bar()
 ```
@@ -420,8 +420,8 @@ side by side.
 
 ```{r}
 # "dodged" (side-by-side) bar plot
-nhanes_small %>% 
-  filter(!is.na(education), !is.na(diabetes)) %>% 
+nhanes_small %>%
+  filter(!is.na(education), !is.na(diabetes)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
   geom_bar(position = position_dodge())
 ```
@@ -459,8 +459,8 @@ those with or without diabetes. Create a new code chunk
 
 ```{r discrete-continuous-variables}
 # Using mixed data
-nhanes_small %>% 
-  filter(is.na(diabetes), bmi <= 60) %>% 
+nhanes_small %>%
+  filter(!is.na(diabetes), bmi <= 60) %>%
   ggplot(aes(x = diabetes, y = bmi)) +
   geom_violin(na.rm = TRUE)
 ```
@@ -480,26 +480,32 @@ Create a new header in the `doc/learning.qmd` file called
 `## Exercise to make plots with one or two variables`. For each task
 below, create a new code chunk (`r keybind_chunk` or `r palette_chunk`)
 for it. Copy and paste the template code shown in each task into its own
-code chunk. Complete as many tasks as you can below.
+code chunk. When you complete each task,
+
+run `{styler}` (`r palette_styler_file`) and render (`r keybind_knit` or
+`r palette_render`) the document to make sure it works and to see the
+output.
+
+Complete as many tasks as you can below.
 
 1.  Start with the original NHANES dataset to have access to more
     variables.
 
-    ``` r
+    ```{r}
+    #| output: false
     library(NHANES)
-    nhanes_exercise <- NHANES %>% 
-        rename_with(snakecase::to_snake_case) %>% 
-        rename(sex = gender)
+    nhanes_exercise <- NHANES %>%
+      rename_with(snakecase::to_snake_case) %>%
+      rename(sex = gender)
     ```
 
-2.  With the `nhanes_exercise` data, use `geom_histogram()` to show the
+2.  With the `nhanes_exercise` data, use `geom_density()` to show the
     distribution of `age` (participant's age at collection) and
     `diabetes_age` (age of diabetes diagnosis) in two separate,
     side-by-side plots, but inside one code chunk. Use `#| layout-ncol`,
     along with `#| label`, `#| fig-cap` and `#| fig-subcap`, to have the
     two plots be side by side. Don't forget to use `na.rm = TRUE` in the
-    geom. Render (`r keybind_knit` or `r palette_render`) the document
-    to make sure it works and to see the output.
+    geom.
 
     ``` r
     #| ___: ___
@@ -517,99 +523,114 @@ code chunk. Complete as many tasks as you can below.
         ___(___ = ___)
     ```
 
-    ```{r exercise-2-var-plots}
+    <details>
 
-    # 2a. Number of people who smoke now
-    ggplot(___, aes(x = ___)) +
-        ___()
+    <summary><b>Click for the solution</b>. Only click if you are
+    struggling or are out of time.</summary>
 
-    # 2b. Number of people who are physically active
-    ggplot(___, aes(x = ___)) +
-        ___()
+    ```{r solution-distribution-ages}
+    #| echo: fenced
+    #| eval: false
+    # These are approximate caption titles
+    #| label: fig-distribution-ages
+    #| fig-cap: "Distribution of different age variables"
+    #| layout-ncol: 2
+    #| fig-subcap:
+    #|   - "Age at collection"
+    #|   - "Age of diabetes diagnosis"
+    # Distribution of age
+    ggplot(nhanes_exercise, aes(x = age)) +
+      geom_density(na.rm = TRUE)
 
-    # 3a. BMI in relation to systolic blood pressure
-    ggplot(___, aes(x = ___, y = ___)) +
-        ___()
-
-    # 3b. BMI relation to diastolic blood pressure
-    ggplot(___, aes(x = ___, y = ___)) +
-        ___()
-        
-    # 4. Physically active people with or without diabetes
-    ggplot(___, aes(x = ___, fill = ___)) +
-        ___(___ = ___())
-
-    # 5. Poverty levels between those with or without diabetes
-    ggplot(___, aes(x = ___, y = ___)) +
-        ___()
+    # Distribution of age at diabetes diagnosis
+    ggplot(nhanes_exercise, aes(x = diabetes_age)) +
+      geom_density(na.rm = TRUE)
     ```
 
-3.  Using `geom_bar()`, find out how many people have data recorded for
-    each of the two discrete variables below. What can you say about
-    most people for these variables?
+    </details>
 
-    a.  `smoke_now` (current smoking status).
-    b.  `phys_active` (does moderate to vigorous physical activity).
+3.  With `nhanes_exercise`, use `filter()` and `geom_bar()` to find out
+    how many people there who currently smoke (`smoke_now`) and who are
+    at or above the `age` or 20. Drop missing values (`!is.na()`) from
+    `smoke_now`. What can you say about how many smoke in this age
+    group? Use `#| label` and `#| fig-cap` to be able to reference it in
+    the Quarto document and have a caption. Render (`r keybind_knit` or
+    `r palette_render`) the document to make sure it works and to see
+    the output.
 
-4.  Using `geom_hex()`, find out how BMI relates to the two blood
-    pressure variables below. Do you notice anything about the data from
-    the plots?
+    ``` r
+    # Number of people who smoke now and are or above 20 years of age,
+    # removing those with missing smoking status.
+    nhanes_exercise %>% 
+      ___(___ >= ___, !is.na(___)) %>% 
+      ggplot(aes(x = ___)) +
+      ___()
+    ```
 
-    a.  `bp_sys_ave` (average systolic blood pressure).
-    b.  `bp_dia_ave` (average diastolic blood pressure).
+    ```{r solution-smoking-now-with-age}
+    #| eval: false
+    #| code-fold: true
+    #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+    # Number of people who smoke now and are or above 20 years of age,
+    # removing those with missing smoking status.
+    nhanes_exercise %>%
+      filter(age >= 20, !is.na(smoke_now)) %>%
+      ggplot(aes(x = smoke_now)) +
+      geom_bar()
+    ```
 
-5.  Using `geom_bar()`, find out how `phys_active` those with or without
-    `diabetes` are. Put `diabetes` on the x-axis. What can you say based
-    on the data? Note the differences in missingness between groups.
-    Don't forget to use `position_dodge()` in the `position` argument,
-    in order to arrange the bars side by side.
+4.  Mean arterial pressure is a blood pressure measure used to determine
+    the average pressure arteries experience through a typical cardiac
+    cycle. The formula to calculate it is:
 
-6.  Using `geom_violin()`, find how `poverty` levels are different for
-    those with or without `diabetes`. Put `diabetes` on the x-axis.
-    Looking at the distributions, what can you conclude about how
-    poverty may be associated with diabetes status?
+    $$(Systolic + (2 \times Diastolic) / 3)$$
 
-    -   The `poverty` variable is calculated as a ratio between income
-        and a poverty threshold. Smaller numbers mean higher poverty.
+    Use `mutate()` to create a new column called
+    `mean_arterial_pressure` using this formula above. The code template
+    below will help you start out. Then, use `geom_hex()` and add
+    another layer for `geom_smooth()` to find out how `bmi` (on the
+    x-axis) relates to `mean_arterial_pressure` (on the y-axis). Do you
+    notice anything about the data from the plots?
 
-7.  Save, add, and commit the changes to the Git history.
+    ``` r
+    # BMI in relation to mean arterial pressure
+    nhanes_exercise %>% 
+      ___(___ = (___ + (2 * ___)) / 3) %>% 
+      ggplot(aes(x = ___, y = ___)) +
+      ___(na.rm = TRUE) +
+      ___()
+    ```
 
-```{r solution-2-var-plots, eval=FALSE, solution=TRUE}
+    ```{r solution-map-bmi}
+    #| eval: false
+    #| code-fold: true
+    #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+    # BMI in relation to mean arterial pressure
+    nhanes_exercise %>%
+      mutate(mean_arterial_pressure = (bp_sys_ave + (2 * bp_dia_ave)) / 3) %>%
+      ggplot(aes(x = bmi, y = mean_arterial_pressure)) +
+      geom_hex(na.rm = TRUE) +
+      geom_smooth()
+    ```
 
-
-# 2. Number of people who smoke now and are or above 40 years of age,
-# removing those with missing smoking status.
-nhanes_full_tidied %>% 
-  filter(age >= 20, !is.na(smoke_now)) %>% 
-  ggplot(aes(x = smoke_now)) +
-  geom_bar()
-
-# 3. BMI in relation to mean arterial pressure
-nhanes_full_tidied %>% 
-  mutate(mean_arterial_pressure = (bp_sys_ave + (2 * bp_dia_ave)) / 3) %>% 
-  ggplot(aes(x = bmi, y = mean_arterial_pressure)) +
-  geom_hex(na.rm = TRUE) +
-  geom_smooth()
-
-# 4. Physically active people with or without diabetes
-ggplot(nhanes_full_tidied, aes(x = diabetes, fill = phys_active)) +
-    geom_bar(position = position_dodge())
-```
+5.  End with adding and committing the changes to the Git history
+    (`r palette_git_commit`).
 
 ## Visualizing three or more variables
 
 There are many ways to visualize additional variables in a plot and
-further explore your data. For that, we can use ggplot2's colour, shape,
-size, transparency ("alpha"), and fill aesthetics, as well as "facets".
-Faceting in ggplot2 is a way of splitting the plot up into multiple
-plots when the underlying aesthetics are the same or similar. In this
-section, we'll be covering many of these capabilities in ggplot2.
+further explore your data. For that, we can use `{ggplot2}`'s colour,
+shape, size, transparency ("alpha"), and fill aesthetics, as well as
+"facets". Faceting in `{ggplot2}` is a way of splitting the plot up into
+multiple plots when the underlying aesthetics are the same or similar.
+In this section, we'll be covering many of these capabilities in
+`{ggplot2}`.
 
 The most common and "prettiest" way of adding a third variable is by
 using colour. Let's try to answer a few of the questions below, to
 visualize some of these features. First, create a new header called
-`# Plotting three or more variables` and a code chunk named
-`using-colour` below it.
+`## Plotting three or more variables` and a new code chunk
+(`r keybind_chunk` or `r palette_chunk`).
 
 *Question: Is systolic blood pressure different in those with or without
 diabetes in females and males?* In this case, we have one continuous
@@ -618,9 +639,10 @@ variable (`bp_sys_ave`) and two discrete variables (`education` and
 
 ```{r using-colour}
 # Plot systolic blood pressure in relation to education and diabetes status
-nhanes_tidied %>% 
-    ggplot(aes(x = education, y = bp_sys_ave, colour = diabetes)) +
-    geom_boxplot(na.rm = TRUE)
+nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>%
+  ggplot(aes(x = education, y = bp_sys_ave, colour = diabetes)) +
+  geom_boxplot(na.rm = TRUE)
 ```
 
 Do you see differences in systolic blood pressure between the education
@@ -632,9 +654,9 @@ Here, we have three continuous variables (`bmi`, `bp_sys_ave`, and
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and age
-nhanes_tidied %>%
-    ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
-    geom_point(na.rm = TRUE)
+nhanes_small %>%
+  ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
+  geom_point(na.rm = TRUE)
 ```
 
 Can you see any associations between systolic blood pressure and BMI or
@@ -643,13 +665,15 @@ age?
 *Question: How does BMI relate to systolic blood pressure, and what is
 different between those with and without diabetes?* In this case, we
 have two continuous variables (`bmi` and `bp_sys_ave`) and one discrete
-variable (`diabetes`). We could use `geom_point()`:
+variable (`diabetes`). We could use `geom_point()`, making sure to also
+`filter()` those missing `diabetes` values.
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure and diabetes status
-nhanes_tidied %>% 
-    ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
-    geom_point(na.rm = TRUE)
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
+  geom_point(na.rm = TRUE)
 ```
 
 For this latter plot, it's really hard to see what's different. But
@@ -666,16 +690,17 @@ first two arguments are:
 
 For both `cols` and `rows`, the nominated variable must be wrapped by
 `vars()` (e.g. `vars(diabetes)`). Let's try it using an example from the
-previous answer (instead of using `colour`). Make a new code chunk named
-`using-faceting`
+previous answer (instead of using `colour`). Make a new code chunk
+(`r keybind_chunk` or `r palette_chunk`) at the bottom of the file.
 
 ```{r using-faceting}
 # Plot BMI in relation to systolic blood pressure and diabetes status using
 # faceting by column
-nhanes_tidied %>% 
-    ggplot(aes(x = bmi, y = bp_sys_ave)) +
-    geom_point(na.rm = TRUE) +
-    facet_grid(cols = vars(diabetes))
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave)) +
+  geom_point(na.rm = TRUE) +
+  facet_grid(cols = vars(diabetes))
 ```
 
 Try faceting with plots stacked by diabetes status, using the argument
@@ -683,30 +708,36 @@ Try faceting with plots stacked by diabetes status, using the argument
 
 ```{r}
 # faceting by row
-nhanes_tidied %>% 
-    ggplot(aes(x = bmi, y = bp_sys_ave)) +
-    geom_point(na.rm = TRUE) +
-    facet_grid(rows = vars(diabetes))
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave)) +
+  geom_point(na.rm = TRUE) +
+  facet_grid(rows = vars(diabetes))
 ```
 
-We can also facet by `education` and use `age` as a colour:
+We can also facet by `education` and use `age` as a colour. We'll have
+to `filter()` out those missing `education` values.
 
 ```{r}
 # Plot BMI in relation to systolic blood pressure, age, education and diabetes status
-nhanes_tidied %>% 
-    ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
-    geom_point(na.rm = TRUE) +
-    facet_grid(rows = vars(diabetes),
-               cols = vars(education))
+nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
+  geom_point(na.rm = TRUE) +
+  facet_grid(
+    rows = vars(diabetes),
+    cols = vars(education)
+  )
 ```
 
-Before moving on, let's save the file, add and commit the new changes to
-the Git history, and push to GitHub.
+Before moving on, run `{styler}` (`r palette_styler_file`) and then add
+and commit the new changes to the Git history (`r palette_git_commit`),
+and push to GitHub.
 
 ## Colours: Make your graphs more accessible
 
-**Please take \~5 min to read through this section and then complete the
-exercise that follows.**
+::: callout-info
+## Reading task: \~5 minutes
 
 Colour blindness is common in the general population, with red-green
 colour blindness affecting about 8% of men and 0.5% of women. To make
@@ -729,31 +760,35 @@ the [ColorBrewer](https://colorbrewer2.org/) colour schemes. Both are
 well designed and are colour blind friendly. For this course, we will
 only cover the viridis package.
 
-## Other colour schemes in ggplot2
+::: {.callout-tip appearance="default"}
+### Other colour schemes in ggplot2
 
 You can modify ggplot2 colour schemes using many other pre-defined
 palettes by installing new R packages, including scientific journal
 colour palettes ([ggsci](https://nanx.me/ggsci/index.html)) and even a
 Wes Anderson ([wesanderson](https://github.com/karthik/wesanderson)) or
 a Stubio Ghibli ([ghibli](https://ewenme.github.io/ghibli/)) colour
-palette! Also check out the Data Visualization book in the section
-below.
+palette!
+:::
+:::
 
 ## Exercise: Changing the colour schemes
 
-Time: 10 min
+> Time: 10 minutes.
 
 Practice changing colour schemes on a bar plot. Start with a base plot
 object to work from that has two discrete variables. Create a new
-Markdown header called `# Exercise for changing colours` and create a
-new code chunk named `exercise-discrete-variables` below it. Copy and
-paste the code below into the new code chunk.
+Markdown header called `## Exercise for changing colours` and create a
+new code chunk (`r keybind_chunk` or `r palette_chunk`) below it. Copy
+and paste the code below into the new code chunk.
 
-```{r exercise-discrete-variables}
+``` r
 # Barplot to work from, with two discrete variables
-base_barplot <- nhanes_tidied %>% 
-    ggplot(aes(x = diabetes, fill = education)) +
-    geom_bar(position = position_dodge())
+nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>% 
+  ggplot(aes(x = diabetes, fill = education)) +
+  geom_bar(position = position_dodge()) +
+  ___
 ```
 
 Use the `scale_fill_` function set to add the colour scheme. If you need
@@ -761,84 +796,92 @@ help, use the `help()` or `?` functions in RStudio to look over the
 documentation for more information or to see the other `scale_`
 functions. Use tab auto-completion to find the correct function.
 
-1.  Change the colour to the viridis scheme with the
-    `scale_fill_viridis_d()` function and use it on the `base_barplot`
-    graph so that the plot is colour blind friendly. Because the
-    variables are discrete, you will need to add `_d` to the end of the
-    viridis scheme function.
+1.  Change the colour to the `{viridis}` scheme with the
+    `scale_fill_viridis_d()` function, added to the end of the
+    `{ggplot2}` code so that the plot is colour blind friendly. Because
+    the variables are discrete, you will need to add `_d` to the end of
+    the `{viridis}` function.
 
-2.  Viridis has several palettes. Add the argument `option = "magma"` to
-    the `scale_fill_viridis_d()` function. Run the function again and
-    see how the colour changes. Next, change `"magma"` to `"cividis"`.
+2.  `{viridis}` has several palettes. Add the argument
+    `option = "magma"` to the `scale_fill_viridis_d()` function. Run the
+    function again and see how the colour changes. Then, change
+    `"magma"` to `"cividis"`.
 
 3.  Now, let's practice using the colour schemes on a plot with
-    continuous variables. Copy and paste the code below into a new code
-    chunk named `exercise-continuous-variables`. Since we are using
-    `colour` instead of `fill`, the `scale_` will be
-    `scale_colour_viridis_c()`. The `_c` at the end indicates the
-    variable will be continuous.
+    continuous variables. Copy and paste the code below into the code
+    chunk. Since we are using `colour` instead of `fill`, the `scale_`
+    will be `scale_colour_viridis_c()`. The `_c` at the end indicates
+    the variable are continuous.
 
-    ```{r exercise-continuous-variables}
+    ``` r
     # Scatterplot to work from, with three continuous variables
-    base_scatterplot <- nhanes_tidied %>% 
-        ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
-        geom_point(na.rm = TRUE)
+    nhanes_small %>%
+      ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
+      geom_point(na.rm = TRUE) +
+      scale_
     ```
 
-4.  Similar to #2 above, use the `option` argument to set the palette to
-    `"inferno"` and see how the colour changes.
+4.  Similar to task 2 above, use the `option` argument to set the
+    palette to `"inferno"` and see how the colour changes. Select which
+    colour scheme you would like.
 
-5.  Lastly, add and commit the changes to the R Markdown file into the
-    Git history.
+5.  Run `{styler}` (`r palette_styler_file`). Then commit the changes to
+    the R Markdown file into the Git history (`r palette_git_commit`).
 
-```{r solution-colour-schemes, eval=FALSE, solution=TRUE}
-# 1. change colors to a viridis colour scheme
-base_barplot +
-    scale_fill_viridis_d()
+```{r solution-colour-schemes}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# 1. and 2.
+nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>% 
+  ggplot(aes(x = diabetes, fill = education)) +
+  geom_bar(position = position_dodge()) +
+  scale_fill_viridis_d()
+  # scale_fill_viridis_d(option = "magma")
 
-# 2. change colours to another viridis color scheme
-base_barplot +
-    scale_fill_viridis_d(option = "magma")
-
-base_barplot +
-    scale_fill_viridis_d(option = "cividis")
-
-# 3. change colours to a viridis color scheme
-base_scatterplot +
-    scale_color_viridis_c()
-
-# 4. change colours to another viridis color scheme
-base_scatterplot +
-    scale_color_viridis_c(option = "inferno")
+# 3. 
+nhanes_small %>%
+  ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
+  geom_point(na.rm = TRUE) +
+  scale_colour_viridis_c()
+  # scale_colour_viridis_c(option = "inferno")
 ```
 
 ## Titles, axis labels, and themes
 
-There are so many options in RStudio to modify a ggplot2 figure. Almost
-all of them are found in the `theme()` function. We won't cover
+There are so many options in RStudio to modify a `{ggplot2}` figure.
+Almost all of them are found in the `theme()` function. We won't cover
 individual theme items, since the `?theme` help page and [ggplot2 theme
 webpage](https://ggplot2.tidyverse.org/reference/theme.html) already
 document `theme()` really well. Instead, we'll cover a few of the
 built-in themes, as well as setting the axes labels and plot title.
-We'll build off of the previously created `base_scatterplot`. All
-built-in themes start with `theme_`.
+We'll create base graph object to work with created `base_scatterplot`.
+All built-in themes start with `theme_`.
 
-Create a new section header called `# Changing plot appearance` and make
-a code chunk named `built-in-themes`, then copy the code below:
+Create a new section header called `## Changing plot appearance` and
+make a new code chunk (`r keybind_chunk` or `r palette_chunk`), then
+copy the code below:
 
 ```{r built-in-themes}
 # Create scatterplot to play with themes
-base_scatterplot2 <- base_scatterplot +
-    facet_grid(rows = vars(diabetes),
-               cols = vars(education)) +
-    scale_color_viridis_c()
+base_scatterplot <- nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
+  geom_point(na.rm = TRUE) +
+  facet_grid(
+    rows = vars(diabetes),
+    cols = vars(education)
+  ) +
+  scale_color_viridis_c()
 
 # View the plot with the default theme
-base_scatterplot2
+base_scatterplot
+
 # Test out some pre-defined themes
-base_scatterplot2 + theme_bw()
-base_scatterplot2 + theme_minimal()
-base_scatterplot2 + theme_classic()
+base_scatterplot + theme_bw()
+base_scatterplot + theme_minimal()
+base_scatterplot + theme_classic()
 ```
 
 You can also set the theme for all subsequent plots by using the
@@ -853,14 +896,16 @@ theme_set(theme_bw())
 To add labels such as axis titles to your plot, you can use the function
 `labs()`. To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
-code chunk named `labels` and type:
+code chunk (`r keybind_chunk` or `r palette_chunk`) and type:
 
 ```{r labels}
 # Add plot title and change axis titles
-base_scatterplot2 +
-    labs(title = "BMI, systolic blood pressure, and age by diabetes and education",
-         y = "Systolic Blood Pressure (mmHg)",
-         x = "BMI (kg/m2)")
+base_scatterplot +
+  labs(
+    title = "BMI, systolic blood pressure, and age by diabetes and education",
+    y = "Systolic Blood Pressure (mmHg)",
+    x = "BMI (kg/m2)"
+  )
 ```
 
 ## Saving the plot
@@ -870,28 +915,31 @@ argument says where to save the graph. Give the name of the newly
 created file, as well as the folder location. The next argument says
 which plot to save. At this point, you can set the dimensions of the
 figure using the `width` and `height` arguments. Add a new section
-header `# Saving the plot` and create a new code chunk:
+header `## Saving the plot` and create a new code chunk:
 
 ```{r, eval=FALSE}
 # Save the plot
-ggsave(here::here("doc/images/scatterplot.pdf"), 
-       base_scatterplot2, width = 7, height = 5)
+ggsave(here::here("doc/images/scatterplot.pdf"),
+  base_scatterplot2,
+  width = 7, height = 5
+)
 ```
 
-Lastly, let's save the R Markdown file, add and commit the changes, and
-push to GitHub.
+Lastly, let's run `{styler}` (`r palette_styler_file`), render the
+Quarto document (`r keybind_knit` or `r palette_render`), commit the
+changes (`r palette_git_commit`), and push to GitHub.
 
 ## Summary
 
 -   Use the "Grammar of Graphics" approach in conjunction with the
-    ggplot2 package within the tidyverse to plot your data.
+    `{ggplot2}` package within the `{tidyverse}` to plot your data.
 -   Prioritize plotting raw data instead of summaries whenever possible.
--   ggplot2 has 4 levels of grammar: `aes()` (which data to plot),
+-   `{ggplot2}` has 4 levels of grammar: `aes()` (which data to plot),
     `geom_` (what kind of plot), `scale_` (to make the plot pretty), and
     `theme()` (to control the specifics of the plot).
 -   Only use barplots for discrete values. If applying them on
     continuous variables, it hides the distribution of the data.
 -   To plot more dimensions, use colour, the X axis, the Y axis, or
     `facet_grid()`.
--   Use colour blind-friendly palettes, such as `viridis`.
+-   Use colour blind-friendly palettes, such as `{viridis}`.
 -   Save plots using `ggsave()`.

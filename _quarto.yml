@@ -43,17 +43,18 @@ book:
       - sessions/version-control.qmd
       - sessions/data-management.qmd
       - sessions/reproducible-documents.qmd
-      # - sessions/data-visualization.qmd
+      - sessions/data-visualization.qmd
+      # - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
-    # - appendix/slides.Rmd
     - appendix/assignment.qmd
     - appendix/for-instructors.qmd
     - appendix/references.qmd
+    - LICENSE.md
   page-footer:
     center:
       - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
-        href: LICENSE.md
+        href: LICENSE.html
       - text: "Code of Conduct"
         href: "https://guides.rostools.org/conduct.html"
 
