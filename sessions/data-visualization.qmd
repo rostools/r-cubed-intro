@@ -52,9 +52,8 @@ To start, here are some tips for making a graph:
     to others (more on this later too).
 
 There are also excellent online books on this that are included in the
-[resources](resources.html) page of the Guides website.
-
-<!-- TODO: Add link to guides -->
+[resources](https://guides.rostools.org/learning.html) page of the
+Guides website.
 :::
 
 ## Basic structure of using ggplot2
@@ -943,3 +942,4 @@ changes (`r palette_git_commit`), and push to GitHub.
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
 -   Save plots using `ggsave()`.
+
