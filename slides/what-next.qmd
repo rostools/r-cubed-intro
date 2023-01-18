@@ -14,21 +14,19 @@ search: false
 
 # What next? Many steps to take! Small reminder though... {.center}
 
-## ... There are still very strong barriers to progress... {.center}
+... There are still very strong barriers to progress...
 
 ::: notes
 Not going to lie, there are major barriers.
 :::
 
-## Institutional barriers
+# Institutional barriers {.center}
 
 ::: notes
 You will encounter a lot of resistance, a lot of barriers and hardship.
 :::
 
-. . .
-
--   Lack of adequate awareness, support, infrastructure, training
+## Lack of adequate awareness, support, infrastructure, training {.center}
 
 ::: notes
 At the institutional level, there is no real awareness of this, no
@@ -38,9 +36,10 @@ Which probably isn't that uncommon anyway.
 
 . . .
 
--   Research culture values publications over all else
-    -   What would you spend your time on if we didn't have this
-        publication-obsession?
+## Research culture values publications over all else {.center}
+
+What would you spend your time on if we didn't have this
+publication-obsession?
 
 ::: notes
 Research culture and incentives pretty much only care about publishing
@@ -54,10 +53,7 @@ matter for getting funding or getting a research job. What would you
 spend your time on? What would you do differently compared to now?
 :::
 
-. . .
-
--   Legal and privacy concerns about sharing data, intellectual property
-    protection, patents, etc
+## Legal and privacy concerns about sharing data, intellectual property protection, patents {.center}
 
 ::: notes
 Legal and privacy concerns are big topics that institutions in
@@ -68,9 +64,7 @@ stops us from doing work because we're afraid we're doing something
 wrong
 :::
 
-## Institutional barriers
-
--   More traditional academics don't understand or resist change
+## More traditional academics don't understand or resist change {.center}
 
 ::: notes
 We have a large portion of traditional academics who have benefited from
@@ -81,9 +75,7 @@ because they succeeded. But all the others that didn't succeed? We don't
 count that data.
 :::
 
-. . .
-
--   'Business as usual' is easier
+## 'Business as usual' is easier {.center}
 
 ::: notes
 We have a system that favours each individual person repeating the same
@@ -96,15 +88,14 @@ current scientific culture is just not prepared for this, for the rising
 modern analytic and computational era.
 :::
 
-## ...and personal barriers
+# There are also personal barriers
 
-::: columns
-::: {.column width="50%"}
--   Fear of:
-    -   Fear of being scooped or ideas being stolen
-    -   Not being credited for ideas
-    -   Errors and public humiliation
-    -   Risk to reputation
+## Fear of ... {.center}
+
+-   Fear of being scooped or ideas being stolen
+-   Not being credited for ideas
+-   Errors and public humiliation
+-   Risk to reputation
 
 ::: notes
 And there aren't just institutional barriers. We as researchers have
@@ -113,14 +104,8 @@ methods being *gasp* wrong. Which is actually just part of science.
 
 Mention Black Hole imaging issue for reputation/not being credited.
 :::
-:::
 
-::: {.column width="50%"}
--   Overwhelmed with everything that needs to be done
-
--   Need to constantly stay updated
-
--   Finding better opportunities outside of academia
+## Overwhelmed with everything that needs to be done {.center}
 
 ::: notes
 It is also really overwhelming, having so many things to think about to
@@ -128,9 +113,17 @@ make sure you're doing solid science. No researcher in the past had to
 consider and think and know as much as we have to know and to do.
 Another reason why we need more team science, to distribute the tasks
 and skills.
+:::
 
+## Need to constantly stay updated {.center}
+
+::: notes
 You also have to constantly stay updated, and that can be tiring.
+:::
 
+## Finding better opportunities outside of academia {.center}
+
+::: notes
 And the last barrier, which may actually be a benefit, is that one
 reason you don't see a lot of researchers sharing their code or being
 more reproducible is.. they end up getting picked up by industry and
@@ -144,8 +137,6 @@ lead author as well as several other of the co-authors and guess what...
 many of them now work in really great companies as data scientists or
 software engineers, probably making a lot of money and having
 potentially a less stressful life.
-:::
-:::
 :::
 
 # So... what can you do right now? {.center}
