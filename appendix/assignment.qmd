@@ -76,7 +76,9 @@ Your specific tasks are:
     dataset in a folder called `data/` with `readr::write_csv()`. The
     coder should eventually add and comment these changes to the data
     before pushing to the team GitHub repository so the other members
-    can access the data too.
+    can access the data too. *Reminder*: You load in data with
+    `read_csv()` like we've done in the `setup` code chunk in the Quarto
+    file.
 
 5.  **Create a Quarto file** named `report-YOURNAME.qmd` (replacing
     `YOURNAME` with your actual name) in the `doc/` folder of your
@@ -169,3 +171,4 @@ What we don't expect:
 
 Essentially, the group project is a way to reinforce what you learned
 during the course, but in a more relaxed and collaborative setting.
+
