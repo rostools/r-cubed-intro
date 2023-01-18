@@ -7,9 +7,7 @@ dataset of your choice, will have a GitHub repository and an HTML
 document as a report to demonstrate the reproducibility of the analysis.
 The dataset **cannot be the same** as the one we used in class, and it
 must be an open dataset obtained from an online archive. We list several
-that are tidy enough to start working from. Preferably, different teams
-choose different datasets so not everyone is using the same dataset. The
-lead instructor will coordinate this.
+that are tidy enough to start working from.
 
 During the last session of the course you will work on this assignment.
 In the last \~20 minutes of this session, the lead instructor will
@@ -26,9 +24,8 @@ skills taught during the course.
 It is important to note that you will be using Git and GitHub to manage
 your group assignment. We will set up the project with Git and GitHub
 for you so you can get right to collaborating together on the project.
-You will be pushing and pulling a lot of content (which you will learn
-how to do later), so you will need to maintain regular and open
-communication with your team members.
+You will be pushing and pulling a lot of content, so you will need to
+maintain regular and open communication with your team members.
 
 Your specific tasks are:
 
