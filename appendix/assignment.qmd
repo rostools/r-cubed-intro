@@ -33,7 +33,9 @@ communication with your team members.
 Your specific tasks are:
 
 1.  All team members need to **clone your team's repository to their own
-    computer**, using the process we learned in @sec-remotes-setting-up.
+    computer**. The steps are found through
+    `File -> New Project -> Version Control -> Git` (partly learned in
+    @sec-remotes-setting-up).
 
 2.  **Select one of the open datasets** to use for your analysis and
     report:
