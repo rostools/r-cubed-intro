@@ -160,7 +160,7 @@ that, we all have that power to do something, even if its small thing.
     -   Hands-on coding, discussing, and reading exercises
     -   Group project (quickly go over it)
 -   All material is online (and [openly
-    licensed](https://r-cubed.rostools.org/LICENSE.html))
+    licensed](https://r-cubed-intro.rostools.org/LICENSE.html))
 -   [Resources Appendix](https://guides.rostools.org/learning.html)
     -   Material for further learning
 :::

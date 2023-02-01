@@ -17,9 +17,9 @@ for the course, including the website source files and other associated
 course administration files.
 
 For more detail on the course, check out the [welcome
-page](https://r-cubed.rostools.org/) and the
-[syllabus](https://r-cubed.rostools.org/preamble/syllabus.html). For
-re-using and learning more about the course, check out our
+page](https://r-cubed-intro.rostools.org/) and the
+[syllabus](https://r-cubed-intro.rostools.org/preamble/syllabus.html).
+For re-using and learning more about the course, check out our
 [paper](paper.md) describing it.
 
 ## Instructional Design
@@ -63,7 +63,8 @@ follows the file and folder structure conventions from that package.
 If you are interested in contributing to the course material, please
 refer to the [contributing guidelines](CONTRIBUTING.md). For guidelines
 on how to be a helper or instructor, check out the [For
-Instructors](https://r-cubed.rostools.org/for-instructors.html) page.
+Instructors](https://r-cubed-intro.rostools.org/for-instructors.html)
+page.
 
 Please note that the project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to or being involved in
@@ -79,8 +80,8 @@ your own would be the slides, however, they are also good enough to use
 on their own too.
 
 But if you want to customize a bit more, the best approach is to [fork
-the repository](https://gitlab.com/rostools/r-cubed/-/forks/new) into
-your own GitLab account and modify it to fit your needs from there. The
+the repository](https://github.com/rostools/r-cubed-intro/fork/) into
+your own GitHub account and modify it to fit your needs from there. The
 website is built automatically with GitHub Actions and then published as
 a website through Netlify. More detail on how to build your own website
 from the material is outside the scope of this document but you can find
@@ -90,7 +91,7 @@ more information on Quarto's
 To help with general admin tasks of running the course, there is the
 [r3admin](https://github.com/rostools/r3admin) R package. For details of
 the license and acknowledgement of content used from sources, see the
-[license](https://r-cubed.rostools.org/license.html) page of the
+[license](https://r-cubed-intro.rostools.org/license.html) page of the
 website.
 
 ### How to cite the material

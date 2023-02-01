@@ -1,4 +1,4 @@
 - source: project
   netlify:
     - id: "e58fe413-8944-414c-808a-54bff7916db2"
-      url: "https://r-cubed-rostools.netlify.app"
+      url: "https://r-cubed-intro-rostools.netlify.app"

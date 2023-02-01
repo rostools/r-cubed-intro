@@ -28,21 +28,21 @@ modifications for time or more detailed explanations).
 
 The course material was created using [Quarto](https://quarto.org) to
 write the lessons and create the book format,
-[GitLab](https://gitlab.com/) to host the [Git](https://git-scm.com/)
-repository of the material (and mirrored to
-[GitHub](https://github.com)), and [GitHub
+[GitHub](https://github.com/) to host the [Git](https://git-scm.com/)
+repository of the material, and [GitHub
 Actions](https://github.com/features/actions) with
 [Netlify](https://www.netlify.com/) to build and host the website. The
 original source material for this course is found on the
-[`r-cubed`](https://gitlab.com/rostools/r-cubed) GitLab repository.
+[`r-cubed-intro`](https://github.com/rostools/r-cubed-intro) Github
+repository.
 
 Want to contribute to this course? Check out the
-[README](https://gitlab.com/rostools/r-cubed/-/blob/main/README.md) file
-as well as the
-[CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
-file on the GitLab repository for more details. The main way to
-contribute is by using [GitLab](https://gitlab.com/) and creating a [new
-issue](https://gitlab.com/rostools/r-cubed/-/issues/new) to make
+[README](https://github.com/rostools/r-cubed-intro/blob/main/README.md)
+file as well as the
+[CONTRIBUTING](https://github.com/rostools/r-cubed-intro/blob/main/CONTRIBUTING.md)
+file on the GitHub repository for more details. The main way to
+contribute is by using [GitHub](https://github.com/) and creating a [new
+issue](https://github.com/rostools/r-cubed-intro/issues/new) to make
 comments and give feedback on the material.
 
 ## Target audiences
@@ -71,9 +71,9 @@ The course material is licensed under the [Creative Commons Attribution
 License](https://creativecommons.org/licenses/by/4.0/), so the material
 can be used, re-used, and modified, as long as there is attribution to
 this source. Check out the
-[CONTRIBUTING](https://gitlab.com/rostools/r-cubed/-/blob/main/CONTRIBUTING.md)
-guidelines and the [For Instructors](for-instructors.html) section for
-more details and tips on using this material.
+[CONTRIBUTING](https://github.com/rostools/r-cubed-intro/blob/main/CONTRIBUTING.md)
+guidelines and the [For Instructors](appendix/for-instructors.qmd)
+section for more details and tips on using this material.
 
 ## Previous versions
 
@@ -84,7 +84,7 @@ far:
 -   [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
 -   Version 3 taught in June 2021 (no individual website, but source
     material is archived
-    [here](https://gitlab.com/rostools/r-cubed/-/releases/v3.0)).
+    [here](https://github.com/rostools/r-cubed-intro/releases/v3.0)).
 
 ## Contributors {#contributors}
 

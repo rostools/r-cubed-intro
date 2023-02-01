@@ -21,8 +21,8 @@ book:
     - Malene Revsbech Christiansen
     - Anders Aasted Isaksen
   favicon: "images/favicon.ico"
-  site-url: "https://r-cubed.rostools.org"
-  repo-url: "https://gitlab.com/rostools/r-cubed"
+  site-url: "https://r-cubed-intro.rostools.org"
+  repo-url: "https://github.com/rostools/r-cubed-intro"
   repo-branch: main
   repo-actions: [edit, issue, source]
   search:

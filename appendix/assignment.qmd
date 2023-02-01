@@ -44,11 +44,11 @@ Your specific tasks are:
     -   [New York Squirrel Census
         Date](https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-29/nyc_squirrels.csv)
     -   [Zindi.africa: Sea Turtle
-        Rescue](https://gitlab.com/rostools/r-cubed/-/blob/main/data/turtles.zip)
+        Rescue](https://github.com/rostools/r-cubed-intro/blob/main/data/turtles.zip)
     -   [Zindi.africa: Busara Mental
-        Health](https://gitlab.com/rostools/r-cubed/-/blob/main/data/rural_kenya.zip)
+        Health](https://github.com/rostools/r-cubed-intro/blob/main/data/rural_kenya.zip)
     -   [Zindi.africa: Female-Headed Households in South
-        Africa](https://gitlab.com/rostools/r-cubed/-/blob/main/data/rsa_wards.zip)
+        Africa](https://github.com/rostools/r-cubed-intro/blob/main/data/rsa_wards.zip)
     -   [Starbucks Menu Item
         Data](https://www.kaggle.com/starbucks/starbucks-menu) (It may
         be required to create a Kaggle account)
@@ -171,4 +171,3 @@ What we don't expect:
 
 Essentially, the group project is a way to reinforce what you learned
 during the course, but in a more relaxed and collaborative setting.
-

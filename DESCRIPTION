@@ -13,7 +13,7 @@ Description: Reproducibility and open scientific practices are increasingly dema
     This repository contains all of the
     material for the course, from reading material to exercises to images. It is
     structured as a book, with "chapters" as lessons. For
-    more detail on the course, check out the <a href='https://r-cubed.rostools.org'>website</a>.
+    more detail on the course, check out the <a href='https://r-cubed-intro.rostools.org'>website</a>.
 Authors@R: 
     c(person(given = "Luke",
              family = "Johnston",
@@ -47,8 +47,8 @@ Authors@R:
              family = "Isaksen",
              role = "aut",
              comment = c(ORCID = "0000-0001-8457-5466", affiliation = "Aarhus University")))
-URL: https://gitlab.com/rostools/r-cubed/,
-    https://r-cubed.rostools.org
+URL: https://github.com/rostools/r-cubed-intro/,
+    https://r-cubed-intro.rostools.org
 Depends: 
     R (>= 3.6.0)
 Imports: 
