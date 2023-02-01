@@ -4,12 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono');
 
-$font-family-monospace: "PT Mono", monospace;
-$font-family-serif: "Nanum Gothic", sans-serif;
-$font-family-sans-serif: "Nanum Gothic", sans-serif;
-$headings-font-family: "Cabin", sans-serif;
-$font-size-root: 18px;
-$code-block-border-left: "grey60";
+$font-family-monospace: "PT Mono", monospace !default;
+$font-family-serif: "Nanum Gothic", sans-serif !default;
+$font-family-sans-serif: "Nanum Gothic", sans-serif !default;
+$headings-font-family: "Cabin", sans-serif !default;
+$font-size-root: 18px !default;
+$code-block-border-left: "grey60" !default;
 
 /*-- scss:rules --*/
 

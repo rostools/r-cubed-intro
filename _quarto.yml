@@ -1,8 +1,6 @@
 project:
-  type: book
-  output-dir: public
-  execute-dir: project
-  pre-render: quarto render slides/*.qmd
+  type: r3-theme
+  pre-render: bash _build-slides.sh
   resources:
     - videos/*
     - includes/cheatsheet.pdf
@@ -20,14 +18,8 @@ book:
     - Hannah Chatwin
     - Malene Revsbech Christiansen
     - Anders Aasted Isaksen
-  favicon: "images/favicon.ico"
   site-url: "https://r-cubed-intro.rostools.org"
   repo-url: "https://github.com/rostools/r-cubed-intro"
-  repo-branch: main
-  repo-actions: [edit, issue, source]
-  search:
-    location: navbar
-    type: overlay
   chapters:
     - index.qmd
     - part: "Preamble"
@@ -63,13 +55,6 @@ book:
 bibliography:
   - includes/references.bib
   - includes/packages.bib
-csl: includes/vancouver.csl
-
-callout-appearance: minimal
-reference-location: margin
-citation-location: margin
-crossref:
-  chapters: true
 
 editor_options:
   markdown:
@@ -77,27 +62,10 @@ editor_options:
     canonical: true
 
 format:
-  html:
-    df-print: tibble
-    code-overflow: scroll
-    from: markdown+emoji
-    code-link: true
-    theme:
-      - litera
-      - includes/theme.scss
+  r3-theme-html:
     include-before-body:
       - "includes/site-counter.html"
       - "includes/contribute.html"
-
-knitr:
-  opts_chunk:
-    class-output: sourceCode
-    comment: "#>"
-    fig-dpi: 72
-    fig-width: 5.5
-    fig-height: 5
-    fig-align: center
-    out-width: 100%
 
 execute:
   freeze: auto

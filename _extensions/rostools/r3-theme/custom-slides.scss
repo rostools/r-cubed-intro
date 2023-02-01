@@ -2,11 +2,11 @@
 
 @import url(https://fonts.googleapis.com/css?family=Quicksand&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Outfit&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Fira+Code);
+@import url(https://fonts.googleapis.com/css2?family=PT+Mono);
 
 $font-family-serif: "Quicksand", sans-serif !default;
 $font-family-sans-serif: "Quicksand", sans-serif !default;
-$font-family-monospace: "Fira Code", monospace !default;
+$font-family-monospace: "PT Mono", monospace !default;
 $presentation-heading-font: "Outfit", sans-serif !default;
 
 /*
@@ -22,17 +22,17 @@ monochromeR::generate_palette("#ffffff", "go_darker", n_colours = 20, view_palet
 monochromeR::generate_palette("#4582ec", "go_darker", n_colours = 4, view_palette = TRUE)
 # For links
 monochromeR::generate_palette("#4582ec", "go_lighter", n_colours = 4, view_palette = TRUE)
-
 */
+
 $primary: #203C6E !default;
 $secondary: #adb5bd !default;
 
 $presentation-heading-color: $primary !default;
 
-$presentation-font-size-root: 35px;
-$presentation-h2-font-size: 2em;
-$body-bg: #E9E9E9;
-$link-color: #4582ec;
+$presentation-font-size-root: 35px !default;
+$presentation-h2-font-size: 2em !default;
+$body-bg: #E9E9E9 !default;
+$link-color: #4582ec !default;
 /* sets color of controls as well as links */
 /*
 $body-color: #403E4A;

@@ -1,14 +1,4 @@
 ---
-format:
-  revealjs:
-    embed-resources: true
-    from: markdown+emoji
-    theme:
-      - simple
-      - theme.scss
-    menu: true
-    progress: true
-    logo: ../images/favicon.ico
 search: false
 ---
 

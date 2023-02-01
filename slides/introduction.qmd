@@ -1,17 +1,7 @@
 ---
-format:
-  revealjs:
-    embed-resources: true
-    from: markdown+emoji
-    theme:
-      - simple
-      - theme.scss
-    menu: true
-    progress: true
-    logo: ../images/favicon.ico
 search: false
-bibliography: ../includes/references.bib
-csl: ../includes/vancouver.csl
+# Relative to main project
+bibliography: includes/references.bib
 ---
 
 # Welcome to the Introductory R^3^ course!
