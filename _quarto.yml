@@ -56,7 +56,7 @@ bibliography:
   - includes/references.bib
   - includes/packages.bib
 
-editor_options:
+editor:
   markdown:
     wrap: 72
     canonical: true

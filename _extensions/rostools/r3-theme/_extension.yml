@@ -1,9 +1,9 @@
 title: r3-theme
 author: Luke W. Johnston
-version: 1.0.0
+version: 1.0.2
 quarto-required: ">=1.2.0"
 contributes:
-  formats:
+  format:
     html:
       df-print: tibble
       code-overflow: scroll
@@ -12,6 +12,7 @@ contributes:
       theme:
         - litera
         - custom-site.scss
+
     revealjs:
       embed-resources: true
       from: markdown+emoji
@@ -27,6 +28,7 @@ contributes:
       type: book
       output-dir: public
       execute-dir: project
+
     book:
       favicon: "favicon.ico"
       repo-branch: main
@@ -34,19 +36,17 @@ contributes:
       search:
         location: navbar
         type: overlay
-      page-footer:
-        center:
-          - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
-          - text: "Code of Conduct"
-            href: "https://guides.rostools.org/conduct.html"
+
     execute:
       freeze: auto
       warning: false
+
     callout-appearance: minimal
     reference-location: margin
     citation-location: margin
     crossref:
       chapters: true
+
     knitr:
       opts_chunk:
         class-output: sourceCode
@@ -56,4 +56,5 @@ contributes:
         fig-height: 5
         fig-align: center
         out-width: 100%
+
     format: r3-theme-html
