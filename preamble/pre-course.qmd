@@ -388,8 +388,7 @@ r3::check_setup()
 ```
 
 After you are done, you need to [create a GitHub
-account](https://github.com/join). See @fig-github-account-creation for
-a demonstration of how to do that. Make note of your username, as we
+account](https://github.com/join). Make note of your username, as we
 will ask you for it in the pre-course survey. Make sure to **remember
 your password**, either write it down somewhere or (even better) use a
 [password manager](https://en.wikipedia.org/wiki/Password_manager) to
@@ -400,12 +399,7 @@ store your password for you.
 > say "Git". It's important to distinguish that they are two *separate*
 > things.
 
-<!-- TODO: Convert to video. -->
-
-![Creating a GitHub
-account.](../videos/github-account-creation.gif){#fig-github-account-creation}
-
-## Course introduction
+## Basic course details {#sec-course-details}
 
 Most of the description of the course is found in the syllabus
 (@sec-syllabus). While you may have signed up to this course to learn
