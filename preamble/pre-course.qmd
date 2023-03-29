@@ -19,32 +19,40 @@ them. Depending on your institution and how they handle installing
 software on work computers, you also might have to contact IT *very
 early* to make sure everything is properly installed and setup.
 
-## Summary of tasks
+## Tasks to complete
 
-Here's a quick overview of the tasks you need to do. Specific details
-about them are found as you work through the tasks.
+Here's the list of tasks you need to do. Specific details about them are
+found as you work through the tasks.
 
-1.  Install a version of R, RStudio, Quarto, and Git that is as updated
-    as possible. For some people, depending on their institution, this
-    task can take the **longest amount of time** because you have to
-    contact your IT to install these packages.
-2.  Install necessary R packages.
-3.  Read about and become familiar with RStudio.
-4.  Read some of the course sections on Git.
-5.  Configure Git on your computer and create a GitHub account.
-6.  Run a check to see if everything works (you'll later need to paste
-    this output into the survey).
-7.  Read the syllabus (@sec-syllabus).
-8.  Read the [Code of
+1.  Read the Learning objectives in @sec-pre-course-learning-objectives
+    for the pre-course tasks (below).
+2.  Read the ["How to read the
+    website"](https://guides.rostools.org/pre-course.html#reading-website)
+    (on a new website).
+3.  Follow the [installation
+    instructions](https://guides.rostools.org/pre-course.html#installation-instructions)
+    (on a new website). Install a version of R, RStudio, and Git that is
+    as updated as possible. For some people, depending on their
+    institution, this task can take the **longest amount of time**
+    because you have to contact your IT to install these packages.
+4.  Read about R in @sec-what-is-r.
+5.  Read about and become familiar with RStudio in @sec-learn-rstudio.
+6.  Install necessary R packages in @sec-install-r-packages.
+7.  Read some of the course sections on Git, configure Git on your
+    computer, and create a GitHub account in @sec-setup-git-and-github.
+8.  Run the code in these sections that checks to see if everything
+    works (you'll later need to paste this output into the survey).
+9.  Read about the basic course details in @sec-course-details.
+10. Read the [Code of
     Conduct](https://guides.rostools.org/conduct.html).
-9.  Complete the pre-course
+11. Complete the pre-course
     [survey](https://docs.google.com/forms/d/e/1FAIpQLSeuMe485zZXlG9uQlUgcgsWBJvpHUB_-bMVkEtA4moWK_oUoQ/viewform?usp=sf_link).
     This survey is pretty quick, maybe \~10 minutes. There will be some
     bits from the tasks that you will need to paste into this survey.
 
 Check each section for exact details on completing these tasks.
 
-## Learning objective
+## Learning objective {#sec-pre-course-learning-objectives}
 
 In general, these pre-course tasks are meant to help prepare you for the
 course and make sure everything is setup properly so the first session
@@ -62,99 +70,7 @@ objectives for this page:
     teaching mostly in this course.
 5.  Become aware of what version control is and what Git is.
 
-## Reading the course website
-
-We will explain this a bit during the course, but read this to start
-learning how the website is structured and how to read certain things.
-Specifically, there are a few "syntax" type formatting of the text in
-this website to be aware of:
-
--   Folder names always end with a `/`, for example `data/` means the
-    data folder.
--   R variables are always shown as is. For instance, for the code
-    `x <- 10`, `x` is a variable because it was assigned with 10.
--   Functions always end with `()`, for instance `mean()` or
-    `read_csv()`.
--   Sometimes functions have their package name appended with `::` to
-    indicate to run the code from the specific package, since we likely
-    haven't loaded the package with `library()`. For instance, to
-    install packages from GitHub using the `{remotes}` package we use
-    `remotes::install_github()`. You'll learn about this more later.
--   Reading tasks always start with a statement "Reading task" and are
-    enclosed in a "callout block". Read within this block. We will
-    usually go over the section again to reinforce the concepts and
-    address any questions.
-
-## Installing the latest programs
-
-The first thing to do is to install these programs. You may already have
-some of them installed and if you do, please make sure that they are at
-least the minimum versions listed below. If not, you will need to update
-them.
-
-1.  Have the latest version of
-    [R](https://cloud.r-project.org/index.html) installed (or at least
-    any version above `4.1.2`). If you have used R and RStudio before,
-    you can confirm the version by running `R.version.string` in the
-    console, otherwise, just install the latest version.
-2.  Have the latest version of
-    [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
-    installed (or at least any version above `v2021.09.0+351`). Check by
-    going to the menu `Help -> About RStudio` (if you have used RStudio
-    before, otherwise, just install the latest version).
-3.  [Quarto](https://quarto.org/docs/get-started/). This is necessary
-    for the reproducible documents session.
-4.  Install [Git](https://git-scm.com/downloads). We'll use this
-    throughout the course.
-5.  For some Windows users, you may need to install
-    [Rtools42](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html)
-    (direct download link
-    [here](https://cran.r-project.org/bin/windows/Rtools/rtools42/files/rtools42-5355-5357.exe))
-    in order for some R packages to be successfully installed (which
-    you'll do shortly). For some computers, installing Rtools can take
-    some time. *You need this in order for some packages to work.*
-
-All these programs are required for the course, even Git. Git, which is
-a software program to formally manage versions of files, is used because
-of it's popularity and the amount of documentation available for it. At
-the end of the course, you will be using Git and GitHub to manage your
-group assignment. Check out the online book [Happy Git with
-R](https://happygitwithr.com/), especially the "Why Git" section, for an
-understanding on why we are teaching Git. Windows users tend to have
-more trouble with installing Git than macOS or Linux users. See the
-section on [Installing Git for
-Windows](https://happygitwithr.com/install-git.html#install-git-windows)
-for help.
-
-> *A note to those who have or use work laptops with restrictive
-> administrative privileges*: You may encounter problems installing
-> software due to administrative reasons (e.g. you don't have permission
-> to install things). Even if you have issues installing or updating the
-> latest version of R or RStudio, you will likely be able to continue
-> with the course as long as you have the minimum version listed above
-> for R and for RStudio. If you have versions of R and RStudio that are
-> older than that, you may need to ask your IT department to update your
-> software if you can't do this yourself. Unfortunately, Git (and
-> Quarto) is not a commonly used software for some organizations, so you
-> may not have it installed and you *will* need to ask IT to install it.
-> We *require* it for the course, so please make sure to give IT enough
-> time to be able to install it for you prior to the course.
-
-Once R, RStudio, Quarto, and Git have been installed, open RStudio. *If
-you encounter any troubles during these pre-course tasks*, try as best
-as you can to complete the task and then let us know about the issues in
-the pre-course survey. If you continue having problems, indicate on the
-survey that you need help and we can try to book a quick video call to
-fix the problem. Otherwise, you can come to the course 15-20 minutes
-earlier to get help.
-
-If you're unable to complete the setup procedure due to unfixable
-technical issues, you can use Posit Cloud (to use RStudio on the cloud)
-as a final solution in order to participate in the course. For help
-setting up Posit Cloud for this course, refer to the [Posit Cloud setup
-guide](https://guides.rostools.org/posit-cloud.html).
-
-## What is R?
+## What is R? {#sec-what-is-r}
 
 During this course, we will be spending most of our time in RStudio.
 RStudio is an "environment" that we use to interact with R. R is like an
@@ -193,7 +109,7 @@ also be slower than other programming languages. Nonetheless, R offers
 such a supportive community and rich functionality that it is worth the
 challenge!
 
-## Getting familiar with RStudio
+## Getting familiar with RStudio {#sec-learn-rstudio}
 
 Let's start learning about RStudio and how to use it. Check out
 @fig-rstudio-introduction below. You can see that RStudio has four
@@ -243,7 +159,7 @@ manage entire papers, theses, websites, or books using Quarto, as it can
 make things easier to organize and maintain. In fact, this website is
 written with Quarto.
 
-## Installing R packages
+## Installing R packages {#sec-install-r-packages}
 
 Now that you have RStudio and R on your computer, we need to install the
 R packages we'll use in the course. R packages are bundles of R code
@@ -355,7 +271,7 @@ how to use them.
     charts, and more. It uses a "grammar" as a way to construct and
     customize your graphs in a layered, descriptive approach.
 
-## Setting up Git and GitHub
+## Setting up Git and GitHub {#sec-setup-git-and-github}
 
 We'll cover more about Git and GitHub during the course, but for now,
 please read @sec-what-is-version-control, @sec-what-is-git, and
