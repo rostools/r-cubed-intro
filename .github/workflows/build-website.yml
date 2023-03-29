@@ -1,9 +1,8 @@
 on:
   push:
-    branches:
-      - main
+    branches: main
 
-name: build-deploy
+name: Render and publish
 
 jobs:
   build-deploy:
