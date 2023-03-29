@@ -161,6 +161,8 @@ thanks to them for their involvement, support, and sponsorship! Both
 University](https://www.au.dk/) were employers of Luke Johnston and
 Daniel Witte (the initial founders and creators).
 
+<!-- TODO: Update DDA logo -->
+
 ![Danish Diabetes Academy](images/logo-dda.png){width="90px"} ![Steno
 Diabetes Center Aarhus](images/logo-sdca.png){width="55px"} ![Aarhus
 University](images/logo-au.png){width="140px"}
