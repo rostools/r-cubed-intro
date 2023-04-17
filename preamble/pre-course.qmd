@@ -70,6 +70,18 @@ objectives for this page:
     teaching mostly in this course.
 5.  Become aware of what version control is and what Git is.
 
+## Programs to install
+
+Make sure to install as updated versions of R, RStudio, and Git as
+possible by following these [installation
+instructions](https://guides.rostools.org/pre-course.html#installation-instructions)
+on the Guides website. For some people, depending on their institution
+and their specific computer, this task can take the **longest amount of
+time** because you have to contact your IT to install these packages or
+do troubleshooting because of issues specific to your computer setup. It
+is extremely difficult to predict who will and who won't have issues
+with these installation tasks.
+
 ## What is R? {#sec-what-is-r}
 
 During this course, we will be spending most of our time in RStudio.
