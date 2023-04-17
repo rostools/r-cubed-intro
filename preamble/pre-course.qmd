@@ -203,7 +203,7 @@ For this course, we will be focusing on R packages that are powerful and
 general-purpose enough to help you in multiple aspects of your research.
 To install these packages, we'll need to install the r3 helper package.
 For that, we'll need to first install the `{pak}` package. Watch the
-video below to see how to do this:
+video (no audio) below to see how to do this:
 
 {{< video ../videos/rstudio-install-pak.mp4 >}}
 
@@ -215,8 +215,8 @@ install.packages("pak")
 
 Copy and paste the function below into the RStudio Console. Hit Enter
 and the r3 helper package will be installed. Watch the video below to
-see how to do this. **Note**, what you see in the video may look
-different from yours.
+see how to do this. **Note**, what you see in the video (no audio) may
+look different from yours.
 
 ``` r
 pak::pkg_install("rostools/r3", upgrade = TRUE)
