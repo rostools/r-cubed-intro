@@ -63,6 +63,7 @@ editor:
 
 format:
   r3-theme-html:
+    doi: "https://doi.org/10.21105/jose.00122"
     include-before-body:
       - "includes/site-counter.html"
       - "includes/contribute.html"
