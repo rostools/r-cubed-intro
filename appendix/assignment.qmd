@@ -37,21 +37,22 @@ Your specific tasks are:
 2.  **Select one of the open datasets** to use for your analysis and
     report:
 
-    -   [Zika Virus
-        Data](https://github.com/BuzzFeedNews/zika-data/blob/master/data/raw/paho-who/paho-who-cases-reported-latest.csv)
-    -   [FBI Firearm
-        Stats](https://github.com/hchats/nics-firearm-background-checks/blob/master/data/nics-firearm-background-checks.csv)
-    -   [New York Squirrel Census
-        Date](https://github.com/rfordatascience/tidytuesday/blob/master/data/2019/2019-10-29/nyc_squirrels.csv)
-    -   [Zindi.africa: Sea Turtle
-        Rescue](https://github.com/rostools/r-cubed-intro/blob/main/data/turtles.zip)
-    -   [Zindi.africa: Busara Mental
-        Health](https://github.com/rostools/r-cubed-intro/blob/main/data/rural_kenya.zip)
-    -   [Zindi.africa: Female-Headed Households in South
-        Africa](https://github.com/rostools/r-cubed-intro/blob/main/data/rsa_wards.zip)
-    -   [Starbucks Menu Item
-        Data](https://www.kaggle.com/starbucks/starbucks-menu) (It may
-        be required to create a Kaggle account)
+    -   [The Global Carbon Project's fossil CO2 emissions
+        dataset](https://zenodo.org/record/7215364). Click this
+        [link](https://zenodo.org/record/7215364/files/GCB2022v27_MtCO2_flat.csv?download=1)
+        to download the data directly.
+    -   Data from a published study: [*Early-life disease exposure and
+        associations with adult survival, cause of death, and
+        reproductive success in preindustrial
+        humans*](https://zenodo.org/record/4993147). Click this
+        [link](https://zenodo.org/record/4993147/files/Hayward%20et%20al_Early%20disease%20and%20later%20fitness_DATA.csv?download=1)
+        to download the data directly.
+    -   Data from a published study: [*Clinical and metabolic
+        characteristics among Mexican children with different types of
+        diabetes mellitus*](https://zenodo.org/record/5008784). Click
+        this
+        [link](https://zenodo.org/record/5008784/files/Database_Mexican_children_with_different_types_of_DM.csv?download=1)
+        to download the data directly.
 
 3.  Assign one team member to **download the dataset** and put it into
     the `data-raw/` folder of your project.
@@ -171,3 +172,4 @@ What we don't expect:
 
 Essentially, the group project is a way to reinforce what you learned
 during the course, but in a more relaxed and collaborative setting.
+
