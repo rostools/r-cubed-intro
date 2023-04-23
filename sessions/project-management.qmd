@@ -111,7 +111,9 @@ There are many ways one could organise a project folder. We'll be
 setting up a project folder and file structure using `{prodigenr}` We'll
 use RStudio's "New Project" menu item under:
 
-    File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
+```         
+File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
+```
 
 We'll call the new project **`LearningR`**. Save it on your `Desktop/`.
 See @fig-prodigenr-project-creation for the steps to do it:
@@ -147,20 +149,22 @@ files and folders.
 
 <!-- TODO: confirm this is the folder structure? Missing report? -->
 
-    LearningR
-    ├── R
-    │   └── README.md
-    ├── data
-    │   └── README.md
-    ├── data-raw
-    │   └── README.md
-    ├── doc
-    │   └── README.md
-    ├── .gitignore
-    ├── DESCRIPTION
-    ├── LearningR.Rproj
-    ├── README.md
-    └── TODO.md
+```         
+LearningR
+├── R
+│   └── README.md
+├── data
+│   └── README.md
+├── data-raw
+│   └── README.md
+├── doc
+│   └── README.md
+├── .gitignore
+├── DESCRIPTION
+├── LearningR.Rproj
+├── README.md
+└── TODO.md
+```
 
 This forces a specific and consistent folder structure to all your work.
 Think of this like the "Introduction", "Methods", "Results", and
@@ -226,18 +230,20 @@ Take some time to think about file naming. Look at the list of file
 names below. Which file names are good names and which aren't? We'll
 discuss afterwards why some are good names and others are not.
 
-    fit models.R
-    fit-models.R
-    foo.r
-    stuff.r
-    get_data.R
-    Manuscript version 10.docx
-    manuscript.docx
-    new version of analysis.R
-    trying.something.here.R
-    plotting-regression.R
-    utility_functions.R
-    code.R
+```         
+fit models.R
+fit-models.R
+foo.r
+stuff.r
+get_data.R
+Manuscript version 10.docx
+manuscript.docx
+new version of analysis.R
+trying.something.here.R
+plotting-regression.R
+utility_functions.R
+code.R
+```
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
@@ -245,28 +251,30 @@ discuss afterwards why some are good names and others are not.
 Ask them explain why these might not be the best file names. It is a
 group activity. Use the text below as a guide for the above question.
 
-    # Bad: Has a space.
-    fit models.R
-    # Good: Descriptive with no space.
-    fit-models.R
-    # Bad: Not descriptive.
-    foo.r
-    stuff.r
-    # Good: Descriptive with no space.
-    get_data.R
-    # Bad: Has space
-    Manuscript version 10.docx
-    # Good: Descriptive.
-    manuscript.docx
-    # Bad: Not descriptive and has spaces.
-    new version of analysis.R
-    # Bad: Not descriptive and has dots.
-    trying.something.here.R
-    # Good: Descriptive with - or _
-    plotting-regression.R
-    utility_functions.R
-    # Bad: Not descriptive.
-    code.R
+```         
+# Bad: Has a space.
+fit models.R
+# Good: Descriptive with no space.
+fit-models.R
+# Bad: Not descriptive.
+foo.r
+stuff.r
+# Good: Descriptive with no space.
+get_data.R
+# Bad: Has space
+Manuscript version 10.docx
+# Good: Descriptive.
+manuscript.docx
+# Bad: Not descriptive and has spaces.
+new version of analysis.R
+# Bad: Not descriptive and has dots.
+trying.something.here.R
+# Good: Descriptive with - or _
+plotting-regression.R
+utility_functions.R
+# Bad: Not descriptive.
+code.R
+```
 :::
 
 ## Next steps after creating the project
@@ -295,6 +303,11 @@ few sessions, we will be working the R scripts and then later will move
 over to Quarto files instead. Why? Working with R, you will be doing a
 lot of coding and writing in both types of files, so we want you to get
 practice using both.
+
+![How we can stand on the shoulders of "usethis" to be productive.
+Artwork by
+[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-usethis.png){#fig-art-usethis
+width="100%"}
 
 ## RStudio layout and usage
 
