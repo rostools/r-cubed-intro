@@ -189,6 +189,25 @@ The assumption with R Projects on the other hand, is that the R session
 working directory should be where the R Project is, since that is where
 you have your R scripts and data files.
 
+::: {.callout-note appearance="default"}
+Each R project is designated with a `.Rproj` file. This file contains
+information about the file path and various metadata. As such, when
+opening an R project, you need to open it using the `.Rproj` file.
+
+A project can be opened by either double clicking on the `.Rproj` from
+your file browser or from the file prompt within R Studio:
+
+```         
+File -> Open Project
+```
+
+or
+
+```         
+File -> Recent Project.. -> LearningR
+```
+:::
+
 Within the project we created, there are several README files in each
 folder that explain a bit about what should be placed there. Briefly:
 
