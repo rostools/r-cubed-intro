@@ -113,3 +113,10 @@ involved with this course next year. Or now! Several participants from
 these courses are or will soon be helping to improve the material for
 next year. There are also so many other things you can get involved in,
 aside from this course. Let us know if you're interested!
+
+We also have an informal, once-monthly, Coding Club you can join or
+follow. Information about it is on the
+[website](https://coding-club.rostools.org/). We do the sessions
+virtually on the [r-cubed Discord
+server](https://discord.gg/xHPyj7dxJx).
+
