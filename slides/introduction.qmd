@@ -8,9 +8,8 @@ bibliography: includes/references.bib
 
 -   :heavy_check_mark: Accept the GitHub Organization invite
 -   :heavy_check_mark: Accept the Slack channel invite
--   :heavy_check_mark: Find your group name on the GitHub course page:
-    https://github.com/orgs/r-cubed-2023-01/teams
--   :heavy_check_mark: Go to the table with the group name
+-   :heavy_check_mark: Go to the table with your name on it (and your
+    group name)
 -   :heavy_check_mark: Introduce yourself to your group members
 
 ::: notes
@@ -217,3 +216,4 @@ introduction section.
 :::
 
 # References
+
