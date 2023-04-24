@@ -238,16 +238,18 @@ sure you don't save personal data in the Git history. Personal data
 should be stored in a *secure location* and should *only* be accessed in
 the R Project by loading it from that secure location.
 
-    LearningR
-    ├── .git/ <-- Git repository stored here
-    ├── R/
-    ├── data/
-    ├── data-raw/
-    ├── doc/
-    ├── .gitignore <-- Tells Git which files NOT to save
-    ├── LearningR.Rproj
-    ├── DESCRIPTION
-    └── README.md
+```         
+LearningR
+├── .git/ <-- Git repository stored here
+├── R/
+├── data/
+├── data-raw/
+├── doc/
+├── .gitignore <-- Tells Git which files NOT to save
+├── LearningR.Rproj
+├── DESCRIPTION
+└── README.md
+```
 
 Setting up a Git repository can be done in several ways:
 
@@ -696,11 +698,13 @@ if a file conflict exists and halt it's "merging" process.
 What you should see is something like the below text (it may be slightly
 different):
 
-    <<<<<<< HEAD
-    # Here's an example of a conflict
-    =======
-    # When a conflict happens
-    >>>>>>> ad3fsd45bsdd23lda2304
+```         
+<<<<<<< HEAD
+# Here's an example of a conflict
+=======
+# When a conflict happens
+>>>>>>> ad3fsd45bsdd23lda2304
+```
 
 The text on the top between `<<<<<<< HEAD` and `=======` are the changes
 found on your *local* repository. The text on the bottom between
@@ -723,8 +727,7 @@ delete the lines with the `<<<<<<< HEAD`, `=======`, and
 After deciding what to keep and removing all the left over merge
 conflict tags, open up the Git interface in RStudio. The files listed in
 the staging area will show the conflict file with a yellow/orange "U".
-When you've dealt with the conflict, you can click the file to be
-staged, which will change the colour to blue. Next you commit the
+To resolve the merge conflict, stage the file with the merge conflict. This will change the colour to blue. Next you commit the
 changes in the Git interface, without writing a commit message (this is
 not necessary when resolving merge conflicts). Push the changes to
 GitHub, then open up the Git repository in GitHub, refresh the browser,
@@ -865,3 +868,4 @@ in the course.
         `=======`, and `>>>>>>> origin/main` (the last name may
         sometimes look different), and remove tags.
 -   Almost all Git actions can be done using RStudio's Git interface.
+
