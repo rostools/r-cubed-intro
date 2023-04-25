@@ -471,8 +471,11 @@ We will be using this workflow often throughout the rest of the course.
 
 ## "Remotes": Storing your repository online {#sec-remotes-setting-up}
 
-::: callout-note
-## Reading task: \~3 minutes
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Briefly go over this next section, especially highlighting the image.
+:::
 
 A version control system that didn't include a type of external backup
 wouldn't be a very good system, because if something happened to your
@@ -502,7 +505,6 @@ graph TB
     style A fill:White,stroke:DarkBlue,stroke-width:1.5px;
     style B fill:White,stroke:DarkBlue,stroke-width:1.5px;
 ```
-:::
 
 Let's get familiar with GitHub. More details about manually creating
 repositories on GitHub is found in @sec-extra-create-repo-github.
