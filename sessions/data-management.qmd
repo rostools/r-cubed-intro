@@ -170,7 +170,7 @@ from the `{dplyr}` package that come from the `{tidyverse}`:
 | Transform or modify columns | Multiplying or taking the log of a column's values.                       | `mutate()`                      |
 | Subset/filter rows          | Keeping rows with glucose values above 4.                                 | `filter()`                      |
 | Sort rows                   | Show rows with the smallest value at the top.                             | `arrange()`                     |
-| Calculate summaries         | Calculating the maximum, median, and minimum age.                         | ,                               |
+| Calculate summaries         | Calculating the maximum, median, and minimum age.                         | `summarise()`                   |
 | Run code by a group         | Calculate means of age by males and females.                              | `group_by()` with `summarise()` |
 
 : List of common data wrangling tasks, along with an example and the
@@ -678,7 +678,9 @@ months, not years. Since NHANES has age in years, to convert to months
 we would multiply by 12. So, we would use `mutate()` with the following
 instruction:
 
-    age = age * 12
+```         
+age = age * 12
+```
 
 This form is similar to how math works. The action that happens on the
 right hand side is put into the variable of the left hand side. When
@@ -720,9 +722,9 @@ nhanes_update <- nhanes_small %>%
 ```
 :::
 
-Before you start the following exercise, run `{styler}`
-(`r palette_styler_file`) and commit all the files changes to the Git
-history with the RStudio Git interface (`r palette_git_commit`).
+Before moving on, run `{styler}` (`r palette_styler_file`) and commit
+all the files changes to the Git history with the RStudio Git interface
+(`r palette_git_commit`).
 
 ## Exercise: Piping, filtering, and mutating
 
@@ -967,21 +969,23 @@ R code may likely run *in the folder it is saved in*, e.g. in the `R/`
 folder. So your file path `data/nhanes_small.csv` won't work because
 there isn't a folder called `data/` in the `R/` folder.
 
-    LearningR <-- R Project working directory starts here.
-    ├── R
-    │   ├── README.md
-    │   └── learning.R <-- Working directory when running not interactively.
-    ├── data
-    │   └── README.md
-    ├── data-raw
-    │   └── README.md
-    ├── doc
-    │   └── README.md
-    ├── .gitignore
-    ├── DESCRIPTION
-    ├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
-    ├── README.md
-    └── TODO.md
+```         
+LearningR <-- R Project working directory starts here.
+├── R
+│   ├── README.md
+│   └── learning.R <-- Working directory when running not interactively.
+├── data
+│   └── README.md
+├── data-raw
+│   └── README.md
+├── doc
+│   └── README.md
+├── .gitignore
+├── DESCRIPTION
+├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
+├── README.md
+└── TODO.md
+```
 
 Often people use the function `setwd()` in scripts, but this is *never*
 a good idea since using it makes your script *runnable only on your
