@@ -531,30 +531,7 @@ In both cases, it's better to use another tool to store files like that,
 rather than through Git and GitHub.
 :::
 
-Interacting with GitHub through R requires us to use something called a
-"personal access token", which you will learn about and create in the
-next exercise.
-
-## Exercise: Creating a GitHub token with usethis
-
-> Time: \~20 minutes
-
-Since we use R, there is a really useful set of functions from
-`{usethis}` to make it easy interact with and setup connections to
-GitHub from RStudio. Complete the [Connect to
-GitHub](https://guides.rostools.org/connect-github.html) guide for this
-exercise. In the end, you should have your `LearningR` project on
-GitHub.
-
-::: {.callout-note collapse="true"}
-## Instructor note
-
-On your own, run the commands in the guides. After they complete the
-tasks, make sure that they have the "Push" and "Pull" buttons as well as
-having the `LearningR` on GitHub.
-:::
-
-## Synchronizing with GitHub
+## Using GitHub as a remote
 
 ::: callout-note
 ## Reading task: \~3 minutes
@@ -610,7 +587,34 @@ sequenceDiagram
     R->>H: Pull
     R->>W: Pull
 ```
+
+Interacting with GitHub through R requires us to use something called a
+"personal access token", which you will learn about and create in the
+next exercise.
 :::
+
+## Exercise: Creating a GitHub token with usethis
+
+> Time: \~20 minutes
+
+Since we use R, there is a really useful set of functions from
+`{usethis}` to make it easy interact with and setup connections to
+GitHub from RStudio. Complete the [Connect to
+GitHub](https://guides.rostools.org/connect-github.html) guide for this
+exercise. In the end, you should have your `LearningR` project on
+GitHub.
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+On your own, run the commands in the guides. After they complete the
+tasks, make sure that they have the "Push" and "Pull" buttons as well as
+having the `LearningR` on GitHub.
+:::
+
+## Synchronizing with GitHub
+
+After creating the token, we can now push and pull any changes you make to the files.
 
 1.  Make sure you are in the `LearningR` R Project, which you should see
     in the top right corner, above the Console pane. If you aren't,
