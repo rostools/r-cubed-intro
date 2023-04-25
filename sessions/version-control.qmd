@@ -285,9 +285,6 @@ time walking through it and describing it. Show where things are and
 what things to focus on for this course.
 :::
 
-::: callout-note
-## Reading task: \~10 minutes
-
 Git was initially created to be used in the terminal (i.e command-line).
 However, because RStudio has a very nice interface for working with Git,
 we'll be using that interface so we don't have to switch to another
@@ -327,7 +324,6 @@ RStudio.](../images/rstudio-git-interface.png){#fig-rstudio-git-interface}
     files that aren't plain text-based (e.g. Word), you can *not* see
     what specifically was changed, it will only say that there is a
     change.
-:::
 
 ::: {.callout-note collapse="true"}
 ## Instructor note
