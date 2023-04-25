@@ -722,9 +722,9 @@ nhanes_update <- nhanes_small %>%
 ```
 :::
 
-Before you start the following exercise, run `{styler}`
-(`r palette_styler_file`) and commit all the files changes to the Git
-history with the RStudio Git interface (`r palette_git_commit`).
+Before moving on, run `{styler}` (`r palette_styler_file`) and commit
+all the files changes to the Git history with the RStudio Git interface
+(`r palette_git_commit`).
 
 ## Exercise: Piping, filtering, and mutating
 
@@ -1051,4 +1051,3 @@ files into R.
     package to wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
-
