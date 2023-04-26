@@ -289,49 +289,47 @@ also render (`r keybind_knit` or `r palette_render`) the document and
 see what it looks like. When the HTML document opens, you should see
 some text below the `setup` chunk that might look something like this:
 
-    ── Attaching packages ──────────────────────── tidyverse 1.3.2 ──
-    ✔ ggplot2 3.4.0      ✔ purrr   1.0.0 
-    ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-    ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-    ✔ readr   2.1.3      ✔ forcats 0.5.2 
-    ── Conflicts ─────────────────────────── tidyverse_conflicts() ──
-    ✖ dplyr::filter() masks stats::filter()
-    ✖ dplyr::lag()    masks stats::lag()
+```         
+── Attaching packages ──────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.0      ✔ purrr   1.0.0 
+✔ tibble  3.1.8      ✔ dplyr   1.0.10
+✔ tidyr   1.2.1      ✔ stringr 1.5.0 
+✔ readr   2.1.3      ✔ forcats 0.5.2 
+── Conflicts ─────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+```
 
 You probably don't want this text in your generated document, so we will
 add a [chunk
 option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
 remove this message. Chunk options are used to change how code chunks
-work. You can change them either by clicking on the gear/cog symbol in
-the top right corner of the chunk (looks a bit like in
-@fig-rstudio-code-chunk-gear) or by typing them inside the code chunk at
-the top. When adding them inside the code chunk, they always need to
-start with `#|`.
+work. When adding them inside the code chunk, they always need to start
+with `#|`. If you want to run the code but not show those messages and
+warnings, you can add the options `#| message: false` and
+`#| warning: false`:
 
-![Changing the settings for the code chunk
-actions.](../images/rstudio-code-chunk-gear.png){#fig-rstudio-code-chunk-gear
-width="60%"}
-
-If you want to run the code but not show those messages and warnings,
-you can add the options `#| message: false` and `#| warning: false`:
-
-    ```{{r setup}}
-    #| message: false
-    #| warning: false
-    library(tidyverse)
-    library(NHANES)
-    nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-    ```
+````         
+```{{r setup}}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(NHANES)
+nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
+```
+````
 
 If you want to hide the code, messages, warnings, and output, but still
 run the code, you can use the option `#| include: false`.
 
-    ```{{r setup}}
-    #| include: false
-    library(tidyverse)
-    library(NHANES)
-    nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-    ```
+````         
+```{{r setup}}
+#| include: false
+library(tidyverse)
+library(NHANES)
+nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
+```
+````
 
 Other common options are:
 
