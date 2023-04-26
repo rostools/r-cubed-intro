@@ -736,7 +736,7 @@ and push to GitHub.
 
 ## Colours: Make your graphs more accessible
 
-::: callout-info
+::: callout-note
 ## Reading task: \~5 minutes
 
 Colour blindness is common in the general population, with red-green
@@ -943,4 +943,3 @@ changes (`r palette_git_commit`), and push to GitHub.
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
 -   Save plots using `ggsave()`.
-
