@@ -425,8 +425,8 @@ nhanes_small %>%
   geom_bar(position = position_dodge())
 ```
 
-Now you can see that there are slightly more men that have diabetes than
-women.
+Now you can see that there are differences between education and those
+who have diabetes.
 
 ### Discrete and continuous variables
 
@@ -942,4 +942,3 @@ changes (`r palette_git_commit`), and push to GitHub.
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
 -   Save plots using `ggsave()`.
-
