@@ -761,7 +761,7 @@ this exercise by using `Ctrl-Shift-R`).
 2.  Create a new variable called `mean_arterial_pressure` by applying
     the formula:
 
-    $$((2 * SBP) + SBP) / 3$$
+    $$((2 * DBP) + SBP) / 3$$
 
     (DBP = `bp_dia_ave` and SBP = `bp_sys_ave`) to calculate [Mean
     Arterial
