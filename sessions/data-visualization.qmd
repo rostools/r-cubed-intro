@@ -632,9 +632,10 @@ visualize some of these features. First, create a new header called
 (`r keybind_chunk` or `r palette_chunk`).
 
 *Question: Is systolic blood pressure different in those with or without
-diabetes in females and males?* In this case, we have one continuous
-variable (`bp_sys_ave`) and two discrete variables (`education` and
-`diabetes`). To plot this, we could use `geom_boxplot()`:
+diabetes within different education groups?* In this case, we have one
+continuous variable (`bp_sys_ave`) and two discrete variables
+(`education` and `diabetes`). To plot this, we could use
+`geom_boxplot()`:
 
 ```{r using-colour}
 # Plot systolic blood pressure in relation to education and diabetes status
@@ -942,3 +943,4 @@ changes (`r palette_git_commit`), and push to GitHub.
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
 -   Save plots using `ggsave()`.
+
