@@ -196,15 +196,19 @@ Then, place your cursor two lines below the YAML header and insert a
 code chunk (`r keybind_chunk` or `r palette_chunk`). The code chunk
 should look something like this:
 
-    ```{{r}}
-     
-    ```
+````         
+```{{r}}
+ 
+```
+````
 
 In the code chunk, type out `2 + 2`, so it looks like:
 
-    ```{{r}}
-    2 + 2
-    ```
+````         
+```{{r}}
+2 + 2
+```
+````
 
 You can run R code inside the code chunk the same way as you would write
 it in an R script. Typing `Ctrl-Enter` on the line will send the code
@@ -228,9 +232,11 @@ R Markdown document. We will set this up together now.
 Create a new code chunk (`r keybind_chunk` or `r palette_chunk`) and
 then type `setup` right after the `r`. It should look like:
 
-    ```{{r setup}}
+````         
+```{{r setup}}
 
-    ```
+```
+````
 
 This area that you just typed 'setup' in is for code chunk labels. In
 this case, we labelled the code chunk with the name `setup`. Code [chunk
@@ -258,11 +264,13 @@ place to put your `library()` calls or other setup functions. Let's
 enter some code to load the packages and the dataset we have been using
 to the setup chunk:
 
-    ```{{r setup}}
-    library(tidyverse)
-    library(NHANES)
-    nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-    ```
+````         
+```{{r setup}}
+library(tidyverse)
+library(NHANES)
+nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
+```
+````
 
 ```{r setup-chunk}
 #| echo: false
@@ -274,9 +282,11 @@ nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 Let's insert another code chunk below this one (`r keybind_chunk` or
 `r palette_chunk`), and simply put `nhanes_small` in the chunk:
 
-    ```{{r}}
-    nhanes_small
-    ```
+````         
+```{{r}}
+nhanes_small
+```
+````
 
 ```{r}
 #| echo: false
@@ -445,31 +455,33 @@ Git history (`r palette_git_commit`).
 
 Copy and paste this code as a starting point:
 
-    ```{{r prettier-table}}
-    nhanes_small %>%
-      filter(!is.na(diabetes), !is.na(education)) %>%
-      group_by(diabetes, education) %>%
-      summarise(
-        mean_age = mean(age, na.rm = TRUE),
-        mean_bmi = mean(bmi, na.rm = TRUE)
-      ) %>%
-      ungroup() %>%
-      mutate(
-        # Task 2a.
-        ___ = ___(mean_age, ___),
-        ___ = ___(mean_bmi, ___),
-        # Task 2b.
-        ___ = ___(education)
-      ) %>% 
-      rename(
-        # Task 3.
-        "___" = ___,
-        "___" = ___,
-        "___" = ___,
-        "___" = ___
-      ) %>% 
-      knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
-    ```
+````         
+```{{r prettier-table}}
+nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>%
+  group_by(diabetes, education) %>%
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  ) %>%
+  ungroup() %>%
+  mutate(
+    # Task 2a.
+    ___ = ___(mean_age, ___),
+    ___ = ___(mean_bmi, ___),
+    # Task 2b.
+    ___ = ___(education)
+  ) %>% 
+  rename(
+    # Task 3.
+    "___" = ___,
+    "___" = ___,
+    "___" = ___,
+    "___" = ___
+  ) %>% 
+  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
+```
+````
 
 ```{r solution-create-pretty-table}
 #| eval: false
@@ -810,3 +822,4 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your R Markdown output document.
+
