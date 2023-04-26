@@ -113,13 +113,16 @@ Why would you use this? There are many reasons, with some of them being:
 
 ## Creating an R Markdown / Quarto file
 
-Now, we will create and save a Quarto file. Go to
-`File -> New File -> Quarto Document ...`, and a dialog box will then
-appear. Enter "Reproducible documents" in the title field and your name
-in the author field. HTML should be automatically selected as the output
-format. There's also the option to use the "visual mode". This mode is
-great if you are used to working with Word and you can test it out on
-your own later. For this course, we will focus on using the normal mode.
+Now, we will create and save a Quarto file. We'll use the Command
+Palette by typing `Ctrl-Shift-P` and then typing "quarto" and select the
+one that says "Create a new Quarto document". You can also use the menu,
+by going to `File -> New File -> Quarto Document ...`, and a dialog box
+will then appear. Enter"Reproducible documents" in the title field and
+your name in the author field. HTML should be automatically selected as
+the output format. There's also the option to use the "visual mode".
+This mode is great if you are used to working with Word and you can test
+it out on your own later. For this course, we will focus on using the
+normal mode.
 
 After clicking "Create", the new file will open in RStudio. You will see
 some text that gives a brief overview of how to use the Quarto file. For
@@ -822,4 +825,3 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your R Markdown output document.
-
