@@ -665,9 +665,9 @@ Image files are **always** relative to the `.qmd` file.
 :::
 
 Render the document again (`Ctrl-Shift-K`) and view the HTML document
-with the new picture. Now, let's change the width and height of the
-image as well as its alignment. We do this by adding a `{}` to the end
-of the Markdown image tag and put options inside there.
+with the new picture. We can, if we want to, change the width and height
+of the image as well as its alignment. We do this by adding a `{}` to
+the end of the Markdown image tag and put options inside there.
 
 -   `fig-align`: To align the figure, either in `"center"`, `"left"`, or
     `"right"`.
@@ -677,13 +677,15 @@ of the Markdown image tag and put options inside there.
 -   `#fig-LABEL`: Use this to add a label so you can cross-reference it
     by typing inline `@fig-LABEL`.
 
-Now, try to change the width and height to `"50%"`, and change the
-caption to something like `"Kittens attacking flowers!"`, and add a
-label and reference:
+For this image, we will change the width and height to `"50%"`, and
+change the caption to something like `"Kittens attacking flowers!"`, and
+add a label and reference:
 
-    Cute kitten in @fig-kitten-attack!
+```         
+Cute kitten in @fig-kitten-attack!
 
-    ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height="50%"}
+![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height="50%"}
+```
 
 ![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack
 width="50%" height="50%"}
