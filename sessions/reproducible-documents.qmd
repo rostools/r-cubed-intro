@@ -363,11 +363,15 @@ execute:
 ## Creating tables of results
 
 Let's try running some R code to get Quarto to create a table. First,
-create a new header `## Table of results` and a new code chunk with the
-label `mean-age-bmi-table`. Second, copy the code we worked on from the
-Data Wrangling session, in @sec-group-by-summarise, which is shown below
-for you to copy from. Instead of using `phys_active`, let's change that
-to `education`.
+create a new header[^reproducible-documents-1] `## Table of results` and
+a new code chunk with the label `mean-age-bmi-table`. Second, copy the
+code we worked on from the Data Wrangling session, in
+@sec-group-by-summarise, which is shown below for you to copy from.
+Instead of using `phys_active`, let's change that to `education`.
+
+[^reproducible-documents-1]: A "header" is something like a Chapter in
+    books, or section titles in manuscripts like "Introduction" or
+    "Results".
 
 ```{r mean-age-bmi-table}
 #| echo: fenced
