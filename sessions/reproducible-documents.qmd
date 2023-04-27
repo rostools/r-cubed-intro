@@ -431,60 +431,65 @@ Git history (`r palette_git_commit`).
 
 1.  In the `doc/learning.qmd` file, create a new header called
     `## Prettier table` along with a code chunk and label it
-    `prettier-table`. Copy the code below at the end of this exercise
-    (that we wrote above) and paste the code into the new chunk. Add the
-    option `#| echo: false` to the code chunk.
+    `prettier-table`. Copy the code below (that includes some code we
+    wrote above) and paste the code into the new chunk. Add the option
+    `#| echo: false` to the code chunk.
+
+    ````         
+    ```{{r prettier-table}}
+    nhanes_small %>%
+      filter(!is.na(diabetes), !is.na(education)) %>%
+      group_by(diabetes, education) %>%
+      summarise(
+        mean_age = mean(age, na.rm = TRUE),
+        mean_bmi = mean(bmi, na.rm = TRUE)
+      ) %>%
+      ungroup() %>%
+      mutate(
+        # Task 2a.
+        ___ = ___(mean_age, ___),
+        ___ = ___(mean_bmi, ___),
+        # Task 2b.
+        ___ = ___(education)
+      ) %>% 
+      rename(
+        # Task 3.
+        "___" = ___,
+        "___" = ___,
+        "___" = ___,
+        "___" = ___
+      ) %>% 
+      knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
+    ```
+    ````
+
 2.  Use `mutate()` to perform the following wrangling tasks:
+
     a.  Apply the `round()` function to `mean_age` and `mean_bmi`
         columns, to round the values to 1 digit (`digits` is the second
         argument of `round()`).
     b.  Use `str_to_sentence(education)` to capitalize the first letter
         of the words in the `education` column.
+
 3.  Rename `diabetes` to `"Diabetes Status"`, `education` to
     `Education`, and `mean_age` and `mean_bmi` to `"Mean Age"` and
     `"Mean BMI"`, using `rename()` function. *Hint*: You can rename
     columns to include spaces by using `"` around the new column name
     (e.g. `"Diabetes Status" = diabetes`). Don't forget, the renaming
     form is `new = old`.
+
 4.  Run the code chunk to make sure the code works, including the
     `knitr::kable()` function at the end of the pipe, with a table
     caption of your choice. If you want you can keep the same caption as
     is provided in the starting point below.
+
 5.  Run `{styler}` on the document (`r palette_styler_file`).
+
 6.  Render the document to HTML (`r keybind_knit` or `r palette_render`)
     and see what the table looks like.
+
 7.  End the exercise by adding, committing, and pushing the files to
     your GitHub repository (`r palette_git_commit`).
-
-Copy and paste this code as a starting point:
-
-````         
-```{{r prettier-table}}
-nhanes_small %>%
-  filter(!is.na(diabetes), !is.na(education)) %>%
-  group_by(diabetes, education) %>%
-  summarise(
-    mean_age = mean(age, na.rm = TRUE),
-    mean_bmi = mean(bmi, na.rm = TRUE)
-  ) %>%
-  ungroup() %>%
-  mutate(
-    # Task 2a.
-    ___ = ___(mean_age, ___),
-    ___ = ___(mean_bmi, ___),
-    # Task 2b.
-    ___ = ___(education)
-  ) %>% 
-  rename(
-    # Task 3.
-    "___" = ___,
-    "___" = ___,
-    "___" = ___,
-    "___" = ___
-  ) %>% 
-  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
-```
-````
 
 ```{r solution-create-pretty-table}
 #| eval: false
