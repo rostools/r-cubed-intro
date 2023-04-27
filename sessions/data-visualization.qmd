@@ -169,11 +169,13 @@ the histogram geom.
 
 Write out a new header called `### One variable plots` in the free text
 area. Below it add a code chunk (`r keybind_chunk` or
-`r palette_chunk`).
+`r palette_chunk`). To make use of auto-completion and to get used to
+using the pipe, we'll pipe the data into the `ggplot()` function.
 
 ```{r}
 # Create histogram for BMI
-ggplot(nhanes_small, aes(x = bmi)) +
+nhanes_small %>% 
+  ggplot(aes(x = bmi)) +
   geom_histogram()
 ```
 
@@ -184,7 +186,8 @@ You'll notice we get a warning about dropping missing values. That's
 
 ```{r}
 # Create histogram for BMI
-ggplot(nhanes_small, aes(x = bmi)) +
+nhanes_small %>% 
+  ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
 ```
 
@@ -236,7 +239,8 @@ geom to visualize those. Again, create a new code chunk
 
 ```{r discrete-variables}
 # Create count barplot for education
-ggplot(nhanes_small, aes(x = education)) +
+nhanes_small %>%
+  ggplot(aes(x = education)) +
   geom_bar()
 ```
 
@@ -248,7 +252,8 @@ same for the diabetes status variable. In the same code chunk, type:
 
 ```{r}
 # Create count barplot for diabetes status
-ggplot(nhanes_small, aes(x = diabetes)) +
+nhanes_small %>%
+  ggplot(aes(x = diabetes)) +
   geom_bar()
 ```
 
@@ -373,7 +378,8 @@ hex plot in a new code chunk. First, enter a new Markdown header called
 previous plot we created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
-ggplot(nhanes_small, aes(x = bmi, y = bp_sys_ave)) +
+nhanes_small %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE)
 ```
 
@@ -383,7 +389,8 @@ adding to the plot by using `+`.
 
 ```{r}
 # Runs a smoothing line with confidence interval
-ggplot(nhanes_small, aes(x = bmi, y = bp_sys_ave)) +
+nhanes_small %>% 
+  ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE) +
   geom_smooth(na.rm = TRUE)
 ```
@@ -514,11 +521,13 @@ Complete as many tasks as you can below.
     #|   - ___
     #|   - ___
     # Distribution of age
-    ggplot(nhanes_exercise, aes(x = ___)) +
+    nhanes_exercise %>% 
+      ggplot(aes(x = ___)) +
         ___(___ = ___)
 
     # Distribution of age at diabetes diagnosis
-    ggplot(nhanes_exercise, aes(x = ___)) +
+    nhanes_exercise %>% 
+      ggplot(aes(x = ___)) +
         ___(___ = ___)
     ```
 
@@ -538,11 +547,13 @@ Complete as many tasks as you can below.
     #|   - "Age at collection"
     #|   - "Age of diabetes diagnosis"
     # Distribution of age
-    ggplot(nhanes_exercise, aes(x = age)) +
+    nhanes_exercise %>% 
+      ggplot(aes(x = age)) +
       geom_density(na.rm = TRUE)
 
     # Distribution of age at diabetes diagnosis
-    ggplot(nhanes_exercise, aes(x = diabetes_age)) +
+    nhanes_exercise %>% 
+      ggplot(aes(x = diabetes_age)) +
       geom_density(na.rm = TRUE)
     ```
 
