@@ -486,9 +486,8 @@ Create a new header in the `doc/learning.qmd` file called
 `## Exercise to make plots with one or two variables`. For each task
 below, create a new code chunk (`r keybind_chunk` or `r palette_chunk`)
 for it. Copy and paste the template code shown in each task into its own
-code chunk. When you complete each task,
-
-run `{styler}` (`r palette_styler_file`) and render (`r keybind_knit` or
+code chunk. When you complete each task, run `{styler}`
+(`r palette_styler_file`) and render (`r keybind_knit` or
 `r palette_render`) the document to make sure it works and to see the
 output.
 
