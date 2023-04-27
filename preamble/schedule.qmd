@@ -24,7 +24,7 @@ add_link <- function(text, icon, link) {
   return(htmltools::HTML(added_link))
 }
 
-schedule <- here::here("includes/schedule.csv") %>%
+schedule <- here::here("preamble/schedule.csv") %>%
   readr::read_csv(col_types = "ccccc") %>%
   mutate(across(everything(), ~ if_else(is.na(.x), "", .x))) %>%
   mutate(
@@ -37,7 +37,7 @@ schedule <- here::here("includes/schedule.csv") %>%
 unique(schedule$Day) %>% 
   purrr::map_chr( \(day) {
     knitr::knit_child(
-      input = here::here("includes/templates/_schedule-days.qmd"),
+      input = here::here("preamble/_schedule-days.qmd"),
       envir = environment(),
       quiet = TRUE
     )
