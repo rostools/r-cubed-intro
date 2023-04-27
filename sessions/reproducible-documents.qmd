@@ -431,9 +431,9 @@ Git history (`r palette_git_commit`).
 
 1.  In the `doc/learning.qmd` file, create a new header called
     `## Prettier table` along with a code chunk and label it
-    `prettier-table`. Copy the code below (that we wrote above) and
-    paste the code into the new chunk. Add the option `#| echo: false`
-    to the code chunk.
+    `prettier-table`. Copy the code below at the end of this exercise
+    (that we wrote above) and paste the code into the new chunk. Add the
+    option `#| echo: false` to the code chunk.
 2.  Use `mutate()` to perform the following wrangling tasks:
     a.  Apply the `round()` function to `mean_age` and `mean_bmi`
         columns, to round the values to 1 digit (`digits` is the second
