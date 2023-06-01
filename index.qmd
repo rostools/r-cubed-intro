@@ -75,57 +75,6 @@ this source. Check out the
 guidelines and the [For Instructors](appendix/for-instructors.qmd)
 section for more details and tips on using this material.
 
-## Previous versions
-
-There have been three previous "formal" versions of the course given so
-far:
-
--   [Version 1](https://v1--dda-rcourse.netlify.app/) taught March 2019.
--   [Version 2](https://r-cubed-v2.rostools.org/) taught in June 2020.
--   Version 3 taught in June 2021 (no individual website, but source
-    material is archived
-    [here](https://github.com/rostools/r-cubed-intro/releases/v3.0)).
-
-## Contributors {#contributors}
-
-Contributors for [version 1](https://v1--dda-rcourse.netlify.app/) were:
-
--   Luke Johnston: Brainstormed most of the course material and
-    structure; set up the website; organized and coordinated the course;
-    wrote, prepared, and taught most of the code-along sessions, as well
-    as several lectures.
--   Daniel Witte: Participated in brainstorming on the course structure
-    and layout; prepared and taught most of the lectures.
--   João Santiago: Taught and edited the R Markdown code-along session
-    material.
--   Anna Schritz: Taught and edited the Data Management and Wrangling
-    code-along session material.
--   Omar Silverman (helper): Proofread and provided feedback on the
-    material for several sessions.
-
-Contributors for [version 2](https://r-cubed-v2.rostools.org/) were:
-
--   Luke Johnston: Same as with version 1.
--   Daniel Witte: Prepared and taught most of the lectures.
--   Helene Bæk Juel: Edited and taught the Data Visualization code-along
-    session material, as well as reviewed multiple other sections.
--   Bettina Lengger: Edited and taught the Data Management and Wrangling
-    code-along session material, as well as reviewed multiple other
-    sections.
-
-Contributors for version 3 all participated in discussions on improving
-the course, extensively updating the course material based on the
-participant feedback from the previous courses, and heavily reviewing
-and editing the content:
-
--   Luke Johnston
--   Daniel Witte
--   Helene Bæk Juel
--   Bettina Lengger
--   Malene Revsbech Christiansen (helper from version 2)
--   Anders Aasted Isaksen (helper from version 2)
--   Hannah Chatwin (participant from version 2)
-
 ## Acknowledgements
 
 Many pieces from the (in development) course [Merely
