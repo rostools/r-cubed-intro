@@ -198,7 +198,7 @@ experiences, so there is a mix of novice and more experienced users.
 Go to different sides of the room for "Yes" and "No"
 :::
 
-## :walking_woman::walking:Those who've used R, how do you perceive your skill in R? {.center}
+## :walking_woman::walking: Those who've used R, how do you perceive your skill in R? {.center}
 
 ::: notes
 Arrange along the wall from beginner to advanced.
