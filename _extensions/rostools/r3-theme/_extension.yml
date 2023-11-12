@@ -1,6 +1,6 @@
 title: r3-theme
 author: Luke W. Johnston
-version: 1.0.2
+version: 1.0.3
 quarto-required: ">=1.2.0"
 contributes:
   format:
@@ -43,7 +43,6 @@ contributes:
 
     callout-appearance: minimal
     reference-location: margin
-    citation-location: margin
     crossref:
       chapters: true
 
