@@ -26,14 +26,10 @@ found as you work through the tasks.
 
 1.  Read the Learning objectives in @sec-pre-course-learning-objectives
     for the pre-course tasks (below).
-2.  Read the ["How to read the
-    website"](https://guides.rostools.org/pre-course.html#reading-website)
-    (on a new website).
-3.  Follow the [installation
-    instructions](https://guides.rostools.org/pre-course.html#installation-instructions)
-    (on a new website). Install a version of R, RStudio, and Git that is
-    as updated as possible. For some people, depending on their
-    institution, this task can take the **longest amount of time**
+2.  Read about how to read this website in @sec-reading-website.
+3.  Install the necessary programs and the right versions of those
+    programs in @sec-install-programs. For some people, depending on
+    their institution, this task can take the **longest amount of time**
     because you have to contact your IT to install these packages.
 4.  Read about R in @sec-what-is-r.
 5.  Read about and become familiar with RStudio in @sec-learn-rstudio.
@@ -70,17 +66,23 @@ objectives for this page:
     teaching mostly in this course.
 5.  Become aware of what version control is and what Git is.
 
-## Programs to install
+## Reading the course website {#sec-reading-website}
 
-Make sure to install as updated versions of R, RStudio, and Git as
-possible by following these [installation
-instructions](https://guides.rostools.org/pre-course.html#installation-instructions)
-on the Guides website. For some people, depending on their institution
-and their specific computer, this task can take the **longest amount of
-time** because you have to contact your IT to install these packages or
-do troubleshooting because of issues specific to your computer setup. It
-is extremely difficult to predict who will and who won't have issues
-with these installation tasks.
+```{r}
+#| echo: false
+#| eval: true
+#| results: asis
+cat(r3admin::read_common("reading-website.md"), sep = "\n")
+```
+
+## Installing the latest programs {#sec-install-programs}
+
+```{r}
+#| echo: false
+#| eval: true
+#| results: asis
+cat(r3admin::read_common("installing-programs.md"), sep = "\n")
+```
 
 ## What is R? {#sec-what-is-r}
 
