@@ -1,9 +1,9 @@
-# Pre-course tasks {#sec-pre-course}
+---
+execute:
+  eval: false
+---
 
-```{r}
-#| echo: false
-# To trigger downlit.
-```
+# Pre-course tasks {#sec-pre-course}
 
 In order to participate in this course, you must complete everything in
 this pre-course tasks section and finish with **completing the
