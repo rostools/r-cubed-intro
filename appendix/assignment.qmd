@@ -93,7 +93,8 @@ Your specific tasks are:
     figures (as covered in @sec-visualization), and so on. Keep using
     the "Git workflow" by adding to the staged area, commit, push, and
     pull the changes you've made. You may end up with some merge
-    conflicts, ask instructors or helpers for support to resolving them.
+    conflicts (described in @sec-merge-conflicts), ask instructors or
+    helpers for support to resolving them.
 
     -   Create section headers (e.g. `# Results`, `## Tables`,
         `## Figures`, and `# Discussion`).
@@ -172,4 +173,3 @@ What we don't expect:
 
 Essentially, the group project is a way to reinforce what you learned
 during the course, but in a more relaxed and collaborative setting.
-

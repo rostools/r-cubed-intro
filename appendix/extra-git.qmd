@@ -1,0 +1,107 @@
+# File conflicts between your computer and GitHub {#sec-merge-conflicts}
+
+Normally Git is very good at synchronizing and merging changes between a
+local repository and its remote repository. However, sometimes, when it
+encounters a problem it doesn't know how to fix, it stops merging the
+two histories and lets you manually fix the problem. This is called a
+"merge conflict" and it is when one or more files have changes that
+conflict with one another.
+
+An example would be when you make a change to some code on your work
+computer, then on another day are working on the code on your home
+computer and make a slightly different edit to the same code. Normally,
+if you keep your repository synchronized, this wouldn't be a problem.
+But sometimes you forget to synchronize, so when you do, Git may detect
+a conflict on the same lines in a file between the histories of the
+local and remote repositories. At this point, Git stops and gives you
+control to resolve it.
+
+Let's force a conflict to happen. In your `LearningR` RStudio R Project,
+open up the Git interface and make sure that you don't see
+`R/learning.R` anywhere in the list and that you've pushed and pulled
+already with your GitHub repository. Then, open up `R/learning.R` and
+add the text `# Here's an example of a conflict` to the very first line.
+In the Git interface, add and commit this change but **don't push the
+changes**!
+
+Then, go to your GitHub repository and open up the `R/learning.R` file.
+Click the "Edit" button, as you learned previously in the session. In
+the first line of the file, add the text `# When a conflict happens`.
+Write a simple commit message and commit the change.
+
+Now, go back to your RStudio project, open the Git interface and click
+"Pull". You can try to push first, but when there are differences
+between your local and remote repository, Git will prevent you from
+pushing to GitHub until you first pull. Once you pull, Git will detect
+if a file conflict exists and halt it's "merging" process.
+
+What you should see is something like the below text (it may be slightly
+different):
+
+```         
+<<<<<<< HEAD
+# Here's an example of a conflict
+=======
+# When a conflict happens
+>>>>>>> ad3fsd45bsdd23lda2304
+```
+
+The text on the top between `<<<<<<< HEAD` and `=======` are the changes
+found on your *local* repository. The text on the bottom between
+`=======` and `>>>>>>> ad3fsd45bsdd23lda2304` are the changes found on
+your *remote* (GitHub) repository. `HEAD` is the term to mean where your
+files are currently at. Think of `HEAD` as meaning the "top" of the
+history. The long string with numbers and letters (like
+`ad3fsd45bsdd23lda2304`) represents the ID for the commit (the "commit
+hash") and, in this case, comes from `main` (or sometimes called
+`master`) branch of the `origin` remote. The concept and use of branches
+is a powerful feature of Git, but due to time we won't be covering them.
+You only need to know that every Git repository starts with the default
+`main` (or `master`) branch.
+
+At this point, you decide what to keep and what to remove by deleting
+text within the `R/learning.R` script in RStudio. You'll need to also
+delete the lines with the `<<<<<<< HEAD`, `=======`, and
+`>>>>>>> ad3fsd45bsdd23lda2304` (or something that looks similar).
+
+After deciding what to keep and removing all the left over merge
+conflict tags, open up the Git interface in RStudio. The files listed in
+the staging area will show the conflict file with a yellow/orange "U".
+To resolve the merge conflict, stage the file with the merge conflict. This will change the colour to blue. Next you commit the
+changes in the Git interface, without writing a commit message (this is
+not necessary when resolving merge conflicts). Push the changes to
+GitHub, then open up the Git repository in GitHub, refresh the browser,
+and view that the changes have taken place.
+
+## Exercise: Dealing with merge conflicts
+
+> Time: \~15 minutes.
+
+Throughout this course you *hopefully* won't encounter many merge
+conflicts, including during the group project. Because of this, we want
+you to get some more practice with dealing with them.
+
+1.  In your GitHub `LearningR` repository, edit the `README.md` file by
+    replacing one word with a random word (e.g. "blahblah"). Commit the
+    change.
+2.  Go to your RStudio `LearningR.Rproj` project and, **without pulling
+    from GitHub**, replace the same word you did on the GitHub version
+    of the `README.md` file, but instead use a different random word
+    (e.g. "ticktock" instead of "blahblah" from above). Add to the
+    staging and commit the change with RStudio's Git interface
+    (`r palette_git_commit`).
+3.  While in RStudio's Git interface, pull the changes from GitHub.
+    There should be a warning about merge conflicts. Now you can
+    practice dealing with and fixing merge conflicts. Add the changes to
+    the staging **after** you fixed them and click the commit button
+    (you don't need to type out a commit message).
+4.  Push the changes up to GitHub and view them there to make sure they
+    have been synchronized (you may need to refresh the browser).
+
+## Summary
+
+-   When there are differences in changes to the same lines in a file, a
+    merge conflict occurs that you must deal with manually.
+    -   Decide on which text to keep between the tags: `<<<<<<< HEAD`,
+        `=======`, and `>>>>>>> origin/main` (the last name may
+        sometimes look different), and remove tags.
