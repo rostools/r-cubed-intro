@@ -8,7 +8,9 @@ options(
   warnPartialMatchAttr = TRUE,
   digits = 3,
   width = 68,
-  knitr.kable.NA = ""
+  knitr.kable.NA = "",
+  # Would like to use some duplicate labels (e.g. "setup")
+  knitr.duplicate.label = "allow"
 )
 
 if (interactive()) {
