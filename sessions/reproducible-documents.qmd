@@ -117,7 +117,7 @@ Now, we will create and save a Quarto file. We'll use the Command
 Palette by typing `Ctrl-Shift-P` and then typing "quarto" and select the
 one that says "Create a new Quarto document". You can also use the menu,
 by going to `File -> New File -> Quarto Document ...`, and a dialog box
-will then appear. Enter"Reproducible documents" in the title field and
+will then appear. Enter "Reproducible documents" in the title field and
 your name in the author field. HTML should be automatically selected as
 the output format. There's also the option to use the "visual mode".
 This mode is great if you are used to working with Word and you can test
@@ -176,7 +176,7 @@ render the document again with the "Render" button or `r keybind_knit`
 (or using the Command Palette with `r palette_render`). A Word document
 should open up. This is the basic approach to creating documents from R
 Markdown or Quarto. Before continuing, let's add and commit the newly
-created file into the Git history (`r palette_git_commit`).
+created file into the Git history with {{< var keybind.git >}}.
 
 ## Inserting R code into your document
 
@@ -199,19 +199,17 @@ Then, place your cursor two lines below the YAML header and insert a
 code chunk (`r keybind_chunk` or `r palette_chunk`). The code chunk
 should look something like this:
 
-````         
-```{{r}}
+```{r}
+#| echo: fenced
  
 ```
-````
 
 In the code chunk, type out `2 + 2`, so it looks like:
 
-````         
-```{{r}}
+```{r}
+#| echo: fenced
 2 + 2
 ```
-````
 
 You can run R code inside the code chunk the same way as you would write
 it in an R script. Typing `Ctrl-Enter` on the line will send the code
@@ -235,11 +233,9 @@ R Markdown document. We will set this up together now.
 Create a new code chunk (`r keybind_chunk` or `r palette_chunk`) and
 then type `setup` right after the `r`. It should look like:
 
-````         
 ```{{r setup}}
 
 ```
-````
 
 This area that you just typed 'setup' in is for code chunk labels. In
 this case, we labelled the code chunk with the name `setup`. Code [chunk
@@ -308,7 +304,6 @@ with `#|`. If you want to run the code but not show those messages and
 warnings, you can add the options `#| message: false` and
 `#| warning: false`:
 
-````         
 ```{{r setup}}
 #| message: false
 #| warning: false
@@ -316,19 +311,16 @@ library(tidyverse)
 library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
-````
 
 If you want to hide the code, messages, warnings, and output, but still
 run the code, you can use the option `#| include: false`.
 
-````         
 ```{{r setup}}
 #| include: false
 library(tidyverse)
 library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
-````
 
 Other common options are:
 
@@ -363,10 +355,10 @@ execute:
 
 Let's try running some R code to get Quarto to create a table. First,
 create a new header[^reproducible-documents-1] `## Table of results` and
-a new code chunk with the label `mean-age-bmi-table`. Second, copy the
-code we worked on from the Data Wrangling session, in
-@sec-group-by-summarise, which is shown below for you to copy from.
-Instead of using `phys_active`, let's change that to `education`.
+a new code chunk. Second, copy the code we worked on from the Data
+Wrangling session, in @sec-group-by-summarise, which is shown below for
+you to copy from. Instead of using `phys_active`, let's change that to
+`education`.
 
 [^reproducible-documents-1]: A "header" is something like a Chapter in
     books, or section titles in manuscripts like "Introduction" or
@@ -409,20 +401,18 @@ nhanes_small %>%
 Now, render (`r keybind_knit` or `r palette_render`) and view the output
 in the HTML document. Pretty eh! Before continuing, let's run `{styler}`
 (`r palette_styler_file`) and then add and commit these changes into the
-Git history (`r palette_git_commit`).
+Git history using {{< var keybind.git >}}.
 
 ## Exercise: Creating a table using R code
 
 > Time: \~20 minutes.
 
 1.  In the `doc/learning.qmd` file, create a new header called
-    `## Prettier table` along with a code chunk and label it
-    `prettier-table`. Copy the code below (that includes some code we
-    wrote above) and paste the code into the new chunk. Add the option
-    `#| echo: false` to the code chunk.
+    `## Prettier table` along with a code chunk. Copy the code below
+    (that includes some code we wrote above) and paste the code into the
+    new chunk. Add the option `#| echo: false` to the code chunk.
 
-    ````         
-    ```{{r prettier-table}}
+    ```{{r}}
     nhanes_small %>%
       filter(!is.na(diabetes), !is.na(education)) %>%
       group_by(diabetes, education) %>%
@@ -447,7 +437,6 @@ Git history (`r palette_git_commit`).
       ) %>% 
       knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
     ```
-    ````
 
 2.  Use `mutate()` to perform the following wrangling tasks:
 
@@ -475,7 +464,7 @@ Git history (`r palette_git_commit`).
     and see what the table looks like.
 
 7.  End the exercise by adding, committing, and pushing the files to
-    your GitHub repository (`r palette_git_commit`).
+    your GitHub repository with {{< var keybind.git >}}.
 
 ```{r solution-create-pretty-table}
 #| eval: false
@@ -628,8 +617,8 @@ Get some practice writing Markdown by completing these tasks in the
 -   Write one random short sentence under each header. Bold (`**word**`)
     one word in each and italicize (`*word*`) another.
 -   Insert a code chunk to make a simple calculation (e.g. `2 + 2`).
--   Finally, add and commit these changes into the Git history
-    (`r palette_git_commit`).
+-   Finally, add and commit these changes into the Git history with
+    {{< var keybind.git >}}.
 
 ## Inserting figures as files or from R code
 
@@ -797,8 +786,8 @@ Complete these tasks in the `doc/learning.qmd` file.
     option in the YAML header and re-render the document
     (`r keybind_knit` or `r palette_render`).
 -   Finally, add and commit the changes you've made to the document
-    (`r palette_git_commit`). For now, don't add and commit the HTML
-    output file.
+    using {{< var keybind.git >}}. For now, don't add and commit the
+    HTML output file.
 
 ## Summary
 

@@ -511,7 +511,7 @@ In the `R/learning.R` script file, complete the following tasks.
     `r palette_styler_file`.
 
 6.  Lastly, add and commit these changes to the Git history with the
-    RStudio Git interface (`r palette_git_commit`).
+    RStudio Git interface using {{< var keybind.git >}}.
 
 ```{r solution-practice-dplyr}
 #| eval: false

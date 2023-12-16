@@ -346,8 +346,8 @@ Barplots hide interesting results. Artwork by
 :::
 
 Before we move on, let's run `{styler}` (`r palette_styler_file`), then
-add and commit the new files we created into the Git history
-(`r palette_git_commit`) and push up to your GitHub repository.
+add and commit the new files we created into the Git history with
+{{< var keybind.git >}} and push up to your GitHub repository.
 
 ## Plotting two variables
 
@@ -473,8 +473,8 @@ nhanes_small %>%
 
 Before proceeding with the following exercise, take a moment to run
 `{styler}` (`r palette_styler_file`), render (`r keybind_knit` or
-`r palette_render`), add and commit changes to the Git history
-(`r palette_git_commit`), and then push to Github. Also, notice the
+`r palette_render`), add and commit changes to the Git history using
+{{< var keybind.git >}}, and then push to Github. Also, notice the
 document outline now has a nice index of how to plot the different data
 types!
 
@@ -622,8 +622,8 @@ Complete as many tasks as you can below.
       geom_smooth()
     ```
 
-5.  End with adding and committing the changes to the Git history
-    (`r palette_git_commit`).
+5.  End with adding and committing the changes to the Git history with
+    {{< var keybind.git >}}.
 
 ## Visualizing three or more variables
 
@@ -741,8 +741,8 @@ nhanes_small %>%
 ```
 
 Before moving on, run `{styler}` (`r palette_styler_file`) and then add
-and commit the new changes to the Git history (`r palette_git_commit`),
-and push to GitHub.
+and commit the new changes to the Git history with
+{{< var keybind.git >}}, and push to GitHub.
 
 ## Colours: Make your graphs more accessible
 
@@ -836,7 +836,8 @@ functions. Use tab auto-completion to find the correct function.
     colour scheme you would like.
 
 5.  Run `{styler}` (`r palette_styler_file`). Then commit the changes to
-    the R Markdown file into the Git history (`r palette_git_commit`).
+    the R Markdown file into the Git history with
+    {{< var keybind.git >}}.
 
 ```{r solution-colour-schemes}
 #| eval: false
@@ -937,7 +938,7 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
 
 Lastly, let's run `{styler}` (`r palette_styler_file`), render the
 Quarto document (`r keybind_knit` or `r palette_render`), commit the
-changes (`r palette_git_commit`), and push to GitHub.
+changes with {{< var keybind.git >}}, and push to GitHub.
 
 ## Summary
 

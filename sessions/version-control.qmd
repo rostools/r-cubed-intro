@@ -433,7 +433,7 @@ See how it shows what was there before you made more changes?
 Next, open up the `README.md` file in RStudio using the Files tab. At
 the top of the file, write your name and your field of research, and
 then save the file. Open up the Git interface again (with the Git icon
-or with `r palette_git_commit`). You should now see the added text in
+or with {{< var keybind.git >}}). You should now see the added text in
 green. Alright, now "Stage" the change (click the checkbox), write a
 message like "added my name to README file", and commit the change. Go
 back to the history and you should see the two commits in your
@@ -625,7 +625,7 @@ After creating the token, we can now push and pull any changes you make to the f
     top of the file.
 3.  Save the file.
 4.  Open the Git interface, by hitting `Ctrl-Alt-M` (or
-    `r palette_git_commit`) anywhere in RStudio or going to the
+    {{< var keybind.git >}}) anywhere in RStudio or going to the
     `Git button -> Commit`.
 5.  Stage the file.
 6.  Add a commit message.
@@ -752,7 +752,7 @@ you to get some more practice with dealing with them.
     of the `README.md` file, but instead use a different random word
     (e.g. "ticktock" instead of "blahblah" from above). Add to the
     staging and commit the change with RStudio's Git interface
-    (`r palette_git_commit`).
+    ({{< var keybind.git >}}).
 3.  While in RStudio's Git interface, pull the changes from GitHub.
     There should be a warning about merge conflicts. Now you can
     practice dealing with and fixing merge conflicts. Add the changes to
