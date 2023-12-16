@@ -125,6 +125,7 @@ You can also type the below function into the Console, but we won't do
 that in this session.
 
 ```{r prodigenr-setup}
+#| filename: "Console"
 #| eval: false
 prodigenr::setup_project("~/Desktop/LearningR")
 ```
@@ -232,6 +233,7 @@ project, we need to add Git to our newly created project by typing in
 the R Console while in the newly created `LearningR` project:
 
 ```{r add-git-to-project}
+#| filename: "Console"
 #| eval: false
 prodigenr::setup_with_git()
 ```
@@ -305,6 +307,7 @@ automatically imported into the Environment. This is done by typing the
 following code in the Console:
 
 ```{r blank-slate}
+#| filename: "Console"
 #| eval: false
 usethis::use_blank_slate("project")
 ```
@@ -312,6 +315,7 @@ usethis::use_blank_slate("project")
 Now, let's add one R script that we will use in multiple sessions:
 
 ```{r add-r-file}
+#| filename: "Console"
 #| eval: false
 usethis::use_r("learning")
 ```
@@ -458,7 +462,9 @@ object.
 
 Try it out. In the RStudio Console, start typing:
 
-``` r
+```{r}
+#| filename: "Console"
+#| eval: false
 col
 ```
 
@@ -470,6 +476,7 @@ If we want to get more information from data frames, we can use other
 functions like:
 
 ```{r examining-dataframes}
+#| filename: "Console"
 # Column names
 colnames(airquality)
 
@@ -680,7 +687,9 @@ If you still can't find the problem, here are some other steps to take:
     RStudio (bottom right-hand corner). **Try it out:** Enter either of
     the following commands into the Console and run it (hit `Enter`).
 
-    ``` r
+    ```{r}
+    #| filename: "Console"
+    #| eval: false
     ?colnames
 
     help(colnames)

@@ -129,7 +129,7 @@ some text that gives a brief overview of how to use the Quarto file. For
 now, let's ignore the text. At the top of the file you will see
 something that looks a bit like this:
 
-``` yaml
+``` {.yaml filename="doc/learning.qmd"}
 ---
 title: "Reproducible documents"
 author: "Your Name"
@@ -267,16 +267,8 @@ place to put your `library()` calls or other setup functions. Let's
 enter some code to load the packages and the dataset we have been using
 to the setup chunk:
 
-````         
-```{{r setup}}
-library(tidyverse)
-library(NHANES)
-nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-```
-````
-
-```{r setup-chunk}
-#| echo: false
+```{r setup, filename="doc/learning.qmd"}
+#| echo: fenced
 library(tidyverse)
 library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
@@ -285,14 +277,8 @@ nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 Let's insert another code chunk below this one (`r keybind_chunk` or
 `r palette_chunk`), and simply put `nhanes_small` in the chunk:
 
-````         
-```{{r}}
-nhanes_small
-```
-````
-
-```{r}
-#| echo: false
+```{r, filename="doc/learning.qmd"}
+#| echo: fenced
 nhanes_small
 ```
 

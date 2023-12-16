@@ -196,6 +196,7 @@ open the `R/learning.R` script and write code to load the `{NHANES}`
 package. It should look like this now:
 
 ```{r add-packages-to-script}
+#| filename: "R/learning.R"
 library(tidyverse)
 library(NHANES)
 ```
@@ -209,6 +210,7 @@ dataset. Run this function by hitting `Alt-Enter` while the cursor is on
 the code to send it from the script to the R Console.
 
 ```{r glimpse-nhanes}
+#| filename: "R/learning.R"
 # Briefly glimpse contents of dataset
 glimpse(NHANES)
 ```
@@ -234,6 +236,7 @@ The argument after the data argument is `...`, which indicates that you
 can add as many columns as you want, separated by a `,`.
 
 ```{r using-select}
+#| filename: "R/learning.R"
 # Select one column by its name, without quotes
 select(NHANES, Age)
 
@@ -255,6 +258,7 @@ functions and to get help on them. Some commonly used helpers are:
 -   `contains()`: Select columns that contain a pattern.
 
 ```{r using-tidyselect-helpers}
+#| filename: "R/learning.R"
 # All columns starting with letters "BP" (blood pressure)
 select(NHANES, starts_with("BP"))
 
@@ -281,6 +285,7 @@ in some of these parameters, we will subset the large dataset into
 something smaller and save it for later use as a new dataset.
 
 ```{r create-smaller-nhanes}
+#| filename: "R/learning.R"
 # Save the selected columns as a new data frame
 # Recall the style guide for naming objects
 nhanes_small <- select(NHANES, Age, Gender, BMI, Diabetes,
@@ -304,6 +309,7 @@ the second argument needs to be a function, which in our case is called
 function will rename all columns.
 
 ```{r create-nhanes-snakecase}
+#| filename: "R/learning.R"
 # Rename all columns to snake case
 nhanes_small <- rename_with(nhanes_small, snakecase::to_snake_case)
 
@@ -331,6 +337,7 @@ terms is critical. Because we want to rename the variable in the dataset
 so it stays renamed, we need to assign it again to `nhanes_small`.
 
 ```{r rename-to-gender}
+#| filename: "R/learning.R"
 nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
@@ -421,6 +428,7 @@ Let's try this out on NHANES. The keyboard shortcut for the pipe is
 pipe).
 
 ```{r show-pipe-with-colnames}
+#| filename: "R/learning.R"
 # These two ways are the same
 colnames(nhanes_small)
 
@@ -437,6 +445,7 @@ from the previous section. Remember, both `select()` and `rename()` take
 a dataset as the first argument, which makes them pipe-able.
 
 ```{r piping-select-to-rename}
+#| filename: "R/learning.R"
 nhanes_small %>% 
     select(phys_active) %>% 
     rename(physically_active = phys_active)
@@ -458,7 +467,9 @@ In the `R/learning.R` script file, complete the following tasks.
     `___` in the `select()` function, with the columns `bp_sys_ave`, and
     `education`.
 
-    ``` r
+    ```{r}
+    #| filename: "R/learning.R"
+    #| eval: false
     nhanes_small %>% 
         select(___)
     ```
@@ -468,7 +479,9 @@ In the `R/learning.R` script file, complete the following tasks.
     `bp_sys` and `bp_dia`. *Tip*: Recall that renaming is in the form
     `new = old`.
 
-    ``` r
+    ```{r}
+    #| filename: "R/learning.R"
+    #| eval: false
     nhanes_small %>% 
         rename(___ = ___,
                ___ = ___)
@@ -476,7 +489,9 @@ In the `R/learning.R` script file, complete the following tasks.
 
 3.  Re-write this piece of code using the "pipe" operator:
 
-    ``` r
+    ```{r}
+    #| filename: "R/learning.R"
+    #| eval: false
     select(nhanes_small, bmi, contains("age"))
     ```
 
@@ -485,7 +500,9 @@ In the `R/learning.R` script file, complete the following tasks.
     temporary `blood_pressure` object by using the pipe, then re-read
     the revised version. Which do you feel is easier to "read"?
 
-    ``` r
+    ```{r}
+    #| filename: "R/learning.R"
+    #| eval: false
     blood_pressure <- select(nhanes_small, starts_with("bp_"))
     rename(blood_pressure, bp_systolic = bp_sys_ave)
     ```
@@ -546,6 +563,8 @@ only people who are not physically active in the dataset, we would use
 the logic condition like this:
 
 ```{r}
+#| filename: "R/learning.R"
+#| eval: false
 nhanes_small %>%
     filter(phys_active == "No")
 ```
@@ -582,6 +601,7 @@ tibble::tribble(
 Let's try out a few of these logical conditions with `filter()`.
 
 ```{r}
+#| filename: "R/learning.R"
 # Participants who are physically active
 nhanes_small %>%
     filter(phys_active != "No")
@@ -616,6 +636,7 @@ When used in `filter()`, combinations of logic conditions may look like
 this:
 
 ```{r}
+#| filename: "R/learning.R"
 # When BMI is 25 AND phys_active is No
 nhanes_small %>%
     filter(bmi == 25 & phys_active == "No")
@@ -634,6 +655,7 @@ first argument, followed by the columns that you wish to arrange data
 by. By default, `arrange()` orders in *ascending* order.
 
 ```{r}
+#| filename: "R/learning.R"
 # Arranging data by age in ascending order
 nhanes_small %>%
     arrange(age)
@@ -642,6 +664,7 @@ nhanes_small %>%
 `arrange()` also arranges parameters of type `character` alphabetically:
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>% 
     arrange(education)
 ```
@@ -650,6 +673,7 @@ If we want to order the column based on descending order, this can be
 done with `desc()`.
 
 ```{r}
+#| filename: "R/learning.R"
 # Arranging data by age in descending order
 nhanes_small %>%
     arrange(desc(age))
@@ -659,6 +683,7 @@ You can also order your data by multiple columns. For instance, we could
 arrange first by `education` and then by `age`.
 
 ```{r}
+#| filename: "R/learning.R"
 # Arranging data by education then age in ascending order
 nhanes_small %>%
     arrange(education, age)
@@ -687,6 +712,7 @@ right hand side is put into the variable of the left hand side. When
 using `mutate()`, it looks like this:
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     mutate(age = age * 12)
 ```
@@ -696,6 +722,7 @@ using `,`. So let's do that to a new column (e.g., log transforming
 BMI):
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     mutate(age = age * 12,
            logged_bmi = log(bmi))
@@ -706,6 +733,7 @@ We can also have different values based on logic conditions using
 condition.
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
@@ -717,6 +745,7 @@ it all together, you would enter something like this (no need to type
 this out yourself):
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_update <- nhanes_small %>%
     mutate(old = if_else(age >= 30, "Yes", "No"))
 ```
@@ -724,7 +753,7 @@ nhanes_update <- nhanes_small %>%
 
 Before moving on, run `{styler}` (`r palette_styler_file`) and commit
 all the files changes to the Git history with the RStudio Git interface
-(`r palette_git_commit`).
+using {{< var keybind.git >}}.
 
 ## Exercise: Piping, filtering, and mutating
 
@@ -840,6 +869,7 @@ Let's calculate the maximum value of the BMI variable. See what happens
 when you enter the following:
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     summarise(max_bmi = max(bmi))
 ```
@@ -850,6 +880,7 @@ mean will also be missing. So, we need to tell `max()` to exclude any
 `NA` values from the calculation using the argument `na.rm = TRUE`.
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     summarise(max_bmi = max(bmi, na.rm = TRUE))
 ```
@@ -858,6 +889,7 @@ To calculate another summary statistic, you would add another summary
 column using `,`:
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     summarise(max_bmi = max(bmi, na.rm = TRUE),
               min_bmi = min(bmi, na.rm = TRUE))
@@ -875,6 +907,7 @@ Let's use these functions to find out the mean age and BMI between those
 with and without diabetes.
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     group_by(diabetes) %>% 
     summarise(mean_age = mean(age, na.rm = TRUE),
@@ -891,6 +924,7 @@ We also get a warning about there being missing values in diabetes, so
 we need to remove rows that have missing diabetes status values.
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     # Recall ! means "NOT", so !is.na means "is not missing"
     filter(!is.na(diabetes)) %>% 
@@ -903,6 +937,7 @@ Cool! We can add more columns to the grouping, so let's do that. Let's
 compare mean age and BMI by physical activity and diabetes status.
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     filter(!is.na(diabetes)) %>% 
     group_by(diabetes, phys_active) %>% 
@@ -914,6 +949,7 @@ Since we don't need the dataset grouped anymore, it's good practice to
 end the grouping with `ungroup()`.
 
 ```{r}
+#| filename: "R/learning.R"
 nhanes_small %>%
     filter(!is.na(diabetes)) %>% 
     group_by(diabetes, phys_active) %>% 
@@ -923,8 +959,8 @@ nhanes_small %>%
 ```
 
 Before you start the following exercise, run `{styler}`
-(`r palette_styler_file`) and commit changes to the Git history
-(`r palette_git_commit`).
+(`r palette_styler_file`) and commit changes to the Git history using
+{{< var keybind.git >}}.
 
 ## Saving datasets as files
 
@@ -942,6 +978,7 @@ it as a `.csv` file in your `data/` folder using the function
 `readr::write_csv()`.
 
 ```{r save-data-as-csv}
+#| filename: "R/learning.R"
 readr::write_csv(
   nhanes_small,
   here::here("data/nhanes_small.csv")

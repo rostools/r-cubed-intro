@@ -198,6 +198,7 @@ Project and do a quick check to make sure that you have Git properly set
 up. Run this function in your RStudio Console:
 
 ```{r check-git-config}
+#| filename: "Console"
 #| eval: false
 r3::check_git_config()
 ```

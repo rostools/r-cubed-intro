@@ -211,7 +211,8 @@ video (no audio) below to see how to do this:
 
 Or paste the following code into the RStudio R Console:
 
-``` r
+```{r}
+#| filename: "Console"
 install.packages("pak")
 ```
 
@@ -220,7 +221,8 @@ and the r3 helper package will be installed. Watch the video below to
 see how to do this. **Note**, what you see in the video (no audio) may
 look different from yours.
 
-``` r
+```{r}
+#| filename: "Console"
 pak::pkg_install("rostools/r3", upgrade = TRUE)
 ```
 
@@ -256,7 +258,8 @@ data analysis by providing packages that guide workflows and lead to
 more reproducible analysis projects. To install all the packages we will
 use for this course, copy and paste this command into the R Console:
 
-``` r
+```{r}
+#| filename: "Console"
 r3::install_packages_introduction()
 ```
 
@@ -264,7 +267,8 @@ Like with the installing of r3 in the video above, this will take some
 time to install everything. Normally, to install packages, you would
 type this in the Console (you **don't** need to do this):
 
-``` r
+```{r}
+#| filename: "Console"
 install.packages("tidyverse")
 ```
 
@@ -311,7 +315,8 @@ ready for the course. In order to use Git properly, you need to inform
 your computer that you are using Git. The r3 course helper package has a
 function to help with this. Type in the RStudio Console:
 
-``` r
+```{r}
+#| filename: "Console"
 r3::setup_git_config()
 ```
 
@@ -320,7 +325,8 @@ function to make sure everything is working with your setup. When you
 complete the survey later, you will need to copy and paste the output of
 this function.
 
-``` r
+```{r}
+#| filename: "Console"
 r3::check_setup()
 ```
 
