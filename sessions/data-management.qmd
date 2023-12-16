@@ -32,9 +32,9 @@ source(here::here("R/functions.R"))
 ## Instructor note
 
 This session usually takes a fair amount of time relative to the other
-sessions. The R Markdown session is right afterwards and since it
-usually is done quicker than other sessions, it's fine if this session
-takes up time in the R Markdown session.
+sessions. The Quarto session is right afterwards and since it usually is
+done quicker than other sessions, it's fine if this session takes up
+time in the Quarto session.
 
 For the reading section, emphasize the characteristics of a "tidy"
 dataset.

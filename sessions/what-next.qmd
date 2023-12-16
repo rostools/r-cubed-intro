@@ -43,11 +43,10 @@ can you practice these skills and tools you learned during the course?
         created from the `{prodigenr}` package).
     -   Create all your figures entirely in R and using R scripts or R
         Markdown files.
-    -   Write everything research related in R Markdown/Quarto and
-        convert to a Word document when you need to send to co-authors.
-        If they make edits or comments, include the edits in the
-        original R Markdown/Quarto file, and *do not* keep them in the
-        Word document.
+    -   Write everything research related in Quarto and convert to a
+        Word document when you need to send to co-authors. If they make
+        edits or comments, include the edits in the original Quarto
+        file, and *do not* keep them in the Word document.
     -   Start slowly making use of Git, even if you can't or are not
         comfortable yet with sharing on GitHub. Git and GitHub are two
         separate things and Git can still be used on your computer
@@ -119,4 +118,3 @@ follow. Information about it is on the
 [website](https://coding-club.rostools.org/). We do the sessions
 virtually on the [r-cubed Discord
 server](https://discord.gg/xHPyj7dxJx).
-

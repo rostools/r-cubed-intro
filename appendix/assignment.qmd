@@ -113,14 +113,14 @@ Your specific tasks are:
     well.
 
 7.  Assign one team member as the "report coordinator" and have them
-    **merge all the individual `report-YOURNAME.Rmd` into one
-    `report.Rmd`** file on their computer (after having everyone push,
+    **merge all the individual `report-YOURNAME.qmd` into one
+    `report.qmd`** file on their computer (after having everyone push,
     and the coordinator will pull). They do this by copying and pasting
     the content of the reports into the appropriate sections of the
-    report. After they are done, add and commit the `report.Rmd`.
-    Lastly, delete all the report files *except* the `report.Rmd` and
+    report. After they are done, add and commit the `report.qmd`.
+    Lastly, delete all the report files *except* the `report.qmd` and
     add and commit these deleted files to the Git history. There should
-    only be the `report.Rmd` file in the repository.
+    only be the `report.qmd` file in the repository.
 
     -   As the report coordinator merges the report file, assign another
         team member to update the `README.md` file with some details
@@ -150,7 +150,7 @@ them on the screen for each team to present on.
 -   Included R code within a Quarto file to show results and make
     figures.
 -   Went over challenges and general experiences.
--   Generated an HTML file from an R Markdown file.
+-   Generated an HTML file from a Quarto file.
 
 ## Expectations for the project
 

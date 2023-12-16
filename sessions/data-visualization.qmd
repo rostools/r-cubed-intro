@@ -207,7 +207,7 @@ nhanes_small %>%
 ```
 
 In general, it is good practice to create a new code chunk for each plot
-in R Markdown for several reasons. One, it makes it easier to maintain a
+in Quarto for several reasons. One, it makes it easier to maintain a
 nice readable code and, two, there are some chunk options that only work
 with one figure. For instance, we can add a caption with the option
 `#| fig-cap`. Let's add one as well as a figure label with `#| label` so
@@ -836,7 +836,7 @@ functions. Use tab auto-completion to find the correct function.
     colour scheme you would like.
 
 5.  Run `{styler}` (`r palette_styler_file`). Then commit the changes to
-    the R Markdown file into the Git history (`r palette_git_commit`).
+    the Quarto file into the Git history (`r palette_git_commit`).
 
 ```{r solution-colour-schemes}
 #| eval: false

@@ -38,13 +38,13 @@ Throughout the course, participants undertake a group project, wherein
 they attempt to address a scientific question by applying techniques
 learned over the course to a (preferably open) dataset. The assignment
 is primarily code-based and is designed to be completed in RStudio using
-the R Markdown format.
+the Quarto format.
 
 ## Lesson content
 
 The teaching material is found mainly in these locations:
 
--   `index.Rmd`: Contains the overview of the course.
+-   `index.qmd`: Contains the overview of the course.
 -   `preamble/` folder: Contains the files necessary for use before the
     course, for instance the syllabus, schedule, and pre-course tasks.
 -   `sessions/` folder: Contains the files used during the course (e.g.
@@ -105,15 +105,17 @@ Please cite the material as:
 
 Or as BibTeX:
 
-    @article{Johnston2021,
-      doi = {10.21105/jose.00122},
-      url = {https://doi.org/10.21105/jose.00122},
-      year = {2021},
-      publisher = {The Open Journal},
-      volume = {4},
-      number = {44},
-      pages = {122},
-      author = {Luke Johnston and Helene Juel and Bettina Lengger and Daniel Witte and Hannah Chatwin and Malene Christiansen and Anders Isaksen},
-      title = {r-cubed: Guiding the overwhelmed scientist from random wrangling to Reproducible Research in R},
-      journal = {Journal of Open Source Education}
-    }
+```         
+@article{Johnston2021,
+  doi = {10.21105/jose.00122},
+  url = {https://doi.org/10.21105/jose.00122},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {4},
+  number = {44},
+  pages = {122},
+  author = {Luke Johnston and Helene Juel and Bettina Lengger and Daniel Witte and Hannah Chatwin and Malene Christiansen and Anders Isaksen},
+  title = {r-cubed: Guiding the overwhelmed scientist from random wrangling to Reproducible Research in R},
+  journal = {Journal of Open Source Education}
+}
+```
