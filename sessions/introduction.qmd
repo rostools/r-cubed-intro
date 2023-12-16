@@ -52,11 +52,16 @@ output like a paper; and, to structure analyses to be more reproducible
 
 ## Common questions
 
+::: callout-note
+## Reading task: \~5 minutes
+
 Over the number of times we've taught this course (and the others), we
 get asked a lot of questions. Well, sometimes questions, sometimes
 comments, and sometimes complaints. We value feedback because it
-improves on the material! But there are a few with a common theme that
-deserve to be mentioned early on!
+improves on the material! We have a [Frequently Asked
+Questions](https://guides.rostools.org/faq) page for keeping track of
+these questions. But there are a few with a common theme that deserve to
+be mentioned sooner than later.
 
 ### Why R?
 
@@ -105,12 +110,13 @@ than just R.
 | Data visualization              | Also about R!                                                      |
 
 : Some reasons why we teach what we do in each of the sessions.
+:::
 
 ## Small reminder
 
 We always get feedback that for some it is too fast and for others it is
 too slow. Ideally, everyone would say it was the perfect speed. But that
-won't likely happen. So insteads, we aim as much as possible to have
+won't likely happen. So instead, we aim as much as possible to have
 fewer people say it was too fast than there are people saying it was too
 slow. This is an introduction course, so we're trying to assume as
 little to no knowledge on many of these concepts. So, for those with
