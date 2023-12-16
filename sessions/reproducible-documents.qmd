@@ -124,10 +124,13 @@ This mode is great if you are used to working with Word and you can test
 it out on your own later. For this course, we will focus on using the
 normal mode.
 
-After clicking "Create", the new file will open in RStudio. You will see
-some text that gives a brief overview of how to use the Quarto file. For
-now, let's ignore the text. At the top of the file you will see
-something that looks a bit like this:
+After clicking "Create", the new file will open in RStudio. Before
+continuing, let's save this file as `learning.qmd` in the `doc/` folder.
+
+In the newly saved `doc/learning.qmd` file, you will see some text that
+gives a brief overview of how to use the Quarto file. For now, let's
+ignore the text. At the top of the file you will see something that
+looks a bit like this:
 
 ``` yaml
 ---
@@ -155,8 +158,7 @@ word document by changing this to `format: docx`. You can also create
 PDF documents, though this requires installing LaTeX through the R
 package [tinytex](https://yihui.name/tinytex/r/), which can sometimes be
 complicated to install. We will only cover HTML and Word documents in
-this course. Before continuing, let's save this file as `learning.qmd`
-in the `doc/` folder.
+this course.
 
 So, how do we create a HTML (or Word) document from the this document?
 We do that by "rendering" it. At the top of the pane near the "Save"
@@ -199,19 +201,15 @@ Then, place your cursor two lines below the YAML header and insert a
 code chunk (`r keybind_chunk` or `r palette_chunk`). The code chunk
 should look something like this:
 
-````         
-```{{r}}
+```{{{r}}}
  
 ```
-````
 
 In the code chunk, type out `2 + 2`, so it looks like:
 
-````         
-```{{r}}
+```{{{r}}}
 2 + 2
 ```
-````
 
 You can run R code inside the code chunk the same way as you would write
 it in an R script. Typing `Ctrl-Enter` on the line will send the code
@@ -235,11 +233,9 @@ R Markdown document. We will set this up together now.
 Create a new code chunk (`r keybind_chunk` or `r palette_chunk`) and
 then type `setup` right after the `r`. It should look like:
 
-````         
-```{{r setup}}
+```{{{r setup}}}
 
 ```
-````
 
 This area that you just typed 'setup' in is for code chunk labels. In
 this case, we labelled the code chunk with the name `setup`. Code [chunk
@@ -267,13 +263,11 @@ place to put your `library()` calls or other setup functions. Let's
 enter some code to load the packages and the dataset we have been using
 to the setup chunk:
 
-````         
-```{{r setup}}
+```{{{r setup}}}
 library(tidyverse)
 library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
-````
 
 ```{r setup-chunk}
 #| echo: false
@@ -285,11 +279,9 @@ nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 Let's insert another code chunk below this one (`r keybind_chunk` or
 `r palette_chunk`), and simply put `nhanes_small` in the chunk:
 
-````         
-```{{r}}
+```{{{r}}}
 nhanes_small
 ```
-````
 
 ```{r}
 #| echo: false
@@ -322,27 +314,23 @@ with `#|`. If you want to run the code but not show those messages and
 warnings, you can add the options `#| message: false` and
 `#| warning: false`:
 
-````         
-```{{r setup}}
+```{{{r setup}}}
 #| message: false
 #| warning: false
 library(tidyverse)
 library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
-````
 
 If you want to hide the code, messages, warnings, and output, but still
 run the code, you can use the option `#| include: false`.
 
-````         
-```{{r setup}}
+```{{{r setup}}}
 #| include: false
 library(tidyverse)
 library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
-````
 
 Other common options are:
 
@@ -435,8 +423,7 @@ Git history (`r palette_git_commit`).
     wrote above) and paste the code into the new chunk. Add the option
     `#| echo: false` to the code chunk.
 
-    ````         
-    ```{{r prettier-table}}
+    ```{{{r prettier-table}}}
     nhanes_small %>%
       filter(!is.na(diabetes), !is.na(education)) %>%
       group_by(diabetes, education) %>%
@@ -461,7 +448,6 @@ Git history (`r palette_git_commit`).
       ) %>% 
       knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
     ```
-    ````
 
 2.  Use `mutate()` to perform the following wrangling tasks:
 
@@ -830,3 +816,4 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your R Markdown output document.
+
