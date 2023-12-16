@@ -11,14 +11,14 @@ source(here::here("R/functions.R"))
 
 <!-- TODO: Revise objectives to fit how I did it in advanced -->
 
-1.  Learn what a reproducible document is, how R Markdown/Quarto helps
-    with reproducibility, and why it can save you time and effort.
+1.  Learn what a reproducible document is, how Quarto helps with
+    reproducibility, and why it can save you time and effort.
 2.  Write and use R code within a document, so that it will
     automatically insert the R output into the final document.
 3.  Learn about and use Markdown formatting and syntax for writing
     documents.
 4.  Learn about and create different document types like HTML or Word
-    from an R Markdown/Quarto document.
+    from a Quarto document.
 
 ## Why try to be reproducible?
 
@@ -45,11 +45,11 @@ reproducible once you learn how to incorporate text with R code. Plus,
 you can create some very aesthetically appealing reports, which are way
 easier to produce than if you had done it in Word.
 
-![Have a more reproducible workflow by using R Markdown/Quarto. Artwork
-by \@allison_horst.](../images/art-reproducibility.png){width="70%"}
+![Have a more reproducible workflow by using Quarto. Artwork by
+\@allison_horst.](../images/art-reproducibility.png){width="70%"}
 :::
 
-## What is R Markdown and Quarto?
+## What is Quarto?
 
 ::: callout-note
 ## Reading task: \~5 minutes
@@ -66,33 +66,30 @@ RStudio, you are already using it without realizing it. That's because
 Quarto uses the same Markdown syntax as R Markdown. The only difference
 is that with Quarto, you can create more types of output documents (like
 books, websites, slides), you have more options for customization, and
-it's easier to do and learn than R Markdown. Throughout this course, we
-will use R Markdown and Quarto interchangeably, since they mostly do the
-same thing.
+it's easier to do and learn than R Markdown.
 
 So, what is Markdown? It is a [markup
 syntax](https://en.wikipedia.org/wiki/Markup_language) and formatting
 tool, like HTML, that allows you to write a document in plain text. That
 text can then be converted into a vast range of other document types,
 e.g. HTML, PDF, Word documents, slides, posters, or websites. In fact,
-this website is built from Quarto! The Markdown used in R Markdown and
-Quarto is based on [pandoc](https://pandoc.org/index.html) ("pan" means
-all and "doc" means document, so "all documents"). Pandoc is a very
-powerful, popular, and well-maintained software tool for document
-conversion. You can use R Markdown and Quarto to do any number of
-things. Check out Quarto's [Gallery](https://quarto.org/docs/gallery/)
-to see a list of things you can create. Just a few example document
-types could be:
+this website is built from Quarto! The Markdown used in Quarto is based
+on [pandoc](https://pandoc.org/index.html) ("pan" means all and "doc"
+means document, so "all documents"). Pandoc is a very powerful, popular,
+and well-maintained software tool for document conversion. You can use
+Quarto to do any number of things. Check out Quarto's
+[Gallery](https://quarto.org/docs/gallery/) to see a list of things you
+can create. Just a few example document types could be:
 
 -   A website or blog.
 -   A PhD thesis.
 -   Journal articles.
 -   Books (like this course).
 
-For now, we're going to focus on the main reason that R Markdown/Quarto
-is used: to incorporate R code and output into a single document. By
-using R code in a document, you can have seamless integration between
-data analysis and document-writing.
+For now, we're going to focus on the main reason that Quarto is used: to
+incorporate R code and output into a single document. By using R code in
+a document, you can have seamless integration between data analysis and
+document-writing.
 
 Why would you use this? There are many reasons, with some of them being:
 
@@ -103,15 +100,15 @@ Why would you use this? There are many reasons, with some of them being:
     out there are problems with the existing data, updating your report
     is as easy as clicking a button to regenerate the results.
 -   How you found and present your results is based on the exact
-    sequence of steps given in your R Markdown document, so showing
-    others how the analysis was done is easy because the *how* is
-    explicitly shown in the document.
--   Likewise, by reading others' R Markdown documents, it is easier to
-    learn what was done in their analysis because the logic and sequence
-    is shown in the document itself.
+    sequence of steps given in your Quarto document, so showing others
+    how the analysis was done is easy because the *how* is explicitly
+    shown in the document.
+-   Likewise, by reading others' Quarto documents, it is easier to learn
+    what was done in their analysis because the logic and sequence is
+    shown in the document itself.
 :::
 
-## Creating an R Markdown / Quarto file
+## Creating a Quarto file
 
 Now, we will create and save a Quarto file. We'll use the Command
 Palette by typing `Ctrl-Shift-P` and then typing "quarto" and select the
@@ -124,10 +121,13 @@ This mode is great if you are used to working with Word and you can test
 it out on your own later. For this course, we will focus on using the
 normal mode.
 
-After clicking "Create", the new file will open in RStudio. You will see
-some text that gives a brief overview of how to use the Quarto file. For
-now, let's ignore the text. At the top of the file you will see
-something that looks a bit like this:
+After clicking "Create", the new file will open in RStudio. Before
+continuing, let's save this file as `learning.qmd` in the `doc/` folder.
+
+In the newly saved `doc/learning.qmd` file, you will see some text that
+gives a brief overview of how to use the Quarto file. For now, let's
+ignore the text. At the top of the file you will see something that
+looks a bit like this:
 
 ``` {.yaml filename="doc/learning.qmd"}
 ---
@@ -147,7 +147,7 @@ The keys in this case are `title`, `author`, and `format`. The values
 are those that follow the key (e.g. "Your Name" for `author`). In the
 case of Quarto, these `key` data are used to store the settings that
 Quarto will use to create the `format` output document. The keys listed
-above are some of many settings that R Markdown has available to use.
+above are some of many settings that Quarto has available to use.
 
 In the case of this YAML header, the Quarto document will generate an
 HTML file because of the `format: html` setting. You can also create a
@@ -155,15 +155,14 @@ word document by changing this to `format: docx`. You can also create
 PDF documents, though this requires installing LaTeX through the R
 package [tinytex](https://yihui.name/tinytex/r/), which can sometimes be
 complicated to install. We will only cover HTML and Word documents in
-this course. Before continuing, let's save this file as `learning.qmd`
-in the `doc/` folder.
+this course.
 
 So, how do we create a HTML (or Word) document from the this document?
 We do that by "rendering" it. At the top of the pane near the "Save"
 button, there is a button with the word "Render" (if it's R Markdown, it
 will be called "Knit" with a yarn symbol beside it). To render, you
 either click that button or use the shortcut `Ctrl-Shift-K` anywhere in
-the R Markdown document.
+the Quarto document.
 
 When you click the "Render" button, a bunch of processing messages
 should appear in a new pane beside the Console, followed by a new window
@@ -181,13 +180,13 @@ created file into the Git history with {{< var keybind.git >}}.
 ## Inserting R code into your document
 
 Being able to insert R code directly into a document is one of the most
-powerful features of R Markdown. This frees you from having to switch
+powerful features of Quarto. This frees you from having to switch
 between programs when simultaneously writing text and running R code to
 derive output that you'd then put into your manuscript.
 
-Running and including R code in R Markdown is done using "R code
-chunks". You insert these chunks into the document by placing the cursor
-at the location where you want the chunk to be, then using the shortcut
+Running and including R code in Quarto is done using "R code chunks".
+You insert these chunks into the document by placing the cursor at the
+location where you want the chunk to be, then using the shortcut
 `r keybind_chunk` or the menu item `Code -> Insert Chunk` to insert a
 new code chunk. Like with everything else, you can also use the Command
 Palette with `r palette_chunk`). Before we do that, let's delete all the
@@ -228,7 +227,7 @@ code chunk in the HTML document, something like this:
 This is a very simple example of how code chunks work. Things are
 usually more complicated than this though. Normally, we have to load R
 packages to use for our subsequent code, and this is no different in an
-R Markdown document. We will set this up together now.
+Quarto document. We will set this up together now.
 
 Create a new code chunk (`r keybind_chunk` or `r palette_chunk`) and
 then type `setup` right after the `r`. It should look like:
@@ -256,12 +255,12 @@ These settings can also be found with the Command Palette
 (`Ctrl-Shift-P`) followed by typing "document outline".
 :::
 
-The name `setup` also has a special meaning for R Markdown. When you run
-other code chunks in the document, R Markdown will know to first look
-for and run the code in the `setup` chunk. Therefore, this is a good
-place to put your `library()` calls or other setup functions. Let's
-enter some code to load the packages and the dataset we have been using
-to the setup chunk:
+The name `setup` also has a special meaning for Quarto. When you run
+other code chunks in the document, Quarto will know to first look for
+and run the code in the `setup` chunk. Therefore, this is a good place
+to put your `library()` calls or other setup functions. Let's enter some
+code to load the packages and the dataset we have been using to the
+setup chunk:
 
 ```{r setup, filename="doc/learning.qmd"}
 #| echo: fenced
@@ -382,7 +381,7 @@ table format. We have the columns that would be the table headers and
 rows that would be meaningful table rows. Ideally, we would want this to
 be report-ready. The first thing we should remove are the `NA` education
 rows, just like we did with `diabetes`. Then, we'll convert it into a
-more elegant table in the R Markdown HTML output document, we use the
+more elegant table in the Quarto HTML output document, we use the
 `kable()` function from the knitr package. Because we don't want to load
 all of the knitr functions, we'll use `knitr::kable()` instead:
 
@@ -578,9 +577,9 @@ which gives...
 
 ### Inline R code
 
-R Markdown also allows you to include output in-text. For instance, if
-you wanted to add the mean of some values to the text, it would look
-like this:
+Quarto also allows you to include output in-text. For instance, if you
+wanted to add the mean of some values to the text, it would look like
+this:
 
 > The mean of BMI is
 > `` `r knitr::inline_expr("round(mean(nhanes_small$bmi, na.rm = TRUE), 2)")` ``.
@@ -596,7 +595,8 @@ character value, and nothing more.
 ::: {.callout-tip appearance="default"}
 > For more details about other Markdown "syntax", check out
 > @sec-extra-markdown as well as the R Markdown cheatsheet
-> (`Tools -> Cheatsheets`) and Quarto's [Markdown
+> (`Tools -> Cheatsheets`, which works for many Quarto features too) and
+> Quarto's [Markdown
 > Basics](https://quarto.org/docs/authoring/markdown-basics.html) page.
 > Continue to the exercise below.
 :::
@@ -632,7 +632,7 @@ session and with R code in the next session. First, we need an image to
 use. Open a browser and search for a picture to use (we're using a
 kitten, because they're cute). Download the image, create a folder in
 `doc/` called `images`, and save the image in that folder. Then, in your
-R Markdown document, use the Markdown syntax for images:
+Quarto document, use the Markdown syntax for images:
 `![Caption text](path/to/image.png)`. The image can be in png, jpeg, or
 pdf formats. If you download an image and intend to use it in an
 official document, you will need to add text on the source and author of
@@ -688,7 +688,7 @@ width="50%" height="50%"}
 Now in @fig-kitten-attack, we see a kitten! Render again
 (`r keybind_knit` or `r palette_render`) to see how the image changes.
 
-## Other R Markdown features
+## Other Quarto features
 
 ::: callout-note
 ## Reading task: \~5 minutes
@@ -733,7 +733,7 @@ Templates](https://quarto.org/docs/output-formats/ms-word-templates.html)
 page continues more details about this. We won't be covering this in the
 course.
 
-### Collaborating on R Markdown documents
+### Collaborating on Quarto documents
 
 In general, there are multiple ways of collaborating on a document, some
 traditional approaches are:
@@ -746,7 +746,7 @@ traditional approaches are:
     they email back and forth (or use something like Dropbox or Google
     Docs or shared folders) and work on a single document.
 
-The first workflow is not possible in an R Markdown document since there
+The first workflow is not possible in a Quarto document since there
 isn't a feature like Word's "Track Changes". Instead, you'd use a
 workflow that probably resembles how peer reviews are done; reading the
 document and making comments in a separate file to upload to the journal
@@ -768,9 +768,9 @@ last approach is what we will get you to do for the group project.
 
 Complete these tasks in the `doc/learning.qmd` file.
 
--   Search online for a picture that you like and want to put into the R
-    Markdown file. Download it and save the image in `doc/`.
--   In the R Markdown file, insert the image somewhere (e.g. under
+-   Search online for a picture that you like and want to put into the
+    Quarto file. Download it and save the image in `doc/`.
+-   In the Quarto file, insert the image somewhere (e.g. under
     `# Results`) and give it an appropriate caption.
     -   Use the Markdown syntax `![](){}` to insert the image, where the
         file path is in between the `()`.
@@ -794,14 +794,14 @@ Complete these tasks in the `doc/learning.qmd` file.
 -   Making your research reproducible not only improves the scientific
     quality of your work, but also makes you more efficient, productive,
     and have more confidence in your results.
--   Use R Markdown to construct files that can easily be turned into a
+-   Use Quarto to construct files that can easily be turned into a
     variety of file types such as HTML or Word.
--   Insert R code chucks in R Markdown and automatically include the
-    results in the final document.
+-   Insert R code chucks in Quarto and automatically include the results
+    in the final document.
 -   Make tables by using `knitr::kable()`
 -   Use headers (`# Header 1`), text formatting (`**bold**`) and lists
-    (`-`) in the R Markdown file.
--   Insert pictures directly into the R Markdown file with
+    (`-`) in the Quarto file.
+-   Insert pictures directly into the Quarto file with
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
-    your R Markdown output document.
+    your Quarto output document.

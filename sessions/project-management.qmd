@@ -345,7 +345,7 @@ to use RStudio. The items to know right now are the "Console",
 Code is written in the "Source" tab, where it saves the code and text as
 a file. You send code to the Console from the opened file by typing
 `Ctrl-Enter` (or clicking the "Run" button). In the "Source" tab (where
-R scripts and R Markdown files are shown), there is a "Document Outline"
+R scripts and Quarto files are shown), there is a "Document Outline"
 button (top right beside the "Run" button) that shows you the headers or
 "Sections" (more on that later). To open it you can either click the
 button, use the keybinding `Ctrl-Shift-O`, go through the menu to
