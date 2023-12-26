@@ -345,9 +345,10 @@ Barplots hide interesting results. Artwork by
 [\@allison_horst](https://github.com/allisonhorst/stats-illustrations).
 :::
 
-Before we move on, let's run `{styler}` (`r palette_styler_file`), then
-add and commit the new files we created into the Git history with
-{{< var keybind.git >}} and push up to your GitHub repository.
+Before we move on, let's run `{styler}` using
+{{< var keybind.styler >}}, then add and commit the new files we created
+into the Git history with {{< var keybind.git >}} and push up to your
+GitHub repository.
 
 ## Plotting two variables
 
@@ -472,7 +473,7 @@ nhanes_small %>%
 ```
 
 Before proceeding with the following exercise, take a moment to run
-`{styler}` (`r palette_styler_file`), render (`r keybind_knit` or
+`{styler}` with {{< var keybind.styler >}}, render (`r keybind_knit` or
 `r palette_render`), add and commit changes to the Git history using
 {{< var keybind.git >}}, and then push to Github. Also, notice the
 document outline now has a nice index of how to plot the different data
@@ -486,8 +487,8 @@ Create a new header in the `doc/learning.qmd` file called
 `## Exercise to make plots with one or two variables`. For each task
 below, create a new code chunk (`r keybind_chunk` or `r palette_chunk`)
 for it. Copy and paste the template code shown in each task into its own
-code chunk. When you complete each task, run `{styler}`
-(`r palette_styler_file`) and render (`r keybind_knit` or
+code chunk. When you complete each task, run `{styler}` using
+{{< var keybind.styler >}} and render (`r keybind_knit` or
 `r palette_render`) the document to make sure it works and to see the
 output.
 
@@ -740,8 +741,8 @@ nhanes_small %>%
   )
 ```
 
-Before moving on, run `{styler}` (`r palette_styler_file`) and then add
-and commit the new changes to the Git history with
+Before moving on, run `{styler}` with {{< var keybind.styler >}} and
+then add and commit the new changes to the Git history with
 {{< var keybind.git >}}, and push to GitHub.
 
 ## Colours: Make your graphs more accessible
@@ -835,8 +836,9 @@ functions. Use tab auto-completion to find the correct function.
     palette to `"inferno"` and see how the colour changes. Select which
     colour scheme you would like.
 
-5.  Run `{styler}` (`r palette_styler_file`). Then commit the changes to
-    the Quarto file into the Git history with {{< var keybind.git >}}.
+5.  Run `{styler}` using {{< var keybind.styler >}}. Then commit the
+    changes to the Quarto file into the Git history with
+    {{< var keybind.git >}}.
 
 ```{r solution-colour-schemes}
 #| eval: false
@@ -935,7 +937,7 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
 )
 ```
 
-Lastly, let's run `{styler}` (`r palette_styler_file`), render the
+Lastly, let's run `{styler}` with {{< var keybind.styler >}}, render the
 Quarto document (`r keybind_knit` or `r palette_render`), commit the
 changes with {{< var keybind.git >}}, and push to GitHub.
 

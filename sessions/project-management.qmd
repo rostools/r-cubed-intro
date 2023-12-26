@@ -586,8 +586,8 @@ with the Command Palette `Ctrl-Shift-P` then "reformat") to fix most
 syntax issues. Other issues can only be fixed manually, like changing
 the object name `T` or `c` to something else.
 
-Paste the code again and run `{styler}` on the file with the Command
-Palette (`r palette_styler_file`). Fixes it for us!
+Paste the code again and run `{styler}` on the file with the
+{{< var keybind.styler >}}. Fixes it for us!
 
 ## Packages, data, and file paths
 

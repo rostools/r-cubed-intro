@@ -135,7 +135,7 @@ only using the pipe operator to link each task below with the next one.
 6.  Group the data according to `sex` and `age_class`.
 7.  Calculate the `mean` and `median` BMI according to the grouping to
     determine the difference in BMI between age classes and sex.
-8.  Run `{styler}` on the file (`r palette_styler_file`).
+8.  Run `{styler}` on the file with {{< var keybind.styler >}}.
 9.  Add and commit changes to the Git history with the RStudio Git
     interface using {{< var keybind.git >}}.
 

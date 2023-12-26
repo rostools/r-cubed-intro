@@ -399,8 +399,8 @@ nhanes_small %>%
 
 Now, render (`r keybind_knit` or `r palette_render`) and view the output
 in the HTML document. Pretty eh! Before continuing, let's run `{styler}`
-(`r palette_styler_file`) and then add and commit these changes into the
-Git history using {{< var keybind.git >}}.
+using {{< var keybind.styler >}} and then add and commit these changes
+into the Git history using {{< var keybind.git >}}.
 
 ## Exercise: Creating a table using R code
 
@@ -457,7 +457,7 @@ Git history using {{< var keybind.git >}}.
     caption of your choice. If you want you can keep the same caption as
     is provided in the starting point below.
 
-5.  Run `{styler}` on the document (`r palette_styler_file`).
+5.  Run `{styler}` on the document with {{< var keybind.styler >}}.
 
 6.  Render the document to HTML (`r keybind_knit` or `r palette_render`)
     and see what the table looks like.

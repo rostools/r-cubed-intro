@@ -508,7 +508,7 @@ In the `R/learning.R` script file, complete the following tasks.
     ```
 
 5.  Run `{styler}` on the `R/learning.R` file with
-    `r palette_styler_file`.
+    {{< var keybind.styler >}}.
 
 6.  Lastly, add and commit these changes to the Git history with the
     RStudio Git interface using {{< var keybind.git >}}.
@@ -751,9 +751,9 @@ nhanes_update <- nhanes_small %>%
 ```
 :::
 
-Before moving on, run `{styler}` (`r palette_styler_file`) and commit
-all the files changes to the Git history with the RStudio Git interface
-using {{< var keybind.git >}}.
+Before moving on, run `{styler}` with {{< var keybind.styler >}} and
+commit all the files changes to the Git history with the RStudio Git
+interface using {{< var keybind.git >}}.
 
 ## Exercise: Piping, filtering, and mutating
 
@@ -958,8 +958,8 @@ nhanes_small %>%
     ungroup()
 ```
 
-Before you start the following exercise, run `{styler}`
-(`r palette_styler_file`) and commit changes to the Git history using
+Before you start the following exercise, run `{styler}` using
+{{< var keybind.styler >}} and commit changes to the Git history using
 {{< var keybind.git >}}.
 
 ## Saving datasets as files
