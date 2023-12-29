@@ -187,16 +187,16 @@ derive output that you'd then put into your manuscript.
 Running and including R code in Quarto is done using "R code chunks".
 You insert these chunks into the document by placing the cursor at the
 location where you want the chunk to be, then using the shortcut
-`r keybind_chunk` or the menu item `Code -> Insert Chunk` to insert a
-new code chunk. Like with everything else, you can also use the Command
-Palette with `r palette_chunk`). Before we do that, let's delete all the
-text in your document, with exception of the YAML header (including the
-dashes surrounding it). Make sure that the YAML key `format:` is set to
-`html`.
+{{< var keybind.chunk >}}. With the Command Palette, you select the
+option from the menu to insert a new code chunk. You can also use the
+menu item `Code -> Insert Chunk` to insert a new code chunk.
 
+Before we insert the code chunk, let's delete all the text in your
+document, with exception of the YAML header (including the dashes
+surrounding it). Make sure that the YAML key `format:` is set to `html`.
 Then, place your cursor two lines below the YAML header and insert a
-code chunk (`r keybind_chunk` or `r palette_chunk`). The code chunk
-should look something like this:
+code chunk with {{< var keybind.chunk >}}. The code chunk should look
+something like this:
 
 ```{r}
 #| echo: fenced
@@ -229,8 +229,8 @@ usually more complicated than this though. Normally, we have to load R
 packages to use for our subsequent code, and this is no different in an
 Quarto document. We will set this up together now.
 
-Create a new code chunk (`r keybind_chunk` or `r palette_chunk`) and
-then type `setup` right after the `r`. It should look like:
+Create a new code chunk with {{< var keybind.chunk >}} and then type
+`setup` right after the `r`. It should look like:
 
 ```{{r setup}}
 
@@ -269,8 +269,8 @@ library(NHANES)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
 
-Let's insert another code chunk below this one (`r keybind_chunk` or
-`r palette_chunk`), and simply put `nhanes_small` in the chunk:
+Let's insert another code chunk below this one with
+{{< var keybind.chunk >}}, and simply put `nhanes_small` in the chunk:
 
 ```{r, filename="doc/learning.qmd"}
 #| echo: fenced

@@ -168,9 +168,9 @@ examining distributions for continuous variables: `geom_density()` and
 the histogram geom.
 
 Write out a new header called `### One variable plots` in the free text
-area. Below it add a code chunk (`r keybind_chunk` or
-`r palette_chunk`). To make use of auto-completion and to get used to
-using the pipe, we'll pipe the data into the `ggplot()` function.
+area. Below it add a code chunk with {{< var keybind.chunk >}}. To make
+use of auto-completion and to get used to using the pipe, we'll pipe the
+data into the `ggplot()` function.
 
 ```{r}
 # Create histogram for BMI
@@ -234,8 +234,8 @@ what about plotting discrete variables? Well, sadly, there's really only
 one: `geom_bar()`. This isn't a geom for a barplot though; instead, it
 shows the counts of a discrete variable. There are many discrete
 variables in NHANES, including education and diabetes, so let's use this
-geom to visualize those. Again, create a new code chunk
-(`r keybind_chunk` or `r palette_chunk`) and type:
+geom to visualize those. Again, create a new code chunk with
+{{< var keybind.chunk >}} and type:
 
 ```{r discrete-variables}
 # Create count barplot for education
@@ -260,9 +260,9 @@ nhanes_small %>%
 For diabetes, it seems that there is some missingness in the data. Same
 thing with education. Like we did with the BMI, we'll use `filter()` to
 drop those missing rows right before plotting them. First create a new
-code chunk (`r keybind_chunk` or `r palette_chunk`). Then we'll start
-with diabetes and then copy and paste the code, replacing `diabetes`
-with `education`.
+code chunk with {{< var keybind.chunk >}}. Then we'll start with
+diabetes and then copy and paste the code, replacing `diabetes` with
+`education`.
 
 ```{r}
 nhanes_small %>%
@@ -374,9 +374,9 @@ When you have *two continuous* variables, some geoms to use are:
 
 Let's check out how BMI may influence systolic blood pressure using a
 hex plot in a new code chunk. First, enter a new Markdown header called
-`### Plotting two variables` and create a new code chunk
-(`r keybind_chunk` or `r palette_chunk`) below it. Like with the
-previous plot we created using `bmi`, we'll use `na.rm` again.
+`### Plotting two variables` and create a new code chunk below the
+header with {{< var keybind.chunk >}}. Like with the previous plot we
+created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
 nhanes_small %>% 
@@ -406,8 +406,8 @@ variables, without major data wrangling. The most useful geom for this
 type of plot is `geom_bar()`, but with an added variable. We can use the
 `geom_bar()` "fill" option to have a certain colour for different levels
 of a variable. Let's use this to see difference in diabetes status
-between education levels. Create a new code chunk (`r keybind_chunk` or
-`r palette_chunk`). We'll have to remove the `NA` values:
+between education levels. Create a new code chunk with
+{{< var keybind.chunk >}}. We'll have to remove the `NA` values:
 
 ```{r 2-discrete-variables}
 # Two categorical/discrete variables
@@ -461,8 +461,8 @@ use another. So we'll show how to use `geom_voilin()`, because our data
 are quite big.
 
 Let's take a look at these geoms, by plotting how BMI differs between
-those with or without diabetes. Create a new code chunk
-(`r keybind_chunk` or `r palette_chunk`) and type:
+those with or without diabetes. Create a new code chunk with
+{{< var keybind.chunk >}} and type:
 
 ```{r discrete-continuous-variables}
 # Using mixed data
@@ -485,9 +485,9 @@ types!
 
 Create a new header in the `doc/learning.qmd` file called
 `## Exercise to make plots with one or two variables`. For each task
-below, create a new code chunk (`r keybind_chunk` or `r palette_chunk`)
-for it. Copy and paste the template code shown in each task into its own
-code chunk. When you complete each task, run `{styler}` using
+below, create a new code chunk for it using {{< var keybind.chunk >}}.
+Copy and paste the template code shown in each task into its own code
+chunk. When you complete each task, run `{styler}` using
 {{< var keybind.styler >}} and render (`r keybind_knit` or
 `r palette_render`) the document to make sure it works and to see the
 output.
@@ -639,8 +639,8 @@ In this section, we'll be covering many of these capabilities in
 The most common and "prettiest" way of adding a third variable is by
 using colour. Let's try to answer a few of the questions below, to
 visualize some of these features. First, create a new header called
-`## Plotting three or more variables` and a new code chunk
-(`r keybind_chunk` or `r palette_chunk`).
+`## Plotting three or more variables` and a new code chunk with
+{{< var keybind.chunk >}}.
 
 *Question: Is systolic blood pressure different in those with or without
 diabetes within different education groups?* In this case, we have one
@@ -701,8 +701,8 @@ first two arguments are:
 
 For both `cols` and `rows`, the nominated variable must be wrapped by
 `vars()` (e.g. `vars(diabetes)`). Let's try it using an example from the
-previous answer (instead of using `colour`). Make a new code chunk
-(`r keybind_chunk` or `r palette_chunk`) at the bottom of the file.
+previous answer (instead of using `colour`). Make a new code chunk with
+{{< var keybind.chunk >}} at the bottom of the file.
 
 ```{r using-faceting}
 # Plot BMI in relation to systolic blood pressure and diabetes status using
@@ -790,8 +790,8 @@ palette!
 Practice changing colour schemes on a bar plot. Start with a base plot
 object to work from that has two discrete variables. Create a new
 Markdown header called `## Exercise for changing colours` and create a
-new code chunk (`r keybind_chunk` or `r palette_chunk`) below it. Copy
-and paste the code below into the new code chunk.
+new code chunk below it using {{< var keybind.chunk >}}. Copy and paste
+the code below into the new code chunk.
 
 ``` r
 # Barplot to work from, with two discrete variables
@@ -872,8 +872,8 @@ We'll create base graph object to work with created `base_scatterplot`.
 All built-in themes start with `theme_`.
 
 Create a new section header called `## Changing plot appearance` and
-make a new code chunk (`r keybind_chunk` or `r palette_chunk`), then
-copy the code below:
+make a new code chunk with {{< var keybind.chunk >}}, then copy the code
+below:
 
 ```{r built-in-themes}
 # Create scatterplot to play with themes
@@ -908,7 +908,7 @@ theme_set(theme_bw())
 To add labels such as axis titles to your plot, you can use the function
 `labs()`. To change the y-axis title, use the `y` argument in `labs()`.
 For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
-code chunk (`r keybind_chunk` or `r palette_chunk`) and type:
+code chunk with {{< var keybind.chunk >}} and type:
 
 ```{r labels}
 # Add plot title and change axis titles
