@@ -302,8 +302,8 @@ nhanes_small %>%
   geom_bar()
 ```
 
-Render the document (`r keybind_knit` or `r palette_render`) to see what
-it looks like! Neat eh :grinning:
+Render the document with {{< var keybind.render >}} to see what it looks
+like! Neat eh :grinning:
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
@@ -473,9 +473,9 @@ nhanes_small %>%
 ```
 
 Before proceeding with the following exercise, take a moment to run
-`{styler}` with {{< var keybind.styler >}}, render (`r keybind_knit` or
-`r palette_render`), add and commit changes to the Git history using
-{{< var keybind.git >}}, and then push to Github. Also, notice the
+`{styler}` with {{< var keybind.styler >}}, render with
+{{< var keybind.render >}}, add and commit changes to the Git history
+using {{< var keybind.git >}}, and then push to Github. Also, notice the
 document outline now has a nice index of how to plot the different data
 types!
 
@@ -488,9 +488,8 @@ Create a new header in the `doc/learning.qmd` file called
 below, create a new code chunk for it using {{< var keybind.chunk >}}.
 Copy and paste the template code shown in each task into its own code
 chunk. When you complete each task, run `{styler}` using
-{{< var keybind.styler >}} and render (`r keybind_knit` or
-`r palette_render`) the document to make sure it works and to see the
-output.
+{{< var keybind.styler >}} and render the document with
+{{< var keybind.render >}} to make sure it works and to see the output.
 
 Complete as many tasks as you can below.
 
@@ -564,9 +563,9 @@ Complete as many tasks as you can below.
     at or above the `age` or 20. Drop missing values (`!is.na()`) from
     `smoke_now`. What can you say about how many smoke in this age
     group? Use `#| label` and `#| fig-cap` to be able to reference it in
-    the Quarto document and have a caption. Render (`r keybind_knit` or
-    `r palette_render`) the document to make sure it works and to see
-    the output.
+    the Quarto document and have a caption. Render the document using
+    {{< var keybind.render >}} to make sure it works and to see the
+    output.
 
     ``` r
     # Number of people who smoke now and are or above 20 years of age,
@@ -938,8 +937,8 @@ ggsave(here::here("doc/images/scatterplot.pdf"),
 ```
 
 Lastly, let's run `{styler}` with {{< var keybind.styler >}}, render the
-Quarto document (`r keybind_knit` or `r palette_render`), commit the
-changes with {{< var keybind.git >}}, and push to GitHub.
+Quarto document with {{< var keybind.render >}}, commit the changes with
+{{< var keybind.git >}}, and push to GitHub.
 
 ## Summary
 

@@ -171,11 +171,11 @@ document may pop up in the "Viewer" pane.
 
 You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
-render the document again with the "Render" button or `r keybind_knit`
-(or using the Command Palette with `r palette_render`). A Word document
-should open up. This is the basic approach to creating documents from R
-Markdown or Quarto. Before continuing, let's add and commit the newly
-created file into the Git history with {{< var keybind.git >}}.
+render the document again with the "Render" button or with the
+keybinding {{< var keybind.render >}}. A Word document should open up.
+This is the basic approach to creating documents from R Markdown or
+Quarto. Before continuing, let's add and commit the newly created file
+into the Git history with {{< var keybind.git >}}.
 
 ## Inserting R code into your document
 
@@ -215,10 +215,10 @@ it in an R script. Typing `Ctrl-Enter` on the line will send the code
 `2 + 2` to the console, with the output appearing directly below the
 code chunk in the document. Note that this output is *temporary*.
 
-To ensure that the output is inserted into the HTML document, render
-(`Ctrl-Shift-K` or `r palette_render`) the document and see what happens
-in the resulting HTML document. The output `4` should appear below the
-code chunk in the HTML document, something like this:
+To ensure that the output is inserted into the HTML document, render the
+document using {{< var keybind.render >}} and see what happens in the
+resulting HTML document. The output `4` should appear below the code
+chunk in the HTML document, something like this:
 
 ```{r}
 2 + 2
@@ -279,9 +279,9 @@ nhanes_small
 
 Let's run this code as we normally would in a script file, by placing
 the cursor over the code and using the shortcut `Ctrl-Enter`. We can
-also render (`r keybind_knit` or `r palette_render`) the document and
-see what it looks like. When the HTML document opens, you should see
-some text below the `setup` chunk that might look something like this:
+also render the document with {{< var keybind.render >}} and see what it
+looks like. When the HTML document opens, you should see some text below
+the `setup` chunk that might look something like this:
 
 ```         
 ── Attaching packages ──────────────────────── tidyverse 1.3.2 ──
@@ -397,10 +397,10 @@ nhanes_small %>%
   knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
 
-Now, render (`r keybind_knit` or `r palette_render`) and view the output
-in the HTML document. Pretty eh! Before continuing, let's run `{styler}`
-using {{< var keybind.styler >}} and then add and commit these changes
-into the Git history using {{< var keybind.git >}}.
+Now, render with {{< var keybind.render >}} and view the output in the
+HTML document. Pretty eh! Before continuing, let's run `{styler}` using
+{{< var keybind.styler >}} and then add and commit these changes into
+the Git history using {{< var keybind.git >}}.
 
 ## Exercise: Creating a table using R code
 
@@ -459,8 +459,8 @@ into the Git history using {{< var keybind.git >}}.
 
 5.  Run `{styler}` on the document with {{< var keybind.styler >}}.
 
-6.  Render the document to HTML (`r keybind_knit` or `r palette_render`)
-    and see what the table looks like.
+6.  Render the document to HTML with {{< var keybind.render >}} and see
+    what the table looks like.
 
 7.  End the exercise by adding, committing, and pushing the files to
     your GitHub repository with {{< var keybind.git >}}.
@@ -685,8 +685,8 @@ Cute kitten in @fig-kitten-attack!
 ![Kitten attacking flowers!](../images/kitten.jpg){#fig-kitten-attack
 width="50%" height="50%"}
 
-Now in @fig-kitten-attack, we see a kitten! Render again
-(`r keybind_knit` or `r palette_render`) to see how the image changes.
+Now in @fig-kitten-attack, we see a kitten! Render again with
+{{< var keybind.render >}} to see how the image changes.
 
 ## Other Quarto features
 
@@ -777,14 +777,14 @@ Complete these tasks in the `doc/learning.qmd` file.
     -   Include a caption in between the `[]`, center align by using
         `fig-align="center"` within the `{}`, and resize the image to
         `"75%"` using `width` within the `{}`.
--   Render the document (`r keybind_knit` or `r palette_render`) to make
-    sure the image gets inserted.
+-   Render the document using {{< var keybind.render >}} to make sure
+    the image gets inserted.
 -   Go to Quarto's [HTML
     Theming](https://quarto.org/docs/output-formats/html-themes.html)
     page and look through the different themes that are available for
     the HTML output. Find a theme you like by changing the `theme`
-    option in the YAML header and re-render the document
-    (`r keybind_knit` or `r palette_render`).
+    option in the YAML header and re-render the document with
+    {{< var keybind.render >}}.
 -   Finally, add and commit the changes you've made to the document
     using {{< var keybind.git >}}. For now, don't add and commit the
     HTML output file.
