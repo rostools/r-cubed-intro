@@ -173,7 +173,6 @@ use of auto-completion and to get used to using the pipe, we'll pipe the
 data into the `ggplot()` function.
 
 ```{r}
-# Create histogram for BMI
 nhanes_small %>% 
   ggplot(aes(x = bmi)) +
   geom_histogram()
@@ -185,7 +184,6 @@ You'll notice we get a warning about dropping missing values. That's
 `na.rm = TRUE` to `geom_histogram()` and other `geom_*` functions.
 
 ```{r}
-# Create histogram for BMI
 nhanes_small %>% 
   ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
@@ -238,7 +236,6 @@ geom to visualize those. Again, create a new code chunk with
 {{< var keybind.chunk >}} and type:
 
 ```{r discrete-variables}
-# Create count barplot for education
 nhanes_small %>%
   ggplot(aes(x = education)) +
   geom_bar()
@@ -251,7 +248,6 @@ also a lot of missingness shown in the `NA` column. Now, we'll do the
 same for the diabetes status variable. In the same code chunk, type:
 
 ```{r}
-# Create count barplot for diabetes status
 nhanes_small %>%
   ggplot(aes(x = diabetes)) +
   geom_bar()
@@ -389,7 +385,6 @@ values are in the area of the plot. We can also draw a smoothing line by
 adding to the plot by using `+`.
 
 ```{r}
-# Runs a smoothing line with confidence interval
 nhanes_small %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE) +
@@ -407,11 +402,11 @@ type of plot is `geom_bar()`, but with an added variable. We can use the
 `geom_bar()` "fill" option to have a certain colour for different levels
 of a variable. Let's use this to see difference in diabetes status
 between education levels. Create a new code chunk with
-{{< var keybind.chunk >}}. We'll have to remove the `NA` values:
+{{< var keybind.chunk >}}. We'll have to remove the `NA` values. We can
+use `{dplyr}` verbs here, as well as using the `%>%` pipe into
+`ggplot()`.
 
 ```{r 2-discrete-variables}
-# Two categorical/discrete variables
-# Note that we can pipe data into ggplot
 nhanes_small %>%
   filter(!is.na(education), !is.na(diabetes)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
@@ -426,7 +421,6 @@ takes the "fill" grouping variable and "dodges" them (moves them) to be
 side by side.
 
 ```{r}
-# "dodged" (side-by-side) bar plot
 nhanes_small %>%
   filter(!is.na(education), !is.na(diabetes)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
@@ -465,7 +459,6 @@ those with or without diabetes. Create a new code chunk with
 {{< var keybind.chunk >}} and type:
 
 ```{r discrete-continuous-variables}
-# Using mixed data
 nhanes_small %>%
   filter(!is.na(diabetes), bmi <= 60) %>%
   ggplot(aes(x = diabetes, y = bmi)) +
@@ -648,7 +641,6 @@ continuous variable (`bp_sys_ave`) and two discrete variables
 `geom_boxplot()`:
 
 ```{r using-colour}
-# Plot systolic blood pressure in relation to education and diabetes status
 nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>%
   ggplot(aes(x = education, y = bp_sys_ave, colour = diabetes)) +
@@ -663,7 +655,6 @@ Here, we have three continuous variables (`bmi`, `bp_sys_ave`, and
 `age`), so we could use `geom_point()`:
 
 ```{r}
-# Plot BMI in relation to systolic blood pressure and age
 nhanes_small %>%
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
   geom_point(na.rm = TRUE)
@@ -679,7 +670,6 @@ variable (`diabetes`). We could use `geom_point()`, making sure to also
 `filter()` those missing `diabetes` values.
 
 ```{r}
-# Plot BMI in relation to systolic blood pressure and diabetes status
 nhanes_small %>%
   filter(!is.na(diabetes)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
@@ -704,8 +694,6 @@ previous answer (instead of using `colour`). Make a new code chunk with
 {{< var keybind.chunk >}} at the bottom of the file.
 
 ```{r using-faceting}
-# Plot BMI in relation to systolic blood pressure and diabetes status using
-# faceting by column
 nhanes_small %>%
   filter(!is.na(diabetes)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
@@ -717,7 +705,6 @@ Try faceting with plots stacked by diabetes status, using the argument
 `rows = vars(diabetes)` instead. Which do you find more informative?
 
 ```{r}
-# faceting by row
 nhanes_small %>%
   filter(!is.na(diabetes)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
@@ -729,7 +716,6 @@ We can also facet by `education` and use `age` as a colour. We'll have
 to `filter()` out those missing `education` values.
 
 ```{r}
-# Plot BMI in relation to systolic blood pressure, age, education and diabetes status
 nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
@@ -875,7 +861,6 @@ make a new code chunk with {{< var keybind.chunk >}}, then copy the code
 below:
 
 ```{r built-in-themes}
-# Create scatterplot to play with themes
 base_scatterplot <- nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
@@ -886,10 +871,8 @@ base_scatterplot <- nhanes_small %>%
   ) +
   scale_color_viridis_c()
 
-# View the plot with the default theme
 base_scatterplot
 
-# Test out some pre-defined themes
 base_scatterplot + theme_bw()
 base_scatterplot + theme_minimal()
 base_scatterplot + theme_classic()
@@ -900,7 +883,6 @@ You can also set the theme for all subsequent plots by using the
 parenthesis.
 
 ```{r, eval=FALSE}
-# Set the theme for all subsequent plots
 theme_set(theme_bw())
 ```
 
@@ -910,7 +892,6 @@ For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
 code chunk with {{< var keybind.chunk >}} and type:
 
 ```{r labels}
-# Add plot title and change axis titles
 base_scatterplot +
   labs(
     title = "BMI, systolic blood pressure, and age by diabetes and education",
@@ -929,7 +910,6 @@ figure using the `width` and `height` arguments. Add a new section
 header `## Saving the plot` and create a new code chunk:
 
 ```{r, eval=FALSE}
-# Save the plot
 ggsave(here::here("doc/images/scatterplot.pdf"),
   base_scatterplot2,
   width = 7, height = 5
