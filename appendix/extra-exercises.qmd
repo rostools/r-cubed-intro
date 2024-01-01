@@ -5,11 +5,6 @@ execute:
 
 # Extra exercises {#sec-extra-exercises}
 
-```{r setup}
-#| eval: true
-source(here::here("R/functions.R"))
-```
-
 ## Calculate some basic statistics
 
 Practice using `summarise()` by calculating various summary statistics.
