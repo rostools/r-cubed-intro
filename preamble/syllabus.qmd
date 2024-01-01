@@ -1,48 +1,57 @@
-# Syllabus {#sec-syllabus}
+# Course syllabus {#sec-syllabus}
 
-Reproducibility and open scientific practices are increasingly demanded
-of scientists and researchers. Training on how to apply these practices
-in data analysis has not kept up with demand. With this course, we hope
-to begin meeting that demand. Using a very practical approach based
-mostly on code-along sessions (instructor and learner coding together),
-the course will:
+Reproducibility and open scientific practices are increasingly required
+of scientists and researchers. We as researchers are also facing more
+challenging and complex analyses for larger and larger datasets. Nor do
+we receive the necessary support and training on how to do these
+analyses and apply these open and reproducible practices. This course
+will introduce many of the core concepts and practices for doing
+reproducible and open data analysis to get you familiar with and
+prepared for the type of work needed in research now and in the future.
+We use a very practical approach based largely on code-along sessions
+(instructor and learner coding together), hands-on exercises, reading
+activities, and a group project. Our overarching **learning outcome** is
+that at the end of the course, participants will be able to:
 
-<!-- TODO: Update this to use better pedagogy language -->
+> Describe the fundamentals of what an open and reproducible data
+> analysis looks like and then create a project that applies some of the
+> basics of these concepts using R.
+
+Our specific **learning objectives** are to:
 
 1.  Explain what an open and reproducible data analysis workflow is,
     what it looks like, and why it is important.
-2.  Explain and demonstrate why R is rapidly becoming the standard
-    program of choice for doing modern data analysis in science.
+
+2.  Explain and demonstrate why [R](https://www.r-project.org/) is
+    rapidly becoming the standard program of choice for doing modern
+    data analysis in science.
+
 3.  Demonstrate and apply collaborative tools and techniques when
     working in team settings (including working with your future self).
+
 4.  Show and apply the fundamental tools and skills for conducting a
-    reproducible and modern analysis for a research project.
+    reproducible and modern analysis for a research project, focusing on
+    the basics of wrangling and visualizing data, writing reproducible
+    reports, and structuring projects.
+
 5.  Show where to go to get help and to continue learning modern data
     analysis skills.
 
-<!-- TODO: Merge these questions below with the objectives above -->
+Because learning and coding is ultimately not *just* a solo activity, in
+addition to the group project work, during this course we also aim to
+provide opportunities to chat with fellow participants, learn about
+their work and how they do analyses, and to build networks of support
+and collaboration.
 
-In this course, we'll be addressing the following questions:
+The course will place particular emphasis on research in diabetes,
+health, and metabolism; it will be taught by instructors working in this
+field and it will use relevant examples where possible.
 
--   What is [R](https://www.r-project.org/), why should I use it, and
-    how do I use it?
--   What does a modern data analysis setup and workflow look like?
--   What is reproducibility and how is it different from replicability?
--   How can I ensure my data analysis project is reproducible?
--   How can I import and work with my data in R?
--   How can I visualize my data and make publication-quality figures?
--   Why should I and how can I keep track of changes to my analysis
-    files?
--   How can I write reports to document, describe, and present analyses
-    in a reproducible way?
-
-By the end of the course, participants will have a basic level of
-proficiency in using the [R](https://www.r-project.org/) statistical
-computing language, enabling them to improve their data and code
-literacy, and to conduct a modern and reproducible data analysis. The
-course will place particular emphasis on research in diabetes and
-metabolism; it will be taught by instructors working in this field and
-it will use relevant examples where possible.
+The specific software and technologies we will cover in this course are
+R, [RStudio](https://posit.co/download/rstudio-desktop/),
+[Git](https://git-scm.com/), [GitHub](https://github.com/), and
+[Quarto](https://quarto.org/), while the specific R packages are
+`{dplyr}` and `{ggplot2}` packages.
 
 ## Is this course for you? {#sec-is-it-for-you}
 
@@ -81,3 +90,4 @@ if this course is for you.
     project that uses a transparent and reproducible analysis workflow).
 -   We *do* teach using practical, applied, and hands-on lessons and
     exercises, with a few short lectures that introduce a topic.
+
