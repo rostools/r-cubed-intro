@@ -8,7 +8,6 @@ execute:
 ```{r setup}
 #| include: false
 library(tidyverse)
-source(here::here("R/functions.R"))
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
 

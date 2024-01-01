@@ -1,10 +1,5 @@
 # Version control with Git {#sec-version-control}
 
-```{r setup}
-#| include: false
-source(here::here("R/functions.R"))
-```
-
 <!-- TODO: Add an introduction here -->
 
 **Session objectives**:
