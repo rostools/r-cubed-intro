@@ -5,9 +5,9 @@ group will take what you learn in the course and apply it to create a
 reproducible project. This project, based on a simple data analysis of a
 dataset of your choice, will have a GitHub repository and an HTML
 document as a report to demonstrate the reproducibility of the analysis.
-The dataset **cannot be the same** as the one we used in class, and it
-must be an open dataset obtained from an online archive. We list several
-that are tidy enough to start working from.
+The dataset **cannot be the same** as the one we used in class and must
+be one of the ones listed below. The datasets we've selected are tidy
+enough to start working on without too much wrangling.
 
 During the last session of the course you will work on this assignment.
 In the last \~20 minutes of this session, the lead instructor will
@@ -16,16 +16,11 @@ that it is reproducible.
 
 ## Specific tasks
 
-Throughout the course, there are a few activities and exercises that you
-will work on together as a group. However, it is during the last session
-where you will work together to complete this assignment by applying the
-skills taught during the course.
-
-It is important to note that you will be using Git and GitHub to manage
-your group assignment. We will set up the project with Git and GitHub
-for you so you can get right to collaborating together on the project.
-You will be pushing and pulling a lot of content, so you will need to
-maintain regular and open communication with your team members.
+You will be collaborating as a team using Git and GitHub to manage your
+group assignment. We will set up the project with Git and GitHub for you
+so you can quickly start collaborating together on the project. You will
+be pushing and pulling a lot of content, so you will need to maintain
+regular and open communication with your team members.
 
 Your specific tasks are:
 
@@ -57,9 +52,9 @@ Your specific tasks are:
 3.  Assign one team member to **download the dataset** and put it into
     the `data-raw/` folder of your project.
 
-    -   For the GitHub-linked datasets above, you should be able to
-        click on the "Raw" or "Download" buttons, then use the keyboard
-        shortcut (`Ctrl-S`) to save the page (as a `.csv` file).
+    -   Create this `data-raw/` folder by running
+        `usethis::use_directory("data-raw")` in the Console while in
+        your group's R Project.
     -   If there is any documentation on the dataset, e.g. variable
         definitions, put those files in the `data-raw/` folder as well.
     -   This team member should then add and commit the new file(s) in
@@ -68,66 +63,62 @@ Your specific tasks are:
     -   Next, have all team members pull the new changes to their own
         computers.
 
-4.  **Use the created `data-raw/original-data.R` script to clean up and
-    prepare the raw dataset** (as covered in @sec-wrangling). A
-    (strongly) suggested way of working here is to assign one team
-    member as the "coder" and as a group discuss and decide on how to
-    clean up the data by telling the "coder" what to do. After you've
-    cleaned it up enough that you as a group are satisfied, save the new
-    dataset in a folder called `data/` with `readr::write_csv()`. The
-    coder should eventually add and comment these changes to the data
-    before pushing to the team GitHub repository so the other members
-    can access the data too. *Reminder*: You load in data with
-    `read_csv()` like we've done in the `setup` code chunk in the Quarto
-    file.
+4.  **Each team member creates a Quarto file** named
+    `report-YOURNAME.qmd` (replacing `YOURNAME` with your actual name)
+    in the `doc/` folder of your project (covered in
+    @sec-reproducible-documents). This means that each team member will
+    have their own document to work in without conflicting with the
+    other team members. **Note**, if there are several members with the
+    same name, make sure your `qmd` documents are unique (for instance,
+    by using your full name).
 
-5.  **Create a Quarto file** named `report-YOURNAME.qmd` (replacing
-    `YOURNAME` with your actual name) in the `doc/` folder of your
-    project (covered in @sec-reproducible-documents). This means that
-    each team member will have their own document to work in without
-    conflicting with the other team members. **Note**, if there are
-    several members with the same name, make sure your `qmd` documents
-    are unique (for instance, by using your full name). Distribute the
-    tasks (listed below) so each team member is (mostly) doing something
-    different, like doing some simple analyses of the dataset, making
-    figures (as covered in @sec-visualization), and so on. Keep using
-    the "Git workflow" by adding to the staged area, commit, push, and
-    pull the changes you've made. You may end up with some merge
-    conflicts (described in @sec-merge-conflicts), ask instructors or
-    helpers for support to resolving them.
+    -   For each team member's `.qmd` file, include a `setup` code chunk
+        at the top that lists the packages used. Include code to import
+        your data here.
 
-    -   Create section headers (e.g. `# Results`, `## Tables`,
-        `## Figures`, and `# Discussion`).
-    -   Create at least one table in the report that is generated from
-        the data.
-    -   Create several different figures of your data.
-    -   Try to "render" your document to HTML often, to make sure the
-        analysis is reproducible.
+    -   Create a few figures of the data. Discuss with your team what
+        figures to create and divide which figures to make between your
+        team members.
+
+    -   Create at least one table. Discuss with your team what table to
+        make, if you want to create more than one, and assign who will
+        create it.
+
+    -   When making both the figures and the tables, make sure to
+        incorporate some data wrangling code from `{dplyr}`.
+
+    -   Use the "Git workflow" by adding to the staged area, commit,
+        push, and pull the changes you've made.
+
+    -   Make sure to "render" your document to HTML often to ensure it
+        is always reproducible.
+
     -   **Note**: For now, *do not* add and commit the HTML output file.
 
-6.  Once you as a group are happy with the results, each team member
-    should **write in the "Discussion" section of their report file** a
-    few sentences on some things you liked about doing the project with
-    the tools you learned and a few sentences on some challenges you
-    experienced. Add any thoughts that you as a group came up with as
-    well.
-
-7.  Assign one team member as the "report coordinator" and have them
+5.  Assign one team member as the "report coordinator" and have them
     **merge all the individual `report-YOURNAME.qmd` into one
     `report.qmd`** file on their computer (after having everyone push,
     and the coordinator will pull). They do this by copying and pasting
-    the content of the reports into the appropriate sections of the
+    the content of the reports into section headers (using `##`) in the
     report. After they are done, add and commit the `report.qmd`.
     Lastly, delete all the report files *except* the `report.qmd` and
     add and commit these deleted files to the Git history. There should
     only be the `report.qmd` file in the repository.
+
+    -   Create section headers (e.g. `# Results`, `## Tables`,
+        `## Figures`, and `# Discussion`).
 
     -   As the report coordinator merges the report file, assign another
         team member to update the `README.md` file with some details
         about the project and about who was on the team. Save, add,
         commit, and push these changes to the GitHub repository.
 
-8.  **Generate an HTML of the report** and commit it to Git, then push
+    -   Once there is one report, as a group discuss and write a few
+        sentences in the "Discussion" section of their report file on
+        some things you liked about doing the project with the tools you
+        learned and a few sentences on some challenges you experienced.
+
+6.  **Generate an HTML of the report** and commit it to Git, then push
     it up to GitHub. Include all the updated code and files on GitHub
     for the presentation.
 
@@ -144,13 +135,11 @@ them on the screen for each team to present on.
 ## Quick "checklist" for a good project
 
 -   Project used Git and is on GitHub.
--   Included a good README describing the project and the team.
--   Separated "raw data" from "cleaned data".
--   Used scripts to clean the data.
--   Included R code within a Quarto file to show results and make
-    figures.
--   Went over challenges and general experiences.
--   Generated an HTML file from a Quarto file.
+-   Included a README with some basic details.
+-   Used Quarto for making figures and tables.
+-   Added some basic challenges and general experiences in the
+    discussion section.
+-   Generated a final HTML file from a single `report.qmd` Quarto file.
 
 ## Expectations for the project
 
