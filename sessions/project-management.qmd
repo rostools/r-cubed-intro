@@ -352,6 +352,9 @@ be using it a lot throughout the course. Open it up with
 "document outline". The first item should be the one we want, so hit
 `Enter` to activate the Outline.
 
+If you can't remember a specific keybinding in RStudio, check out the
+help for it by going to the menu item `Help -> Keyboard Shortcuts Help`.
+
 ## Basics of using R
 
 One useful thing to do to make your R script more readable and
@@ -758,3 +761,4 @@ you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
 -   Keep R scripts simple, focused, and short.
 -   Use tab auto-completion when writing code.
 -   Use `?` to get help on an R object.
+
