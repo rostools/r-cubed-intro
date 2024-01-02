@@ -228,7 +228,7 @@ pak::pkg_install("rostools/r3", upgrade = TRUE)
 
 {{< video ../videos/console-install-r3.mp4 >}}
 
-::: callout-warning
+::: {.callout-warning appearance="default"}
 You might encounter an error when running this code. That's ok, if you
 restart R by going to `Sessions -> Restart R` and re-running this code,
 it should work. If it still doesn't, try to complete the other tasks,
