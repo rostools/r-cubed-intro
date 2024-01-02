@@ -343,13 +343,13 @@ a file. You send code to the Console from the opened file by typing
 R scripts and Quarto files are shown), there is a "Document Outline"
 button (top right beside the "Run" button) that shows you the headers or
 "Sections" (more on that later). To open it you can either click the
-button, use the keybinding `Ctrl-Shift-O`, go through the menu to
-`Code -> Show Document Outline`, or, through the "Command Palette". The
-Command Palette is a very useful tool to learn, since you can easily
-access almost all features and options inside RStudio through it.
-Because of this reason, we will be using it a lot throughout the course.
-Open it up with `Ctrl-Shift-P` and then in the pop-up search bar, type
-out "document outline". The first item should be the one we want, so hit
+button, use the keybinding {{< var keybind.outline >}}, go through the
+menu to `Code -> Show Document Outline`. The Command Palette is a very
+useful tool to learn, since you can easily access almost all features
+and options inside RStudio through it. Because of this reason, we will
+be using it a lot throughout the course. Open it up with
+{{< var keybind.palette >}} and then in the pop-up search bar, type out
+"document outline". The first item should be the one we want, so hit
 `Enter` to activate the Outline.
 
 ## Basics of using R
