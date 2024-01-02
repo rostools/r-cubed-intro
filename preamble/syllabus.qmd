@@ -1,5 +1,10 @@
 # Course syllabus {#sec-syllabus}
 
+```{r}
+#| echo: false
+# To trigger downlit linking of packages and functions.
+```
+
 Reproducibility and open scientific practices are increasingly required
 of scientists and researchers. We as researchers are also facing more
 challenging and complex analyses for larger and larger datasets. Nor do
@@ -90,4 +95,3 @@ if this course is for you.
     project that uses a transparent and reproducible analysis workflow).
 -   We *do* teach using practical, applied, and hands-on lessons and
     exercises, with a few short lectures that introduce a topic.
-
