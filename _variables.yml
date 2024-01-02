@@ -8,7 +8,6 @@ keybind:
   roxygen: '{{< kbd linux=Ctrl-Shift-Alt-R mac=Cmd-Shift-Alt-R win=Ctrl-Shift-Alt-R >}} or with the Palette ({{< var keybind.palette >}}, then type "roxygen comment")'
   outline: '{{< kbd linux=Ctrl-Shift-O mac=Cmd-Shift-O win=Ctrl-Shift-O >}} or with the Palette ({{< var keybind.palette >}}, then type "outline")'
   styler: 'the Palette ({{< var keybind.palette >}}, then type "style file")'
-  outline: '{{< kbd linux=Ctrl-Shift-O mac=Cmd-Shift-O win=Ctrl-Shift-O >}} or with the Palette ({{< var keybind.palette >}}, then type "outline")'
   targets_make: 'the Palette ({{< var keybind.palette >}}, then type "targets run")'
   targets_vis: 'the Palette ({{< var keybind.palette >}}, then type "targets visual")'
   targets_outdated: 'the Palette ({{< var keybind.palette >}}, then type "targets outdated")'
