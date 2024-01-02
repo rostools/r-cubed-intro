@@ -69,6 +69,5 @@ format:
       - "includes/contribute.html"
 
 execute:
-  freeze: auto
   warning: false
 

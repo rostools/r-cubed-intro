@@ -40,7 +40,6 @@ contributes:
         type: overlay
 
     execute:
-      freeze: auto
       warning: false
 
     callout-appearance: minimal
