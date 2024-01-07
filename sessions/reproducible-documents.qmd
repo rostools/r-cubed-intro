@@ -106,15 +106,15 @@ Why would you use this? There are many reasons, with some of them being:
 ## Creating a Quarto file
 
 Now, we will create and save a Quarto file. We'll use the Command
-Palette by typing `Ctrl-Shift-P` and then typing "quarto" and select the
-one that says "Create a new Quarto document". You can also use the menu,
-by going to `File -> New File -> Quarto Document ...`, and a dialog box
-will then appear. Enter "Reproducible documents" in the title field and
-your name in the author field. HTML should be automatically selected as
-the output format. There's also the option to use the "visual mode".
-This mode is great if you are used to working with Word and you can test
-it out on your own later. For this course, we will focus on using the
-normal mode.
+Palette by using {{< var keybind.palette >}} and then typing "quarto"
+and select the one that says "Create a new Quarto document". You can
+also use the menu, by going to
+`File -> New File -> Quarto Document ...`, and a dialog box will then
+appear. Enter "Reproducible documents" in the title field and your name
+in the author field. HTML should be automatically selected as the output
+format. There's also the option to use the "visual mode". This mode is
+great if you are used to working with Word and you can test it out on
+your own later. For this course, we will focus on using the normal mode.
 
 After clicking "Create", the new file will open in RStudio. Before
 continuing, let's save this file as `learning.qmd` in the `doc/` folder.
@@ -156,8 +156,8 @@ So, how do we create a HTML (or Word) document from the this document?
 We do that by "rendering" it. At the top of the pane near the "Save"
 button, there is a button with the word "Render" (if it's R Markdown, it
 will be called "Knit" with a yarn symbol beside it). To render, you
-either click that button or use the shortcut `Ctrl-Shift-K` anywhere in
-the Quarto document.
+either click that button or use the shortcut {{< var keybind.render >}}
+anywhere in the Quarto document.
 
 When you click the "Render" button, a bunch of processing messages
 should appear in a new pane beside the Console, followed by a new window
@@ -206,9 +206,10 @@ In the code chunk, type out `2 + 2`, so it looks like:
 ```
 
 You can run R code inside the code chunk the same way as you would write
-it in an R script. Typing `Ctrl-Enter` on the line will send the code
-`2 + 2` to the console, with the output appearing directly below the
-code chunk in the document. Note that this output is *temporary*.
+it in an R script. Typing {{< var keybind.run-code >}} on the line will
+send the code `2 + 2` to the console, with the output appearing directly
+below the code chunk in the document. Note that this output is
+*temporary*.
 
 To ensure that the output is inserted into the HTML document, render the
 document using {{< var keybind.render >}} and see what happens in the
@@ -243,11 +244,9 @@ duplicate code chunk labels in your document.
 
 ::: {.callout-tip appearance="default"}
 A nifty thing about using chunk labels is that you can get an overview
-of your code chunks using the "Document Outline" (found using
-`Ctrl-Shift-O`), but only if you have this option set up in:
+of your code chunks using the "Document Outline" with
+{{< var keybind.outline >}}, but only if you have this option set up in:
 `Tools -> Global Options -> R Markdown -> Show in document outline`.
-These settings can also be found with the Command Palette
-(`Ctrl-Shift-P`) followed by typing "document outline".
 :::
 
 The name `setup` also has a special meaning for Quarto. When you run
@@ -273,10 +272,11 @@ nhanes_small
 ```
 
 Let's run this code as we normally would in a script file, by placing
-the cursor over the code and using the shortcut `Ctrl-Enter`. We can
-also render the document with {{< var keybind.render >}} and see what it
-looks like. When the HTML document opens, you should see some text below
-the `setup` chunk that might look something like this:
+the cursor over the code and using the shortcut
+{{< var keybind.run-code >}}. We can also render the document with
+{{< var keybind.render >}} and see what it looks like. When the HTML
+document opens, you should see some text below the `setup` chunk that
+might look something like this:
 
 ```         
 ── Attaching packages ──────────────────────── tidyverse 1.3.2 ──
@@ -370,15 +370,16 @@ nhanes_small %>%
   ungroup()
 ```
 
-Putting the cursor somewhere in the code, use the shortcut `Ctrl-Enter`
-to run the code and see what it looks like. This output is almost in a
-table format. We have the columns that would be the table headers and
-rows that would be meaningful table rows. Ideally, we would want this to
-be report-ready. The first thing we should remove are the `NA` education
-rows, just like we did with `diabetes`. Then, we'll convert it into a
-more elegant table in the Quarto HTML output document, we use the
-`kable()` function from the knitr package. Because we don't want to load
-all of the knitr functions, we'll use `knitr::kable()` instead:
+Putting the cursor somewhere in the code, use the shortcut
+{{< var keybind.run-code >}} to run the code and see what it looks like.
+This output is almost in a table format. We have the columns that would
+be the table headers and rows that would be meaningful table rows.
+Ideally, we would want this to be report-ready. The first thing we
+should remove are the `NA` education rows, just like we did with
+`diabetes`. Then, we'll convert it into a more elegant table in the
+Quarto HTML output document, we use the `kable()` function from the
+knitr package. Because we don't want to load all of the knitr functions,
+we'll use `knitr::kable()` instead:
 
 ```{r mean-age-bmi-table-2}
 nhanes_small %>%
@@ -654,10 +655,11 @@ in the [Figures](https://quarto.org/docs/authoring/figures.html) guide.
 Image files are **always** relative to the `.qmd` file.
 :::
 
-Render the document again (`Ctrl-Shift-K`) and view the HTML document
-with the new picture. We can, if we want to, change the width and height
-of the image as well as its alignment. We do this by adding a `{}` to
-the end of the Markdown image tag and put options inside there.
+Render the document again with {{< var keybind.render >}} and view the
+HTML document with the new picture. We can, if we want to, change the
+width and height of the image as well as its alignment. We do this by
+adding a `{}` to the end of the Markdown image tag and put options
+inside there.
 
 -   `fig-align`: To align the figure, either in `"center"`, `"left"`, or
     `"right"`.
@@ -800,3 +802,4 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your Quarto output document.
+

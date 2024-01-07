@@ -423,8 +423,8 @@ function. Within the tidyverse packages, all functions take a data frame
 :::
 
 Let's try this out on NHANES. The keyboard shortcut for the pipe is
-`Ctrl-Shift-M` (i.e., M for the `{magrittr}` package that created the
-pipe).
+{{< var keybind.pipe >}} (i.e., M for the `{magrittr}` package that
+created the pipe).
 
 ```{r show-pipe-with-colnames}
 #| filename: "R/learning.R"
@@ -780,7 +780,7 @@ nhanes_modified
 
 Then, start replacing the `___` with the appropriate code to complete
 the tasks below. (*Hint*: Create a new "Section" in the R script for
-this exercise by using `Ctrl-Shift-R`).
+this exercise by using {{< var keybind.code-section >}}).
 
 1.  Filter `nhanes_small` so only those participants with a BMI of more
     than or equal to 20 *and* less than or equal to 40, *and* keep those

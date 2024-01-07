@@ -209,8 +209,9 @@ folder that explain a bit about what should be placed there. Briefly:
 
 1.  Documents like manuscripts, abstracts, and exploration type
     documents should be put in the `doc/` directory (including [R
-    Markdown](https://rmarkdown.rstudio.com/) files which we will cover
-    in @sec-reproducible-documents.
+    Markdown](https://rmarkdown.rstudio.com/) and
+    [Quarto](https://quarto.org) files which we will cover in
+    1.  
 2.  Data, raw data, and metadata should be in either the `data/`
     directory or in `data-raw/` for the raw data. We'll explain the
     `data-raw/` folder and create it later in the lesson.
@@ -339,17 +340,17 @@ to use RStudio. The items to know right now are the "Console",
 
 Code is written in the "Source" tab, where it saves the code and text as
 a file. You send code to the Console from the opened file by typing
-`Ctrl-Enter` (or clicking the "Run" button). In the "Source" tab (where
-R scripts and Quarto files are shown), there is a "Document Outline"
-button (top right beside the "Run" button) that shows you the headers or
-"Sections" (more on that later). To open it you can either click the
-button, use the keybinding {{< var keybind.outline >}}, go through the
-menu to `Code -> Show Document Outline`. The Command Palette is a very
-useful tool to learn, since you can easily access almost all features
-and options inside RStudio through it. Because of this reason, we will
-be using it a lot throughout the course. Open it up with
-{{< var keybind.palette >}} and then in the pop-up search bar, type out
-"document outline". The first item should be the one we want, so hit
+{{< var keybind.run-code >}} (or clicking the "Run" button). In the
+"Source" tab (where R scripts and Quarto files are shown), there is a
+"Document Outline" button (top right beside the "Run" button) that shows
+you the headers or "Sections" (more on that later). To open it you can
+either click the button, use the keybinding {{< var keybind.outline >}},
+go through the menu to `Code -> Show Document Outline`. The Command
+Palette is a very useful tool to learn, since you can easily access
+almost all features and options inside RStudio through it. Because of
+this reason, we will be using it a lot throughout the course. Open it up
+with {{< var keybind.palette >}} and then in the pop-up search bar, type
+out "document outline". The first item should be the one we want, so hit
 `Enter` to activate the Outline.
 
 If you can't remember a specific keybinding in RStudio, check out the
@@ -360,10 +361,9 @@ help for it by going to the menu item `Help -> Keyboard Shortcuts Help`.
 One useful thing to do to make your R script more readable and
 understandable is to use "Sections". They're like "headers" in Word and
 they split up an R script into sections, which then show up in the
-"Document Outline". We can insert a section using the Command Palette by
-typing `Ctrl-Shift-P` and then typing "code section" followed by
-`Enter`. You can also insert the sections through the menu
-`Code -> Insert Section`.
+"Document Outline". We can insert a section using
+{{< var keybind.new-section >}}. You can also insert the sections
+through the menu `Code -> Insert Section`.
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
@@ -563,26 +563,22 @@ These issues can actually be broken down into two categories:
 
 Rather than manually editing code to fit a style, we can instead do it
 automatically. RStudio itself has a built-in automatic styling tool,
-found in the menu item `Code -> Reformat Code` (or with `Ctrl-Shift-A`).
-Let's try this styling out together. Copy and paste the code above into
-the `R/learning.R` file. *Don't* run this code, we'll just edit it to
-improve the styling. After pasting it, run the "Reformat Code" menu
-item.
+found in the menu item `Code -> Reformat Code`. Let's try this styling
+out together. Copy and paste the code above into the `R/learning.R`
+file. *Don't* run this code, we'll just edit it to improve the styling.
+After pasting it, run the "Reformat Code" menu item.
 
-The tidyverse [style guide](https://style.tidyverse.org/) also has a
+The `{tidyverse}` [style guide](https://style.tidyverse.org/) also has a
 package called `{styler}` that automatically fixes code to fit the style
 guide. With `{styler}` you can style multiple files at once, one file at
 a time, or based on code you select and highlight. We will make a lot of
 use of styling the file we are working on instead. We can do that
-through the Command Palette (`Ctrl-Shift-P`) and typing "style file",
-which should show the "Style active file" option. You'll try it out in
-the next exercise.
+through {{< var keybind.styler >}}, which should show the "Style active
+file" option. You'll try it out in the next exercise.
 
-The thing to note, is that `{styler}` isn't perfect, so you might need
-to sometimes manually run the RStudio reformatting (`Ctrl-Shift-A` or
-with the Command Palette `Ctrl-Shift-P` then "reformat") to fix most
-syntax issues. Other issues can only be fixed manually, like changing
-the object name `T` or `c` to something else.
+The thing to note, is that `{styler}` isn't perfect, for instance, it
+can't change objects that are named `T` or `c` to something else. But
+`{styler}` is a good starting point to manually fixing up your code.
 
 Paste the code again and run `{styler}` on the file with the
 {{< var keybind.styler >}}. Fixes it for us!
@@ -633,14 +629,14 @@ For this course, we have a short
 [cheatsheet](../includes/cheatsheet.pdf) that lists the tools and
 functions we will cover, which can help with problems forgetting
 function names or their usage. RStudio also has many cheatsheets of its
-own, which you can find with the Command Palette (`Ctrl-Shift-P` then
-type "cheatsheet"). However, even with these cheatsheets, you will still
-encounter other problems like errors or warnings. Error messages will
-appear in red text in your Console and will start with the word
-"Error:". Warning messages are also in red text, but are often either
-harmless or informative, so make sure to read the message and see if it
-says "Error" or not. Here are some initial steps to take when you
-encounter an error:
+own, which you can find with the Command Palette
+({{< var keybind.palette >}}, then type "cheatsheet"). However, even
+with these cheatsheets, you will still encounter other problems like
+errors or warnings. Error messages will appear in red text in your
+Console and will start with the word "Error:". Warning messages are also
+in red text, but are often either harmless or informative, so make sure
+to read the message and see if it says "Error" or not. Here are some
+initial steps to take when you encounter an error:
 
 1.  **First, try to stay calm**; problems happen to everyone, no matter
     their skill level. You *can fix it*! :smile:
@@ -671,10 +667,11 @@ encounter an error:
 
 If you still can't find the problem, here are some other steps to take:
 
-1.  **Restart the R session (`Session -> Restart R` or
-    `Ctrl-Shift-F10`)**. Then load your packages (and data if needed)
-    and run the code from the beginning, tracking which objects get
-    created, and if the proper object name is used later on.
+1.  **Restart the R session with** {{< var keybind.restart-r >}} **or
+    with the menu item `Session -> Restart R`**. Then load your packages
+    (and data if needed) and run the code from the beginning, tracking
+    which objects get created, and if the proper object name is used
+    later on.
 
 2.  (Rarely need to do) **Close/re-open RStudio and try again.**
 

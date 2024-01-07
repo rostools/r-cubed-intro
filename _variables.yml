@@ -14,5 +14,6 @@ keybind:
   build_site: '{{< kbd linux=Ctrl-Shift-B mac=Cmd-Shift-B win=Ctrl-Shift-B >}}'
   find: '{{< kbd linux=Ctrl-Shift-F mac=Cmd-Shift-F win=Ctrl-Shift-F >}} or with the Palette ({{< var keybind.palette >}}, then type "find files")'
   visual_edit: '{{< kbd linux=Ctrl-Shift-F4 mac=Cmd-Shift-F4 win=Ctrl-Shift-F4 >}}'
-
-
+  pipe: '{{< kbd linux=Ctrl-Shift-M mac=Cmd-Shift-M win=Ctrl-Shift-M >}}'
+  code-section: '{{< kbd linux=Ctrl-Shift-R mac=Cmd-Shift-R win=Ctrl-Shift-R >}} or with the Palette ({{< var keybind.palette >}}, then type "code section")'
+  run-code: '{{< kbd linux=Ctrl-Enter mac=Cmd-Enter win=Ctrl-Enter >}}'
