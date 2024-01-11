@@ -290,8 +290,7 @@ interface.
 
 To access the Git interface in RStudio, click the Git icon beside the
 "Go to" search bar (see @fig-rstudio-git-button) and then click the
-"Commit..." option (`Ctrl-Alt-M`). You can also use the Command Palette
-by using `Ctrl-Shift-P` and then typing "commit".
+"Commit..." option using {{< var keybind.git >}}.
 
 ![The location of the Git button in
 RStudio.](../images/rstudio-git-button.png){#fig-rstudio-git-button}
