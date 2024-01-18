@@ -1,3 +1,9 @@
+---
+execute: 
+  echo: false
+  eval: true
+---
+
 # Schedule {#sec-schedule}
 
 The course is structured as a series of participatory live-coding
@@ -10,10 +16,7 @@ and others may be longer. Instead, it is meant to be an approximate
 guide and overview.
 
 ::: panel-tabset
-```{r schedule-table}
-#| eval: true
-#| echo: false
-#| output: asis
+```{r}
 library(dplyr)
 add_link <- function(text, icon, link) {
   colour <- "#138d75"
@@ -34,14 +37,29 @@ schedule <- here::here("preamble/schedule.csv") %>%
   ) %>%
   select(-icon, -link)
 
-unique(schedule$Day) %>% 
-  purrr::map_chr( \(day) {
-    knitr::knit_child(
-      input = here::here("preamble/_schedule-days.qmd"),
-      envir = environment(),
-      quiet = TRUE
-    )
-  }) %>% 
-  cat(sep = "\n")
+list_day_schedule <- function(data, day) {
+  data %>%
+    filter(Day == day) %>%
+    select(-Day) %>%
+    knitr::kable()
+}
+```
+
+## Day 1 {.unnumbered}
+
+```{r}
+list_day_schedule(schedule, "Day 1")
+```
+
+## Day 2 {.unnumbered}
+
+```{r}
+list_day_schedule(schedule, "Day 2")
+```
+
+## Day 3 {.unnumbered}
+
+```{r}
+list_day_schedule(schedule, "Day 3")
 ```
 :::
