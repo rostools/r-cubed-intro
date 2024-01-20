@@ -77,10 +77,9 @@ section for more details and tips on using this material.
 
 ## Acknowledgements
 
-Many pieces from the (in development) course [Merely
-Useful](https://github.com/merely-useful/merely-useful.github.io) were
-modified and used in several places throughout the r-cubed course. Other
-parts were taken and modified from:
+There were many sources of inspiration when creating this course, as
+well as subsequent modifications. Here is a list of some of these
+sources.
 
 -   The [Aarhus University CRU](https://au-cru.github.io/) sessions on
     [project
@@ -117,3 +116,4 @@ Daniel Witte (the initial founders and creators).
 ![Danish Diabetes and Endocrinology
 Academy](https://www.ddeacademy.dk/sites/all/themes/dda/DDEA_logo_outlined.svg){width="90px"}
 ![Steno Diabetes Center Aarhus](images/logo-sdca.png){width="55px"}
+![Aarhus University](images/logo-au.png){width="140px"}
