@@ -665,7 +665,7 @@ For this image, we will change the width and height to `"50%"`, and
 change the caption to something like `"Kittens attacking flowers!"`, and
 add a label and reference:
 
-```         
+``` markdown
 Cute kitten in @fig-kitten-attack!
 
 ![Kitten attacking flowers!](images/kitten.jpg){#fig-kitten-attack width="50%" height="50%"}
@@ -794,4 +794,3 @@ Complete these tasks in the `doc/learning.qmd` file.
     `![Caption text](path/to/image.png)`.
 -   For HTML, choose different themes to personalize the appearance of
     your Quarto output document.
-
