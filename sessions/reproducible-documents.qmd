@@ -245,7 +245,7 @@ to put your `library()` calls or other setup functions. Let's enter some
 code to load the packages and the dataset we have been using to the
 setup chunk:
 
-```{r setup, filename="doc/learning.qmd"}
+```{r setup}
 #| echo: fenced
 library(tidyverse)
 library(NHANES)
@@ -255,7 +255,7 @@ nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 Let's insert another code chunk below this one with
 {{< var keybind.chunk >}}, and simply put `nhanes_small` in the chunk:
 
-```{r, filename="doc/learning.qmd"}
+```{r}
 #| echo: fenced
 nhanes_small
 ```
