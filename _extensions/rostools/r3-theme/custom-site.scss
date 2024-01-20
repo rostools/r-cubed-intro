@@ -15,7 +15,7 @@ $code-block-border-left: "grey60" !default;
 
 svg {
   display: block;
-  max-width: 100%;
+  max-width: 100% !important;
   margin: 0 auto;
   height: auto !important;
   width: auto !important;
