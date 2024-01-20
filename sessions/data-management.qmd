@@ -341,7 +341,7 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 nhanes_small
 ```
 
-::: callout-tip
+::: {.callout-tip appearance="default"}
 We've re-assigned the object `nhanes_small` multiple times. If you make
 a mistake, the easiest solution is to re-run the code from the start
 again, which should fix any issues.

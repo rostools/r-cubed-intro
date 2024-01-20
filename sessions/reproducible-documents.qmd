@@ -190,18 +190,12 @@ Before we insert the code chunk, let's delete all the text in your
 document, with exception of the YAML header (including the dashes
 surrounding it). Make sure that the YAML key `format:` is set to `html`.
 Then, place your cursor two lines below the YAML header and insert a
-code chunk with {{< var keybind.chunk >}}. The code chunk should look
-something like this:
+code chunk with {{< var keybind.chunk >}}. In the code chunk, type out
+`2 + 2`. It should look something like:
 
 ```{r}
 #| echo: fenced
- 
-```
-
-In the code chunk, type out `2 + 2`, so it looks like:
-
-```{r}
-#| echo: fenced
+#| filename: "doc/learning.qmd"
 2 + 2
 ```
 
@@ -226,14 +220,9 @@ packages to use for our subsequent code, and this is no different in an
 Quarto document. We will set this up together now.
 
 Create a new code chunk with {{< var keybind.chunk >}} and then type
-`setup` right after the `r`. It should look like:
-
-```{{r setup}}
-
-```
-
-This area that you just typed 'setup' in is for code chunk labels. In
-this case, we labelled the code chunk with the name `setup`. Code [chunk
+`setup` right after the `r`. This area that you just typed 'setup' in is
+for code chunk labels. In this case, we labelled the code chunk with the
+name `setup`. Code [chunk
 labels](https://yihui.name/knitr/options/#chunk-options) should be named
 without `_`, spaces, or `.` and instead should be one word or be
 separated by `-`. An error may not necessarily occur if you don't follow

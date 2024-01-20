@@ -362,7 +362,7 @@ One useful thing to do to make your R script more readable and
 understandable is to use "Sections". They're like "headers" in Word and
 they split up an R script into sections, which then show up in the
 "Document Outline". We can insert a section using
-{{< var keybind.new-section >}}. You can also insert the sections
+{{< var keybind.code-section >}}. You can also insert the sections
 through the menu `Code -> Insert Section`.
 
 ::: {.callout-note appearance="minimal" collapse="true"}
