@@ -172,6 +172,7 @@ use of auto-completion and to get used to using the pipe, we'll pipe the
 data into the `ggplot()` function.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>% 
   ggplot(aes(x = bmi)) +
   geom_histogram()
@@ -183,6 +184,7 @@ You'll notice we get a warning about dropping missing values. That's
 `na.rm = TRUE` to `geom_histogram()` and other `geom_*` functions.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>% 
   ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
@@ -197,6 +199,7 @@ can use `aes()` right away rather than put in the data object to the
 first argument position.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(bmi <= 60) %>%
   ggplot(aes(x = bmi)) +
@@ -235,6 +238,7 @@ geom to visualize those. Again, create a new code chunk with
 {{< var keybind.chunk >}} and type:
 
 ```{r discrete-variables}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   ggplot(aes(x = education)) +
   geom_bar()
@@ -260,6 +264,7 @@ diabetes and then copy and paste the code, replacing `diabetes` with
 `education`.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>%
   ggplot(aes(x = diabetes)) +
@@ -374,6 +379,7 @@ header with {{< var keybind.chunk >}}. Like with the previous plot we
 created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
+#| filename: "doc/learning.qmd"
 nhanes_small %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE)
@@ -406,6 +412,7 @@ use `{dplyr}` verbs here, as well as using the `%>%` pipe into
 `ggplot()`.
 
 ```{r 2-discrete-variables}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(education), !is.na(diabetes)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
@@ -420,6 +427,7 @@ takes the "fill" grouping variable and "dodges" them (moves them) to be
 side by side.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(education), !is.na(diabetes)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
@@ -458,6 +466,7 @@ those with or without diabetes. Create a new code chunk with
 {{< var keybind.chunk >}} and type:
 
 ```{r discrete-continuous-variables}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes), bmi <= 60) %>%
   ggplot(aes(x = diabetes, y = bmi)) +
@@ -489,6 +498,7 @@ Complete as many tasks as you can below.
     variables.
 
     ```{r}
+    #| filename: "doc/learning.qmd"
     #| output: false
     library(NHANES)
     nhanes_exercise <- NHANES %>%
@@ -640,6 +650,7 @@ continuous variable (`bp_sys_ave`) and two discrete variables
 `geom_boxplot()`:
 
 ```{r using-colour}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>%
   ggplot(aes(x = education, y = bp_sys_ave, colour = diabetes)) +
@@ -654,6 +665,7 @@ Here, we have three continuous variables (`bmi`, `bp_sys_ave`, and
 `age`), so we could use `geom_point()`:
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
   geom_point(na.rm = TRUE)
@@ -669,6 +681,7 @@ variable (`diabetes`). We could use `geom_point()`, making sure to also
 `filter()` those missing `diabetes` values.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
@@ -693,6 +706,7 @@ previous answer (instead of using `colour`). Make a new code chunk with
 {{< var keybind.chunk >}} at the bottom of the file.
 
 ```{r using-faceting}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
@@ -704,6 +718,7 @@ Try faceting with plots stacked by diabetes status, using the argument
 `rows = vars(diabetes)` instead. Which do you find more informative?
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
@@ -715,6 +730,7 @@ We can also facet by `education` and use `age` as a colour. We'll have
 to `filter()` out those missing `education` values.
 
 ```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
@@ -860,6 +876,7 @@ make a new code chunk with {{< var keybind.chunk >}}, then copy the code
 below:
 
 ```{r built-in-themes}
+#| filename: "doc/learning.qmd"
 base_scatterplot <- nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>% 
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
@@ -891,6 +908,7 @@ For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
 code chunk with {{< var keybind.chunk >}} and type:
 
 ```{r labels}
+#| filename: "doc/learning.qmd"
 base_scatterplot +
   labs(
     title = "BMI, systolic blood pressure, and age by diabetes and education",
@@ -909,6 +927,7 @@ figure using the `width` and `height` arguments. Add a new section
 header `## Saving the plot` and create a new code chunk:
 
 ```{r, eval=FALSE}
+#| filename: "doc/learning.qmd"
 ggsave(here::here("doc/images/scatterplot.pdf"),
   base_scatterplot2,
   width = 7, height = 5

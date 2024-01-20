@@ -322,7 +322,7 @@ options. These options are added to the YAML header and will apply the
 settings to everything in the document. We *won't* do this in this
 session, but here is what it looks like:
 
-``` yaml
+``` {.yaml filename="doc/learning.qmd"}
 ---
 title: "Reproducible documents"
 author: "Your Name"
@@ -347,8 +347,8 @@ you to copy from. Instead of using `phys_active`, let's change that to
     books, or section titles in manuscripts like "Introduction" or
     "Results".
 
-```{r mean-age-bmi-table}
-#| echo: fenced
+```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>%
   group_by(diabetes, education) %>%
@@ -370,7 +370,8 @@ Quarto HTML output document, we use the `kable()` function from the
 knitr package. Because we don't want to load all of the knitr functions,
 we'll use `knitr::kable()` instead:
 
-```{r mean-age-bmi-table-2}
+```{r}
+#| filename: "doc/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>%
   group_by(diabetes, education) %>%
@@ -396,7 +397,7 @@ the Git history using {{< var keybind.git >}}.
     (that includes some code we wrote above) and paste the code into the
     new chunk. Add the option `#| echo: false` to the code chunk.
 
-    ```{{r}}
+    ``` {.r filename="doc/learning.qmd"}
     nhanes_small %>%
       filter(!is.na(diabetes), !is.na(education)) %>%
       group_by(diabetes, education) %>%
@@ -688,7 +689,7 @@ where multiple different themes can be used that are listed in Quarto's
 [HTML Theming](https://quarto.org/docs/output-formats/html-themes.html)
 page. It would look like this, if we use a theme called `yeti`:
 
-``` yaml
+``` {.yaml filename="doc/learning.qmd"}
 ---
 title: "Reproducible documents"
 format:

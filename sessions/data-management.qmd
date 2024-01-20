@@ -760,7 +760,9 @@ interface using {{< var keybind.git >}}.
 
 Copy and paste the code below into the `learning.R` script file.
 
-```{r ex-pipe-filter-mutate, eval=FALSE}
+```{r ex-pipe-filter-mutate}
+#| eval: false
+#| filename: "R/learning.R"
 # 1. BMI between 20 and 40 with diabetes
 nhanes_small %>%
     # Format should follow: variable >= number or character

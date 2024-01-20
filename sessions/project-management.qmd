@@ -595,7 +595,8 @@ For instance, a "metapackage" we will use throughout the course is
 called `{tidyverse}`, which we can load by writing this at the top of
 our script files:
 
-``` r
+```{r}
+# filename: "R/learning.R"
 library(tidyverse)
 ```
 
@@ -758,4 +759,3 @@ you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
 -   Keep R scripts simple, focused, and short.
 -   Use tab auto-completion when writing code.
 -   Use `?` to get help on an R object.
-
