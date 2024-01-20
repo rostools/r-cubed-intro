@@ -287,7 +287,8 @@ with `#|`. If you want to run the code but not show those messages and
 warnings, you can add the options `#| message: false` and
 `#| warning: false`:
 
-```{{r setup}}
+```{r setup}
+#| echo: fenced
 #| message: false
 #| warning: false
 library(tidyverse)
@@ -298,7 +299,8 @@ nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 If you want to hide the code, messages, warnings, and output, but still
 run the code, you can use the option `#| include: false`.
 
-```{{r setup}}
+```{r setup}
+#| echo: fenced
 #| include: false
 library(tidyverse)
 library(NHANES)
