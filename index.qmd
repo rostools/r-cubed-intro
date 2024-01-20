@@ -103,15 +103,17 @@ Content from multiple sources was used as inspiration for this course,
 including the [R for Data Science](https://r4ds.had.co.nz/) book and the
 [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/).
 
-The [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/)
-hosted, organized, and sponsored versions 1 and 2 of the course. A huge
-thanks to them for their involvement, support, and sponsorship! Both
-[Steno Diabetes Center Aarhus](https://www.stenoaarhus.dk/) and [Aarhus
-University](https://www.au.dk/) were employers of Luke Johnston and
+The [Danish Diabetes and Endocrinology
+Academy](https://www.ddeacademy.dk/) has hosted, organized, and
+sponsored running this course to researchers in Denmark versions
+multiple times. A huge thanks to them for their involvement, support,
+and sponsorship! Both [Steno Diabetes Center
+Aarhus](https://www.stenoaarhus.dk/) and [Aarhus
+University](https://www.au.dk/) are employers of Luke Johnston and
 Daniel Witte (the initial founders and creators).
 
 <!-- TODO: Update DDA logo -->
 
-![Danish Diabetes Academy](images/logo-dda.png){width="90px"} ![Steno
-Diabetes Center Aarhus](images/logo-sdca.png){width="55px"} ![Aarhus
-University](images/logo-au.png){width="140px"}
+![Danish Diabetes and Endocrinology
+Academy](https://www.ddeacademy.dk/sites/all/themes/dda/DDEA_logo_outlined.svg){width="90px"}
+![Steno Diabetes Center Aarhus](images/logo-sdca.png){width="55px"}
