@@ -210,8 +210,8 @@ folder that explain a bit about what should be placed there. Briefly:
 1.  Documents like manuscripts, abstracts, and exploration type
     documents should be put in the `doc/` directory (including [R
     Markdown](https://rmarkdown.rstudio.com/) and
-    [Quarto](https://quarto.org) files which we will cover in
-    1.  
+    [Quarto](https://quarto.org) files which we will cover in 
+    @sec-reproducible-documents.  
 2.  Data, raw data, and metadata should be in either the `data/`
     directory or in `data-raw/` for the raw data. We'll explain the
     `data-raw/` folder and create it later in the lesson.
@@ -339,7 +339,7 @@ to use RStudio. The items to know right now are the "Console",
 "Files"/"Help", and "Source" tabs.
 
 Code is written in the "Source" tab, where it saves the code and text as
-a file. You send code to the Console from the opened file by typing
+a file. You can send selected code to the Console from the opened file by typing
 {{< var keybind.run-code >}} (or clicking the "Run" button). In the
 "Source" tab (where R scripts and Quarto files are shown), there is a
 "Document Outline" button (top right beside the "Run" button) that shows
