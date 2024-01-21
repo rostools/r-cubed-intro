@@ -52,9 +52,6 @@ Your specific tasks are:
 3.  Assign one team member to **download the dataset** and put it into
     the `data-raw/` folder of your project.
 
-    -   Create this `data-raw/` folder by running
-        `usethis::use_directory("data-raw")` in the Console while in
-        your group's R Project.
     -   If there is any documentation on the dataset, e.g. variable
         definitions, put those files in the `data-raw/` folder as well.
     -   This team member should then add and commit the new file(s) in
