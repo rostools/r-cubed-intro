@@ -63,6 +63,11 @@ Questions](https://guides.rostools.org/faq) page for keeping track of
 these questions. But there are a few with a common theme that deserve to
 be mentioned sooner than later.
 
+If you want to get help virtually or after the course, you can join the
+[Discord channel](https://discord.gg/XaRSJFdNnp) where we run virtual
+coding club sessions as well as where you can ask for help for issues
+you might have.
+
 ### Why R?
 
 <!-- TODO: Move to FAQ? -->
@@ -122,3 +127,4 @@ slow. This is an introduction course, so we're trying to assume as
 little to no knowledge on many of these concepts. So, for those with
 some knowledge, it *will* feel slow at times! You can always help your
 neighbour out!
+

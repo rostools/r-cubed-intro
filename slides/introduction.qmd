@@ -6,11 +6,13 @@ bibliography: includes/references.bib
 
 # Welcome to the Introductory R^3^ course!
 
--   :heavy_check_mark: Accept the GitHub Organization invite
--   :heavy_check_mark: Accept the Slack channel invite
--   :heavy_check_mark: Go to the table with your name on it (and your
-    group name)
+-   :heavy_check_mark: Pick a group name from the basket and go to that
+    table
 -   :heavy_check_mark: Introduce yourself to your group members
+-   :heavy_check_mark: Accept the GitHub Organization invite
+-   :heavy_check_mark: If you want, join the [Discord
+    channel](https://discord.gg/XaRSJFdNnp) for asking questions after
+    the course
 
 ::: notes
 Introduce instructors and helpers after welcoming everyone and getting
