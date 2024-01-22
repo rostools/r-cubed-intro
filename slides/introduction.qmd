@@ -87,7 +87,9 @@ reproducible?
 
 [^introduction-2]: Or rather "irreplicability crisis".
 
-## Biomedical studies almost entirely don't publish code with the published paper [@Leek2017a, @Considine2017a, @Seibold2021] {.center}
+## Biomedical studies almost entirely don't publish code with the published paper {.center}
+
+See: [@Leek2017a; @Considine2017a; @Seibold2021]
 
 ::: notes
 Vast majority of papers *still* don't provide code. Except for maybe in
@@ -218,4 +220,3 @@ introduction section.
 :::
 
 # References
-

@@ -42,6 +42,8 @@ contributes:
     execute:
       warning: false
 
+    csl: vancouver.csl
+
     callout-appearance: minimal
     reference-location: margin
     crossref:
