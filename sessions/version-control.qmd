@@ -185,21 +185,8 @@ Git works by tracking changes to files *at the project level* (i.e. for
 every R Project). So you won't track your entire, for instance,
 `Documents/` folder. When file changes are saved and put into the
 history, this history is called a "repository" (also called a "repo" for
-short). We'll explain more about what a repository is later.
-
-For every project, we need to set up and associate a Git repository with
-the project folder. Before you continue, go into your `LearningR` R
-Project and do a quick check to make sure that you have Git properly set
-up. Run this function in your RStudio Console:
-
-```{r check-git-config}
-#| filename: "Console"
-#| eval: false
-r3::check_git_config()
-```
-
-It should run without any error and it should show your email and name.
-What you do with Git is more or less to:
+short). We'll explain more about what a repository is later. What you do
+with Git is more or less to:
 
 -   Set up Git in your project or folder by starting it as a
     "repository".
@@ -253,7 +240,7 @@ Setting up a Git repository can be done in several ways:
     can be selected from the "New Projects" setup instructions in
     RStudio.
 -   For existing R Projects, you can type in the console
-    `usethis::use_git()`.
+    `usethis::use_git()` (*don't do this for the course!*).
 :::
 
 ## Exercise: How might you use Git in your work?
@@ -753,3 +740,4 @@ in the course.
 -   "Pushing" and "pulling" are actions to upload and download to the
     remote repository (which usually is called "origin").
 -   Almost all Git actions can be done using RStudio's Git interface.
+
