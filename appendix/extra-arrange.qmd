@@ -1,6 +1,13 @@
+---
+execute:
+  eval: false
+---
+
 # Extras: Arranging rows in dplyr {#sec-extra-arrange}
 
 ## Arranging the rows of your data by column
+
+> This is continued from @sec-data-management.
 
 You may want to sort your rows by a specific column so that values are
 arranged in ascending or descending order. This can be done using the
