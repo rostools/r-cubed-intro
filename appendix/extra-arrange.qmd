@@ -1,0 +1,44 @@
+# Extras: Arranging rows in dplyr {#sec-extra-arrange}
+
+## Arranging the rows of your data by column
+
+You may want to sort your rows by a specific column so that values are
+arranged in ascending or descending order. This can be done using the
+function called `arrange()`. Again, `arrange()` takes the dataset as the
+first argument, followed by the columns that you wish to arrange data
+by. By default, `arrange()` orders in *ascending* order.
+
+```{r}
+#| filename: "R/learning.R"
+# Arranging data by age in ascending order
+nhanes_small %>%
+    arrange(age)
+```
+
+`arrange()` also arranges parameters of type `character` alphabetically:
+
+```{r}
+#| filename: "R/learning.R"
+nhanes_small %>% 
+    arrange(education)
+```
+
+If we want to order the column based on descending order, this can be
+done with `desc()`.
+
+```{r}
+#| filename: "R/learning.R"
+# Arranging data by age in descending order
+nhanes_small %>%
+    arrange(desc(age))
+```
+
+You can also order your data by multiple columns. For instance, we could
+arrange first by `education` and then by `age`.
+
+```{r}
+#| filename: "R/learning.R"
+# Arranging data by education then age in ascending order
+nhanes_small %>%
+    arrange(education, age)
+```
