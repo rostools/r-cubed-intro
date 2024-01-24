@@ -461,7 +461,9 @@ We can now "read" these actions as:
 > Time: 10 minutes.
 
 In the `R/learning.R` script file, complete the following tasks, running
-each code after completing the task.
+each code after completing the task. *Notice that you aren't actually
+changing the data each time, since you won't assign (`<-`) to a new
+object.*
 
 1.  Copy and paste the code below into the script file. Replace the
     `___` in the `select()` function, with the columns `bp_sys_ave`, and
