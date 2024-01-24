@@ -1,5 +1,11 @@
 # Version control with Git {#sec-version-control}
 
+```{r}
+#| include: false
+# To trigger downlit for this page.
+library(downlit)
+```
+
 <!-- TODO: Add an introduction here -->
 
 **Session objectives**:
@@ -740,4 +746,3 @@ in the course.
 -   "Pushing" and "pulling" are actions to upload and download to the
     remote repository (which usually is called "origin").
 -   Almost all Git actions can be done using RStudio's Git interface.
-
