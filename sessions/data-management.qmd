@@ -205,8 +205,9 @@ that is included in a package, in this case `{NHANES}`. We will cover
 how to load a dataset from a file at the end of this session.
 
 Then, below the `library()`, let's take a `glimpse()` at the NHANES
-dataset. Run this function by hitting `Alt-Enter` while the cursor is on
-the code to send it from the script to the R Console.
+dataset. Run this function by hitting {{< var keybind.run-code >}}
+while the cursor is on the code to send it from the script to the R 
+Console.
 
 ```{r glimpse-nhanes}
 #| filename: "R/learning.R"
@@ -248,9 +249,7 @@ select(NHANES, -HeadCirc)
 
 If some of your columns have similar patterns for naming at the
 beginning, middle, or end of the name, you can use some helper functions
-to choose these columns. Use `?select_helpers` (choose the "Select
-helpers" option in the menu that pops up) to read more about these
-functions and to get help on them. Some commonly used helpers are:
+to choose these columns. Some commonly used helpers are:
 
 -   `starts_with()`: Select columns that begin with a pattern.
 -   `ends_with()`: Select columns that end with a pattern.
@@ -269,7 +268,8 @@ select(NHANES, contains("Age"))
 ```
 
 For more information on using the pattern functions such as
-`starts_with()`, check out `?select_helpers`.
+`starts_with()`, check out `?select_helpers` (choose the "Select
+helpers" option in the menu that pops up).
 
 You'll notice that running these functions doesn't actually change the
 data itself. When you run a function without assigning it using `<-`,
