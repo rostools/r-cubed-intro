@@ -750,33 +750,6 @@ collaborator may work on, and then later on merge them together. This
 last approach is what we will get you to do for the group project.
 :::
 
-## Exercise: Adding figures and changing the theme
-
-> Time: 20 minutes.
-
-Complete these tasks in the `doc/learning.qmd` file.
-
--   Search online for a picture that you like and want to put into the
-    Quarto file. Download it and save the image in `doc/`.
--   In the Quarto file, insert the image somewhere (e.g. under
-    `# Results`) and give it an appropriate caption.
-    -   Use the Markdown syntax `![](){}` to insert the image, where the
-        file path is in between the `()`.
-    -   Include a caption in between the `[]`, center align by using
-        `fig-align="center"` within the `{}`, and resize the image to
-        `"75%"` using `width` within the `{}`.
--   Render the document using {{< var keybind.render >}} to make sure
-    the image gets inserted.
--   Go to Quarto's [HTML
-    Theming](https://quarto.org/docs/output-formats/html-themes.html)
-    page and look through the different themes that are available for
-    the HTML output. Find a theme you like by changing the `theme`
-    option in the YAML header and re-render the document with
-    {{< var keybind.render >}}.
--   Finally, add and commit the changes you've made to the document
-    using {{< var keybind.git >}}. For now, don't add and commit the
-    HTML output file.
-
 ## Summary
 
 -   Making your research reproducible not only improves the scientific
