@@ -7,7 +7,7 @@ project:
     - slides/*.html
 
 book:
-  title: "Reproducible Research in R"
+  title: "Intro Reproducible Research in R"
   subtitle: "An introductory workshop on modern data analyses and workflows"
   description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
   author:
