@@ -3,7 +3,7 @@ execute:
   eval: false
 ---
 
-# Extra exercises {#sec-extra-exercises}
+# Extras: Additional exercises {#sec-extra-exercises}
 
 ## Calculate some basic statistics
 
