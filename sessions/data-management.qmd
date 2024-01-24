@@ -691,7 +691,7 @@ nhanes_small %>%
     arrange(education, age)
 ```
 
-## Transform or add columns
+## Modify or add columns
 
 To modify an existing column or to add a new one, we can use the
 function called `mutate()`. You can use `mutate()` to compute a new
