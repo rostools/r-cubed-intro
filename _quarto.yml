@@ -42,6 +42,7 @@ book:
     - appendix/for-instructors.qmd
     - appendix/extra-exercises.qmd
     - appendix/extra-github.qmd
+    - appendix/extra-arrange.qmd
     - appendix/extra-markdown.qmd
     - LICENSE.md
     - appendix/references.qmd
