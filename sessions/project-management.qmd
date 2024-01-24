@@ -210,8 +210,8 @@ folder that explain a bit about what should be placed there. Briefly:
 1.  Documents like manuscripts, abstracts, and exploration type
     documents should be put in the `doc/` directory (including [R
     Markdown](https://rmarkdown.rstudio.com/) and
-    [Quarto](https://quarto.org) files which we will cover in 
-    @sec-reproducible-documents.  
+    [Quarto](https://quarto.org) files
+    -   We will cover this later in @sec-reproducible-documents.
 2.  Data, raw data, and metadata should be in either the `data/`
     directory or in `data-raw/` for the raw data. We'll explain the
     `data-raw/` folder and create it later in the lesson.
