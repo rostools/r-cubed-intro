@@ -205,9 +205,8 @@ that is included in a package, in this case `{NHANES}`. We will cover
 how to load a dataset from a file at the end of this session.
 
 Then, below the `library()`, let's take a `glimpse()` at the NHANES
-dataset. Run this function by hitting {{< var keybind.run-code >}}
-while the cursor is on the code to send it from the script to the R 
-Console.
+dataset. Run this function by hitting {{< var keybind.run-code >}} while
+the cursor is on the code to send it from the script to the R Console.
 
 ```{r glimpse-nhanes}
 #| filename: "R/learning.R"
@@ -1061,7 +1060,8 @@ new cleaned dataset.
 We've been using a teaching dataset that we load from a package, mainly
 so that we can focus on getting familiar with data wrangling. However,
 there will come a time when you want to wrangle your own data. There are
-several ways to load in a dataset, with the most common being:
+several ways to load in a dataset, which are listed below. *Don't run
+these code, just read for now*.
 
 1.  Using the RStudio menu
     `File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata`
