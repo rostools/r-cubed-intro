@@ -195,7 +195,6 @@ code chunk with {{< var keybind.chunk >}}. In the code chunk, type out
 
 ```{r}
 #| echo: fenced
-#| filename: "doc/learning.qmd"
 2 + 2
 ```
 
