@@ -339,18 +339,19 @@ to use RStudio. The items to know right now are the "Console",
 "Files"/"Help", and "Source" tabs.
 
 Code is written in the "Source" tab, where it saves the code and text as
-a file. You can send selected code to the Console from the opened file by typing
-{{< var keybind.run-code >}} (or clicking the "Run" button). In the
-"Source" tab (where R scripts and Quarto files are shown), there is a
-"Document Outline" button (top right beside the "Run" button) that shows
-you the headers or "Sections" (more on that later). To open it you can
-either click the button, use the keybinding {{< var keybind.outline >}},
-go through the menu to `Code -> Show Document Outline`. The Command
-Palette is a very useful tool to learn, since you can easily access
-almost all features and options inside RStudio through it. Because of
-this reason, we will be using it a lot throughout the course. Open it up
-with {{< var keybind.palette >}} and then in the pop-up search bar, type
-out "document outline". The first item should be the one we want, so hit
+a file. You can send selected code to the Console from the opened file
+by typing {{< var keybind.run-code >}} (or clicking the "Run" button).
+In the "Source" tab (where R scripts and Quarto files are shown), there
+is a "Document Outline" button (top right beside the "Run" button) that
+shows you the headers or "Sections" (more on that later). To open it you
+can either click the button, use the keybinding
+{{< var keybind.outline >}}, go through the menu to
+`Code -> Show Document Outline`. The Command Palette is a very useful
+tool to learn, since you can easily access almost all features and
+options inside RStudio through it. Because of this reason, we will be
+using it a lot throughout the course. Open it up with
+{{< var keybind.palette >}} and then in the pop-up search bar, type out
+"document outline". The first item should be the one we want, so hit
 `Enter` to activate the Outline.
 
 If you can't remember a specific keybinding in RStudio, check out the
