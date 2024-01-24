@@ -30,12 +30,12 @@ nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ::: callout-note
 ## Reading task: \~4 minutes
 
-Making graphs in R is surprisingly easy and can be done with very little
-code. Because of the ease with which you can make them, it gives you
-some time to consider: *why* you are making them; whether the graph
-you've selected is the *most appropriate* for your data or results; and
-how you can design your graphs to be as accessible and understandable as
-possible.
+Making graphs in R is relatively easy compared to other programs and can
+be done with very little code. Because it takes few lines of code to
+great multiple types of plots, it gives you some time to consider: *why*
+you are making them; whether the graph you've selected is the *most
+appropriate* for your data or results; and how you can design your
+graphs to be as accessible and understandable as possible.
 
 To start, here are some tips for making a graph:
 
@@ -952,3 +952,4 @@ Quarto document with {{< var keybind.render >}}, commit the changes with
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
 -   Save plots using `ggsave()`.
+
