@@ -562,19 +562,22 @@ mistakes at this stage, even for advanced R users.
 The simplest kind of logic condition is to test for "equality". In R,
 "equal to" is represented by `==`. For example, if we wanted to keep
 only people who are not physically active in the dataset, we would use
-the logic condition like this:
+the logic condition like this (we use `select()` after to show the
+change):
 
 ```{r}
 #| filename: "R/learning.R"
 #| eval: false
 nhanes_small %>%
-    filter(phys_active == "No")
+    filter(phys_active == "No") %>%
+    select(phys_active)
 ```
 
 We would "read" this code as:
 
 > Take the nhanes_small dataset *and then* filter so that only rows
-> where `phys_active` is equal to "No" are kept.
+> where `phys_active` is equal to "No" are kept (showing just the
+> `phys_active` column).
 
 When a row in the `phys_active` column has the value `"No"`, that row is
 kept. Otherwise, it is dropped.
@@ -606,15 +609,18 @@ Let's try out a few of these logical conditions with `filter()`.
 #| filename: "R/learning.R"
 # Participants who are physically active
 nhanes_small %>%
-    filter(phys_active != "No")
+    filter(phys_active != "No") %>%
+    select(phys_active)
 
 # Participants who have BMI equal to 25
 nhanes_small %>%
-    filter(bmi == 25)
+    filter(bmi == 25) %>%
+    select(bmi)
 
 # Participants who have BMI equal to or more than 25
 nhanes_small %>%
-    filter(bmi >= 25)
+    filter(bmi >= 25) %>%
+    select(bmi)
 ```
 
 We use the `|` ("or") and `&` ("and") when we want to combine conditions
@@ -641,11 +647,13 @@ this:
 #| filename: "R/learning.R"
 # When BMI is 25 AND phys_active is No
 nhanes_small %>%
-    filter(bmi == 25 & phys_active == "No")
+    filter(bmi == 25 & phys_active == "No") %>%
+    select(bmi, phys_active)
 
 # When BMI is 25 OR phys_active is No
 nhanes_small %>%
-    filter(bmi == 25 | phys_active == "No")
+    filter(bmi == 25 | phys_active == "No") %>%
+    select(bmi, phys_active)
 ```
 
 ## Arranging the rows of your data by column
@@ -1092,4 +1100,3 @@ files into R.
     package to wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
-
