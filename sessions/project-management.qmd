@@ -596,7 +596,7 @@ called `{tidyverse}`, which we can load by writing this at the top of
 our script files:
 
 ```{r}
-# filename: "R/learning.R"
+#| filename: "R/learning.R"
 library(tidyverse)
 ```
 
