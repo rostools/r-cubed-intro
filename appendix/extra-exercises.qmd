@@ -5,7 +5,37 @@ execute:
 
 # Extra exercises {#sec-extra-exercises}
 
-## Calculate some basic statistics
+## Discussion: How might you use Git in your work?
+
+> Time: \~10 minutes.
+
+One of the biggest comments people make when first learning about Git
+is: "I see some of the benefits, but can't see how I would use it in my
+own work. How or why would I?" So, to tackle that question right away,
+take some time to brainstorm and discuss with your neighbour how you
+might use Git *right now or in the near future*.
+
+1.  Take 1 minute to think to yourself.
+2.  Take 6 minutes to discuss and brainstorm with your neighbour.
+3.  In the final few minutes, we will all share with the group some
+    thoughts.
+
+## Discussion: How can you use Git to collaborate better?
+
+> Time: \~10 minutes.
+
+Before actually learning about how you might collaborate with others
+(and future you) by using Git and GitHub, let's brainstorm and discuss
+how you might do it. Based on what you have learned so far, take some
+time to think about how you might use Git and GitHub to collaborate more
+easily between collaborators and future you.
+
+1.  Take 1 minute to think to yourself.
+2.  Take 6 minutes to brainstorm and discuss with your neighbour.
+3.  In the final few minutes, we will share what you discussed with the
+    group.
+
+## Coding: Calculate some basic statistics
 
 Practice using `summarise()` by calculating various summary statistics.
 Copy and paste the code below into the `R/learning.R` script file.
@@ -46,7 +76,7 @@ nhanes_small %>%
               min_bp_dia = min(bp_dia_ave, na.rm = TRUE))
 ```
 
-## Answer some statistical questions with group by and summarise
+## Coding: Answer some statistical questions with group by and summarise
 
 Copy and paste the code below into the `R/learning.R` script file.
 
@@ -114,7 +144,7 @@ nhanes_small %>%
     )
 ```
 
-## Practicing the dplyr functions
+## Coding: Practicing the dplyr functions
 
 Practice using `{dplyr}` by using the `NHANES` dataset and wrangling the
 data into a summary output. Don't create any intermediate objects by
@@ -149,7 +179,7 @@ NHANES %>%
               bmi_median = median(bmi, na.rm = TRUE))
 ```
 
-## Adding figures and changing the theme
+## Coding: Adding figures and changing the theme
 
 > Time: 20 minutes.
 
