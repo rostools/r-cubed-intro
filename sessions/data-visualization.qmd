@@ -209,8 +209,10 @@ nhanes_small %>%
 In general, it is good practice to create a new code chunk for each plot
 in Quarto for several reasons. One, it makes it easier to maintain a
 nice readable code and, two, there are some chunk options that only work
-with one figure. For instance, we can add a caption with the option
-`#| fig-cap`. Let's add one as well as a figure label with `#| label` so
+with one figure. However, it is possible to show multiple graphs for instance 
+side-by-side, as we will do later. 
+Now we add a caption for the plot with the option`#| fig-cap`. 
+Let's add one as well as a figure label with `#| label` so
 we can reference it in the text by using `@fig-LABEL`. Figure labels
 **must** always start with `fig-`.
 
