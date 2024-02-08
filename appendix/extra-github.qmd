@@ -1,4 +1,4 @@
-# Extra details about GitHub
+# Extras: About GitHub
 
 ## Manually create a repo on GitHub {#sec-extra-create-repo-github}
 

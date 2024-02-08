@@ -1,4 +1,11 @@
-# File conflicts between your computer and GitHub {#sec-merge-conflicts}
+---
+execute:
+  eval: false
+---
+
+# Extra: Merge conflicts in Git {#sec-merge-conflicts}
+
+## File conflicts between your computer and GitHub 
 
 Normally Git is very good at synchronizing and merging changes between a
 local repository and its remote repository. However, sometimes, when it

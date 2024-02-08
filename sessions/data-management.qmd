@@ -655,49 +655,6 @@ nhanes_small %>%
     select(bmi, phys_active)
 ```
 
-## Arranging the rows of your data by column
-
-You may want to sort your rows by a specific column so that values are
-arranged in ascending or descending order. This can be done using the
-function called `arrange()`. Again, `arrange()` takes the dataset as the
-first argument, followed by the columns that you wish to arrange data
-by. By default, `arrange()` orders in *ascending* order.
-
-```{r}
-#| filename: "R/learning.R"
-# Arranging data by age in ascending order
-nhanes_small %>%
-    arrange(age)
-```
-
-`arrange()` also arranges parameters of type `character` alphabetically:
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>% 
-    arrange(education)
-```
-
-If we want to order the column based on descending order, this can be
-done with `desc()`.
-
-```{r}
-#| filename: "R/learning.R"
-# Arranging data by age in descending order
-nhanes_small %>%
-    arrange(desc(age))
-```
-
-You can also order your data by multiple columns. For instance, we could
-arrange first by `education` and then by `age`.
-
-```{r}
-#| filename: "R/learning.R"
-# Arranging data by education then age in ascending order
-nhanes_small %>%
-    arrange(education, age)
-```
-
 ## Modify or add columns
 
 To modify an existing column or to add a new one, we can use the
@@ -1096,7 +1053,7 @@ files into R.
 -   Never edit raw data. Instead, use R code to make changes and clean
     up the raw data, rather than manually editing the dataset.
 -   Use the functions `select()`, `rename()`, `filter()`, `mutate()`
-    ("change or modify"), `arrange()` and `summarise()` from the dplyr
-    package to wrangle your data.
+    ("change or modify"), and `summarise()` from the dplyr package to
+    wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.

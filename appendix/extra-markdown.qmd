@@ -1,4 +1,4 @@
-# Extra Markdown syntax {#sec-extra-markdown}
+# Extras: Markdown syntax {#sec-extra-markdown}
 
 There is a lot more Markdown syntax that let's you do quite a bit for
 formatting. Quarto's [Markdown

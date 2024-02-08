@@ -3,7 +3,7 @@ execute:
   eval: false
 ---
 
-# Extra exercises {#sec-extra-exercises}
+# Extras: Additional exercises {#sec-extra-exercises}
 
 ## Discussion: How might you use Git in your work?
 
