@@ -1,6 +1,6 @@
 Package: r-cubed-intro
 Type: Website
-Version: 2023.04.25
+Version: 2024.01.23
 Title: "r-cubed: An Introductory Workshop on Modern Data Analyses and Workflows 
     for Reproducible Research in R"
 Description: Reproducibility and open scientific practices are increasingly demanded of
@@ -73,7 +73,7 @@ Suggests:
     knitr,
     markdown,
     quarto
-Remotes:  
+Remotes: 
     github::rostools/r3,
     rostools/r3admin
 Encoding: UTF-8
