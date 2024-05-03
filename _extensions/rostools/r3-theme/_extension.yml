@@ -12,7 +12,7 @@ contributes:
       from: markdown+emoji
       code-link: true
       theme:
-        - litera
+        - zephyr
         - custom-site.scss
 
     revealjs:
