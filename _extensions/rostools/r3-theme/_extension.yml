@@ -35,9 +35,7 @@ contributes:
       favicon: "favicon.ico"
       repo-branch: main
       repo-actions: [edit, issue, source]
-      search:
-        location: navbar
-        type: overlay
+      search: true
 
     execute:
       warning: false
