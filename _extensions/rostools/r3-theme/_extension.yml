@@ -1,18 +1,21 @@
 title: r3-theme
 author: Luke W. Johnston
-version: 1.0.5
-quarto-required: ">=1.3.0"
+version: 1.0.6
+quarto-required: ">=1.5.0"
 contributes:
   format:
     html:
       highlight-style: a11y
-      code-line-numbers: true
+      fig-dpi: 72
+      fig-width: 5.5
+      fig-height: 5
+      fig-align: center
       df-print: tibble
+      code-link: true
       code-overflow: scroll
       from: markdown+emoji
-      code-link: true
       theme:
-        - zephyr
+        - yeti
         - custom-site.scss
 
     revealjs:
@@ -28,8 +31,7 @@ contributes:
   project:
     project:
       type: book
-      output-dir: public
-      execute-dir: project
+      execute: project
 
     book:
       favicon: "favicon.ico"
@@ -37,23 +39,13 @@ contributes:
       repo-actions: [edit, issue, source]
       search: true
 
-    execute:
-      warning: false
-
     csl: vancouver.csl
 
     callout-appearance: minimal
     reference-location: margin
+    citation-location: margin
     crossref:
       chapters: true
 
-    knitr:
-      opts_chunk:
-        comment: "#>"
-        fig-dpi: 72
-        fig-width: 5.5
-        fig-height: 5
-        fig-align: center
-        out-width: 100%
-
-    format: r3-theme-html
+    execute:
+      freeze: auto
