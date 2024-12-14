@@ -330,6 +330,20 @@ this function.
 r3::check_setup()
 ```
 
+If everything is fine, you will see something that looks like:
+
+```
+Checking R version:
+✔ Your R is at the latest version of 4.4.2!
+Checking RStudio version:
+✔ Your RStudio is at the latest version of 2024.9.0.375!
+Checking Git config settings:
+✔ Your Git configuration is all setup!
+  Git now knows that:
+  - Your name is 'Luke W. Johnston'
+  - Your email is 'lwjohnst@gmail.com'
+```
+
 After you are done, you need to [create a GitHub
 account](https://github.com/join). Make note of your username, as we
 will ask you for it in the pre-course survey. Make sure to **remember
