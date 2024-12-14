@@ -34,10 +34,14 @@ contributes:
       execute: project
 
     book:
+      navbar:
+        logo: "favicon.ico"
+        logo-alt: "Graphic of a capital R with a 3 as a superscript."
+        search: true
+        pinned: true
       favicon: "favicon.ico"
       repo-branch: main
       repo-actions: [edit, issue, source]
-      search: true
 
     csl: vancouver.csl
 
@@ -49,3 +53,8 @@ contributes:
 
     execute:
       freeze: auto
+
+    knitr:
+      opts_chunk: 
+        R.options:
+          width: 72
