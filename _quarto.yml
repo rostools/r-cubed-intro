@@ -35,10 +35,10 @@ book:
       - sessions/data-management.qmd
       - sessions/reproducible-documents.qmd
       - sessions/data-visualization.qmd
+      - sessions/project-work.qmd
       - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
-    - appendix/assignment.qmd
     - appendix/for-instructors.qmd
     - appendix/extra-exercises.qmd
     - appendix/extra-github.qmd

@@ -366,7 +366,7 @@ you can (re-)use it for free! The material is organized in the order
 that we will cover it in the course.
 
 While the course will include lots of hands-on work during the sessions,
-the final group project assignment (@sec-assignment) will allow you to
+the final group project assignment (@sec-project-work) will allow you to
 practice everything you've learned in a team setting. **Please read it**
 to get familiar with what is expected of you.
 
