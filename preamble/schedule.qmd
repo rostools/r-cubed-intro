@@ -2,6 +2,9 @@
 execute: 
   echo: false
   eval: true
+format:
+  r3-theme-html: 
+    tbl-colwidths: [30, 70]
 ---
 
 # Schedule {#sec-schedule}
@@ -11,55 +14,52 @@ sessions interspersed with hands-on exercises and group work, using
 either a practice dataset or some other real-world dataset. There are
 some lectures given, mainly at the start and end of the course. The
 general schedule outline is shown in the below table. This is not a
-fixed schedule of the timings of each session --- some may be shorter
-and others may be longer. Instead, it is meant to be an approximate
-guide and overview.
+fixed schedule of the timings of each session---some may be shorter and
+others may be longer. Instead, it is meant to be an approximate guide
+and overview.
 
 ::: panel-tabset
-```{r}
-library(dplyr)
-add_link <- function(text, icon, link) {
-  colour <- "#138d75"
-  added_link <- paste0("<i class='fa-solid fa-", icon, "' style='color:", colour, "'></i>&nbsp;&nbsp;<a href=\"", link, "\">", text, "</a>")
-  if (link == "") {
-    added_link <- paste0("<i class='fa-solid fa-", icon, "' style='color:", colour, "'></i>&nbsp;&nbsp;", text)
-  }
-  return(htmltools::HTML(added_link))
-}
-
-schedule <- here::here("preamble/schedule.csv") %>%
-  readr::read_csv(col_types = "ccccc") %>%
-  mutate(across(everything(), ~ if_else(is.na(.x), "", .x))) %>%
-  mutate(
-    `Session topic` = list(`Session topic`, icon, link) %>%
-      purrr::pmap(~ add_link(..1, ..2, ..3)) %>%
-      unlist()
-  ) %>%
-  select(-icon, -link)
-
-list_day_schedule <- function(data, day) {
-  data %>%
-    filter(Day == day) %>%
-    select(-Day) %>%
-    knitr::kable()
-}
-```
-
 ## Day 1 {.unnumbered}
-
-```{r}
-list_day_schedule(schedule, "Day 1")
-```
 
 ## Day 2 {.unnumbered}
 
-```{r}
-list_day_schedule(schedule, "Day 2")
-```
-
 ## Day 3 {.unnumbered}
 
-```{r}
-list_day_schedule(schedule, "Day 3")
-```
+| Time | Session topic |
+|:--------------------|:--------------------------------------------------|
+| 9:30 | {{< fa mug-hot >}} Arrival; Coffee and light breakfast |
+| 10:00 | {{< fa person-chalkboard >}} [Introduction to the course](/sessions/introduction.qmd) |
+| 10:30 | {{< fa laptop-code >}} [Management of R projects (with short break)](/sessions/project-management.qmd) |
+| 12:20 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
+| 12:30 | {{< fa utensils >}} Lunch |
+| 13:15 | {{< fa user-group >}} [Networking and social activity](/appendix/social.qmd#social-day-one) |
+| 13:35 | {{< fa laptop-code >}} [Version control and collaborative practices](/sessions/version-control.qmd) |
+| 14:45 | {{< fa mug-hot >}} Break with coffee and snacks |
+| 15:00 | {{< fa laptop-code >}} [Version control and collaborative practices](/sessions/version-control.qmd) |
+| 16:30 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
+
+| Time | Session topic |
+|:--------------------|:--------------------------------------------------|
+| 9:00 | {{< fa laptop-code >}} [Data management and wrangling](/sessions/data-management.qmd) |
+| 10:15 | {{< fa mug-hot >}} Break with coffee, team and snacks |
+| 10:30 | {{< fa laptop-code >}} [Data management and wrangling (with short break)](/sessions/data-management.qmd) |
+| 12:20 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
+| 12:30 | {{< fa utensils >}} Lunch |
+| 13:15 | {{< fa user-group >}} [Networking and social activity](/appendix/social.qmd#social-day-two) |
+| 13:35 | {{< fa laptop-code >}} [Creating reproducible documents](/sessions/reproducible-documents.qmd) |
+| 14:45 | {{< fa mug-hot >}} Break with coffee and snacks |
+| 15:00 | {{< fa laptop-code >}} [Creating reproducible documents](/sessions/reproducible-documents.qmd) |
+| 16:30 | {{< fa comment-dots >}} \[End of session short survey |
+
+| Time | Session topic |
+|:--------------------|:--------------------------------------------------|
+| 9:00 | {{< fa laptop-code >}} [Data visualizations](/sessions/data-visualization.qmd) |
+| 10:15 | {{< fa mug-hot >}} Break with coffee and snacks |
+| 10:30 | {{< fa laptop-code >}} [Data visualizations (with short break)](/sessions/data-visualization.qmd) |
+| 12:20 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
+| 12:30 | {{< fa utensils >}} Lunch |
+| 13:15 | {{< fa people-group >}} [Group work (with break)](/sessions/project-work.qmd) |
+| 16:00 | {{< fa people-group >}} Testing reproducibility of projects |
+| 16:10 | {{< fa person-chalkboard >}} [Closing remarks](/sessions/what-next.qmd) |
+| 16:30 | {{< fa comment-dots >}} [End of course short survey and farewell](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 :::
