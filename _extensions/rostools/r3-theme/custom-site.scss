@@ -1,14 +1,15 @@
 /*-- scss:defaults --*/
 
-@import url('https://fonts.googleapis.com/css2?family=Cabin');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Outfit');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
 
-$font-family-monospace: "PT Mono", monospace !default;
-$font-family-serif: "Nanum Gothic", sans-serif !default;
-$font-family-sans-serif: "Nanum Gothic", sans-serif !default;
-$headings-font-family: "Cabin", sans-serif !default;
+$font-family-monospace: "Source Code Pro", monospace !default;
+$font-family-serif: "Quattrocento Sans", sans-serif !default;
+$font-family-sans-serif: "Quattrocento Sans", sans-serif !default;
+$headings-font-family: "Outfit", sans-serif !default;
 $font-size-root: 18px !default;
+$mermaid-edge-color: gray;
 
 /*-- scss:rules --*/
 
