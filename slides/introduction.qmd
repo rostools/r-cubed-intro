@@ -1,7 +1,8 @@
 ---
 search: false
-# Relative to main project
-bibliography: includes/references.bib
+format: r3-theme-revealjs
+bibliography: "../includes/references.bib"
+csl: "../_extensions/rostools/r3-theme/vancouver.csl"
 ---
 
 # Welcome to the Introductory R^3^ course!

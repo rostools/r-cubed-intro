@@ -1,6 +1,6 @@
 project:
   type: r3-theme
-  pre-render: bash _build-slides.sh
+  pre-render: quarto render slides/*.qmd
   resources:
     - videos/*
     - includes/cheatsheet.pdf
