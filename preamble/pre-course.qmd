@@ -209,11 +209,11 @@ To install these packages, we'll need to install the r3 helper package.
 For that, we'll need to first install the `{pak}` package. Watch the
 video (no audio) below to see how to do this:
 
-{{< video ../videos/rstudio-install-pak.mp4 >}}
+{{< video /videos/rstudio-install-pak.mp4 >}}
 
 Or paste the following code into the RStudio R Console:
 
-```{r}
+```{r install-pak}
 #| filename: "Console"
 install.packages("pak")
 ```
@@ -223,12 +223,12 @@ and the r3 helper package will be installed. Watch the video below to
 see how to do this. **Note**, what you see in the video (no audio) may
 look different from yours.
 
-```{r}
+```{r install-r3}
 #| filename: "Console"
 pak::pkg_install("rostools/r3", upgrade = TRUE)
 ```
 
-{{< video ../videos/console-install-r3.mp4 >}}
+{{< video /videos/console-install-r3.mp4 >}}
 
 ::: {.callout-warning appearance="default"}
 You might encounter an error when running this code. That's ok, if you
@@ -260,7 +260,7 @@ data analysis by providing packages that guide workflows and lead to
 more reproducible analysis projects. To install all the packages we will
 use for this course, copy and paste this command into the R Console:
 
-```{r}
+```{r install-necessary-packages}
 #| filename: "Console"
 r3::install_packages_introduction()
 ```
@@ -317,7 +317,7 @@ ready for the course. In order to use Git properly, you need to inform
 your computer that you are using Git. The r3 course helper package has a
 function to help with this. Type in the RStudio Console:
 
-```{r}
+```{r setup-git-config}
 #| filename: "Console"
 r3::setup_git_config()
 ```
@@ -327,7 +327,7 @@ function to make sure everything is working with your setup. When you
 complete the survey later, you will need to copy and paste the output of
 this function.
 
-```{r}
+```{r run-check-setup}
 #| filename: "Console"
 r3::check_setup()
 ```
@@ -391,8 +391,14 @@ If you haven't read it, **read it now**. The survey involves a question
 about Conduct. We want to make sure this course is a supportive and safe
 environment for learning, so this Code of Conduct is quite important.
 
+{{< include /includes/_faq-text.qmd >}}
+
+{{< include /includes/_discord-text.qmd >}}
+
 You're almost done. Please fill out the pre-course survey to finish this
 section, either [at this
 link](https://docs.google.com/forms/d/e/1FAIpQLSeuMe485zZXlG9uQlUgcgsWBJvpHUB_-bMVkEtA4moWK_oUoQ/viewform?usp=sf_link).
 
 See you at the course!
+
+{{< include /includes/_code-appendix.qmd >}}
