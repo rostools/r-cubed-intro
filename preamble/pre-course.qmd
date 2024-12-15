@@ -77,12 +77,7 @@ cat(r3admin::read_common("reading-website.md"), sep = "\n")
 
 ## Installing the latest programs {#sec-install-programs}
 
-```{r}
-#| echo: false
-#| eval: true
-#| results: asis
-cat(r3admin::read_common("installing-programs.md"), sep = "\n")
-```
+{{< include /includes/_installing-programs.qmd >}}
 
 ## What is R? {#sec-what-is-r}
 
