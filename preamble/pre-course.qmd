@@ -129,12 +129,14 @@ Let's start learning about RStudio and how to use it. Check out
 @fig-rstudio-introduction below. You can see that RStudio has four
 "panels", dividing the screen into the four sections.
 
-> **Note**: This image, along with the other images and videos below,
-> may look slightly different from your own computer depending on your
-> operating system and other settings.
+::: {.callout-note appearance="default"}
+This image, along with the other images and videos below,
+may look slightly different from your own computer depending on your
+operating system and other settings.
+:::
 
 ![Interface to
-RStudio.](../images/rstudio-introduction.png){#fig-rstudio-introduction}
+RStudio.](/images/rstudio-introduction.png){#fig-rstudio-introduction}
 
 While you can customize where the individual panels go, the default
 layout is how the panels are shown.
