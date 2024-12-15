@@ -353,10 +353,12 @@ your password**, either write it down somewhere or (even better) use a
 [password manager](https://en.wikipedia.org/wiki/Password_manager) to
 store your password for you.
 
-> Note: *GitHub* is a company and website, while *Git* is a software.
-> There is sometimes confusion about these two things since they both
-> say "Git". It's important to distinguish that they are two *separate*
-> things.
+::: {.callout-note appearance="default"}
+*GitHub* is a company and website, while *Git* is a software.
+There is sometimes confusion about these two things since they both
+say "Git". It's important to distinguish that they are two *separate*
+things.
+:::
 
 ## Basic course details {#sec-course-details}
 
