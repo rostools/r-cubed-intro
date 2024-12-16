@@ -20,6 +20,6 @@ style:
   #!/usr/bin/Rscript
   styler::style_dir(here::here())
 
-# Build pkgdown website
+# Build Quarto website
 build-site: 
   quarto render
