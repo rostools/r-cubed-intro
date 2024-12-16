@@ -6,7 +6,7 @@ on:
       - opened
       - reopened
       - transferred
-  pull_request: 
+  pull_request:
     types:
       - reopened
       - opened
@@ -16,22 +16,9 @@ permissions:
 
 jobs:
   add-to-project:
-    name: Add to project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Add issue or PR to project board
-        uses: actions/add-to-project@v1.0.2
-        with: 
-          project-url: https://github.com/orgs/rostools/projects/12
-          github-token: ${{ secrets.ADD_TO_BOARD }}
-
-      - name: Assign PR to creator
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          gh pr edit $PR --add-assignee $AUTHOR
-        env:
-          AUTHOR: ${{ github.event.pull_request.user.login }}
-          PR: ${{ github.event.pull_request.html_url }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
+    uses: rostools/.github/.github/workflows/reusable-add-to-project.yml@main
+    with:
+      board-number: 12
+    secrets:
+      add-to-board-token: ${{ secrets.ADD_TO_BOARD }}
+      gh-token: ${{ secrets.GITHUB_TOKEN }}
