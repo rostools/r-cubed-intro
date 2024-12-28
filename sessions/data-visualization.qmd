@@ -173,7 +173,7 @@ data into the `ggplot()` function.
 
 ```{r}
 #| filename: "doc/learning.qmd"
-nhanes_small %>% 
+nhanes_small %>%
   ggplot(aes(x = bmi)) +
   geom_histogram()
 ```
@@ -185,7 +185,7 @@ You'll notice we get a warning about dropping missing values. That's
 
 ```{r}
 #| filename: "doc/learning.qmd"
-nhanes_small %>% 
+nhanes_small %>%
   ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
 ```
@@ -382,7 +382,7 @@ created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
 #| filename: "doc/learning.qmd"
-nhanes_small %>% 
+nhanes_small %>%
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE)
 ```
@@ -392,7 +392,7 @@ values are in the area of the plot. We can also draw a smoothing line by
 adding to the plot by using `+`.
 
 ```{r}
-nhanes_small %>% 
+nhanes_small %>%
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE) +
   geom_smooth(na.rm = TRUE)
@@ -500,12 +500,12 @@ Complete as many tasks as you can below.
     variables.
 
     ```{r}
-    #| filename: "doc/learning.qmd"
-    #| output: false
-    library(NHANES)
-    nhanes_exercise <- NHANES %>%
-      rename_with(snakecase::to_snake_case) %>%
-      rename(sex = gender)
+#| filename: "doc/learning.qmd"
+#| output: false
+library(NHANES)
+nhanes_exercise <- NHANES %>%
+  rename_with(snakecase::to_snake_case) %>%
+  rename(sex = gender)
     ```
 
 2.  With the `nhanes_exercise` data, use `geom_density()` to show the
@@ -540,24 +540,24 @@ Complete as many tasks as you can below.
     struggling or are out of time.</summary>
 
     ```{r solution-distribution-ages}
-    #| echo: fenced
-    #| eval: false
-    # These are approximate caption titles
-    #| label: fig-distribution-ages
-    #| fig-cap: "Distribution of different age variables"
-    #| layout-ncol: 2
-    #| fig-subcap:
-    #|   - "Age at collection"
-    #|   - "Age of diabetes diagnosis"
-    # Distribution of age
-    nhanes_exercise %>% 
-      ggplot(aes(x = age)) +
-      geom_density(na.rm = TRUE)
+#| echo: fenced
+#| eval: false
+# These are approximate caption titles
+#| label: fig-distribution-ages
+#| fig-cap: "Distribution of different age variables"
+#| layout-ncol: 2
+#| fig-subcap:
+#|   - "Age at collection"
+#|   - "Age of diabetes diagnosis"
+# Distribution of age
+nhanes_exercise %>%
+  ggplot(aes(x = age)) +
+  geom_density(na.rm = TRUE)
 
-    # Distribution of age at diabetes diagnosis
-    nhanes_exercise %>% 
-      ggplot(aes(x = diabetes_age)) +
-      geom_density(na.rm = TRUE)
+# Distribution of age at diabetes diagnosis
+nhanes_exercise %>%
+  ggplot(aes(x = diabetes_age)) +
+  geom_density(na.rm = TRUE)
     ```
 
     </details>
@@ -581,15 +581,15 @@ Complete as many tasks as you can below.
     ```
 
     ```{r solution-smoking-now-with-age}
-    #| eval: false
-    #| code-fold: true
-    #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-    # Number of people who smoke now and are or above 20 years of age,
-    # removing those with missing smoking status.
-    nhanes_exercise %>%
-      filter(age >= 20, !is.na(smoke_now)) %>%
-      ggplot(aes(x = smoke_now)) +
-      geom_bar()
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# Number of people who smoke now and are or above 20 years of age,
+# removing those with missing smoking status.
+nhanes_exercise %>%
+  filter(age >= 20, !is.na(smoke_now)) %>%
+  ggplot(aes(x = smoke_now)) +
+  geom_bar()
     ```
 
 4.  Mean arterial pressure is a blood pressure measure used to determine
@@ -615,15 +615,15 @@ Complete as many tasks as you can below.
     ```
 
     ```{r solution-map-bmi}
-    #| eval: false
-    #| code-fold: true
-    #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-    # BMI in relation to mean arterial pressure
-    nhanes_exercise %>%
-      mutate(mean_arterial_pressure = (bp_sys_ave + (2 * bp_dia_ave)) / 3) %>%
-      ggplot(aes(x = bmi, y = mean_arterial_pressure)) +
-      geom_hex(na.rm = TRUE) +
-      geom_smooth()
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# BMI in relation to mean arterial pressure
+nhanes_exercise %>%
+  mutate(mean_arterial_pressure = (bp_sys_ave + (2 * bp_dia_ave)) / 3) %>%
+  ggplot(aes(x = bmi, y = mean_arterial_pressure)) +
+  geom_hex(na.rm = TRUE) +
+  geom_smooth()
     ```
 
 5.  End with adding and committing the changes to the Git history with
@@ -685,7 +685,7 @@ variable (`diabetes`). We could use `geom_point()`, making sure to also
 ```{r}
 #| filename: "doc/learning.qmd"
 nhanes_small %>%
-  filter(!is.na(diabetes)) %>% 
+  filter(!is.na(diabetes)) %>%
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = diabetes)) +
   geom_point(na.rm = TRUE)
 ```
@@ -710,7 +710,7 @@ previous answer (instead of using `colour`). Make a new code chunk with
 ```{r using-faceting}
 #| filename: "doc/learning.qmd"
 nhanes_small %>%
-  filter(!is.na(diabetes)) %>% 
+  filter(!is.na(diabetes)) %>%
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_point(na.rm = TRUE) +
   facet_grid(cols = vars(diabetes))
@@ -722,7 +722,7 @@ Try faceting with plots stacked by diabetes status, using the argument
 ```{r}
 #| filename: "doc/learning.qmd"
 nhanes_small %>%
-  filter(!is.na(diabetes)) %>% 
+  filter(!is.na(diabetes)) %>%
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_point(na.rm = TRUE) +
   facet_grid(rows = vars(diabetes))
@@ -734,7 +734,7 @@ to `filter()` out those missing `education` values.
 ```{r}
 #| filename: "doc/learning.qmd"
 nhanes_small %>%
-  filter(!is.na(diabetes), !is.na(education)) %>% 
+  filter(!is.na(diabetes), !is.na(education)) %>%
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
   geom_point(na.rm = TRUE) +
   facet_grid(
@@ -848,18 +848,18 @@ functions. Use tab auto-completion to find the correct function.
 #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # 1. and 2.
 nhanes_small %>%
-  filter(!is.na(diabetes), !is.na(education)) %>% 
+  filter(!is.na(diabetes), !is.na(education)) %>%
   ggplot(aes(x = diabetes, fill = education)) +
   geom_bar(position = position_dodge()) +
   scale_fill_viridis_d()
-  # scale_fill_viridis_d(option = "magma")
+# scale_fill_viridis_d(option = "magma")
 
-# 3. 
+# 3.
 nhanes_small %>%
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
   geom_point(na.rm = TRUE) +
   scale_colour_viridis_c()
-  # scale_colour_viridis_c(option = "inferno")
+# scale_colour_viridis_c(option = "inferno")
 ```
 
 ## Titles, axis labels, and themes
@@ -880,7 +880,7 @@ below:
 ```{r built-in-themes}
 #| filename: "doc/learning.qmd"
 base_scatterplot <- nhanes_small %>%
-  filter(!is.na(diabetes), !is.na(education)) %>% 
+  filter(!is.na(diabetes), !is.na(education)) %>%
   ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
   geom_point(na.rm = TRUE) +
   facet_grid(

@@ -19,15 +19,15 @@ by. By default, `arrange()` orders in *ascending* order.
 #| filename: "R/learning.R"
 # Arranging data by age in ascending order
 nhanes_small %>%
-    arrange(age)
+  arrange(age)
 ```
 
 `arrange()` also arranges parameters of type `character` alphabetically:
 
 ```{r}
 #| filename: "R/learning.R"
-nhanes_small %>% 
-    arrange(education)
+nhanes_small %>%
+  arrange(education)
 ```
 
 If we want to order the column based on descending order, this can be
@@ -37,7 +37,7 @@ done with `desc()`.
 #| filename: "R/learning.R"
 # Arranging data by age in descending order
 nhanes_small %>%
-    arrange(desc(age))
+  arrange(desc(age))
 ```
 
 You can also order your data by multiple columns. For instance, we could
@@ -47,5 +47,5 @@ arrange first by `education` and then by `age`.
 #| filename: "R/learning.R"
 # Arranging data by education then age in ascending order
 nhanes_small %>%
-    arrange(education, age)
+  arrange(education, age)
 ```

@@ -147,13 +147,14 @@ files and folders.
 
 ```         
 LearningR
-├── R
+├── .git/
+├── R/
 │   └── README.md
-├── data
+├── data/
 │   └── README.md
-├── data-raw
+├── data-raw/
 │   └── README.md
-├── doc
+├── docs/
 │   └── README.md
 ├── .gitignore
 ├── DESCRIPTION
@@ -685,11 +686,11 @@ If you still can't find the problem, here are some other steps to take:
     the following commands into the Console and run it (hit `Enter`).
 
     ```{r}
-    #| filename: "Console"
-    #| eval: false
-    ?colnames
+#| filename: "Console"
+#| eval: false
+?colnames
 
-    help(colnames)
+help(colnames)
     ```
 
     Sometimes, this documentation can be hard to read and seem overly

@@ -473,9 +473,9 @@ nhanes_small %>%
   ) %>%
   # 3. Rename `diabetes` to `"Diabetes Status"` and `education` to `Education`
   rename(
-    "Diabetes Status" = diabetes, 
+    "Diabetes Status" = diabetes,
     "Education" = education,
-    "Mean Age" = mean_age, 
+    "Mean Age" = mean_age,
     "Mean BMI" = mean_bmi
   ) %>%
   knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
