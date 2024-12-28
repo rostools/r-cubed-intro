@@ -6,6 +6,6 @@ on:
 
 jobs:
   build-deploy-docs:
-    uses: rostools/.github/.github/workflows/reusable-build-website.yml@main
+    uses: rostools/.github/.github/workflows/reusable-build-website-r.yml@main
     secrets:
       netlify-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
