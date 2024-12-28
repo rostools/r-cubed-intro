@@ -106,13 +106,13 @@ We need to teach about being open, about being reproducible, and about
 using better research practices in our work. All of which involves more
 than just R.
 
-| Session                         | Reason                                                             |
-|---------------------------------|--------------------------------------------------------------------|
-| Management of R projects        | Reproducibility starts at the file level.                          |
-| Version control                 | Openness and reproducibility is about transparency and inspection. |
-| Data management and wrangling   | This one is about R :smiley_cat:                                   |
-| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes:                   |
-| Data visualization              | Also about R!                                                      |
+| Session | Reason |
+|----|----|
+| Management of R projects | Reproducibility starts at the file level. |
+| Version control | Openness and reproducibility is about transparency and inspection. |
+| Data management and wrangling | This one is about R :smiley_cat: |
+| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes: |
+| Data visualization | Also about R! |
 
 : Some reasons why we teach what we do in each of the sessions.
 :::
@@ -128,3 +128,144 @@ little to no knowledge on many of these concepts. So, for those with
 some knowledge, it *will* feel slow at times! You can always help your
 neighbour out!
 
+## Encountering problems and finding help
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Briefly go over this section with them, especially emphasize "Restart
+R", reading the error or warning message, and checking for missing
+commas, brackets or misspelled words.
+:::
+
+::: callout-note
+## Reading task: \~10 minutes
+
+![A common and frequent experience when working in R. Artwork by
+[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-debugging.jpg){#fig-art-debugging
+width="90%"}
+
+You *will* encounter problems and errors when working with R, and you
+will encounter them *all the time*. In fact, a large amount of your time
+in R will be spent figuring out solutions to these errors ("debugging").
+For this course, we have a short
+[cheatsheet](../includes/cheatsheet.pdf) that lists the tools and
+functions we will cover, which can help with problems forgetting
+function names or their usage. RStudio also has many cheatsheets of its
+own, which you can find with the Command Palette
+({{< var keybind.palette >}}, then type "cheatsheet"). However, even
+with these cheatsheets, you will still encounter other problems like
+errors or warnings. Error messages will appear in red text in your
+Console and will start with the word "Error:". Warning messages are also
+in red text, but are often either harmless or informative, so make sure
+to read the message and see if it says "Error" or not. Here are some
+initial steps to take when you encounter an error:
+
+1.  **First, try to stay calm**; problems happen to everyone, no matter
+    their skill level. You *can fix it*! :smile:
+2.  **Read through the error message and try to understand what R is
+    telling you**. Some common error messages include:
+    -   *"Could not find function"*: Usually means that you have
+        misspelled the function or an R package has not loaded properly.
+    -   *"Object not found"*: Usually means that you have not
+        initialized (created) the object or the object is initialized
+        but empty.
+    -   *"Error in..."*: Usually means that you are referring to an
+        object that doesn't exist.
+    -   *"Unexpected symbol in..."*: Usually means that you misspelled a
+        variable or object name, so R can't find it.
+3.  **Go over the code again and carefully check for any mistakes:**
+    -   Missing commas or pipes?
+    -   Missing end brackets like `]`, `)`, or `}`?
+    -   Capitalized something that shouldn't be capitalized?
+    -   Object or column name misspelled?
+    -   Forgot to load your data before working on it?
+    -   Forgot to load or re-load your packages? Packages are
+        automatically unloaded when you exit RStudio and R. So you need
+        to load them each new session with the `library()` function.
+4.  **Go back to the start of the code and run each line one at a
+    time**, to see where the problem occurs. You will get an opportunity
+    to practice this later, once you are working with bigger chunks of
+    code.
+
+If you still can't find the problem, here are some other steps to take:
+
+1.  **Restart the R session with** {{< var keybind.restart-r >}} **or
+    with the menu item `Session -> Restart R`**. Then load your packages
+    (and data if needed) and run the code from the beginning, tracking
+    which objects get created, and if the proper object name is used
+    later on.
+
+2.  (Rarely need to do) **Close/re-open RStudio and try again.**
+
+3.  **Use `help()` or `?` to access built-in documentation about a
+    function or package.** You may be using the function incorrectly, so
+    find out more about the function by looking at the built-in
+    documentation. The documentation will open up in the "Help" pane of
+    RStudio (bottom right-hand corner). **Try it out:** Enter either of
+    the following commands into the Console and run it (hit `Enter`).
+
+    ```{r}
+#| filename: "Console"
+#| eval: false
+?colnames
+
+help(colnames)
+    ```
+
+    Sometimes, this documentation can be hard to read and seem overly
+    complex for a beginner. You can also try finding the website for the
+    package you are having trouble with, as they often have guides that
+    are a little easier to understand. The
+    [tidyverse](https://www.tidyverse.org/packages/) packages all have
+    amazing documentation that you can use to help you with problems you
+    may have.
+
+4.  **Consider explaining the problem out loud to a colleague or
+    friend.** (or even a rubber duck!) You might find that, in verbally
+    going through the problem and explaining it, you will likely come up
+    with the solution yourself.
+
+5.  **Take a break and come back to it later!**
+
+6.  **Google it.** Chances are that someone has already encountered that
+    error and has asked about it online. In fact, those who are
+    "experts" in coding languages like R are experts largely because of
+    their skill in knowing the right words or terms or questions to ask
+    Google. Usually googling the error message will be enough to find
+    the answer, but sometimes you'll need to include "R" or "rstats" and
+    the relevant package or function as a keyword in your search.
+
+7.  If all else fails, you can always turn to the trusty **online R
+    community**. Check
+    [StackOverflow](https://stackoverflow.com/questions/tagged/r), a
+    coding-related question and answer website, to see whether your
+    issue has already been asked and solved by others. If it hasn't and
+    you are considering submitting a question, make sure to read the
+    posting guides beforehand to ensure that you are asking the question
+    in a helpful way.
+
+*Final words:* It is important to always work towards writing "better"
+and "neater" code, as this can make it easier to break down pieces of
+code and troubleshoot problems. Ways to integrate this into your
+practice are to review documents like the tidyverse style guides
+regularly and perhaps join an online coding community.
+:::
+
+## Quality of life settings
+
+Before ending, we're going to set some RStudio options that will help
+you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
+
+1.  In "General", under the "Basic" tab, uncheck all boxes under "R
+    Session", "Workspaces", and "History", as well as changing the "Save
+    workspace to .RData on exit" to "Never".
+2.  In "Code", under the "Editing" tab, change the "Tab width" to 2. The
+    tidyverse style guide as well as `{styler}` both use 2 spaces for
+    tabs, and since we are using the package, we can set this option
+    here to save us editing issues.
+3.  In "Code", under the "Saving" tab, check all the boxes under
+    "General" and "Auto-save". This last one, the "Auto-save", will help
+    out a lot, since one of the biggest "troubleshooting issues" we
+    encounter when helping during the version control session is that
+    people forget to save. This solves that problem.

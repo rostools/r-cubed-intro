@@ -1,5 +1,7 @@
 # Version control with Git {#sec-version-control}
 
+TODO: Split this into Git vs GitHub sessions
+
 ```{r}
 #| include: false
 # To trigger downlit for this page.
@@ -247,6 +249,18 @@ Setting up a Git repository can be done in several ways:
     RStudio.
 -   For existing R Projects, you can type in the console
     `usethis::use_git()` (*don't do this for the course!*).
+
+The `usethis::use_r()` command creates R scripts in the `R/` folder. As
+you may tell, the `{usethis}` package can be quite handy. For the first
+few sessions, we will be working the R scripts and then later will move
+over to Quarto files instead. Why? Working with R, you will be doing a
+lot of coding and writing in both types of files, so we want you to get
+practice using both.
+
+![How we can stand on the shoulders of "usethis" to be productive.
+Artwork by
+[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-usethis.png){#fig-art-usethis
+width="100%"}
 :::
 
 ## Using Git in RStudio
@@ -695,6 +709,34 @@ in the course.
 > to start training any colleague who is interested in collaborating
 > this way and slowly you'll surround yourself with collaborators who
 > also work this way.
+
+### Collaborating on Quarto documents
+
+In general, there are multiple ways of collaborating on a document, some
+traditional approaches are:
+
+1.  One person has the primary task of writing up the report and then
+    gets feedback from other collaborators through the use of "Track
+    Changes" or by inserting comments in Word.
+2.  Multiple people are responsible for writing the report and probably
+    use different documents that will end up being merged later on. Or
+    they email back and forth (or use something like Dropbox or Google
+    Docs or shared folders) and work on a single document.
+
+The first workflow is not possible in a Quarto document since there
+isn't a feature like Word's "Track Changes". Instead, you'd use a
+workflow that probably resembles how peer reviews are done; reading the
+document and making comments in a separate file to upload to the journal
+later. Or you'd use a workflow that revolves around GitHub and Git, an
+efficient workflow that has been tried and tested by tens of thousands
+of teams in tens of hundreds of companies globally. The goal of this
+course is to slowly move researchers more into the modern era, based on
+modern technology, tools, and workflows.
+
+The second workflow is pretty similar while using Git and GitHub along
+with Quarto. You might split up a document into sections that each
+collaborator may work on, and then later on merge them together. This
+last approach is what we will get you to do for the group project.
 :::
 
 ## Summary

@@ -11,8 +11,6 @@ library(tidyverse)
 
 <!-- TODO: Revise objectives to fit how I did it in advanced -->
 
-1.  Learn the difference between "messy" and "tidy" data, including how
-    to create tidy data to simplify your analysis.
 2.  Perform simple transformations and subsetting of datasets, such as:
     -   Subset specific columns and rows of a dataset, with
         `filter()`and `select()`.
@@ -20,141 +18,8 @@ library(tidyverse)
     -   Create new or transform existing columns in a dataset, with
         `mutate()`.
     -   Calculate simple data summaries, with `summarise()`.
-3.  Learn about and apply the "split-apply-combine" method of analyses,
-    with `group_by()` and `summarise()`.
-4.  Write "tidier" and more readable code by using the pipe (`%>%`)
+3.  Write "tidier" and more readable code by using the pipe (`%>%`)
     operator.
-
-## "Messy" vs. "tidy" data
-
-::: {.callout-note collapse="true"}
-## Instructor note
-
-This session usually takes a fair amount of time relative to the other
-sessions. The Quarto session is right afterwards and since it usually is
-done quicker than other sessions, it's fine if this session takes up
-time in the Quarto session.
-
-For the reading section, emphasize the characteristics of a "tidy"
-dataset.
-:::
-
-::: callout-note
-## Reading task: \~10 minutes
-
-The concept of "tidy" data was popularized in an
-[article](https://www.jstatsoft.org/v59/i10/paper) by Hadley Wickham and
-described in more detail in the [Tidy Data
-chapter](https://r4ds.had.co.nz/tidy-data.html) of the *R for Data
-Science* online book. Before we continue with tidy data, we need to
-cover something that is related to the concept of "tidy" and that has
-already come up in this course: the `{tidyverse}`. The `{tidyverse}` is
-an ecosystem of R packages that are designed to work well together, that
-all follow a strong "[design philosophy](https://design.tidyverse.org/)"
-and common [style guide](https://style.tidyverse.org/). This makes
-combining these packages in the tidyverse much easier. We teach the
-tidyverse because of these above mentioned reasons.
-
-Ok, back to "tidy data". A tidy dataset is when:
-
--   Each variable has its own column (e.g. "Body Weight").
--   Each observation has its own row (e.g. "Person").
--   Each value has its own cell (e.g. "Body weight for a person at a
-    specific date").
-
-Take a look at the example "tidy" and "messy" data frames (also called
-"tibbles" in the tidyverse) below. Think about why each may be
-considered "tidy" or "messy". What do you notice between the tidy
-versions and the messier versions?
-
-```{r}
-# Datasets come from tidyr
-# Tidy:
-table1
-
-# Partly tidy:
-table2
-
-# Messier:
-table3
-
-# Messy:
-table4a
-
-# Messy:
-table4b
-```
-
-The "most" tidy version is `table1` as each column describes their
-values (e.g. population is population size), each row is unique (e.g.
-first row is for values from Afghanistan from 1999), and each cell is an
-explicit value representative of its column and row.
-
-`table2` is a "long" version of `table1` so it is partly "tidy", but it
-doesn't satisfy the rule that each variable has a column, since `count`
-represents both cases and population size.
-
-On the other hand, `table3` is messy because the `rate` column values
-are a composite of two other column values (cases and population), when
-it should be a single number (a percent). Both `table4a` and `table4b`
-have columns with ambiguous values inside. For example, you can't tell
-from the data what the values in the `1999` column contain.
-
-Tidy data has a few notable benefits:
-
-1.  Time spent preparing your data to be tidy from the beginning can
-    save days of added work and frustration in the long run.
-2.  "Tidy data" is a conceptual framework that allows you to easily
-    build off and wrangle (i.e. "manipulate", "clean up", "manage") data
-    in simpler and easy-to-interpret ways, especially when used within
-    the framework of the tidyverse.
-
-The concept of tidy data also gives rise to "tidy code" for wrangling.
-By using "verbs" (R functions) and chaining them together in "sentences"
-(in a sequential pipeline), you can construct meaningful and readable
-code that describes in plainer English what you are doing to the data.
-This is one simple way that you can enhance the reproducibility of your
-code.
-:::
-
-## Managing and working with data in R
-
-::: {.callout-note appearance="minimal" collapse="true"}
-## Instructor note
-
-After they read it, go over and emphasize the functions shown in the
-table that we will be teaching.
-:::
-
-::: callout-note
-## Reading task: \~5 minutes
-
-When working with data, there are a few principles to follow:
-
--   You should always save your original raw dataset in the `data-raw/`
-    folder.
-    -   *Note*: Whether or not you save data to `data-raw/` depends on
-        how you collected the data and how many collaborators are on
-        your team. You may end up storing and processing the data in
-        another folder as a project of its own.
--   **Never** edit your raw data directly and save it in a separate
-    location.
--   Only work with your raw data using R code. *Don't manually edit it*.
-    Manual editing doesn't leave a history of what you've done to it, so
-    you can't go back and see what you've done. Always keep a history of
-    any changes you've made to the data, preferably by using R code.
--   Save the edited data as another dataset and store it in the `data/`
-    folder.
-
-When wrangling your data with R code, make sure to:
-
--   Document what you did to your data and why you did it, to help you
-    remember later on (by using hashes to indicate comments and non-code
-    text).
--   Write the code in a way that is as descriptive as possible and is
-    readable enough to understand what is being done to the data.
--   Keep the code simple: Don't be clever, be clear. Clear code is
-    easier to understand than clever and sometimes overly-complex code.
 
 In data wrangling, most tasks can be expressed by a few simple "verbs"
 (actions). Wrangling here refers to maneuvering, managing, controlling,
@@ -162,15 +27,15 @@ and turning your data around to clean it up, better understand it, and
 prepare it for later analyses. The table below lists some common "verbs"
 from the `{dplyr}` package that come from the `{tidyverse}`:
 
-| Task                        | Example                                                                   | Function                        |
-|:----------------------------|:--------------------------------------------------------------------------|:--------------------------------|
-| Select columns              | Remove data entry columns such as the person's name who entered the data. | `select()`                      |
-| Rename columns              | Changing a column name from 'Q1' to 'participant_name'.                   | `rename()`                      |
-| Transform or modify columns | Multiplying or taking the log of a column's values.                       | `mutate()`                      |
-| Subset/filter rows          | Keeping rows with glucose values above 4.                                 | `filter()`                      |
-| Sort rows                   | Show rows with the smallest value at the top.                             | `arrange()`                     |
-| Calculate summaries         | Calculating the maximum, median, and minimum age.                         | `summarise()`                   |
-| Run code by a group         | Calculate means of age by males and females.                              | `group_by()` with `summarise()` |
+| Task | Example | Function |
+|:---|:---|:---|
+| Select columns | Remove data entry columns such as the person's name who entered the data. | `select()` |
+| Rename columns | Changing a column name from 'Q1' to 'participant_name'. | `rename()` |
+| Transform or modify columns | Multiplying or taking the log of a column's values. | `mutate()` |
+| Subset/filter rows | Keeping rows with glucose values above 4. | `filter()` |
+| Sort rows | Show rows with the smallest value at the top. | `arrange()` |
+| Calculate summaries | Calculating the maximum, median, and minimum age. | `summarise()` |
+| Run code by a group | Calculate means of age by males and females. | `group_by()` with `summarise()` |
 
 : List of common data wrangling tasks, along with an example and the
 function used for the wrangling.
@@ -179,8 +44,7 @@ function used for the wrangling.
 data "in shape" for later analyses. To save some time, you could save
 the wrangled data as an "output" dataset in the `data/` folder. That
 way, you can easily use it again later rather than having to run the
-wrangling code every time you want to work with the data.
-:::
+wrangling code every time you want to work with the data. :::
 
 ## Load the packages and dataset
 
@@ -790,270 +654,12 @@ nhanes_modified <- nhanes_small %>% # dataset
 nhanes_modified
 ```
 
-## Split-apply-combine: Summarizing data
-
-::: callout-note
-## Reading task: \~5 minutes
-
-Summarising or applying simple (or complex) statistics to data is a key
-component of any analysis. Simple summaries or statistics can be done
-either on all of the data or on groups of it. There are many data
-analysis tasks that can be approached using the
-[split-apply-combine](https://www.jstatsoft.org/article/view/v040i01)
-method, which involves splitting the data into groups, applying some
-analysis to each group, and then combining the results together.
-
-In `{dplyr}`, you can use the function called `summarise()` to summarise
-on all the data. If you want to do a split-apply-combine analysis to,
-e.g., find the max height by education status, you would use the
-functions `group_by()` and then `summarise()`. Using `group_by()` splits
-the data up and `summarise()` applies an analysis, then immediately
-combines it back together.
-
-The first position argument to `group_by()` is, as usual, the dataset.
-The next arguments are the columns that contain the values you want to
-group by. These columns must contain **categorical** data (e.g.
-education). `group_by()` tells R to compute the next operations on the
-data within each grouping, rather than on all the data.
-
-As with the other functions, `summarise()` takes the dataset as the
-first position argument. The next arguments work similar to the
-arguments in `mutate()` with one difference: the output must create a
-single value (e.g. a mean). Like `mutate()`, you can add multiple
-"summaries" by adding new columns separated by `,`. You would use
-`summarise()` to derive basic descriptive statistics of a certain
-variable, including `min()`, `max()`, `mean()`, `median()`, or `sd()`
-(standard deviation).
-
-The `group_by()` function doesn't do anything by itself so should always
-be used in combination with a `summarise()`, `mutate()`, `arrange()`, or
-other function. However, the `summarise()` function can be used on its
-own.
-:::
-
-## Calculating summary statistics
-
-Let's calculate the maximum value of the BMI variable. See what happens
-when you enter the following:
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    summarise(max_bmi = max(bmi))
-```
-
-We get back a result of `NA`, which means "missing". In R, `NA` values
-"propagate", meaning that if there is one value missing, then the max or
-mean will also be missing. So, we need to tell `max()` to exclude any
-`NA` values from the calculation using the argument `na.rm = TRUE`.
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    summarise(max_bmi = max(bmi, na.rm = TRUE))
-```
-
-To calculate another summary statistic, you would add another summary
-column using `,`:
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    summarise(max_bmi = max(bmi, na.rm = TRUE),
-              min_bmi = min(bmi, na.rm = TRUE))
-```
-
-Before you start the following exercise, add and commit changes to the
-Git history with the RStudio Git interface.
-
-## Summary statistics by a group {#sec-group-by-summarise}
-
-While the `summarise()` function is useful enough on its own, it really
-shines when combined with `group_by()`.
-
-Let's use these functions to find out the mean age and BMI between those
-with and without diabetes.
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    group_by(diabetes) %>% 
-    summarise(mean_age = mean(age, na.rm = TRUE),
-              mean_bmi = mean(bmi, na.rm = TRUE))
-```
-
-*Quick note*: If you are using a version of dplyr \>= 1.0.0, you'll get
-a message informing you that it is `regrouping output`. This is a
-notification and can be ignored. If you don't want the message
-displayed, you can add `options(dplyr.summarise.inform = FALSE)` to the
-top of your script and run it.
-
-We also get a warning about there being missing values in diabetes, so
-we need to remove rows that have missing diabetes status values.
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    # Recall ! means "NOT", so !is.na means "is not missing"
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes) %>% 
-    summarise(mean_age = mean(age, na.rm = TRUE),
-              mean_bmi = mean(bmi, na.rm = TRUE))
-```
-
-Cool! We can add more columns to the grouping, so let's do that. Let's
-compare mean age and BMI by physical activity and diabetes status.
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, phys_active) %>% 
-    summarise(mean_age = mean(age, na.rm = TRUE),
-              mean_bmi = mean(bmi, na.rm = TRUE))
-```
-
-Since we don't need the dataset grouped anymore, it's good practice to
-end the grouping with `ungroup()`.
-
-```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-    filter(!is.na(diabetes)) %>% 
-    group_by(diabetes, phys_active) %>% 
-    summarise(mean_age = mean(age, na.rm = TRUE),
-              mean_bmi = mean(bmi, na.rm = TRUE)) %>% 
-    ungroup()
-```
-
-Before you start the following exercise, run `{styler}` using
-{{< var keybind.styler >}} and commit changes to the Git history using
-{{< var keybind.git >}}.
-
-## Saving datasets as files
-
-::: {.callout-note appearance="minimal" collapse="true"}
-## Instructor note
-
-Go over how to save data to a file, but don't cover the `{here}` package
-right away. Let them read about it in the section below and then briefly
-cover it again.
-:::
-
-The `nhanes_small` data frame you created is only available after you've
-created it from NHAHES, but if you want to access it later, you can save
-it as a `.csv` file in your `data/` folder using the function
-`readr::write_csv()`.
-
-```{r save-data-as-csv}
-#| filename: "R/learning.R"
-readr::write_csv(
-  nhanes_small,
-  here::here("data/nhanes_small.csv")
-)
-```
-
-::: callout-note
-## Reading task: \~5 minutes
-
-There's a new thing `here()`! The `{here}` package uses a function
-called `here()` to make it easier to manage *file paths* within an R
-Project.
-
-So, what is a file path and why is this `{here}` package necessary? A
-file path is the list of folders a file is found in. For instance, your
-CV may be found in `/Users/Documents/personal_things/CV.docx`. The
-problem with file paths when running code (like with R) is that when you
-run a script interactively (e.g. what we do in class and normally), the
-file path and "working directory" (the R Session) are located at the
-Project level (where the `.Rproj` file is found). You can see the
-working directory by looking at the top of the RStudio Console.
-
-But! When you `source()` an R script or run it *not* interactively, the
-R code may likely run *in the folder it is saved in*, e.g. in the `R/`
-folder. So your file path `data/nhanes_small.csv` won't work because
-there isn't a folder called `data/` in the `R/` folder.
-
-```         
-LearningR <-- R Project working directory starts here.
-├── R
-│   ├── README.md
-│   └── learning.R <-- Working directory when running not interactively.
-├── data
-│   └── README.md
-├── data-raw
-│   └── README.md
-├── doc
-│   └── README.md
-├── .gitignore
-├── DESCRIPTION
-├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
-├── README.md
-└── TODO.md
-```
-
-Often people use the function `setwd()` in scripts, but this is *never*
-a good idea since using it makes your script *runnable only on your
-computer*... which makes it no longer reproducible. We use the `here()`
-function to tell R to go to the project root (where the `.Rproj` file is
-found) and then use that file path. This simple function can make your
-work more reproducible and easier for you to use later on.
-:::
-
-For many projects, it isn't necessary or advisable to save every single
-data object you create. It's better to let the code create the data
-you'll use rather than saving each new wrangled dataset you might
-create. However, sometimes you will want or need to save the dataset
-you've been working on, perhaps because you've done a lot of work to
-prepare it for later analyses, or because you've run an analysis and
-want to save the results. In these cases, you should definitely save the
-new cleaned dataset.
-
-## Loading in a dataset
-
-::: callout-note
-## Reading task: \~5 minutes
-
-We've been using a teaching dataset that we load from a package, mainly
-so that we can focus on getting familiar with data wrangling. However,
-there will come a time when you want to wrangle your own data. There are
-several ways to load in a dataset, which are listed below. *Don't run
-these code, just read for now*.
-
-1.  Using the RStudio menu
-    `File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata`
-    (depending on your file type you want to import).
-
-2.  If the file is a `.csv` file, use `readr::read_csv()` to import the
-    dataset, for instance with the `nhanes_small`:
-
-    ``` r
-    nhanes_small <- readr::read_csv(here::here("data/nhanes_small.csv"))
-    ```
-
-3.  If the dataset is a `.rda` file, use `load()`:
-
-    ``` r
-    load(here::here("data/dataset_name.rda"))    
-    ```
-
-    This loads the dataset into your R session so that you can use it
-    again.
-
-For SAS, SPSS, or Stata files, you can use the package
-[haven](https://haven.tidyverse.org/) to import those types of data
-files into R.
-:::
-
 ## Summary
 
--   With tidy data, each variable has its own column, each observation
-    has its own row, and each value has its own cell.
 -   Use the tidyverse to load in multiple packages to tidy up data.
--   Never edit raw data. Instead, use R code to make changes and clean
-    up the raw data, rather than manually editing the dataset.
 -   Use the functions `select()`, `rename()`, `filter()`, `mutate()`
     ("change or modify"), and `summarise()` from the dplyr package to
     wrangle your data.
 -   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
+

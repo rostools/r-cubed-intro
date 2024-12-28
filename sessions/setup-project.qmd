@@ -1,0 +1,303 @@
+# Management of R projects {#sec-rproject-management}
+
+## Learning objectives
+
+This session’s **overall learning outcome** is to:
+
+1.  
+
+**Specific objectives** are to:
+
+1.  Create self-contained projects to be more reproducible.
+2.  Use built-in tools in RStudio to make it easier to manage R
+    projects.
+
+## What is a project and why use it?
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Throughout this session, because it is the first session, take it
+slowly. Talk through the basics of R, including emphasizing how to
+troubleshoot or get help. Check for participants' understanding using
+the stickies.
+:::
+
+::: callout-note
+## Reading task: \~5 minutes
+
+Before we create a project, we should first define what we mean by
+"project". What is a project? In this case, a project is a set of files
+that together lead to some type of scientific "output" (for instance a
+manuscript). Use data for your output? That's part of the project. Do
+any analysis on the data to give some results? Also part of the project.
+Write a document, for instance a manuscript, based on the data and
+results? Have figures inserted into the output document? These are also
+part of the project.
+
+More and more *how* we make a claim in a scientific product is just as
+important as the output describing the claim. This includes not only the
+written description of the methods but also the exact steps taken, that
+is, the code used. So, using a project setup can help with keeping
+things self-contained and easier to track and link with the scientific
+output. Here are some things to consider when working in projects:
+
+-   Organise all R scripts and files in the same folder (also called
+    "directory") so it is more *self-contained* (doesn't rely on other
+    components in your computer).
+-   Use a common and consistent folder and file structure for your
+    projects.
+-   Use [version
+    control](https://happygitwithr.com/big-picture.html#why-git) to
+    track changes to your files.
+-   Make raw data "read-only" (don't edit it directly) and use code to
+    show what was done.
+-   Whenever possible, use code to create output (figures, tables)
+    rather than manually creating or editing them.
+-   Think of your code and project like you do your manuscript or
+    thesis: that other people will eventually look at it and review it,
+    and that it will likely also be published or archived online.
+
+These simple steps can be huge steps toward being reproducible in your
+analysis. And by managing your projects in a reproducible fashion,
+you'll not only make your science better and more rigorous, it also
+makes your life easier too!
+:::
+
+## Exercise: How do you organise your files and projects?
+
+> Time: \~8 minutes.
+
+This seems so basic, how files are organized on computers. We literally
+work with files all the time on computers. But consider, how do you
+organize them? Take some time to discuss and share with your neighbour.
+
+1.  Take 1 minute to think to yourself.
+2.  Take 5 minutes to discuss and share with your neighbour.
+3.  For the remaining time, we will all share our thoughts with the
+    group.
+
+## RStudio and R Projects
+
+RStudio helps us with managing projects by making use of [R
+Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
+RStudio R Projects make it easy to divide your work projects into a
+"container", that have their own working directory (the folder where
+your analysis occurs), workspace (where all the R activity and output is
+temporarily saved), history, and documents.
+
+::: {.callout-warning appearance="default"}
+File synchronizing and backup services like OneDrive or Dropbox are
+super common. Unfortunately, they also can be a major source of
+frustration and challenge when working with data analysis projects. This
+is mainly due to they way the synchronizing, by constantly looking at
+changes to files and then synchronizing when a change occurs. When doing
+data analysis, especially as you get more advanced and use reproducible
+documents and version control systems, changes to files can happen very
+often and very quickly. This can essentially cause these services to
+"spasm" and may overwrite the changes that are happening. Whenever
+possible, always save your work *on your computer and **not** on these
+services*.
+:::
+
+There are many ways one could organise a project folder. We'll be
+setting up a project folder and file structure using `{prodigenr}` We'll
+use RStudio's "New Project" menu item under:
+
+```         
+File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
+```
+
+We'll call the new project **`LearningR`**. Save it on your `Desktop/`.
+See @fig-prodigenr-project-creation for the steps to do it:
+
+![Creating a new analysis project in
+RStudio.](../videos/rstudio-prodigenr-projects.gif){#fig-prodigenr-project-creation}
+
+You can also type the below function into the Console, but we won't do
+that in this session.
+
+```{r prodigenr-setup}
+#| filename: "Console"
+#| eval: false
+prodigenr::setup_project("~/Desktop/LearningR")
+```
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Emphasize and reinforce what this `::` is doing and why we are doing it.
+:::
+
+Just a reminder, when we use the `::` colon here, we are saying:
+
+> Hey R, from the prodigenr package use the `setup_project` function.
+
+That way, we are directly requesting R to look in the `{prodigenr}`
+package and use the `setup_project()` function. We do this because we
+want to be explicit about what we want to use and since we don't need to
+load the full package.
+
+After we've created a New Project in RStudio, we'll have a bunch of new
+files and folders.
+
+<!-- TODO: confirm this is the folder structure? Missing report? -->
+
+```         
+LearningR
+├── .git/
+├── R/
+│   └── README.md
+├── data/
+│   └── README.md
+├── data-raw/
+│   └── README.md
+├── docs/
+│   └── README.md
+├── .gitignore
+├── DESCRIPTION
+├── LearningR.Rproj
+├── README.md
+└── TODO.md
+```
+
+This forces a specific and consistent folder structure to all your work.
+Think of this like the "Introduction", "Methods", "Results", and
+"Discussion" sections of your paper. Each project is then like a single
+manuscript or report, that contains everything relevant to that specific
+project. There is a lot of power in something as simple as a consistent
+structure. Projects are used to make life easier. Once a project is
+opened within RStudio the following actions are automatically taken:
+
+-   A new R session (process) is started.
+-   The R session's working directory is set to the project directory.
+-   RStudio project options are loaded.
+
+Before moving on, let's go over a bit about how R works, and what the "R
+session" means. An R session is the way you normally interact with R,
+where you would write code in the Console to tell R to do something.
+Normally, when you open an R session without an R Project, the session
+defaults to assuming you will be working in the `~/Desktop` or `~` (your
+Home folder) location. But this location isn't where you actually work.
+You normally work in the folder that has your R scripts or data files.
+The assumption with R Projects on the other hand, is that the R session
+working directory should be where the R Project is, since that is where
+you have your R scripts and data files.
+
+::: {.callout-note appearance="default"}
+Each R project is designated with a `.Rproj` file. This file contains
+information about the file path and various metadata. As such, when
+opening an R project, you need to open it using the `.Rproj` file.
+
+A project can be opened by either double clicking on the `.Rproj` from
+your file browser or from the file prompt within R Studio:
+
+```         
+File -> Open Project
+```
+
+or
+
+```         
+File -> Recent Project.. -> LearningR
+```
+:::
+
+Within the project we created, there are several README files in each
+folder that explain a bit about what should be placed there. Briefly:
+
+1.  Documents like manuscripts, abstracts, and exploration type
+    documents should be put in the `doc/` directory (including [R
+    Markdown](https://rmarkdown.rstudio.com/) and
+    [Quarto](https://quarto.org) files
+    -   We will cover this later in @sec-reproducible-documents.
+2.  Data, raw data, and metadata should be in either the `data/`
+    directory or in `data-raw/` for the raw data. We'll explain the
+    `data-raw/` folder and create it later in the lesson.
+3.  All R files and code should be in the `R/` directory.
+4.  Name all new files to reflect their content or function. Follow the
+    tidyverse [style guide for file
+    naming](https://style.tidyverse.org/files.html). Either `_` or `-`
+    are recommended to be used instead of a space, though using `-`
+    tends to be more commonly used.
+
+Since we'll be using Git for [version
+control](https://happygitwithr.com/big-picture.html#why-git) in
+@sec-version-control, which we **highly recommended** to use for any
+project, we need to add Git to our newly created project by typing in
+the R Console while in the newly created `LearningR` project:
+
+```{r add-git-to-project}
+#| filename: "Console"
+#| eval: false
+prodigenr::setup_with_git()
+```
+
+This will add the `.gitignore` file to the project as well as to tell
+Git to track our project. We'll cover this more later.
+
+## What's in a (file) name?
+
+<!-- TODO: convert to reading task -->
+
+It might seem so basic, but how you name your files can have a huge
+impact on how easy it is for others, yourself in the future, as well as
+computers, to work on your project.
+
+Take some time to think about file naming. Look at the list of file
+names below. Which file names are good names and which aren't? We'll
+discuss afterwards why some are good names and others are not.
+
+```         
+fit models.R
+fit-models.R
+foo.r
+stuff.r
+get_data.R
+Manuscript version 10.docx
+manuscript.docx
+new version of analysis.R
+trying.something.here.R
+plotting-regression.R
+utility_functions.R
+code.R
+```
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Ask them explain why these might not be the best file names. It is a
+group activity. Use the text below as a guide for the above question.
+
+```         
+# Bad: Has a space.
+fit models.R
+# Good: Descriptive with no space.
+fit-models.R
+# Bad: Not descriptive.
+foo.r
+stuff.r
+# Good: Descriptive with no space.
+get_data.R
+# Bad: Has space
+Manuscript version 10.docx
+# Good: Descriptive.
+manuscript.docx
+# Bad: Not descriptive and has spaces.
+new version of analysis.R
+# Bad: Not descriptive and has dots.
+trying.something.here.R
+# Good: Descriptive with - or _
+plotting-regression.R
+utility_functions.R
+# Bad: Not descriptive.
+code.R
+```
+:::
+
+## Summary
+
+-   Use [R
+    Projects](https://support.posit.co/hc/en-us/articles/200526207-Using-Projects)
+    in RStudio (e.g. with `{prodigenr}`).
+-   Use a standard folder and file structure.
