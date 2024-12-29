@@ -300,20 +300,8 @@ last approach is what we will get you to do for the group project.
 
 ## Summary
 
--   Use the version control system Git to track changes to your files,
-    to more easily manage your project, and to more easily collaborate
-    with others.
--   Git tracks files in three states: "Working directory", "Staged", and
-    "History".
-    -   The Git repository contains the history.
--   The main actions to move between states are:
-    -   "Add to staging"
-    -   "Commit to history"
--   When committing to history, keep messages short and meaningful.
-    Focus more on **why** the change was made, not what.
 -   "Remotes" are external storage locations for your Git repository.
     GitHub is a popular remote repository hosting service.
     -   Downloading a Git repository from GitHub is called "cloning".
 -   "Pushing" and "pulling" are actions to upload and download to the
     remote repository (which usually is called "origin").
--   Almost all Git actions can be done using RStudio's Git interface.
