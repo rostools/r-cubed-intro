@@ -1,0 +1,82 @@
+{
+  // Place your snippets for Quarto here.
+  // Each snippet is defined under a snippet name and has a prefix, body and description.
+  // The prefix is what is used to trigger the snippet and the body will be expanded and inserted.
+  // Possible variables are:
+  //
+  // - $1 and $2 for tab stops,
+  // - $0 for the final cursor position, and
+  // - ${1:label}, ${2:another} for placeholders
+  //
+  // Placeholders with the same ids are connected.
+  //
+  // How to use the code snippets:
+  // After you have set the above settings, a suggestion for one of the code snippets below will pop up automatically, when
+  // you start writing the prefix. Press "Enter" or "Tab" to insert the code snippet.
+  "Insert TODO formatting": {
+    "scope": "quarto,markdown",
+    "prefix": "todo",
+    "body": [
+      "<!-- TODO: ${0:Write text here} -->"
+    ],
+    "description": "Insert TODO formatting"
+  },
+  "R package name syntax": {
+    "scope": "quarto,markdown",
+    "prefix": "pkg",
+    "body": [
+      "`{${0:Package}}`"
+    ],
+    "description": "The syntax used to display and link R packages to their websites."
+  },
+  "Insert code exercise": {
+    "scope": "quarto,markdown",
+    "prefix": "exercise",
+    "body": [
+      "## :technologist: Exercise: ${0:Title}",
+      "",
+      "> Time: ~${1:Minutes} minutes.",
+      "",
+      "${2:Text}",
+    ],
+    "description": "Insert a hands-on coding exercise section."
+  },
+  "Insert discussion exercise": {
+    "scope": "quarto,markdown",
+    "prefix": "discussion",
+    "body": [
+      "## :speech_balloon: Discussion activity: ~${0:Title}",
+      "",
+      "**Time: ~${1:Minutes}**",
+      "",
+      "${2:Text}",
+    ],
+    "description": "Insert a discussion activity section."
+  },
+  "Insert reading task": {
+    "scope": "quarto,markdown",
+    "prefix": "reading",
+    "body": [
+      "::: callout-note",
+      "## :book: Reading task: ~${0:Minutes}",
+      "",
+      "${1:Text body}",
+      "",
+      "{{< include ../includes/_sticky_up.qmd >}}",
+      ":::",
+    ],
+    "description": "Insert reading task section."
+  },
+  "Insert instructor note": {
+    "scope": "quarto,markdown",
+    "prefix": "instructor_note",
+    "body": [
+      "::: {.callout-note collapse=\"true\"}",
+      "## :teacher: Instructor note",
+      "",
+      "${0:Text body}",
+      ":::",
+    ],
+    "description": "Insert instructor note that is a Quarto callout note block."
+  }
+}
