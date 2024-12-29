@@ -1,0 +1,319 @@
+# Version control with Git {#sec-version-control}
+
+```{r}
+#| include: false
+# To trigger downlit for this page.
+library(downlit)
+```
+
+<!-- TODO: Add an introduction here -->
+
+**Session objectives**:
+
+<!-- TODO: Revise objectives to fit how I did it in advanced -->
+
+3.  Synchronize those changes to an online repository (GitHub).
+4.  Use GitHub to collaborate with others on a project.
+
+## "Remotes": Storing your repository online {#sec-remotes-setting-up}
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Briefly go over this next section, especially highlighting the image.
+:::
+
+A version control system that didn't include a type of external backup
+wouldn't be a very good system, because if something happened to your
+computer, you'd lose your Git repository. In Git, this "external" backup
+is called a "remote" (meaning it is something that is separate from and
+in a different location, usually online, than the main repository). The
+remote repository is essentially a duplicate copy of the *history* (the
+`.git/` folder) of your *local* repository (on your computer), so when
+you synchronize with the remote, as illustrated in @fig-git-remotes, it
+only copies over the changes made as commits in the history.
+
+One of the biggest reasons why we teach Git is because of the popularity
+of several Git repository hosting sites. The most popular one is
+[GitHub](https://github.com/) (which this course is hosted on). In this
+session, we'll be covering GitHub not only because it is very popular,
+but also because the R community is almost entirely on GitHub.
+
+```{mermaid fig-git-remotes}
+%%| label: fig-git-remotes
+%%| fig-cap: The 'remote' vs 'local' repository, or online vs on your computer.
+%%| echo: false
+%%| eval: true
+graph TB
+    linkStyle default interpolate basis
+    A('Remote':<br>GitHub) --- B('Local':<br>Your computer)
+
+    style A fill:White,stroke:DarkBlue,stroke-width:1.5px;
+    style B fill:White,stroke:DarkBlue,stroke-width:1.5px;
+```
+
+Let's get familiar with GitHub. More details about manually creating
+repositories on GitHub is found in @sec-extra-create-repo-github.
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Go over the interface of GitHub, especially where repositories are
+listed, the sidebar of the landing page (of your account), and where
+your account settings are.
+:::
+
+::: {.callout-warning appearance="default"}
+When using GitHub, especially in relation to health research, you need
+to be mindful of what you save into the Git history and what you put up
+online. Some things to think about are:
+
+-   **Do not** save any personal or sensitive data or files in your Git
+    repository.
+-   Generally don't save very large files, like big image files or large
+    datasets.
+
+In both cases, it's better to use another tool to store files like that,
+rather than through Git and GitHub.
+:::
+
+## Using GitHub as a remote
+
+::: callout-note
+## Reading task: \~3 minutes
+
+Making and cloning a GitHub repository is the first step to linking a
+local repository to a remote one. After that, to keep your GitHub
+repository synchronized, you need to "push" (upload) and "pull"
+(download) any changes you make to the repository on your computer, as
+demonstrated in Figure @fig-git-remotes-synch. It isn't done
+automatically because Git is designed with having control in mind, so
+you must do this synchronization manually. "Pushing" is when changes to
+the history are uploaded to GitHub while "pulling" is when the history
+is downloaded from GitHub.
+
+```{mermaid fig-git-remotes-synch}
+%%| label: fig-git-remotes-synch
+%%| fig-cap: "Synchronizing with GitHub: 'Pushing' and 'pulling'."
+%%| echo: false
+%%| eval: true
+graph TB
+    linkStyle default interpolate basis
+    A('Remote':<br>GitHub) -- Pull --> B('Local':<br>Your computer)
+    B -- Push --> A
+
+    style A fill:White,stroke:DarkBlue,stroke-width:1.5px;
+    style B fill:White,stroke:DarkBlue,stroke-width:1.5px;
+```
+
+So, when we put the concepts back into the framework of the "states",
+first introduced in @sec-basics-of-git, pushing and pulling *happen only
+to the history*. Things that you've changed and then saved to the
+history, either on the remote or the local repository, are synchronized
+from or to GitHub. So, as shown in @fig-git-states-with-github, pushing
+copies the history over to GitHub and pulling copies the history from
+GitHub. Since changes saved in the history also reflect the working
+folder (the files and folders you actually see and interact with),
+"pulling" also updates the files and folders.
+
+```{mermaid fig-git-states-with-github}
+%%| label: fig-git-states-with-github
+%%| fig-cap: Which states get 'pushed' and 'pulled'.
+%%| echo: false
+%%| eval: true
+%%{init:{'themeCSS': ".actor {stroke: DarkBlue;fill: White;stroke-width:1.5px;}", 'sequence':{'mirrorActors': false}}}%%
+sequenceDiagram
+    participant W as Working folder
+    participant S as Staged
+    participant H as History
+    participant R as GitHub
+    W->>S: Add
+    S->>H: Commit
+    H->>R: Push
+    R->>H: Pull
+    R->>W: Pull
+```
+
+Interacting with GitHub through R requires us to use something called a
+"personal access token", which you will learn about and create in the
+next exercise.
+:::
+
+## Exercise: Creating a GitHub token with usethis
+
+> Time: \~20 minutes
+
+Since we use R, there is a really useful set of functions from
+`{usethis}` to make it easy interact with and setup connections to
+GitHub from RStudio. Complete the [Connect to
+GitHub](https://guides.rostools.org/connect-github.html) guide for this
+exercise. In the end, you should have your `LearningR` project on
+GitHub.
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+On your own, run the commands in the guides. After they complete the
+tasks, make sure that they have the "Push" and "Pull" buttons as well as
+having the `LearningR` on GitHub.
+:::
+
+## Synchronizing with GitHub
+
+After creating the token, we can now push and pull any changes you make
+to the files.
+
+1.  Make sure you are in the `LearningR` R Project, which you should see
+    in the top right corner, above the Console pane. If you aren't,
+    switch to it by clicking the button in the top right corner and
+    selecting the `LearningR` project from the menu.
+2.  Open up the `README.md` and add a random sentence somewhere near the
+    top of the file.
+3.  Save the file.
+4.  Open the Git interface, by hitting `Ctrl-Alt-M` (or
+    {{< var keybind.git >}}) anywhere in RStudio or going to the
+    `Git button -> Commit`.
+5.  Stage the file.
+6.  Add a commit message.
+7.  Commit the new change by clicking the "Commit" button.
+8.  Click the "Push" button in the top right corner of the Git interface
+    (Box 2 of @fig-rstudio-git-interface). A pop-up will indicate that
+    it's pushing and will tell you when it's done.
+
+Now let's try the opposite by committing and pulling changes from GitHub
+to your local repository.
+
+1.  Go to your `LearningR` GitHub repository. You should see the new
+    change is also on the GitHub repository.
+2.  Click the `README.md` file on the GitHub website and then click the
+    "Edit" button (see the video below, which shows it for random
+    repository called `learning-github`).
+3.  Add another random sentence somewhere near the top of the file.
+4.  Scroll down to the commit message box, and type out a commit
+    message.
+5.  Click the "Commit" button.
+6.  Go back to RStudio, open the Git interface and now click the "Pull"
+    button in the top right corner beside the "Push" button.
+7.  Wait for it to finish pulling and check your `README.md` file for
+    the new change. You've now updated your project!
+
+{{< video ../videos/github-edit-and-commit-file.mp4 >}}
+
+## Collaborating using Git and GitHub
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+After they've read the activity, briefly go over the image and emphasize
+why collaborating this way makes things easier. If you have some
+personal experiences, please share them!
+:::
+
+::: callout-note
+## Reading task: \~10 minutes
+
+While all of the previous Git tools we covered are extremely useful when
+working alone, we've been building up to using Git for it's main and
+biggest advantage: to easily collaborate with others on a project.
+
+Using the concept and structure of remote repositories like GitHub
+combined with the idea of saving changes to files in a history,
+collaborating with others on a common project is much easier and more
+powerful. Think of it like Dropbox on steroids.
+
+Let's go back to the concept of remote repositories. Since a local
+repository is simply a copy of a remote repository, anyone else can
+collaborate on your project by copying the remote repository. When they
+want to contribute back, they make commits to their local copy and push
+up to the remote. Then you can pull to your local copy and do the same
+thing. This is illustrated in Figure @fig-git-remotes-collaborate.
+
+```{mermaid fig-git-remotes-collaborate}
+%%| label: fig-git-remotes-collaborate
+%%| fig-cap: Collaborating with others using Git and GitHub by having a shared central GitHub repository.
+%%| echo: false
+%%| eval: true
+graph TB
+    linkStyle default interpolate basis
+    A('Remote':<br>GitHub) -- Pull --> B('Local':<br>Your computer)
+    B -- Push --> A
+    A -- Pull --> C('Local':<br>Collaborator's<br>computer)
+    C -- Push --> A
+
+    style A fill:White,stroke:DarkBlue,stroke-width:1.5px;
+    style B fill:White,stroke:DarkBlue,stroke-width:1.5px;
+    style C fill:White,stroke:DarkBlue,stroke-width:1.5px;
+```
+
+For public GitHub repositories, anyone can copy your repository and
+contribute back, so working with collaborators is easy. When you have a
+private repository, you need to explicitly add collaborators in GitHub.
+
+You add someone by going to
+`Settings -> Manage Access -> Invite a collaborator` (also shown in the
+video below).
+
+{{< video ../videos/github-add-collaborator.mp4 >}}
+
+We won't have you do this for this course, since you've all been added
+as collaborators to your group's repository. Instead, you can focus on
+getting practice collaborating on a Git project in the group work later
+in the course.
+
+> **Note**: A big challenge you'll encounter with becoming better with
+> this way of collaborating is that most of your collaborators will
+> likely not be familiar with it, at least until they take this course.
+> :wink: Sadly, even experienced people struggle with this and there is
+> no easy answer on how to handle this. The best way (in our opinion) is
+> to start training any colleague who is interested in collaborating
+> this way and slowly you'll surround yourself with collaborators who
+> also work this way.
+
+### Collaborating on Quarto documents
+
+In general, there are multiple ways of collaborating on a document, some
+traditional approaches are:
+
+1.  One person has the primary task of writing up the report and then
+    gets feedback from other collaborators through the use of "Track
+    Changes" or by inserting comments in Word.
+2.  Multiple people are responsible for writing the report and probably
+    use different documents that will end up being merged later on. Or
+    they email back and forth (or use something like Dropbox or Google
+    Docs or shared folders) and work on a single document.
+
+The first workflow is not possible in a Quarto document since there
+isn't a feature like Word's "Track Changes". Instead, you'd use a
+workflow that probably resembles how peer reviews are done; reading the
+document and making comments in a separate file to upload to the journal
+later. Or you'd use a workflow that revolves around GitHub and Git, an
+efficient workflow that has been tried and tested by tens of thousands
+of teams in tens of hundreds of companies globally. The goal of this
+course is to slowly move researchers more into the modern era, based on
+modern technology, tools, and workflows.
+
+The second workflow is pretty similar while using Git and GitHub along
+with Quarto. You might split up a document into sections that each
+collaborator may work on, and then later on merge them together. This
+last approach is what we will get you to do for the group project.
+:::
+
+## Summary
+
+-   Use the version control system Git to track changes to your files,
+    to more easily manage your project, and to more easily collaborate
+    with others.
+-   Git tracks files in three states: "Working directory", "Staged", and
+    "History".
+    -   The Git repository contains the history.
+-   The main actions to move between states are:
+    -   "Add to staging"
+    -   "Commit to history"
+-   When committing to history, keep messages short and meaningful.
+    Focus more on **why** the change was made, not what.
+-   "Remotes" are external storage locations for your Git repository.
+    GitHub is a popular remote repository hosting service.
+    -   Downloading a Git repository from GitHub is called "cloning".
+-   "Pushing" and "pulling" are actions to upload and download to the
+    remote repository (which usually is called "origin").
+-   Almost all Git actions can be done using RStudio's Git interface.
