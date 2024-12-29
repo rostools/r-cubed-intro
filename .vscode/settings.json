@@ -1,0 +1,33 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "editor.formatOnSave": true,
+  "git.autofetch": false,
+  "quarto.visualEditor.markdownWrap": "column",
+  "quarto.visualEditor.markdownWrapColumn": 72,
+  "editor.tabCompletion": "on",
+  "editor.snippetSuggestions": "inline",
+  "conventional-branch.type": [
+    "build", // Changes that affect the build system or external dependencies
+    "ci", // Changes to our CI configuration files and scripts
+    "docs", // Documentation only changes
+    "feat", // A new feature
+    "fix", // A bug fix
+    "refactor", // A code change that neither fixes a bug nor adds a feature
+    "style", // Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+    "test", // Adding missing tests or correcting existing tests
+    "chore", // Misc things, like renaming or deleting files
+  ],
+  "conventional-branch.format": "{Type}/{Branch}",
+  "files.insertFinalNewline": true,
+  "cSpell.enableFiletypes": [
+    "quarto"
+  ],
+  "cSpell.language": "en,en-GB",
+  "conventionalCommits.scopes": [
+    "preamble",
+    "sessions",
+    "appendix"
+  ],
+}
