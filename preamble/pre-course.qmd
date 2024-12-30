@@ -388,9 +388,9 @@ If you haven't read it, **read it now**. The survey involves a question
 about Conduct. We want to make sure this course is a supportive and safe
 environment for learning, so this Code of Conduct is quite important.
 
-{{< include /includes/_faq-text.qmd >}}
+{{< text_snippet faq_text >}}
 
-{{< include /includes/_discord-text.qmd >}}
+{{< text_snippet discord_text >}}
 
 You're almost done. Please fill out the pre-course survey to finish this
 section, either [at this
