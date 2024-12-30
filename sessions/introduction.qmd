@@ -1,5 +1,11 @@
 # Introduction to course {#sec-introduction}
 
+```{r}
+#| include: false
+# To trigger downlit
+library(tidyverse)
+```
+
 > [**Introduction slides**](../slides/introduction.html)
 
 <div>
@@ -17,11 +23,16 @@ The slides contain speaking notes that you can view by pressing 'S' on
 the keyboard.
 :::
 
-## The Big Picture
+## :book: Reading task: The Big Picture
 
-You've read the syllabus and already know an overall idea of why we are
-teaching this course. But we'd like to take another chance to emphasize
-the big picture context of this course and its material.
+**Time: \~10 minutes**
+
+While you've read the syllabus, listened to the presentation, and likely
+have an overall idea of why we are teaching this course, repetition is a
+critical component to learning, so here is more emphasis on some common
+considerations or thoughts you might have about the course.
+
+### Why learn this now? {.unnumbered}
 
 We are in a special time in research. We are facing several large scale
 technological and societal changes:
@@ -38,47 +49,37 @@ technological and societal changes:
     leading to an increasing rise in more complex analytics and data
     processing, such as through machine learning and AI.
 -   Increasingly your research output is someone else's research input,
-    such as with meta-research[^introduction-1] or meta-analysis.
+    such as with meta-research[^1] or meta-analysis.
 
-[^introduction-1]: Evidence-based evaluation and development of research
-    methods.
+[^1]: Evidence-based evaluation and development of research methods.
 
-In this course, our ultimate aim is to start creating data analysis
-projects that are: self-contained (within a single folder); have a
-record of changes made to the files; make it easier for others to
-collaborate; make it simpler to connect the project with a scientific
-output like a paper; and, to structure analyses to be more reproducible
-(or at least more easily *inspectable*).
+### What will we do? {.unnumbered}
 
-## Common questions
+In this course, our **ultimate goal** is to:
 
-::: callout-note
-## Reading task: \~5 minutes
+-   Create a project that has a report (in HTML or Word) where you
+    reproducibly import some data, process it a bit, and create some
+    figures and tables.
 
-Over the number of times we've taught this course (and the others), we
-get asked a lot of questions. Well, sometimes questions, sometimes
-comments, and sometimes complaints. We value feedback because it
-improves on the material! We have a [Frequently Asked
-Questions](https://guides.rostools.org/faq) page for keeping track of
-these questions. But there are a few with a common theme that deserve to
-be mentioned sooner than later.
+In the end, we're aiming for:
 
-If you want to get help virtually or after the course, you can join the
-[Discord channel](https://discord.gg/XaRSJFdNnp) where we run virtual
-coding club sessions as well as where you can ask for help for issues
-you might have.
+-   Having a self-contained project (within a single folder).
+-   Having a record of changes made to the files.
+-   Making it easier for others to collaborate.
+-   Making it simpler to connect the project with a scientific output
+    like a paper.
+-   Structuring analyses to be more reproducible (or at least more
+    easily *inspectable*).
 
-### Why R?
+### Why R? {.unnumbered}
 
-<!-- TODO: Move to FAQ? -->
-
-We often get asked: So why are we using R and why learn it? There are
-many many reasons, some of which are listed below:
+Why are we using R and why learn it? There are many many reasons, some
+of which are listed below:
 
 -   It is open source and free. Which means that you can take the
     knowledge and skills you gain for using R anywhere you go in your
     career.
--   There is very large, fairly friendly online community.
+-   There is a very large, fairly friendly online community.
     -   So many learning resources, support, and help!
 -   There is a **massive** selection of packages. Need to do something?
     There's probably already a package to do it for you.
@@ -87,172 +88,63 @@ many many reasons, some of which are listed below:
     -   Report writing.
     -   Visualization.
     -   Many many more.
--   Recent push to improve teaching, usability, for example with the
-    tidyverse and RStudio.
+-   Strong push by major R developers, for instance from
+    [Posit](https://posit.co) who makes RStudio and contributes heavily
+    to R packages, to improve beginner-friendliness and usability of R,
+    for example with the `{tidyverse}` and [Quarto](https://quarto.org).
 -   R has one of the best data visualization tools available with
-    ggplot2.
+    `{ggplot2}`.
 -   So many more powerful capabilities when it comes to:
     -   Big Data
     -   Programming
     -   Reproducibility
 
-## Why are we learning things other than R?
+### Why Git and Quarto? {.unnumbered}
 
-At least a few times we've gotten feedback in our survey about the fact
-that we didn't spend enough time learning R or they expected more R.
-That's because there is more to doing data analysis than *just* R.
+You probably came to this course to learn R. So why are we also going to
+go over Git and Quarto. Well, the main learning outcome for the course
+is **reproducible research**. And that involves more than just R.
 
-We need to teach about being open, about being reproducible, and about
-using better research practices in our work. All of which involves more
-than just R.
+Why do we take time to teach setting up a project folder and file
+structure? Because that's the very first step in making your work
+reproducible and also more organized.
 
-| Session | Reason |
-|----|----|
-| Management of R projects | Reproducibility starts at the file level. |
-| Version control | Openness and reproducibility is about transparency and inspection. |
-| Data management and wrangling | This one is about R :smiley_cat: |
-| Creating reproducible documents | Hopefully obvious :stuck_out_tongue_closed_eyes: |
-| Data visualization | Also about R! |
+Why do we teach Git? Because without sharing code, your research
+*cannot* be *independently* reproducible. Using Git is the most common
+way to share code.
 
-: Some reasons why we teach what we do in each of the sessions.
-:::
+Why do we teach Quarto? Because simply writing R code will not be enough
+to ensure it is also reproducible. Quarto is a tool *designed* to run in
+a reproducible way. So it forces you to write code in a way that is
+reproducible.
 
-## Small reminder
+### Why are we going slow/fast? {.unnumbered}
 
 We always get feedback that for some it is too fast and for others it is
-too slow. Ideally, everyone would say it was the perfect speed. But that
-won't likely happen. So instead, we aim as much as possible to have
-fewer people say it was too fast than there are people saying it was too
-slow. This is an introduction course, so we're trying to assume as
-little to no knowledge on many of these concepts. So, for those with
-some knowledge, it *will* feel slow at times! You can always help your
-neighbour out!
+too slow, especially during this introductory course. Ideally, everyone
+would say it was the perfect speed. But that is impossible to achieve.
+So instead, we aim as much as possible to have fewer people say it was
+too fast than people who say it was too slow. This is an introduction
+course, so we're trying to assume as little to no knowledge on many of
+these concepts. So, for those with some knowledge, it *will* feel slow
+at times! You can always help your neighbour out to help pass the time
+:grin: :tada:
 
-## Encountering problems and finding help
+### Any questions? {.unnumbered}
 
-::: {.callout-note collapse="true"}
-## Instructor note
+{{< text_snippet faq_text >}}
 
-Briefly go over this section with them, especially emphasize "Restart
-R", reading the error or warning message, and checking for missing
-commas, brackets or misspelled words.
-:::
+{{< text_snippet discord_text >}}
 
-::: callout-note
-## Reading task: \~10 minutes
-
-![A common and frequent experience when working in R. Artwork by
-[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-debugging.jpg){#fig-art-debugging
-width="90%"}
-
-You *will* encounter problems and errors when working with R, and you
-will encounter them *all the time*. In fact, a large amount of your time
-in R will be spent figuring out solutions to these errors ("debugging").
-For this course, we have a short
-[cheatsheet](../includes/cheatsheet.pdf) that lists the tools and
-functions we will cover, which can help with problems forgetting
-function names or their usage. RStudio also has many cheatsheets of its
-own, which you can find with the Command Palette
-({{< var keybind.palette >}}, then type "cheatsheet"). However, even
-with these cheatsheets, you will still encounter other problems like
-errors or warnings. Error messages will appear in red text in your
-Console and will start with the word "Error:". Warning messages are also
-in red text, but are often either harmless or informative, so make sure
-to read the message and see if it says "Error" or not. Here are some
-initial steps to take when you encounter an error:
-
-1.  **First, try to stay calm**; problems happen to everyone, no matter
-    their skill level. You *can fix it*! :smile:
-2.  **Read through the error message and try to understand what R is
-    telling you**. Some common error messages include:
-    -   *"Could not find function"*: Usually means that you have
-        misspelled the function or an R package has not loaded properly.
-    -   *"Object not found"*: Usually means that you have not
-        initialized (created) the object or the object is initialized
-        but empty.
-    -   *"Error in..."*: Usually means that you are referring to an
-        object that doesn't exist.
-    -   *"Unexpected symbol in..."*: Usually means that you misspelled a
-        variable or object name, so R can't find it.
-3.  **Go over the code again and carefully check for any mistakes:**
-    -   Missing commas or pipes?
-    -   Missing end brackets like `]`, `)`, or `}`?
-    -   Capitalized something that shouldn't be capitalized?
-    -   Object or column name misspelled?
-    -   Forgot to load your data before working on it?
-    -   Forgot to load or re-load your packages? Packages are
-        automatically unloaded when you exit RStudio and R. So you need
-        to load them each new session with the `library()` function.
-4.  **Go back to the start of the code and run each line one at a
-    time**, to see where the problem occurs. You will get an opportunity
-    to practice this later, once you are working with bigger chunks of
-    code.
-
-If you still can't find the problem, here are some other steps to take:
-
-1.  **Restart the R session with** {{< var keybind.restart-r >}} **or
-    with the menu item `Session -> Restart R`**. Then load your packages
-    (and data if needed) and run the code from the beginning, tracking
-    which objects get created, and if the proper object name is used
-    later on.
-
-2.  (Rarely need to do) **Close/re-open RStudio and try again.**
-
-3.  **Use `help()` or `?` to access built-in documentation about a
-    function or package.** You may be using the function incorrectly, so
-    find out more about the function by looking at the built-in
-    documentation. The documentation will open up in the "Help" pane of
-    RStudio (bottom right-hand corner). **Try it out:** Enter either of
-    the following commands into the Console and run it (hit `Enter`).
-
-    ```{r}
-#| filename: "Console"
-#| eval: false
-?colnames
-
-help(colnames)
-    ```
-
-    Sometimes, this documentation can be hard to read and seem overly
-    complex for a beginner. You can also try finding the website for the
-    package you are having trouble with, as they often have guides that
-    are a little easier to understand. The
-    [tidyverse](https://www.tidyverse.org/packages/) packages all have
-    amazing documentation that you can use to help you with problems you
-    may have.
-
-4.  **Consider explaining the problem out loud to a colleague or
-    friend.** (or even a rubber duck!) You might find that, in verbally
-    going through the problem and explaining it, you will likely come up
-    with the solution yourself.
-
-5.  **Take a break and come back to it later!**
-
-6.  **Google it.** Chances are that someone has already encountered that
-    error and has asked about it online. In fact, those who are
-    "experts" in coding languages like R are experts largely because of
-    their skill in knowing the right words or terms or questions to ask
-    Google. Usually googling the error message will be enough to find
-    the answer, but sometimes you'll need to include "R" or "rstats" and
-    the relevant package or function as a keyword in your search.
-
-7.  If all else fails, you can always turn to the trusty **online R
-    community**. Check
-    [StackOverflow](https://stackoverflow.com/questions/tagged/r), a
-    coding-related question and answer website, to see whether your
-    issue has already been asked and solved by others. If it hasn't and
-    you are considering submitting a question, make sure to read the
-    posting guides beforehand to ensure that you are asking the question
-    in a helpful way.
-
-*Final words:* It is important to always work towards writing "better"
-and "neater" code, as this can make it easier to break down pieces of
-code and troubleshoot problems. Ways to integrate this into your
-practice are to review documents like the tidyverse style guides
-regularly and perhaps join an online coding community.
-:::
+{{< text_snippet sticky_up >}}
 
 ## Quality of life settings
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Go through this as a code-along with the learners all together.
+:::
 
 Before ending, we're going to set some RStudio options that will help
 you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
