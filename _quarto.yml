@@ -1,6 +1,10 @@
 project:
   type: r3-theme
-  pre-render: quarto render slides/*.qmd
+  pre-render: 
+    - cp common.R .Rprofile
+    - quarto render slides/*.qmd
+  post-render: 
+    - rm .Rprofile
   resources:
     - videos/*
     - includes/cheatsheet.pdf
