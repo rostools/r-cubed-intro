@@ -2,34 +2,31 @@
 
 ## Learning objectives
 
-This session’s **overall learning outcome** is to:
+This session's **overall learning outcome** is to:
 
 1.  
 
 **Specific objectives** are to:
 
-1.  Learn what a reproducible document is, how Quarto helps with
-    reproducibility, and why it can save you time and effort.
+1.  Describe what a reproducible document is, what Quarto is and how it
+    helps with reproducibility, and why it can save you time and effort.
 2.  Write and use R code within a document, so that it will
     automatically insert the R output into the final document.
-3.  Learn about and use Markdown formatting and syntax for writing
-    documents.
-4.  Learn about and create different document types like HTML or Word
-    from a Quarto document. (TODO, this should be a reading task only)
-5.  Become familiar with the very basics of R.
-6.  Apply tools to use a consistent "grammar" and "styling" when writing
+3.  Identify what some Markdown syntax does to the formatting of the
+    generated HTML file and write some Markdown to make some simple
+    formatting of your document.
+4.  Become familiar with the very basics of R.
+5.  Apply tools to use a consistent "grammar" and "styling" when writing
     R code and making files.
 
-## Why try to be reproducible?
+## :book: Reading task: Why and how to be reproducible?
 
-::: callout-note
-## Reading task: \~5 minutes
+**Time: \~10 minutes**
 
 Both reproducibility and replicability are cornerstones for doing
-rigorous and sound science. As we've learned, reproducibility in science
-is lacking, which this course aims to address. However, being
-reproducible isn't just about doing better science. It can also mean
-that:
+rigorous and sound science. Unfortunately, reproducibility in science is
+near to non-existent. However, being reproducible isn't just about doing
+better science. It can also mean that:
 
 1.  You are much more efficient and productive, as less time is spent
     between coding and transferring your results to a document. No need
@@ -38,65 +35,48 @@ that:
     as figures or tables will be exactly what you get from your
     analysis. Again, no copying and pasting required!
 
-Hopefully by the end of this session, you'll want to start using R
-Markdown files for writing your manuscripts and other technical
-documents. Believe us, you can save so much time and make your work more
-reproducible once you learn how to incorporate text with R code. Plus,
-you can create some very aesthetically appealing reports, which are way
-easier to produce than if you had done it in Word.
-
 ![Have a more reproducible workflow by using Quarto. Artwork by
-\@allison_horst.](../images/art-reproducibility.png){width="70%"}
+\@allison_horst.](/images/art-reproducibility.png){width="70%"}
+
+One common way of being more reproducible when doing data analysis in R
+is to use [Quarto](https://quarto.org/). Quarto is a way of writing R
+(or Python) code alongside text in a way that allows you to create
+documents like HTML or Word where the output from R code is directly
+inserted into the document.
+
+For example, if you need to make a figure, you can write R code in the
+Quarto document so that when you generate a Word document the figure
+gets inserted automatically. A main feature of using Quarto is that
+because Quarto will always run the code in the document in the same
+order and in an empty environment (a new R session), the code and
+results will always be reproducible.
+
+::: callout-tip
+If you have heard of [R Markdown](https://rmarkdown.rstudio.com/),
+[Quarto](https://quarto.org/) is the next generation version of that.
 :::
 
-## What is Quarto?
-
-::: callout-note
-## Reading task: \~5 minutes
-
-[R Markdown](https://rmarkdown.rstudio.com/) is a file format (a plain
-text format like R scripts or `.csv` files) that allows you to be more
-reproducible in your analysis and to be more productive in your work. R
-Markdown is an extension of [Markdown](https://pandoc.org/index.html)
-that integrates R code with written text (as Markdown formatting).
-
-[Quarto](https://quarto.org/) is a next generation version of R Markdown
-and chances are, if you've been using a fairly recent version of
-RStudio, you are already using it without realizing it. That's because
-Quarto uses the same Markdown syntax as R Markdown. The only difference
-is that with Quarto, you can create more types of output documents (like
-books, websites, slides), you have more options for customization, and
-it's easier to do and learn than R Markdown.
-
-So, what is Markdown? It is a [markup
-syntax](https://en.wikipedia.org/wiki/Markup_language) and formatting
-tool, like HTML, that allows you to write a document in plain text. That
-text can then be converted into a vast range of other document types,
-e.g. HTML, PDF, Word documents, slides, posters, or websites. In fact,
-this website is built from Quarto! The Markdown used in Quarto is based
-on [pandoc](https://pandoc.org/index.html) ("pan" means all and "doc"
-means document, so "all documents"). Pandoc is a very powerful, popular,
-and well-maintained software tool for document conversion. You can use
-Quarto to do any number of things. Check out Quarto's
+A Quarto file is a file format (a plain text format like R scripts,
+`.csv`, or `.txt` files) with the extension `.qmd` where you write text
+with [Markdown](https://pandoc.org/index.html) syntax. Markdown is a
+[markup syntax](https://en.wikipedia.org/wiki/Markup_language) and
+formatting tool, like HTML, that allows you to write a document in plain
+text (e.g. like a `.txt` or `.csv` file). The Markdown text can then be
+converted into a vast range of other document types, e.g. HTML, PDF,
+Word documents, slides, posters, or websites. In fact, this website is
+built from Quarto! Check out Quarto's
 [Gallery](https://quarto.org/docs/gallery/) to see a list of things you
-can create. Just a few example document types could be:
-
--   A website or blog.
--   A PhD thesis.
--   Journal articles.
--   Books (like this course).
+can create.
 
 For now, we're going to focus on the main reason that Quarto is used: to
-incorporate R code and output into a single document. By using R code in
-a document, you can have seamless integration between data analysis and
-document-writing.
-
-Why would you use this? There are many reasons, with some of them being:
+use R code and insert the R output into a document. By using R code in a
+document, you can easily switch between data analysis and
+document-writing. Which means that:
 
 -   There is less time between exploring a new dataset or analysis and
     sharing your findings with collaborators, because the writing and
-    documenting is woven in with your code for analysis.
--   If you have already produced a report and later get new data or find
+    documenting is mixed in with your code for analysis.
+-   If you have already created a report and later get new data or find
     out there are problems with the existing data, updating your report
     is as easy as clicking a button to regenerate the results.
 -   How you found and present your results is based on the exact
@@ -106,9 +86,17 @@ Why would you use this? There are many reasons, with some of them being:
 -   Likewise, by reading others' Quarto documents, it is easier to learn
     what was done in their analysis because the logic and sequence is
     shown in the document itself.
-:::
+
+{{< text_snippet sticky_up >}}
 
 ## Creating a Quarto file
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Briefly explain what the Command Palette is as you use it here. Talk
+through this section slowly, especially the YAML header section.
+:::
 
 Now, we will create and save a Quarto file. We'll use the Command
 Palette by using {{< var keybind.palette >}} and then typing "quarto"
@@ -122,14 +110,15 @@ great if you are used to working with Word and you can test it out on
 your own later. For this course, we will focus on using the normal mode.
 
 After clicking "Create", the new file will open in RStudio. Before
-continuing, let's save this file as `learning.qmd` in the `doc/` folder.
+continuing, let's save this file as `learning.qmd` in the `docs/`
+folder.
 
-In the newly saved `doc/learning.qmd` file, you will see some text that
+In the newly saved `docs/learning.qmd` file, you will see some text that
 gives a brief overview of how to use the Quarto file. For now, let's
 ignore the text. At the top of the file you will see something that
 looks a bit like this:
 
-``` {.yaml filename="doc/learning.qmd"}
+``` {.yaml filename="docs/learning.qmd"}
 ---
 title: "Reproducible documents"
 author: "Your Name"
@@ -139,342 +128,51 @@ format: html
 
 This section is called the [*YAML*](https://en.wikipedia.org/wiki/YAML)
 *header* and it contains the metadata about the document and the
-settings for how to process it into another document. Most Markdown
-documents have this YAML header at the top of the document and they are
-always surrounded by `---` on the top and bottom of the section. YAML is
-a data format that has the form of a `key: value` pairing to store data.
-The keys in this case are `title`, `author`, and `format`. The values
-are those that follow the key (e.g. "Your Name" for `author`). In the
-case of Quarto, these `key` data are used to store the settings that
-Quarto will use to create the `format` output document. The keys listed
-above are some of many settings that Quarto has available to use.
+settings for how Quarto should process it into another document. Most
+Markdown documents have this YAML header at the top of the document and
+they are always surrounded by `---` on the top and bottom of the
+section.
+
+YAML is a data format that has the form of a `key: value` pairing to
+store data. The keys in this case are `title`, `author`, and `format`.
+The values are those that follow the key (e.g. "Your Name" for
+`author`). In the case of Quarto, these `key` data are used to store the
+settings that Quarto will use to create the `format` output document.
+The keys listed above are some of many settings that Quarto has
+available to use.
 
 In the case of this YAML header, the Quarto document will generate an
 HTML file because of the `format: html` setting. You can also create a
-word document by changing this to `format: docx`. You can also create
-PDF documents, though this requires installing LaTeX through the R
-package [tinytex](https://yihui.name/tinytex/r/), which can sometimes be
-complicated to install. We will only cover HTML and Word documents in
-this course.
+word document by changing this to `format: docx`.
+
+::: callout-tip
+It is possible to create PDF documents, though this requires installing
+LaTeX through the R package [tinytex](https://yihui.name/tinytex/r/),
+which can sometimes be complicated to install.
+:::
 
 So, how do we create a HTML (or Word) document from the this document?
 We do that by "rendering" it. At the top of the pane near the "Save"
-button, there is a button with the word "Render" (if it's R Markdown, it
-will be called "Knit" with a yarn symbol beside it). To render, you
-either click that button or use the shortcut {{< var keybind.render >}}
-anywhere in the Quarto document.
-
-When you click the "Render" button, a bunch of processing messages
-should appear in a new pane beside the Console, followed by a new window
-popping up with the newly created document. Alternatively, the HTML
-document may pop up in the "Viewer" pane.
+button, there is a button with the word "Render". To render, you either
+click that button or use the shortcut {{< var keybind.render >}}
+anywhere in the Quarto document. When you click the "Render" button, a
+bunch of processing messages should appear in a new pane beside the
+Console, followed by a new window popping up or in the Viewer pane with
+the newly created document or.
 
 You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
 render the document again with the "Render" button or with the
 keybinding {{< var keybind.render >}}. A Word document should open up.
-This is the basic approach to creating documents from R Markdown or
-Quarto. Before continuing, let's add and commit the newly created file
-into the Git history with {{< var keybind.git >}}.
-
-## Inserting R code into your document
-
-Being able to insert R code directly into a document is one of the most
-powerful features of Quarto. This frees you from having to switch
-between programs when simultaneously writing text and running R code to
-derive output that you'd then put into your manuscript.
-
-Running and including R code in Quarto is done using "R code chunks".
-You insert these chunks into the document by placing the cursor at the
-location where you want the chunk to be, then using the shortcut
-{{< var keybind.chunk >}}. With the Command Palette, you select the
-option from the menu to insert a new code chunk. You can also use the
-menu item `Code -> Insert Chunk` to insert a new code chunk.
-
-Before we insert the code chunk, let's delete all the text in your
-document, with exception of the YAML header (including the dashes
-surrounding it). Make sure that the YAML key `format:` is set to `html`.
-Then, place your cursor two lines below the YAML header and insert a
-code chunk with {{< var keybind.chunk >}}. In the code chunk, type out
-`2 + 2`. It should look something like:
-
-```{r}
-#| echo: fenced
-2 + 2
-```
-
-You can run R code inside the code chunk the same way as you would write
-it in an R script. Typing {{< var keybind.run-code >}} on the line will
-send the code `2 + 2` to the console, with the output appearing directly
-below the code chunk in the document. Note that this output is
-*temporary*.
-
-To ensure that the output is inserted into the HTML document, render the
-document using {{< var keybind.render >}} and see what happens in the
-resulting HTML document. The output `4` should appear below the code
-chunk in the HTML document, something like this:
-
-```{r}
-2 + 2
-```
-
-This is a very simple example of how code chunks work. Things are
-usually more complicated than this though. Normally, we have to load R
-packages to use for our subsequent code, and this is no different in an
-Quarto document. We will set this up together now.
-
-Create a new code chunk with {{< var keybind.chunk >}} and then type
-`setup` right after the `r`. This area that you just typed 'setup' in is
-for code chunk labels. In this case, we labelled the code chunk with the
-name `setup`. Code [chunk
-labels](https://yihui.name/knitr/options/#chunk-options) should be named
-without `_`, spaces, or `.` and instead should be one word or be
-separated by `-`. An error may not necessarily occur if you don't follow
-this rule, but there can be unintended side effects that you may not
-realize and R will likely not tell you about it, probably causing you
-quite a bit of annoyance and frustration. **Note**, you can't use
-duplicate code chunk labels in your document.
-
-::: {.callout-tip appearance="default"}
-A nifty thing about using chunk labels is that you can get an overview
-of your code chunks using the "Document Outline" with
-{{< var keybind.outline >}}, but only if you have this option set up in:
-`Tools -> Global Options -> R Markdown -> Show in document outline`.
-:::
-
-The name `setup` also has a special meaning for Quarto. When you run
-other code chunks in the document, Quarto will know to first look for
-and run the code in the `setup` chunk. Therefore, this is a good place
-to put your `library()` calls or other setup functions. Let's enter some
-code to load the packages and the dataset we have been using to the
-setup chunk:
-
-```{r setup}
-#| echo: fenced
-library(tidyverse)
-library(NHANES)
-nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-```
-
-Let's insert another code chunk below this one with
-{{< var keybind.chunk >}}, and simply put `nhanes_small` in the chunk:
-
-```{r}
-#| echo: fenced
-nhanes_small
-```
-
-Let's run this code as we normally would in a script file, by placing
-the cursor over the code and using the shortcut
-{{< var keybind.run-code >}}. We can also render the document with
-{{< var keybind.render >}} and see what it looks like. When the HTML
-document opens, you should see some text below the `setup` chunk that
-might look something like this:
-
-```         
-── Attaching packages ──────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0      ✔ purrr   1.0.0 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
-── Conflicts ─────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-```
-
-You probably don't want this text in your generated document, so we will
-add a [chunk
-option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
-remove this message. Chunk options are used to change how code chunks
-work. When adding them inside the code chunk, they always need to start
-with `#|`. If you want to run the code but not show those messages and
-warnings, you can add the options `#| message: false` and
-`#| warning: false`:
-
-```{r setup}
-#| echo: fenced
-#| message: false
-#| warning: false
-library(tidyverse)
-library(NHANES)
-nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-```
-
-If you want to hide the code, messages, warnings, and output, but still
-run the code, you can use the option `#| include: false`.
-
-```{r setup}
-#| echo: fenced
-#| include: false
-library(tidyverse)
-library(NHANES)
-nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
-```
-
-Other common options are:
-
--   `echo`: To show the code. Default value is `true`. Use `false` to
-    hide.
--   `results`: To show the output. Default is `markup`. Use `hide` to
-    hide or `asis` as regular text (not inside a code block).
--   `eval`: To evaluate (run) the R code in the chunk. Default value is
-    `true`, while `false` does not run the code.
-
-These options all work on the individual code chunk. If you want to set
-an option to all the code chunks (e.g. to hide all the code but keep the
-output), you can use Quarto's
-[`execute`](https://quarto.org/docs/reference/formats/html.html#execution)
-options. These options are added to the YAML header and will apply the
-settings to everything in the document. We *won't* do this in this
-session, but here is what it looks like:
-
-``` {.yaml filename="doc/learning.qmd"}
----
-title: "Reproducible documents"
-author: "Your Name"
-format: html
-execute:
-  echo: false
-  warning: false
-  message: false
----
-```
-
-## Formatting text with Markdown syntax
-
-::: callout-note
-## Reading task: \~8 minutes
-
-Formatting text in Markdown is done using characters that are considered
-"special" and act like commands. These special characters indicate what
-text is bolded, what is a header, what is a list, and so on. Almost
-every feature you will need to write a scientific document is available
-in Markdown, although some are missing. If you can't get Markdown to do
-what you want, our suggestion would be to try to fit your writing around
-Markdown, rather than force or fight with Markdown to do something it
-wasn't designed to do. You might actually find that the simpler Markdown
-approach is easier than what you wanted or were thinking of doing, and
-that you can actually do quite a lot with Markdown's capabilities.
-
-You can access a quick guide to formatting features of Markdown using
-the RStudio menu: `Help -> Cheatsheets -> R Markdown Cheat Sheet`.
-Quarto also has a great guide to the [Basics of
-Markdown](https://quarto.org/docs/authoring/markdown-basics.html).
-
-### Headers
-
-Creating headers (like chapters or sections) is done by using one or
-more `#` at the beginning of a line. Headers should always be preceded
-and followed by an empty line:
-
-``` markdown
-# Header 1
-
-Paragraph.
-
-## Header 2
-
-Paragraph.
-
-### Header 3
-
-Paragraph.
-```
-
-### Lists
-
-Lists are created by adding either `-` or `1.` to the beginning of a
-line and an empty line must be at the start and end of the list.
-
-For unnumbered lists, it looks like:
-
-``` markdown
-- item 1
-- item 2
-- item 3
-```
-
-which gives...
-
--   item 1
--   item 2
--   item 3
-
-And numbered lists look like:
-
-``` markdown
-1. item 1
-2. item 2
-3. item 3
-```
-
-which gives...
-
-1.  item 1
-2.  item 2
-3.  item 3
-
-### Text formatting
-
--   `**bold**` gives **bold**.
--   `*italics*` gives *italics*.
--   `super^script^` gives super^script^.
--   `sub~script~` gives sub~script~.
-
-### Inline R code
-
-Quarto also allows you to include output in-text. For instance, if you
-wanted to add the mean of some values to the text, it would look like
-this:
-
-> The mean of BMI is
-> `` `r knitr::inline_expr("round(mean(nhanes_small$bmi, na.rm = TRUE), 2)")` ``.
-
-which gives...
-
-> The mean of BMI is `r round(mean(nhanes_small$bmi, na.rm = TRUE), 2)`.
-
-But note that using inline R code can *only* insert a *single* number or
-character value, and nothing more.
-:::
-
-::: {.callout-tip appearance="default"}
-> For more details about other Markdown "syntax", check out
-> @sec-extra-markdown as well as the R Markdown cheatsheet
-> (`Tools -> Cheatsheets`, which works for many Quarto features too) and
-> Quarto's [Markdown
-> Basics](https://quarto.org/docs/authoring/markdown-basics.html) page.
-> Continue to the exercise below.
-:::
-
-## Exercise: Practice using Markdown for writing text
-
-> Time: \~5 minutes.
-
-Get some practice writing Markdown by completing these tasks in the
-`doc/learning.qmd` file.
-
--   Right under the YAML header, insert a list (either numbered or
-    unnumbered) with your name and affiliation(s)/institution(s).
--   Create three level 1 headers (`#`), called "Intro", "Methods and
-    Results", and "Discussion".
--   Create a level 2 header (`##`) under "Methods and Results" called
-    "Analysis".
--   Write one random short sentence under each header. Bold (`**word**`)
-    one word in each and italicize (`*word*`) another.
--   Insert a code chunk to make a simple calculation (e.g. `2 + 2`).
--   Finally, add and commit these changes into the Git history with
-    {{< var keybind.git >}}.
+This is the basic approach to creating documents from Quarto.
 
 ## RStudio layout and usage
 
-Open up the `R/learning.R` file now, which you will use to type in code
-for the code-along parts. You've already gotten a bit familiar with
-RStudio in the pre-course tasks, but if you want more details, RStudio
-has a great
-[cheatsheet](https://www.rstudio.com/resources/cheatsheets/#ide) on how
-to use RStudio. The items to know right now are the "Console",
-"Files"/"Help", and "Source" tabs.
+You've already gotten a bit familiar with RStudio in the pre-course
+tasks, but if you want more details, RStudio has a great [cheat
+sheet](https://www.rstudio.com/resources/cheatsheets/#ide) on how to use
+RStudio. The items to know right now are the "Console", "Files"/"Help",
+and "Source" tabs.
 
 Code is written in the "Source" tab, where it saves the code and text as
 a file. You can send selected code to the Console from the opened file
@@ -495,36 +193,79 @@ using it a lot throughout the course. Open it up with
 If you can't remember a specific keybinding in RStudio, check out the
 help for it by going to the menu item `Help -> Keyboard Shortcuts Help`.
 
-## Basics of using R
+## Writing R code
 
-One useful thing to do to make your R script more readable and
-understandable is to use "Sections". They're like "headers" in Word and
-they split up an R script into sections, which then show up in the
-"Document Outline". We can insert a section using
-{{< var keybind.code-section >}}. You can also insert the sections
-through the menu `Code -> Insert Section`.
+Being able to insert R code directly into a document is one of the most
+powerful features of Quarto. This frees you from having to switch
+between programs when simultaneously writing text and running R code to
+derive output that you'd then put into your scientific document.
+
+Running and including R code in Quarto is done using "R code chunks".
+You insert these chunks into the document by placing the cursor at the
+location where you want the chunk to be, then using the shortcut
+{{< var keybind.chunk >}}. Alternatively, you can also use the Command
+Palette with {{< var keybind.palette >}} followed by type "new chunk" or
+from the menu item `Code -> Insert Chunk`.
+
+Before we insert the code chunk, let's delete all the text in your
+document, except for the YAML header (including the dashes surrounding
+it). Make sure that the YAML key `format:` is set to `html`. Then, place
+your cursor two lines below the YAML header and insert a code chunk with
+{{< var keybind.chunk >}}. In the code chunk, type out `2 + 2`. It
+should look something like:
+
+```{{{r}}}
+2 + 2
+```
+
+You can run R code inside the code chunk using
+{{< var keybind.run-code >}} on the line, which will send the code
+`2 + 2` to the R Console, with the output appearing directly below the
+code chunk in the document. Note that this output is *temporary*.
+
+To see how the output is inserted into the HTML document, let's render
+the document using {{< var keybind.render >}} to see what happens. The
+output `4` should appear below the code chunk in the HTML document,
+something like this:
+
+```{r}
+#| echo: fenced
+2 + 2
+```
+
+## :book: Reading task: Basics of R
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
 
 Let them read it over, then briefly go over the content again. We don't
 need to do most of this as a code-along, since we will be using them a
-lot over the later sessions. However, do a code-along showing how to
-assign data to objects, the difference between unassigned (not saved)
-and assigned (saved; this will be helpful in the wrangling section and
-piping without assigning), and how to send code to the Console.
+lot throughout the course.
 
 Emphasize that, in general, code with `()` means it is a function and
 that it does an action. Mention that, like everything, there are some
 situations where that isn't completely true but it mostly is.
 :::
 
-::: callout-note
-## Reading task: \~5 minutes
+**Time: \~5 minutes**
+
+Before moving on, let's go over a bit about how R works, and what the "R
+session" means. An R session is the way you normally interact with R,
+where you would write code in the Console to tell R to do something.
+Normally, when you open an R session without an R Project, the session
+defaults to assuming you will be working in the `~/Desktop` or `~` (your
+Home folder) location. But this location usually isn't where you
+actually work and where your R code is. You normally work in the folder
+that has your R scripts, Quarto documents, or data files. The assumption
+with R Projects on the other hand, is that the R session's working
+directory should be where the R Project is, since that is where you have
+your R scripts and data files.
 
 In R, everything is an object and every action is a function. A function
-is an object, but an object isn't always a function. To create an
-object, also called a variable, we use the `<-` assignment operator:
+is also an object, but an object isn't always a function. To create an
+object, also called a variable, we use the `<-` assignment operator. So,
+if we want to create an object called `weight_kilos` and assign it the
+value `100`, we would write:
 
 ```{r using-assignment-operator}
 weight_kilos <- 100
@@ -537,7 +278,7 @@ The new object now stores the value we assigned it. We can read it like:
 > `weight_kilos`"
 
 You can name an object in R almost anything you want, but it's best to
-stick to a [style guide](https://style.tidyverse.org/). For instance, we
+stick to a [style guide](https://style.tidyverse.org/). For example, we
 will use `snake_case` to name things.
 
 There are also several main "classes" (or types) of objects in R: lists,
@@ -558,14 +299,16 @@ c("a", "b", "c")
 c(TRUE, FALSE, FALSE)
 # Numeric vector
 c(1, 5, 6)
-# Factor vector
+# Factor vector (special types of character vectors)
 factor(c("low", "high", "medium", "high"))
 ```
 
 Notice how we use the `#` to write comments or notes. Whatever we write
 after the "hash" (`#`) tells R to ignore it and not run it.
 
-This is what a data frame looks like:
+This is what a data frame looks like, if we look at the built-in dataset
+called `airquality`, which is a data frame object loaded by default when
+you start R:
 
 ```{r dataframes}
 head(airquality)
@@ -575,72 +318,271 @@ The `c()` function puts values together and `head()` prints the first 6
 rows. Both `c()` and `head()` are *functions* since they do an *action*
 and they can be recognized by the `()` at their end. Functions take an
 *input* (known as *arguments*) and give back an *output*. Each argument
-is separated by a comma `,`. Some functions can take unlimited arguments
-(like `c()`). Others, like `head()` can only take a few arguments. In
-the case of `head()`, the first argument is reserved for the name of the
-data frame.
-:::
+is separated by a comma `,`. Some functions can take unlimited number of
+arguments (like `c()`). Others, like `head()` can only take a few
+arguments. In the case of `head()`, the first argument requires a data
+frame object.
 
-## Using auto-completion in RStudio
+{{< text_snippet sticky_up >}}
+
+## Adding the special "setup" code chunk
+
+We showed a very basic example of how a code chunk works. Let's continue
+by doing something slightly more complicated.
+
+One of the major strengths of R, and many other programming languages,
+is in its ability for other people to create packages that simplify
+doing complex tasks. For example, if you need to use mixed effects
+models for your data analysis, you can use the `{lme4}` package. Or if
+you want to create figures you can use the `{ggplot2}` package. As you
+experienced from the pre-course tasks, installing packages is easy by
+using `install.packages()`. Whenever we work with R, we very rarely work
+only with the base R functions. We usually use a lot of functions from
+many other packages, because that is one of the easiest ways for you to
+simplify your work! No need to re-invent the wheel :grin:
+
+One "meta-package" we will use throughout the course is called
+`{tidyverse}`. So let's load the package up so we can use the functions
+from inside it.
+
+First, go to the top of the `docs/learning.qmd` file and create a new
+code chunk two lines below the YAML header with
+{{< var keybind.chunk >}}. In the newly created code chunk, type out
+`setup` right after the `r`. This area after the `r` is where you write
+the code chunk *label*. In this case, we labeled the code chunk with the
+name `setup`. Code [chunk
+labels](https://yihui.name/knitr/options/#chunk-options) should be named
+without `_`, spaces, or `.` and instead should be one word or be
+separated by `-`.
 
 ::: {.callout-note appearance="minimal" collapse="true"}
-## Instructor note
+## :teacher: Instructor note
 
-Really emphasize how use auto-completion is.
+Emphasize the warning note below.
 :::
 
-To more quickly type out objects in R, use "tab-completion" to finish an
-object name for you. Normally RStudio will start auto-completing for you
-as you type code, but you can manually trigger auto-completion with
-`Tab`. As you type out an object name, hit the `Tab` key to see a list
-of objects available. RStudio will not only list the objects, but also
-shows the possible options and potential help associated with the
-object.
+::: callout-warning
+If you use a space in your chunk label, an error or warning may not
+necessarily occur, but there can be unintended side effects that you may
+not realize. This may likely cause quite a bit of annoyance and
+frustration.
 
-Try it out. In the RStudio Console, start typing:
+You also can't use duplicate code chunk labels in your document.
+:::
+
+::: {.callout-tip appearance="default"}
+A nifty thing about using chunk labels is that you can get an overview
+of your code chunks using the "Document Outline" with
+{{< var keybind.outline >}}, but only if you have this option set up in:
+`Tools -> Global Options -> R Markdown -> Show in document outline`.
+:::
+
+The name `setup` also has a special meaning in Quarto. When you run
+other code chunks in the document in a new (or restarted) session,
+Quarto will know to first look for and run the code in the `setup`
+chunk. So this is the perfect place to add packages to use or code to
+load your data, which we will do in a later session.
+
+The way you load a package and get access to the functions inside is by
+using the `library()` function. So let's load the `{tidyverse}` package
+by writing `library(tidyverse)` in the code chunk. It should look like
+this:
+
+```{{r setup}}
+library(tidyverse)
+```
+
+Let's run this code chunk by placing the cursor over the code and using
+{{< var keybind.run-code >}}. After you run the code, you should see
+some text below the `setup` chunk that might look something like this:
 
 ```{r}
-#| filename: "Console"
-#| eval: false
-col
+#| echo: false
+#| message: true
+#| warning: true
+library(tidyverse)
 ```
 
-Then hit tab. You should see a list of functions to use. Hit tab again
-to finish with `colnames()`. This simple tool can save so much time and
-can prevent spelling mistakes.
+As we continue adding code to the `docs/learning.qmd` file, we'll also
+add some text to help organize the document and maybe you'll also find
+it useful to add notes to yourself as you are coding along. In order for
+us to do that, we need to learn a bit about Markdown syntax.
 
-If we want to get more information from data frames, we can use other
-functions like:
+## :book: Reading task: Formatting text with Markdown
 
-```{r examining-dataframes}
-#| filename: "Console"
-# Column names
-colnames(airquality)
+**Time: \~8 minutes**
 
-# Structure
-str(airquality)
+Formatting text in an output document like HTML or Word when using
+Markdown is done with the use of "special" characters or syntax. These
+special characters control whether the text will be bold, if it will be
+a header or a list, and so on. Almost every feature you will need to
+write a scientific document is available in Markdown, but it can't do
+*everything*. If you can't get Markdown to do what you want, our
+suggestion would be to try to fit your writing around Markdown, rather
+than force or fight with Markdown to do something it wasn't designed to
+do. You might actually find that the simpler Markdown approach is easier
+than what you wanted or were thinking of doing, and that you can do
+quite a lot with Markdown's capabilities.
 
-# Summary statistics
-summary(airquality)
+::: callout-tip
+You can access a quick guide to formatting features of Markdown using
+the RStudio menu: `Help -> Cheat Sheets -> R Markdown Cheat Sheet`.
+Quarto also has a great guide to the [Basics of
+Markdown](https://quarto.org/docs/authoring/markdown-basics.html).
+:::
+
+### Headers
+
+Creating headers (like chapters or sections) is done by using one or
+more `#` at the beginning of a line followed by some text. Headers
+should always be preceded and followed by an empty line:
+
+::::: columns
+::: column
+``` markdown
+# Header 1
+
+Paragraph.
+
+## Header 2
+
+Paragraph.
+
+### Header 3
+
+Paragraph.
 ```
+:::
+
+::: column
+# Header 1 {.unnumbered}
+
+Paragraph.
+
+## Header 2 {.unnumbered}
+
+Paragraph.
+
+### Header 3 {.unnumbered}
+
+Paragraph.
+:::
+:::::
+
+### Lists
+
+Lists are created by adding either `-` or `1.` to the beginning of a
+line. An empty line must be at the start and end of the list.
+
+For unnumbered lists, it looks like:
+
+::: {layout-ncol="2"}
+#### Markdown {.unnumbered}
+
+``` markdown
+- item 1
+- item 2
+- item 3
+```
+
+#### Output {.unnumbered}
+
+-   item 1
+-   item 2
+-   item 3
+:::
+
+And numbered lists look like:
+
+::: {layout-ncol="2"}
+#### Markdown {.unnumbered}
+
+``` markdown
+1. item 1
+2. item 2
+3. item 3
+```
+
+#### Output {.unnumbered}
+
+1.  item 1
+2.  item 2
+3.  item 3
+:::
+
+### Text formatting
+
+| Markdown        | Output        |
+|-----------------|---------------|
+| `**bold**`      | **bold**      |
+| `*italics*`     | *italics*     |
+| `super^script^` | super^script^ |
+| `sub~script~`   | sub~script~   |
+
+{{< text_snippet sticky_up >}}
+
+## :technologist: Exercise: Practice using Markdown
+
+**Time: \~10 minutes.**
+
+Get some practice writing Markdown by completing these tasks in the
+`docs/learning.qmd` file.
+
+1.  Create one level 2 header (`##`) called "About me" below the `setup`
+    code chunk.
+2.  Below this new level 2 header, insert a list (either numbered or
+    unnumbered) with your name and affiliation(s)/institution(s).
+3.  Below the list, write one or two simple sentences about yourself.
+    Include one word in **bold** and another in *italics*.
+4.  Create another level 2 header (`##`) called "Simple code".
+5.  Insert a code chunk below this level 2 header that multiplies
+    `3 * 3` and run it.
+
+Use this scaffold to help guide you by replacing the `___` with the
+instructions from above:
+
+```` markdown
+## ___
+
+-   ___
+-   ___
+
+___
+
+## ___
+
+
+```{{r}}
+___
+```
+````
+
+When you are done, render the document to see how it looks.
+
+{{< text_snippet sticky_up >}}
 
 ## Summary
-
--   Keep R scripts simple, focused, and short.
-
--   Use tab auto-completion when writing code.
-
--   Use `?` to get help on an R object.
 
 -   Making your research reproducible not only improves the scientific
     quality of your work, but also makes you more efficient, productive,
     and have more confidence in your results.
-
--   Use Quarto to construct files that can easily be turned into a
-    variety of file types such as HTML or Word.
-
+-   The R session is where you interact with R and where code gets run,
+    which occurs in the R Console in RStudio.
+-   The working directory in the R Console of the session determines
+    where code execution happens, where files are saved, and where data
+    is loaded from.
+-   Running R code involves sending it to the R Console by using
+    {{< var keybind.run-code >}}.
+-   There are many types of objects in R, the two important ones for us
+    are vectors and data frames.
+-   There are many data types in R, like character, numeric, and factor.
+-   Everything in R is an object and every action is a function, which
+    has a `()` at the end.
+-   Use Quarto to create documents that can be turned into a variety of
+    file types such as HTML or Word, while also ensuring the analysis is
+    (more likely to be) reproducible.
 -   Insert R code chucks in Quarto and automatically include the results
     in the final document.
-
--   Use headers (`# Header 1`), text formatting (`**bold**`) and lists
-    (`-`) in the Quarto file.
+-   Use Markdown syntax like headers (`# Header 1`), text formatting
+    (`**bold**`) and lists (`-`) in the Quarto file to format the text
+    in the output document.
