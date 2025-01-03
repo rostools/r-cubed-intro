@@ -149,7 +149,7 @@ visualizing, and which only contains values relevant to that measurement
 The `NHANES` dataset is already pretty tidy. Rows are participants at
 the survey year and columns are the variables that were measured. Let's
 visually explore our data. In the `LearningR` project in the
-`doc/learning.qmd` file, create a new second-level header on the bottom
+`docs/learning.qmd` file, create a new second-level header on the bottom
 of the file called `## Visualizing data`. Now, we are ready to start
 creating the first plot!
 
@@ -167,7 +167,7 @@ use of auto-completion and to get used to using the pipe, we'll pipe the
 data into the `ggplot()` function.
 
 ```{r}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   ggplot(aes(x = bmi)) +
   geom_histogram()
@@ -179,7 +179,7 @@ You'll notice we get a warning about dropping missing values. That's
 `na.rm = TRUE` to `geom_histogram()` and other `geom_*` functions.
 
 ```{r}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   ggplot(aes(x = bmi)) +
   geom_histogram(na.rm = TRUE)
@@ -194,7 +194,7 @@ can use `aes()` right away rather than put in the data object to the
 first argument position.
 
 ```{r}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   filter(bmi <= 60) %>%
   ggplot(aes(x = bmi)) +
@@ -234,7 +234,7 @@ geom to visualize those. Again, create a new code chunk with
 {{< var keybind.chunk >}} and type:
 
 ```{r discrete-variables}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   ggplot(aes(x = education)) +
   geom_bar()
@@ -260,7 +260,7 @@ diabetes and then copy and paste the code, replacing `diabetes` with
 `education`.
 
 ```{r}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>%
   ggplot(aes(x = diabetes)) +
@@ -375,7 +375,7 @@ header with {{< var keybind.chunk >}}. Like with the previous plot we
 created using `bmi`, we'll use `na.rm` again.
 
 ```{r 2-continuous-variables}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   ggplot(aes(x = bmi, y = bp_sys_ave)) +
   geom_hex(na.rm = TRUE)

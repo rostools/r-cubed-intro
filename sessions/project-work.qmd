@@ -65,7 +65,7 @@ Your specific tasks are:
 
 4.  **Each team member creates a Quarto file** named
     `report-YOURNAME.qmd` (replacing `YOURNAME` with your actual name)
-    in the `doc/` folder of your project (covered in
+    in the `docs/` folder of your project (covered in
     @sec-reproducible-documents). This means that each team member will
     have their own document to work in without conflicting with the
     other team members. **Note**, if there are several members with the
@@ -126,7 +126,7 @@ These tasks may seem like a lot, with a lot of new terminology and tools
 to use. But don't worry! We will be going over many of these topics and
 you will have time to complete the project over the three days. Make use
 of the website to remind you and use our
-[cheatsheet](../includes/cheatsheet.pdf) as a reference.
+[cheat sheet](/includes/cheatsheet.pdf) as a reference.
 
 At the end, the lead instructor will download each of the teams' Git
 projects, render the documents to test their reproducibility, and show

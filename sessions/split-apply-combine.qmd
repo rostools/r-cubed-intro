@@ -244,7 +244,7 @@ you to copy from. Instead of using `phys_active`, let's change that to
     "Results".
 
 ```{r}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes)) %>%
   group_by(diabetes, education) %>%
@@ -267,7 +267,7 @@ knitr package. Because we don't want to load all of the knitr functions,
 we'll use `knitr::kable()` instead:
 
 ```{r}
-#| filename: "doc/learning.qmd"
+#| filename: "docs/learning.qmd"
 nhanes_small %>%
   filter(!is.na(diabetes), !is.na(education)) %>%
   group_by(diabetes, education) %>%
@@ -288,12 +288,12 @@ the Git history using {{< var keybind.git >}}.
 
 > Time: \~20 minutes.
 
-1.  In the `doc/learning.qmd` file, create a new header called
+1.  In the `docs/learning.qmd` file, create a new header called
     `## Prettier table` along with a code chunk. Copy the code below
     (that includes some code we wrote above) and paste the code into the
     new chunk. Add the option `#| echo: false` to the code chunk.
 
-    ``` {.r filename="doc/learning.qmd"}
+    ``` {.r filename="docs/learning.qmd"}
     nhanes_small %>%
       filter(!is.na(diabetes), !is.na(education)) %>%
       group_by(diabetes, education) %>%
@@ -390,7 +390,7 @@ where multiple different themes can be used that are listed in Quarto's
 [HTML Theming](https://quarto.org/docs/output-formats/html-themes.html)
 page. It would look like this, if we use a theme called `yeti`:
 
-``` {.yaml filename="doc/learning.qmd"}
+``` {.yaml filename="docs/learning.qmd"}
 ---
 title: "Reproducible documents"
 format:

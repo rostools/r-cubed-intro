@@ -9,7 +9,7 @@ learner's understanding and make use of the stickies/hats to do so.
 
 ## Learning objectives
 
-This session’s **overall learning outcome** is to:
+This session's **overall learning outcome** is to:
 
 1.  Explain why it's important where file and folders are stored, how
     they are named, and how they are organized from a reproducibility

@@ -90,7 +90,7 @@ more information on Quarto's
 
 To help with general admin tasks of running the course, there is the
 [r3admin](https://github.com/rostools/r3admin) R package. For details of
-the license and acknowledgement of content used from sources, see the
+the license and acknowledgment of content used from sources, see the
 [license](https://r-cubed-intro.rostools.org/license.html) page of the
 website.
 
@@ -105,7 +105,7 @@ Please cite the material as:
 
 Or as BibTeX:
 
-```         
+```
 @article{Johnston2021,
   doi = {10.21105/jose.00122},
   url = {https://doi.org/10.21105/jose.00122},

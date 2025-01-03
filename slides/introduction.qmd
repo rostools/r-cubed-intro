@@ -191,7 +191,7 @@ experiences, so there is a mix of novice and more experienced users.
 -   We're all learning here!
     -   This is a supportive and safe environment
     -   Remember our [Code of Conduct](conduct.html)
--   We have a [cheatsheet](../includes/cheatsheet.pdf)!
+-   We have a [cheat sheet](../includes/cheatsheet.pdf)!
 
 ## Practice using stickies: Have you joined the GitHub Organization and the Slack group? {.center}
 

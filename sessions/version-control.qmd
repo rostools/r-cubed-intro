@@ -61,7 +61,7 @@ doing.
 control
 system'.](../images/version-control.jpg){#fig-version-control-comics}
 
-![Filenaming used in the commonly used 'version
+![File naming used in the commonly used 'version
 control'.](../images/informal-version-control.jpg){#fig-filenaming-version-control-comics}
 
 Does this way of saving files and keeping track of versions look
@@ -107,7 +107,7 @@ are so many good reasons to use version control, especially in science:
     scientific claim.
 -   Claim to first discovery, since you have a time-stamped history of
     your work.
--   Defence against fraud, because of the transparency.
+-   Defense against fraud, because of the transparency.
 -   Evidence of contributions and work, since who does what is tracked.
 -   Keeping track of changes to files easily, by looking at the history
     of changes.
@@ -231,7 +231,7 @@ LearningR
 ├── R/
 ├── data/
 ├── data-raw/
-├── doc/
+├── docs/
 ├── .gitignore <-- Tells Git which files NOT to save
 ├── LearningR.Rproj
 ├── DESCRIPTION
