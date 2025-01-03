@@ -4,20 +4,20 @@
 
 This session's **overall learning outcome** is to:
 
-1.  
+1.  Describe what a reproducible document is, explain why it is important, and
+    use it to write R code to create an output document.
 
 **Specific objectives** are to:
 
-1.  Describe what a reproducible document is, what Quarto is and how it
+1.  Describe what Quarto is and how it
     helps with reproducibility, and why it can save you time and effort.
 2.  Write and use R code within a document, so that it will
     automatically insert the R output into the final document.
 3.  Identify what some Markdown syntax does to the formatting of the
     generated HTML file and write some Markdown to make some simple
     formatting of your document.
-4.  Become familiar with the very basics of R.
-5.  Apply tools to use a consistent "grammar" and "styling" when writing
-    R code and making files.
+4.  Define some basic objects and data types in R and write some simple R code
+    within the Quarto document.
 
 ## :book: Reading task: Why and how to be reproducible?
 
