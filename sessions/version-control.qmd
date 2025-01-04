@@ -8,9 +8,13 @@ library(downlit)
 
 <!-- TODO: Add an introduction here -->
 
-**Session objectives**:
+## Learning objectives
 
-<!-- TODO: Revise objectives to fit how I did it in advanced -->
+This session's **overall learning outcome** is to:
+
+1.  
+
+**Specific objectives** are to:
 
 1.  Learn about "formal" version control and its importance.
 2.  Learn about Git for version control and apply RStudio's integrated
@@ -18,7 +22,7 @@ library(downlit)
 3.  Learn and apply the basic workflow of Git version control: View
     changes to files, record and save those changes to a history.
 
-## What is version control? {#sec-what-is-version-control}
+## :book: Reading task: What is version control? {#sec-what-is-version-control}
 
 ::: {.callout-note collapse="true"}
 ## Instructor note
@@ -44,18 +48,18 @@ same page. Make use of stickies frequently to assess how everyone is
 doing.
 :::
 
-::: callout-note
-## Reading task: \~8 minutes
+**Time: \~8 minutes**
 
-> This session is *very* text and reading heavy compared to other
-> sessions. This is mostly because this topic requires a mental paradigm
-> shift in how you view files, and requires you to change your habits of
-> how you normally work. While you may get more short-term use out of
-> the R portion of this course, knowing and using version control
-> concepts and tools will fundamentally change how you work over the
-> long term. While the concepts are quite difficult, the tools to use
-> the concepts aren't, and using them often will make the concepts
-> easier to understand.
+::: callout-warning
+This session is *very* text and reading heavy compared to other
+sessions. This is mostly because this topic requires a mental paradigm
+shift in how you view files, and requires you to change your habits of
+how you normally work. While you may get more short-term use out of the
+R portion of this course, knowing and using version control concepts and
+tools will fundamentally change how you work over the long term. While
+the concepts are quite difficult, the tools to use the concepts aren't,
+and using them often will make the concepts easier to understand.
+:::
 
 !['Final' version of a document, using a common but manual 'version
 control
@@ -91,11 +95,11 @@ happened and why.
 To understand how incredibly powerful version control is, think about
 these questions:
 
--   How many files of different versions of a manuscript or thesis do
-    you have laying around after getting feedback from your supervisor
-    or co-authors?
--   Have you ever wanted to experiment with your code or your manuscript
-    and need to make a new file so that the original is not modified?
+-   How many files of different versions of a scientific documents or
+    thesis do you have laying around after getting feedback from your
+    supervisor or co-authors?
+-   Have you ever wanted to experiment with your code or your report and
+    need to make a new file so that the original is not modified?
 -   Have you ever deleted something and wish you hadn't?
 -   Have you ever forgotten what you were doing on a project, or why you
     chose a particular strategy or analysis?
@@ -123,12 +127,12 @@ In this session we'll be covering a version control tool called
 [Git](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F).
 While Git on its own can be quite difficult to use, RStudio thankfully
 has an amazing and straight-forward integration to it.
-:::
 
-## What is Git? {#sec-what-is-git}
+{{< text_snippet sticky_up >}}
 
-::: callout-note
-## Reading task: \~5 minutes
+## :book: Reading task: What is Git? {#sec-what-is-git}
+
+**Time: \~5 minutes**
 
 Git is one of several version control system tools available. It was
 developed to help software programmers to develop and manage their work
@@ -146,7 +150,8 @@ how science and data analysis is done.
     packages, are done using Git and are hosted on
     [GitHub](https://github.com/), which is a company that hosts Git
     "repositories" (i.e. projects) online.
-    -   All RStudio code and `{tidyverse}` packages are on GitHub.
+    -   For example, all RStudio code and `{tidyverse}` packages are on
+        GitHub.
 -   There are many open scientific projects that use Git and are hosted
     on GitHub, e.g. [rOpenSci](https://github.com/ropensci) organization
     or [MRC Integrated Epidemiology Unit](https://github.com/MRCIEU).
@@ -162,15 +167,12 @@ manage other non-code based files like Word or images in Git. Version
 control is useful for any project that uses any type of files since they
 can be saved in the Git history (though there are some limitations to
 using Git for files that are not plain text like R scripts are). You can
-save files either by adding and committing them (as we will learn to do
-shortly) or by uploading them to your repository on GitHub, as pictured
-below.
+save files into the history by adding and committing them (as we will
+learn to do shortly).
 
-![GitHub: Select "Upload files" from the "Add file" drop-down
-menu.](../images/git-upload-file-github.png){#fig-git-upload-file-github}
-:::
+{{< text_snippet sticky_up >}}
 
-## Basics of Git {#sec-basics-of-git}
+## :book: Reading task: Basics of Git {#sec-basics-of-git}
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
@@ -182,8 +184,7 @@ do that already during the pre-course tasks, sometimes things happen in
 the meantime, so its good to check again.
 :::
 
-::: callout-note
-## Reading task: \~8 minutes
+**Time: \~8 minutes**
 
 Git works by tracking changes to files *at the project level* (i.e. for
 every R Project). So you won't track your entire, for instance,
@@ -212,18 +213,18 @@ this later):
 
 So first off, *what exactly is the Git repository?* The Git repository
 works at the project (the folder) level because it stores the version
-history in the hidden `.git/` folder. In Windows, this folder will
-probably not be hidden, but in Mac and Linux, files and folders that
-start with `.` are automatically hidden. The `.git/` folder itself is
-the repository used by Git to store the file changes and history of the
-project. So don't delete it!
+history in the hidden `.git/` folder as shown in the file diagram below.
+In Windows, this folder will probably not be hidden, but in Mac and
+Linux, files and folders that start with `.` are automatically hidden.
+The `.git/` folder itself is the repository used by Git to store the
+file changes and history of the project. So don't delete it!
 
 Another important file for managing the repository is the `.gitignore`
 file. This file tells Git to *not* track (or "watch") certain files,
 such as temporary files. This is *particularly* important for making
-sure you don't save personal data in the Git history. Personal data
-should be stored in a *secure location* and should *only* be accessed in
-the R Project by loading it from that secure location.
+sure you don't save personal data in the Git history. Personal sensitive
+data should be stored in a *secure location* and should *only* be
+accessed in the R Project by loading it from that secure location.
 
 ```         
 LearningR
@@ -235,6 +236,7 @@ LearningR
 ├── .gitignore <-- Tells Git which files NOT to save
 ├── LearningR.Rproj
 ├── DESCRIPTION
+├── TODO.md
 └── README.md
 ```
 
@@ -245,19 +247,15 @@ Setting up a Git repository can be done in several ways:
     RStudio.
 -   For existing R Projects, you can type in the console
     `usethis::use_git()` (*don't do this for the course!*).
-
-The `usethis::use_r()` command creates R scripts in the `R/` folder. As
-you may tell, the `{usethis}` package can be quite handy. For the first
-few sessions, we will be working the R scripts and then later will move
-over to Quarto files instead. Why? Working with R, you will be doing a
-lot of coding and writing in both types of files, so we want you to get
-practice using both.
+-   The `{prodigenr}` package will automatically set up Git for the
+    project.
 
 ![How we can stand on the shoulders of "usethis" to be productive.
 Artwork by
-[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-usethis.png){#fig-art-usethis
+[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](/images/art-usethis.png){#fig-art-usethis
 width="100%"}
-:::
+
+{{< text_snippet sticky_up >}}
 
 ## Using Git in RStudio
 
@@ -281,7 +279,7 @@ To access the Git interface in RStudio, click the Git icon beside the
 "Commit..." option using {{< var keybind.git >}}.
 
 ![The location of the Git button in
-RStudio.](../images/rstudio-git-button.png){#fig-rstudio-git-button}
+RStudio.](/images/rstudio-git-button.png){#fig-rstudio-git-button}
 
 The Git interface should look something like @fig-rstudio-git-interface
 below. A short written description is given below the image.
@@ -319,6 +317,10 @@ the previous session. In the Git interface, select the `README.md` file.
 You should see the text in the file, all in green. Green means the text
 has been added. Red, which you will see shortly, means text was removed.
 
+A `README.md` file is an important document to orient people to your
+project. Think of it as the "metadata" about your project, so it's a
+good idea to add some basic explains about your project in it.
+
 Now click the "Staged" checkbox besides the `README.md` file to get it
 ready to be saved into the history. You've now "added" it to the staged
 area. Note that when you have a lot of files to stage, you can stage
@@ -329,8 +331,16 @@ one of the files. The box on the right side is where you type out your
 changes. You "commit" it to the history, like you "commit" something to
 your own memory.
 
-::: callout-note
-## Reading task: \~5 minutes
+## :book: Reading task: States of Git
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Verbally explain the below after they've read it to reinforce the
+concepts.
+:::
+
+**Time: \~5 minutes**
 
 Before we move on, there are some things to know about how Git works. In
 Git, there are three "states" that a file can be in, listed below and
@@ -369,7 +379,7 @@ of a previous version of this lesson, which makes it easy to get an
 overview of what is happening in a project.
 
 ![An example of a history for this course's
-repository.](../images/rstudio-git-interface-log.png){#fig-rstudio-git-interface-log}
+repository.](/images/rstudio-git-interface-log.png){#fig-rstudio-git-interface-log}
 
 You may notice that the messages in the log give a bit of detail about
 why a change was made, though it's not always the case. Sometimes a
@@ -380,24 +390,25 @@ but meaningful*. Writing down meaningful messages can save you a lot of
 time in the future when you come back to a project after some time and
 forget what you were doing. With a well written history you can get a
 quick idea or reminder about the state of the project.
-:::
+
+{{< text_snippet sticky_up >}}
+
+## Adding changes to the Git History
 
 ::: {.callout-note collapse="true"}
 ## Instructor note
-
-Verbally explain the above to reinforce the concepts, than do the rest
-as a code-along.
 
 For going over the Git history pane, demonstrate how you can open a file
 at that commit, so that nothing is ever lost.
 :::
 
-Ok, now write something like "Add initial README file" in the commit
-message box and commit the change. After clicking "Commit", you'll
-notice that the `README.md` file is no longer on the left side. That's
-because we've put the change into the history. We can view the history
-by clicking the "History" button in the top-left corner of the RStudio
-Git interface. Here you can see what has been done in previous commits.
+Ok, now we will write something like "Add initial README file" in the
+commit message box and commit the change. After clicking "Commit",
+you'll notice that the `README.md` file is no longer on the left side.
+That's because we've put the change into the history. We can view the
+history by clicking the "History" button in the top-left corner of the
+RStudio Git interface. Here you can see what has been done in previous
+commits.
 
 The "History" section is quite powerful. As long as you commit something
 into the Git history, it will never be completely
@@ -409,8 +420,6 @@ See how it shows what was there before you made more changes?
 
 [^version-control-1]: This isn't completely true, you can delete stuff,
     like if you accidentally add a password or personal data.
-
-<!-- TODO: Add an image here of opening a file at a location. -->
 
 Next, open up the `README.md` file in RStudio using the Files tab. At
 the top of the file, write your name and your field of research, and
@@ -428,9 +437,9 @@ related to each other and to the commit message. Following this basic
 principle will make your history easier for you to read and make it
 easier for others as well.
 
-## Exercise: Committing to history
+## :technologist: Exercise: Committing everything to the history
 
-> Time: 15 minutes.
+**Time: \~15 minutes.**
 
 When working on your own projects and when you use Git, you will be
 committing a *lot* of changes to your files into the Git history. Part
@@ -448,9 +457,13 @@ We will be using this workflow often throughout the rest of the course.
         added and why. In this case, the "why" is simply that you are
         saving the file into the history for the first time.
 2.  Once all the files have been added and committed, add a new line to
-    the `R/learning.R` with an R comment (starts with a `#`). Type out
-    something like "This will be used for testing out Git". Add and
-    commit that new line you've written.
+    the end of `docs/learning.qmd` with an level 2 Markdown header
+    (`##`) with a title of "Testing for Git". Then type out a sentence
+    below the header with some random words, maybe about the weather.
+    Add and commit that new line you've written using
+    {{< var keybind.git >}}.
+
+{{< text_snippet sticky_up >}}
 
 ## Summary
 
