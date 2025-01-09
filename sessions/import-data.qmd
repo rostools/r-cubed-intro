@@ -1,4 +1,4 @@
-# Importing in data {#sec-import-data}
+# Importing data into R {#sec-import-data}
 
 ## Learning objectives
 
