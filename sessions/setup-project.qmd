@@ -324,10 +324,8 @@ trying.something.here.R
 -   Use `{prodigenr}` to assist with setting up a new project, with
     standard files and folders to begin working on a data analysis
     project.
--   Use [R
-    Projects](https://support.posit.co/hc/en-us/articles/200526207-Using-Projects)
-    in RStudio to manage your project and make it easier to work with R
-    in it.
+-   Use R Projects in RStudio to manage your project and make it easier
+    to work with R in it.
 -   How you name your files is the first step to communicating the
     files' contents with yourself in the future and with others. Use the
     tidyverse style guide for file naming.
