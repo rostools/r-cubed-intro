@@ -457,6 +457,14 @@ we write code throughout this course. We'll use it with
 {{< var keybind.styler >}}, which should show the "Style active file"
 option.
 
+::: callout-tip
+If you are using RStudio version at least `2024.12.0`, you can set up
+`{styler}` to run automatically when you save a file. Go to "Tools",
+"Global Options", click the "Code" section, then click the "Formatting" pane,
+and finally select "styler" from the drop-down menu list. Click ok and now,
+whenever save your file, it will re-format it for you.
+:::
+
 The thing to note, is that `{styler}` isn't perfect and can't fix naming
 issues or issues that require human consideration. For example, it can't
 change objects that are named `T` or `c` to something else. But
