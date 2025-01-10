@@ -5,7 +5,8 @@
 This session’s **overall learning outcome** is to:
 
 1.  Identify the different ways to import data by relying on the file
-    extension,
+    extension, describing and identifying the "tidiness" of the data,
+    and using R to import the data.
 
 **Specific objectives** are to:
 
@@ -21,8 +22,7 @@ This session’s **overall learning outcome** is to:
     shown from the output of the code chunk when generating the output
     document.
 5.  Describe the difference between "messy" and "tidy" data and explain
-    why you should aim to create and use tidy data when working with
-    data.
+    why you should aim to make data tidier.
 6.  Identify some approaches to help resolve problems when you encounter
     errors or warnings in R.
 
@@ -104,9 +104,9 @@ directly, we see something that looks like:
 
 ```{r}
 #| echo: false
-readr::read_lines(here::here("data/post-meal-insulin.csv")) %>% 
-  stringr::str_trunc(60) %>%
-  head() %>%
+readr::read_lines(here::here("data/post-meal-insulin.csv")) |>
+  stringr::str_trunc(60) |>
+  head() |>
   cat(sep = "\n")
 ```
 
@@ -466,6 +466,44 @@ published, so the original raw data can always be downloaded again.
 
 {{< text_snippet sticky_up >}}
 
+## :speech_balloon: Discussion activity: How tidy is our data?
+
+**Time: \~10**
+
+Now that we've learned about the concept of "tidy" data, let's discuss
+how tidy our data is. At a glance, there are approximately 5 things in
+this data that are mildly untidy or could be improved. Can you identify
+them?
+
+1.  On your own, take 2 minutes to look over the data and try to find
+    what could be improved.
+2.  With your neighbour, take 5 minutes and discuss what you found and
+    see if you have overlap in agreement or if you found different
+    things.
+3.  As a group, we will take 3 minutes and we will share what you all
+    discussed and then go over the 5 things.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+The 6 main things are:
+
+1.  Column names are not tidy or standardised. For instance, there are
+    `.` in the names and some use abbreviations.
+2.  Some column names also contain data. For instance, all the columns
+    with numbers at the end are time points, like `Insulin1` is insulin
+    measured at 1 minute after eating the meal. This data is in the wide
+    format, when it should be in the long format. We'll cover long and
+    wide in @sec-wrangling.
+3.  The data could actually be split into two or three datasets, one in
+    the long format for the measurements taken at regular minute
+    intervals, one for the measurements taken at 30 minute intervals
+    (the OGTT).
+4.  There are two ID columns, `id` and `OFS.ID`.
+5.  The `Group` column has abbreviations as `FDR` and `CTR` instead of
+    the full names.
+:::
+
 ## :book: Reading task: Encountering problems and finding help
 
 ::: {.callout-note collapse="true"}
@@ -596,10 +634,12 @@ experience, that you can only get by practicing more coding!
 -   Use `glimpse()` to get an overview of the data.
 -   Use the Quarto code chunk options like `echo`, `message`, or
     `warning` to control what is shown in the output of the code chunk.
--   Use `?` to get help on an R object. Use the cheatsheets to help
+-   Use `?` to get help on an R object. Use the cheat sheets to help
     guide you in learning R.
 -   Use tab auto-completion when writing code.
 -   With tidy data, each variable has its own column, each observation
     has its own row, and each value has its own cell.
 -   Never edit raw data. Instead, use R code to make changes and clean
     up the raw data, rather than manually editing the dataset.
+
+{{< include /includes/_code-appendix.qmd >}}
