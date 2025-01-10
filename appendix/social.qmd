@@ -2,39 +2,28 @@
 
 ## Day 1 {#social-day-1 .unnumbered}
 
-After lunch, with your group, go and walk outside or in the building and
-discuss this general topic on your experiences and workflows with
-tracking different versions of your files and managing changes made to
-those files. If no one has any experiences or workflows to share, you
-can instead brainstorm or generally discuss these topics.
+After lunch, get in your group and walk outside (or inside) to get to
+know one another. Think about, discuss, and/or share this general
+questions:
 
--   Share an experience where you might have deleted text or code but
-    thought you might have saved it somewhere in a backup or something.
-    What did you do? Did you solve it? How did it make you feel?
-
--   Share how you manage your files and the different versions? When you
-    send a paper for review to co-authors, how do you manage all the
-    comments you get back? How do you save the files? When you work on a
-    project, where do you save all your files related to that project?
-    When you are writing documents, do you have a version for each day
-    or keep working on that file?
-
--   Share any other experiences or ways that you manage how you work
-    with files and how you make changes to them.
+-   Why are you here? Where did you hear about the course?
+-   What do you currently do and how might you use R in your work?
+-   If you've ever worked in another program to do data analysis (or
+    even used R), share some experiences you've had with that. Have you
+    ever had to re-do an analysis? Was it easy? Did it take long?
+-   If you've ever written a document, like a scientific report or
+    essay, share some experiences you've had with that. How did you
+    write it? Did you ever accidentally delete something and couldn't
+    find it again? Did you look for it in a backup and if so, was it
+    easy and did it take long?
 
 ## Day 2 {#social-day-2 .unnumbered}
 
 After lunch, get in your group and walk outside (or inside) while
-discussing the general topic around the experiences and workflows of
-working on a paper or document that had results, either alone or with
-collaborators. If no one has any experiences or workflows to share, you
-can instead brainstorm or generally discuss these topics.
-
--   Share an experience where you might have had to re-do an analysis
-    and update some figures and numbers in your document. How did you
-    feel while doing that? How long did it take? Was it a good
-    experience or would you rather have spent that time doing something
-    else?
+discussing the general topic around your experiences and workflows for
+working on a paper or document that had research results, either alone
+or with collaborators. If no one has any experiences or workflows to
+share, you can instead brainstorm or generally discuss these topics.
 
 -   Share some experiences you have where you've collaborated on a
     project. How did you collaborate? Was it mostly discussing things
@@ -43,5 +32,11 @@ can instead brainstorm or generally discuss these topics.
     latest versions of the files?
 
 -   What other experiences do you have around working with analysis
-    results, including them into documents, and collaborating with
-    others or at least getting feedback?
+    results? How did you include them into documents? Or how did you
+    collaborate with others or at least getting feedback?
+
+-   When you send a paper for review to co-authors, how do you manage
+    all the comments you get back? How do you save the files? When you
+    work on a project, where do you save all your files related to that
+    project? When you are writing documents, do you have a version for
+    each day or keep working on that file?
