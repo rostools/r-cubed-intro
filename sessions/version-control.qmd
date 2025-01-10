@@ -461,7 +461,9 @@ We will be using this workflow often throughout the rest of the course.
     (`##`) with a title of "Testing for Git". Then type out a sentence
     below the header with some random words, maybe about the weather.
     Add and commit that new line you've written using
-    {{< var keybind.git >}}.
+    {{< var keybind.git >}}. Normally you wouldn't commit the HTML file
+    or any files that are generated from your code or Quarto files. But
+    for this course, we will commit most things.
 
 {{< text_snippet sticky_up >}}
 
