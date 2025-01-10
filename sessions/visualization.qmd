@@ -3,27 +3,39 @@
 ```{r setup}
 #| include: false
 library(tidyverse)
-nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
+post_meal_insulin_data <- read_csv2(
+  here::here("data/post-meal-insulin.csv")
+)
 ```
 
 <!-- TODO: Add an introduction here -->
 
-<!-- TODO: Add text about using Quarto options for figures -->
+## Learning objectives
 
-**Session objectives**:
+This session’s **overall learning outcome** is to:
 
-1.  Learn and apply the basics of creating publication-quality graphs.
-2.  Learn the importance of considering the colours you use in your
-    graphs and apply tools that are colour-blind friendly.
-3.  Learn why to avoid using commonly used, but inappropriate, graphs
-    for presenting results.
-4.  Create useful graphs such as boxplots, scatterplots, line graphs,
-    jitter plots, and (appropriate) barplots.
+1.  Describe of the "grammar" for making plots and use the `{ggplot2}`
+    package to make it easier to create them.
 
-## Basic principles for creating graphs
+**Specific objectives** are to:
 
-::: callout-note
-## Reading task: \~4 minutes
+1.  Describe and list some features of the "Grammar of Graphics"
+    approach to creating plots, and connect that to how `{ggplot2}`
+    works.
+2.  Identify ways to present your figures in an output document by using
+    Quarto chunk options.
+3.  Explain why some commonly used graphs in science are inappropriate
+    to use for certain data, like the barplot with mean and standard
+    error.
+4.  Use the `geom_point()` and `geom_smooth()` functions to create a
+    scatterplot of two continuous variables.
+5.  Recognize the importance of writing readable code that follows a
+    consistent style guide and use the `{styler}` package to help with
+    that.
+
+## :book: Reading task: Basic principles for creating graphs
+
+**Time: \~4 minutes**
 
 Making graphs in R is relatively easy compared to other programs and can
 be done with very little code. Because it takes few lines of code to
@@ -48,29 +60,29 @@ To start, here are some tips for making a graph:
 There are also excellent online books on this that are included in the
 [resources](https://guides.rostools.org/learning.html) page of the
 Guides website.
-:::
 
-## Basic structure of using ggplot2
+{{< text_snippet sticky_up >}}
 
-::: callout-note
-## Reading task: \~6 minutes
+## :book: Reading task: Basic structure of using ggplot2
+
+**Time: \~6 minutes**
 
 `{ggplot2}` is an implementation of the ["Grammar of
-Graphics"](https://www.springer.com/gp/book/9780387245447) (gg). This is
-a powerful approach to creating plots because it provides a set of
+Graphics"](https://www.springer.com/gp/book/9780387245447) ("gg"). This
+is a powerful approach to creating plots because it provides a set of
 structured rules (a "grammar") that allow you to expressively describe
 components (or "layers") of a graph. Since you are able to describe the
 components, it is easier to then implement those "descriptions" in
-creating a graph. There are at least four aspects to using ggplot2 that
-relate to its "grammar":
+creating a graph. There are at least four aspects to using `{ggplot2}`
+that relate to its "grammar":
 
 -   Aesthetics, `aes()`: How data are mapped to the plot, including what
     data are put on the x and y axes, and/or whether to use a colour for
     a variable.
 -   Geometries, `geom_` functions: Visual representation of the data, as
-    a layer. This tells ggplot2 how the aesthetics should be visualized,
-    including whether they should be shown as points, lines, boxes,
-    bins, or bars.
+    a layer. This tells `{ggplot2}` how the aesthetics should be
+    visualized, including whether they should be shown as points, lines,
+    boxes, bins, or bars.
 -   Scales, `scale_` functions: Controls the visual properties of the
     `geom_` layers. Can be used to modify the appearance of the axes, to
     change the colour of dots from, e.g., red to blue, or to use a
@@ -79,7 +91,7 @@ relate to its "grammar":
     aspects of the plot, such as the size, font, and angle of axis text,
     and the thickness or colour of the axis lines.
 
-There is a massive amount of features in ggplot2. Thankfully,
+There is a massive amount of features in `{ggplot2}`. Thankfully,
 `{ggplot2}` was specifically designed to make it easy to find and use
 its functions and settings using tab auto-completion. To demonstrate
 this feature, try typing out `geom_` and then hitting `Tab`. You will
@@ -125,181 +137,209 @@ On the other hand, `{ggplot2}`:
     *descriptive* (in plain English).
 
 These are the reasons we teach and use `{ggplot2}`.
-:::
 
-## Graph individual variables
+{{< text_snippet sticky_up >}}
+
+## Plot one continuous variable
 
 Very often you want to get a sense of your data, one variable (i.e.
 column in a data frame) at a time. You create plots to see the
 distribution of a variable and visually inspect the data for any
 problems. There are several ways of plotting continuous variables like
-age or BMI in `{ggplot2}`. For discrete variables like education status,
+age or BMI in `{ggplot2}`. For discrete variables like diabetes status,
 there is really only one way.
 
-You may notice that, since the Data Wrangling session (@sec-wrangling),
-we have been using the term "column" to describe the columns in the data
-frame, but from this point forward, we will instead refer to them as
-"variable". There's a reason for this: `{ggplot2}` really only works
-with tidy data. If we recall the definition of tidy data, it consists of
-"variables" (columns) and "observations" (rows) of a data frame. To us,
-a "variable" is something that we are interested in analyzing or
-visualizing, and which only contains values relevant to that measurement
-(e.g. `age` variable must only contain values for age).
+We use the word variable to mean a column in a data frame that is tidy.
+If you recall the definition of tidy data, it consists of "variables"
+(columns) and "observations" (rows) of a data frame. To us, a "variable"
+is something that we are interested in analyzing or visualizing, and
+which only contains values relevant to that measurement For instance, an
+`age` variable must only contain values in a unit of time like years.
 
-The `NHANES` dataset is already pretty tidy. Rows are participants at
-the survey year and columns are the variables that were measured. Let's
-visually explore our data. In the `LearningR` project in the
-`docs/learning.qmd` file, create a new second-level header on the bottom
-of the file called `## Visualizing data`. Now, we are ready to start
-creating the first plot!
-
-### One continuous variable
+Our `post_meal_insulin_data` data frame is fairly tidy, though there are
+a few things we will fix in later sessions. Rows are individual
+participants at a specific time and the columns are the variables that
+were measured, like weight. Let's visually explore our data! In the
+`LearningR` project in the `docs/learning.qmd` file, create a new
+second-level header on the bottom of the file called
+`## Plot one continuous variable` and create a new code chunk below the
+header with {{< var keybind.chunk >}}. Then we can make our first plot!
 
 Since BMI is a strong risk factor for diabetes, let's check out the
 distribution of BMI among the participants. There are two good geoms for
 examining distributions for continuous variables: `geom_density()` and
-`geom_histogram()`. How you use both is the same, so we will only show
-the histogram geom.
+`geom_histogram()`. Before we can make a plot, we need to tell
+`{ggplot2}` what data we are using and which variable to put in which
+axis or dimension. For that we use the `ggplot()` function with the
+`aes()` function used inside of it.
 
-Write out a new header called `### One variable plots` in the free text
-area. Below it add a code chunk with {{< var keybind.chunk >}}. To make
-use of auto-completion and to get used to using the pipe, we'll pipe the
-data into the `ggplot()` function.
-
-```{r}
+```{r just-ggplot}
 #| filename: "docs/learning.qmd"
-nhanes_small %>%
-  ggplot(aes(x = bmi)) +
+ggplot(post_meal_insulin_data, aes(x = BMI))
+```
+
+Run this code by using {{< var keybind.run >}}. You'll get a blank plot.
+That's because we haven't told `{ggplot2}` what kind of plot we want to
+make, which needs a `geom_` function.
+
+We'll start with creating a histogram, which is a useful way of
+visualizing the distribution of a continuous variable. We do that with
+`geom_histogram()`, but you can easily replace the code with
+`geom_density()` to make a density plot. Note that it is good practice
+to always create a new line after the `+`.
+
+```{r one-continuous-variable-plot}
+#| filename: "docs/learning.qmd"
+ggplot(post_meal_insulin_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
-You'll notice we get a warning about dropping missing values. That's
-`{ggplot2}` letting us know we have some missing values. So, like with
-`median()` and many of the other summary statistic functions, we can set
-`na.rm = TRUE` to `geom_histogram()` and other `geom_*` functions.
+::: callout-tip
+If your data has missing values, `{ggplot2}` gives us a warning about
+dropping the missing values. Like many functions in R, especially the
+summary statistic functions like `mean()`, you can set the argument
+`na.rm = TRUE` in the `geom_histogram()` function, as well as in other
+`geom_*` functions.
+:::
 
-```{r}
-#| filename: "docs/learning.qmd"
-nhanes_small %>%
-  ggplot(aes(x = bmi)) +
-  geom_histogram(na.rm = TRUE)
-```
+Our plot shows that, for the most part, there is a even distribution
+with BMI. In general, it is good practice to create a new code chunk for
+each plot in Quarto for several reasons. One, it makes it easier to
+maintain a nice readable code and, two, there are some chunk options
+that only work with one figure. However, it is possible to show multiple
+graphs for instance side-by-side, as we will do later.
 
-Note that it is good practice to always create a new line after the `+`.
-Our plot shows that, for the most part, there is a good distribution
-with BMI, although there are several values that are quite large,
-including some at 80 BMI units! Let's use `{dplyr}` functions to remove
-anything above 60. Because we are piping the results into `ggplot()`, we
-can use `aes()` right away rather than put in the data object to the
-first argument position.
+Now we can add a caption for the plot with the option`#| fig-cap`. Let's
+add one as well as a figure label with `#| label` so we can reference it
+in the text by using `@fig-LABEL`. Figure labels **must** always start
+with `fig-`.
 
-```{r}
-#| filename: "docs/learning.qmd"
-nhanes_small %>%
-  filter(bmi <= 60) %>%
-  ggplot(aes(x = bmi)) +
-  geom_histogram(na.rm = TRUE)
-```
+<!-- TODO: Confirm this looks fine in the generated text -->
 
-In general, it is good practice to create a new code chunk for each plot
-in Quarto for several reasons. One, it makes it easier to maintain a
-nice readable code and, two, there are some chunk options that only work
-with one figure. However, it is possible to show multiple graphs for
-instance side-by-side, as we will do later. Now we add a caption for the
-plot with the option`#| fig-cap`. Let's add one as well as a figure
-label with `#| label` so we can reference it in the text by using
-`@fig-LABEL`. Figure labels **must** always start with `fig-`.
-
-```{r}
+```{r bmi-histogram}
 #| echo: fenced
 #| fig-cap: "Distribution of BMI."
 #| label: fig-bmi-histo
-nhanes_small %>%
-  filter(bmi <= 60) %>%
-  ggplot(aes(x = bmi)) +
-  geom_histogram(na.rm = TRUE)
+ggplot(post_meal_insulin_data, aes(x = BMI)) +
+  geom_histogram()
 ```
 
 Now when we reference the figure in the text, we can use
 `@fig-bmi-histo`, to look like this: @fig-bmi-histo.
 
-### One discrete variable
+Before we move on, let's add and commit the changes we've made into the
+Git history with {{< var keybind.git >}}.
 
-The geoms above are appropriate for plotting continuous variables, but
-what about plotting discrete variables? Well, sadly, there's really only
-one: `geom_bar()`. This isn't a geom for a barplot though; instead, it
-shows the counts of a discrete variable. There are many discrete
-variables in NHANES, including education and diabetes, so let's use this
-geom to visualize those. Again, create a new code chunk with
-{{< var keybind.chunk >}} and type:
+## :technologist: Exercise: Plot a discrete variable
 
-```{r discrete-variables}
-#| filename: "docs/learning.qmd"
-nhanes_small %>%
-  ggplot(aes(x = education)) +
-  geom_bar()
+**Time: \~10 minutes.**
+
+Using the same structure as the code from above, let's plot a discrete
+variable. The `geom_histogram()` from above is appropriate for plotting
+continuous variables, but not for discrete variables. Sadly, there's
+really only one: `geom_bar()`. This isn't a geom for a barplot though;
+instead, it shows the counts of a discrete variable. There aren't too
+many discrete variables our dataset, only `Group` and `glykemi`, so
+let's use this geom to visualize those. Complete these tasks in the
+`docs/learning.qmd`, using this code below as a template:
+
+```` markdown
+```{{r}}
+#| fig-cap: "___"
+#| label: fig-___
+ggplot(post_meal_insulin_data, aes(x = ___)) +
+  ___()
 ```
 
-We can't use `na.rm = TRUE` here because `geom_bar()` includes that
-information as a bar. We can see that the number of people in
-progressively higher education statuses steadily increases, but there's
-also a lot of missingness shown in the `NA` column. Now, we'll do the
-same for the diabetes status variable. In the same code chunk, type:
+See @fig-___ above for a cool plot!
+````
 
-```{r}
-nhanes_small %>%
-  ggplot(aes(x = diabetes)) +
-  geom_bar()
-```
+1.  Create a new header at the bottom of the file called
+    `## Exercise: discrete plots`.
+2.  Copy and paste the above template code chunk to below your header.
+3.  Decide on either `Group` or `glykemi` to plot on the `x` axis in the
+    `aes()` function, replacing the `___` with the one you chose.
+4.  Replace the `___` below the `ggplot()` function with `geom_bar()`.
+5.  Add a caption to the plot with `#| fig-cap` where the `___` is
+    placed.
+6.  Add a label in the `#| label` option section, again, replacing the
+    `___` with a label that describes the plot.
+7.  Replace the `___` under the code chunk where the `@fig-` reference
+    is with the label you chose in the plot.
+8.  Render the document with {{< var keybind.render >}} to see the plot
+    you created.
+9.  Add and commit the changes you've made into the Git history with
+    {{< var keybind.git >}}.
 
-For diabetes, it seems that there is some missingness in the data. Same
-thing with education. Like we did with the BMI, we'll use `filter()` to
-drop those missing rows right before plotting them. First create a new
-code chunk with {{< var keybind.chunk >}}. Then we'll start with
-diabetes and then copy and paste the code, replacing `diabetes` with
-`education`.
-
-```{r}
-#| filename: "docs/learning.qmd"
-nhanes_small %>%
-  filter(!is.na(diabetes)) %>%
-  ggplot(aes(x = diabetes)) +
-  geom_bar()
-
-nhanes_small %>%
-  filter(!is.na(education)) %>%
-  ggplot(aes(x = education)) +
-  geom_bar()
-```
-
-We are plotting two figures here. With Quarto, we can arrange them side
-by side in the output document by using the `#| layout-ncol` (or
-`#| layout-nrow` or `#| layout`), described more in Quarto's
-[Figures](https://quarto.org/docs/authoring/figures.html#subcaptions)
-page. We can then combine it with captions and sub-captions using
-`#| fig-subcap` to have a nice output!
-
-```{r}
+```{r solution-discrete-variables}
 #| echo: fenced
-#| label: fig-diabetes-education
-#| fig-cap: "Counts of Diabetes and Education."
-#| fig-subcap:
-#|   - "Number of those with or without Diabetes."
-#|   - "Number of those with different educational status."
-#| layout-ncol: 2
-nhanes_small %>%
-  filter(!is.na(diabetes)) %>%
-  ggplot(aes(x = diabetes)) +
-  geom_bar()
-
-nhanes_small %>%
-  filter(!is.na(education)) %>%
-  ggplot(aes(x = education)) +
+#| eval: false
+#| code-fold: true
+#| code-summary: '**Click for the solution**. Only click if you are struggling or are out of time.'
+#| fig-cap: "___"
+#| label: fig-___
+ggplot(post_meal_insulin_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
-Render the document with {{< var keybind.render >}} to see what it looks
-like! Neat eh :grinning:
+{{< text_snippet sticky_up >}}
+
+## Putting two plots side by side
+
+While we said in general you should use one figure per code chunk, if
+you want figures to be side by side as "one figure", you can use a
+feature in Quarto to place figures into other different layouts. It is
+described in more detail in Quarto's
+[Figures](https://quarto.org/docs/authoring/figures.html#subcaptions)
+page.
+
+First, let's create a new header called `## Side by side plots` and
+create a new code chunk with {{< var keybind.chunk >}} below that. Then
+write out the same code for the figures from above.
+
+```{r one-after-the-other-figs}
+#| filename: "docs/learning.qmd"
+ggplot(post_meal_insulin_data, aes(x = BMI)) +
+  geom_histogram()
+
+ggplot(post_meal_insulin_data, aes(x = glykemi)) +
+  geom_bar()
+```
+
+Before we continue, let's see what that looks like by rendering the
+document with {{< var keybind.render >}}. See how the figures are placed
+one after the other?
+
+Using Quarto, let's layout these two figures so they are side by side,
+with sub-captions below each figure, for when we render the output
+document.
+
+We can layout the figures using the `#| layout-ncol` (or
+`#| layout-nrow` or `#| layout`) option. We can then combine it with
+captions and sub-captions using `#| fig-subcap` to have a nice output!
+
+```{r side-by-side-figs}
+#| echo: fenced
+#| label: fig-bmi-glycemia
+#| fig-cap: "BMI and glycemia, side by side."
+#| fig-subcap:
+#|   - "Distribution of BMI."
+#|   - "Number of those with glycemia."
+#| layout-ncol: 2
+ggplot(post_meal_insulin_data, aes(x = BMI)) +
+  geom_histogram()
+
+ggplot(post_meal_insulin_data, aes(x = glykemi)) +
+  geom_bar()
+```
+
+Render the document with {{< var keybind.render >}} to see what
+@fig-bmi-glycemia looks like! Neat eh :grinning:
+
+Before we move on, let's add and commit the changes we've made into the
+Git history with {{< var keybind.git >}}.
+
+## :book: Reading task: Be careful with certain plots
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
@@ -308,6 +348,8 @@ For this section on the bar-with-standard-error plots, make sure to go
 over and emphasize the problems and major flaws with using this type of
 plot. Really try to reinforce the concept here.
 :::
+
+**Time: \~5 minutes**
 
 Before continuing with plotting, let's take a minute to talk about a
 commonly used barplots with mean and error bars. In all cases, barplots
@@ -322,7 +364,7 @@ after the course. The image below was taken from that paper, and briefly
 demonstrates why this plot type is not useful.
 
 ::: {#fig-barplots-deceive}
-![](../images/barplots-deceive.png){width="100%"}
+![](/images/barplots-deceive.png){width="100%"}
 
 Bars deceive what the data actually look like. Image sourced from a
 [PLoS Biology
@@ -335,18 +377,98 @@ create in `{ggplot2}` is by design: it's a bad plot to use, so use
 something else.
 
 ::: {#fig-art-bar-error-plot}
-![](../images/art-bar-error-plot.png){width="70%"}
+![](/images/art-bar-error-plot.png){width="70%"}
 
 Barplots hide interesting results. Artwork by
 [\@allison_horst](https://github.com/allisonhorst/stats-illustrations).
 :::
 
-Before we move on, let's run `{styler}` using
-{{< var keybind.styler >}}, then add and commit the new files we created
-into the Git history with {{< var keybind.git >}} and push up to your
-GitHub repository.
+{{< text_snippet sticky_up >}}
 
-## Plotting two variables
+## Making code more readable
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Go over this section together, not as a code-along, but instead with
+this section on the projector. Emphasize the "naming" vs "styling"
+issues topic.
+:::
+
+Now that we've started writing some code, we should talk about *how* we
+should write code. We write code not for the computer, but for ourselves
+in the future and for others. This means that code should be written in
+a way that is readable and relatively understandable, at least to
+someone with some knowledge of R.
+
+Let's take a look at some code that is in some way either *wrong* or
+very poorly written. What are some things that could be improved or are
+just wrong? You don't necessarily need to understand what the code does,
+but rather, how readable it is.
+
+``` r
+# Object names
+DayOne
+T <- FALSE
+c <- 9
+
+# Spacing
+x[,1]
+x[ ,1]
+mean (x, na.rm = TRUE)
+mean( x, na.rm = TRUE )
+height<-feet*12+inches
+df $ z
+x <- 1 : 10
+
+# Tabs
+if (x == 1) {
+y <- 2
+}
+```
+
+These issues can actually be broken down into two categories:
+
+-   Naming issues: This issue is harder to fix and comes with experience
+    and knowledge, but there are a few things:
+    -   Programmatically wrong: The `T <- FALSE` is wrong because `T`
+        already exists and is a short hand for `TRUE` while `c <- 9` is
+        wrong because `c` is already the name of the function `c()`. You
+        normally don't want to name code based on something that already
+        exists in base R ("naming conflicts" between packages is fine
+        though, since there are ways to identify and fix that). These
+        issues can only be fixed manually.
+    -   Semantically
+-   Styling issues: This is much easier to fix and can largely be done
+    automatically. But a few things:
+    -   Spacing: The spacing around the brackets, commas, and math are
+        inconsistent. Spacing is one of the most common stylistic issues
+        in code, as the code will still run, but it is harder to read.
+    -   Tabs: Tabs are used to indent code to make it easier to scan and
+        read. You tab code within functions, if statements, and other
+        situations to make it easier to read.
+
+To fix the styling issues, we can use a package called `{styler}`, which
+follows the `{tidyverse}` [style guide](https://style.tidyverse.org/),
+to automatically reformat our code into the correct style. With
+`{styler}` you can style multiple files at once, one file at a time, or
+based on code you select and highlight. We will style our files a lot as
+we write code throughout this course. We'll use it with
+{{< var keybind.styler >}}, which should show the "Style active file"
+option.
+
+The thing to note, is that `{styler}` isn't perfect and can't fix naming
+issues or issues that require human consideration. For example, it can't
+change objects that are named `T` or `c` to something else. But
+`{styler}` is a good starting point to manually fixing up your code.
+
+Let's run `{styler}` on the `docs/learning.qmd` file with
+{{< var keybind.styler >}}. It make not make too many fixes since we
+don't have too much code yet, but we'll slow build up the habit to style
+our code regularly. Add and commit the changes you've made into the Git
+history with {{< var keybind.git >}} before we move on.
+
+## Plotting two continuous variables
 
 There are many more types of "geoms" to use when plotting two variables.
 Your choice of which one to use depends on what you are trying to show
@@ -355,42 +477,95 @@ you "control or influence" (the independent variable) in an experimental
 setting goes on the x-axis, and the variable that "responds" (the
 dependent variable) goes on the y-axis.
 
-### Two continuous variables
+For now, let's focus on plotting continuous data, since our data has a
+lot of continuous data and often in research we work with more
+continuous than discrete variables. When you have *two continuous*
+variables, some geoms to use are:
 
-When you have *two continuous* variables, some geoms to use are:
-
+-   `geom_point()`, which is used to create a standard scatterplot.
+    Since it is so commonly used, we'll use this one.
 -   `geom_hex()`, which is used to replace `geom_point()` when your data
     are *massive* and creating points for each value takes too long to
-    plot. Because we have a lot of data, we will show this one.
--   `geom_point()`, which is used to create a standard scatterplot.
-    You'll use this one in the exercise, it is used the same way as
-    other geoms.
--   `geom_smooth()`, which applies a "regression-type" line to the data
-    (default uses LOESS regression).
+    plot.
+-   `geom_smooth()`, which applies a "regression-type" line to the data.
 
-Let's check out how BMI may influence systolic blood pressure using a
-hex plot in a new code chunk. First, enter a new Markdown header called
-`### Plotting two variables` and create a new code chunk below the
-header with {{< var keybind.chunk >}}. Like with the previous plot we
-created using `bmi`, we'll use `na.rm` again.
+Let's check out how BMI may influence the area under the curve for blood
+glucose after the meal using a point plot. The area under the curve of
+glucose is a measure of how much glucose is present in the blood over a
+fixed period of time. A higher area under the curve for glucose usually
+suggests that the body has a harder time handling glucose. But, like
+everything in biology, it's more complex than that. But we won't cover
+that complexity in this course.
+
+First, write out a new Markdown header called
+`## Plotting two continuous variables` at the bottom of the document and
+create a new code chunk below the header with {{< var keybind.chunk >}}.
+Like with the previous plot we created using `BMI`, we'll put BMI on the
+x axis in the `aes()` function, since we are assuming that BMI "causes"
+or contributes to higher glucose in the blood after a meal. Then we put
+the area under the curve for glucose (`auc_pg`) on the y axis, since it
+will be "responding to" or "caused by" BMI.
 
 ```{r 2-continuous-variables}
 #| filename: "docs/learning.qmd"
-nhanes_small %>%
-  ggplot(aes(x = bmi, y = bp_sys_ave)) +
-  geom_hex(na.rm = TRUE)
+ggplot(post_meal_insulin_data, aes(x = BMI, y = auc_pg)) +
+  geom_point()
 ```
 
-Notice how the hex plot changes the colour of the data based on how many
-values are in the area of the plot. We can also draw a smoothing line by
-adding to the plot by using `+`.
+Run this code chunk with {{< var keybind.run >}}. You'll see a
+scatterplot of BMI and the area under the curve for glucose. Notice how
+there is a bit of an increase in glucose as BMI increases? Because
+`{ggplot2}` works in layers, we can add another layer to the plot by
+adding a `+` after the `geom_point()` function. Let's add a smoothing
+line to the plot to see if there is a general trend between BMI and
+glucose by using `geom_smooth()`.
+
+```{r 2-continuous-variables-smooth}
+ggplot(post_meal_insulin_data, aes(x = bmi, y = auc_pg)) +
+  geom_point() +
+  geom_smooth()
+```
+
+Run this code chunk with {{< var keybind.run >}} and we'll see a
+scatterplot of BMI and the area under the curve for glucose with a
+smoothing line on top of the points. To help build the habit of styling
+the code, run `{styler}` on the file with {{< var keybind.styler >}}.
+Before rendering our HTML document, let's add a caption and label to the
+plot:
 
 ```{r}
-nhanes_small %>%
-  ggplot(aes(x = bmi, y = bp_sys_ave)) +
-  geom_hex(na.rm = TRUE) +
-  geom_smooth(na.rm = TRUE)
+#| echo: fenced
+#| fig-cap: "Scatterplot of BMI and the area under the curve for glucose."
+#| label: fig-bmi-auc-pg
+ggplot(post_meal_insulin_data, aes(x = bmi, y = auc_pg)) +
+  geom_point() +
+  geom_smooth()
 ```
 
-This makes a nice smoothing line through the data and gives us an idea
-of general trends or relationships between the two variables.
+Now, let's make our HTML document by rendering the document with
+{{< var keybind.render >}}. Now you can see the plot in the rendered
+document! This makes a nice smoothing line through the data and gives us
+an idea of general trends or relationships between the two variables.
+
+Lastly, let's add and commit the changes you've made into the Git
+history with {{< var keybind.git >}}.
+
+## Summary
+
+-   Use a consistent [style guide](https://style.tidyverse.org/) for
+    code for using `{styler}`.
+-   Use the "Grammar of Graphics" approach together with the `{ggplot2}`
+    package within `{tidyverse}` to plot your data.
+-   Prioritize plotting raw data instead of summaries whenever possible.
+-   `{ggplot2}` has 4 levels of grammar: `aes()` to say which data to
+    plot and how, `geom_` to set the kind of plot to use, `scale_` to
+    make the plot prettier, and `theme()` to control the specifics of
+    the plot. We covered the `aes()` and `geom_` layers.
+-   Only use barplots for discrete values. If applying them on
+    continuous variables, it hides the distribution of the data.
+-   Use `geom_point()` to create a scatterplot of two continuous
+    variables.
+-   Use `geom_smooth()` to add a smoothing line to the scatterplot.
+-   Use `geom_bar()` to create a barplot of discrete variables.
+
+{{< include /includes/_code-appendix.qmd >}}
