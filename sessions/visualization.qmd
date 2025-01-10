@@ -521,7 +521,7 @@ line to the plot to see if there is a general trend between BMI and
 glucose by using `geom_smooth()`.
 
 ```{r 2-continuous-variables-smooth}
-ggplot(post_meal_insulin_data, aes(x = bmi, y = auc_pg)) +
+ggplot(post_meal_insulin_data, aes(x = BMI, y = auc_pg)) +
   geom_point() +
   geom_smooth()
 ```
@@ -537,7 +537,7 @@ plot:
 #| echo: fenced
 #| fig-cap: "Scatterplot of BMI and the area under the curve for glucose."
 #| label: fig-bmi-auc-pg
-ggplot(post_meal_insulin_data, aes(x = bmi, y = auc_pg)) +
+ggplot(post_meal_insulin_data, aes(x = BMI, y = auc_pg)) +
   geom_point() +
   geom_smooth()
 ```
