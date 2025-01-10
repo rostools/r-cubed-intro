@@ -59,7 +59,8 @@ In this course, our **ultimate goal** is to:
 
 -   Create a project that has a report (in HTML or Word) where you
     reproducibly import some data, process it a bit, and create some
-    figures and tables.
+    figures and tables, all done in a way that makes it easier for you 
+    and others to collaborate together.
 
 In the end, we're aiming for:
 
