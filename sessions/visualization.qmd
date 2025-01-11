@@ -12,7 +12,7 @@ post_meal_insulin_data <- read_csv2(
 
 ## Learning objectives
 
-This session’s **overall learning outcome** is to:
+This session's **overall learning outcome** is to:
 
 1.  Describe of the "grammar" for making plots and use the `{ggplot2}`
     package to make it easier to create them.

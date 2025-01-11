@@ -2,7 +2,7 @@
 
 ## Learning objectives
 
-This session’s **overall learning outcome** is to:
+This session's **overall learning outcome** is to:
 
 1.  Identify the different ways to import data by relying on the file
     extension, describing and identifying the "tidiness" of the data,
