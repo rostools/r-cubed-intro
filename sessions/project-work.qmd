@@ -119,18 +119,14 @@ Your specific tasks are:
         learned and a few sentences on some challenges you experienced.
 
 6.  **Generate an HTML of the report** and commit it to Git, then push
-    it up to GitHub. Include all the updated code and files on GitHub
-    for the presentation.
+    it up to GitHub. Include all the updated code and files on GitHub.
 
 These tasks may seem like a lot, with a lot of new terminology and tools
 to use. But don't worry! We will be going over many of these topics and
-you will have time to complete the project over the three days. Make use
-of the website to remind you and use our
-[cheat sheet](/includes/cheatsheet.pdf) as a reference.
+you will have time to complete the project over the three days.
 
 At the end, the lead instructor will download each of the teams' Git
-projects, render the documents to test their reproducibility, and show
-them on the screen for each team to present on.
+projects and will render the documents to test their reproducibility.
 
 ## Quick "checklist" for a good project
 
