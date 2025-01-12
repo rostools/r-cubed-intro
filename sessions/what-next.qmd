@@ -15,6 +15,9 @@
 
 The slides contain speaking notes that you can view by pressing 'S' on
 the keyboard.
+
+Mention that this page can be read afterwards, but briefly show parts of
+it before the presentation.
 :::
 
 It is one thing to learn the principles of how to do reproducible
@@ -41,8 +44,8 @@ can you practice these skills and tools you learned during the course?
     -   As much as possible, setup your projects, folders, and files in
         a more reproducible way (e.g. through using the structure
         created from the `{prodigenr}` package).
-    -   Create all your figures entirely in R and using R scripts or R
-        Markdown files.
+    -   Create all your figures entirely in R and using R scripts or
+        Quarto documents.
     -   Write everything research related in Quarto and convert to a
         Word document when you need to send to co-authors. If they make
         edits or comments, include the edits in the original Quarto
