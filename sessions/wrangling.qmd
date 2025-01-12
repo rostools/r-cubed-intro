@@ -12,17 +12,18 @@ post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 
 This session's **overall learning outcome** is to:
 
-1.  
+1.  Describe some basic, common "verbs" for wrangling data, such as
+    selecting and renaming columns, filtering rows, and "mutating"
+    columns by modifying or creating them. Then use functions within the
+    `{tidyverse}` to perform these actions.
 
 **Specific objectives** are to:
 
-2.  Perform simple transformations and subsetting of datasets, such as:
-    -   Subset specific columns and rows of a dataset, with
-        `filter()`and `select()`.
-    -   Create new or transform existing columns in a dataset, with
-        `mutate()`.
-3.  Write "tidier" and more readable code by using the pipe (`|>`)
-    operator.
+1.  Select specific columns in a dataset using the `select()` function.
+2.  Rename columns in a dataset using the `rename()` function.
+3.  Filter rows in a dataset using the `filter()` function.
+4.  Modify or add columns in a dataset using the `mutate()` function.
+5.  Use the pipe operator `|>` to chain actions together.
 
 ## :book: Reading task: Data wrangling verbs
 
@@ -766,3 +767,4 @@ post_meal_data |>
     text consisting of multiple sentences.
 
 {{< include /includes/_code-appendix.qmd >}}
+
