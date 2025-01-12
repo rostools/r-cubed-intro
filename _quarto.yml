@@ -50,6 +50,7 @@ book:
     - appendix/for-instructors.qmd
     - appendix/extra-exercises.qmd
     - appendix/extra-github.qmd
+    - appendix/extra-merge-conflicts.qmd
     - appendix/extra-arrange.qmd
     - LICENSE.md
     - appendix/references.qmd
