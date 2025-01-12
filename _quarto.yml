@@ -34,11 +34,15 @@ book:
     - part: "Sessions"
       chapters:
       - sessions/introduction.qmd
-      - sessions/project-management.qmd
-      - sessions/version-control.qmd
-      - sessions/data-management.qmd
+      - sessions/setup-project.qmd
       - sessions/reproducible-documents.qmd
-      - sessions/data-visualization.qmd
+      - sessions/version-control.qmd
+      - sessions/import-data.qmd
+      - sessions/visualization.qmd
+      - sessions/github.qmd
+      - sessions/wrangling.qmd
+      - sessions/wrangling-with-visualizing.qmd
+      - sessions/split-apply-combine.qmd
       - sessions/project-work.qmd
       - sessions/what-next.qmd
   appendices:
@@ -47,7 +51,6 @@ book:
     - appendix/extra-exercises.qmd
     - appendix/extra-github.qmd
     - appendix/extra-arrange.qmd
-    - appendix/extra-markdown.qmd
     - LICENSE.md
     - appendix/references.qmd
   page-footer:
@@ -58,8 +61,8 @@ book:
         href: "https://guides.rostools.org/conduct.html"
 
 bibliography:
-  - includes/references.bib
-  - includes/packages.bib
+- "includes/references.bib"
+- "includes/packages.bib"
 
 editor:
   markdown:
