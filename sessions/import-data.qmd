@@ -471,7 +471,7 @@ published, so the original raw data can always be downloaded again.
 **Time: \~10**
 
 Now that we've learned about the concept of "tidy" data, let's discuss
-how tidy our data is. At a glance, there are approximately 5 things in
+how tidy our data is. At a glance, there are approximately 7 things in
 this data that are mildly untidy or could be improved. Can you identify
 them?
 
@@ -481,7 +481,7 @@ them?
     see if you have overlap in agreement or if you found different
     things.
 3.  As a group, we will take 3 minutes and we will share what you all
-    discussed and then go over the 5 things.
+    discussed and then go over the 7 things.
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## :teacher: Instructor note
@@ -495,13 +495,19 @@ The 6 main things are:
     measured at 1 minute after eating the meal. This data is in the wide
     format, when it should be in the long format. We'll cover long and
     wide in @sec-wrangling.
-3.  The data could actually be split into two or three datasets, one in
+3.  Some columns that contain a number at the end, likely indicating
+    time, also contain `..` instead of `.`. This likely means it was
+    minus the number (`-5`, 5 minutes before the test). So it should be
+    renamed to something like `.minus5`.
+4.  The data could actually be split into two or three datasets, one in
     the long format for the measurements taken at regular minute
     intervals, one for the measurements taken at 30 minute intervals
     (the OGTT).
-4.  There are two ID columns, `id` and `OFS.ID`.
-5.  The `Group` column has abbreviations as `FDR` and `CTR` instead of
+5.  There are two ID columns, `id` and `OFS.ID`.
+6.  The `Group` column has abbreviations as `FDR` and `CTR` instead of
     the full names.
+7.  There are two similar columns for insulin from the OGTT:
+    `Insulin.0.OGTT.X` and `Insulin.0.OGTT`.
 :::
 
 ## :book: Reading task: Encountering problems and finding help
