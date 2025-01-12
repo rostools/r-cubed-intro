@@ -37,7 +37,7 @@ analyses. The table below lists some common "verbs" from the `{dplyr}`
 package that gets loaded with `{tidyverse}`:
 
 | Task | Function | Example |
-|:---|:---|:---|
+|:-----------------------|:-----------------------|:-----------------------|
 | Select columns | `select()` | Remove data entry columns such as the person's name who entered the data. |
 | Subset/filter rows | `filter()` | Keeping rows with glucose values above 4. |
 | Rename columns | `rename()` | Changing a column name from 'Q1' to 'participant_name'. |
@@ -643,10 +643,11 @@ we could create is a ratio between insulin and glucose in the blood,
 which is a very rough measure of insulin sensitivity. This is calculated
 by dividing the area under the curve of insulin by that of glucose.
 We'll call this new column `insulin_glucose_ratio`, where a high value
-means insulin sensitive and a low value means insulin resistant. Let's
-create a new header called `## Modifying columns` and then create a new
-code chunk below that header with {{< var keybind.chunk >}}. We'll use
-some math with the `/` symbol to divide values.
+means insulin insensitive (or resistant) and a low value means insulin
+sensitive. Let's create a new header called `## Modifying columns` and
+then create a new code chunk below that header with
+{{< var keybind.chunk >}}. We'll use some math with the `/` symbol to
+divide values.
 
 ```{r create-column}
 #| filename: "docs/learning.qmd"
@@ -767,4 +768,3 @@ post_meal_data |>
     text consisting of multiple sentences.
 
 {{< include /includes/_code-appendix.qmd >}}
-
