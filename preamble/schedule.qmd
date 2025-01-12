@@ -56,7 +56,7 @@ and overview.
 
 | Time | Session topic |
 |:---|:---|
-| 9:00 | {{< fa laptop-code >}} [Wrangling with visualizing](/sessions/data-visualization.qmd) |
+| 9:00 | {{< fa laptop-code >}} [Wrangling with visualizing](/sessions/wrangling-with-visualizing.qmd) |
 | 10:10 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 10:15 | {{< fa mug-hot >}} Break with coffee and snacks |
 | 10:30 | {{< fa laptop-code >}} [Split, apply, and combine](/sessions/split-apply-combine.qmd) |

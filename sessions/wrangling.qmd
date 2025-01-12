@@ -109,7 +109,7 @@ you do.
 select(post_meal_data, Age)
 ```
 
-When you run this code with {{< var keybind.run >}}, you will see that
+When you run this code with {{< var keybind.run-code >}}, you will see that
 only the `Age` column is shown in the output.
 
 ::: {.callout-note appearance="minimal" collapse="true"}
@@ -162,14 +162,14 @@ that start with "PG" (post-meal glucose).
 
 ```{r using-select-helpers-starts-with}
 #| filename: "docs/learning.qmd"
-select(NHANES, starts_with("PG"))
+select(post_meal_data, starts_with("PG"))
 ```
 
 See how it outputs all the columns that start with "PG"? Now let's try
 selecting all columns that end with "DXA":
 
 ```{r using-select-helpers-ends-with}
-select(NHANES, ends_with("DXA"))
+select(post_meal_data, ends_with("DXA"))
 ```
 
 Just like the previous example, it outputs all the columns that end with
@@ -178,7 +178,7 @@ Just like the previous example, it outputs all the columns that end with
 
 ```{r using-select-helpers-contains}
 # All columns containing the number "0"
-select(NHANES, contains("0"))
+select(post_meal_data, contains("0"))
 ```
 
 Now that we've tested how to use `select()`, let's simplify our dataset
@@ -325,7 +325,7 @@ small_post_meal_data |>
 
 The pipe automatically takes `post_meal_data` and puts it into the first
 position, so we don't need to specify `post_meal_data` inside the
-`rename()` function. Run this code with {{< var keybind.run >}} and you
+`rename()` function. Run this code with {{< var keybind.run-code >}} and you
 will see the output with the new column name. We also have a column
 `auc_ins` that we can rename to `auc_insulin`. Add this to the code
 chunk below the previous code.
@@ -339,7 +339,7 @@ small_post_meal_data |>
   )
 ```
 
-Run this code again with {{< var keybind.run >}} to see the output.
+Run this code again with {{< var keybind.run-code >}} to see the output.
 Before moving on, let's style our document with
 {{< var keybind.styler >}}, render the document with
 {{< var keybind.render >}}, add and commit the changes to the Git
@@ -475,6 +475,8 @@ in R.
 | x \| y   | x OR y                                       |
 | x & y    | x AND y                                      |
 
+: Table of logic operators in R. {#tbl-logic-operators}
+
 The simplest kind of logic condition is to test for "equality". In R,
 "equal to" is represented by `==`. For example, if we wanted to keep
 only people who are have (hyper-)glycemia in the dataset, we would use
@@ -506,7 +508,7 @@ small_post_meal_data |>
   filter(BMI >= 25)
 ```
 
-Run this by using {{< var keybind.run >}}. We'll see that more than half
+Run this by using {{< var keybind.run-code >}}. We'll see that more than half
 of the participants are above overweight. Let's see how many are in the
 `"CTR"` group, again, within the same code chunk.
 
@@ -616,7 +618,7 @@ tidier_post_meal_data <- small_post_meal_data |>
 tidier_post_meal_data
 ```
 
-Run this code with {{< var keybind.run >}} to see the output and see
+Run this code with {{< var keybind.run-code >}} to see the output and see
 what it looks like now. Great! Before moving on, let's style our
 document with {{< var keybind.styler >}}, render the document with
 {{< var keybind.render >}}, and then add and commit the changes to the
@@ -655,7 +657,7 @@ tidier_post_meal_data |>
   mutate(insulin_glucose_ratio = auc_insulin / auc_glucose)
 ```
 
-Run the code with {{< var keybind.run >}} to see the new column.
+Run the code with {{< var keybind.run-code >}} to see the new column.
 
 The other column we could *modify*, rather than create, is the `Group`
 column. This is a character column with abbreviations rather than full
@@ -678,7 +680,7 @@ tidier_post_meal_data |>
   )
 ```
 
-Run this code with {{< var keybind.run >}} to see the new column. To
+Run this code with {{< var keybind.run-code >}} to see the new column. To
 make use of this new data object, we should assign it to a new object.
 So add `<-` and a new object name to the beginning of the code:
 
@@ -691,7 +693,7 @@ tidied_post_meal_data <- tidier_post_meal_data |>
   )
 ```
 
-Run this code with {{< var keybind.run >}} to see the new column. We'll
+Run this code with {{< var keybind.run-code >}} to see the new column. We'll
 use this new data object in our next session.
 
 Before moving on, run `{styler}` with {{< var keybind.styler >}}, render

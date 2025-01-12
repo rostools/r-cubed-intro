@@ -212,7 +212,7 @@ first few rows of the data. Let's render the document with
 like.
 
 Before moving on to the reading task, let's add the change's we've made
-to the Git history with {{< var keybind.commit >}}. If you work with
+to the Git history with {{< var keybind.git >}}. If you work with
 personally sensitive (health) data, you would not commit the data file
 so that we don't accidentally put it publicly on GitHub. Or if your data
 is really large, we don't normally want to keep large files on GitHub
@@ -342,7 +342,7 @@ execute:
 ```
 
 Before moving on, let's commit the changes we've made to the Git history
-with {{< var keybind.commit >}}.
+with {{< var keybind.git >}}.
 
 ## :book: Reading task: Working with messy and tidy data
 

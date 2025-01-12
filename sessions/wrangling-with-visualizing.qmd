@@ -91,7 +91,7 @@ tidied_post_meal_data |>
   geom_jitter()
 ```
 
-Run this code chunk with {{< var keybind.run >}} and you'll see a plot
+Run this code chunk with {{< var keybind.run-code >}} and you'll see a plot
 with a bunch of points on them. Looking at the plot, we can see that
 there are more participants that are insulin insensitive (resistant) in
 the overweight group than the non-overweight group. We can modify the
@@ -123,7 +123,7 @@ tidied_post_meal_data |>
   geom_point()
 ```
 
-Run this with {{< var keybind.run >}}. One thing you'll quickly notice
+Run this with {{< var keybind.run-code >}}. One thing you'll quickly notice
 is that there is a clear grouping in ages between those above and below
 40. So let's make a new column called `young` that groups people into
 two categories of being above or below 40 years of age. And instead of
@@ -159,7 +159,7 @@ tidied_post_meal_data |>
   facet_grid(cols = vars(young))
 ```
 
-Run this with {{< var keybind.run >}}. You'll see two plots
+Run this with {{< var keybind.run-code >}}. You'll see two plots
 side-by-side, one for each age group. Super neat! Right away, we can see
 that there are more older people who have first-degree relatives with
 diabetes, which makes sense since older people will likely have older
@@ -443,7 +443,7 @@ base_scatterplot + theme_minimal()
 base_scatterplot + theme_classic()
 ```
 
-Run each of these lines of code with {{< var keybind.run >}}. You'll see
+Run each of these lines of code with {{< var keybind.run-code >}}. You'll see
 the different types of themes applied to the plot. Which do you prefer?
 
 To add labels such as axis titles to your plot, you can use the function

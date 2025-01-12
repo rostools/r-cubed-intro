@@ -134,7 +134,7 @@ researcher, so the results are a bit biased.
 #| fig-height: 6
 library(tidyverse)
 theme_set(
-  theme_minimal() + 
+  theme_minimal() +
     theme(
       plot.background = element_rect(fill = "#E9E9E9"),
       axis.title = element_blank(),
@@ -149,7 +149,7 @@ search <- tribble(
   ~item, ~description, ~value, ~order,
   "Articles", "Found among all articles", 3467, 1,
   "GitHub\nrepos", "Those with a GitHub link and at least one notebook", 2660, 2
-) |> 
+) |>
   mutate(
     item = fct_rev(fct_reorder(item, order))
   )
@@ -169,7 +169,7 @@ repro_results <- tribble(
   "Could install\ndependencies", "Could install dependencies without errors.", 10388, 3,
   "Finished executing\nwithout errors", "Could run without any errors.", 1203, 4,
   "Same results\nas paper", "When the results of the paper matched what the execution results output.", 879, 5
-) |> 
+) |>
   mutate(
     percent = str_c(value, "\n(", round(value / max(value) * 100), "%)"),
     item = fct_rev(fct_reorder(item, order))

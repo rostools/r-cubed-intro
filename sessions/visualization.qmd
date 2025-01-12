@@ -178,7 +178,7 @@ axis or dimension. For that we use the `ggplot()` function with the
 ggplot(post_meal_data, aes(x = BMI))
 ```
 
-Run this code by using {{< var keybind.run >}}. You'll get a blank plot.
+Run this code by using {{< var keybind.run-code >}}. You'll get a blank plot.
 That's because we haven't told `{ggplot2}` what kind of plot we want to
 make, which needs a `geom_` function.
 
@@ -263,9 +263,9 @@ See @fig-___ above for a cool plot!
 5.  Add a caption to the plot with `#| fig-cap` where the `___` is
     placed.
 6.  Add a label in the `#| label` option section, again, replacing the
-    `___` with a label that describes the plot.
+    `fig-___` with a label that describes the plot, like `fig-group-bar`
 7.  Replace the `___` under the code chunk where the `@fig-` reference
-    is with the label you chose in the plot.
+    is with the label you chose in the plot (like `@fig-group-bar`).
 8.  Render the document with {{< var keybind.render >}} to see the plot
     you created.
 9.  Add and commit the changes you've made into the Git history with
@@ -277,7 +277,7 @@ See @fig-___ above for a cool plot!
 #| code-fold: true
 #| code-summary: '**Click for the solution**. Only click if you are struggling or are out of time.'
 #| fig-cap: "___"
-#| label: fig-___
+#| label: fig-glykemi-bar
 ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
@@ -304,7 +304,7 @@ post_meal_data |>
   geom_bar()
 ```
 
-Run this code with {{< var keybind.run >}}. You'll see we get a warning
+Run this code with {{< var keybind.run-code >}}. You'll see we get a warning
 message. That's because the `glykemi` variable is actually a number, and
 `{ggplot2}` needs a character vector for `fill`. We can easily fix this
 by using `as.character()` on the `glykemi` variable in the `aes()`
@@ -317,7 +317,7 @@ post_meal_data |>
   geom_bar()
 ```
 
-Running this code with {{< var keybind.run >}} will show you a barplot
+Running this code with {{< var keybind.run-code >}} will show you a barplot
 of `Group` with `glykemi` as the fill, without the warning message. But
 the legend on the side is a bit ugly. It's easy to fix with the use of
 the `theme()` function, but we won't cover that in this session.
@@ -601,7 +601,7 @@ ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
   geom_point()
 ```
 
-Run this code chunk with {{< var keybind.run >}}. You'll see a
+Run this code chunk with {{< var keybind.run-code >}}. You'll see a
 scatterplot of BMI and the area under the curve for glucose. Notice how
 there is a bit of an increase in glucose as BMI increases? Because
 `{ggplot2}` works in layers, we can add another layer to the plot by
@@ -615,7 +615,7 @@ ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
   geom_smooth()
 ```
 
-Run this code chunk with {{< var keybind.run >}} and we'll see a
+Run this code chunk with {{< var keybind.run-code >}} and we'll see a
 scatterplot of BMI and the area under the curve for glucose with a
 smoothing line on top of the points. To help build the habit of styling
 the code, run `{styler}` on the file with {{< var keybind.styler >}}.
