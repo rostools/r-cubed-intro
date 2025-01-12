@@ -53,10 +53,10 @@ Your specific tasks are:
         the page and selecting "Save As").
 
 3.  Assign one team member to **download the dataset** and put it into
-    the `data-raw/` folder of your project.
+    the `data/` folder of your project.
 
     -   If there is any documentation on the dataset, e.g. variable
-        definitions, put those files in the `data-raw/` folder as well.
+        definitions, put those files in the `data/` folder as well.
     -   This team member should then add and commit the new file(s) in
         the project, so it gets saved to the Git history. Then push the
         changes to the team's GitHub repository.
@@ -92,8 +92,6 @@ Your specific tasks are:
 
     -   Make sure to "render" your document to HTML often to ensure it
         is always reproducible.
-
-    -   **Note**: For now, *do not* add and commit the HTML output file.
 
 5.  Assign one team member as the "report coordinator" and have them
     **merge all the individual `report-YOURNAME.qmd` into one
