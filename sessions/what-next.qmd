@@ -61,22 +61,16 @@ can you practice these skills and tools you learned during the course?
 
 ## How do you share?
 
-How do you share? Put your code up on any of these sites. We recommend a
-combination of GitHub and Zenodo, but the others are also quite good as
-well. And we're already showing you how to use GitHub, so you're one
-step closer to sharing on your own!
+How do you share? We recommend a combination of GitHub and
+[Zenodo](https://zenodo.org/) to share your code. And we're already
+showing you how to use GitHub, so you're one step closer to sharing on
+your own!
 
--   [GitHub](https://github.com/)
--   [GitLab](https://gitlab.com/)
--   [Zenodo](https://zenodo.org/)
--   [figshare](https://figshare.com/)
--   [Open Science Framework](https://osf.io/)
-
-Next question might, when do you share? Right away! No matter how ugly.
-If its ugly, that's fine! The point is you start and that you get more
-comfortable doing it until it becomes second nature to share and in the
-process, your code gets better because you know someone might look at
-your code.
+Next question might, when do you share? Right away! No matter how ugly
+the code is. If its ugly, that's fine! The point is you start and that
+you get more comfortable doing it until it becomes second nature to
+share and in the process, your code gets better because you know someone
+might look at your code.
 
 And even if your code isn't reproducible, even if others can't run it
 own their own, sharing is the first step to becoming better. At the
