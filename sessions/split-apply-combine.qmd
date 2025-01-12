@@ -1,0 +1,409 @@
+---
+execute:
+  eval: false
+---
+
+# Split, apply, and combine {#sec-split-apply-combine}
+
+::: callout-danger
+This session is still in active development and is not complete.
+:::
+
+::: content-hidden
+3.  Learn about and apply the "split-apply-combine" method of analyses,
+    with `group_by()` and `summarise()`.
+
+    -   Calculate simple data summaries, with `summarise()`.
+
+## Split-apply-combine: Summarizing data
+
+::: callout-note
+## Reading task: \~5 minutes
+
+Summarising or applying simple (or complex) statistics to data is a key
+component of any analysis. Simple summaries or statistics can be done
+either on all of the data or on groups of it. There are many data
+analysis tasks that can be approached using the
+[split-apply-combine](https://www.jstatsoft.org/article/view/v040i01)
+method, which involves splitting the data into groups, applying some
+analysis to each group, and then combining the results together.
+
+In `{dplyr}`, you can use the function called `summarise()` to summarise
+on all the data. If you want to do a split-apply-combine analysis to,
+e.g., find the max height by education status, you would use the
+functions `group_by()` and then `summarise()`. Using `group_by()` splits
+the data up and `summarise()` applies an analysis, then immediately
+combines it back together.
+
+The first position argument to `group_by()` is, as usual, the dataset.
+The next arguments are the columns that contain the values you want to
+group by. These columns must contain **categorical** data (e.g.
+education). `group_by()` tells R to compute the next operations on the
+data within each grouping, rather than on all the data.
+
+As with the other functions, `summarise()` takes the dataset as the
+first position argument. The next arguments work similar to the
+arguments in `mutate()` with one difference: the output must create a
+single value (e.g. a mean). Like `mutate()`, you can add multiple
+"summaries" by adding new columns separated by `,`. You would use
+`summarise()` to derive basic descriptive statistics of a certain
+variable, including `min()`, `max()`, `mean()`, `median()`, or `sd()`
+(standard deviation).
+
+The `group_by()` function doesn't do anything by itself so should always
+be used in combination with a `summarise()`, `mutate()`, `arrange()`, or
+other function. However, the `summarise()` function can be used on its
+own.
+:::
+
+## Calculating summary statistics
+
+Let's calculate the maximum value of the BMI variable. See what happens
+when you enter the following:
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  summarise(max_bmi = max(bmi))
+```
+
+We get back a result of `NA`, which means "missing". In R, `NA` values
+"propagate", meaning that if there is one value missing, then the max or
+mean will also be missing. So, we need to tell `max()` to exclude any
+`NA` values from the calculation using the argument `na.rm = TRUE`.
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  summarise(max_bmi = max(bmi, na.rm = TRUE))
+```
+
+To calculate another summary statistic, you would add another summary
+column using `,`:
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  summarise(
+    max_bmi = max(bmi, na.rm = TRUE),
+    min_bmi = min(bmi, na.rm = TRUE)
+  )
+```
+
+Before you start the following exercise, add and commit changes to the
+Git history with the RStudio Git interface.
+
+## Summary statistics by a group {#sec-group-by-summarise}
+
+While the `summarise()` function is useful enough on its own, it really
+shines when combined with `group_by()`.
+
+Let's use these functions to find out the mean age and BMI between those
+with and without diabetes.
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  group_by(diabetes) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  )
+```
+
+*Quick note*: If you are using a version of dplyr \>= 1.0.0, you'll get
+a message informing you that it is `regrouping output`. This is a
+notification and can be ignored. If you don't want the message
+displayed, you can add `options(dplyr.summarise.inform = FALSE)` to the
+top of your script and run it.
+
+We also get a warning about there being missing values in diabetes, so
+we need to remove rows that have missing diabetes status values.
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  # Recall ! means "NOT", so !is.na means "is not missing"
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  )
+```
+
+Cool! We can add more columns to the grouping, so let's do that. Let's
+compare mean age and BMI by physical activity and diabetes status.
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, phys_active) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  )
+```
+
+Since we don't need the dataset grouped anymore, it's good practice to
+end the grouping with `ungroup()`.
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, phys_active) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  ) |>
+  ungroup()
+```
+
+Before you start the following exercise, run `{styler}` using
+{{< var keybind.styler >}} and commit changes to the Git history using
+{{< var keybind.git >}}.
+
+## Saving datasets as files
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Go over how to save data to a file, but don't cover the `{here}` package
+right away. Let them read about it in the section below and then briefly
+cover it again.
+:::
+
+The `post_meal_data` data frame you created is only available after you've
+created it from NHAHES, but if you want to access it later, you can save
+it as a `.csv` file in your `data/` folder using the function
+`readr::write_csv()`.
+
+```{r save-data-as-csv}
+#| filename: "docs/learning.qmd"
+readr::write_csv(
+  post_meal_data,
+  here::here("data/post_meal_data.csv")
+)
+```
+
+
+For many projects, it isn't necessary or advisable to save every single
+data object you create. It's better to let the code create the data
+you'll use rather than saving each new wrangled dataset you might
+create. However, sometimes you will want or need to save the dataset
+you've been working on, perhaps because you've done a lot of work to
+prepare it for later analyses, or because you've run an analysis and
+want to save the results. In these cases, you should definitely save the
+new cleaned dataset.
+
+## Creating tables of results
+
+Let's try running some R code to get Quarto to create a table. First,
+create a new header[^split-apply-combine-1] `## Table of results` and a
+new code chunk. Second, copy the code we worked on from the Data
+Wrangling session, in @sec-group-by-summarise, which is shown below for
+you to copy from. Instead of using `phys_active`, let's change that to
+`education`.
+
+[^split-apply-combine-1]: A "header" is something like a Chapter in
+    books, or section titles in manuscripts like "Introduction" or
+    "Results".
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, education) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  ) |>
+  ungroup()
+```
+
+Putting the cursor somewhere in the code, use the shortcut
+{{< var keybind.run-code >}} to run the code and see what it looks like.
+This output is almost in a table format. We have the columns that would
+be the table headers and rows that would be meaningful table rows.
+Ideally, we would want this to be report-ready. The first thing we
+should remove are the `NA` education rows, just like we did with
+`diabetes`. Then, we'll convert it into a more elegant table in the
+Quarto HTML output document, we use the `kable()` function from the
+knitr package. Because we don't want to load all of the knitr functions,
+we'll use `knitr::kable()` instead:
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  filter(!is.na(diabetes), !is.na(education)) |>
+  group_by(diabetes, education) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  ) |>
+  ungroup() |>
+  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
+```
+
+Now, render with {{< var keybind.render >}} and view the output in the
+HTML document. Pretty eh! Before continuing, let's run `{styler}` using
+{{< var keybind.styler >}} and then add and commit these changes into
+the Git history using {{< var keybind.git >}}.
+
+## Exercise: Creating a table using R code
+
+> Time: \~20 minutes.
+
+1.  In the `docs/learning.qmd` file, create a new header called
+    `## Prettier table` along with a code chunk. Copy the code below
+    (that includes some code we wrote above) and paste the code into the
+    new chunk. Add the option `#| echo: false` to the code chunk.
+
+    ``` {.r filename="docs/learning.qmd"}
+    post_meal_data |>
+      filter(!is.na(diabetes), !is.na(education)) |>
+      group_by(diabetes, education) |>
+      summarise(
+        mean_age = mean(age, na.rm = TRUE),
+        mean_bmi = mean(bmi, na.rm = TRUE)
+      ) |>
+      ungroup() |>
+      mutate(
+        # Task 2a.
+        ___ = ___(mean_age, ___),
+        ___ = ___(mean_bmi, ___),
+        # Task 2b.
+        ___ = ___(education)
+      ) |> 
+      rename(
+        # Task 3.
+        "___" = ___,
+        "___" = ___,
+        "___" = ___,
+        "___" = ___
+      ) |> 
+      knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
+    ```
+
+2.  Use `mutate()` to perform the following wrangling tasks:
+
+    a.  Apply the `round()` function to `mean_age` and `mean_bmi`
+        columns, to round the values to 1 digit (`digits` is the second
+        argument of `round()`).
+    b.  Use `str_to_sentence(education)` to capitalize the first letter
+        of the words in the `education` column.
+
+3.  Rename `diabetes` to `"Diabetes Status"`, `education` to
+    `Education`, and `mean_age` and `mean_bmi` to `"Mean Age"` and
+    `"Mean BMI"`, using `rename()` function. *Hint*: You can rename
+    columns to include spaces by using `"` around the new column name
+    (e.g. `"Diabetes Status" = diabetes`). Don't forget, the renaming
+    form is `new = old`.
+
+4.  Run the code chunk to make sure the code works, including the
+    `knitr::kable()` function at the end of the pipe, with a table
+    caption of your choice. If you want you can keep the same caption as
+    is provided in the starting point below.
+
+5.  Run `{styler}` on the document with {{< var keybind.styler >}}.
+
+6.  Render the document to HTML with {{< var keybind.render >}} and see
+    what the table looks like.
+
+7.  End the exercise by adding, committing, and pushing the files to
+    your GitHub repository with {{< var keybind.git >}}.
+
+```{r solution-create-pretty-table}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, education) |>
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  ) |>
+  ungroup() |>
+  # 2. Round the means to 1 digit and
+  # modify the `education` column so that male and female get capitalized.
+  mutate(
+    mean_age = round(mean_age, 1),
+    mean_bmi = round(mean_bmi, 1),
+    education = str_to_sentence(education)
+  ) |>
+  # 3. Rename `diabetes` to `"Diabetes Status"` and `education` to `Education`
+  rename(
+    "Diabetes Status" = diabetes,
+    "Education" = education,
+    "Mean Age" = mean_age,
+    "Mean BMI" = mean_bmi
+  ) |>
+  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
+```
+
+## Other Quarto features
+
+::: callout-note
+## Reading task: \~5 minutes
+
+### Making your report prettier
+
+For HTML documents, customizing the appearance (e.g. fonts) is pretty
+easy, since you can add settings to the YAML header that will change the
+theme. There is a setting that you provide under `html` called `theme`,
+where multiple different themes can be used that are listed in Quarto's
+[HTML Theming](https://quarto.org/docs/output-formats/html-themes.html)
+page. It would look like this, if we use a theme called `yeti`:
+
+``` {.yaml filename="docs/learning.qmd"}
+---
+title: "Reproducible documents"
+format:
+  html:
+    theme: yeti
+---
+```
+
+Notice the indentations and use of colons. Indentation tells YAML that
+the key is actually a sub-key of the key above. The key `theme` is a
+sub-key of `html`, which is a sub-key (an setting) of `format`. All the
+themes can be viewed directly on the
+[Bootswatch](https://bootswatch.com/) page.
+
+Modifying the theme and appearance of HTML documents is surprisingly
+easy after you learn a bit of CSS, which is a bit like YAML since it
+provides data in a `key {subkey: value}` style pairing. We won't cover
+that in this course though. On the other hand, modifying the appearance
+of Word documents is more difficult. That's because Word doesn't allow
+it to be easily modified programmatically like HTML can, since both are
+plain text file while Word is *not* plain text, but a propriety format
+(`.docx`). So changing the appearance of the document itself requires
+that you manually create a Word template file first, manually
+point-and-click to modify the appearance, and then link to that template
+file with the `reference-doc` option in the YAML header (as a sub-key of
+`docx`). Quarto's [Word
+Templates](https://quarto.org/docs/output-formats/ms-word-templates.html)
+page continues more details about this. We won't be covering this in the
+course.
+:::
+
+## Summary
+
+-   With tidy data, each variable has its own column, each observation
+    has its own row, and each value has its own cell.
+-   Use the tidyverse to load in multiple packages to tidy up data.
+-   Never edit raw data. Instead, use R code to make changes and clean
+    up the raw data, rather than manually editing the dataset.
+-   Use the functions `select()`, `rename()`, `filter()`, `mutate()`
+    ("change or modify"), and `summarise()` from the dplyr package to
+    wrangle your data.
+-   Use the pipe (`|>`) to write easy-to-read code, similar to reading
+    a text consisting of multiple sentences.
+-   Make tables by using `knitr::kable()`
+-   For HTML, choose different themes to personalize the appearance of
+    your Quarto output document.
+
+:::

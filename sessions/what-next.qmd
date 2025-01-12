@@ -15,6 +15,9 @@
 
 The slides contain speaking notes that you can view by pressing 'S' on
 the keyboard.
+
+Mention that this page can be read afterwards, but briefly show parts of
+it before the presentation.
 :::
 
 It is one thing to learn the principles of how to do reproducible
@@ -41,8 +44,8 @@ can you practice these skills and tools you learned during the course?
     -   As much as possible, setup your projects, folders, and files in
         a more reproducible way (e.g. through using the structure
         created from the `{prodigenr}` package).
-    -   Create all your figures entirely in R and using R scripts or R
-        Markdown files.
+    -   Create all your figures entirely in R and using R scripts or
+        Quarto documents.
     -   Write everything research related in Quarto and convert to a
         Word document when you need to send to co-authors. If they make
         edits or comments, include the edits in the original Quarto
@@ -61,22 +64,16 @@ can you practice these skills and tools you learned during the course?
 
 ## How do you share?
 
-How do you share? Put your code up on any of these sites. We recommend a
-combination of GitHub and Zenodo, but the others are also quite good as
-well. And we're already showing you how to use GitHub, so you're one
-step closer to sharing on your own!
+How do you share? We recommend a combination of GitHub and
+[Zenodo](https://zenodo.org/) to share your code. And we're already
+showing you how to use GitHub, so you're one step closer to sharing on
+your own!
 
--   [GitHub](https://github.com/)
--   [GitLab](https://gitlab.com/)
--   [Zenodo](https://zenodo.org/)
--   [figshare](https://figshare.com/)
--   [Open Science Framework](https://osf.io/)
-
-Next question might, when do you share? Right away! No matter how ugly.
-If its ugly, that's fine! The point is you start and that you get more
-comfortable doing it until it becomes second nature to share and in the
-process, your code gets better because you know someone might look at
-your code.
+Next question might, when do you share? Right away! No matter how ugly
+the code is. If its ugly, that's fine! The point is you start and that
+you get more comfortable doing it until it becomes second nature to
+share and in the process, your code gets better because you know someone
+might look at your code.
 
 And even if your code isn't reproducible, even if others can't run it
 own their own, sharing is the first step to becoming better. At the
@@ -113,8 +110,12 @@ these courses are or will soon be helping to improve the material for
 next year. There are also so many other things you can get involved in,
 aside from this course. Let us know if you're interested!
 
-We also have an informal, once-monthly, Coding Club you can join or
-follow. Information about it is on the
-[website](https://coding-club.rostools.org/). We do the sessions
-virtually on the [r-cubed Discord
-server](https://discord.gg/xHPyj7dxJx).
+::: {.callout-important appearance="default"}
+:star: Do you find this course material useful? Then please consider
+"starring" our [GitHub
+repository](https://github.com/rostools/r-cubed-intro/) to show your
+support! Starring will save it to a list of repositories you like that
+you can easily find again, plus it helps give our project more
+visibility!
+:::
+

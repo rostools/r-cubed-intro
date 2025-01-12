@@ -1,0 +1,484 @@
+# Wrangling with visualizing {#sec-wrangling-with-visualizing}
+
+```{r setup}
+#| include: false
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+tidied_post_meal_data <- post_meal_data |>
+  select(id, Age, BMI, Group, auc_pg, auc_ins, glykemi) |>
+  rename(
+    auc_glucose = auc_pg,
+    auc_insulin = auc_ins
+  ) |>
+  filter(glykemi == 0) |>
+  select(-glykemi) |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == "CTR", "Control", "First-degree relative")
+  )
+```
+
+<!-- TODO: Add an introduction here -->
+
+## Learning objectives
+
+This session's **overall learning outcome** is to:
+
+1.  Combine the wrangling tools with visualizing to continue exploring
+    the data, while recognizing the role that colours play in making
+    your figures accessible.
+
+**Specific objectives** are to:
+
+1.  Apply what was learned separately in the wrangling and visualizing
+    sessions by piping the output of one into the other.
+2.  Recognize and explain why the choice of colour matters when it comes
+    to having figures be accessible and understandable to more people,
+    especially to those with colour blindness.
+3.  Use features of `{ggplot2}` to make plots that continue three or
+    more variables in them, through the use of colours and facetting.
+4.  Use built-in themes in `{ggplot2}` to change the appearance of the
+    plot, as well as setting the axes labels and plot title.
+
+## Piping your wrangling into plots
+
+In the previous session, we learned how to wrangle data using the
+`{dplyr}` package. In this session, we're going to show and highlight
+how useful and powerful it is to do some wrangling and directly pipe the
+output into a plot to visualize it. Often, you might need to do some
+wrangling only for a specific plot, and it isn't necessary to save the
+wrangled data as an intermediate object. So instead, we'll immediately
+pipe the wrangled data into a plot.
+
+Based on our data, let's say we want to see what the distribution of the
+`insulin_glucose_ratio` with those who are overweight or not as a
+categorical variable using BMI greater than or equal to 25 as the
+threshold. Since we don't have a variable for being overweight, we need
+to create one. We can use the `mutate()` function to create a new column
+called `overweight` with a value for being overweight if `BMI >= 25` or
+less than that. Before we create the plot, we need to decide, what type
+of plot do we want. Since we have a continuous and a discrete variable,
+these are a few good or common ones we could use:
+
+-   `geom_boxplot()`, which makes boxplots that show the median and a
+    measure of range in the data. Boxplots are generally pretty good at
+    showing the spread of data. However, like the reading task about
+    "bar plots", boxplots can still hide your actual data. It is
+    generally fine to use, but a better geom might be jitter or violin.
+-   `geom_jitter()`, which makes a type of scatterplot, but for discrete
+    and continuous variables. A useful argument to `geom_jitter()` is
+    `width`, which controls how wide the jittered points span from the
+    center line. This plot is much better than the boxplot since it
+    shows the *actual data*, and not summaries like a boxplot does.
+    However, it is not very good when you have lots of data points.
+-   `geom_violin()`, which shows a density distribution like
+    `geom_density()`. This geom is great when there is a lot of data and
+    `geom_jitter()` may otherwise appear as a mass of dots.
+
+The way you use any of these geoms is the same. If you use one, you can
+use another. So we'll show how to use `geom_jitter()`, because our data
+are quite small.
+
+At the bottom of the Quarto document, create a new section header called
+`## Visualizing with a jitter plot`. Below that header, create a new
+code chunk with {{< var keybind.chunk >}}.
+
+```{r discrete-continuous-variables}
+#| filename: "docs/learning.qmd"
+tidied_post_meal_data |>
+  mutate(overweight = if_else(BMI >= 25, "Overweight", "Not overweight")) |>
+  ggplot(aes(x = overweight, y = insulin_glucose_ratio)) +
+  geom_jitter()
+```
+
+Run this code chunk with {{< var keybind.run-code >}} and you'll see a plot
+with a bunch of points on them. Looking at the plot, we can see that
+there are more participants that are insulin insensitive (resistant) in
+the overweight group than the non-overweight group. We can modify the
+width of the jittered points by adding the argument `width` to
+`geom_jitter()`. For now, we won't add it.
+
+## Plotting a third or more variables
+
+There are many ways to visualize additional variables in a plot and
+further explore your data. For that, we can use `{ggplot2}`'s colour,
+shape, size, transparency ("alpha"), and fill aesthetics, as well as
+"facets". Faceting in `{ggplot2}` is a way of splitting the plot up into
+multiple plots when the underlying aesthetics are the same or similar.
+
+The most common and "prettiest" way of adding a third variable is by
+using colour. Let's check the relationship between `Age` and
+`auc_insulin` in a scatterplot with `geom_point()`, while using `Group`
+in colour as the third variable.
+
+First, create a new header called `## Plotting three or more variables`
+and a new code chunk with {{< var keybind.chunk >}}. Then, write out the
+code below:
+
+```{r using-colour}
+#| filename: "docs/learning.qmd"
+tidied_post_meal_data |>
+  filter(BMI < 30) |>
+  ggplot(aes(x = Age, y = auc_insulin, colour = Group)) +
+  geom_point()
+```
+
+Run this with {{< var keybind.run-code >}}. One thing you'll quickly notice
+is that there is a clear grouping in ages between those above and below
+40. So let's make a new column called `young` that groups people into
+two categories of being above or below 40 years of age. And instead of
+looking at the relationship between `Age` and `auc_insulin`, let's look
+at the relationship between `BMI` and `insulin_glucose_ratio`.
+
+With piping, it is really easy to insert a wrangling step in the
+sequence. So we'll insert a `mutate()` below the `filter()` and make use
+of the `if_else()` function to create the new column `young`. After
+that, we would like to split the plots up into two subplots, one for
+each age group. We can do this using `facet_grid()`.
+
+`facet_grid()` splits the plot up into multiple subplots. For faceting
+to work, at least one of the first two arguments to `facet_grid()` is
+needed. The first two arguments are:
+
+-   `cols`: The discrete variable to use to facet the plot column-wise
+    (i.e. side-by-side).
+-   `rows`: The discrete variable to use to facet the plot row-wise
+    (i.e. stacked on top of each other).
+
+For both `cols` and `rows`, the variable must be wrapped by `vars()`
+(e.g. `vars(young)`). Using the existing code we have, modify it so it
+looks like the code below:
+
+```{r using-faceting-cols}
+#| filename: "docs/learning.qmd"
+tidied_post_meal_data |>
+  filter(BMI < 30) |>
+  mutate(young = if_else(Age < 40, "Young", "Old")) |>
+  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Group)) +
+  geom_point() +
+  facet_grid(cols = vars(young))
+```
+
+Run this with {{< var keybind.run-code >}}. You'll see two plots
+side-by-side, one for each age group. Super neat! Right away, we can see
+that there are more older people who have first-degree relatives with
+diabetes, which makes sense since older people will likely have older
+relatives, and age is a big factor in diabetes. You can also facet by
+`rows`, by replacing the `cols` argument:
+
+```{r using-faceting-rows}
+#| filename: "docs/learning.qmd"
+tidied_post_meal_data |>
+  filter(BMI < 30) |>
+  mutate(young = if_else(Age < 40, "Young", "Old")) |>
+  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Group)) +
+  geom_point() +
+  facet_grid(rows = vars(young))
+```
+
+Which do you find more informative?
+
+Before moving on, run `{styler}` with {{< var keybind.styler >}}, render
+the Quarto document with {{< var keybind.render >}}, and commit the
+changes to the Git history with {{< var keybind.git >}}. Lastly, push
+the changes to GitHub.
+
+## :technologist: Exercise: Creating some multi-dimensional plots
+
+**Time: \~15 minutes.**
+
+Time to try this out yourself! Create two figures that are side by side
+like we did in @sec-visualization with the Quarto code chunk
+`#| layout-ncol: 2`. Create a new header in the `docs/learning.qmd` file
+called `## Make multi-dimensional plots!`, then below it copy and paste
+the template code chunk shown below into your document.
+
+```` {.markdown filename="docs/learning.qmd"}
+```{{r}}
+#| label: fig-multidimensional
+#| fig-cap: "Two, mult-dimensional plots of our data."
+#| fig-subcap:
+#|   - "Distribution of percent body fat by group and age category."
+#|   - "Relationship between BMI and bone mineral density, split by insulin sensitivity."
+#| layout-ncol: 2
+# Task 1.
+post_meal_data |>
+  mutate(
+    ___ = (___ / ___) * 100,
+    ___ = if_else(___ < 40, ___, ___)
+  ) |>
+  ___(___(x = ___, y = ___, colour = ___)) +
+  ___(width = 0.2)
+
+# Task 2.
+post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = (auc_ins / auc_pg),
+    insulin_insensitive = if_else(___ > ___(___), ___, ___)
+  ) |>
+  ___(___(x = ___, y = ___)) +
+  ___() +
+  ___() +
+  ___(cols = vars(___))
+```
+````
+
+1.  Show the distribution of `percent_body_fat` by `Group` and `Age`
+    category following these steps:
+    1.  Create a new column called `percent_body_fat` that calculates
+        the percentage of body fat by dividing `Fat.mass.DXA` by
+        `Weight` and multiplying by 100. You wrote this code previously
+        in another exercise, you can re-use that code if you would like.
+    2.  Create a new column called `young` that groups people into two
+        categories of being above (`"Old"`) or below (`"Young"`) 40
+        years of age by using `if_else()`.
+    3.  Use `ggplot()` and `aes()` to create the plot by putting `Group`
+        on the x-axis, `percent_body_fat` on the y-axis, and colour the
+        points by `young`. Use `geom_jitter()` to show the data points.
+        The argument `width = 0.2` has already been set for you to have
+        the points cluster together a bit more
+2.  Show the relationship between BMI and bone mineral density,
+    splitting it by insulin sensitivity by following these steps:
+    1.  A new column called `insulin_glucose_ratio` has already been
+        included in the template for you to use. Below this code, create
+        a new column called `insulin_insensitive` that groups people
+        into two categories of being above (`"Insensitive"`) or below
+        (`"Sensitive"`) the `mean()` of `insulin_glucose_ratio` by using
+        `if_else()`.
+    2.  Use `ggplot()` and `aes()` to create the plot by putting `BMI`
+        on the x-axis, `Bone.mineral.DXA` on the y-axis, and colour the
+        points by `insulin_insensitive`.
+    3.  Use `geom_point()` to show the data points, then also use
+        `geom_smooth()` to show a line of best fit.
+    4.  Use `facet_grid()` to split the plot by `insulin_insensitive`.
+
+When you complete all the tasks, run `{styler}` using
+{{< var keybind.styler >}}, then render the document with
+{{< var keybind.render >}} to make sure it runs and to see the output.
+End with adding and committing the changes to the Git history with
+{{< var keybind.git >}} and pushing the changes to GitHub.
+
+```{r solution-multidimensional}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# This is an example of what the code will look like:
+#| label: fig-multidimensional
+#| fig-cap: "Two, mult-dimensional plots of our data."
+#| fig-subcap:
+#|   - "Distribution of percent body fat by group and age category."
+#|   - "Relationship between BMI and bone mineral density, split by insulin sensitivity."
+#| layout-ncol: 2
+# Task 1.
+post_meal_data |>
+  mutate(
+    percent_body_fat = (Fat.mass.DXA / Weight) * 100,
+    young = if_else(Age < 40, "Young", "Old")
+  ) |>
+  ggplot(aes(x = Group, y = percent_body_fat, colour = young)) +
+  geom_jitter(width = 0.2)
+
+# Task 2.
+post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = (auc_ins / auc_pg),
+    insulin_insensitive = if_else(insulin_glucose_ratio > mean(insulin_glucose_ratio), "Insensitive", "Sensitive")
+  ) |>
+  ggplot(aes(x = BMI, y = Bone.mineral.DXA)) +
+  geom_point() +
+  geom_smooth() +
+  facet_grid(cols = vars(insulin_insensitive))
+```
+
+{{< text_snippet sticky_up >}}
+
+## :book: Reading task: Using accessible colours in your plot
+
+**Time: \~5 minutes**
+
+Colour blindness is common in the general population, with red-green
+colour blindness affecting about 8% of men and 0.5% of women. To make
+your graph more accessible to people with colour blindness, you need to
+consider the colours you use. For more detail on how colours look to
+those with colour blindness, check out this
+[documentation](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+from the `{viridis}` package.
+
+The `{viridis}` colour scheme (also developed as an R package) was
+specifically designed to represent data to all colour visions (including
+as a grayscale, e.g. from black to white). There is a really informative
+[talk on YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU) on this
+topic.
+
+When using colours, think about what you are trying to convey in your
+figure and how your choice of colours will be interpreted. You can use
+built-in colour schemes or create your own. For now, let's stick to
+using built-in ones. There are two we can start with: the `{viridis}`
+and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. Both
+are well designed and are colour blind friendly. For this course, we
+will only cover the `{viridis}` package.
+
+::: callout-tip
+You can modify ggplot2 colour schemes using many other pre-defined
+palettes by installing new R packages, including scientific journal
+colour palettes ([ggsci](https://nanx.me/ggsci/index.html)) and even a
+Wes Anderson ([wesanderson](https://github.com/karthik/wesanderson)) or
+a Stubio Ghibli ([ghibli](https://ewenme.github.io/ghibli/)) colour
+palette!
+:::
+
+Continue to the exercise once you've finished reading this section to
+test out the `{viridis}` colour scheme.
+
+## :technologist: Exercise: Changing the colour schemes
+
+**Time: \~8 minutes.**
+
+Change the colour schemes on some plots. Start with a base plot object
+to work from that has two discrete variables. Create a new Markdown
+header called `## Changing colours` and create a new code chunk below it
+using {{< var keybind.chunk >}}. Copy and paste the code below into the
+new code chunk.
+
+``` r
+# Tasks 1. and 2.
+post_meal_data |>
+  mutate(hyperglycemia = if_else(glykemi == 1, "Yes", "No")) |>
+  ggplot(aes(x = Group, fill = hyperglycemia)) +
+  geom_bar(position = position_dodge()) +
+  ___()
+
+# Tasks 3. and 4.
+post_meal_data |>
+  ggplot(aes(x = auc_pg, y = auc_ins, colour = BMI)) +
+  geom_point() +
+  ___()
+```
+
+::: callout-tip
+If you need help, use the `help()` or `?` functions in RStudio to look
+over the documentation for more information for the functions we get you
+to use below.
+:::
+
+1.  Change the colour to the `{viridis}` scheme by using the
+    `scale_fill_viridis_d()` function, adding it to the end of the
+    `# Task 1. and 2.` code. Because the variables are discrete, the
+    function ends with `_d`.
+
+2.  `{viridis}` has several palettes. Add the argument
+    `option = "magma"` to the `scale_fill_viridis_d()` function. Run the
+    function again and see how the colour changes. Then, change
+    `"magma"` to `"cividis"`.
+
+3.  Now, let's practice using the colour schemes on a plot with
+    continuous variables. For the `# Tasks 3. and 4.` code, use
+    `scale_colour_viridis_c()` at the end of the `ggplot()` function. We
+    use `_colour_` instead of `_fill_` in the `scale_` name because,
+    well, we are using the `colour =` argument. The `_c` at the end
+    indicates the variable are continuous.
+
+4.  Similar to task 2 above, use the `option` argument to set the
+    palette to `"inferno"` and see how the colour changes. Select which
+    colour scheme you would like.
+
+Once you are done, style your code with `{styler}` using
+{{< var keybind.styler >}}, render the document with
+{{< var keybind.render >}}, and commit the changes to the Git history
+with {{< var keybind.git >}}, followed by pushing to GitHub.
+
+```{r solution-colour-schemes}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# Tasks 1. and 2.
+post_meal_data |>
+  mutate(hyperglycemia = if_else(glykemi == 1, "Yes", "No")) |>
+  ggplot(aes(x = Group, fill = hyperglycemia)) +
+  geom_bar(position = position_dodge()) +
+  scale_fill_viridis_d()
+# scale_fill_viridis_d(option = "magma")
+
+# Tasks 3. and 4.
+post_meal_data |>
+  ggplot(aes(x = auc_pg, y = auc_ins, colour = BMI)) +
+  geom_point() +
+  scale_colour_viridis_c()
+# scale_colour_viridis_c(option = "inferno")
+```
+
+{{< text_snippet sticky_up >}}
+
+## Titles, axis labels, and themes
+
+There are so many options in RStudio to modify a `{ggplot2}` figure.
+Almost all of them are found in the `theme()` function. We won't cover
+individual theme items, since the `?theme` help page and [ggplot2 theme
+webpage](https://ggplot2.tidyverse.org/reference/theme.html) already
+document `theme()` really well. Instead, we'll cover a few of the
+built-in themes, as well as setting the axes labels and plot title.
+We'll create a plot object to work with the different themes and setting
+labels that we'll call `base_scatterplot`. All built-in themes start
+with `theme_`.
+
+Create a new section header called `## Changing plot appearance` and
+make a new code chunk with {{< var keybind.chunk >}}, then copy the code
+below:
+
+```{r base-scatterplot}
+#| filename: "docs/learning.qmd"
+base_scatterplot <- tidied_post_meal_data |>
+  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Age)) +
+  geom_point() +
+  facet_grid(cols = vars(Group)) +
+  scale_color_viridis_c()
+base_scatterplot
+```
+
+Then, below that code, let's test out some of the built-in themes:
+
+```{r built-in-themes}
+base_scatterplot + theme_bw()
+base_scatterplot + theme_minimal()
+base_scatterplot + theme_classic()
+```
+
+Run each of these lines of code with {{< var keybind.run-code >}}. You'll see
+the different types of themes applied to the plot. Which do you prefer?
+
+To add labels such as axis titles to your plot, you can use the function
+`labs()`. To change the y-axis title, use the `y` argument in `labs()`.
+For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
+code chunk with {{< var keybind.chunk >}} and type:
+
+```{r labels}
+#| filename: "docs/learning.qmd"
+base_scatterplot +
+  labs(
+    title = "BMI, insulin-to-glucose ratio, and age by group",
+    y = "Insulin-to-glucose Ratio",
+    x = "BMI (kg/m2)"
+  )
+```
+
+These are some of the things you can do with the theming and labelling,
+but there is so much more! For now, we'll end this session. Style your
+code with {{< var keybind.styler >}}, render the document with
+{{< var keybind.render >}}, and commit the changes to the Git history
+with {{< var keybind.git >}}. Lastly, push the changes to GitHub.
+
+::: callout-tip
+To save the plot you created, you can use the `ggsave()` function.
+:::
+
+## Summary
+
+-   Pipe `|>` the output of your wrangling directly into making a plot
+    to streamline your code.
+-   To plot more dimensions, use colour, the X axis, the Y axis, or
+    `facet_grid()`.
+-   Use colour blind-friendly palettes, such as `{viridis}`.
+-   Use built-in themes in `{ggplot2}` to change the appearance of the
+    plot, as well as setting the axes labels and plot title.
+
+{{< include /includes/_code-appendix.qmd >}}

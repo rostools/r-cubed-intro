@@ -26,37 +26,26 @@ Your specific tasks are:
 
 1.  All team members need to **clone your team's repository to their own
     computer**. The steps are found through
-    `File -> New Project -> Version Control -> Git` (partly learned in
-    @sec-remotes-setting-up).
+    `File -> New Project -> Version Control -> Git`.
 
 2.  **Select one of the open datasets** to use for your analysis and
     report:
 
-    -   [The Global Carbon Project's fossil CO2 emissions
-        dataset](https://zenodo.org/record/7215364). Click this
-        [link](https://zenodo.org/record/7215364/files/GCB2022v27_MtCO2_flat.csv?download=1)
-        to view and save the data directly (by right-clicking while in
-        the page and selecting "Save As").
-    -   Data from a published study: [*Early-life disease exposure and
-        associations with adult survival, cause of death, and
-        reproductive success in preindustrial
-        humans*](https://zenodo.org/record/4993147). Click this
-        [link](https://zenodo.org/record/4993147/files/Hayward%20et%20al_Early%20disease%20and%20later%20fitness_DATA.csv?download=1)
-        to view and save the data directly (by right-clicking while in
-        the page and selecting "Save As").
-    -   Data from a published study: [*Clinical and metabolic
-        characteristics among Mexican children with different types of
-        diabetes mellitus*](https://zenodo.org/record/5008784). Click
-        this
-        [link](https://zenodo.org/record/5008784/files/Database_Mexican_children_with_different_types_of_DM.csv?download=1)
-        to view and save the data directly (by right-clicking while in
-        the page and selecting "Save As").
+    -   [Price discounts on low energy dense foods on food intake and
+        health status](https://zenodo.org/records/10909325). Click this
+        [link](https://zenodo.org/records/10909325/files/Supermarket_dataset_v3.csv?download=1)
+        to directly download the data.
+    -   [Associations of serum uric acid with cardiovascular disease
+        risk factors: a retrospective cohort study in Southeastern
+        China](https://zenodo.org/records/8292712). Click this
+        [link](https://zenodo.org/records/8292712/files/SUA_CVDs_risk_factors.csv?download=1)
+        to directly download the data.
 
 3.  Assign one team member to **download the dataset** and put it into
-    the `data-raw/` folder of your project.
+    the `data/` folder of your project.
 
     -   If there is any documentation on the dataset, e.g. variable
-        definitions, put those files in the `data-raw/` folder as well.
+        definitions, put those files in the `data/` folder as well.
     -   This team member should then add and commit the new file(s) in
         the project, so it gets saved to the Git history. Then push the
         changes to the team's GitHub repository.
@@ -65,7 +54,7 @@ Your specific tasks are:
 
 4.  **Each team member creates a Quarto file** named
     `report-YOURNAME.qmd` (replacing `YOURNAME` with your actual name)
-    in the `doc/` folder of your project (covered in
+    in the `docs/` folder of your project (covered in
     @sec-reproducible-documents). This means that each team member will
     have their own document to work in without conflicting with the
     other team members. **Note**, if there are several members with the
@@ -74,7 +63,7 @@ Your specific tasks are:
 
     -   For each team member's `.qmd` file, include a `setup` code chunk
         at the top that lists the packages used. Include code to import
-        your data here.
+        your data in this `setup` code chunk.
 
     -   Create a few figures of the data. Discuss with your team what
         figures to create and divide which figures to make between your
@@ -87,13 +76,12 @@ Your specific tasks are:
     -   When making both the figures and the tables, make sure to
         incorporate some data wrangling code from `{dplyr}`.
 
-    -   Use the "Git workflow" by adding to the staged area, commit,
-        push, and pull the changes you've made.
+    -   Use the "Git workflow" by adding to the staged area, committing,
+        pushing, and pulling the changes you and your teammate have
+        made.
 
     -   Make sure to "render" your document to HTML often to ensure it
         is always reproducible.
-
-    -   **Note**: For now, *do not* add and commit the HTML output file.
 
 5.  Assign one team member as the "report coordinator" and have them
     **merge all the individual `report-YOURNAME.qmd` into one
@@ -119,18 +107,14 @@ Your specific tasks are:
         learned and a few sentences on some challenges you experienced.
 
 6.  **Generate an HTML of the report** and commit it to Git, then push
-    it up to GitHub. Include all the updated code and files on GitHub
-    for the presentation.
+    it up to GitHub. Include all the updated code and files on GitHub.
 
 These tasks may seem like a lot, with a lot of new terminology and tools
 to use. But don't worry! We will be going over many of these topics and
-you will have time to complete the project over the three days. Make use
-of the website to remind you and use our
-[cheatsheet](../includes/cheatsheet.pdf) as a reference.
+you will have time to complete the project over the three days.
 
 At the end, the lead instructor will download each of the teams' Git
-projects, render the documents to test their reproducibility, and show
-them on the screen for each team to present on.
+projects and will render the documents to test their reproducibility.
 
 ## Quick "checklist" for a good project
 

@@ -86,12 +86,18 @@ In addition to the assumptions, we also have a fairly focused scope for
 teaching and expectations for learning. So this may also help you decide
 if this course is for you.
 
--   We *do* teach how to use R, starting from the very basics and
-    targeted to beginners.
--   We *do not* teach statistics (these are already covered by most
-    university curriculums).
--   We *do* teach from a team science, reproducible research, and open
-    scientific perspective (i.e. by including a collaborative group
-    project that uses a transparent and reproducible analysis workflow).
--   We *do* teach using practical, applied, and hands-on lessons and
-    exercises, with a few short lectures that introduce a topic.
+::: {layout-ncol="2"}
+### We teach {.unnumbered}
+
+-   How to use R, starting from the very basics and targeted to
+    beginners.
+-   Using a team science, reproducible research, and open scientific
+    perspective (i.e. by including a collaborative group project that
+    uses a transparent and reproducible analysis workflow).
+-   Using practical, applied, and hands-on lessons and exercises, with a
+    few short lectures that introduce a topic.
+
+### We *do not* teach {.unnumbered}
+
+-   Statistics (these are already covered by most universities).
+:::

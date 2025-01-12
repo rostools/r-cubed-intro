@@ -33,7 +33,7 @@ repository of the material, and [GitHub
 Actions](https://github.com/features/actions) with
 [Netlify](https://www.netlify.com/) to build and host the website. The
 original source material for this course is found on the
-[`r-cubed-intro`](https://github.com/rostools/r-cubed-intro) Github
+[`r-cubed-intro`](https://github.com/rostools/r-cubed-intro) GitHub
 repository.
 
 Want to contribute to this course? Check out the
@@ -44,6 +44,15 @@ file on the GitHub repository for more details. The main way to
 contribute is by using [GitHub](https://github.com/) and creating a [new
 issue](https://github.com/rostools/r-cubed-intro/issues/new) to make
 comments and give feedback on the material.
+
+::: {.callout-important appearance="default"}
+:star: Do you find this course material useful? Then please consider
+"starring" our [GitHub
+repository](https://github.com/rostools/r-cubed-intro/) to show your
+support! Starring will save it to a list of repositories you like that
+you can easily find again, plus it helps give our project more
+visibility!
+:::
 
 ## Target audiences
 
@@ -75,7 +84,7 @@ this source. Check out the
 guidelines and the [For Instructors](appendix/for-instructors.qmd)
 section for more details and tips on using this material.
 
-## Acknowledgements
+## Acknowledgments
 
 There were many sources of inspiration when creating this course, as
 well as subsequent modifications. Here is a list of some of these

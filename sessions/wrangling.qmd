@@ -1,0 +1,772 @@
+# Data management and wrangling {#sec-wrangling}
+
+```{r setup}
+#| include: false
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+```
+
+<!-- TODO: Add an introduction here -->
+
+## Learning objectives
+
+This session's **overall learning outcome** is to:
+
+1.  Describe some basic, common "verbs" for wrangling data, such as
+    selecting and renaming columns, filtering rows, and "mutating"
+    columns by modifying or creating them. Then use functions within the
+    `{tidyverse}` to perform these actions.
+
+**Specific objectives** are to:
+
+1.  Select specific columns in a dataset using the `select()` function.
+2.  Rename columns in a dataset using the `rename()` function.
+3.  Filter rows in a dataset using the `filter()` function.
+4.  Modify or add columns in a dataset using the `mutate()` function.
+5.  Use the pipe operator `|>` to chain actions together.
+
+## :book: Reading task: Data wrangling verbs
+
+**Time: \~5 minutes**
+
+A large number of tasks in data wrangling can be broken down and
+expressed with only a few simple "verbs" (actions). Wrangling here
+refers to maneuvering, managing, controlling, and turning your data
+around to clean it up, better understand it, and prepare it for later
+analyses. The table below lists some common "verbs" from the `{dplyr}`
+package that gets loaded with `{tidyverse}`:
+
+| Task | Function | Example |
+|:-----------------------|:-----------------------|:-----------------------|
+| Select columns | `select()` | Remove data entry columns such as the person's name who entered the data. |
+| Subset/filter rows | `filter()` | Keeping rows with glucose values above 4. |
+| Rename columns | `rename()` | Changing a column name from 'Q1' to 'participant_name'. |
+| Transform or modify columns | `mutate()` | Multiplying or taking the log of a column's values. |
+| Sort rows | `arrange()` | Show rows with the smallest value at the top. We won't cover this function in this course, but we do have an extra section on it in @sec-extra-arrange. |
+| Calculate summaries | `summarise()` | Calculating the maximum, median, and minimum age. We'll cover this in @sec-split-apply-combine. |
+| Run code by a group | `group_by()` with `summarise()` | Calculate means of age by males and females. We'll cover this in @sec-split-apply-combine. |
+
+: List of common data wrangling tasks, the function used, and an example
+of when it would be used.
+
+You might notice that we have used the word "variable" in the previous
+sessions and here we are starting to use "column". While often these two
+words mean the same, they don't always. A column is a list of values of
+the same type structured in a data frame. A variable is a list of values
+that have specific and consistent characteristics that represent
+something in the real world. For instance, in R, it is entirely possible
+to have all the columns in a data frame stacked on top of each other in
+a very long format, including stacking numbers and text. A variable
+however, would be something like a person's weight or age. It is
+something that is important to us humans, that means something specific.
+When we do data wrangling, we often end up working with or creating
+columns, but often the goal to get our data into a format where the
+columns are also the variables.
+
+Taking an example from our data, the `Insulin10` column would be more of
+a column than a variable because it is insulin measured at 10 minutes,
+which is very specific and isn't really meaningful to us humans as a
+concept. If we split it up into two new columns, `Insulin` and `Time`,
+then both `Insulin` and `Time` would be variables.
+
+{{< text_snippet sticky_up >}}
+
+## Selecting specific columns in a dataset
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Take your time explaining the arguments and positions of things in the
+function.
+:::
+
+Selecting columns of a dataset is a very common data wrangling task. The
+function for this task is appropriately called `select()`. You would use
+`select()` to select one or more columns in a dataset that you want to
+have a closer look at or to save as a new data frame to work with. It
+may be that you wish to explore the clinical characteristics of your
+study sample, so you may select some basic demographic variables (e.g.,
+`Age`) and clinical variables (e.g., `Weight` and `Height`) to perform
+these analyses.
+
+For the input arguments, `select()` takes the data object as the first
+argument, which is the first input position right after the opening
+bracket `(`, and then takes the names of the columns you want to select
+after this first argument position. The argument after the data argument
+is shown as `...`, which indicates that you can add as many columns as
+you want, separated by a `,`. Let's try it out on a few columns of our
+data.
+
+First, go to the bottom of your Quarto file and create a new header
+called `## Selecting data`. Below that header, create a new code chunk
+with {{< var keybind.chunk >}}. Then we can start selecting some
+columns. Let's select one column first. When you write the name of the
+column, you don't need to use quotes around it but it will still work if
+you do.
+
+```{r using-select-one-column}
+#| filename: "docs/learning.R"
+select(post_meal_data, Age)
+```
+
+When you run this code with {{< var keybind.run-code >}}, you will see that
+only the `Age` column is shown in the output.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Open up and show the Environment pane to show that no new object has
+been created and explain the paragraph below. Reinforce that if you
+don't assign the output to an object, it means you can't do anything
+else with the output since nothing was created.
+:::
+
+If we look at our environment pane in RStudio, you will notice that
+running these functions doesn't create any new object in our
+environment. That's because we haven't assigned the output to a new
+object with `<-`. When we run these actions, we are only telling R to
+send the output to our screen for us to look at. Shortly we will assign
+a new object with some selected columns to a new data object.
+
+Let's select a few more columns. Create a new line in the same code
+chunk and add the following code:
+
+```{r using-select-multiple-columns}
+select(post_meal_data, Age, BMI, Weight)
+```
+
+This time we have a lot more columns output. What if we want to exclude
+a column? We can use the minus sign `-` to exclude a column. Let's
+exclude the `Group` column.
+
+```{r using-select-exclude-column}
+select(post_meal_data, -Group)
+```
+
+Sometimes you might have many columns with that all follow a specific
+pattern, like our `Insulin` or `PG` columns. There are some "select"
+helper functions to choose these columns, the commonly used ones are:
+
+-   `starts_with()`: Select columns that begin with a pattern.
+-   `ends_with()`: Select columns that end with a pattern.
+-   `contains()`: Select columns that contain a pattern.
+
+For more information on using the pattern functions such as
+`starts_with()`, check out `?select_helpers` (choose the "Select
+helpers" option in the menu that pops up).
+
+Let's try these out on our data. Create a new header called
+`## Select helpers` and then create a new code chunk below that header
+with {{< var keybind.chunk >}}. We'll start by selecting all columns
+that start with "PG" (post-meal glucose).
+
+```{r using-select-helpers-starts-with}
+#| filename: "docs/learning.qmd"
+select(post_meal_data, starts_with("PG"))
+```
+
+See how it outputs all the columns that start with "PG"? Now let's try
+selecting all columns that end with "DXA":
+
+```{r using-select-helpers-ends-with}
+select(post_meal_data, ends_with("DXA"))
+```
+
+Just like the previous example, it outputs all the columns that end with
+"DXA". Lastly, let's try selecting all columns that contain the number
+"0" somewhere in the column name:
+
+```{r using-select-helpers-contains}
+# All columns containing the number "0"
+select(post_meal_data, contains("0"))
+```
+
+Now that we've tested how to use `select()`, let's simplify our dataset
+a bit. While our data doesn't have too many rows, there are a lot of
+columns to deal with, at least for this course. Let's keep only a few
+columns for now, so it is easier to look at and explore. Create a new
+header called `## Simplifying data` and then create a new code chunk
+below that header with {{< var keybind.chunk >}}. Then write out the
+code below, so that we can make a new, smaller data object.
+
+```{r create-smaller-data}
+#| filename: "docs/learning.qmd"
+small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_ins, glykemi)
+
+# View the new data frame
+small_post_meal_data
+```
+
+We will now work with this smaller data object for a while. Let's make
+sure to style our document with {{< var keybind.styler >}}, then we will
+render the document with {{< var keybind.render >}} to see the output.
+Once done, we'll add and commit the changes to the Git history with
+{{< var keybind.git >}}. Finally, push the changes to your GitHub
+repository.
+
+## :book: Reading task: Chaining actions with the pipe
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Briefly go over this again, especially the examples given.
+:::
+
+**Time: \~6 minutes**
+
+A key component of tidy data and tidy code is making use of the "pipe"
+`|>` operator and that comes built-in with R. This base R pipe was
+inspired from the `{magrittr}` `%>%` pipe. You may notice this style of
+piping in documentation online. Both pipes work exactly the same, but
+since the `|>` comes built-in with R, we will use that one for this
+course.
+
+You would use the pipe `|>` operator when you are writing a piece of
+code with multiple operations or steps in sequence. One advantage of the
+pipe is that it makes your code a bit more readable and also a bit
+easier to modify to insert additional steps in your data analysis
+"pipeline".
+
+The pipe takes the output from one function and inserts it as input to
+another function, just like a plumbing pipe would do for water. This
+allows you to easily chain functions together into "sentences".
+
+Let's use an example based on English words for some action. This is the
+English sentence:
+
+> We need some eggs. Drive to the grocery store and buy some eggs before
+> coming home from work.
+
+There are basically two actions here ("drive" and "buy") with four
+inputs ("work", "grocery store", "eggs", "home"), that are all based on
+the previous action. Since an action in R is a function, the functions
+would be `drive()` and `buy()`. In regular R (without the "pipe"
+operator), we would have to nest functions (reading from the inside to
+the outside) together to chain them:
+
+``` r
+drive(buy(drive(at_work, "grocery store"), "eggs"), "home")
+```
+
+This is a bit difficult to read. Another way to make it more readable
+would be to create temporary objects for each step:
+
+``` r
+at_grocery_store <- drive(at_work, "grocery store")
+got_eggs <- buy(at_grocery_store, "eggs")
+at_home <- drive(got_eggs, "home")
+```
+
+This still isn't very "readable", as we are having to re-name each
+intermediate object with reference to the object before it. The pipe
+`|>` operator can really simplify this:
+
+``` r
+at_work |> 
+    drive("grocery store") |> 
+    buy("eggs") |> 
+    drive("home")
+```
+
+Do you find this more readable and understandable? It reads how it would
+be done, in the order of the steps taken.
+
+The idea of piping is to read the functions from left to right. This can
+help clarify and break down complex data processing workflows, and is
+the basis for the `{tidyverse}` and many other packages.
+
+The pipe `|>` takes the output from the object or function from the left
+of the operator and puts it into the function on the right of the
+operator. All input goes into the first position argument of the
+function. Within the `{tidyverse}` packages, all functions take a data
+frame (or vector) as the first argument in order to work with the pipe.
+
+{{< text_snippet sticky_up >}}
+
+## Renaming specific columns
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Take your time to explain the pipe operator and how it works.
+:::
+
+Renaming columns is another very common data wrangling task. The
+function for this task is also pretty clear, called `rename()`.
+Depending on how your data was collected, it may have column names that
+aren't very descriptive. So you'll probably want to rename them to
+something more explanatory, which is particularly important if you're
+sharing your work with others or in an environment where multiple people
+are working on the same data.
+
+Like `select()`, `rename()` takes the dataset as the first argument and
+then takes as many renaming arguments as you want (because the second
+argument position is `...`). When renaming, it takes the form of
+`newname = oldname`. Almost all functions in the `{tidyverse}` take this
+form, where the first argument is the data object and the rest are the
+arguments that the function will use. The purpose of this design is to
+make the functions easy to use with the pipe, because the pipe
+automatically takes the data object and puts it into the first position
+of the function.
+
+Let's rename a few of the columns, while also starting to use the pipe
+operator. Create a new header called `## Renaming columns` and then
+create a new code chunk below that header with
+{{< var keybind.chunk >}}. Then write out the code below, so that we
+start using the pipe operator to rename some columns. The keyboard
+shortcut for the pipe is {{< var keybind.pipe >}}. Let's rename `auc_pg`
+to be a bit clearer as `auc_glucose`.
+
+```{r rename-columns}
+#| filename: "docs/learning.qmd"
+small_post_meal_data |>
+  rename(auc_glucose = auc_pg)
+```
+
+The pipe automatically takes `post_meal_data` and puts it into the first
+position, so we don't need to specify `post_meal_data` inside the
+`rename()` function. Run this code with {{< var keybind.run-code >}} and you
+will see the output with the new column name. We also have a column
+`auc_ins` that we can rename to `auc_insulin`. Add this to the code
+chunk below the previous code.
+
+```{r rename-columns-insulin}
+#| filename: "docs/learning.qmd"
+small_post_meal_data |>
+  rename(
+    auc_glucose = auc_pg,
+    auc_insulin = auc_ins
+  )
+```
+
+Run this code again with {{< var keybind.run-code >}} to see the output.
+Before moving on, let's style our document with
+{{< var keybind.styler >}}, render the document with
+{{< var keybind.render >}}, add and commit the changes to the Git
+history with {{< var keybind.git >}}, then push to GitHub.
+
+## :technologist: Exercise: Practice selecting and renaming
+
+**Time: \~10 minutes.**
+
+Complete the following tasks while in the `docs/learning.qmd` document,
+running each code after completing the task. *Remember that you aren't
+actually changing the data each time, since you won't assign (`<-`) to a
+new object.* Use the code below as a template to complete the tasks.
+
+``` {.r filename="docs/learning.qmd"}
+# Task 1.
+post_meal_data |>
+  ___(___(___))
+
+# Task 2.
+post_meal_data |>
+  ___(___(___), -___(___)) |>
+  ___(
+    ___ = ___,
+    ___ = ___
+  )
+
+# Task 3.
+basic_info <- select(post_meal_data, id, BMI, Length, Weight, Age)
+rename(basic_info, Height = Length)
+```
+
+Create a new header called `## Select and rename tasks` at the bottom of
+the Quarto document. Then create a new code chunk below that header with
+{{< var keybind.chunk >}} and copy and paste the template above into
+this code chunk. Complete the tasks below by filling in the blanks in
+the template:
+
+1.  `select()` only columns that `contain()` the text `"OGTT"`. Run that
+    code to get the output. How many columns are there?
+
+2.  `select()` columns that `contain()` the characters `".."` but
+    exclude `-` columns that `contain()` the characters `"..."`. Then,
+    rename those columns so that instead of `..`, they have `.minus5`.
+    Recall that renaming is in the form `new = old`.
+
+3.  Read through (in your head) the code below `# Task 3.` above. How
+    intuitive is it to read? Now, re-write this code to use the pipe
+    `|>` so that you don't need to create the temporary `basic_info`
+    object, then re-read the revised version. Which do you feel is
+    easier to "read"?
+
+After you finish these tasks, run `{styler}` on the `docs/learning.qmd`
+file with {{< var keybind.styler >}}, then render the document with
+{{< var keybind.render >}}. Lastly, add and commit these changes to the
+Git history with {{< var keybind.git >}} before pushing to GitHub.
+
+```{r solution-practice-select-rename}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# Task 1.
+post_meal_data |>
+  select(contains("OGTT"))
+
+# Task 2.
+post_meal_data |>
+  select(contains(".."), -contains("...")) |>
+  rename(
+    P.Glucose.minus5.OGTT = P.Glucose..5.OGTT,
+    Insulin.minus5.OGTT.X = Insulin..5.OGTT.X
+  )
+
+# Task 3.
+post_meal_data |>
+  select(id, BMI, Length, Weight, Age) |>
+  rename(Height = Length)
+```
+
+{{< text_snippet sticky_up >}}
+
+## Filtering data by row
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Emphasize the importance of being careful with logic conditions, that we
+humans are really bad at it.
+:::
+
+The two functions to "subset" are `select()`'ing on the column level,
+and `filter()`'ing on the row level. You'll use filtering to do tasks
+like removing outliers or incorrectly entered data, dropping missing
+values, or keeping only some rows based on a condition, like only
+participants in a certain group.
+
+The `filter()` function requires a logic condition (`TRUE` or `FALSE`).
+As with the other functions, the first argument is the dataset and all
+others are the logical conditions that will apply to the row filtering.
+When the logical conditions equal `TRUE`, it means that those rows will
+be **kept** and those that are `FALSE` will be *dropped*.
+
+::: callout-warning
+Since `filter()` uses logical conditions, you need to be really careful
+when writing the logic. As you probably know, humans are really *really*
+bad at logic. If your logical condition starts getting complex, double
+and triple check that you know for certain that your logic code is doing
+what you think it is doing. It's very easy to make mistakes at this
+stage, even for advanced R users.
+:::
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Show this table on the screen and briefly explain the first few to them.
+Mention that they can use this table as a reference for the rest of the
+course.
+:::
+
+Below is a table showing most of the logic comparisons to use in R.
+@tbl-logic-operators can be used as a reference for logical conditions
+in R.
+
+| Operator | Description                                  |
+|:---------|:---------------------------------------------|
+| \<       | less than                                    |
+| \<=      | less than or equal to                        |
+| \>       | greater than                                 |
+| \>=      | greater than or equal to                     |
+| ==       | equal to                                     |
+| !=       | not equal to                                 |
+| !x       | not x (if x is true, `!` will make it false) |
+| x \| y   | x OR y                                       |
+| x & y    | x AND y                                      |
+
+: Table of logic operators in R. {#tbl-logic-operators}
+
+The simplest kind of logic condition is to test for "equality". In R,
+"equal to" is represented by `==`. For example, if we wanted to keep
+only people who are have (hyper-)glycemia in the dataset, we would use
+the logic condition like this. First, go to the bottom of the Quarto
+document and create a new header called `## Filtering data`. Below that
+header, create a new code chunk with {{< var keybind.chunk >}}. Then we
+can write out the code together.
+
+```{r filter-logic-condition-glykemi}
+#| filename: "docs/learning.qmd"
+small_post_meal_data |>
+  filter(glykemi == 1)
+```
+
+We would "read" this code as:
+
+> Take the post_meal_data dataset *and then* filter so that only rows
+> where `glykemi` is equal to 1 are kept.
+
+When a row in the `glykemi` column has the value `1`, that row is kept.
+Otherwise, it is dropped. Let's try out another logical condition with
+`filter()`. Let's see how many people are above "overweight" (BMI of 25)
+category, which we would use `>=` for. Within the same code chunk, add
+the following code:
+
+```{r filter-logic-condition-bmi}
+#| filename: "docs/learning.qmd"
+small_post_meal_data |>
+  filter(BMI >= 25)
+```
+
+Run this by using {{< var keybind.run-code >}}. We'll see that more than half
+of the participants are above overweight. Let's see how many are in the
+`"CTR"` group, again, within the same code chunk.
+
+```{r filter-logic-condition-ctr}
+#| filename: "docs/learning.qmd"
+small_post_meal_data |>
+  filter(Group == "CTR")
+```
+
+Looks like there is about half the people in the control group.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Reinforce the importance of being very careful with combining logic
+conditions and to double and triple check that how you understand the
+logic is correct.
+
+For the code chunk comparing the true with the false, type this out
+yourself and tell the participants to just watch. Explain as you go
+along.
+:::
+
+What if we wanted to see who is overweight *and* who is in the control
+group? We would use the `|` ("or") and `&` ("and") when we want to
+combine conditions across columns. Be careful with these operators and
+when combining logic conditions, as they can sometimes work differently
+than our human brains interpret them (speaking from experience). For
+`&`, both sides must be `TRUE` in order for the combination to be
+`TRUE`. For `|`, only one side needs to be `TRUE` in order for the
+combination to be `TRUE`. To see how they work try these:
+
+```{r}
+TRUE & TRUE
+TRUE & FALSE
+FALSE & FALSE
+TRUE | TRUE
+TRUE | FALSE
+FALSE | FALSE
+```
+
+But be careful with missing values, as they will "propagate". For
+example:
+
+```{r}
+TRUE & NA
+FALSE & NA
+TRUE | NA
+FALSE | NA
+```
+
+The result will be `NA` in all cases. This is because R doesn't know
+what to do with the `NA` value, so it returns `NA` as the result. You as
+the human need to figure out what to do with the `NA` values before you
+use the logic condition on them.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Return to having them code along with you.
+:::
+
+So, let's see how many people are in the control group *and* have a BMI
+of 25 or more. In the same code chunk, write this code below:
+
+```{r filter-logic-condition-bmi-ctr}
+#| filename: "docs/learning.qmd"
+small_post_meal_data |>
+  filter(Group == "CTR", BMI >= 25)
+```
+
+When we use `,` to separate our logic conditions in `filter()`, it
+interprets that as using an `&`. Looks like most people who are
+overweight are in the control group. Let's replace the `,` with a `|` to
+see how many people are in the control group **OR** have a BMI of 25 or
+more.
+
+```{r filter-logic-condition-bmi-or-ctr}
+small_post_meal_data |>
+  filter(Group == "CTR" | BMI >= 25)
+```
+
+This lists both the people who are in the control as well as anyone who
+is overweight.
+
+Let's create a new data object with the renamed code we used above plus
+removing the few participants with a `1` for `glykemi`. This column is
+actually called hyperglycemia or impaired glucose tolerance, and is when
+the level of glucose in the blood is higher than normal, but not high
+enough to be diagnosed as diabetes. This is set as `0` and `1`, likely
+meaning "normal" and "high". Since there are so few of them, we'll just
+remove them for now. We'll also remove the `glykemi` column since we
+don't need it anymore. Create a new header called
+`## Make a tidier dataframe` and then create a new code chunk below that
+header with {{< var keybind.chunk >}}. Then write out the code below to
+create a new data object.
+
+```{r create-new-data-object-filtered}
+#| filename: "docs/learning.qmd"
+tidier_post_meal_data <- small_post_meal_data |>
+  rename(
+    auc_glucose = auc_pg,
+    auc_insulin = auc_ins
+  ) |>
+  filter(glykemi == 0) |>
+  select(-glykemi)
+tidier_post_meal_data
+```
+
+Run this code with {{< var keybind.run-code >}} to see the output and see
+what it looks like now. Great! Before moving on, let's style our
+document with {{< var keybind.styler >}}, render the document with
+{{< var keybind.render >}}, and then add and commit the changes to the
+Git history with {{< var keybind.git >}}. Finally, push the changes to
+your GitHub repository.
+
+::: callout-important
+Recall that the original dataset doesn't change. If we want the added
+variable to be saved, we must assign it to something with `<-`.
+:::
+
+## Modify or add columns
+
+To modify an existing column or to add a new one, we can use the
+function called `mutate()`. You can use `mutate()` to compute a new
+column using existing columns in your dataset. You can multiply all
+values in a certain column by 2, or combine columns into a new column.
+Like the other functions, the first input is the dataset and the other
+arguments are columns to add or modify. The follow the form:
+`new_column_name = action()`.
+
+In our data, we have a few columns we could modify or create. The column
+we could create is a ratio between insulin and glucose in the blood,
+which is a very rough measure of insulin sensitivity. This is calculated
+by dividing the area under the curve of insulin by that of glucose.
+We'll call this new column `insulin_glucose_ratio`, where a high value
+means insulin insensitive (or resistant) and a low value means insulin
+sensitive. Let's create a new header called `## Modifying columns` and
+then create a new code chunk below that header with
+{{< var keybind.chunk >}}. We'll use some math with the `/` symbol to
+divide values.
+
+```{r create-column}
+#| filename: "docs/learning.qmd"
+tidier_post_meal_data |>
+  mutate(insulin_glucose_ratio = auc_insulin / auc_glucose)
+```
+
+Run the code with {{< var keybind.run-code >}} to see the new column.
+
+The other column we could *modify*, rather than create, is the `Group`
+column. This is a character column with abbreviations rather than full
+names as values. We can continue using the same `mutate()` by adding a
+comma to the end of the previous line and then adding the new column.
+For this, we will need to use the `if_else()` function to change the
+values. The `if_else()` function takes three arguments: the condition,
+the value if the condition is `TRUE`, and the value if the condition is
+`FALSE`. The @tbl-logic-operators is useful to use as a reference to
+help create the logic condition. So if the `Group` column is equal to
+`"CTR"`, we want to change it to `"Control"`, otherwise change it to
+`"First-degree relative"`.
+
+```{r modify-column}
+#| filename: "docs/learning.qmd"
+tidier_post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == "CTR", "Control", "First-degree relative")
+  )
+```
+
+Run this code with {{< var keybind.run-code >}} to see the new column. To
+make use of this new data object, we should assign it to a new object.
+So add `<-` and a new object name to the beginning of the code:
+
+```{r assign-modified-columns-to-object}
+#| filename: "docs/learning.qmd"
+tidied_post_meal_data <- tidier_post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == "CTR", "Control", "First-degree relative")
+  )
+```
+
+Run this code with {{< var keybind.run-code >}} to see the new column. We'll
+use this new data object in our next session.
+
+Before moving on, run `{styler}` with {{< var keybind.styler >}}, render
+with {{< var keybind.render >}}, and then add and commit all the files
+changed to the Git history using {{< var keybind.git >}} before pushing
+to GitHub.
+
+## :technologist: Exercise: Practice with filter and mutate
+
+**Time: \~15 minutes.**
+
+Time to practice using these two functions! First, create a new header
+called `## Practice with filter and mutate` at the bottom of the Quarto
+document. Then create a new code chunk below that header with
+{{< var keybind.chunk >}}. Copy and paste the code template below into
+the code chunk before doing the tasks. Then complete the tasks by
+replacing the `___` with what is asked in the task.
+
+``` {.r filename="docs/learning.qmd"}
+# Task 1.
+post_meal_data |>
+  ___(___ >= ___ & ___ <= ___ & ___ == ___)
+
+# Task 2.
+post_meal_data |>
+  ___(
+    ___ = (___ / ___) * 100
+  ) |> 
+  ___(___ > ___)
+```
+
+1.  Use `filter()` to find how many participants have a BMI of more than
+    or equal to 20 *and* less than or equal to 40, *and* are in the
+    "FDR" `Group`. How many are there?
+
+2.  Create a `percent_body_fat` column with `mutate()` by dividing the
+    `Fat.mass.DXA` by the `Weight`, then multiplying by 100. *Hint*: In
+    R, use `*` to multiply and `/` to divide. Then pipe to `filter()` to
+    find out how many participants have a `percent_body_fat` greater
+    than 30.
+
+Once done, style the document with {{< var keybind.styler >}}, render
+the document with {{< var keybind.render >}}, and add and commit these
+changes to the Git history with {{< var keybind.git >}}. Finally, push
+to GitHub to synchronize with your GitHub repository.
+
+```{r solution-pipe-filter-mutate}
+#| eval: false
+#| code-fold: true
+#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+# Task 1.
+post_meal_data |>
+  filter(BMI >= 25 & BMI <= 40 & Group == "FDR")
+
+# Task 2.
+post_meal_data |>
+  mutate(
+    percent_body_fat = (Fat.mass.DXA / Weight) * 100
+  ) |>
+  filter(percent_body_fat > 30)
+```
+
+{{< text_snippet sticky_up >}}
+
+## Summary
+
+-   Use the `select()` function to select specific columns in a dataset.
+-   Use the `rename()` function to rename columns in a dataset.
+-   Use the `filter()` function to filter rows based on a logical
+    condition.
+-   Use the `mutate()` function to modify existing or add new columns in
+    a dataset.
+-   Use the pipe `|>` to write easy-to-read code, similar to reading a
+    text consisting of multiple sentences.
+
+{{< include /includes/_code-appendix.qmd >}}

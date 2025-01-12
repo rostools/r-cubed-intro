@@ -1,0 +1,651 @@
+# Importing data into R {#sec-import-data}
+
+## Learning objectives
+
+This session's **overall learning outcome** is to:
+
+1.  Identify the different ways to import data by relying on the file
+    extension, describing and identifying the "tidiness" of the data,
+    and using R to import the data.
+
+**Specific objectives** are to:
+
+1.  Describe different ways of importing data into R and identify which
+    method to use based on the file extension, then use one of these
+    methods to import a dataset.
+2.  Explain how to ensure your project is self-contained by using
+    relative file paths within the R project and use the `here::here()`
+    function to make these paths.
+3.  Use a tool called "auto-completion" to more quickly type out objects
+    in R.
+4.  Use options in Quarto Markdown's code chunks to control what gets
+    shown from the output of the code chunk when generating the output
+    document.
+5.  Describe the difference between "messy" and "tidy" data and explain
+    why you should aim to make data tidier.
+6.  Identify some approaches to help resolve problems when you encounter
+    errors or warnings in R.
+
+## :book: Reading task: Different ways of importing data
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Very briefly go over this section again, mainly emphasizing that how you
+import your data depends on what data file format it is in.
+:::
+
+**Time: \~4 minutes**
+
+Before you can do any type of data analysis, you first need to import
+the data into R. There are several ways to import in a dataset, which
+are listed below. *Don't run these code, just read for now*.
+
+1.  Using the RStudio menu
+    `File -> Import Dataset -> From Text/Excel/SPSS/SAS/Stata`
+    (depending on your file type you want to import). This approach will
+    also generate the code for you to use in the future, which you
+    should copy and paste to your Quarto document or R script.
+
+2.  If the file is a `.csv` file, use `readr::read_csv()` to import the
+    dataset. This is what we will be doing shortly.
+
+3.  If the dataset is a `.rda` file, use `load()`:
+
+    ``` r
+    load(here::here("data/dataset_name.rda"))    
+    ```
+
+    This loads the dataset into your R session so that you can use it
+    again.
+
+4.  For SAS, SPSS, or Stata files, you can use the package
+    [haven](https://haven.tidyverse.org/) to import those types of data
+    files into R.
+
+{{< text_snippet sticky_up >}}
+
+## Importing a CSV file
+
+Now is the time to import some data into our R project. But we're
+missing something: the data itself! We'll download an [open
+dataset](https://zenodo.org/records/4989220) from Zenodo
+[@Eliasson2018], which is a online open science archive for various
+research outputs, like datasets, preprints, software, protocols, and
+teaching material. The data is from a study looking at the impact of a
+meal on insulin levels in different groups.
+
+We want to download the data to our R project. First, make sure you are
+in your `LearningR` R project. Then copy and paste the code below into
+the **Console** and run it.
+
+```{r}
+#| filename: "Console"
+#| eval: false
+download.file(
+  url = "https://zenodo.org/records/4989220/files/Eliasson_data2.csv?download=1",
+  destfile = here::here("data/post-meal-insulin.csv")
+)
+```
+
+This function downloads the file from the Zenodo website and then saves
+it to the `data/` folder in your R project with the name
+`post-meal-insulin.csv`. We are using the Console and **not** the Quarto
+document because we don't want to run this code every time we render the
+document. There is the `here::here()` function in the code, which we
+will explain in a bit.
+
+Before we import the data into the R session, it's useful to have a
+quick manual look at data to see if there are any things we should be
+aware of or consider when we do import it. So go to the File pane, go to
+the `data/` folder, click the `post-meal-insulin.csv` file, then click
+the "View file" option to open it up in RStudio. When we look at it
+directly, we see something that looks like:
+
+```{r}
+#| echo: false
+readr::read_lines(here::here("data/post-meal-insulin.csv")) |>
+  stringr::str_trunc(60) |>
+  head() |>
+  cat(sep = "\n")
+```
+
+You'll notice that the data is separated by semicolons (`;`) and not
+commas (`,`). This is a common issue when working with data from Europe,
+as they often use semicolons as the delimiter since commas are often
+used for decimal places in numbers. For data actually separated by
+commas in *comma separated value* (CSV) files, we would use the
+`read_csv()` function in the `{tidyverse}` package. But for data
+separated by semicolons, we use the `read_csv2()` function instead.
+
+So, in the `setup` code chunk, write out the code to import (read) the
+data into R.
+
+```{r setup}
+#| echo: fenced
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+```
+
+In the code chunk above, we are using the `read_csv2()` function that is
+technically from the `{readr}` package, which is loaded in with
+`{tidyverse}`, to import the dataset. We're also again using the
+`here::here()` function, but there is a short reading task below to
+explain it, so we won't cover this just yet. Let's run this code by
+having our cursor of the line and using {{< var keybind.run-code >}}.
+There will be some output (like shown above this paragraph). This output
+message informs you what R is doing when reading in the data and gives
+some basic details about the data.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Briefly explain the output of the `read_csv2()` function to them.
+:::
+
+Let's print out the data into our Quarto document to see what it looks
+like. At the bottom of your `docs/learning.qmd` file, create a new level
+2 header called "Showing the data" and insert a new code chunk with
+{{< var keybind.chunk >}}, which should look like the following:
+
+```` markdown
+
+## Showing the data
+
+```{{r}}
+
+```
+````
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## Instructor note
+
+Walk through how to use auto-completion.
+:::
+
+To more quickly type out objects in R, use "tab-completion" or
+"auto-completion" to finish an object name for you. Normally RStudio
+will start auto-completing for you as you type code, but you can
+manually trigger auto-completion with `Tab`. As you type out an object
+name, hit the `Tab` key to see a list of objects available. RStudio will
+not only list the objects, but also shows the possible options and
+potential help associated with the object. Let's do that for the new
+object we created by starting to type:
+
+```{r}
+#| filename: "docs/learning.qmd"
+#| eval: false
+post_
+```
+
+Then hit tab. You should see a menu pop up with a list of potential
+matches. Hit tab again to finish with `post_meal_data`. This simple tool
+can save so much time and can prevent spelling mistakes. Let's finish
+adding the new data frame object into the code chunk.
+
+```` markdown
+
+## Showing the data
+
+```{{r}}
+post_meal_data
+```
+````
+
+Run the code using {{< var keybind.run-code >}} to see the output. This
+way of showing the data can be useful to see bits of the data. Another
+way of getting a bit better view of the data is using the `glimpse()`
+function. So, let's use `glimpse()` below the code we just write. Don't
+forget to use auto-completion!
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data
+glimpse(post_meal_data)
+```
+
+Run this line of code with {{< var keybind.run-code >}} to see the
+output. Using `glimpse()` is a great way to see the structure of the
+data, including the column names, the data type of each column, and the
+first few rows of the data. Let's render the document with
+{{< var keybind.render >}} to see what the output HTML document looks
+like.
+
+Before moving on to the reading task, let's add the change's we've made
+to the Git history with {{< var keybind.git >}}. If you work with
+personally sensitive (health) data, you would not commit the data file
+so that we don't accidentally put it publicly on GitHub. Or if your data
+is really large, we don't normally want to keep large files on GitHub
+since that isn't the best place to store those types of files. But
+because the dataset is already an open dataset and because it is small,
+for this course we will save it to the Git history to get practice using
+Git. We also normally don't commit the generated `.html` files, but for
+this course we will commit them to the Git history so that you get
+practice with Git. Once done, read over the next section.
+
+## :book: Reading task: Relative paths in the R project
+
+**Time: \~5 minutes**
+
+The `here()` function from the `{here}` package, usually referred to as
+"here here" and written with `here::here()` so that we don't have to
+load the package, helps to make it easier to manage *file paths* within
+an R Project.
+
+So, what is a file path and why is this `{here}` package necessary? A
+file path is the list of folders a file is found in. For instance, your
+CV may be found in `/Users/Documents/personal_things/CV.docx`. The
+problem with file paths when running code (like with R) is that when you
+run a script interactively (e.g. what we do in class and normally), the
+file path and "working directory" (the R session) are located at the
+Project level (where the `.Rproj` file is found). You can see the
+working directory by looking at the top of the RStudio Console.
+
+But! When you render a Quarto document, run an R script, or run the code
+in a non-interactive way, the R code may likely run *in the folder it is
+saved in*, e.g. in the `R/` folder. So your file path
+`data/post-meal-insulin.csv` won't work because there isn't a folder
+called `data/` in the `R/` folder.
+
+```         
+LearningR <-- R Project working directory starts here.
+├── R
+│   └── README.md
+├── data
+│   └── README.md
+├── data-raw
+│   └── README.md
+├── docs
+│   ├── learning.qmd <-- Working directory when running not interactively.
+│   └── README.md
+├── .gitignore
+├── DESCRIPTION
+├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
+├── README.md
+└── TODO.md
+```
+
+Often people use the function `setwd()` in scripts, but this is *never*
+a good idea since using it makes your code *runnable only on your
+computer*. Which means, it is not reproducible! We use the `here()`
+function to tell R to go to the project folder (where the `.Rproj` file
+is found) and then use that file path. This simple function can make
+your work more reproducible and easier for you and others to use later
+on.
+
+{{< text_snippet sticky_up >}}
+
+## Setting code chunk options
+
+One thing you may have noticed is that when we render the document to
+HTML, there is a bunch of extra output, especially below the `setup`
+code chunk. You probably don't want this text in your generated
+document, so we will add a [chunk
+option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
+remove this message.
+
+Chunk options are used to change how code chunks work. When adding them
+inside the code chunk, they always need to start with `#|`. In this
+case, we don't want the messages or warnings when we load `{tidyverse}`
+or read in the dataset. The options to remove those messages and
+warnings are `#| message: false` and `#| warning: false`, so let's add
+those to the `setup` code chunk.
+
+```{r setup}
+#| echo: fenced
+#| message: false
+#| warning: false
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+```
+
+Let's render the HTML document again with {{< var keybind.render >}} and
+see what changes.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Briefly show these other options below to them on the screen and explain
+it, but don't get them to read it.
+:::
+
+Other common options are:
+
+-   `include`: Whether to include all the code, code output, messages,
+    and warnings in the rendered output document. Default is `true`. Use
+    `false` to hide everything but still run the code.
+-   `echo`: To show the code. Default value is `true`. Use `false` to
+    hide.
+-   `results`: To show the output. Default is `markup`. Use `hide` to
+    hide or `asis` as regular text (not inside a code block).
+-   `eval`: To evaluate (run) the R code in the chunk. Default value is
+    `true`, while `false` does not run the code.
+
+These options all work on the individual code chunk. If you want to set
+an option to all the code chunks (e.g. to hide all the code but keep the
+output), you can use Quarto's
+[`execute`](https://quarto.org/docs/reference/formats/html.html#execution)
+options. These options are added to the YAML header and will apply the
+settings to everything in the document. We *won't* do this in this
+session, but here is what it looks like:
+
+``` {.yaml filename="docs/learning.qmd"}
+---
+title: "Reproducible documents"
+author: "Your Name"
+format: html
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+```
+
+Before moving on, let's commit the changes we've made to the Git history
+with {{< var keybind.git >}}.
+
+## :book: Reading task: Working with messy and tidy data
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+For the reading section, emphasize the characteristics of a "tidy"
+dataset.
+:::
+
+**Time: \~12 minutes**
+
+The concept of "tidy" data was popularized in an
+[article](https://www.jstatsoft.org/v59/i10/paper) [@Wickham2014] by
+Hadley Wickham and described in more detail in the [Tidy Data
+chapter](https://r4ds.hadley.nz/data-tidy.html) of the *R for Data
+Science* online book. Before we continue with tidy data, we need to
+cover something that is related to the concept of "tidy" and that has
+already come up in this course: the `{tidyverse}`. The `{tidyverse}` is
+an ecosystem of R packages that are designed to work well together, that
+all follow a strong "[design philosophy](https://design.tidyverse.org/)"
+and common [style guide](https://style.tidyverse.org/). This makes
+combining these packages in the tidyverse much easier. We teach the
+tidyverse because of these reasons.
+
+Part of the "tidy" part of tidyverse revolves around tidy data. A tidy
+dataset is when:
+
+-   Each variable has its own column (e.g. "Body Weight").
+-   Each observation has its own row (e.g. "Person").
+-   Each value has its own cell (e.g. "Body weight for a person at a
+    specific date").
+
+Take a look at the example "tidy" and "messy" data frames (also called
+"tibbles" in the tidyverse) below. Think about why each may be
+considered "tidy" or "messy". What do you notice between the tidy
+versions and the messier versions?
+
+```{r}
+# Datasets come from tidyr
+# Tidy:
+table1
+
+# Partly tidy:
+table2
+
+# Messier:
+table3
+
+# Messy:
+table4a
+
+# Messy:
+table4b
+```
+
+The "most" tidy version is `table1` as each column describes their
+values (e.g. population is population size), each row is unique (e.g.
+first row is for values from Afghanistan from 1999), and each cell is an
+explicit value representative of its column and row.
+
+`table2` is a "long" version of `table1` so it is partly "tidy", but it
+doesn't satisfy the rule that each variable has a column, since `count`
+represents both cases and population size.
+
+On the other hand, `table3` is messy because the `rate` column values
+are a composite of two other column values (cases and population), when
+it should be a single number (a percent). Both `table4a` and `table4b`
+have columns with ambiguous values inside. For example, you can't tell
+from the data what the values in the `1999` column contain.
+
+Tidy data has a few notable benefits:
+
+1.  Time spent preparing your data to be tidy from the beginning can
+    save days of added work and frustration in the long run.
+2.  "Tidy data" is a conceptual framework that allows you to easily
+    build off and wrangle (i.e. "manipulate", "clean up", "manage") data
+    in simpler and easy-to-interpret ways, especially when used within
+    the framework of the tidyverse.
+3.  Tidier data is easier to visualize and "map" onto different axises
+    of the plot, like the x and y axises.
+
+The concept of tidy data also gives rise to "tidy code" for visualizing
+and wrangling. By using "verbs" (R functions) and chaining them together
+in "sentences" (in a sequential pipeline), you can construct meaningful
+and readable code that describes in plainer English what you are doing
+to the data. This is one simple way that you can enhance the
+reproducibility of your code. There are other ways to make your code
+tidier and more readable, all of which we will cover in this course.
+
+-   Document what you did to your data and why you did it, to help you
+    remember later on by using comments with `#` hashes as well as using
+    Markdown text to describe things that can't be easily explained by
+    the code, for example, the "why" behind the code.
+-   Keep the code simple: Don't be clever nor overly concise, always be
+    clear even if it means more code. Clear code is easier to understand
+    than clever and sometimes overly-complex or -concise code.
+
+Whether working with either messy or tidy data, there are a few
+principles to follow:
+
+-   You should always save your original raw dataset in the `data-raw/`
+    folder.
+    -   *Note*: Whether or not you save data to `data-raw/` depends on
+        how you collected the data and how many collaborators are on
+        your team. You may end up storing and processing the data in
+        another folder as a project of its own.
+-   **Never** edit your raw data directly. If you have to edit it to fix
+    mistakes, have some version control of it so you can track and see
+    what has been changed.
+-   Only work with your raw data using R code. *As much as possible or
+    is reasonable, don't manually edit it*. Manual editing doesn't leave
+    a history of what you've done to it, so you can't go back and see
+    what you've done. Always keep a history of any changes you've made
+    to the data, preferably by using R code.
+-   Save the edited data as another dataset and store it in the `data/`
+    folder.
+
+We are saving to `data/` because the dataset is already collected and
+published, so the original raw data can always be downloaded again.
+
+{{< text_snippet sticky_up >}}
+
+## :speech_balloon: Discussion activity: How tidy is our data?
+
+**Time: \~10**
+
+Now that we've learned about the concept of "tidy" data, let's discuss
+how tidy our data is. At a glance, there are approximately 7 things in
+this data that are mildly untidy or could be improved. Can you identify
+them?
+
+1.  On your own, take 2 minutes to look over the data and try to find
+    what could be improved.
+2.  With your neighbour, take 5 minutes and discuss what you found and
+    see if you have overlap in agreement or if you found different
+    things.
+3.  As a group, we will take 3 minutes and we will share what you all
+    discussed and then go over the 7 things.
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+The 6 main things are:
+
+1.  Column names are not tidy or standardised. For instance, there are
+    `.` in the names and some use abbreviations.
+2.  Some column names also contain data. For instance, all the columns
+    with numbers at the end are time points, like `Insulin1` is insulin
+    measured at 1 minute after eating the meal. This data is in the wide
+    format, when it should be in the long format. We'll cover long and
+    wide in @sec-wrangling.
+3.  Some columns that contain a number at the end, likely indicating
+    time, also contain `..` instead of `.`. This likely means it was
+    minus the number (`-5`, 5 minutes before the test). So it should be
+    renamed to something like `.minus5`.
+4.  The data could actually be split into two or three datasets, one in
+    the long format for the measurements taken at regular minute
+    intervals, one for the measurements taken at 30 minute intervals
+    (the OGTT).
+5.  There are two ID columns, `id` and `OFS.ID`.
+6.  The `Group` column has abbreviations as `FDR` and `CTR` instead of
+    the full names.
+7.  There are two similar columns for insulin from the OGTT:
+    `Insulin.0.OGTT.X` and `Insulin.0.OGTT`.
+:::
+
+## :book: Reading task: Encountering problems and finding help
+
+::: {.callout-note collapse="true"}
+## Instructor note
+
+Briefly go over this section with them, especially emphasize "Restart
+R", reading the error or warning message, and checking for missing
+commas, brackets or misspelled words.
+:::
+
+**Time: \~10 minutes**
+
+![A common and frequent experience when working in R. Artwork by
+[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-debugging.jpg){#fig-art-debugging
+width="90%"}
+
+You *will* encounter problems and errors when working with R, and you
+will encounter them *all the time*. In fact, a large amount of your time
+in R will be spent figuring out solutions to these errors ("debugging").
+
+RStudio has many cheat sheets of its own that can help you in your
+learning journey, which you can find with the Command Palette
+({{< var keybind.palette >}}, then type "cheat sheet"). However, even
+with these cheat sheets, you will still encounter other problems like
+errors or warnings.
+
+Error messages will appear in red text in your Console and will start
+with the word "Error:". Warning messages are also (usually) in red text,
+but are often either harmless or informative, so make sure to *read* the
+message first and see if it says "Error" or not. Here are some initial
+steps to take when you encounter an error:
+
+1.  **First, try to stay calm**; problems happen to everyone, no matter
+    their skill level.
+2.  **Read through the error or warning message and see if you can
+    understand what R is telling you**. Some common error messages
+    include:
+    -   *"Could not find function"*: Usually means that you have
+        misspelled the function or an R package has not loaded properly.
+    -   *"Object not found"*: Usually means that you have not
+        initialized (created) the object or the object is initialized
+        but empty.
+    -   *"Error in..."*: Usually means that you are referring to an
+        object that doesn't exist.
+    -   *"Unexpected symbol in..."*: Usually means that you misspelled a
+        variable or object name, so R can't find it.
+3.  **Go over the code again and carefully check for any mistakes:**
+    -   Missing commas or pipes?
+    -   Missing end brackets like `]`, `)`, or `}`?
+    -   Capitalized something that shouldn't be capitalized?
+    -   Object or column name misspelled?
+    -   Forgot to load your data before working on it?
+    -   Forgot to load or re-load your packages? Packages are
+        automatically unloaded when you exit RStudio and R. So you need
+        to load them each new session with the `library()` function.
+4.  **Go back to the start of the code and run each line one at a
+    time**, to see where the problem occurs. You will get an opportunity
+    to practice this later, once you are working with bigger chunks of
+    code.
+
+If you still can't find the problem, here are some other steps to take:
+
+1.  **Restart the R session with** {{< var keybind.restart-r >}} **or
+    with the menu item `Session -> Restart R`**. Then load your packages
+    (and data if needed) and run the code from the beginning, tracking
+    which objects get created, and if the proper object name is used
+    later on.
+
+2.  (Rarely need to do) **Close/re-open RStudio and try again.**
+
+3.  **Use `help()` or `?` to access built-in documentation about a
+    function or package.** You may be using the function incorrectly, so
+    find out more about the function by looking at the built-in
+    documentation. The documentation will open up in the "Help" pane of
+    RStudio (bottom right-hand corner). **Try it out:** Enter either of
+    the following commands into the Console and run it (hit `Enter`).
+
+    ``` {.r filename="Console"}
+    ?colnames
+    help(colnames)
+    ```
+
+    Sometimes, this documentation can be hard to read and seem overly
+    complex for a beginner. You can also try finding the website for the
+    package you are having trouble with, as they often have guides that
+    are a little easier to understand. The
+    [tidyverse](https://www.tidyverse.org/packages/) packages all have
+    amazing documentation that you can use to help you with problems you
+    may have.
+
+4.  **Consider explaining the problem out loud to a colleague or
+    friend.** (or to yourself!) You might find that, in verbally going
+    through the problem and explaining it, you will likely come up with
+    the solution yourself.
+
+5.  **Take a break and come back to it later!**
+
+6.  **Google it.** Chances are that someone has already encountered that
+    error and has asked about it online. In fact, those who are
+    "experts" in coding languages like R are experts largely because of
+    their skill in knowing the right words or terms or questions to ask
+    Google. Usually googling the error message will be enough to find
+    the answer, but sometimes you'll need to include "R" or "rstats" and
+    the relevant package or function as a keyword in your search.
+
+7.  If all else fails, you can always turn to the trusty **online R
+    community**. Check
+    [StackOverflow](https://stackoverflow.com/questions/tagged/r), a
+    coding-related question and answer website, to see whether your
+    issue has already been asked and solved by others. If it hasn't and
+    you are considering submitting a question, make sure to read the
+    posting guides beforehand to ensure that you are asking the question
+    in a helpful way.
+
+*Final words:* It is important to always work towards writing "better"
+and "neater" code, as this can make it easier to break down pieces of
+code and troubleshoot problems. Knowing how to do that takes some
+experience, that you can only get by practicing more coding!
+
+{{< text_snippet sticky_up >}}
+
+## Summary
+
+-   Use `read_csv()` or `read_csv2()` to import data from a `.csv`
+    (comma or tab separated) file.
+-   Use `here::here()` to make file paths easier to manage in your R
+    project.
+-   Use `glimpse()` to get an overview of the data.
+-   Use the Quarto code chunk options like `echo`, `message`, or
+    `warning` to control what is shown in the output of the code chunk.
+-   Use `?` to get help on an R object. Use the cheat sheets to help
+    guide you in learning R.
+-   Use tab auto-completion when writing code.
+-   With tidy data, each variable has its own column, each observation
+    has its own row, and each value has its own cell.
+-   Never edit raw data. Instead, use R code to make changes and clean
+    up the raw data, rather than manually editing the dataset.
+
+{{< include /includes/_code-appendix.qmd >}}
