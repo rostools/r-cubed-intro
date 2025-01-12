@@ -162,3 +162,4 @@ you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
     out a lot, since one of the biggest "troubleshooting issues" we
     encounter when helping during the version control session is that
     people forget to save. This solves that problem.
+

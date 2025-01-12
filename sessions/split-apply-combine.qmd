@@ -1,5 +1,19 @@
+---
+execute:
+  eval: false
+---
+
+# Split, apply, and combine {#sec-split-apply-combine}
+
+::: callout-danger
+This session is still in active development and is not complete.
+:::
+
+::: content-hidden
 3.  Learn about and apply the "split-apply-combine" method of analyses,
     with `group_by()` and `summarise()`.
+
+    -   Calculate simple data summaries, with `summarise()`.
 
 ## Split-apply-combine: Summarizing data
 
@@ -48,8 +62,8 @@ Let's calculate the maximum value of the BMI variable. See what happens
 when you enter the following:
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
   summarise(max_bmi = max(bmi))
 ```
 
@@ -59,8 +73,8 @@ mean will also be missing. So, we need to tell `max()` to exclude any
 `NA` values from the calculation using the argument `na.rm = TRUE`.
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
   summarise(max_bmi = max(bmi, na.rm = TRUE))
 ```
 
@@ -68,8 +82,8 @@ To calculate another summary statistic, you would add another summary
 column using `,`:
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
   summarise(
     max_bmi = max(bmi, na.rm = TRUE),
     min_bmi = min(bmi, na.rm = TRUE)
@@ -88,9 +102,9 @@ Let's use these functions to find out the mean age and BMI between those
 with and without diabetes.
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-  group_by(diabetes) %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  group_by(diabetes) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
@@ -107,11 +121,11 @@ We also get a warning about there being missing values in diabetes, so
 we need to remove rows that have missing diabetes status values.
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
   # Recall ! means "NOT", so !is.na means "is not missing"
-  filter(!is.na(diabetes)) %>%
-  group_by(diabetes) %>%
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
@@ -122,10 +136,10 @@ Cool! We can add more columns to the grouping, so let's do that. Let's
 compare mean age and BMI by physical activity and diabetes status.
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-  filter(!is.na(diabetes)) %>%
-  group_by(diabetes, phys_active) %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, phys_active) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
@@ -136,14 +150,14 @@ Since we don't need the dataset grouped anymore, it's good practice to
 end the grouping with `ungroup()`.
 
 ```{r}
-#| filename: "R/learning.R"
-nhanes_small %>%
-  filter(!is.na(diabetes)) %>%
-  group_by(diabetes, phys_active) %>%
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, phys_active) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
-  ) %>%
+  ) |>
   ungroup()
 ```
 
@@ -161,65 +175,19 @@ right away. Let them read about it in the section below and then briefly
 cover it again.
 :::
 
-The `nhanes_small` data frame you created is only available after you've
+The `post_meal_data` data frame you created is only available after you've
 created it from NHAHES, but if you want to access it later, you can save
 it as a `.csv` file in your `data/` folder using the function
 `readr::write_csv()`.
 
 ```{r save-data-as-csv}
-#| filename: "R/learning.R"
+#| filename: "docs/learning.qmd"
 readr::write_csv(
-  nhanes_small,
-  here::here("data/nhanes_small.csv")
+  post_meal_data,
+  here::here("data/post_meal_data.csv")
 )
 ```
 
-::: callout-note
-## Reading task: \~5 minutes
-
-There's a new thing `here()`! The `{here}` package uses a function
-called `here()` to make it easier to manage *file paths* within an R
-Project.
-
-So, what is a file path and why is this `{here}` package necessary? A
-file path is the list of folders a file is found in. For instance, your
-CV may be found in `/Users/Documents/personal_things/CV.docx`. The
-problem with file paths when running code (like with R) is that when you
-run a script interactively (e.g. what we do in class and normally), the
-file path and "working directory" (the R Session) are located at the
-Project level (where the `.Rproj` file is found). You can see the
-working directory by looking at the top of the RStudio Console.
-
-But! When you `source()` an R script or run it *not* interactively, the
-R code may likely run *in the folder it is saved in*, e.g. in the `R/`
-folder. So your file path `data/nhanes_small.csv` won't work because
-there isn't a folder called `data/` in the `R/` folder.
-
-```         
-LearningR <-- R Project working directory starts here.
-├── R
-│   ├── README.md
-│   └── learning.R <-- Working directory when running not interactively.
-├── data
-│   └── README.md
-├── data-raw
-│   └── README.md
-├── doc
-│   └── README.md
-├── .gitignore
-├── DESCRIPTION
-├── LearningR.Rproj <-- here() moves file path to start in this file's folder.
-├── README.md
-└── TODO.md
-```
-
-Often people use the function `setwd()` in scripts, but this is *never*
-a good idea since using it makes your script *runnable only on your
-computer*... which makes it no longer reproducible. We use the `here()`
-function to tell R to go to the project root (where the `.Rproj` file is
-found) and then use that file path. This simple function can make your
-work more reproducible and easier for you to use later on.
-:::
 
 For many projects, it isn't necessary or advisable to save every single
 data object you create. It's better to let the code create the data
@@ -245,13 +213,13 @@ you to copy from. Instead of using `phys_active`, let's change that to
 
 ```{r}
 #| filename: "docs/learning.qmd"
-nhanes_small %>%
-  filter(!is.na(diabetes)) %>%
-  group_by(diabetes, education) %>%
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, education) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
-  ) %>%
+  ) |>
   ungroup()
 ```
 
@@ -268,14 +236,14 @@ we'll use `knitr::kable()` instead:
 
 ```{r}
 #| filename: "docs/learning.qmd"
-nhanes_small %>%
-  filter(!is.na(diabetes), !is.na(education)) %>%
-  group_by(diabetes, education) %>%
+post_meal_data |>
+  filter(!is.na(diabetes), !is.na(education)) |>
+  group_by(diabetes, education) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
-  ) %>%
-  ungroup() %>%
+  ) |>
+  ungroup() |>
   knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
 
@@ -294,28 +262,28 @@ the Git history using {{< var keybind.git >}}.
     new chunk. Add the option `#| echo: false` to the code chunk.
 
     ``` {.r filename="docs/learning.qmd"}
-    nhanes_small %>%
-      filter(!is.na(diabetes), !is.na(education)) %>%
-      group_by(diabetes, education) %>%
+    post_meal_data |>
+      filter(!is.na(diabetes), !is.na(education)) |>
+      group_by(diabetes, education) |>
       summarise(
         mean_age = mean(age, na.rm = TRUE),
         mean_bmi = mean(bmi, na.rm = TRUE)
-      ) %>%
-      ungroup() %>%
+      ) |>
+      ungroup() |>
       mutate(
         # Task 2a.
         ___ = ___(mean_age, ___),
         ___ = ___(mean_bmi, ___),
         # Task 2b.
         ___ = ___(education)
-      ) %>% 
+      ) |> 
       rename(
         # Task 3.
         "___" = ___,
         "___" = ___,
         "___" = ___,
         "___" = ___
-      ) %>% 
+      ) |> 
       knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
     ```
 
@@ -351,28 +319,28 @@ the Git history using {{< var keybind.git >}}.
 #| eval: false
 #| code-fold: true
 #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
-nhanes_small %>%
-  filter(!is.na(diabetes)) %>%
-  group_by(diabetes, education) %>%
+post_meal_data |>
+  filter(!is.na(diabetes)) |>
+  group_by(diabetes, education) |>
   summarise(
     mean_age = mean(age, na.rm = TRUE),
     mean_bmi = mean(bmi, na.rm = TRUE)
-  ) %>%
-  ungroup() %>%
+  ) |>
+  ungroup() |>
   # 2. Round the means to 1 digit and
   # modify the `education` column so that male and female get capitalized.
   mutate(
     mean_age = round(mean_age, 1),
     mean_bmi = round(mean_bmi, 1),
     education = str_to_sentence(education)
-  ) %>%
+  ) |>
   # 3. Rename `diabetes` to `"Diabetes Status"` and `education` to `Education`
   rename(
     "Diabetes Status" = diabetes,
     "Education" = education,
     "Mean Age" = mean_age,
     "Mean BMI" = mean_bmi
-  ) %>%
+  ) |>
   knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
 
@@ -432,9 +400,10 @@ course.
 -   Use the functions `select()`, `rename()`, `filter()`, `mutate()`
     ("change or modify"), and `summarise()` from the dplyr package to
     wrangle your data.
--   Use the pipe (`%>%`) to write easy-to-read code, similar to reading
+-   Use the pipe (`|>`) to write easy-to-read code, similar to reading
     a text consisting of multiple sentences.
 -   Make tables by using `knitr::kable()`
 -   For HTML, choose different themes to personalize the appearance of
     your Quarto output document.
 
+:::
