@@ -113,8 +113,12 @@ these courses are or will soon be helping to improve the material for
 next year. There are also so many other things you can get involved in,
 aside from this course. Let us know if you're interested!
 
-We also have an informal, once-monthly, Coding Club you can join or
-follow. Information about it is on the
-[website](https://coding-club.rostools.org/). We do the sessions
-virtually on the [r-cubed Discord
-server](https://discord.gg/xHPyj7dxJx).
+::: {.callout-important appearance="default"}
+:star: Do you find this course material useful? Then please consider
+"starring" our [GitHub
+repository](https://github.com/rostools/r-cubed-intro/) to show your
+support! Starring will save it to a list of repositories you like that
+you can easily find again, plus it helps give our project more
+visibility!
+:::
+
