@@ -83,7 +83,7 @@ the **Console** and run it.
 #| filename: "Console"
 #| eval: false
 download.file(
-  url = "https://zenodo.org/records/4989220/files/Eliasson_data2.csv?download=1", 
+  url = "https://zenodo.org/records/4989220/files/Eliasson_data2.csv?download=1",
   destfile = here::here("data/post-meal-insulin.csv")
 )
 ```
@@ -123,8 +123,8 @@ data into R.
 
 ```{r setup}
 #| echo: fenced
-library(tidyverse) 
-post_meal_insulin_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
 
 In the code chunk above, we are using the `read_csv2()` function that is
@@ -179,16 +179,16 @@ post_
 ```
 
 Then hit tab. You should see a menu pop up with a list of potential
-matches. Hit tab again to finish with `post_meal_insulin_data`. This
-simple tool can save so much time and can prevent spelling mistakes.
-Let's finish adding the new data frame object into the code chunk.
+matches. Hit tab again to finish with `post_meal_data`. This simple tool
+can save so much time and can prevent spelling mistakes. Let's finish
+adding the new data frame object into the code chunk.
 
 ```` markdown
 
 ## Showing the data
 
 ```{{r}}
-post_meal_insulin_data
+post_meal_data
 ```
 ````
 
@@ -200,8 +200,8 @@ forget to use auto-completion!
 
 ```{r}
 #| filename: "docs/learning.qmd"
-post_meal_insulin_data 
-glimpse(post_meal_insulin_data)
+post_meal_data
+glimpse(post_meal_data)
 ```
 
 Run this line of code with {{< var keybind.run-code >}} to see the
@@ -296,7 +296,7 @@ those to the `setup` code chunk.
 #| message: false
 #| warning: false
 library(tidyverse)
-post_meal_insulin_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
 
 Let's render the HTML document again with {{< var keybind.render >}} and

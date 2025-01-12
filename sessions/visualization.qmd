@@ -3,7 +3,7 @@
 ```{r setup}
 #| include: false
 library(tidyverse)
-post_meal_insulin_data <- read_csv2(
+post_meal_data <- read_csv2(
   here::here("data/post-meal-insulin.csv")
 )
 ```
@@ -156,14 +156,14 @@ is something that we are interested in analyzing or visualizing, and
 which only contains values relevant to that measurement For instance, an
 `age` variable must only contain values in a unit of time like years.
 
-Our `post_meal_insulin_data` data frame is fairly tidy, though there are
-a few things we will fix in later sessions. Rows are individual
-participants at a specific time and the columns are the variables that
-were measured, like weight. Let's visually explore our data! In the
-`LearningR` project in the `docs/learning.qmd` file, create a new
-second-level header on the bottom of the file called
-`## Plot one continuous variable` and create a new code chunk below the
-header with {{< var keybind.chunk >}}. Then we can make our first plot!
+Our `post_meal_data` data frame is fairly tidy, though there are a few
+things we will fix in later sessions. Rows are individual participants
+at a specific time and the columns are the variables that were measured,
+like weight. Let's visually explore our data! In the `LearningR` project
+in the `docs/learning.qmd` file, create a new second-level header on the
+bottom of the file called `## Plot one continuous variable` and create a
+new code chunk below the header with {{< var keybind.chunk >}}. Then we
+can make our first plot!
 
 Since BMI is a strong risk factor for diabetes, let's check out the
 distribution of BMI among the participants. There are two good geoms for
@@ -175,7 +175,7 @@ axis or dimension. For that we use the `ggplot()` function with the
 
 ```{r just-ggplot}
 #| filename: "docs/learning.qmd"
-ggplot(post_meal_insulin_data, aes(x = BMI))
+ggplot(post_meal_data, aes(x = BMI))
 ```
 
 Run this code by using {{< var keybind.run >}}. You'll get a blank plot.
@@ -190,7 +190,7 @@ to always create a new line after the `+`.
 
 ```{r one-continuous-variable-plot}
 #| filename: "docs/learning.qmd"
-ggplot(post_meal_insulin_data, aes(x = BMI)) +
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
@@ -220,7 +220,7 @@ with `fig-`.
 #| echo: fenced
 #| fig-cap: "Distribution of BMI."
 #| label: fig-bmi-histo
-ggplot(post_meal_insulin_data, aes(x = BMI)) +
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
@@ -247,7 +247,7 @@ let's use this geom to visualize those. Complete these tasks in the
 ```{{r}}
 #| fig-cap: "___"
 #| label: fig-___
-ggplot(post_meal_insulin_data, aes(x = ___)) +
+ggplot(post_meal_data, aes(x = ___)) +
   ___()
 ```
 
@@ -278,7 +278,7 @@ See @fig-___ above for a cool plot!
 #| code-summary: '**Click for the solution**. Only click if you are struggling or are out of time.'
 #| fig-cap: "___"
 #| label: fig-___
-ggplot(post_meal_insulin_data, aes(x = glykemi)) +
+ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
@@ -356,10 +356,10 @@ write out the same code for the figures from above.
 
 ```{r one-after-the-other-figs}
 #| filename: "docs/learning.qmd"
-ggplot(post_meal_insulin_data, aes(x = BMI)) +
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 
-ggplot(post_meal_insulin_data, aes(x = glykemi)) +
+ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
@@ -383,10 +383,10 @@ captions and sub-captions using `#| fig-subcap` to have a nice output!
 #|   - "Distribution of BMI."
 #|   - "Number of those with glycemia."
 #| layout-ncol: 2
-ggplot(post_meal_insulin_data, aes(x = BMI)) +
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 
-ggplot(post_meal_insulin_data, aes(x = glykemi)) +
+ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
@@ -484,26 +484,50 @@ y <- 2
 }
 ```
 
-These issues can actually be broken down into two categories:
+These issues can actually be broken down into two categories: naming and
+styling.
 
--   Naming issues: This issue is harder to fix and comes with experience
-    and knowledge, but there are a few things:
-    -   Programmatically wrong: The `T <- FALSE` is wrong because `T`
-        already exists and is a short hand for `TRUE` while `c <- 9` is
-        wrong because `c` is already the name of the function `c()`. You
-        normally don't want to name code based on something that already
-        exists in base R ("naming conflicts" between packages is fine
-        though, since there are ways to identify and fix that). These
-        issues can only be fixed manually.
-    -   Semantically
--   Styling issues: This is much easier to fix and can largely be done
-    automatically. But a few things:
-    -   Spacing: The spacing around the brackets, commas, and math are
-        inconsistent. Spacing is one of the most common stylistic issues
-        in code, as the code will still run, but it is harder to read.
-    -   Tabs: Tabs are used to indent code to make it easier to scan and
-        read. You tab code within functions, if statements, and other
-        situations to make it easier to read.
+### Naming issues {.unnumbered}
+
+This issue is difficult to fix automatically by the computer, because it usually
+needs a human with the context knowledge in order to fix. Fixing it properly comes with experience and
+knowledge. Based on naming issues, the code above has two types of issues:
+
+- **Syntax issues**: The `T <- FALSE` is wrong because `T` already
+exists and is a short hand for `TRUE` while `c <- 9` is wrong because
+`c` is already the name of the function `c()`. You normally don't want
+to name code based on something that already exists in base R ("naming
+conflicts" between packages is fine though, since there are ways to
+identify and fix that). These issues can only be fixed manually.
+
+- **Semantic issues**: The `DayOne` object is not descriptive. Day one of what? Also, `DayOne` is in the format of `PascalCase` and in general, `snake_case` (all lowercase with underscores) has been found to be better for readability.
+And even if `T` and `c` weren't syntax issues, they are not descriptive.
+As you learn more R, you will find a lot of functions with very short
+names, or names that are not descriptive at all. In the past, there were no tab-completion
+tools, so typing out long names was painful. Now we have powerful
+auto-completion tools, which means you don't have the restriction for shorter names. 
+You should use always write descriptive, plain language names instead of short, concise ones. 
+Stick to a [*style guide*](https://style.tidyverse.org/).
+
+### Styling issues {.unnumbered}
+
+Even though R doesn't care about naming, spacing, and indenting, it
+really matters how your code looks. Coding is just like writing. Even
+though you may go through a brainstorming note-taking stage of writing,
+you eventually need to write correctly so others can *read and
+understand* what you are trying to say. In coding, brainstorming is
+fine, but eventually you need to code in a readable way. That's why
+using a [style guide](https://style.tidyverse.org/) is really important.
+
+This issue is much easier to fix automatically. Most of these issues
+come down to effective or correct use of spacing and tabs.
+
+-   Spacing: The spacing around the brackets, commas, and math are
+    inconsistent. Spacing is one of the most common stylistic issues in
+    code, as the code will still run, but it is harder to read.
+-   Tabs: Tabs are used to indent code to make it easier to scan and
+    read. You tab code within functions, if statements, and other
+    situations to make it easier to read.
 
 To fix the styling issues, we can use a package called `{styler}`, which
 follows the `{tidyverse}` [style guide](https://style.tidyverse.org/),
@@ -517,9 +541,9 @@ option.
 ::: callout-tip
 If you are using RStudio version at least `2024.12.0`, you can set up
 `{styler}` to run automatically when you save a file. Go to "Tools",
-"Global Options", click the "Code" section, then click the "Formatting" pane,
-and finally select "styler" from the drop-down menu list. Click ok and now,
-whenever save your file, it will re-format it for you.
+"Global Options", click the "Code" section, then click the "Formatting"
+pane, and finally select "styler" from the drop-down menu list. Click ok
+and now, whenever save your file, it will re-format it for you.
 :::
 
 The thing to note, is that `{styler}` isn't perfect and can't fix naming
@@ -573,7 +597,7 @@ will be "responding to" or "caused by" BMI.
 
 ```{r 2-continuous-variables}
 #| filename: "docs/learning.qmd"
-ggplot(post_meal_insulin_data, aes(x = BMI, y = auc_pg)) +
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
   geom_point()
 ```
 
@@ -586,7 +610,7 @@ line to the plot to see if there is a general trend between BMI and
 glucose by using `geom_smooth()`.
 
 ```{r 2-continuous-variables-smooth}
-ggplot(post_meal_insulin_data, aes(x = BMI, y = auc_pg)) +
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
   geom_point() +
   geom_smooth()
 ```
@@ -602,7 +626,7 @@ plot:
 #| echo: fenced
 #| fig-cap: "Scatterplot of BMI and the area under the curve for glucose."
 #| label: fig-bmi-auc-pg
-ggplot(post_meal_insulin_data, aes(x = BMI, y = auc_pg)) +
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
   geom_point() +
   geom_smooth()
 ```
