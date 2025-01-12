@@ -284,6 +284,63 @@ ggplot(post_meal_insulin_data, aes(x = glykemi)) +
 
 {{< text_snippet sticky_up >}}
 
+## Plot two discrete variables
+
+Unlike plotting continuous variables, there are not as many plotting
+options for discrete variables, even two of them, without major data
+wrangling. You've already tried the `geom_bar()` for one variable, let's
+do one for two variables. We can use the `geom_bar()` "fill" option to
+have a certain colour for different levels of a variable. Let's use this
+to see differences between `Group` and `glykemi`. Create a new header at
+the bottom of the file called `## Plotting two discrete variables` and
+create a new code chunk below that with {{< var keybind.chunk >}}. While
+we could put either `Group` or `glykemi` on the x-axis, let's put
+`Group` on the x-axis and `glykemi` as the fill.
+
+```{r two-discrete-variables}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  ggplot(aes(x = Group, fill = glykemi)) +
+  geom_bar()
+```
+
+Run this code with {{< var keybind.run >}}. You'll see we get a warning
+message. That's because the `glykemi` variable is actually a number, and
+`{ggplot2}` needs a character vector for `fill`. We can easily fix this
+by using `as.character()` on the `glykemi` variable in the `aes()`
+function.
+
+```{r two-discrete-variables-convert-to-character}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+  geom_bar()
+```
+
+Running this code with {{< var keybind.run >}} will show you a barplot
+of `Group` with `glykemi` as the fill, without the warning message. But
+the legend on the side is a bit ugly. It's easy to fix with the use of
+the `theme()` function, but we won't cover that in this session.
+
+By default, `geom_bar()` will make "fill" groups stacked on top of each
+other. In this case, it isn't really that useful, so let's change them
+to be sitting side by side. For that, we need to use the `position`
+argument with a function called `position_dodge()`. This new function
+takes the "fill" grouping variable and "dodges" them (moves them) to be
+side by side.
+
+```{r}
+#| filename: "docs/learning.qmd"
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+  geom_bar(position = position_dodge())
+```
+
+We can see from this plot there are very few people with the `glykemi`
+as `1`. Let's render the document with {{< var keybind.render >}} to see
+the plot in the output document, then add and commit the changes you've
+made into the Git history with {{< var keybind.git >}}.
+
 ## Putting two plots side by side
 
 While we said in general you should use one figure per code chunk, if
