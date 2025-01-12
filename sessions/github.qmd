@@ -318,7 +318,9 @@ stage the file and commit it.
 We won't go into merge conflicts in this course, though you might deal
 with them during the group project. If you want to learn more about them
 after the course, GitHub has a [practical
-tutorial](https://github.com/skills/resolve-merge-conflicts) on it.
+tutorial](https://github.com/skills/resolve-merge-conflicts) on it. We
+also have an extra appendix section to deal with merge conflicts in
+@sec-merge-conflicts.
 :::
 
 ::: callout-note
@@ -353,3 +355,4 @@ of the Guides website.
     working, but does take some learning. Collaborating involves each
     collaborator creating a copy of the remote repository that you each
     push and pull to as you work together.
+
