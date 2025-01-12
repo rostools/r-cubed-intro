@@ -1,6 +1,7 @@
 options(
   width = 68,
-  knitr.kable.NA = ""
+  knitr.kable.NA = "",
+  knitr.duplicate.label = "allow"
 )
 
 # Do it this way to fix a GitHub Action build issue.
