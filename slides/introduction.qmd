@@ -11,9 +11,6 @@ csl: "../_extensions/rostools/r3-theme/vancouver.csl"
     table
 -   :heavy_check_mark: Introduce yourself to your group members
 -   :heavy_check_mark: Accept the GitHub Organization invite
--   :heavy_check_mark: If you want, join the [Discord
-    channel](https://discord.gg/XaRSJFdNnp) for asking questions after
-    the course
 
 ::: notes
 Introduce instructors and helpers after welcoming everyone and getting
@@ -109,7 +106,7 @@ bioinformatics, at about 60% of published studies.
 This is a little bit of a rhetorical question
 :stuck_out_tongue_closed_eyes:
 
-## Recent study: Only 25% could be *executed* without some "cleaning up" [@Trisovic2022]
+## Only 25% could be *executed* without some "cleaning up" [@Trisovic2022]
 
 -   Code taken from [Dataverse Project](https://dataverse.org/) data
     repositories
@@ -127,6 +124,61 @@ Since scripts were taken from Dataverse.org, researchers who upload
 their code and projects to it probably are a bit more aware and
 knowledgeable about general reproducibility and coding then the average
 researcher, so the results are a bit biased.
+:::
+
+## Very low reproducibility in most of science [@Samuel2024] {.smaller}
+
+::: {layout-ncol="2"}
+```{r}
+#| echo: false
+#| fig-height: 6
+library(tidyverse)
+theme_set(
+  theme_minimal() + 
+    theme(
+      plot.background = element_rect(fill = "#E9E9E9"),
+      axis.title = element_blank(),
+      axis.text.y = element_text(size = 16),
+      axis.text.x = element_blank(),
+      axis.ticks = element_blank(),
+      axis.line = element_blank()
+    )
+)
+
+search <- tribble(
+  ~item, ~description, ~value, ~order,
+  "Articles", "Found among all articles", 3467, 1,
+  "GitHub\nrepos", "Those with a GitHub link and at least one notebook", 2660, 2
+) |> 
+  mutate(
+    item = fct_rev(fct_reorder(item, order))
+  )
+
+ggplot(search, aes(y = item, x = value, label = value)) +
+  geom_col(fill = "#203C6E") +
+  geom_text(nudge_x = 200, size = 5)
+```
+
+```{r}
+#| echo: false
+#| fig-height: 6
+repro_results <- tribble(
+  ~item, ~description, ~value, ~order,
+  "Total notebooks", "Total notebook files found in all the repositories", 27271, 1,
+  "Notebook repo\nwas valid", "File names were correct, dependency information was available, no local modules were needed.", 15817, 2,
+  "Could install\ndependencies", "Could install dependencies without errors.", 10388, 3,
+  "Finished executing\nwithout errors", "Could run without any errors.", 1203, 4,
+  "Same results\nas paper", "When the results of the paper matched what the execution results output.", 879, 5
+) |> 
+  mutate(
+    percent = str_c(value, "\n(", round(value / max(value) * 100), "%)"),
+    item = fct_rev(fct_reorder(item, order))
+  )
+
+ggplot(repro_results, aes(y = item, x = value, label = percent)) +
+  geom_col(fill = "#203C6E") +
+  geom_text(nudge_x = 1700, size = 5)
+```
 :::
 
 ## Scientific culture is not well-prepared for analytic and computation era {.center}
@@ -160,8 +212,8 @@ that, we all have that power to do something, even if its small thing.
 :::
 
 ::: {.column width="50%"}
--   Reading tasks are "callout" blocks marked by the blue line on the
-    left side of the text
+-   Reading tasks, discussion activities, and exercises are all clearly 
+    marked as separate headers
 -   Schedule listed is a *guide* only, some sessions are longer, others
     shorter
 -   Less about coding, more about connecting with others
@@ -185,7 +237,7 @@ experiences, so there is a mix of novice and more experienced users.
 
 ## Getting or asking for help :raising_hand_woman::raising_hand_man: {.smaller}
 
--   Put the sticky on your laptop to get help
+-   Put the sticky/origami hats on your laptop to get help
 -   There are lots of helpers
 -   Team members, try to help out too
 -   We're all learning here!
