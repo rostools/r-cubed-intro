@@ -25,37 +25,41 @@ and overview.
 |:---|:---|
 | 9:30 | {{< fa mug-hot >}} Arrival; Coffee and light breakfast |
 | 10:00 | {{< fa person-chalkboard >}} [Introduction to the course](/sessions/introduction.qmd) |
-| 10:30 | {{< fa laptop-code >}} [Management of R projects (with short break)](/sessions/project-management.qmd) |
+| 10:30 | {{< fa laptop-code >}} [Setting up an R project (with short break)](/sessions/setup-project.qmd) |
 | 12:20 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 12:30 | {{< fa utensils >}} Lunch |
 | 13:15 | {{< fa user-group >}} [Networking and social activity](/appendix/social.qmd#social-day-one) |
-| 13:35 | {{< fa laptop-code >}} [Version control and collaborative practices](/sessions/version-control.qmd) |
+| 13:35 | {{< fa laptop-code >}} [Analytically reproducible documents](/sessions/reproducible-documents.qmd) |
+| 14:40 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 14:45 | {{< fa mug-hot >}} Break with coffee and snacks |
-| 15:00 | {{< fa laptop-code >}} [Version control and collaborative practices](/sessions/version-control.qmd) |
+| 15:00 | {{< fa laptop-code >}} [Version control with Git](/sessions/version-control.qmd) |
 | 16:30 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 
 ## Day 2 {.unnumbered}
 
 | Time | Session topic |
 |:---|:---|
-| 9:00 | {{< fa laptop-code >}} [Data management and wrangling](/sessions/data-management.qmd) |
+| 9:00 | {{< fa laptop-code >}} [Importing data into R](/sessions/import-data.qmd) |
+| 10:10 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 10:15 | {{< fa mug-hot >}} Break with coffee, team and snacks |
-| 10:30 | {{< fa laptop-code >}} [Data management and wrangling (with short break)](/sessions/data-management.qmd) |
+| 10:30 | {{< fa laptop-code >}} [Basic data visualization (with short break)](/sessions/visualization.qmd) |
 | 12:20 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 12:30 | {{< fa utensils >}} Lunch |
 | 13:15 | {{< fa user-group >}} [Networking and social activity](/appendix/social.qmd#social-day-two) |
-| 13:35 | {{< fa laptop-code >}} [Creating reproducible documents](/sessions/reproducible-documents.qmd) |
+| 13:35 | {{< fa laptop-code >}} [Collaborating with GitHub](/sessions/github.qmd) |
+| 14:40 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 14:45 | {{< fa mug-hot >}} Break with coffee and snacks |
-| 15:00 | {{< fa laptop-code >}} [Creating reproducible documents](/sessions/reproducible-documents.qmd) |
-| 16:30 | {{< fa comment-dots >}} \[End of session short survey |
+| 15:00 | {{< fa laptop-code >}} [Basic data wrangling](/sessions/wrangling.qmd) |
+| 16:30 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 
 ## Day 3 {.unnumbered}
 
 | Time | Session topic |
 |:---|:---|
-| 9:00 | {{< fa laptop-code >}} [Data visualizations](/sessions/data-visualization.qmd) |
+| 9:00 | {{< fa laptop-code >}} [Wrangling with visualizing](/sessions/data-visualization.qmd) |
+| 10:10 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 10:15 | {{< fa mug-hot >}} Break with coffee and snacks |
-| 10:30 | {{< fa laptop-code >}} [Data visualizations (with short break)](/sessions/data-visualization.qmd) |
+| 10:30 | {{< fa laptop-code >}} [Split, apply, and combine](/sessions/split-apply-combine.qmd) |
 | 12:20 | {{< fa comment-dots >}} [End of session short survey](https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=sf_link) |
 | 12:30 | {{< fa utensils >}} Lunch |
 | 13:15 | {{< fa people-group >}} [Group work (with break)](/sessions/project-work.qmd) |
