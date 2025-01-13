@@ -30,7 +30,7 @@ This session's **overall learning outcome** is to:
 
 ## :book: Reading task: What is a project and why use it?
 
-**Time: \~5**
+**Time: \~5 minutes**
 
 Before we create a project, we should first define what we mean by
 "project". What is a project? In a research context, a project is a set
