@@ -47,7 +47,7 @@ package that gets loaded with `{tidyverse}`:
 | Run code by a group | `group_by()` with `summarise()` | Calculate means of age by males and females. We'll cover this in @sec-split-apply-combine. |
 
 : List of common data wrangling tasks, the function used, and an example
-of when it would be used.
+of when it would be used. {#tbl-wrangling-verbs}
 
 You might notice that we have used the word "variable" in the previous
 sessions and here we are starting to use "column". While often these two
@@ -184,16 +184,23 @@ select(post_meal_data, contains("0"))
 Now that we've tested how to use `select()`, let's simplify our dataset
 a bit. While our data doesn't have too many rows, there are a lot of
 columns to deal with, at least for this course. Let's keep only a few
-columns for now, so it is easier to look at and explore. Create a new
-header called `## Simplifying data` and then create a new code chunk
-below that header with {{< var keybind.chunk >}}. Then write out the
-code below, so that we can make a new, smaller data object.
+columns for now, so it is easier to look at and explore. 
+
+Since we want 
+this code to run every time we restart this Quarto document, we should put it into the `setup` code chunk.
+Go to the `setup` code chunk and at the bottom of it, add the following code:
 
 ```{r create-smaller-data}
 #| filename: "docs/learning.qmd"
 small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_ins, glykemi)
+```
 
-# View the new data frame
+Run the code with {{< var keybind.run-code >}} to assign the object, 
+then in the **Console**, check what it looks like by typing out the newly
+created object there:
+
+```{r}
+#| filename: "Console"
 small_post_meal_data
 ```
 
@@ -601,10 +608,11 @@ the level of glucose in the blood is higher than normal, but not high
 enough to be diagnosed as diabetes. This is set as `0` and `1`, likely
 meaning "normal" and "high". Since there are so few of them, we'll just
 remove them for now. We'll also remove the `glykemi` column since we
-don't need it anymore. Create a new header called
-`## Make a tidier dataframe` and then create a new code chunk below that
-header with {{< var keybind.chunk >}}. Then write out the code below to
-create a new data object.
+don't need it anymore. 
+
+Since we want this code available to us easily, let's put it into the
+`setup` code chunk. Go to the `setup` code chunk and at the bottom of it,
+write out the code below to create a new data object.
 
 ```{r create-new-data-object-filtered}
 #| filename: "docs/learning.qmd"
@@ -682,7 +690,10 @@ tidier_post_meal_data |>
 
 Run this code with {{< var keybind.run-code >}} to see the new column. To
 make use of this new data object, we should assign it to a new object.
-So add `<-` and a new object name to the beginning of the code:
+Similar to the `small_post_meal_data` and `tidier_post_meal_data`
+objects, we want these available to us easily, so let's put this into
+the `setup` code chunk. Go to the `setup` code chunk and at the bottom of
+it, write out the code below to create a new data object.
 
 ```{r assign-modified-columns-to-object}
 #| filename: "docs/learning.qmd"
