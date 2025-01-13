@@ -12,16 +12,19 @@ library(downlit)
 
 This session's **overall learning outcome** is to:
 
-1.  Get familiar with the principles and practical applications of
-    version control.
+1.  Describe what version control means, how it can be used in a
+    research project, and why it is important from a research
+    perspective.
 
 **Specific objectives** are to:
 
-1.  Learn about "formal" version control and its importance.
-2.  Learn about Git for version control and apply RStudio's integrated
-    Git tools.
-3.  Learn and apply the basic workflow of Git version control: View
-    changes to files, record and save those changes to a history.
+1.  Explain what "formal" version control is and recognize its
+    importance.
+2.  Use the basic functionality of Git for version control through
+    RStudio's integrated Git interface.
+3.  Describe and apply the basic workflow of Git version control: View
+    changes to files, record and save those changes to a history, called
+    "committing".
 
 ## :book: Reading task: What is version control? {#sec-what-is-version-control}
 
