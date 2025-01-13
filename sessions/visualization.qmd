@@ -178,9 +178,9 @@ axis or dimension. For that we use the `ggplot()` function with the
 ggplot(post_meal_data, aes(x = BMI))
 ```
 
-Run this code by using {{< var keybind.run-code >}}. You'll get a blank plot.
-That's because we haven't told `{ggplot2}` what kind of plot we want to
-make, which needs a `geom_` function.
+Run this code by using {{< var keybind.run-code >}}. You'll get a blank
+plot. That's because we haven't told `{ggplot2}` what kind of plot we
+want to make, which needs a `geom_` function.
 
 We'll start with creating a histogram, which is a useful way of
 visualizing the distribution of a continuous variable. We do that with
@@ -304,11 +304,11 @@ post_meal_data |>
   geom_bar()
 ```
 
-Run this code with {{< var keybind.run-code >}}. You'll see we get a warning
-message. That's because the `glykemi` variable is actually a number, and
-`{ggplot2}` needs a character vector for `fill`. We can easily fix this
-by using `as.character()` on the `glykemi` variable in the `aes()`
-function.
+Run this code with {{< var keybind.run-code >}}. You'll see we get a
+warning message. That's because the `glykemi` variable is actually a
+number, and `{ggplot2}` needs a character vector for `fill`. We can
+easily fix this by using `as.character()` on the `glykemi` variable in
+the `aes()` function.
 
 ```{r two-discrete-variables-convert-to-character}
 #| filename: "docs/learning.qmd"
@@ -317,10 +317,11 @@ post_meal_data |>
   geom_bar()
 ```
 
-Running this code with {{< var keybind.run-code >}} will show you a barplot
-of `Group` with `glykemi` as the fill, without the warning message. But
-the legend on the side is a bit ugly. It's easy to fix with the use of
-the `theme()` function, but we won't cover that in this session.
+Running this code with {{< var keybind.run-code >}} will show you a
+barplot of `Group` with `glykemi` as the fill, without the warning
+message. But the legend on the side is a bit ugly. It's easy to fix with
+the use of the `theme()` function, but we won't cover that in this
+session.
 
 By default, `geom_bar()` will make "fill" groups stacked on top of each
 other. In this case, it isn't really that useful, so let's change them
@@ -442,14 +443,15 @@ Barplots hide interesting results. Artwork by
 
 {{< text_snippet sticky_up >}}
 
-## Making code more readable
+## :book: Reading task: Making code more readable
+
+**Time: \~6 minutes**
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## Instructor note
 
-Go over this section together, not as a code-along, but instead with
-this section on the projector. Emphasize the "naming" vs "styling"
-issues topic.
+After they've read this section, go over it briefly and emphasize the
+"naming" vs "styling" issues topic.
 :::
 
 Now that we've started writing some code, we should talk about *how* we
@@ -489,25 +491,31 @@ styling.
 
 ### Naming issues {.unnumbered}
 
-This issue is difficult to fix automatically by the computer, because it usually
-needs a human with the context knowledge in order to fix. Fixing it properly comes with experience and
-knowledge. Based on naming issues, the code above has two types of issues:
+This issue is difficult to fix automatically by the computer, because it
+usually needs a human with the context knowledge in order to fix. Fixing
+it properly comes with experience and knowledge. Based on naming issues,
+the code above has two types of issues:
 
-- **Syntax issues**: The `T <- FALSE` is wrong because `T` already
-exists and is a short hand for `TRUE` while `c <- 9` is wrong because
-`c` is already the name of the function `c()`. You normally don't want
-to name code based on something that already exists in base R ("naming
-conflicts" between packages is fine though, since there are ways to
-identify and fix that). These issues can only be fixed manually.
+-   **Syntax issues**: The `T <- FALSE` is wrong because `T` already
+    exists and is a short hand for `TRUE` while `c <- 9` is wrong
+    because `c` is already the name of the function `c()`. You normally
+    don't want to name code based on something that already exists in
+    base R ("naming conflicts" between packages is fine though, since
+    there are ways to identify and fix that). These issues can only be
+    fixed manually.
 
-- **Semantic issues**: The `DayOne` object is not descriptive. Day one of what? Also, `DayOne` is in the format of `PascalCase` and in general, `snake_case` (all lowercase with underscores) has been found to be better for readability.
-And even if `T` and `c` weren't syntax issues, they are not descriptive.
-As you learn more R, you will find a lot of functions with very short
-names, or names that are not descriptive at all. In the past, there were no tab-completion
-tools, so typing out long names was painful. Now we have powerful
-auto-completion tools, which means you don't have the restriction for shorter names. 
-You should use always write descriptive, plain language names instead of short, concise ones. 
-Stick to a [*style guide*](https://style.tidyverse.org/).
+-   **Semantic issues**: The `DayOne` object is not descriptive. Day one
+    of what? Also, `DayOne` is in the format of `PascalCase` and in
+    general, `snake_case` (all lowercase with underscores) has been
+    found to be better for readability. And even if `T` and `c` weren't
+    syntax issues, they are not descriptive. As you learn more R, you
+    will find a lot of functions with very short names, or names that
+    are not descriptive at all. In the past, there were no
+    tab-completion tools, so typing out long names was painful. Now we
+    have powerful auto-completion tools, which means you don't have the
+    restriction for shorter names. You should use always write
+    descriptive, plain language names instead of short, concise ones.
+    Stick to a [*style guide*](https://style.tidyverse.org/).
 
 ### Styling issues {.unnumbered}
 
@@ -528,6 +536,18 @@ come down to effective or correct use of spacing and tabs.
 -   Tabs: Tabs are used to indent code to make it easier to scan and
     read. You tab code within functions, if statements, and other
     situations to make it easier to read.
+
+{{< text_snippet sticky_up >}}
+
+## Using styler to fix code styling issues
+
+::: {.callout-note appearance="minimal" collapse="true"}
+## :teacher: Instructor note
+
+Talk through this section as you show them how to use styler. Especially
+emphasize the fact that styler can't fix naming issues or issues that
+require human input.
+:::
 
 To fix the styling issues, we can use a package called `{styler}`, which
 follows the `{tidyverse}` [style guide](https://style.tidyverse.org/),
