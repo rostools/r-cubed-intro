@@ -63,7 +63,7 @@ reproducible?
 
 . . .
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ### Replicability
 
@@ -81,7 +81,7 @@ reproducible?
 -   *Question*: If we can't even *reproduce* a studies results, how can
     we expect to replicate it?
 :::
-:::
+:::::
 
 [^introduction-2]: Or rather "irreplicability crisis".
 
@@ -106,26 +106,6 @@ bioinformatics, at about 60% of published studies.
 This is a little bit of a rhetorical question
 :stuck_out_tongue_closed_eyes:
 
-## Only 25% could be *executed* without some "cleaning up" [@Trisovic2022]
-
--   Code taken from [Dataverse Project](https://dataverse.org/) data
-    repositories
--   After some automatic cleaning, \~half could *execute*
-
-::: notes
-Recent large study on general reproducibility of projects that shared
-code.
-
-Initially only 25% of the R scripts could be *executed* (doesn't mean
-results were reproduced though). After doing automatic and some manual
-code cleaning, than about half could be executed. That's not bad.
-
-Since scripts were taken from Dataverse.org, researchers who upload
-their code and projects to it probably are a bit more aware and
-knowledgeable about general reproducibility and coding then the average
-researcher, so the results are a bit biased.
-:::
-
 ## Very low reproducibility in most of science [@Samuel2024] {.smaller}
 
 ::: {layout-ncol="2"}
@@ -138,7 +118,7 @@ theme_set(
     theme(
       plot.background = element_rect(fill = "#E9E9E9"),
       axis.title = element_blank(),
-      axis.text.y = element_text(size = 16),
+      axis.text.y = element_text(size = 18),
       axis.text.x = element_blank(),
       axis.ticks = element_blank(),
       axis.line = element_blank()
@@ -156,7 +136,7 @@ search <- tribble(
 
 ggplot(search, aes(y = item, x = value, label = value)) +
   geom_col(fill = "#203C6E") +
-  geom_text(nudge_x = 200, size = 5)
+  geom_text(nudge_x = 200, size = 5.5)
 ```
 
 ```{r}
@@ -177,8 +157,29 @@ repro_results <- tribble(
 
 ggplot(repro_results, aes(y = item, x = value, label = percent)) +
   geom_col(fill = "#203C6E") +
-  geom_text(nudge_x = 1700, size = 5)
+  geom_text(nudge_x = 1700, size = 5.5)
 ```
+:::
+
+## Even in institutional code and data archive, *executability* is low! [@Trisovic2022] {.center}
+
+-   Code taken from [Harvard Dataverse Project](https://dataverse.org/)
+    data repositories
+-   Only 25% could be *executed* without some "cleaning up"
+-   After some automatic cleaning, \~50% could *execute*
+
+::: notes
+Recent large study on general reproducibility of projects that shared
+code.
+
+Initially only 25% of the R scripts could be *executed* (doesn't mean
+results were reproduced though). After doing automatic and some manual
+code cleaning, than about half could be executed. That's not bad.
+
+Since scripts were taken from Dataverse.org, researchers who upload
+their code and projects to it probably are a bit more aware and
+knowledgeable about general reproducibility and coding then the average
+researcher, so the results are a bit biased.
 :::
 
 ## Scientific culture is not well-prepared for analytic and computation era {.center}
@@ -199,8 +200,8 @@ that, we all have that power to do something, even if its small thing.
 
 ## Setup and layout {.smaller}
 
-::: columns
-::: {.column width="50%"}
+::::: columns
+::: column
 -   Course is mix of:
     -   "Code-alongs" (we type and explain, you type along)
     -   Hands-on coding, discussing, and reading exercises
@@ -211,16 +212,15 @@ that, we all have that power to do something, even if its small thing.
     -   Material for further learning
 :::
 
-::: {.column width="50%"}
--   Reading tasks, discussion activities, and exercises are all clearly 
-    marked as separate headers
--   Schedule listed is a *guide* only, some sessions are longer, others
-    shorter
--   Less about coding, more about connecting with others
-    -   During lunch, try to sit beside someone you don't know
-    -   Several networking activities (usually after lunch)
+::: column
+-   Coding is just as much social as it is solo
+    -   Every morning, draw a table names from the bowl and sit at
+        that table
+    -   Introduce yourself to your table mates
+    -   During lunch, sit beside someone you don't know
+    -   Several networking activities after most lunch
 :::
-:::
+:::::
 
 ::: notes
 Explain a bit more about the reading, why doing it, and that this course
@@ -235,21 +235,35 @@ I've tried to organize the groups to include a range of skills and
 experiences, so there is a mix of novice and more experienced users.
 :::
 
-## Getting or asking for help :raising_hand_woman::raising_hand_man: {.smaller}
+## Getting or asking for help :raising_hand_woman::raising_hand_man:
 
--   Put the sticky/origami hats on your laptop to get help
+::::: columns
+::: column
+-   Put the sticky/origami hats :hat: on your laptop to get help
 -   There are lots of helpers
--   Team members, try to help out too
--   We're all learning here!
-    -   This is a supportive and safe environment
-    -   Remember our [Code of Conduct](conduct.html)
--   We have a [cheat sheet](../includes/cheatsheet.pdf)!
+-   Table mates, try to help out too
+:::
 
-## Practice using stickies: Have you joined the GitHub Organization and the Slack group? {.center}
+::: column
+-   We're all learning here!
+-   This is a supportive and safe environment
+-   Remember our [Code of Conduct](conduct.html)
+:::
+:::::
+
+## Practice using stickies: Have you joined the GitHub Organization? {.center}
 
 # Activities {.center}
 
-## :walking::walking_woman: Who has not yet used R? {.center}
+## :walking_man::walking_woman: Who has used any other coding tool (like Stata)?
+
+## :walking_man::walking_woman: Those who have used other coding tools, have you had formal training in "coding" in it? {.center}
+
+## :walking_man::walking_woman: How do you perceive your general skill in data analysis? {.center}
+
+## :walking_man::walking_woman: How nervous are you about learning R? {.center}
+
+## :walking_man::walking_woman: Who has not yet used R? {.center}
 
 ::: notes
 Go to different sides of the room for "Yes" and "No"
@@ -261,15 +275,7 @@ Go to different sides of the room for "Yes" and "No"
 Arrange along the wall from beginner to advanced.
 :::
 
-## :raising_hand:Those who've used R or other coding tool (like Stata), have you had formal training in "coding" in it? {.center}
-
-## :walking::walking_man::walking_woman:How do you perceive your general skill in data analysis? {.center}
-
-## Ok, get back into your groups and read through the introduction section {.center}
-
-::: notes
-As we prepare for the next session, please read through the rest of the
-introduction section.
-:::
+## :chair: Ok, get back into your chairs :chair: {.center}
 
 # References
+
