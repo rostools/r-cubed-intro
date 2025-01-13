@@ -17,7 +17,7 @@
     "scope": "quarto,markdown",
     "prefix": "todo",
     "body": [
-      "<!-- TODO: ${1:Write text here} -->"
+      "<!-- TODO: ${0:Write text here} -->"
     ],
     "description": "Insert TODO formatting"
   },
@@ -25,7 +25,7 @@
     "scope": "quarto,markdown",
     "prefix": "pkg",
     "body": [
-      "`{${1:Package}}`"
+      "`{${0:Package}}`"
     ],
     "description": "The syntax used to display and link R packages to their websites."
   },
@@ -33,19 +33,11 @@
     "scope": "quarto,markdown",
     "prefix": "exercise",
     "body": [
-      "## :technologist: Exercise: ${1:Title}",
+      "## :technologist: Exercise: ${0:Title}",
       "",
-      "**Time: ~${2:Minutes} minutes.**",
+      "> Time: ~${1:Minutes} minutes.",
       "",
-      "${3:Text}",
-      "",
-      "```{r solution-$(4:Label}}",
-      "#| eval: false",
-      "#| code-fold: true",
-      "#| code-summary: '**Click for the solution**. Only click if you are struggling or are out of time.'",
-      "```",
-      "",
-      "{{< text_snippet sticky_up >}}",
+      "${2:Text}",
     ],
     "description": "Insert a hands-on coding exercise section."
   },
@@ -53,11 +45,11 @@
     "scope": "quarto,markdown",
     "prefix": "discussion",
     "body": [
-      "## :speech_balloon: Discussion activity: ${1:Title}",
+      "## :speech_balloon: Discussion activity: ~${0:Title}",
       "",
-      "**Time: ~${2:Minutes}**",
+      "**Time: ~${1:Minutes}**",
       "",
-      "${3:Text}",
+      "${2:Text}",
     ],
     "description": "Insert a discussion activity section."
   },
@@ -65,13 +57,13 @@
     "scope": "quarto,markdown",
     "prefix": "reading",
     "body": [
-      "## :book: Reading task: ${1:Title}",
+      "::: callout-note",
+      "## :book: Reading task: ~${0:Minutes}",
       "",
-      "**Time: ~${2:Minutes} minutes**",
+      "${1:Text body}",
       "",
-      "${3:Text}",
-      "",
-      "{{< text_snippet sticky_up >}}",
+      "{{< include ../includes/_sticky_up.qmd >}}",
+      ":::",
     ],
     "description": "Insert reading task section."
   },
@@ -79,10 +71,10 @@
     "scope": "quarto,markdown",
     "prefix": "instructor_note",
     "body": [
-      "::: {.callout-note appearance=\"minimal\" collapse=\"true\"}",
+      "::: {.callout-note collapse=\"true\"}",
       "## :teacher: Instructor note",
       "",
-      "${1:Text body}",
+      "${0:Text body}",
       ":::",
     ],
     "description": "Insert instructor note that is a Quarto callout note block."
