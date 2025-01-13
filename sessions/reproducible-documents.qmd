@@ -4,20 +4,20 @@
 
 This session's **overall learning outcome** is to:
 
-1.  Describe what a reproducible document is, explain why it is important, and
-    use it to write R code to create an output document.
+1.  Describe what a reproducible document is, explain why it is
+    important, and use it to write R code to create an output document.
 
 **Specific objectives** are to:
 
-1.  Describe what Quarto is and how it
-    helps with reproducibility, and why it can save you time and effort.
+1.  Describe what Quarto is and how it helps with reproducibility, and
+    why it can save you time and effort.
 2.  Write and use R code within a document, so that it will
     automatically insert the R output into the final document.
 3.  Identify what some Markdown syntax does to the formatting of the
     generated HTML file and write some Markdown to make some simple
     formatting of your document.
-4.  Define some basic objects and data types in R and write some simple R code
-    within the Quarto document.
+4.  Define some basic objects and data types in R and write some simple
+    R code within the Quarto document.
 
 ## :book: Reading task: Why and how to be reproducible?
 
@@ -48,8 +48,8 @@ For example, if you need to make a figure, you can write R code in the
 Quarto document so that when you generate a Word document the figure
 gets inserted automatically. A main feature of using Quarto is that
 because Quarto will always run the code in the document in the same
-order and in an empty environment (a new R session), the code and
-results will always be reproducible.
+order and in an empty environment (a new R session) each time you render
+the document, the code and results will always be reproducible.
 
 ::: callout-tip
 If you have heard of [R Markdown](https://rmarkdown.rstudio.com/),
@@ -147,7 +147,7 @@ word document by changing this to `format: docx`.
 
 ::: callout-tip
 It is possible to create PDF documents, though this requires installing
-LaTeX through the R package [tinytex](https://yihui.name/tinytex/r/),
+a LaTeX distributin such as [tinytex](https://yihui.name/tinytex/),
 which can sometimes be complicated to install.
 :::
 
@@ -163,8 +163,9 @@ the newly created document or.
 You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
 render the document again with the "Render" button or with the
-keybinding {{< var keybind.render >}}. A Word document should open up.
-This is the basic approach to creating documents from Quarto.
+keybinding {{< var keybind.render >}}. A Word document should open up if
+you have a Word processer installed. This is the basic approach to
+creating documents from Quarto.
 
 ## RStudio layout and usage
 
@@ -214,7 +215,7 @@ your cursor two lines below the YAML header and insert a code chunk with
 {{< var keybind.chunk >}}. In the code chunk, type out `2 + 2`. It
 should look something like:
 
-```{{{r}}}
+```{{r}}
 2 + 2
 ```
 
