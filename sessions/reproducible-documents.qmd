@@ -42,14 +42,15 @@ One common way of being more reproducible when doing data analysis in R
 is to use [Quarto](https://quarto.org/). Quarto is a way of writing R
 (or Python) code alongside text in a way that allows you to create
 documents like HTML or Word where the output from R code is directly
-inserted into the document.
+inserted into the document. For example, if you need to make a figure,
+you can write R code in the Quarto document so that when you generate a
+Word document the figure gets inserted automatically.
 
-For example, if you need to make a figure, you can write R code in the
-Quarto document so that when you generate a Word document the figure
-gets inserted automatically. A main feature of using Quarto is that
-because Quarto will always run the code in the document in the same
-order and in an empty environment (a new R session) each time you render
-the document, the code and results will always be reproducible.
+A main feature of using Quarto is that Quarto, when you render the
+output document, will always run the code in the order used in the file
+and in an fresh, empty environment (a new R session). This means that
+the output from the code and the results will be, at least within the
+document, reproducible.
 
 ::: callout-tip
 If you have heard of [R Markdown](https://rmarkdown.rstudio.com/),

@@ -91,12 +91,12 @@ tidied_post_meal_data |>
   geom_jitter()
 ```
 
-Run this code chunk with {{< var keybind.run-code >}} and you'll see a plot
-with a bunch of points on them. Looking at the plot, we can see that
-there are more participants that are insulin insensitive (resistant) in
-the overweight group than the non-overweight group. We can modify the
-width of the jittered points by adding the argument `width` to
-`geom_jitter()`. For now, we won't add it.
+Run this code chunk with {{< var keybind.run-code >}} and you'll see a
+plot with a bunch of points on them. Looking at the plot, we can see
+that there are more participants that are insulin insensitive
+(resistant) in the overweight group than the non-overweight group. We
+can modify the width of the jittered points by adding the argument
+`width` to `geom_jitter()`. For now, we won't add it.
 
 ## Plotting a third or more variables
 
@@ -123,12 +123,12 @@ tidied_post_meal_data |>
   geom_point()
 ```
 
-Run this with {{< var keybind.run-code >}}. One thing you'll quickly notice
-is that there is a clear grouping in ages between those above and below
-40. So let's make a new column called `young` that groups people into
-two categories of being above or below 40 years of age. And instead of
-looking at the relationship between `Age` and `auc_insulin`, let's look
-at the relationship between `BMI` and `insulin_glucose_ratio`.
+Run this with {{< var keybind.run-code >}}. One thing you'll quickly
+notice is that there is a clear grouping in ages between those above and
+below 40. So let's make a new column called `young` that groups people
+into two categories of being above or below 40 years of age. And instead
+of looking at the relationship between `Age` and `auc_insulin`, let's
+look at the relationship between `BMI` and `insulin_glucose_ratio`.
 
 With piping, it is really easy to insert a wrangling step in the
 sequence. So we'll insert a `mutate()` below the `filter()` and make use
@@ -443,8 +443,9 @@ base_scatterplot + theme_minimal()
 base_scatterplot + theme_classic()
 ```
 
-Run each of these lines of code with {{< var keybind.run-code >}}. You'll see
-the different types of themes applied to the plot. Which do you prefer?
+Run each of these lines of code with {{< var keybind.run-code >}}.
+You'll see the different types of themes applied to the plot. Which do
+you prefer?
 
 To add labels such as axis titles to your plot, you can use the function
 `labs()`. To change the y-axis title, use the `y` argument in `labs()`.
