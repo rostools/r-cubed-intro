@@ -406,31 +406,29 @@ at that commit, so that nothing is ever lost.
 Ok, now we will write something like "Add initial README file" in the
 commit message box and commit the change. After clicking "Commit",
 you'll notice that the `README.md` file is no longer on the left side.
-That's because we've put the change into the history. We can view the
-history by clicking the "History" button in the top-left corner of the
-RStudio Git interface. Here you can see what has been done in previous
-commits.
-
-The "History" section is quite powerful. As long as you commit something
-into the Git history, it will never be completely
-gone[^version-control-1]. For instance, we can see the full contents of
-a file at a specific commit by clicking the commit, moving to the file
-you want to look into, and clicking the link that says
-`View file @ ...`. Try that with the first commit of the README file.
-See how it shows what was there before you made more changes?
-
-[^version-control-1]: This isn't completely true, you can delete stuff,
-    like if you accidentally add a password or personal data.
+That's because we've put the change into the history. We'll return to
+that shortly.
 
 Next, open up the `README.md` file in RStudio using the Files tab. At
 the top of the file, write your name and your field of research, and
 then save the file. Open up the Git interface again (with the Git icon
 or with {{< var keybind.git >}}). You should now see the added text in
 green. Alright, now "Stage" the change (click the checkbox), write a
-message like "added my name to README file", and commit the change. Go
-back to the history and you should see the two commits in your
-repository. If you don't see it in the history, you likely need to click
-the refresh button at the top.
+message like "added my name to README file", and commit the change.
+
+We can view the history by clicking the "History" button in the top-left
+corner of the RStudio Git interface. Here you can see what has been done
+in previous commits. The "History" section is quite powerful. As long as
+you commit something into the Git history, it will never be completely
+gone[^version-control-1]. For instance, we can see the full contents of
+a file at a specific commit by clicking the commit, moving to the file
+you want to look into, and clicking the link that says
+`View file @ ...`. Try that with the second commit of the README file.
+It shows you what the file was like in that commit, so we can always go
+back the changes we made there.
+
+[^version-control-1]: This isn't completely true, you can delete stuff,
+    like if you accidentally add a password or personal data.
 
 A question that may come up is "how often should I commit"? In general,
 it's better to commit fairly frequently and to commit changes that are
