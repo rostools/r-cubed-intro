@@ -148,7 +148,7 @@ word document by changing this to `format: docx`.
 
 ::: callout-tip
 It is possible to create PDF documents, though this requires installing
-LaTeX through the R package [tinytex](https://yihui.name/tinytex/r/),
+a LaTeX distribution such as [tinytex](https://yihui.name/tinytex/),
 which can sometimes be complicated to install.
 :::
 
@@ -164,8 +164,9 @@ the newly created document or.
 You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
 render the document again with the "Render" button or with the
-keybinding {{< var keybind.render >}}. A Word document should open up.
-This is the basic approach to creating documents from Quarto.
+keybinding {{< var keybind.render >}}. A Word document should open up if
+you have a Word processer installed. This is the basic approach to
+creating documents from Quarto.
 
 ## RStudio layout and usage
 
@@ -215,7 +216,7 @@ your cursor two lines below the YAML header and insert a code chunk with
 {{< var keybind.chunk >}}. In the code chunk, type out `2 + 2`. It
 should look something like:
 
-```{{{r}}}
+```{{r}}
 2 + 2
 ```
 
