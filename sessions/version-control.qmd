@@ -12,7 +12,8 @@ library(downlit)
 
 This session's **overall learning outcome** is to:
 
-1.  
+1.  Get familiar with the principles and practical applications of
+    version control.
 
 **Specific objectives** are to:
 
