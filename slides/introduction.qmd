@@ -214,8 +214,8 @@ that, we all have that power to do something, even if its small thing.
 
 ::: column
 -   Coding is just as much social as it is solo
-    -   Every morning, draw a table names from the bowl and sit at
-        that table
+    -   Every morning, draw a table names from the bowl and sit at that
+        table
     -   Introduce yourself to your table mates
     -   During lunch, sit beside someone you don't know
     -   Several networking activities after most lunch
@@ -278,4 +278,3 @@ Arrange along the wall from beginner to advanced.
 ## :chair: Ok, get back into your chairs :chair: {.center}
 
 # References
-
