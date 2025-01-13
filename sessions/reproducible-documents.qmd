@@ -148,7 +148,7 @@ word document by changing this to `format: docx`.
 
 ::: callout-tip
 It is possible to create PDF documents, though this requires installing
-a LaTeX distributin such as [tinytex](https://yihui.name/tinytex/),
+a LaTeX distribution such as [tinytex](https://yihui.name/tinytex/),
 which can sometimes be complicated to install.
 :::
 
