@@ -4,20 +4,20 @@
 
 This session's **overall learning outcome** is to:
 
-1.  Describe what a reproducible document is, explain why it is important, and
-    use it to write R code to create an output document.
+1.  Describe what a reproducible document is, explain why it is
+    important, and use it to write R code to create an output document.
 
 **Specific objectives** are to:
 
-1.  Describe what Quarto is and how it
-    helps with reproducibility, and why it can save you time and effort.
+1.  Describe what Quarto is and how it helps with reproducibility, and
+    why it can save you time and effort.
 2.  Write and use R code within a document, so that it will
     automatically insert the R output into the final document.
 3.  Identify what some Markdown syntax does to the formatting of the
     generated HTML file and write some Markdown to make some simple
     formatting of your document.
-4.  Define some basic objects and data types in R and write some simple R code
-    within the Quarto document.
+4.  Define some basic objects and data types in R and write some simple
+    R code within the Quarto document.
 
 ## :book: Reading task: Why and how to be reproducible?
 
@@ -42,14 +42,15 @@ One common way of being more reproducible when doing data analysis in R
 is to use [Quarto](https://quarto.org/). Quarto is a way of writing R
 (or Python) code alongside text in a way that allows you to create
 documents like HTML or Word where the output from R code is directly
-inserted into the document.
+inserted into the document. For example, if you need to make a figure,
+you can write R code in the Quarto document so that when you generate a
+Word document the figure gets inserted automatically.
 
-For example, if you need to make a figure, you can write R code in the
-Quarto document so that when you generate a Word document the figure
-gets inserted automatically. A main feature of using Quarto is that
-because Quarto will always run the code in the document in the same
-order and in an empty environment (a new R session), the code and
-results will always be reproducible.
+A main feature of using Quarto is that Quarto, when you render the
+output document, will always run the code in the order used in the file
+and in an fresh, empty environment (a new R session). This means that
+the output from the code and the results will be, at least within the
+document, reproducible.
 
 ::: callout-tip
 If you have heard of [R Markdown](https://rmarkdown.rstudio.com/),
