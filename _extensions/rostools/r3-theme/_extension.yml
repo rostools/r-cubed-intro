@@ -51,6 +51,7 @@ contributes:
 
     csl: vancouver.csl
 
+    callout-appearance: minimal
     reference-location: margin
     citation-location: margin
     crossref:
