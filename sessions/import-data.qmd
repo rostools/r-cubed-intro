@@ -243,9 +243,9 @@ working directory by looking at the top of the RStudio Console.
 
 But! When you render a Quarto document, run an R script, or run the code
 in a non-interactive way, the R code may likely run *in the folder it is
-saved in*, e.g. in the `R/` folder. So your file path
+saved in*, e.g. in the `docs/` folder. So your file path
 `data/post-meal-insulin.csv` won't work because there isn't a folder
-called `data/` in the `R/` folder.
+called `data/` in the `docs/` folder.
 
 ```         
 LearningR <-- R Project working directory starts here.
@@ -277,8 +277,8 @@ on.
 
 ## Setting code chunk options
 
-One thing you may have noticed is that when we render the document to
-HTML, there is a bunch of extra output, especially below the `setup`
+One thing you may have noticed when we render the document to
+HTML, is that there is a bunch of extra output, especially below the `setup`
 code chunk. You probably don't want this text in your generated
 document, so we will add a [chunk
 option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
@@ -422,8 +422,8 @@ Tidy data has a few notable benefits:
     build off and wrangle (i.e. "manipulate", "clean up", "manage") data
     in simpler and easy-to-interpret ways, especially when used within
     the framework of the tidyverse.
-3.  Tidier data is easier to visualize and "map" onto different axises
-    of the plot, like the x and y axises.
+3.  Tidier data is easier to visualize and "map" onto different axes
+    of the plot, like the x and y axes.
 
 The concept of tidy data also gives rise to "tidy code" for visualizing
 and wrangling. By using "verbs" (R functions) and chaining them together
@@ -451,7 +451,7 @@ principles to follow:
         your team. You may end up storing and processing the data in
         another folder as a project of its own.
 -   **Never** edit your raw data directly. If you have to edit it to fix
-    mistakes, have some version control of it so you can track and see
+    mistakes, have some version control of it so you can track it and see
     what has been changed.
 -   Only work with your raw data using R code. *As much as possible or
     is reasonable, don't manually edit it*. Manual editing doesn't leave
