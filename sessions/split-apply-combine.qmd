@@ -228,7 +228,7 @@ To add the caption, there are two ways to do it: as an argument to
 works similar to the one for figures. We can also reference the table
 too if we include a label with `#| label: tbl-`.
 
-```` {.markdown filename="docs/learning.qmd"}
+````{.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-mean-age-bmi
 #| tbl-cap: "Mean values of Age and BMI for each group."
@@ -261,7 +261,7 @@ file, create a new header called `## Bigger table`. Then copy the code
 template below and paste it below the new header. Then, using this
 template, complete each of the items below.
 
-```` markdown
+````{.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-___
 #| fig-cap: "___"

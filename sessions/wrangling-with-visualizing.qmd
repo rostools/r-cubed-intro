@@ -193,7 +193,7 @@ like we did in @sec-visualization with the Quarto code chunk
 called `## Make multi-dimensional plots!`, then below it copy and paste
 the template code chunk shown below into your document.
 
-```` {.markdown filename="docs/learning.qmd"}
+````{.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: fig-multidimensional
 #| fig-cap: "Two, mult-dimensional plots of our data."

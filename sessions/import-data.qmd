@@ -148,7 +148,7 @@ like. At the bottom of your `docs/learning.qmd` file, create a new level
 2 header called "Showing the data" and insert a new code chunk with
 {{< var keybind.chunk >}}, which should look like the following:
 
-```` markdown
+````{.markdown filename="docs/learning.qmd"}
 
 ## Showing the data
 
