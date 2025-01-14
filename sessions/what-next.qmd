@@ -110,7 +110,7 @@ these courses are or will soon be helping to improve the material for
 next year. There are also so many other things you can get involved in,
 aside from this course. Let us know if you're interested!
 
-::: {.callout-important appearance="default"}
+::: {.callout-tip appearance="minimal"}
 :star: Do you find this course material useful? Then please consider
 "starring" our [GitHub
 repository](https://github.com/rostools/r-cubed-intro/) to show your

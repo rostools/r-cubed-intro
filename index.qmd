@@ -45,7 +45,7 @@ contribute is by using [GitHub](https://github.com/) and creating a [new
 issue](https://github.com/rostools/r-cubed-intro/issues/new) to make
 comments and give feedback on the material.
 
-::: {.callout-important appearance="default"}
+::: {.callout-tip appearance="minimal"}
 :star: Do you find this course material useful? Then please consider
 "starring" our [GitHub
 repository](https://github.com/rostools/r-cubed-intro/) to show your
