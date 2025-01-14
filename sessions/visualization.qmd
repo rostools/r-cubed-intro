@@ -35,11 +35,18 @@ This session's **overall learning outcome** is to:
 
 ## :book: Reading task: Basic principles for creating graphs
 
+::: {.callout-note collapse="true"}
+## :teacher: Instructor note
+
+Because this is fairly short, you don't need to spend too much time going
+over it.
+:::
+
 **Time: \~4 minutes**
 
 Making graphs in R is relatively easy compared to other programs and can
-be done with very little code. Because it takes few lines of code to
-great multiple types of plots, it gives you some time to consider: *why*
+be done with very little code. Because it takes a few lines of code to
+create multiple types of plots, it gives you some time to consider: *why*
 you are making them; whether the graph you've selected is the *most
 appropriate* for your data or results; and how you can design your
 graphs to be as accessible and understandable as possible.
@@ -64,6 +71,14 @@ Guides website.
 {{< text_snippet sticky_up >}}
 
 ## :book: Reading task: Basic structure of using ggplot2
+
+::: {.callout-note collapse="true"}
+## :teacher: Instructor note
+
+Emphasize the "layers" aspect of `{ggplot2}`, as well as the `geom_`
+and `aes()` parts, since that is what we will mostly cover. Then 
+emphasize the part about why `{ggplot2}` is so powerful.
+:::
 
 **Time: \~6 minutes**
 
@@ -243,7 +258,7 @@ many discrete variables our dataset, only `Group` and `glykemi`, so
 let's use this geom to visualize those. Complete these tasks in the
 `docs/learning.qmd`, using this code below as a template:
 
-```` markdown
+````{.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| fig-cap: "___"
 #| label: fig-___
