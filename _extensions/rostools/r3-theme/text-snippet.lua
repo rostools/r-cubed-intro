@@ -14,7 +14,7 @@ session.
 ]]
 
 local sticky_up = [[
-::: {.callout-important appearance="minimal"}
+::: {.callout-caution appearance="minimal"}
 ## Sticky/hat up!
 
 When you're ready to continue, place the sticky/paper hat on your
