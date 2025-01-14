@@ -450,10 +450,10 @@ committing what you've changed. Use this exercise to get some practice.
 We will be using this workflow often throughout the rest of the course.
 
 1.  Practice the add-commit ("add to staging"-"committing to history")
-    sequence by adding and committing *each* of the remaining files in
-    your R project *one at a time* into the Git history (e.g. the
-    `.gitignore`, the `.R` files, and the `.Rproj` file). While you
-    could add and commit them all at once, we want you to do them one at
+    sequence by adding and committing *each* of the remaining files (or folders) in
+    your R project *one at a time* into the Git history. At the end, **all** of
+    your files and folders should be committed to the history.  While you could
+    add and commit them all at once, we want you to do them one at
     a time so you practice using this workflow.
     -   Make sure to write a meaningful and short message about what you
         added and why. In this case, the "why" is simply that you are
