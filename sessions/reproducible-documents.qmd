@@ -440,7 +440,7 @@ more `#` at the beginning of a line followed by some text. Headers
 should always be preceded and followed by an empty line:
 
 ::::: columns
-::: column
+::: {.column width="45%"}
 ``` markdown
 # Header 1
 
@@ -456,7 +456,7 @@ Paragraph.
 ```
 :::
 
-::: column
+::: {.column width="45%"}
 # Header 1 {.unnumbered}
 
 Paragraph.
@@ -528,22 +528,11 @@ And numbered lists look like:
 **Time: \~10 minutes.**
 
 Get some practice writing Markdown by completing these tasks in the
-`docs/learning.qmd` file.
+`docs/learning.qmd` file. Use this scaffold below to help guide you by 
+replacing the `___` with the instructions from above:
 
-1.  Create one level 2 header (`##`) called "About me" below the `setup`
-    code chunk.
-2.  Below this new level 2 header, insert a list (either numbered or
-    unnumbered) with your name and affiliation(s)/institution(s).
-3.  Below the list, write one or two simple sentences about yourself.
-    Include one word in **bold** and another in *italics*.
-4.  Create another level 2 header (`##`) called "Simple code".
-5.  Insert a code chunk below this level 2 header that multiplies
-    `3 * 3` and run it.
+````{.markdown filename="docs/learning.qmd"}
 
-Use this scaffold to help guide you by replacing the `___` with the
-instructions from above:
-
-```` markdown
 ## ___
 
 -   ___
@@ -559,7 +548,18 @@ ___
 ```
 ````
 
-When you are done, render the document to see how it looks.
+1.  Create one level 2 header (`##`) called "About me" below the `setup`
+    code chunk.
+2.  Below this new level 2 header, insert a list (either numbered or
+    unnumbered) with your name and affiliation(s)/institution(s).
+3.  Below the list, write one or two simple sentences about yourself.
+    Include one word in **bold** and another in *italics*.
+4.  Create another level 2 header (`##`) called "Simple code".
+5.  Insert a code chunk below this level 2 header by using 
+    {{< var keybind.chunk >}} that multiplies `3 * 3` and run by using 
+    {{< var keybind.run-code >}}.
+6.  Finally, render the document with {{< var keybind.render >}} to see
+    how it looks.
 
 {{< text_snippet sticky_up >}}
 
