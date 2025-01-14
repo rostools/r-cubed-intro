@@ -426,4 +426,4 @@ page continues more details about this.
     options to label and caption tables, and reference the table in the
     text with `@tbl-LABELNAME`.
 
-{{< text_snippet sticky_down >}}
+{{< include /includes/_code-appendix.qmd >}}
