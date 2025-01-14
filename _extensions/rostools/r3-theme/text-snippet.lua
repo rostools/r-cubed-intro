@@ -14,7 +14,9 @@ session.
 ]]
 
 local sticky_up = [[
-::: {.callout-tip appearance="default"}
+::: {.callout-important appearance="minimal"}
+## Sticky/hat up!
+
 When you're ready to continue, place the sticky/paper hat on your
 computer to indicate this to the instructor :womans_hat: :tophat:
 :::

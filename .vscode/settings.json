@@ -2,6 +2,7 @@
   "files.autoSave": "onFocusChange",
   "editor.tabSize": 2,
   "editor.wordWrap": "off",
+  "editor.formatOnSave": true,
   "git.autofetch": false,
   "quarto.visualEditor.markdownWrap": "column",
   "quarto.visualEditor.markdownWrapColumn": 72,
