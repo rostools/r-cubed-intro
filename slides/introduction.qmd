@@ -239,7 +239,7 @@ experiences, so there is a mix of novice and more experienced users.
 
 ::::: columns
 ::: column
--   Put the sticky/origami hats :hat: on your laptop to get help
+-   Put the sticky/origami hats :tophat: on your laptop to get help
 -   There are lots of helpers
 -   Table mates, try to help out too
 :::
@@ -255,7 +255,7 @@ experiences, so there is a mix of novice and more experienced users.
 
 # Activities {.center}
 
-## :walking_man::walking_woman: Who has used any other coding tool (like Stata)?
+## :walking_man::walking_woman: Who has used any other coding tool (like Stata)? {.center}
 
 ## :walking_man::walking_woman: Those who have used other coding tools, have you had formal training in "coding" in it? {.center}
 
@@ -275,6 +275,6 @@ Go to different sides of the room for "Yes" and "No"
 Arrange along the wall from beginner to advanced.
 :::
 
-## :chair: Ok, get back into your chairs :chair: {.center}
+## :chair: Ok, get back into your chairs {.center}
 
 # References
