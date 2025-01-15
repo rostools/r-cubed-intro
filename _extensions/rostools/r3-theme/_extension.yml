@@ -12,9 +12,6 @@ contributes:
         - quarto-ext/fontawesome
     html:
       highlight-style: a11y
-      fig-dpi: 72
-      fig-width: 5.5
-      fig-height: 5
       fig-align: center
       df-print: tibble
       code-link: true
