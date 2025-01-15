@@ -368,13 +368,16 @@ post_meal_data |>
 
 # Task 2.
 post_meal_data |>
-  ___(___(___), -___(___)) |>
+  ___(___(___), -___(___)) 
+
+# Task 3.
+post_meal_data |>
   ___(
     ___ = ___,
     ___ = ___
   )
 
-# Task 3.
+# Task 4.
 basic_info <- select(post_meal_data, id, BMI, Length, Weight, Age)
 rename(basic_info, Height = Length)
 ```
@@ -388,12 +391,15 @@ the template:
 1.  `select()` only columns that `contain()` the text `"OGTT"`. Run that
     code to get the output. How many columns are there?
 
-2.  `select()` columns that `contain()` the characters `".."` but
-    exclude `-` columns that `contain()` the characters `"..."`. Then,
-    rename those columns so that instead of `..`, they have `.minus5`.
+2.  `select()` columns that `contains()` the characters `".."` but
+    exclude `-` columns that `contains()` the characters `"..."`. 
+
+3.  Based on the columns from task 2 above, use `rename()` on those columns 
+    so that the `..` inside their name is `.minus`. You will need to type
+    out these column names, both the old and the new, manually.
     Recall that renaming is in the form `new = old`.
 
-3.  Read through (in your head) the code below `# Task 3.` above. How
+4.  Read through (in your head) the code below `# Task 4.` above. How
     intuitive is it to read? Now, re-write this code to use the pipe
     `|>` so that you don't need to create the temporary `basic_info`
     object, then re-read the revised version. Which do you feel is
@@ -414,13 +420,17 @@ post_meal_data |>
 
 # Task 2.
 post_meal_data |>
-  select(contains(".."), -contains("...")) |>
+  select(contains(".."), -contains("..."))
+
+# Task 3.
+post_meal_data |>
   rename(
     P.Glucose.minus5.OGTT = P.Glucose..5.OGTT,
     Insulin.minus5.OGTT.X = Insulin..5.OGTT.X
   )
 
-# Task 3.
+
+# Task 4.
 post_meal_data |>
   select(id, BMI, Length, Weight, Age) |>
   rename(Height = Length)
