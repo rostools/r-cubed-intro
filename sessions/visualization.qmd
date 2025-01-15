@@ -226,15 +226,24 @@ maintain a nice readable code and, two, there are some chunk options
 that only work with one figure. However, it is possible to show multiple
 graphs for instance side-by-side, as we will do later.
 
-Now we can add a caption for the plot with the option`#| fig-cap`. Let's
-add one as well as a figure label with `#| label` so we can reference it
-in the text by using `@fig-LABEL`. Figure labels **must** always start
-with `fig-`.
+In the same code chunk, we can add a caption for the plot with the option`#|
+fig-cap`. Let's add one as well as a figure label with `#| label` so we can
+reference it in the text by using `@fig-LABEL`. Figure labels **must** always
+start with `fig-`.
 
 <!-- TODO: Confirm this looks fine in the generated text -->
 
+```` {.markdown filename="docs/learning.qmd"}
+```{{r}}
+#| fig-cap: "Distribution of BMI."
+#| label: fig-bmi-histo
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
+```
+````
+
 ```{r bmi-histogram}
-#| echo: fenced
+#| echo: false
 #| fig-cap: "Distribution of BMI."
 #| label: fig-bmi-histo
 ggplot(post_meal_data, aes(x = BMI)) +
