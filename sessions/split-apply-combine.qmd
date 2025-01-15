@@ -18,10 +18,20 @@ tidied_post_meal_data <- post_meal_data |>
   )
 ```
 
-3.  Learn about and apply the "split-apply-combine" method of analyses,
-    with `group_by()` and `summarise()`.
+## Learning objectives
 
-    -   Calculate simple data summaries, with `summarise()`.
+This session's **overall learning outcome** is to:
+
+1.  Explain the split-apply-combine technique and use a combination of 
+    functions to use it, while outputting the results into report-friendly
+    tables.
+
+**Specific objectives** are to:
+
+1.  Describe the "split-apply-combine" method of analyses,
+    then use `group_by()` together with `summarise()` to calculate
+    summary statistics, by categorical variables.
+2.  Create tables of results in a document using `knitr::kable()`.
 
 ## :book: Reading task: Split-apply-combine to summarize data
 
@@ -243,6 +253,20 @@ tidied_post_meal_data |>
 ```
 ````
 
+```{r}
+#| label: tbl-mean-age-bmi
+#| tbl-cap: "Mean values of Age and BMI for each group."
+#| echo: false
+tidied_post_meal_data |>
+  group_by(Group) |>
+  summarise(
+    "Mean Age (yrs)" = round(mean(Age), 1),
+    "Mean BMI (kg/m^2)" = round(mean(BMI), 1)
+  ) |>
+  ungroup() |>
+  knitr::kable()
+```
+
 Then, when we use `@tbl-mean-age-bmi` in the text, it will reference the
 table like this: @tbl-mean-age-bmi, cool eh! Let's run `{styler}` using
 {{< var keybind.styler >}} and then render the document with
@@ -367,61 +391,12 @@ post_meal_data |>
 
 {{< text_snippet sticky_up >}}
 
-## :book: Reading task: Making your Quarto pretty!
-
-**Time: \~5 minutes**
-
-For HTML documents, customizing the appearance (e.g. fonts) is pretty
-easy, since you can add settings to the YAML header that will change the
-theme. There is a setting that you provide under `html` called `theme`,
-where multiple different themes can be used. These themes are listed on
-Quarto's [HTML
-Theming](https://quarto.org/docs/output-formats/html-themes.html) page.
-If we wanted to change a theme to something else, it would look like:
-
-``` {.yaml filename="docs/learning.qmd"}
----
-title: "Reproducible documents"
-format:
-  html:
-    theme: yeti
----
-```
-
-Notice the indentations and use of colons. YAML is an unstructured data
-format following the structure `key: value`. It's unstructured meaning
-you can have nested or sub-keys. Indentation tells YAML that the key is
-actually a sub-key of the key above. The key `theme` is a sub-key of
-`html`, which is a sub-key (an setting) of `format`. All the themes can
-be viewed directly on the [Bootswatch](https://bootswatch.com/) page.
-
-Modifying the theme and appearance of HTML documents is surprisingly
-easy for people with a bit of coding knowledge. Change the style of
-specific items in an HTML document is done with CSS, which is a bit like
-YAML as it provides data in a `key {subkey: value}` style pairing.
-That's not part of this course though.
-
-On the other hand, modifying the appearance of Word documents is more
-difficult. That's because Word doesn't allow it to be easily modified
-programmatically like HTML can, since both are plain text file while
-Word is *not* plain text, but a propriety format (`.docx`). So changing
-the appearance of the document itself requires that you manually create
-a Word template file first, manually point-and-click to modify the
-appearance, and then link to that template file with the `reference-doc`
-option in the YAML header (as a sub-key of `docx`). Quarto's [Word
-Templates](https://quarto.org/docs/output-formats/ms-word-templates.html)
-page continues more details about this.
-
-{{< text_snippet sticky_up >}}
-
 ## Summary
 
 -   Use the "split-apply-combine" technique with the functions
     `summarise()` and `group_by()` from the `{dplyr}` package to
     calculate summaries of your data.
 -   Make tables by using `knitr::kable()`
--   For HTML, choose different themes to personalize the appearance of
-    your Quarto output document.
 -   Use the `#| label: fig-LABELNAME` and `#| fig-cap: "CAPTION"`
     options to label and caption tables, and reference the table in the
     text with `@tbl-LABELNAME`.
