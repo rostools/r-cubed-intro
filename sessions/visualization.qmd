@@ -250,6 +250,11 @@ ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
+::: callout-tip
+You'll notice we use `""` quotes around the caption. A good general guideline is
+to use quotes for things that are natural languages, like English.
+:::
+
 Now when we reference the figure in the text, we can use
 `@fig-bmi-histo`, to look like this: @fig-bmi-histo.
 
