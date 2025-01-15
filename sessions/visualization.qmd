@@ -334,8 +334,7 @@ we could put either `Group` or `glykemi` on the x-axis, let's put
 
 ```{r two-discrete-variables}
 #| filename: "docs/learning.qmd"
-post_meal_data |>
-  ggplot(aes(x = Group, fill = glykemi)) +
+ggplot(post_meal_data, aes(x = Group, fill = glykemi)) +
   geom_bar()
 ```
 
@@ -347,8 +346,7 @@ the `aes()` function.
 
 ```{r two-discrete-variables-convert-to-character}
 #| filename: "docs/learning.qmd"
-post_meal_data |>
-  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+ggplot(post_meal_data, aes(x = Group, fill = as.character(glykemi))) +
   geom_bar()
 ```
 
@@ -367,8 +365,7 @@ side by side.
 
 ```{r}
 #| filename: "docs/learning.qmd"
-post_meal_data |>
-  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+ggplot(post_meal_data, aes(x = Group, fill = as.character(glykemi))) +
   geom_bar(position = position_dodge())
 ```
 
