@@ -28,7 +28,8 @@ This session's **overall learning outcome** is to:
     to use for certain data, like the barplot with mean and standard
     error.
 4.  Use the `geom_point()` and `geom_smooth()` functions to create a
-    scatterplot of two continuous variables.
+    scatterplot of two continuous variables, or `geom_bar()` for
+    showing counts of discrete variables.
 5.  Recognize the importance of writing readable code that follows a
     consistent style guide and use the `{styler}` package to help with
     that.
@@ -109,11 +110,12 @@ that relate to its "grammar":
 There is a massive amount of features in `{ggplot2}`. Thankfully,
 `{ggplot2}` was specifically designed to make it easy to find and use
 its functions and settings using tab auto-completion. To demonstrate
-this feature, try typing out `geom_` and then hitting `Tab`. You will
-get a list of all the geoms available. You can use this with `scale_` or
-the options inside `theme()`. Try typing out `theme(axis.` and then
-hitting `Tab`, and a list of theme settings related to the axis will pop
-up.
+this feature, try typing out `geom_` and you'll start seeing a menu pop-up 
+with a list of functions that start with `geom_`. You can then use the arrow 
+keys to move up and down the list and then hit either `Enter` or `Tab` to
+select the function. You can use this with `scale_` or the options inside
+`theme()`, for instance try typing out `theme(axis.` to see all options for the
+axis a list of theme settings related to the axis will pop up.
 
 So, why do we teach `{ggplot2}` and not base R plotting? Base R plotting
 functionality is quite good and you can make really nice
