@@ -37,8 +37,6 @@ This session's **overall learning outcome** is to:
     especially to those with colour blindness.
 3.  Use features of `{ggplot2}` to make plots that continue three or
     more variables in them, through the use of colours and facetting.
-4.  Use built-in themes in `{ggplot2}` to change the appearance of the
-    plot, as well as setting the axes labels and plot title.
 
 ## Piping your wrangling into plots
 
@@ -437,10 +435,10 @@ post_meal_data |>
 
 -   Pipe `|>` the output of your wrangling directly into making a plot
     to streamline your code.
+-   Use `geom_jitter()`, `geom_boxplot()`, or `geom_violin()` to show the
+    relationship between a continuous and a discrete variable.
 -   To plot more dimensions, use colour, the X axis, the Y axis, or
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
--   Use built-in themes in `{ggplot2}` to change the appearance of the
-    plot, as well as setting the axes labels and plot title.
 
 {{< include /includes/_code-appendix.qmd >}}
