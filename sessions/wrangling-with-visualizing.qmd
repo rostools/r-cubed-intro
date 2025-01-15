@@ -178,6 +178,30 @@ tidied_post_meal_data |>
 
 Which do you find more informative?
 
+We can modify the axis labels to have clearer descriptions by using the function `labs()`.
+To change the y-axis title, use the `y` argument in `labs()`.
+For the x-axis, it is `x`. Let's add x and y axis labels to our existing plot.
+
+```{r labels}
+#| filename: "docs/learning.qmd"
+tidied_post_meal_data |>
+  filter(BMI < 30) |>
+  mutate(young = if_else(Age < 40, "Young", "Old")) |>
+  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Group)) +
+  geom_point() +
+  facet_grid(rows = vars(young)) +
+  labs(
+    x = "Body mass index (BMI)",
+    y = "Insulin to glucose ratio"
+  )
+```
+
+When we run that with {{< var keybind.run-code >}}, we now have labels that are more descriptive!
+
+::: callout-tip
+To save the plot you created, you can use the `ggsave()` function.
+:::
+
 Before moving on, run `{styler}` with {{< var keybind.styler >}}, render
 the Quarto document with {{< var keybind.render >}}, and commit the
 changes to the Git history with {{< var keybind.git >}}. Lastly, push
@@ -408,69 +432,6 @@ post_meal_data |>
 ```
 
 {{< text_snippet sticky_up >}}
-
-## Titles, axis labels, and themes
-
-There are so many options in RStudio to modify a `{ggplot2}` figure.
-Almost all of them are found in the `theme()` function. We won't cover
-individual theme items, since the `?theme` help page and [ggplot2 theme
-webpage](https://ggplot2.tidyverse.org/reference/theme.html) already
-document `theme()` really well. Instead, we'll cover a few of the
-built-in themes, as well as setting the axes labels and plot title.
-We'll create a plot object to work with the different themes and setting
-labels that we'll call `base_scatterplot`. All built-in themes start
-with `theme_`.
-
-Create a new section header called `## Changing plot appearance` and
-make a new code chunk with {{< var keybind.chunk >}}, then copy the code
-below:
-
-```{r base-scatterplot}
-#| filename: "docs/learning.qmd"
-base_scatterplot <- tidied_post_meal_data |>
-  ggplot(aes(x = BMI, y = insulin_glucose_ratio, colour = Age)) +
-  geom_point() +
-  facet_grid(cols = vars(Group)) +
-  scale_color_viridis_c()
-base_scatterplot
-```
-
-Then, below that code, let's test out some of the built-in themes:
-
-```{r built-in-themes}
-base_scatterplot + theme_bw()
-base_scatterplot + theme_minimal()
-base_scatterplot + theme_classic()
-```
-
-Run each of these lines of code with {{< var keybind.run-code >}}.
-You'll see the different types of themes applied to the plot. Which do
-you prefer?
-
-To add labels such as axis titles to your plot, you can use the function
-`labs()`. To change the y-axis title, use the `y` argument in `labs()`.
-For the x-axis, it is `x`. For the whole plot, it is `title`. Add a new
-code chunk with {{< var keybind.chunk >}} and type:
-
-```{r labels}
-#| filename: "docs/learning.qmd"
-base_scatterplot +
-  labs(
-    title = "BMI, insulin-to-glucose ratio, and age by group",
-    y = "Insulin-to-glucose Ratio",
-    x = "BMI (kg/m2)"
-  )
-```
-
-These are some of the things you can do with the theming and labelling,
-but there is so much more! For now, we'll end this session. Style your
-code with {{< var keybind.styler >}}, render the document with
-{{< var keybind.render >}}, and commit the changes to the Git history
-with {{< var keybind.git >}}. Lastly, push the changes to GitHub.
-
-::: callout-tip
-To save the plot you created, you can use the `ggsave()` function.
-:::
 
 ## Summary
 
