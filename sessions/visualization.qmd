@@ -28,8 +28,8 @@ This session's **overall learning outcome** is to:
     to use for certain data, like the barplot with mean and standard
     error.
 4.  Use the `geom_point()` and `geom_smooth()` functions to create a
-    scatterplot of two continuous variables, or `geom_bar()` for
-    showing counts of discrete variables.
+    scatterplot of two continuous variables, or `geom_bar()` for showing
+    counts of discrete variables.
 5.  Recognize the importance of writing readable code that follows a
     consistent style guide and use the `{styler}` package to help with
     that.
@@ -39,17 +39,17 @@ This session's **overall learning outcome** is to:
 ::: {.callout-note collapse="true"}
 ## :teacher: Instructor note
 
-Because this is fairly short, you don't need to spend too much time going
-over it.
+Because this is fairly short, you don't need to spend too much time
+going over it.
 :::
 
 **Time: \~4 minutes**
 
 Making graphs in R is relatively easy compared to other programs and can
 be done with very little code. Because it takes a few lines of code to
-create multiple types of plots, it gives you some time to consider: *why*
-you are making them; whether the graph you've selected is the *most
-appropriate* for your data or results; and how you can design your
+create multiple types of plots, it gives you some time to consider:
+*why* you are making them; whether the graph you've selected is the
+*most appropriate* for your data or results; and how you can design your
 graphs to be as accessible and understandable as possible.
 
 To start, here are some tips for making a graph:
@@ -76,9 +76,9 @@ Guides website.
 ::: {.callout-note collapse="true"}
 ## :teacher: Instructor note
 
-Emphasize the "layers" aspect of `{ggplot2}`, as well as the `geom_`
-and `aes()` parts, since that is what we will mostly cover. Then 
-emphasize the part about why `{ggplot2}` is so powerful.
+Emphasize the "layers" aspect of `{ggplot2}`, as well as the `geom_` and
+`aes()` parts, since that is what we will mostly cover. Then emphasize
+the part about why `{ggplot2}` is so powerful.
 :::
 
 **Time: \~6 minutes**
@@ -110,12 +110,13 @@ that relate to its "grammar":
 There is a massive amount of features in `{ggplot2}`. Thankfully,
 `{ggplot2}` was specifically designed to make it easy to find and use
 its functions and settings using tab auto-completion. To demonstrate
-this feature, try typing out `geom_` and you'll start seeing a menu pop-up 
-with a list of functions that start with `geom_`. You can then use the arrow 
-keys to move up and down the list and then hit either `Enter` or `Tab` to
-select the function. You can use this with `scale_` or the options inside
-`theme()`, for instance try typing out `theme(axis.` to see all options for the
-axis a list of theme settings related to the axis will pop up.
+this feature, try typing out `geom_` and you'll start seeing a menu
+pop-up with a list of functions that start with `geom_`. You can then
+use the arrow keys to move up and down the list and then hit either
+`Enter` or `Tab` to select the function. You can use this with `scale_`
+or the options inside `theme()`, for instance try typing out
+`theme(axis.` to see all options for the axis a list of theme settings
+related to the axis will pop up.
 
 So, why do we teach `{ggplot2}` and not base R plotting? Base R plotting
 functionality is quite good and you can make really nice
@@ -226,10 +227,10 @@ maintain a nice readable code and, two, there are some chunk options
 that only work with one figure. However, it is possible to show multiple
 graphs for instance side-by-side, as we will do later.
 
-In the same code chunk, we can add a caption for the plot with the option`#|
-fig-cap`. Let's add one as well as a figure label with `#| label` so we can
-reference it in the text by using `@fig-LABEL`. Figure labels **must** always
-start with `fig-`.
+In the same code chunk, we can add a caption for the plot with the
+option`#| fig-cap`. Let's add one as well as a figure label with
+`#| label` so we can reference it in the text by using `@fig-LABEL`.
+Figure labels **must** always start with `fig-`.
 
 <!-- TODO: Confirm this looks fine in the generated text -->
 
@@ -251,8 +252,9 @@ ggplot(post_meal_data, aes(x = BMI)) +
 ```
 
 ::: callout-tip
-You'll notice we use `""` quotes around the caption. A good general guideline is
-to use quotes for things that are natural languages, like English.
+You'll notice we use `""` quotes around the caption. A good general
+guideline is to use quotes for things that are natural languages, like
+English.
 :::
 
 Now when we reference the figure in the text, we can use
@@ -271,10 +273,14 @@ continuous variables, but not for discrete variables. Sadly, there's
 really only one: `geom_bar()`. This isn't a geom for a barplot though;
 instead, it shows the counts of a discrete variable. There aren't too
 many discrete variables our dataset, only `Group` and `glykemi`, so
-let's use this geom to visualize those. Complete these tasks in the
-`docs/learning.qmd`, using this code below as a template:
+let's use this geom to visualize those.
 
-````{.markdown filename="docs/learning.qmd"}
+For this exercise, create a new header at the bottom of the
+`docs/learning.qmd` file called `## Exercise: discrete plots`. Then,
+copy the below code chunk template and paste it below the header.
+Complete the tasks below on this template.
+
+```` {.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| fig-cap: "___"
 #| label: fig-___
@@ -285,21 +291,18 @@ ggplot(post_meal_data, aes(x = ___)) +
 See @fig-___ above for a cool plot!
 ````
 
-1.  Create a new header at the bottom of the file called
-    `## Exercise: discrete plots`.
-2.  Copy and paste the above template code chunk to below your header.
-3.  Decide on either `Group` or `glykemi` to plot on the `x` axis in the
+1.  Decide on either `Group` or `glykemi` to plot on the `x` axis in the
     `aes()` function, replacing the `___` with the one you chose.
-4.  Replace the `___` below the `ggplot()` function with `geom_bar()`.
-5.  Add a caption to the plot with `#| fig-cap` where the `___` is
+2.  Replace the `___` below the `ggplot()` function with `geom_bar()`.
+3.  Add a caption to the plot with `#| fig-cap` where the `___` is
     placed.
-6.  Add a label in the `#| label` option section, again, replacing the
+4.  Add a label in the `#| label` option section, again, replacing the
     `fig-___` with a label that describes the plot, like `fig-group-bar`
-7.  Replace the `___` under the code chunk where the `@fig-` reference
+5.  Replace the `___` under the code chunk where the `@fig-` reference
     is with the label you chose in the plot (like `@fig-group-bar`).
-8.  Render the document with {{< var keybind.render >}} to see the plot
+6.  Render the document with {{< var keybind.render >}} to see the plot
     you created.
-9.  Add and commit the changes you've made into the Git history with
+7.  Add and commit the changes you've made into the Git history with
     {{< var keybind.git >}}.
 
 ```{r solution-discrete-variables}
@@ -307,7 +310,8 @@ See @fig-___ above for a cool plot!
 #| eval: false
 #| code-fold: true
 #| code-summary: '**Click for the solution**. Only click if you are struggling or are out of time.'
-#| fig-cap: "___"
+# This is a potential solution
+#| fig-cap: "Distribution of glykemi."
 #| label: fig-glykemi-bar
 ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
