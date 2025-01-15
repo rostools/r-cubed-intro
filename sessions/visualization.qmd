@@ -389,6 +389,7 @@ write out the same code for the figures from above.
 
 ```{r one-after-the-other-figs}
 #| filename: "docs/learning.qmd"
+#| results: hold
 ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 
