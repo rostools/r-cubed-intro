@@ -288,7 +288,7 @@ template, complete each of the items below.
 ````{.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-___
-#| fig-cap: "___"
+#| tbl-cap: "___"
 post_meal_data |>
   # Task 2.
   ___(BMI < 30) |>
@@ -361,7 +361,7 @@ See @tbl-___, very nice table! :D
 #| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
 # Code might look like this:
 #| label: tbl-summary-table
-#| fig-cap: "Median values of AUC measurements by age group and family history group."
+#| tbl-cap: "Median values of AUC measurements by age group and family history group."
 post_meal_data |>
   # Task 2.
   filter(BMI < 30) |>
