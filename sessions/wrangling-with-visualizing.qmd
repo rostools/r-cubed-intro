@@ -400,8 +400,8 @@ to use below.
     well, we are using the `colour =` argument. The `_c` at the end
     indicates the variable are continuous.
 
-4.  Similar to task 2 above, use the `option` argument to set the
-    palette to `"inferno"` and see how the colour changes. Select which
+4.  Similar to task 2 above, use the `option = "inferno"` argument to set the
+    palette and see how the colour changes. Select which
     colour scheme you would like.
 
 Once you are done, style your code with `{styler}` using
