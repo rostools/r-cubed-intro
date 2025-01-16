@@ -747,7 +747,7 @@ post_meal_data |>
 ```
 
 1.  Use `filter()` to find how many participants have a BMI of more than
-    or equal to 20 *and* less than or equal to 40, *and* are in the
+    or equal to 25 *and* less than or equal to 40, *and* are in the
     "FDR" `Group`. How many are there?
 
 2.  Create a `percent_body_fat` column with `mutate()` by dividing the
