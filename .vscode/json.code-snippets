@@ -62,7 +62,7 @@
       "",
       "${1:Text body}",
       "",
-      "{{< include ../includes/_sticky_up.qmd >}}",
+      "{{< text_snippet sticky_up >}}",
       ":::",
     ],
     "description": "Insert reading task section."
