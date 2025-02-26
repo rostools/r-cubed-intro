@@ -23,7 +23,7 @@ computer to indicate this to the instructor :womans_hat: :tophat:
 ]]
 
 local faq_text = [[
-Throughout the many times we've taught this course and others, we
+Throughout the many times we've taught this and other workshops we
 get asked a lot of questions. We have a [Frequently Asked
 Questions](https://guides.rostools.org/faq) page for keeping track of
 some of these questions. Check out this page, maybe your question has
@@ -55,7 +55,7 @@ a code chunk. The code below also includes the code from the exercises.
 ]]
 
 local discord_text = [[
-If you want to get help virtually or after the course, you can join the
+If you want to get help virtually or after the workshop, you can join the
 [Discord channel](https://discord.gg/WKyTF5yXBJ) where you can ask questions
 in the `questions-or-advice` text channel.
 ]]
