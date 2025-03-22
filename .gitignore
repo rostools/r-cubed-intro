@@ -8,6 +8,7 @@
 _ignore
 bin/
 dev/
+_temp/
 
 # Temporary files
 *.tmp
