@@ -38,6 +38,8 @@
       "**Time: ~${1:Minutes} minutes.**",
       "",
       "${2:Text}",
+      "",
+      "{{< text_snippet sticky_up >}}",
     ],
     "description": "Insert a hands-on coding exercise section."
   },
@@ -57,7 +59,7 @@
     "scope": "quarto,markdown",
     "prefix": "reading",
     "body": [
-      "## :book: Reading task: ~${0:Title}",
+      "## :book: Reading task: ${0:Title}",
       "",
       "**Time: ~${1:Minutes} minutes.**",
       "",
