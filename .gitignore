@@ -9,6 +9,7 @@ _ignore
 bin/
 dev/
 _temp/
+/.luarc.json
 
 # Temporary files
 *.tmp
