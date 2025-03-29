@@ -1,19 +1,18 @@
-We will explain this a bit during the workshop, but read this to start
-learning how the website is structured and how to read certain things.
-Specifically, there are a few "syntax" type formatting of the text in
-this website to be aware of:
+We will explain this a bit more during the workshop, but read this
+section to know how to read certain things on the website. Specifically,
+there are a few "syntax" type formatting of text on the website to know
+about:
 
 -   Folder names always end with a `/`, for example `data/` means the
     data folder.
--   File names always end with their file extension, for example `content.md`
-    means the file is a Markdown file.
+-   File names always end with their file extension, for example
+    `content.md` means the file is a Markdown file.
 -   R variables are always shown as is. For instance, for the code
     `x <- 10`, `x` is a variable because it was assigned with 10.
 -   Functions always end with `()`, for instance `mean()` or
     `read_csv()`.
--   Sometimes functions have their package name appended with `::` to
-    indicate to run the code from the specific package, since we likely
+-   Sometimes functions have their package name appended with `::` so
+    that you run the code from the specific package, since we likely
     haven't loaded the package with `library()`. For instance, to
     install packages from GitHub using the `{pak}` package we use
-    `pak::pkg_install("user/packagename")`. You'll learn about this more
-    later.
+    `pak::pak("user/packagename")`. You'll learn about this more later.

@@ -1,7 +1,7 @@
-The first thing to do is to install these programs. You may already have
-some of them installed and if you do, please make sure that they are at
-least the minimum versions listed below. If not, you will need to update
-them.
+In order to participate in the workshop, you'll need to install these
+programs. You may already have some of them installed and if you did,
+please make sure that they are at least the minimum versions listed
+below. If not, you will need to update them.
 
 ::: panel-tabset
 ### Windows
@@ -15,10 +15,10 @@ them.
     you have installed it before, check the current version by going to
     the menu `Help -> About RStudio`.
 3.  [Git](https://git-scm.com/download/win): Select the "Click here to
-    download" link. Git is used throughout many sessions in the courses.
-    When installing, it will ask for a selecting a "Text Editor" and
-    while we won't be using this in the course, Git needs to know this
-    information so choose Notepad.
+    download" link. Git is used throughout many sessions in the
+    workshop. When installing, it will ask for a selecting a "Text
+    Editor" and while we won't be using this in the workshop, Git needs
+    to know this information so choose Notepad.
 4.  [Rtools](https://cran.r-project.org/bin/windows/Rtools/): Version
     that says "R-release". Rtools is needed in order to build some R
     packages. For some computers, installing Rtools can take some time.
@@ -45,7 +45,7 @@ them.
     ```
 
 3.  [Git](https://git-scm.com/download/mac): Git is used throughout many
-    sessions in the courses. With Homebrew:
+    sessions in the workshop. With Homebrew:
 
     ``` bash
     brew install git
@@ -68,17 +68,17 @@ them.
     the menu `Help -> About RStudio`.
 
 3.  [Git](https://git-scm.com/download/mac): Git is used throughout many
-    sessions in the courses.
+    sessions in the workshop.
 
     ``` bash
     sudo apt install git
     ```
 :::
 
-All these programs are required for the course, even Git. Git, which is
-a software program to formally manage versions of files, is used because
-of it's popularity and the amount of documentation available for it.
-Check out the online book [Happy Git with
+All these programs are required for the workshop, even Git. Git, which
+is a software program to formally manage versions of files, is used
+because of it's popularity and the amount of documentation available for
+it. Check out the online book [Happy Git with
 R](https://happygitwithr.com/), especially the "Why Git" section, for an
 understanding on why we are teaching Git. Windows users tend to have
 more trouble with installing Git than macOS or Linux users. See the
@@ -89,8 +89,8 @@ for help.
 ::: {.callout-note appearance="default"}
 Some pictures may show a Git pane in RStudio, but you may not see it. If
 you haven't created or opened an RStudio R Project (which is taught in
-the introductory course), the Git pane *does not* show up. It only shows
-up in R Projects that use Git to track file changes.
+the introductory workshop), the Git pane *does not* show up. It only
+shows up in R Projects that use Git to track file changes.
 :::
 
 ::: {.callout-note appearance="default"}
@@ -99,26 +99,26 @@ administrative privileges*: You may encounter problems installing
 software due to administrative reasons (e.g. you don't have permission
 to install things). Even if you have issues installing or updating the
 latest version of R or RStudio, you will likely be able to continue with
-the course as long as you have the minimum version listed above for R
+the workshop as long as you have the minimum version listed above for R
 and for RStudio. If you have versions of R and RStudio that are older
 than that, you may need to ask your IT department to update your
 software if you can't do this yourself. Unfortunately, Git is not a
 commonly used software for some organizations, so you may not have it
 installed and you *will* need to ask IT to install it. We *require* it
-for the course, so please make sure to give IT enough time to be able to
-install it for you prior to the course.
+for the workshop, so please make sure to give IT enough time to be able
+to install it for you prior to the workshop.
 :::
 
 Once R, RStudio, and Git have been installed, open RStudio. *If you
-encounter any troubles during these pre-course tasks*, try as best as
+encounter any troubles during these pre-workshop tasks*, try as best as
 you can to complete the task and then let us know about the issues in
-the pre-course survey of the course. If you continue having problems,
-indicate on the survey that you need help and we can try to book a quick
-video call to fix the problem. Otherwise, you can come to the course
-15-20 minutes earlier to get help.
+the pre-workshop survey. If you continue having problems, indicate on
+the survey that you need help and we can try to book a quick video call
+to fix the problem. Otherwise, you can come to the workshop 15-20
+minutes earlier to get help.
 
 If you're unable to complete the setup procedure due to unfixable
 technical issues, you can use Posit Cloud (to use RStudio on the cloud)
-as a final solution in order to participate in the course. For help
-setting up Posit Cloud for this course, refer to the [Posit Cloud setup
-guide](https://guides.rostools.org/posit-cloud).
+as a final solution in order to participate in the workshop. For help
+setting up Posit Cloud for this workshop, refer to the [Posit Cloud
+setup guide](https://guides.rostools.org/posit-cloud).
