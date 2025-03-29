@@ -53,9 +53,6 @@ contributes:
     crossref:
       chapters: true
 
-    execute:
-      freeze: auto
-
     knitr:
       opts_chunk:
         R.options:
