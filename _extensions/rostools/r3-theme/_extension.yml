@@ -38,7 +38,7 @@ contributes:
 
     book:
       navbar:
-        logo: "favicon.ico"
+        logo: "favicon-white.ico"
         logo-alt: "Graphic of a capital R with a 3 as a superscript."
         search: true
         pinned: true
@@ -52,9 +52,6 @@ contributes:
     citation-location: margin
     crossref:
       chapters: true
-
-    execute:
-      freeze: auto
 
     knitr:
       opts_chunk:
