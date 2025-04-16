@@ -1,0 +1,16 @@
+::: {.callout-tip appearance="minimal" icon="false" collapse="true"}
+## Code used in section
+
+This lists *some*, but not all, of the code used in the section. Some
+code is incorporated into Markdown content, so is harder to
+automatically list here in a code chunk. The code below also includes
+the code from the exercises.
+
+<!-- The stringr subset removes code chunks that aren't shown or typed by the learner. -->
+
+```{r code-appendix}
+#| echo: true
+#| eval: false
+#| ref-label: !expr stringr::str_subset(knitr::all_labels(), "^(unnamed-chunk-.*|purl-only-.*|setup|admin-.*|fig-.*)", negate = TRUE)
+```
+:::
