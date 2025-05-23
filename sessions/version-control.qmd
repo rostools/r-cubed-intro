@@ -230,7 +230,7 @@ sure you don't save personal data in the Git history. Personal sensitive
 data should be stored in a *secure location* and should *only* be
 accessed in the R Project by loading it from that secure location.
 
-```         
+```
 LearningR
 ├── .git/ <-- Git repository stored here
 ├── R/

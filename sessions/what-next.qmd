@@ -118,4 +118,3 @@ support! Starring will save it to a list of repositories you like that
 you can easily find again, plus it helps give our project more
 visibility!
 :::
-

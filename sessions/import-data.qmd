@@ -53,7 +53,7 @@ are listed below. *Don't run these code, just read for now*.
 3.  If the dataset is a `.rda` file, use `load()`:
 
     ``` r
-    load(here::here("data/dataset_name.rda"))    
+    load(here::here("data/dataset_name.rda"))
     ```
 
     This loads the dataset into your R session so that you can use it
@@ -247,7 +247,7 @@ saved in*, e.g. in the `docs/` folder. So your file path
 `data/post-meal-insulin.csv` won't work because there isn't a folder
 called `data/` in the `docs/` folder.
 
-```         
+```
 LearningR <-- R Project working directory starts here.
 ├── R
 │   └── README.md

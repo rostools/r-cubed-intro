@@ -22,7 +22,7 @@ tidied_post_meal_data <- post_meal_data |>
 
 This session's **overall learning outcome** is to:
 
-1.  Explain the split-apply-combine technique and use a combination of 
+1.  Explain the split-apply-combine technique and use a combination of
     functions to use it, while outputting the results into report-friendly
     tables.
 
