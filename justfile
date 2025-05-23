@@ -1,36 +1,27 @@
 @_default:
-    just --list --unsorted
+  just --list --unsorted
 
 # Run all recipes
-run-all: install-dependencies spell-check style build-site 
+run-all: install-dependencies check-spelling style build-website
 
 # Install package dependencies
 install-dependencies:
   #!/usr/bin/Rscript
   pak::pak(ask = FALSE)
 
-# Check spelling of Markdown files
-spell-check:
-  #!/usr/bin/Rscript
-  files <- fs::dir_ls(here::here(), recurse = TRUE, regexp = "*\\.(md|qmd|Rmd)")
-  dictionary_file <- here::here("includes/dictionary.txt")
-  ignore_words <- character()
-  if (fs::file_exists(dictionary_file))
-    ignore_words <- readLines(dictionary_file)
-  spelling::spell_check_files(
-    files,
-    ignore_words,
-    lang = "en_GB"
-  )
+# Check spelling
+check-spelling:
+  uvx typos
 
 # Style all R code
 style:
-  #!/usr/bin/Rscript
-  styler::style_dir(
-    here::here(),
-    exclude_dirs = c(".quarto", "_extensions"),
-  )
+  # Need to install air first
+  air format .
 
 # Build Quarto website
-build-site:
+build-website:
   quarto render
+
+# Installs the pre-commit hooks, if not done already
+install-pre-commit:
+  uvx pre-commit install
