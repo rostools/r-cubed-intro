@@ -1,9 +1,8 @@
-We will explain this a bit during the lessons, but read this to start
-learning how the website is structured and how to read certain things.
-Specifically, there are a few "syntax" type formatting of the text in
-this website to be aware of:
+We try to be consistent with the way to present certain information in
+this website. Specifically, there are a few "syntax" type formatting of
+the text to know about:
 
--   Folder names always end with a `/`, for example `data/` means the
-    data folder.
--   File names always end with their file extension, for example `content.md`
-    means the file is a Markdown file.
+-   Folder names always end with `/`, for example `data/` means the data
+    folder.
+-   File names always end with their file extension, for example
+    `content.md` means the file is a Markdown file.
