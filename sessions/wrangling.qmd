@@ -184,9 +184,9 @@ select(post_meal_data, contains("0"))
 Now that we've tested how to use `select()`, let's simplify our dataset
 a bit. While our data doesn't have too many rows, there are a lot of
 columns to deal with, at least for this course. Let's keep only a few
-columns for now, so it is easier to look at and explore. 
+columns for now, so it is easier to look at and explore.
 
-Since we want 
+Since we want
 this code to run every time we restart this Quarto document, we should put it into the `setup` code chunk.
 Go to the `setup` code chunk and at the bottom of it, add the following code:
 
@@ -195,7 +195,7 @@ Go to the `setup` code chunk and at the bottom of it, add the following code:
 small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_ins, glykemi)
 ```
 
-Run the code with {{< var keybind.run-code >}} to assign the object, 
+Run the code with {{< var keybind.run-code >}} to assign the object,
 then in the **Console**, check what it looks like by typing out the newly
 created object there:
 
@@ -269,9 +269,9 @@ intermediate object with reference to the object before it. The pipe
 `|>` operator can really simplify this:
 
 ``` r
-at_work |> 
-    drive("grocery store") |> 
-    buy("eggs") |> 
+at_work |>
+    drive("grocery store") |>
+    buy("eggs") |>
     drive("home")
 ```
 
@@ -368,7 +368,7 @@ post_meal_data |>
 
 # Task 2.
 post_meal_data |>
-  ___(___(___), -___(___)) 
+  ___(___(___), -___(___))
 
 # Task 3.
 post_meal_data |>
@@ -392,9 +392,9 @@ the template:
     code to get the output. How many columns are there?
 
 2.  `select()` columns that `contains()` the characters `".."` but
-    exclude `-` columns that `contains()` the characters `"..."`. 
+    exclude `-` columns that `contains()` the characters `"..."`.
 
-3.  Based on the columns from task 2 above, use `rename()` on those columns 
+3.  Based on the columns from task 2 above, use `rename()` on those columns
     so that the `..` inside their name is `.minus`. You will need to type
     out these column names, both the old and the new, manually.
     Recall that renaming is in the form `new = old`.
@@ -618,7 +618,7 @@ the level of glucose in the blood is higher than normal, but not high
 enough to be diagnosed as diabetes. This is set as `0` and `1`, likely
 meaning "normal" and "high". Since there are so few of them, we'll just
 remove them for now. We'll also remove the `glykemi` column since we
-don't need it anymore. 
+don't need it anymore.
 
 Since we want this code available to us easily, let's put it into the
 `setup` code chunk. Go to the `setup` code chunk and at the bottom of it,
@@ -742,7 +742,7 @@ post_meal_data |>
 post_meal_data |>
   ___(
     ___ = (___ / ___) * 100
-  ) |> 
+  ) |>
   ___(___ > ___)
 ```
 

@@ -165,7 +165,7 @@ You've now created a HTML document! Let's try making a Word document.
 Change the YAML value in the key `format:` from `html` to `docx`. Then
 render the document again with the "Render" button or with the
 keybinding {{< var keybind.render >}}. A Word document should open up if
-you have a Word processer installed. This is the basic approach to
+you have a Word processor installed. This is the basic approach to
 creating documents from Quarto.
 
 ## RStudio layout and usage
@@ -528,7 +528,7 @@ And numbered lists look like:
 **Time: \~10 minutes.**
 
 Get some practice writing Markdown by completing these tasks in the
-`docs/learning.qmd` file. Use this scaffold below to help guide you by 
+`docs/learning.qmd` file. Use this scaffold below to help guide you by
 replacing the `___` with the instructions from above:
 
 ````{.markdown filename="docs/learning.qmd"}
@@ -555,8 +555,8 @@ ___
 3.  Below the list, write one or two simple sentences about yourself.
     Include one word in **bold** and another in *italics*.
 4.  Create another level 2 header (`##`) called "Simple code".
-5.  Insert a code chunk below this level 2 header by using 
-    {{< var keybind.chunk >}} that multiplies `3 * 3` and run by using 
+5.  Insert a code chunk below this level 2 header by using
+    {{< var keybind.chunk >}} that multiplies `3 * 3` and run by using
     {{< var keybind.run-code >}}.
 6.  Finally, render the document with {{< var keybind.render >}} to see
     how it looks.

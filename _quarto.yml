@@ -1,9 +1,9 @@
 project:
   type: r3-theme
-  pre-render: 
+  pre-render:
     - cp common.R .Rprofile
     - quarto render slides/*.qmd
-  post-render: 
+  post-render:
     - rm .Rprofile
   resources:
     - videos/*
@@ -77,4 +77,3 @@ format:
 
 execute:
   warning: false
-

@@ -59,7 +59,7 @@ In this course, our **ultimate goal** is to:
 
 -   Create a project that has a report (in HTML or Word) where you
     reproducibly import some data, process it a bit, and create some
-    figures and tables, all done in a way that makes it easier for you 
+    figures and tables, all done in a way that makes it easier for you
     and others to collaborate together.
 
 In the end, we're aiming for:
@@ -162,4 +162,3 @@ you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
     out a lot, since one of the biggest "troubleshooting issues" we
     encounter when helping during the version control session is that
     people forget to save. This solves that problem.
-

@@ -1,7 +1,7 @@
 ::: {.callout-tip appearance="minimal" icon="false" collapse="true"}
 ## Code used in section
 
-This lists *some*, but not all, of the code used in the section. Some code is 
+This lists *some*, but not all, of the code used in the section. Some code is
 incorporated into Markdown content, so is harder to automatically list here in
 a code chunk. The code below also includes the code from the exercises.
 

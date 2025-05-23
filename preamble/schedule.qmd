@@ -1,9 +1,9 @@
 ---
-execute: 
+execute:
   echo: false
   eval: true
 format:
-  r3-theme-html: 
+  r3-theme-html:
     tbl-colwidths: [30, 70]
 ---
 

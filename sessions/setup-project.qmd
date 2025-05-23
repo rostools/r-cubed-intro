@@ -120,7 +120,7 @@ There are many ways one could organise a project folder. We'll be
 setting up a project folder and file structure using `{prodigenr}`.
 We'll use RStudio's "New Project" menu item under:
 
-```         
+```
 File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
 ```
 
@@ -144,7 +144,7 @@ prodigenr::setup_project("~/Desktop/LearningR")
 After we've created a New Project in RStudio, we'll have a bunch of new
 files and folders.
 
-```         
+```
 LearningR
 ├── .git/
 ├── R/
@@ -182,13 +182,13 @@ an R project, you need to open it using the `.Rproj` file.
 A project can be opened by either double clicking on the `.Rproj` from
 your file browser or from the file prompt within R Studio:
 
-```         
+```
 File -> Open Project
 ```
 
 or
 
-```         
+```
 File -> Recent Project.. -> LearningR
 ```
 
@@ -231,7 +231,7 @@ bad things you might notice.file naming. Which file names are good names
 and which aren't? We'll briefly discuss them afterwards about why some
 are good names and others are not.
 
-```         
+```
 fit models.R
 fit-models.R
 foo.r
@@ -266,7 +266,7 @@ Unfortunately, computers rarely warn you or encourage you to not use
 spaces, so it's up to you to remember to not use them. Instead of
 spaces, use `-` or `_` to separate words in a file name.
 
-```         
+```
 # Bad: Has a space.
 fit models.R
 Thesis version 10.docx
@@ -291,7 +291,7 @@ have to open it to find out. This can waste a lot of time for you in the
 future and for others when they look at your project. So, make sure to
 name your file to briefly describe what it contains or what it does.
 
-```         
+```
 # Bad: Not descriptive.
 foo.r
 stuff.r
@@ -312,7 +312,7 @@ Computers often use `.` dots to indicate the file extension or file
 type. So, when you name files, don't use dots in the name unless the
 text after the dot is the file extensions.
 
-```         
+```
 # Bad: Using dots
 trying.something.here.R
 ```
