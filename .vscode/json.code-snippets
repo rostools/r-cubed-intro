@@ -69,16 +69,16 @@
     ],
     "description": "Insert reading task section."
   },
-  "Insert instructor note": {
+  "Insert teacher note": {
     "scope": "quarto,markdown",
-    "prefix": "instructor_note",
+    "prefix": "teacher_note",
     "body": [
       "::: {.callout-note collapse=\"true\"}",
-      "## :teacher: Instructor note",
+      "## :teacher: Teacher note",
       "",
       "${0:Text body}",
       ":::",
     ],
-    "description": "Insert instructor note that is a Quarto callout note block."
+    "description": "Insert teacher note that is a Quarto callout note block."
   }
 }
