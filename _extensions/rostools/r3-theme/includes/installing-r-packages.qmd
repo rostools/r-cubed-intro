@@ -1,5 +1,5 @@
 ```{=html}
-<!-- 
+<!--
 Need to set a project or document level "workshop_level" variable:
 
 So far, can only be:

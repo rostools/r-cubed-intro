@@ -1,5 +1,4 @@
-::: {.callout-tip appearance="minimal" icon="false" collapse="true"}
-## Code used in section
+## Code used in session
 
 This lists *some*, but not all, of the code used in the section. Some
 code is incorporated into Markdown content, so is harder to
@@ -13,4 +12,3 @@ the code from the exercises.
 #| eval: false
 #| ref-label: !expr stringr::str_subset(knitr::all_labels(), "^(unnamed-chunk-.*|purl-only-.*|setup|admin-.*|fig-.*)", negate = TRUE)
 ```
-:::

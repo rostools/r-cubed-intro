@@ -18,8 +18,8 @@ contributes:
       code-overflow: scroll
       from: markdown+emoji
       theme:
+        - brand
         - yeti
-        - custom-site.scss
 
     revealjs:
       embed-resources: true
@@ -40,8 +40,10 @@ contributes:
       navbar:
         logo: "favicon-white.ico"
         logo-alt: "Graphic of a capital R with a 3 as a superscript."
-        search: true
         pinned: true
+      search:
+        location: navbar
+        type: textbox
       favicon: "favicon.ico"
       repo-branch: main
       repo-actions: [edit, issue, source]
@@ -57,3 +59,5 @@ contributes:
       opts_chunk:
         R.options:
           width: 72
+
+    brand: _brand.yml

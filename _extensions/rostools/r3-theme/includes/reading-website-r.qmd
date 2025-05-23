@@ -15,4 +15,4 @@ about:
     that you run the code from the specific package, since we likely
     haven't loaded the package with `library()`. For instance, to
     install packages from GitHub using the `{pak}` package we use
-    `pak::pak("user/packagename")`. You'll learn about this more later.
+    `pak::pak("user/package_name")`. You'll learn about this more later.

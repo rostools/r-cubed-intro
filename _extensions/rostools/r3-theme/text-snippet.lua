@@ -1,6 +1,6 @@
 local review_note = [[
 ::: {.callout-note appearance="minimal" collapse="true"}
-## :teacher: Instructor note
+## :teacher: Teacher note
 
 Before beginning, get them to recall what they remember of the previous
 session, either with something like Mentimeter, verbally, or using hands
@@ -18,7 +18,7 @@ local sticky_up = [[
 ## Sticky/hat up!
 
 When you're ready to continue, place the sticky/paper hat on your
-computer to indicate this to the instructor :womans_hat: :tophat:
+computer to indicate this to the teacher :womans_hat: :tophat:
 :::
 ]]
 
