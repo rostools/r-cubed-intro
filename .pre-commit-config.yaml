@@ -1,0 +1,22 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+ci:
+  autofix_commit_msg: "chore(pre-commit): :pencil2: automatic fixes"
+  autoupdate_commit_msg: "ci(pre-commit): :construction_worker: update pre-commit CI version"
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.7.0
+    hooks:
+      - id: commitizen
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.32.0
+    hooks:
+      - id: typos
