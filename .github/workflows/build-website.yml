@@ -1,4 +1,4 @@
-name: Build website for R-based educational material 
+name: Build website for R-based educational material
 
 on:
   push:
