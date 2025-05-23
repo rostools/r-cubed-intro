@@ -21,23 +21,15 @@
   ],
   "conventional-branch.format": "{Type}/{Branch}",
   "files.insertFinalNewline": true,
-  "cSpell.enabledFileTypes": {
-    "quarto": true
-  },
-  "cSpell.language": "en,en-GB",
   "conventionalCommits.scopes": [
     "preamble",
     "sessions",
     "appendix"
   ],
-  "cSpell.customDictionaries": {
-    "project-words": {
-      "name": "repo-words",
-      "path": "${workspaceRoot}/includes/dictionary.txt",
-      "description": "Words used in this repository.",
-      "addWords": true
-    },
-    "custom": true, // Enable the `custom` dictionary
-    "internal-terms": false // Disable the `internal-terms` dictionary
-  }
+  "[r]": {
+    "editor.formatOnSave": true
+  },
+  "[quarto]": {
+    "editor.formatOnSave": true
+  },
 }
