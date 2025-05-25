@@ -1,5 +1,6 @@
 keybind:
   palette: '{{< kbd Ctrl-Shift-P >}}'
+  open-file: "{{< kbd Ctrl-. >}}"
   git: '{{< kbd Ctrl-Alt-M >}} or with the Palette ({{< var keybind.palette >}}, then type "commit")'
   chunk: '{{< kbd Ctrl-Alt-I >}} or with the Palette ({{< var keybind.palette >}}, then type "new chunk")'
   restart-r: '{{< kbd Ctrl-Shift-F10 >}} or with the Palette ({{< var keybind.palette >}}, then type "restart")'
