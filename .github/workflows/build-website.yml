@@ -1,11 +1,17 @@
-name: Build website for R-based educational material
+name: Build website
 
 on:
   push:
-    branches: main
+    branches:
+      - main
+
+# Limit token permissions for security
+permissions: read-all
 
 jobs:
-  build-deploy-docs:
+  build-website:
     uses: rostools/.github/.github/workflows/reusable-build-website-r.yml@main
     secrets:
       netlify-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      # This is to allow using `gh` CLI
+      github-token: ${{ secrets.GITHUB_TOKEN }}

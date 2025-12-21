@@ -11,14 +11,18 @@ on:
       - reopened
       - opened
 
-permissions:
-  pull-requests: write
+# Limit token permissions for security
+permissions: read-all
 
 jobs:
   add-to-project:
-    uses: rostools/.github/.github/workflows/reusable-add-to-project.yml@main
+    uses: seedcase-project/.github/.github/workflows/reusable-add-to-project.yml@main
+    # Need write permissions to add PRs to the board
+    permissions:
+      pull-requests: write
     with:
       board-number: 12
+      app-id: ${{ vars.ADD_TO_BOARD_APP_ID }}
     secrets:
       add-to-board-token: ${{ secrets.ADD_TO_BOARD }}
       gh-token: ${{ secrets.GITHUB_TOKEN }}
