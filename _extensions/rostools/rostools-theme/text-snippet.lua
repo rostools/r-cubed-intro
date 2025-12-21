@@ -36,24 +36,6 @@ local wip = [[
 :::
 ]]
 
--- TODO: This doesn't trigger the r chunk to execute
-local code_appendix = [[
-::: {.callout-tip appearance="minimal" icon="false" collapse="true"}
-## Code used in section
-
-This lists *some*, but not all, of the code used in the section. Some code is
-incorporated into Markdown content, so is harder to automatically list here in
-a code chunk. The code below also includes the code from the exercises.
-
-<!-- The stringr subset removes code chunks that aren't shown or typed by the learner. -->
-```{r code-appendix}
-#| echo: false
-#| eval: false
-#| ref-label: !expr stringr::str_subset(knitr::all_labels(), "^(unnamed-chunk-.*|purl-only-.*|setup|fig-.*)", negate = TRUE)
-```
-:::
-]]
-
 local discord_text = [[
 If you want to get help virtually or after the workshop, you can join the
 [Discord channel](https://discord.gg/WKyTF5yXBJ) where you can ask questions
@@ -73,7 +55,5 @@ function text_snippet(args)
     return quarto.utils.string_to_blocks(faq_text)
   elseif snippet_type == "discord_text" then
     return quarto.utils.string_to_blocks(discord_text)
-  elseif snippet_type == "code_appendix" then
-    return quarto.utils.string_to_blocks(code_appendix)
   end
 end
