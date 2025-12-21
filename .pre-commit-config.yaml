@@ -5,6 +5,11 @@ ci:
   autoupdate_commit_msg: "ci(pre-commit): :construction_worker: update pre-commit CI version"
 
 repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -12,11 +17,14 @@ repos:
       - id: end-of-file-fixer
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.10.0
+    rev: v4.8.3
     hooks:
       - id: commitizen
 
-  - repo: https://github.com/crate-ci/typos
-    rev: v1
+  # Use the mirror since the main `typos` repo has tags for different
+  # sub-packages, which confuses pre-commit when it tries to find the latest
+  # version
+  - repo: https://github.com/adhtruong/mirrors-typos
+    rev: v1.35.8
     hooks:
       - id: typos

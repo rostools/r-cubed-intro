@@ -9,20 +9,23 @@
   "editor.tabCompletion": "on",
   "editor.snippetSuggestions": "inline",
   "conventional-branch.type": [
-    "build", // Changes that affect the build system or external dependencies
-    "ci", // Changes to our CI configuration files and scripts
-    "docs", // Documentation only changes
-    "feat", // A new feature
-    "fix", // A bug fix
-    "refactor", // A code change that neither fixes a bug nor adds a feature
-    "style", // Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-    "test", // Adding missing tests or correcting existing tests
-    "chore", // Misc things, like renaming or deleting files
+    "build",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "refactor",
+    "style",
+    "test",
+    "chore",
+    "perf",
+    "revert"
   ],
   "conventional-branch.format": "{Type}/{Branch}",
   "files.insertFinalNewline": true,
   "conventionalCommits.scopes": [
-    "preamble",
+    "overview",
+    "pre-workshop",
     "sessions",
     "appendix"
   ],

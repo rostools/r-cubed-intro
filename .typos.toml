@@ -1,0 +1,11 @@
+[files]
+extend-exclude = [
+  "*.json",
+  "*.css",
+  "*.svg",
+  ".quarto/*",
+  "_site/*",
+  "_book/*",
+  "_extensions/*",
+  "*.bib",
+]

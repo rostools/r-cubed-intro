@@ -30,5 +30,4 @@ public
 site
 slides/*.html
 _freeze
-*.html
 *_files
