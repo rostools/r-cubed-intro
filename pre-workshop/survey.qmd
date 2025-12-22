@@ -1,0 +1,18 @@
+# Survey {#sec-survey}
+
+We have a [Code of Conduct](/pre-workshop/code-of-conduct.qmd).
+If you haven't read it, **read it now**. The survey involves a question
+about Conduct. We want to make sure this workshop is a supportive and safe
+environment for learning, so this Code of Conduct is quite important.
+
+If you haven't read the sections under "Workshop overview" and
+"Pre-workshop tasks", **please read them now**.
+
+You're almost done. Please fill out the pre-workshop survey to finish
+this section:
+
+[Pre-workshop survey
+:tada:]({{< meta surveys.pre-workshop >}}){.btn
+.btn-primary role="button"}
+
+See you at the workshop! :wave:

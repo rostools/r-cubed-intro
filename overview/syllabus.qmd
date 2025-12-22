@@ -1,0 +1,28 @@
+# Syllabus {#sec-syllabus}
+
+TODO: Include description and overall introduction of workshop
+
+This workshop lasts TODO: Time and is split into the following sessions,
+listed in the [schedule](/overview/schedule.qmd), which will be covered
+in order:
+
+-   [Introduction to the workshop](/sessions/introduction.qmd)
+-   [TODO: Session title](/sessions/session.qmd)
+-   [Concluding remarks](/sessions/conclusion.qmd)
+
+## Learning outcome and objectives
+
+The overall aim of this workshop is to enable you to:
+
+1.
+
+Broken down into specific objectives for each session, we've designed
+the workshop to enable you to do the following:
+
+[**TODO: Session title**](/sessions/session.qmd)
+
+{{< include /includes/objectives/_session.qmd >}}
+
+Tangibly, during the workshop you will:
+
+-   TODO: List concrete tasks and steps

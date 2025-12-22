@@ -1,0 +1,8 @@
+# For teachers
+
+A more general guide to teaching or helping is found on the
+[Guides](https://guides.rostools.org/) website. This page has
+information relevant specifically to this workshop.
+
+-   For created teams, assign one teacher or helper to each group to
+    help them specifically during the final group project.

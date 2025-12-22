@@ -1,0 +1,26 @@
+# Schedule {#sec-schedule}
+
+The workshop is structured as a series of participatory live-coding
+sessions interspersed with hands-on exercises and group work, using
+either a practice dataset or some other real-world dataset. There are
+some lectures given, mainly at the start and end of the workshop. The
+general schedule outline is shown in the below table. This is not a
+fixed schedule of the timings of each session---some may be shorter
+and others may be longer. Instead, it is meant to be an approximate
+guide and overview.
+
+::: panel-tabset
+## Day 1 {.unnumbered}
+
+| Time | Session topic |
+|:---|:---|
+| 9:30 | {{< fa mug-hot >}} Arrival; Coffee and light breakfast |
+| 10:00 | {{< fa person-chalkboard >}} [Introduction to the workshop](/sessions/introduction.qmd) |
+| 10:30 | {{< fa laptop-code >}} TBD |
+| 12:20 | {{< fa comment-dots >}} [End of session short survey]() |
+| 12:30 | {{< fa utensils >}} Lunch |
+| 13:15 | {{< fa laptop-code >}} TBD |
+| 14:45 | {{< fa mug-hot >}} Break with coffee and snacks |
+| 15:00 | {{< fa laptop-code >}} TBD |
+| 16:30 | {{< fa comment-dots >}} [End of session short survey]() |
+:::

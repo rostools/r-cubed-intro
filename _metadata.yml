@@ -1,0 +1,23 @@
+gh:
+  org: "rostools"
+  repo: "r-cubed-intro"
+
+# TODO: Fill in and/or confirm these titles
+titles:
+  full: ""
+
+urls:
+  home: "https://r-cubed-intro.rostools.org"
+
+workshop_level: "introduction"
+
+# TODO: Add the URLs to the surveys.
+surveys:
+  pre-workshop: "TODO"
+  feedback: "https://docs.google.com/forms/d/e/1FAIpQLScTbsxHSLrQxn38KS7kCklurFrccN8g3kVdm6WTSxEiIBypWg/viewform?usp=dialog"
+
+# Use `samwise::get_allowed_r_versions()` and `samwise::get_allowed_rstudio_versions()`
+# to get a list of the allowed R and RStudio versions.
+versions:
+  r: "4.4.3"
+  rstudio: "v2025.05.1+513"

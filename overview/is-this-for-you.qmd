@@ -1,0 +1,20 @@
+# Is this for you? {#sec-is-this-for-you}
+
+To help manage expectations and develop the material for this workshop,
+we make a few assumptions about *who you are* as a participant in the
+workshop.
+
+We assume you can relate to one or more of the following:
+
+-   TODO: List assumptions
+
+While we have these assumptions to help focus the content of the
+workshop, if you have an interest in the workshop but don't fit any of
+the assumptions, *you are still welcome to attend*! We welcome everyone
+until capacity has been reached.
+
+In addition to the assumptions above, the workshop also has a fairly
+focused scope, which may also help you decide if this workshop is for
+you:
+
+-   TODO: List of concrete tasks we will do and not do.

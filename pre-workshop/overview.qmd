@@ -1,0 +1,51 @@
+# Overview {#sec-pre-workshop}
+
+In order to participate in this workshop, you must complete everything
+in this section and finish with **completing the
+[survey](/pre-workshop/survey.qmd)** at the end. These tasks are
+meant to provide everyone with the necessary setup and a shared
+foundation for the workshop.
+
+Depending on your prior knowledge and skills, these tasks could take
+between **TIME hrs to finish**, so we suggest planning some time to
+complete them. While many of the tasks are mostly readings, they are
+important in making sure you get the most out of the workshop.
+
+## How to read this website
+
+{{< include /includes/_reading-website.qmd >}}
+
+## Summary of tasks
+
+Here's a quick overview of the tasks you need to do. Specific details
+about them are found as you work through the tasks.
+
+If you haven't already, go through the workshop overview section,
+including the [Syllabus](/overview/syllabus.qmd), [Is this for
+you?](/overview/is-this-for-you.qmd), and [Learning
+design](/overview/learning-design.qmd) to get an overview of what this
+workshop contains and the learning design behind the workshop material.
+
+After that, please go through the the pre-workshop tasks designed to
+establish a shared foundation for the start of the workshop. This
+includes:
+
+1.  Install a version of R, RStudio, Quarto, and Git that is as updated
+    as possible. For some people, depending on their institution, this
+    task can take the **longest amount of time** because you have to
+    contact your IT to install these packages.
+2.  Install necessary R packages.
+3.  TODO: Add more tasks
+4.  Read the syllabus (@sec-syllabus).
+5.  Read the [Code of
+    Conduct](https://guides.rostools.org/conduct.html).
+6.  Complete the pre-workshop [survey](survey.qmd): This survey is pretty quick,
+    maybe \~10 minutes. There will be some bits from the tasks that you
+    will need to paste into this survey.
+
+Check each section for exact details on completing these tasks.
+
+::: callout-tip
+You will be taken through the pre-workshop tasks in order by clicking
+the arrow at the bottom of each page :arrow_right:
+:::

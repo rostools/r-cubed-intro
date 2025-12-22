@@ -1,0 +1,17 @@
+We try to be consistent with the way to present certain information in
+this website. Specifically, we follow some conventions that you should
+be aware of:
+
+-   Folder names always end with `/`, for example `data/` means the data
+    folder.
+-   File names always end with their file extension, for example
+    `content.md` means the file is a Markdown file.
+-   R variables are always shown as is. For instance, for the code
+    `x <- 10`, `x` is a variable because it was assigned with 10.
+-   Functions always end with `()`, for instance `mean()` or
+    `read_csv()`.
+-   Sometimes functions have their package name appended with `::` so
+    that you run the code from the specific package, since we likely
+    haven't loaded the package with `library()`. For instance, to
+    install packages from GitHub using the `{pak}` package we use
+    `pak::pak("user/package_name")`. You'll learn about this more later.
