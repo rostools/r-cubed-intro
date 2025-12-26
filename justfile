@@ -1,12 +1,12 @@
 @_default:
   just --list --unsorted
 
-@_checks: check-spelling check-commits
-@_builds: build-contributors build-readme build-website
-@_updates: update-from-template update-quarto-theme
+check: check-spelling check-links check-code check-commits
+build: build-contributors build-readme build-website
+update: update-from-template update-quarto-theme
 
 # Run all recipes
-run-all: install-dependencies _checks style _builds
+run-all: install-dependencies check style build
 
 # List all TODOs in the repository.
 list-todos:
@@ -38,6 +38,15 @@ update-quarto-theme:
 # Check spelling
 check-spelling:
   uvx typos
+
+# Check R code
+check-code:
+  jarl check .
+
+# Check URL links
+check-links:
+  # Install from Cargo
+  lychee .
 
 # Check the commit messages on the current branch that are not on the main branch
 check-commits:
