@@ -2,9 +2,8 @@ gh:
   org: "rostools"
   repo: "r-cubed-intro"
 
-# TODO: Fill in and/or confirm these titles
 titles:
-  full: ""
+  full: "Reproducible Research in R: An introductory workshop on modern data analyses and workflows"
 
 urls:
   home: "https://r-cubed-intro.rostools.org"
