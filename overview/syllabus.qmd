@@ -1,28 +1,79 @@
 # Syllabus {#sec-syllabus}
 
-TODO: Include description and overall introduction of workshop
+```{r}
+#| echo: false
+# To trigger downlit linking of packages and functions.
+library(downlit)
+```
 
-This workshop lasts TODO: Time and is split into the following sessions,
-listed in the [schedule](/overview/schedule.qmd), which will be covered
-in order:
+Reproducibility and open scientific practices are increasingly required
+of scientists and researchers. We as researchers are also facing more
+challenging and complex analyses for larger and larger datasets. Nor do
+we receive the necessary support and training on how to do these
+analyses and apply these open and reproducible practices. This workshop
+will introduce many of the core concepts and practices for doing
+reproducible and open data analysis to get you familiar with and
+prepared for the type of work needed in research now and in the future.
+We use a very practical approach based largely on code-along sessions
+(instructor and learner coding together), hands-on exercises, reading
+activities, and a group project.
 
--   [Introduction to the workshop](/sessions/introduction.qmd)
--   [TODO: Session title](/sessions/session.qmd)
--   [Concluding remarks](/sessions/conclusion.qmd)
+This workshop lasts 3 days and is split into the following sessions
+listed in the [schedule](/overview/schedule.qmd).
 
 ## Learning outcome and objectives
 
 The overall aim of this workshop is to enable you to:
 
-1.
+1.  Describe the fundamentals of what an open and reproducible data
+    analysis looks like and then create a project that applies some of
+    the basics of these concepts using R.
 
 Broken down into specific objectives for each session, we've designed
 the workshop to enable you to do the following:
 
+1.  Explain what an open and reproducible data analysis workflow is,
+    what it looks like, and why it is important.
+
+2.  Explain and demonstrate why [R](https://www.r-project.org/) is
+    rapidly becoming the standard program of choice for doing modern
+    data analysis in science.
+
+3.  Demonstrate and apply collaborative tools and techniques when
+    working in team settings (including working with your future self).
+
+4.  Show and apply the fundamental tools and skills for conducting a
+    reproducible and modern analysis for a research project, focusing on
+    the basics of wrangling and visualizing data, writing reproducible
+    reports, and structuring projects.
+
+5.  Show where to go to get help and to continue learning modern data
+    analysis skills.
+
+::: content-hidden
 [**TODO: Session title**](/sessions/session.qmd)
 
 {{< include /includes/objectives/_session.qmd >}}
+:::
 
 Tangibly, during the workshop you will:
 
--   TODO: List concrete tasks and steps
+-   Use [RStudio](https://posit.co/download/rstudio-desktop/) to write
+    and run R code.
+-   Use the `{tidyverse}` bundle of R packages to wrangle and visualize
+    data.
+-   Use the [Git](https://git-scm.com/) interface in RStudio to track
+    changes to your files.
+-   Use [GitHub](https://github.com/) to store the Git "repository"
+    (folder) to collaborate and share with others.
+-   Use [Quarto](https://quarto.org/) to write reproducible documents.
+
+Because learning and coding is ultimately not *just* a solo activity, in
+addition to the group project work, during this workshop we also aim to
+provide opportunities to chat with fellow participants, learn about
+their work and how they do analyses, and to build networks of support
+and collaboration.
+
+The workshop will place particular emphasis on research in diabetes,
+health, and metabolism; it will be taught by instructors working in this
+field and it will use relevant examples where possible.

@@ -6,7 +6,18 @@ workshop.
 
 We assume you can relate to one or more of the following:
 
--   TODO: List assumptions
+-   You are a researcher, likely working in the biomedical or health
+    field (ranging from experimental to epidemiology).
+-   You currently or will soon do some quantitative data analysis.
+-   You either:
+    -   know *nothing* or *a little* about R (or computing in general);
+    -   *haven't* used code-based programs for doing data analysis (e.g.
+        have used SPSS);
+    -   *have* used coding programs before (e.g. used SAS or Stata), but
+        not R;
+    -   or know how to use R, but *haven't* used the
+        [tidyverse](https://www.tidyverse.org/) or
+        [RStudio](https://posit.co/products/open-source/rstudio/).
 
 While we have these assumptions to help focus the content of the
 workshop, if you have an interest in the workshop but don't fit any of
@@ -17,4 +28,17 @@ In addition to the assumptions above, the workshop also has a fairly
 focused scope, which may also help you decide if this workshop is for
 you:
 
--   TODO: List of concrete tasks we will do and not do.
+::: {layout-ncol="2"}
+### We teach {.unnumbered}
+
+-   How to use R, starting from the very basics and targeted to
+    beginners.
+-   Using a team science, reproducible research, and open scientific
+    approach (i.e. by including a collaborative group project that
+    uses a transparent and reproducible analysis workflow).
+-   Using practical, applied, and hands-on lessons and exercises.
+
+### We *do not* teach {.unnumbered}
+
+-   Statistics (these are already covered by most universities).
+:::
