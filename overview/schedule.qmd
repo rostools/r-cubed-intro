@@ -21,7 +21,7 @@ guide and overview.
 | Time | Session topic |
 |:---|:---|
 | 9:30 | {{< fa mug-hot >}} Arrival; Coffee and light breakfast |
-| 10:00 | {{< fa person-chalkboard >}} [Introduction to the course](/sessions/introduction.qmd) |
+| 10:00 | {{< fa person-chalkboard >}} [Introduction to the workshop](/sessions/introduction.qmd) |
 | 10:30 | {{< fa laptop-code >}} [Setting up an R project (with short break)](/sessions/setup-project.qmd) |
 | 12:20 | {{< fa comment-dots >}} [End of session short survey]({{< meta surveys.feedback >}}) |
 | 12:30 | {{< fa utensils >}} Lunch |
@@ -62,5 +62,5 @@ guide and overview.
 | 13:15 | {{< fa people-group >}} [Group work (with break)](/sessions/project-work.qmd) |
 | 16:00 | {{< fa people-group >}} Testing reproducibility of projects |
 | 16:10 | {{< fa person-chalkboard >}} [Closing remarks](/sessions/what-next.qmd) |
-| 16:30 | {{< fa comment-dots >}} [End of course short survey and farewell]({{< meta surveys.feedback >}}) |
+| 16:30 | {{< fa comment-dots >}} [End of workshop short survey and farewell]({{< meta surveys.feedback >}}) |
 :::
