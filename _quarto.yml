@@ -1,13 +1,8 @@
 project:
   type: rostools-theme
   pre-render:
-    - cp common.R .Rprofile
     - quarto render slides/*.qmd
-  post-render:
-    - rm .Rprofile
   resources:
-    - videos/*
-    - includes/cheatsheet.pdf
     - slides/*.html
 
 book:
