@@ -10,15 +10,20 @@ book:
   subtitle: "An introductory workshop on modern data analyses and workflows"
   description: "A 3-day workshop for researchers introducing modern and reproducible data analysis tools and workflows with R."
   author:
-    - Luke W. Johnston
-    - Helene Baek Juel
-    - Bettina Lengger
-    - Daniel R. Witte
-    - Hannah Chatwin
-    - Malene Revsbech Christiansen
-    - Anders Aasted Isaksen
-  site-url: "https://r-cubed-intro.rostools.org"
-  repo-url: "https://github.com/rostools/r-cubed-intro"
+    - name: "Luke Johnston"
+      orcid: "0000-0003-4169-2616"
+    - name: "Anders Aasted Isaksen"
+      orcid: "0000-0001-8457-5466"
+    - name: "Helene Juel"
+      orcid: "0000-0002-5763-8545"
+    - name: "Bettina Lengger"
+      orcid: "0000-0001-9997-7011"
+    - name: "Daniel Witte"
+      orcid: "0000-0002-0769-2922"
+    - name: "Hannah Chatwin"
+      orcid: "0000-0001-7248-8568"
+    - name: "Malene Revsbech Christiansen"
+      orcid: "0000-0002-9772-3576"
   chapters:
     - index.qmd
     - part: "Preamble"
