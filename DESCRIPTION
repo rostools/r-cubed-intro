@@ -43,13 +43,10 @@ Imports:
     ggplot2,
     here,
     hexbin,
-    NHANES,
     tidyr,
-    r3 (>= 0.0.0.9000),
     snakecase,
     downlit,
-    purrr,
-    r3admin (>= 0.0.1)
+    purrr
 Suggests:
     fs,
     prodigenr,
@@ -60,8 +57,5 @@ Suggests:
     knitr,
     markdown,
     quarto
-Remotes:
-    github::rostools/r3,
-    rostools/r3admin
 Encoding: UTF-8
 LazyData: true
