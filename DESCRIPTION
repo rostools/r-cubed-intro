@@ -1,5 +1,6 @@
 Package: rcubedintro
 Type: Website
+Version: 1.0.0
 Title: Introductory Workshop for Reproducible Research in R
 Authors@R:
     c(person(given = "Luke",
