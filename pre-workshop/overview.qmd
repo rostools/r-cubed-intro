@@ -1,49 +1,89 @@
 # Overview {#sec-pre-workshop}
 
+```{r}
+#| include: false
+library(downlit)
+```
+
 In order to participate in this workshop, you must complete everything
-in this section and finish with **completing the
-[survey](/pre-workshop/survey.qmd)** at the end. These tasks are
-meant to provide everyone with the necessary setup and a shared
-foundation for the workshop.
+in this pre-workshop section and finish with **completing the
+[survey](/pre-workshop/survey.qmd)** at the end. These tasks are meant
+to provide everyone with the necessary setup and a shared foundation for
+the workshop.
 
 Depending on your prior knowledge and skills, these tasks could take
-between **TIME hrs to finish**, so we suggest planning some time to
+between **3-5 hrs to finish**, so we suggest planning some time to
 complete them. While many of the tasks are mostly readings, they are
 important in making sure you get the most out of the workshop.
+
+Your institution might have special rules or policies around how and if
+you can install software on work computers. So you also might have to
+contact IT *very early* to make sure everything is properly installed
+and setup.
+
+## Summary of tasks
+
+Here's a quick overview of the tasks you need to do. Specific details
+about them are found as you work through the tasks. They are:
+
+1.  Read the learning objectives in
+    @sec-pre-workshop-learning-objectives for the pre-workshop tasks
+    (below on this page).
+2.  Read about how to read this website in @sec-reading-website (below
+    on this page).
+3.  Do some reading tasks in @pre-pre-reading.
+4.  Install the necessary programs and the right versions of those
+    programs in @sec-install-programs. For some people, depending on
+    their institution, this task can take the **longest amount of time**
+    because you have to contact your IT to install these packages.
+5.  Read about and navigate R and RStudio in @sec-sec-r-and-rstudio.
+6.  Install necessary R packages in @sec-install-r-packages.
+7.  Read some of the workshop sections on Git, configure Git on your
+    computer, and create a GitHub account in @sec-setup-git-and-github
+    as well as run some checks to make sure everything is working.
+    You'll need to paste this output into the survey later on.
+8.  Complete the pre-workshop [survey](survey.qmd): This survey is
+    pretty quick, maybe \~10 minutes. There will be some bits from the
+    tasks that you will need to paste into this survey.
+
+::: callout-important
+As already mentioned, depending on your institution, some of these tasks
+require IT approval, which can take some time. We suggest these tasks
+could take between **3-5 hrs to finish**, so we suggest planning a full
+day to complete them.
+:::
+
+## Learning objective {#sec-pre-workshop-learning-objectives}
+
+Most of the description of the workshop is in the syllabus that is found
+in @sec-syllabus. While you may have signed up to this workshop to learn
+more about R, you should know that conducting reproducible research goes
+beyond R and RStudio. Which means we will be spending time using other
+tools that you will use with R so that you can improve the
+reproducibility of your research. This workshop is designed to introduce
+you to doing reproducible research while using R.
+
+In general, these pre-workshop tasks are meant to help prepare you for
+the workshop and make sure everything is setup properly so the first
+session runs smoothly. While most of these pre-workshop tasks are meant
+to prepare you for the workshop, some of them are also designed for
+learning purposes to enable you to:
+
+1.  Describe what R is, how it fits within a research environment, and
+    why researchers increasingly use it.
+2.  Navigate some of the basic uses and features of RStudio, as well as
+    explain the difference between R and RStudio.
+3.  Explain the differences between R code, R functions, R scripts, and
+    R packages, and how we will use each of them.
+4.  Become aware of the `{tidyverse}` set of packages, which we will be
+    teaching mostly in this workshop.
+5.  Become aware of what version control is and what Git is.
 
 ## How to read this website
 
 {{< include /includes/_reading-website.qmd >}}
 
-## Summary of tasks
-
-Here's a quick overview of the tasks you need to do. Specific details
-about them are found as you work through the tasks.
-
-If you haven't already, go through the workshop overview section,
-including the [Syllabus](/overview/syllabus.qmd), [Is this for
-you?](/overview/is-this-for-you.qmd), and [Learning
-design](/overview/learning-design.qmd) to get an overview of what this
-workshop contains and the learning design behind the workshop material.
-
-After that, please go through the the pre-workshop tasks designed to
-establish a shared foundation for the start of the workshop. This
-includes:
-
-1.  Install a version of R, RStudio, Quarto, and Git that is as updated
-    as possible. For some people, depending on their institution, this
-    task can take the **longest amount of time** because you have to
-    contact your IT to install these packages.
-2.  Install necessary R packages.
-3.  TODO: Add more tasks
-4.  Read the syllabus (@sec-syllabus).
-5.  Read the [Code of
-    Conduct](https://guides.rostools.org/conduct.html).
-6.  Complete the pre-workshop [survey](survey.qmd): This survey is pretty quick,
-    maybe \~10 minutes. There will be some bits from the tasks that you
-    will need to paste into this survey.
-
-Check each section for exact details on completing these tasks.
+{{< text_snippet faq_text >}}
 
 ::: callout-tip
 You will be taken through the pre-workshop tasks in order by clicking
