@@ -1,19 +1,6 @@
-Package: r-cubed-intro
+Package: rcubedintro
 Type: Website
-Version: 2025.01.14
-Title: "r-cubed: An Introductory Workshop on Modern Data Analyses and Workflows
-    for Reproducible Research in R"
-Description: Reproducibility and open scientific practices are increasingly demanded of
-    scientists and researchers. Training on how to apply these practices in data
-    analysis has not kept up with demand. The aim of this course is to begin meeting
-    that demand. The course is designed as a series of participatory live-coding lessons,
-    where the instructor and learner code together, interspersed with hands-on
-    exercises throughout the course,
-    and where participants complete a final group assignment doing a simple data analysis project.
-    This repository contains all of the
-    material for the course, from reading material to exercises to images. It is
-    structured as a book, with "chapters" as lessons. For
-    more detail on the course, check out the <a href='https://r-cubed-intro.rostools.org'>website</a>.
+Title: Introductory Workshop for Reproducible Research in R
 Authors@R:
     c(person(given = "Luke",
              family = "Johnston",
