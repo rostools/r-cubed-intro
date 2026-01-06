@@ -120,9 +120,12 @@ Aarhus](https://www.stenoaarhus.dk/) and [Aarhus
 University](https://www.au.dk/) are employers of Luke Johnston and
 Daniel Witte (the initial founders and creators).
 
-<!-- TODO: Update DDA logo -->
+::: {layout-ncol="3"}
+![](images/logo-sdca.png){width="100px"
+alt="Logo for Steno Diabetes Center Aarhus"}
 
-![Danish Diabetes and Endocrinology
-Academy](https://www.ddeacademy.dk/sites/all/themes/dda/DDEA_logo_outlined.svg){width="90px"}
-![Steno Diabetes Center Aarhus](images/logo-sdca.png){width="55px"}
-![Aarhus University](images/logo-au.png){width="140px"}
+![](images/logo-ddea.png){width="260px"
+alt="Logo for Danish Diabetes and Endocrinology Academy"}
+
+![](images/logo-au.png){width="220px" alt="Logo for Aarhus University"}
+:::
