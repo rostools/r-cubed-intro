@@ -27,19 +27,23 @@ below. If not, you will need to update them.
 ### MacOS
 
 1.  [R](https://cloud.r-project.org/bin/macosx/): Any version above
-    {{< meta versions.r >}}. If you have used R before, you can confirm the
-    version by running `R.version.string` in the Console. If you use
-    [Homebrew](https://brew.sh/), installing R is as easy as opening a
-    Terminal and running:
+    {{< meta versions.r >}}. If you have used R before, you can confirm
+    the version by running `R.version.string` in the Console. If you
+    don't use [Homebrew](https://brew.sh/) to install software in MacOS,
+    we strongly recommend you [install it](https://brew.sh/). It makes
+    it much easier to install things, for example installing R is as
+    easy as opening a Terminal and running:
 
     ``` bash
     brew install --cask r
     ```
 
 2.  [RStudio](https://www.rstudio.com/products/rstudio/download/#download):
-    Any version above {{< meta versions.rstudio >}}. If you have installed it
-    before, check the current version by going to the menu "Help -> About
-    RStudio". With Homebrew:
+    Any version above {{< meta versions.rstudio >}}. If you have
+    installed it before, check the current version by going to the menu
+    "Help -\> About RStudio". Like with installing R above with
+    Homebrew, installing RStudio can be done by opening a Terminal and
+    writing:
 
     ``` bash
     brew install --cask rstudio
