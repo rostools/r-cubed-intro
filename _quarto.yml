@@ -1,5 +1,5 @@
 project:
-  type: r3-theme
+  type: rostools-theme
   pre-render:
     - cp common.R .Rprofile
     - quarto render slides/*.qmd
