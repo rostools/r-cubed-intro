@@ -29,7 +29,12 @@ book:
   repo-url: https://github.com/rostools/r-cubed-intro
   chapters:
     - index.qmd
-    - part: "Preamble"
+    - part: "Overview"
+      chapters:
+        - overview/syllabus.qmd
+        - overview/is-this-for-you.qmd
+        - overview/schedule.qmd
+        - overview/learning-design.qmd
       chapters:
       - preamble/syllabus.qmd
       - preamble/schedule.qmd
