@@ -24,6 +24,9 @@ book:
       orcid: "0000-0001-7248-8568"
     - name: "Malene Revsbech Christiansen"
       orcid: "0000-0002-9772-3576"
+  date: last-modified
+  site-url: https://r-cubed-intro.rostools.org
+  repo-url: https://github.com/rostools/r-cubed-intro
   chapters:
     - index.qmd
     - part: "Preamble"
