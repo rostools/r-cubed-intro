@@ -89,6 +89,14 @@ section on [Installing Git for
 Windows](https://happygitwithr.com/install-git.html#install-git-windows)
 for help.
 
+::: callout-tip
+While not required, we *strongly* recommend installing a password
+manager such as [Bitwarden](https://bitwarden.com/) as it is a much more
+secure way to manage your passwords. We will be creating a temporary
+GitHub "password" (called a "token") during the workshop and it makes
+things much easier if you have a password manager to store it in.
+:::
+
 ::: {.callout-note appearance="default"}
 Some pictures may show a Git pane in RStudio, but you may not see it. If
 you haven't created or opened an RStudio R Project (which is taught in
