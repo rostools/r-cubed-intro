@@ -1,3 +1,8 @@
+---
+execute:
+  eval: false
+---
+
 # Installing R packages {#sec-installing-r-packages}
 
 Now that you have RStudio and R on your computer and have read about
