@@ -10,18 +10,13 @@ Imports:
     here,
     hexbin,
     tidyr,
-    snakecase,
-    downlit,
-    purrr
-Suggests:
-    fs,
     prodigenr,
+    downlit
+Suggests:
     styler,
     tidyverse,
     usethis,
-    rmarkdown,
     knitr,
-    markdown,
     quarto
 Encoding: UTF-8
 LazyData: true
