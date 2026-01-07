@@ -22,6 +22,7 @@ _temp/
 
 # Quarto
 /.quarto/
+**/*.quarto_ipynb
 
 # Website generation
 _site
