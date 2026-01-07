@@ -13,8 +13,8 @@ book:
   author:
     - name: "Luke Johnston"
       orcid: "0000-0003-4169-2616"
-    - name: "Anders Aasted Isaksen"
-      orcid: "0000-0001-8457-5466"
+    - name: "Anders Askeland"
+      orcid: "0000-0002-2996-129X"
     - name: "Helene Juel"
       orcid: "0000-0002-5763-8545"
     - name: "Bettina Lengger"
@@ -25,6 +25,8 @@ book:
       orcid: "0000-0001-7248-8568"
     - name: "Malene Revsbech Christiansen"
       orcid: "0000-0002-9772-3576"
+    - name: "Anders Aasted Isaksen"
+      orcid: "0000-0001-8457-5466"
   date: last-modified
   site-url: https://r-cubed-intro.rostools.org
   repo-url: https://github.com/rostools/r-cubed-intro
