@@ -1,6 +1,7 @@
 # Welcome! {.unnumbered}
 
-```{r write-packages-to-bib, include=FALSE}
+```{r write-packages-to-bib}
+#| include: false
 # automatically create a bib database for R packages
 knitr::write_bib(
   unique(desc::desc_get_deps()$package[-1]),
@@ -8,85 +9,87 @@ knitr::write_bib(
 )
 ```
 
-[![License: CC BY
-4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Zenodo
-DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3921893.svg)](https://doi.org/10.5281/zenodo.3921893)
-[![JOSE
-DOI](https://jose.theoj.org/papers/10.21105/jose.00122/status.svg)](https://doi.org/10.21105/jose.00122)
+{{< include /includes/_badges.qmd >}}
 
-The course is designed as a series of participatory live-coding lessons,
-where the instructor and learner code together, along with reading
-activities and hands-on practical exercises interspersed throughout the
-course and a final group assignment to do a simple data analysis
-project. This website contains all of the material for the course, from
-reading material to exercises to code to images. It is structured as a
-book, with "chapters" as lessons, given in order of appearance. We make
-heavy use of the website throughout the course where code-along sessions
-almost identically follow the material on the website (with slight
-modifications for time or more detailed explanations).
+Reproducibility and open scientific practices are increasingly being
+requested or required of scientists and researchers, but training on
+these practices has not kept pace. This 3-day workshop intends to help
+bridge that gap and covers the fundamentals and workflow of data
+analysis in R.
 
-The course material was created using [Quarto](https://quarto.org) to
-write the lessons and create the book format,
-[GitHub](https://github.com/) to host the [Git](https://git-scm.com/)
-repository of the material, and [GitHub
-Actions](https://github.com/features/actions) with
-[Netlify](https://www.netlify.com/) to build and host the website. The
-original source material for this course is found on the
-[`r-cubed-intro`](https://github.com/rostools/r-cubed-intro) GitHub
-repository.
+The workshop is a hands-on introduction to doing doing research that is
+reproducible by using R, RStudio, Quarto, Git, and GitHub. It is
+designed for doing participatory live-typing, where the teacher
+demonstrates the tasks on their computer connected to a projector while
+learners type along on their own computer. The workshop also includes
+reading tasks, discussion activities, hands-on exercises, and a group
+project.
 
-Want to contribute to this course? Check out the
-[README](https://github.com/rostools/r-cubed-intro/blob/main/README.md)
-file as well as the
-[CONTRIBUTING](https://github.com/rostools/r-cubed-intro/blob/main/CONTRIBUTING.md)
-file on the GitHub repository for more details. The main way to
-contribute is by using [GitHub](https://github.com/) and creating a [new
-issue](https://github.com/rostools/r-cubed-intro/issues/new) to make
-comments and give feedback on the material.
+This website contains all of the material for the workshop, including
+readings, exercises, presentations, live-typing material, and images. It
+is structured as a book, with "chapters" as sessions, in order of
+appearance. We make heavy use of the website throughout the workshop
+where "type-along" sessions almost identically follow the material on
+the website (with slight modifications for time or more detailed
+explanations).
 
-::: {.callout-tip appearance="minimal"}
-:star: Do you find this course material useful? Then please consider
-"starring" our [GitHub
-repository](https://github.com/rostools/r-cubed-intro/) to show your
-support! Starring will save it to a list of repositories you like that
-you can easily find again, plus it helps give our project more
-visibility!
-:::
+Check out the overview section of the workshop, starting with the
+syllabus in @sec-syllabus.
+
+If you plan on attending the workshop, please make sure to complete the
+pre-workshop tasks in @sec-pre-workshop to get set up and ready for the
+workshop. The pre-workshop tasks include a survey that you need to fill
+out before the workshop starts.
+
+{{< include /includes/_star-us.qmd >}}
 
 ## Target audiences
 
 This website and its content are targeted to three groups:
 
-1.  For the **learners** to use during the course, both to follow along
-    in case they get lost and also to use as a reference after the
-    course ends. The learner is someone who is currently or will soon
-    actively be doing research (e.g. a PhD or postdoc), who is likely in
-    biomedical research, and who has no or little knowledge on coding
-    in R. A more detailed description of who the learner is can be found
-    in @sec-is-it-for-you.
-2.  For the **instructors** to use as a guide for when they do the
-    code-along sessions and lectures.
+1.  For the **learners** to use during the workshop, both to follow
+    along and also to use as a reference after the workshop ends. A more
+    detailed description of who the learner is can be found in 'Is this
+    for you?' section in @sec-is-this-for-you.
+2.  For the **teachers** to use as a guide for when they do the
+    type-along sessions.
 3.  For those who are **interested in teaching**, who may not have much
     experience or may not know where to start, to use this website as a
-    guide to running and instructing their own workshops.
+    guide to running and teaching their own workshops.
 
 ## Re-use and licensing
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="https://i.creativecommons.org/l/by/4.0/80x15.png" alt="Creative Commons License" style="border-width:0"/></a>
+The workshop material is licensed under the [Creative Commons
+Attribution 4.0 License](LICENSE.md), so the material can be used,
+re-used, and modified, as long as there is attribution to this source.
+Check out the 'For teachers' section in @sec-for-teachers for more
+details and tips on using this material for teaching.
 
-The course material is licensed under the [Creative Commons Attribution
-4.0 International
-License](https://creativecommons.org/licenses/by/4.0/), so the material
-can be used, re-used, and modified, as long as there is attribution to
-this source. Check out the
-[CONTRIBUTING](https://github.com/rostools/r-cubed-intro/blob/main/CONTRIBUTING.md)
-guidelines and the [For Instructors](appendix/for-instructors.qmd)
-section for more details and tips on using this material.
+## Contributing
+
+Want to contribute to this workshop? Look through our
+CONTRIBUTING\](CONTRIBUTING.md) page for contribution guidelines on how
+to get started.
+
+### Contributors
+
+{{< include /includes/_contributors.qmd >}}
+
+## How the website is made
+
+The workshop material is created using [Quarto](https://quarto.org) to
+write the material and create the book format,
+[GitHub](https://github.com/) to host the [Git](https://git-scm.com/)
+repository of the material, and [GitHub
+Actions](https://github.com/features/actions) with
+[Netlify](https://www.netlify.com/) to build and host the website. The
+original source material for this workshop is found on the
+[`{{< meta gh.repo >}}`](https://github.com/{{< meta gh.org >}}/{{< meta gh.repo >}})
+GitHub repository.
 
 ## Acknowledgments
 
-There were many sources of inspiration when creating this course, as
+There were many sources of inspiration when creating this workshop, as
 well as subsequent modifications. Here is a list of some of these
 sources.
 
@@ -107,13 +110,13 @@ sources.
 -   The [UofTCoders Intro to R course for Ecology
     students](https://uoftcoders.github.io/rcourse/).
 
-Content from multiple sources was used as inspiration for this course,
+Content from multiple sources was used as inspiration for this workshop,
 including the [R for Data Science](https://r4ds.had.co.nz/) book and the
 [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/).
 
 The [Danish Diabetes and Endocrinology
 Academy](https://www.ddeacademy.dk/) has hosted, organized, and
-sponsored running this course to researchers in Denmark versions
+sponsored running this workshop to researchers in Denmark versions
 multiple times. A huge thanks to them for their involvement, support,
 and sponsorship! Both [Steno Diabetes Center
 Aarhus](https://www.stenoaarhus.dk/) and [Aarhus
