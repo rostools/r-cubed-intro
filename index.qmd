@@ -34,7 +34,7 @@ the website (with slight modifications for time or more detailed
 explanations).
 
 Check out the overview section of the workshop, starting with the
-syllabus in @sec-syllabus.
+@sec-syllabus.
 
 If you plan on attending the workshop, please make sure to complete the
 pre-workshop tasks in @sec-pre-workshop to get set up and ready for the
@@ -49,8 +49,7 @@ This website and its content are targeted to three groups:
 
 1.  For the **learners** to use during the workshop, both to follow
     along and also to use as a reference after the workshop ends. A more
-    detailed description of who the learner is can be found in 'Is this
-    for you?' section in @sec-is-this-for-you.
+    detailed description of who the learner is in @sec-is-this-for-you.
 2.  For the **teachers** to use as a guide for when they do the
     type-along sessions.
 3.  For those who are **interested in teaching**, who may not have much
@@ -68,7 +67,7 @@ details and tips on using this material for teaching.
 ## Contributing
 
 Want to contribute to this workshop? Look through our
-CONTRIBUTING\](CONTRIBUTING.md) page for contribution guidelines on how
+[CONTRIBUTING](CONTRIBUTING.md) page for contribution guidelines on how
 to get started.
 
 ### Contributors
