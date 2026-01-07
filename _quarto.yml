@@ -61,7 +61,7 @@ book:
       - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
-    - appendix/for-instructors.qmd
+    - appendix/for-teachers.qmd
     - appendix/extra-github.qmd
     - appendix/extra-merge-conflicts.qmd
     - appendix/extra-arrange.qmd

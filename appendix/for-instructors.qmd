@@ -1,5 +1,0 @@
-# For Instructors
-
-A more general guide to instructing or helping is found on the
-[Guides](https://guides.rostools.org/) website. This page has
-information relevant specifically to this course.
