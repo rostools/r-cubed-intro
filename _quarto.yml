@@ -65,8 +65,9 @@ book:
     - appendix/extra-github.qmd
     - appendix/extra-merge-conflicts.qmd
     - appendix/extra-arrange.qmd
-    - LICENSE.md
     - appendix/references.qmd
+    - CHANGELOG.md
+    - CONTRIBUTING.md
   page-footer:
     center:
       - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
