@@ -33,3 +33,15 @@ of the workshop. You'll have time during the project work session to
 read through it again, but we've found that participants prefer and want
 to be aware beforehand on what is expected of them during the project
 work.
+
+::: callout-tip
+To keep track of which sections to read, here is a list:
+
+1.  @sec-syllabus
+2.  @sec-is-this-for-you
+3.  @sec-learning-design
+4.  @sec-what-is-version-control
+5.  @sec-what-is-git
+6.  @sec-basics-of-git
+7.  @sec-project-work
+:::
