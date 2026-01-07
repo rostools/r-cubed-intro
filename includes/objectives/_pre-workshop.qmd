@@ -1,0 +1,10 @@
+
+1.  Describe what R is, how it fits within a research environment, and
+    why researchers increasingly use it.
+2.  Navigate some of the basic uses and features of RStudio, as well as
+    explain the difference between R and RStudio.
+3.  Explain the differences between R code, R functions, R scripts, and
+    R packages, and how we will use each of them.
+4.  Become aware of the `{tidyverse}` set of packages, which we will be
+    teaching mostly in this workshop.
+5.  Become aware of what version control is and what Git is.
