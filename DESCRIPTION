@@ -3,7 +3,7 @@ Type: Website
 Version: 1.0.0
 Title: Introductory Workshop for Reproducible Research in R
 Depends:
-    R (>= 3.6.0)
+    R (>= 4.4.0)
 Imports:
     dplyr,
     ggplot2,
