@@ -24,7 +24,14 @@ and setup.
 ## Summary of tasks
 
 Here's a quick overview of the tasks you need to do. Specific details
-about them are found as you work through the tasks. They are:
+about them are found as you work through the tasks.
+
+::: callout-important
+Depending on your institution, the installation tasks may require IT
+approval. This can take some time, sometimes a few weeks even with
+reminder emails. We suggest these tasks could take between **3-5 hrs to
+finish**, so we suggest planning a full day to complete them.
+:::
 
 1.  Read the learning objectives in
     @sec-pre-workshop-learning-objectives for the pre-workshop tasks
@@ -33,9 +40,10 @@ about them are found as you work through the tasks. They are:
     on this page).
 3.  Do some reading tasks in @pre-pre-reading.
 4.  Install the necessary programs and the right versions of those
-    programs in @sec-install-programs. For some people, depending on
-    their institution, this task can take the **longest amount of time**
-    because you have to contact your IT to install these packages.
+    programs in @sec-install-programs. As mentioned in the callout block
+    above, depending on your institution, this task can take the
+    **longest amount of time** because you have to contact your IT to
+    install these packages.
 5.  Read about and navigate R and RStudio in @sec-sec-r-and-rstudio.
 6.  Install necessary R packages in @sec-install-r-packages.
 7.  Read some of the workshop sections on Git, configure Git on your
@@ -45,13 +53,6 @@ about them are found as you work through the tasks. They are:
 8.  Complete the pre-workshop [survey](survey.qmd): This survey is
     pretty quick, maybe \~10 minutes. There will be some bits from the
     tasks that you will need to paste into this survey.
-
-::: callout-important
-As already mentioned, depending on your institution, some of these tasks
-require IT approval, which can take some time. We suggest these tasks
-could take between **3-5 hrs to finish**, so we suggest planning a full
-day to complete them.
-:::
 
 ## Learning objective {#sec-pre-workshop-learning-objectives}
 
