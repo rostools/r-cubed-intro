@@ -1,7 +1,7 @@
 @_default:
   just --list --unsorted
 
-check: check-spelling check-links check-code check-commits
+check: check-spelling check-links check-commits
 build: build-contributors build-readme build-website
 update: update-from-template update-quarto-theme
 
@@ -38,10 +38,6 @@ update-quarto-theme:
 # Check spelling
 check-spelling:
   uvx typos
-
-# Check R code
-check-code:
-  jarl check .
 
 # Check URL links
 check-links:
