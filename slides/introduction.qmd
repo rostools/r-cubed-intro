@@ -199,7 +199,7 @@ that, we all have that power to do something, even if its small thing.
 
 ::::: columns
 ::: column
--   workshop is mix of:
+-   The workshop is mix of:
     -   "Code-alongs" (we type and explain, you type along)
     -   Hands-on coding, discussing, and reading exercises
     -   Group project (quickly go over it and the GitHub page)
@@ -239,6 +239,8 @@ experiences, so there is a mix of novice and more experienced users.
 -   Put the sticky/origami hats :tophat: on your laptop to get help
 -   There are lots of helpers
 -   Table mates, try to help out too
+-   For some, the pace may feel too slow. For others, too fast. We want
+    fewer people to say it was too fast.
 :::
 
 ::: column
@@ -247,6 +249,17 @@ experiences, so there is a mix of novice and more experienced users.
 -   Remember our [Code of Conduct](conduct.html)
 :::
 :::::
+
+::: notes
+We always get feedback that for some it is too fast and for others it is
+too slow, especially during this introductory workshop. Ideally, everyone
+would say it was the perfect speed. But that is impossible to achieve.
+So instead, we aim as much as possible to have fewer people say it was
+too fast than people who say it was too slow. This is an introduction
+workshop, so we're trying to assume as little to no knowledge on many of
+these concepts. So, for those with some knowledge, it *will* feel slow
+at times! You can always help your neighbour out to help pass the time
+:::
 
 ## Practice using stickies: Have you joined the GitHub Organization? {.center}
 

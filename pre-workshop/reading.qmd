@@ -19,6 +19,12 @@ workshop, it will be easier to understand and learn. During the
 workshop, you will read these sections again and we will explain them
 verbally as well, to further reinforce the concepts.
 
+Because our main learning outcome is **reproducible research**, we will
+use tools like Git that is the foundation to doing reproducible
+research. Without a way to easily and quickly share code, your research
+*cannot* be *independently* reproducible. Using Git is the most common
+way to share code.
+
 So, please read about version control and Git in
 @sec-what-is-version-control, @sec-what-is-git, and @sec-basics-of-git.
 Git and version control are some of the more difficult things you will

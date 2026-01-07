@@ -6,20 +6,48 @@
 library(downlit)
 ```
 
-Reproducibility and open scientific practices are increasingly required
-of scientists and researchers. We as researchers are also facing more
-challenging and complex analyses for larger and larger datasets. Nor do
-we receive the necessary support and training on how to do these
-analyses and apply these open and reproducible practices. This workshop
-will introduce many of the core concepts and practices for doing
-reproducible and open data analysis to get you familiar with and
+We are in a special time in research. Researchers face several large
+scale technological and societal changes:
+
+-   Researchers are experiencing higher demands from funding agencies,
+    universities, and peers for transparency and rigor in our research.
+-   Research is getting more and more complex, which requires higher
+    degrees of (potentially highly distributed and virtual) team-based
+    science.
+-   There is a higher public attention on research, with mass
+    participation and attention through the Internet and social media.
+-   More access to powerful computing resources and massive datasets is
+    leading to an increasing rise in more complex analytics and data
+    processing, such as through machine learning and AI.
+-   Increasingly one's research output is someone else's research input,
+    such as with meta-research[^1] or meta-analysis.
+-   The growing presence of large language models (LLMs) and similar
+    tools that can help with coding, writing, and other aspects of
+    research, which makes it even more important to learn how to code,
+    what code means, and what it is doing.
+
+[^1]: Evidence-based evaluation and development of research methods.
+
+At the same time, institutional support, training, and incentive
+structures for researchers to adapt to these changes are far behind what
+is necessary to keep pace. Connected to many of these changes are
+reproducible and open scientific practices, none of which do researchers
+get sufficient training on.
+
+Reproducibility in particular requires more than just writing code. It
+requires using tools and practices that enforce or enable a higher
+degree of reproducibility, organisation, and transparency or
+record-keeping.
+
+This workshop will introduce many of the core concepts and practices for
+doing reproducible and open data analysis to get you familiar with and
 prepared for the type of work needed in research now and in the future.
 We use a very practical approach based largely on code-along sessions
 (instructor and learner coding together), hands-on exercises, reading
 activities, and a group project.
 
-This workshop lasts 3 days and is split into the following sessions
-listed in the [schedule](/overview/schedule.qmd).
+This workshop lasts 3 days and is split into multiple sessions listed in
+the [schedule](/overview/schedule.qmd) (@sec-schedule).
 
 ## Learning outcome and objectives
 
@@ -53,20 +81,8 @@ the workshop to enable you to do the following:
 ::: content-hidden
 [**TODO: Session title**](/sessions/session.qmd)
 
-include /includes/objectives/_session.qmd
+include /includes/objectives/\_session.qmd
 :::
-
-Tangibly, during the workshop you will:
-
--   Use [RStudio](https://posit.co/download/rstudio-desktop/) to write
-    and run R code.
--   Use the `{tidyverse}` bundle of R packages to wrangle and visualize
-    data.
--   Use the [Git](https://git-scm.com/) interface in RStudio to track
-    changes to your files.
--   Use [GitHub](https://github.com/) to store the Git "repository"
-    (folder) to collaborate and share with others.
--   Use [Quarto](https://quarto.org/) to write reproducible documents.
 
 Because learning and coding is ultimately not *just* a solo activity, in
 addition to the group project work, during this workshop we also aim to
@@ -77,3 +93,34 @@ and collaboration.
 The workshop will place particular emphasis on research in diabetes,
 health, and metabolism; it will be taught by instructors working in this
 field and it will use relevant examples where possible.
+
+## Tangible goals
+
+In this workshop, our **main tangible goal** is to:
+
+-   Create a project that has a report (in HTML or Word) where you
+    reproducibly import some data, process it a bit, and create some
+    figures and tables, all done in a way that makes it easier for you
+    and others to collaborate together.
+
+We'll achieve this by:
+
+-   Have a self-contained project (within a single folder).
+-   Have a record of changes made to the files.
+-   Make it easier for others to collaborate.
+-   Make it simpler to connect the project with a scientific output like
+    a paper.
+-   Structure analyses to be more reproducible (or at least more easily
+    *inspectable*).
+
+Specifically, the tools we will use to achieve these goals are to:
+
+-   Use [RStudio](https://posit.co/download/rstudio-desktop/) to write
+    and run R code.
+-   Use the `{tidyverse}` bundle of R packages to wrangle and visualize
+    data.
+-   Use the [Git](https://git-scm.com/) interface in RStudio to track
+    changes to your files.
+-   Use [GitHub](https://github.com/) to store the Git "repository"
+    (folder) to collaborate and share with others.
+-   Use [Quarto](https://quarto.org/) to write reproducible documents.

@@ -25,12 +25,18 @@ statisticians and data scientists for several reasons:
 -   It is highly compatible with other programming languages.
 -   It provides access to a vast number of packages that can do nearly
     any task or statistical approach.
--   There is a huge online community to help you problem-solve any
-    issue.
+-   There is a huge online community to help you problem-solve any issue
+    and that has so many learning resources, support, and help!
 -   It is free, which means you can continue using the skills you gain
     in R throughout your entire career without worrying about expensive
     licensing fees (for example, if your employer can't or doesn't pay
     for the software).
+-   Strong push by major R developers to improve beginner-friendliness
+    and usability of R, for example from [Posit](https://posit.co) who
+    makes RStudio and contributes heavily to R packages such as the
+    `{tidyverse}` set of packages and [Quarto](https://quarto.org).
+-   R has one of the best data visualization tools available with
+    `{ggplot2}`.
 
 However, like many programming languages, R is not easy to learn. Some
 commands you will use are spread across many packages, which means that
@@ -91,3 +97,22 @@ types, including MS Word, PDF, or HTML. Some researchers write and
 manage entire papers, theses, websites, or books using Quarto, as it can
 make things easier to organize and maintain. In fact, this website is
 written with Quarto.
+
+## Quality of life settings
+
+Before continuing, set some RStudio options that will help you and the
+helpers and teachers out a lot during the workshop. Go to
+`Tools -> Global Options...` and do these tasks:
+
+1.  In "General", under the "Basic" tab, uncheck all boxes under "R
+    Session", "Workspaces", and "History", as well as changing the "Save
+    workspace to .RData on exit" to "Never".
+2.  In "Code", under the "Editing" tab, change the "Tab width" to 2. The
+    tidyverse style guide as well as `{styler}` both use 2 spaces for
+    tabs, and since we are using the `{styler}` package, we can set this
+    option here to save us with formatting issues.
+3.  In "Code", under the "Saving" tab, check all the boxes under
+    "General" and "Auto-save". This last one, the "Auto-save", will help
+    out a lot, since one of the biggest "troubleshooting issues" we
+    encounter when helping during the version control session is that
+    people forget to save. This solves that problem.

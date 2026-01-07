@@ -1,11 +1,5 @@
 # Introduction to workshop {#sec-introduction}
 
-```{r}
-#| include: false
-# To trigger downlit
-library(tidyverse)
-```
-
 > [**Introduction slides**](../slides/introduction.html)
 
 <div>
@@ -23,142 +17,11 @@ The slides contain speaking notes that you can view by pressing 'S' on
 the keyboard.
 :::
 
-## :book: Reading task: The Big Picture
+## The Big Picture
 
-**Time: \~10 minutes**
-
-While you've read the syllabus, listened to the presentation, and likely
-have an overall idea of why we are teaching this workshop, repetition is a
-critical component to learning, so here is more emphasis on some common
-considerations or thoughts you might have about the workshop.
-
-### Why learn this now? {.unnumbered}
-
-We are in a special time in research. We are facing several large scale
-technological and societal changes:
-
--   We researchers are experiencing higher demands from funding
-    agencies, universities, and peers for transparency and rigor in our
-    research.
--   Our work is getting more and more complex, which requires higher
-    degrees of (potentially highly distributed and virtual) team-based
-    science.
--   There is a higher public attention on research, with mass
-    participation and attention through the Internet and social media.
--   Our access to powerful computing resources and massive datasets is
-    leading to an increasing rise in more complex analytics and data
-    processing, such as through machine learning and AI.
--   Increasingly your research output is someone else's research input,
-    such as with meta-research[^1] or meta-analysis.
-
-[^1]: Evidence-based evaluation and development of research methods.
-
-### What will we do? {.unnumbered}
-
-In this workshop, our **ultimate goal** is to:
+To repeat from the syllabus, our **main tangible goal** is to:
 
 -   Create a project that has a report (in HTML or Word) where you
     reproducibly import some data, process it a bit, and create some
     figures and tables, all done in a way that makes it easier for you
     and others to collaborate together.
-
-In the end, we're aiming for:
-
--   Having a self-contained project (within a single folder).
--   Having a record of changes made to the files.
--   Making it easier for others to collaborate.
--   Making it simpler to connect the project with a scientific output
-    like a paper.
--   Structuring analyses to be more reproducible (or at least more
-    easily *inspectable*).
-
-### Why R? {.unnumbered}
-
-Why are we using R and why learn it? There are many many reasons, some
-of which are listed below:
-
--   It is open source and free. Which means that you can take the
-    knowledge and skills you gain for using R anywhere you go in your
-    career.
--   There is a very large, fairly friendly online community.
-    -   So many learning resources, support, and help!
--   There is a **massive** selection of packages. Need to do something?
-    There's probably already a package to do it for you.
-    -   Latest statistical methods.
-    -   Productivity tools.
-    -   Report writing.
-    -   Visualization.
-    -   Many many more.
--   Strong push by major R developers, for instance from
-    [Posit](https://posit.co) who makes RStudio and contributes heavily
-    to R packages, to improve beginner-friendliness and usability of R,
-    for example with the `{tidyverse}` and [Quarto](https://quarto.org).
--   R has one of the best data visualization tools available with
-    `{ggplot2}`.
--   So many more powerful capabilities when it comes to:
-    -   Big Data
-    -   Programming
-    -   Reproducibility
-
-### Why Git and Quarto? {.unnumbered}
-
-You probably came to this workshop to learn R. So why are we also going to
-go over Git and Quarto. Well, the main learning outcome for the workshop
-is **reproducible research**. And that involves more than just R.
-
-Why do we take time to teach setting up a project folder and file
-structure? Because that's the very first step in making your work
-reproducible and also more organized.
-
-Why do we teach Git? Because without sharing code, your research
-*cannot* be *independently* reproducible. Using Git is the most common
-way to share code.
-
-Why do we teach Quarto? Because simply writing R code will not be enough
-to ensure it is also reproducible. Quarto is a tool *designed* to run in
-a reproducible way. So it forces you to write code in a way that is
-reproducible.
-
-### Why are we going slow/fast? {.unnumbered}
-
-We always get feedback that for some it is too fast and for others it is
-too slow, especially during this introductory workshop. Ideally, everyone
-would say it was the perfect speed. But that is impossible to achieve.
-So instead, we aim as much as possible to have fewer people say it was
-too fast than people who say it was too slow. This is an introduction
-workshop, so we're trying to assume as little to no knowledge on many of
-these concepts. So, for those with some knowledge, it *will* feel slow
-at times! You can always help your neighbour out to help pass the time
-:grin: :tada:
-
-### Any questions? {.unnumbered}
-
-{{< text_snippet faq_text >}}
-
-{{< text_snippet discord_text >}}
-
-{{< text_snippet sticky_up >}}
-
-## Quality of life settings
-
-::: {.callout-note appearance="minimal" collapse="true"}
-## :teacher: Instructor note
-
-Go through this as a code-along with the learners all together.
-:::
-
-Before ending, we're going to set some RStudio options that will help
-you out *a lot*. Go to `Tools -> Global Options...` and do these tasks:
-
-1.  In "General", under the "Basic" tab, uncheck all boxes under "R
-    Session", "Workspaces", and "History", as well as changing the "Save
-    workspace to .RData on exit" to "Never".
-2.  In "Code", under the "Editing" tab, change the "Tab width" to 2. The
-    tidyverse style guide as well as `{styler}` both use 2 spaces for
-    tabs, and since we are using the package, we can set this option
-    here to save us editing issues.
-3.  In "Code", under the "Saving" tab, check all the boxes under
-    "General" and "Auto-save". This last one, the "Auto-save", will help
-    out a lot, since one of the biggest "troubleshooting issues" we
-    encounter when helping during the version control session is that
-    people forget to save. This solves that problem.
