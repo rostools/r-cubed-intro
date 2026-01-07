@@ -66,7 +66,7 @@ computational learning module we have developed and described below aims to
 introduce and improve skills in R, reproducibility, and open science for
 researchers in the biomedical field, with a focus on diabetes research.
 
-The `r-cubed` (Reproducible Research in R or R3) learning module is
+The `r-cubed-intro` (Reproducible Research in R or R3) learning module is
 structured as a three-day workshop, with five sub-modules. We have specifically
 designed the module as an open educational resource that: 1) instructors can make
 use of directly or modify for their own lessons; and, 2) learners can use
@@ -96,25 +96,25 @@ training for these skills. The authors, all of whom work or have worked in
 biomedical research, used their experience in creating and shaping the content.
 
 The learning module was specifically designed with *re-use and adoption* in mind.
-Both the [*Welcome*](https://r-cubed.rostools.org/#welcome) and
-[*For Instructors*](https://r-cubed.rostools.org/for-instructors.html) sections give more
+Both the [*Welcome*](https://r-cubed.rostools.org) and
+[*For Instructors*](https://r-cubed.rostools.org/appendix/for-instructors.html) sections give more
 details on how this module can be re-used.
 
 The *target audience* for this learning resource is described in
-[*Welcome*](https://r-cubed.rostools.org/index.html#target-audiences) page.
+[*Welcome*](https://r-cubed.rostools.org/) page.
 Briefly, we suggest: *learners* use the material during and after the workshop;
 *instructors of the workshop* use the module as a reference while teaching; and those
 *interested in teaching*, but who are still new to the knowledge or skills
 themselves, can use the content to build their own workshop. The target learner
 of the workshop is detailed in the
-[*syllabus*](https://r-cubed.rostools.org/syllabus.html#is-this-course-for-you).
+[*syllabus*](https://r-cubed.rostools.org/overview/is-this-for-you).
 
 # Description of Learning Modules
 
 The *learning objectives* of this module are to provide a broad introduction
 to reproducible research practices, in the context of RStudio, Git, and GitHub. A
 detailed description of the learning objectives is found in the
-[*syllabus*](https://r-cubed.rostools.org/syllabus.html).
+[*syllabus*](https://r-cubed.rostools.org/overview/syllabus).
 Briefly, upon completing the learning module, learners are expected to have:
 
 1. A basic level of proficiency in using R, a statistical programming language.
@@ -125,9 +125,9 @@ Briefly, upon completing the learning module, learners are expected to have:
 The learning module encompasses *five sub-modules* (Table 1), with each
 sub-module representing about a half-day of lessons.
 A general schedule is given in the
-[*Schedule*](https://r-cubed.rostools.org/schedule.html) section.
+[*Schedule*](https://r-cubed.rostools.org/overview/schedule) section.
 Details on how these lessons can be used or structured are found in
-[*For Instructors*](https://r-cubed.rostools.org/for-instructors.html) section.
+[*For Instructors*](https://r-cubed.rostools.org/appendix/for-instructors) section.
 
 |Sub-module|Description|
 |---|---|
@@ -149,14 +149,14 @@ Principles and applications of reproducibility are highlighted
 throughout sub-modules. Sub-modules are accompanied by three stand-alone
 lectures (and one introductory lecture) aimed at drawing together challenges in
 reproducibility and the RStudio skills taught during the workshop (see
-[*Lecture Slides* section](https://r-cubed.rostools.org/lecture-slides.html)).
+[*Lecture Slides* section](https://r-cubed.rostools.org/sessions/introduction)).
 
 ## Instructional Design
 
 The module is designed for in-person settings, where the instructional design uses a
 combination of teaching methods (Table 2). Content taught using the methods
 below are described in the
-[*Welcome*](https://r-cubed.rostools.org/index.html) section.
+[*Welcome*](https://r-cubed.rostools.org) section.
 We also incorporate the use of sticky notes, as pioneered by the
 [Carpentries](https://swcarpentry.github.io/swc-releases/2017.02/instructor-training/15-practices/),
 to help with troubleshooting and to facilitate a positive learning experience overall.
@@ -173,7 +173,7 @@ to help with troubleshooting and to facilitate a positive learning experience ov
 
 Table: Description of pedagogical methods used throughout the workshop.
 
-The [*For Instructors*](https://r-cubed.rostools.org/for-instructors.html) section
+The [*For Instructors*](https://r-cubed.rostools.org/appendix/for-instructors) section
 further describes the teaching approach that instructors can adopt to improve
 learning outcomes.
 
