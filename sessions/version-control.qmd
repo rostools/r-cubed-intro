@@ -362,7 +362,7 @@ summarised in @fig-git-states.
     been written and the file with its changes has been saved into the
     repository history.
 
-```{mermaid fig-git-states}
+```{mermaid}
 %%| label: fig-git-states
 %%| fig-cap: The three states that files and folders can be in, when using Git.
 %%| echo: false

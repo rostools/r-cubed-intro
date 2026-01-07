@@ -42,7 +42,7 @@ of several Git repository hosting sites. The most popular one is
 session, we'll be covering GitHub not only because it is very popular,
 but also because the R community is almost entirely on GitHub.
 
-```{mermaid fig-git-remotes}
+```{mermaid}
 %%| label: fig-git-remotes
 %%| fig-cap: The 'remote' vs 'local' repository, or online vs on your computer.
 %%| echo: false
@@ -100,7 +100,7 @@ synchronization manually. "Pushing" is when changes to the history are
 uploaded to GitHub while "pulling" is when the history is downloaded
 from GitHub.
 
-```{mermaid fig-git-remotes-synch}
+```{mermaid}
 %%| label: fig-git-remotes-synch
 %%| fig-cap: "Synchronizing with GitHub: 'Pushing' and 'pulling'."
 %%| echo: false
@@ -124,7 +124,7 @@ from GitHub. Since changes saved in the history also reflect the working
 folder (the files and folders you actually see and interact with),
 "pulling" also updates the files and folders.
 
-```{mermaid fig-git-states-with-github}
+```{mermaid}
 %%| label: fig-git-states-with-github
 %%| fig-cap: Which states get 'pushed' and 'pulled'.
 %%| echo: false
@@ -259,7 +259,7 @@ contribute back, they make commits to their local copy and push those
 changes up to the remote. Then you can pull to your local copy and do
 the same thing. This is illustrated in @fig-git-remotes-collaborate.
 
-```{mermaid fig-git-remotes-collaborate}
+```{mermaid}
 %%| label: fig-git-remotes-collaborate
 %%| fig-cap: Collaborating with others using Git and GitHub by having a shared central GitHub repository.
 %%| echo: false
