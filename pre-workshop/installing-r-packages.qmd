@@ -38,6 +38,16 @@ research. To install these packages, you'll need to install our custom
 r3 helper package that we use for this workshop to help you install all
 the needed packages and to run some basic checks during the pre-workshop
 setup. To install it, you'll first need to install the `{pak}` package.
+
+::: callout-tip
+When running R code in the Console, sometimes it may show up as red
+text. Usually this means there is an error or a warning. Unfortunately,
+the Console sometimes shows text in red even when there is no error or
+warning. Don't be alarmed if you see red text. Take a moment and read
+the text to see if it says "error" or "warning". If it doesn't, then
+ignore it!
+:::
+
 Open your RStudio and watch the video (no audio) below to see how to do
 this:
 
