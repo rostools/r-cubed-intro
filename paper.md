@@ -97,7 +97,7 @@ biomedical research, used their experience in creating and shaping the content.
 
 The learning module was specifically designed with *re-use and adoption* in mind.
 Both the [*Welcome*](https://r-cubed.rostools.org) and
-[*For Instructors*](https://r-cubed.rostools.org/appendix/for-instructors.html) sections give more
+[*For Teachers*](https://r-cubed.rostools.org/appendix/for-teachers) sections give more
 details on how this module can be re-used.
 
 The *target audience* for this learning resource is described in
@@ -127,7 +127,7 @@ sub-module representing about a half-day of lessons.
 A general schedule is given in the
 [*Schedule*](https://r-cubed.rostools.org/overview/schedule) section.
 Details on how these lessons can be used or structured are found in
-[*For Instructors*](https://r-cubed.rostools.org/appendix/for-instructors) section.
+[*For Teachers*](https://r-cubed.rostools.org/appendix/for-teachers) section.
 
 |Sub-module|Description|
 |---|---|
@@ -212,7 +212,7 @@ participants do too!
 
 # Acknowledgments
 
-We want to specifically thank the [Danish Diabetes Academy](https://www.danishdiabetesacademy.dk/)
+We want to specifically thank the [Danish Diabetes Academy](https://www.ddeacademy.dk/)
 for hosting, organizing, and providing a space to build and grow this workshop.
 We also thank the instructors and helpers of the first version of the workshop
 (João Santiago, Anna Schritz, Omar Silverman) for their early feedback during
