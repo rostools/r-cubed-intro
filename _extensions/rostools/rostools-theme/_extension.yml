@@ -1,6 +1,6 @@
 title: rostools-theme
 author: Luke W. Johnston
-version: 1.3.1
+version: 1.3.2
 quarto-required: ">=1.5.0"
 contributes:
   shortcodes:
@@ -17,8 +17,8 @@ contributes:
       code-overflow: scroll
       from: markdown+emoji
       theme:
-        - brand
         - yeti
+        - brand
 
     revealjs:
       embed-resources: true
@@ -38,7 +38,7 @@ contributes:
     book:
       navbar:
         logo: "favicon-white.ico"
-        logo-alt: "Graphic of a capital R with a 3 as a superscript."
+        logo-alt: "Logo of a capitalised R with two curved arrows circling it."
         pinned: true
       search:
         location: navbar
@@ -49,8 +49,6 @@ contributes:
 
     csl: vancouver.csl
 
-    reference-location: margin
-    citation-location: margin
     crossref:
       chapters: true
 
