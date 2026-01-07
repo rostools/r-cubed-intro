@@ -35,10 +35,16 @@ book:
         - overview/is-this-for-you.qmd
         - overview/schedule.qmd
         - overview/learning-design.qmd
+    - part: "Pre-workshop"
       chapters:
-      - preamble/syllabus.qmd
-      - preamble/schedule.qmd
-      - preamble/pre-course.qmd
+        - pre-workshop/overview.qmd
+        - pre-workshop/reading.qmd
+        - pre-workshop/installing-programs-r.qmd
+        - pre-workshop/r-and-rstudio.qmd
+        - pre-workshop/installing-r-packages.qmd
+        - pre-workshop/git-and-github.qmd
+        - pre-workshop/code-of-conduct.qmd
+        - pre-workshop/survey.qmd
     - part: "Sessions"
       chapters:
       - sessions/introduction.qmd
