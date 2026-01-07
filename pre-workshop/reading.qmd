@@ -45,3 +45,18 @@ To keep track of which sections to read, here is a list:
 6.  @sec-basics-of-git
 7.  @sec-project-work
 :::
+
+## Cheatsheets
+
+RStudio provides some great
+[cheatsheets](https://posit.co/resources/cheatsheets/) that are
+fantastic resources and a great reference to have readily available,
+either on your computer or printed out. We suggest that you download at
+least these following cheatsheets and have them available either
+digitally or printed out during the workshop, especially for when you do
+the exercises and group project work:
+
+-   [RStudio IDE](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+-   [Quarto](https://rstudio.github.io/cheatsheets/quarto.pdf)
+-   [dplyr](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+-   [ggplot2](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
