@@ -1,52 +1,120 @@
-<!-- NOTE: This comes from `template-workshop` template. -->
+# Installing R packages {#sec-installing-r-packages}
 
-# Installing R Packages {#sec-installing-r-packages}
+Now that you have RStudio and R on your computer and have read about
+them, you need to install the R packages we'll use in the workshop. R
+packages are bundles of R code that other people have written. There are
+so many R packages available that there is likely an R package for
+anything you'd like to do in R. Making use of R packages can help you
+immensely when doing your research.
 
-We will be using specific R packages for the workshop, so you will need
-to install them. To make it easier, we've created a custom R package
-called `r3` that will install all the necessary packages for you for this
-workshop. Run these functions in the Console to install the packages.
+Before we continue, let's briefly explain what some terms mean.
 
-1.  Install the `{pak}` package:
+-   **R code** is any individual piece of text that R interprets as
+    commands to do something. For example, the code `mean()` is a
+    complete piece of text that tells R to calculate the mean of some
+    numbers.
+    -   R code is split into two types: objects (like a dataset) or
+        actions (called functions). For the most part, whenever you see
+        code with `()` at the end (at least in this workshop), that
+        means it is a function (an action).
+    -   A function is a set of bundled R code that performs a specific
+        task. Like the example `mean()` above.
+-   **R script** is any file with the ending `.R` that contains R code
+    that completes tasks in a sequence (from the top of the file to the
+    bottom).
+-   **R package** is a set of R scripts that contain multiple bundles of
+    R code (mostly these bundles are functions, but can sometimes be
+    data) that work together to expand on or improve R code and R
+    functionality.
 
-    ``` {.r filename="Console"}
-    install.packages("pak")
-    ```
+For this workshop, we will be focusing on R packages that are powerful
+and general-purpose enough to help you in multiple aspects of your
+research. To install these packages, you'll need to install our custom
+r3 helper package that we use for this workshop to help you install all
+the needed packages and to run some basic checks during the pre-workshop
+setup. To install it, you'll first need to install the `{pak}` package.
+Open your RStudio and watch the video (no audio) below to see how to do
+this:
 
-2.  Install our custom r3 helper package for this workshop:
+<!-- TODO: Convert to picture using the Console -->
 
-    ``` {.r filename="Console"}
-    pak::pak("rostools/r3")
-    ```
+{{< video /videos/rstudio-install-pak.mp4 >}}
 
-3.  Install the necessary packages for the workshop:
+Or paste the following code into the RStudio R Console:
 
-    ``` {.r filename="Console"}
-    r3::install_packages_{{< meta workshop_level >}}()
-    ```
+```{r install-pak}
+#| filename: "Console"
+install.packages("pak")
+```
+
+Next, copy and paste (or type) the function below into the RStudio
+Console to install the r3 package. Hit "Enter" and the r3 helper package
+will be installed. Watch the video below to see how to do this.
+**Note**, what you see in the video (no audio) may look different from
+yours.
 
 ::: {.callout-warning appearance="default"}
-You might encounter an error when running this code. That's ok, you can
-fix it if you restart R by going to "Sessions -> Restart R" and re-run
-the code in items 2 and 3, it should work. If that also doesn't work,
-try to complete the other tasks, complete the survey, and let us know
-you have a problem in the survey.
+You might encounter an error when running this code. That's ok, if you
+restart R by going to `Sessions -> Restart R` and re-running this code,
+it should work. If it still doesn't, try to complete the other tasks,
+complete the survey, and let us know you have a problem in the survey.
 :::
 
-*Note*: When you see a command like `something::something()`, for
-example with `r3::install_packages_{{< meta workshop_level >}}()`, you
-would "read" this as:
+```{r install-r3}
+#| filename: "Console"
+pak::pak("rostools/r3", upgrade = TRUE)
+```
 
-> R, can you please use the
-> `install_packages_{{< meta workshop_level >}}()` function from the r3
-> package.
+<!-- TODO: Show picture of the Console and with the code in and running -->
 
-The normal way of doing this would be to load the package with
-`library(r3)` and then running the command
-(`install_packages_{{< meta workshop_level >}}()`). But by using the
-`::`, we tell R to directly use a function from a package, without
-needing to load the package and all of its other functions too. We use
-this trick because we only want to use the
-`install_packages_{{< meta workshop_level >}}()` command from the r3
-package and not have to load all the other functions as well. In this
-workshop we will be using `::` often.
+When you see R code like `something::something()`, for example with
+`pak::pak()`, you would "read" this as:
+
+> R, can you please use the `pak()` function from the `{pak}` package.
+
+The most common way of using functions from packages is to load the
+package with `library()`, for example like `library(pak)`. Then you can
+use the functions from the package directly, like `pak()`. When you use
+the code `::` (pronounced "colon colon"), you are telling R to directly
+use a function from a package, without needing to load the whole package
+and all of its other functions too. We use this trick because we only
+want to use the one function `pak()` and not load all the other
+functions from the `{pak}` package into R. We will be using `::` often
+in this workshop.
+
+Most of the packages we will be using in this course are bundled
+together into one package called `{tidyverse}`. This package is a
+collection of packages that are designed for common tasks in data
+science, ranging from data exploration to data visualization. As the
+name suggests, `{tidyverse}` is an attempt to organize the "universe" of
+data analysis by providing packages that guide workflows and lead to
+more reproducible analysis projects. To install all the packages we will
+use for this workshop, copy and paste this command into the R Console:
+
+```{r install-necessary-packages}
+#| filename: "Console"
+r3::install_packages_introduction()
+```
+
+Same as when you installed the r3 package, this may take some time to
+install all the packages. We have you use this function to install
+everything rather than install all the packages with
+`install.packages()` individually, as this makes it a bit easier for you
+to get set up.
+
+The specific packages from `{tidyverse}` that we will use are
+`{ggplot2}` and `{dplyr}`. These packages provide a set of tools for the
+most common data analysis tasks and have excellent documentation and
+tutorials on how to use them.
+
+-   `{dplyr}` (along with a complementary package `{tidyr}`) is a
+    package that is very popular and contains important data
+    manipulation functions, including functions that select and/or
+    create variables depending on certain conditions. `{dplyr}` is built
+    to work directly with data frames (rectangular data like those found
+    in spreadsheets).
+
+-   `{ggplot2}` is a data visualization package that can be used to
+    create bar charts, pie charts, histograms, scatterplots, error
+    charts, and more. It uses a "grammar" as a way to construct and
+    customize your graphs in a layered, descriptive approach.
