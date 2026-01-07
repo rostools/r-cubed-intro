@@ -1,4 +1,4 @@
-# Introduction to course {#sec-introduction}
+# Introduction to workshop {#sec-introduction}
 
 ```{r}
 #| include: false
@@ -28,9 +28,9 @@ the keyboard.
 **Time: \~10 minutes**
 
 While you've read the syllabus, listened to the presentation, and likely
-have an overall idea of why we are teaching this course, repetition is a
+have an overall idea of why we are teaching this workshop, repetition is a
 critical component to learning, so here is more emphasis on some common
-considerations or thoughts you might have about the course.
+considerations or thoughts you might have about the workshop.
 
 ### Why learn this now? {.unnumbered}
 
@@ -55,7 +55,7 @@ technological and societal changes:
 
 ### What will we do? {.unnumbered}
 
-In this course, our **ultimate goal** is to:
+In this workshop, our **ultimate goal** is to:
 
 -   Create a project that has a report (in HTML or Word) where you
     reproducibly import some data, process it a bit, and create some
@@ -102,8 +102,8 @@ of which are listed below:
 
 ### Why Git and Quarto? {.unnumbered}
 
-You probably came to this course to learn R. So why are we also going to
-go over Git and Quarto. Well, the main learning outcome for the course
+You probably came to this workshop to learn R. So why are we also going to
+go over Git and Quarto. Well, the main learning outcome for the workshop
 is **reproducible research**. And that involves more than just R.
 
 Why do we take time to teach setting up a project folder and file
@@ -122,11 +122,11 @@ reproducible.
 ### Why are we going slow/fast? {.unnumbered}
 
 We always get feedback that for some it is too fast and for others it is
-too slow, especially during this introductory course. Ideally, everyone
+too slow, especially during this introductory workshop. Ideally, everyone
 would say it was the perfect speed. But that is impossible to achieve.
 So instead, we aim as much as possible to have fewer people say it was
 too fast than people who say it was too slow. This is an introduction
-course, so we're trying to assume as little to no knowledge on many of
+workshop, so we're trying to assume as little to no knowledge on many of
 these concepts. So, for those with some knowledge, it *will* feel slow
 at times! You can always help your neighbour out to help pass the time
 :grin: :tada:

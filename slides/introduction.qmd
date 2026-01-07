@@ -5,7 +5,7 @@ bibliography: "../includes/references.bib"
 csl: "../_extensions/rostools/r3-theme/vancouver.csl"
 ---
 
-# Welcome to the Introductory R^3^ course!
+# Welcome to the Introductory R^3^ workshop!
 
 -   :heavy_check_mark: Pick a group name from the basket and go to that
     table
@@ -17,15 +17,15 @@ Introduce instructors and helpers after welcoming everyone and getting
 them to do this.
 :::
 
-## :raising_hand_woman: Before this course... How many knew or have heard about <u>reproducibility</u>? {.center}
+## :raising_hand_woman: Before this workshop... How many knew or have heard about <u>reproducibility</u>? {.center}
 
 ::: notes
 Raise your hands.
 :::
 
-## :raising_hand_woman: Before this course... How many knew or have heard about <u>open science</u>? {.center}
+## :raising_hand_woman: Before this workshop... How many knew or have heard about <u>open science</u>? {.center}
 
-## :raising_hand_man: Before this course... or even <u>open access, open data, open methods/protocols, or open source</u>? {.center}
+## :raising_hand_man: Before this workshop... or even <u>open access, open data, open methods/protocols, or open source</u>? {.center}
 
 ## :raising_hand_woman: How many have read a method in a paper and wondered how they <u>actually</u> did it? {.center}
 
@@ -194,15 +194,15 @@ nurturing a better and healthier culture. We all can be involved in
 that, we all have that power to do something, even if its small thing.
 :::
 
-## Goal of this course: Start changing the culture by providing the training {.center}
+## Goal of this workshop: Start changing the culture by providing the training {.center}
 
-# Course details
+# workshop details
 
 ## Setup and layout {.smaller}
 
 ::::: columns
 ::: column
--   Course is mix of:
+-   workshop is mix of:
     -   "Code-alongs" (we type and explain, you type along)
     -   Hands-on coding, discussing, and reading exercises
     -   Group project (quickly go over it and the GitHub page)
@@ -223,13 +223,13 @@ that, we all have that power to do something, even if its small thing.
 :::::
 
 ::: notes
-Explain a bit more about the reading, why doing it, and that this course
-in particular has a lot more of it than more advanced courses.
+Explain a bit more about the reading, why doing it, and that this workshop
+in particular has a lot more of it than more advanced workshops.
 
 With the final group project, you'll be in the same group for the
-course, working together on it and on the final exercises. As a team,
+workshop, working together on it and on the final exercises. As a team,
 you'll help each other out with learning and overcoming any struggles,
-with of course our help too!
+with of workshop our help too!
 
 I've tried to organize the groups to include a range of skills and
 experiences, so there is a mix of novice and more experienced users.

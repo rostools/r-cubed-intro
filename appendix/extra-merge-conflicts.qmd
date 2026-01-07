@@ -77,7 +77,7 @@ GitHub, refresh the browser, and view that the changes have taken place.
 
 **Time: ~10 minutes.**
 
-Throughout this course you *hopefully* won't encounter many merge
+Throughout this workshop you *hopefully* won't encounter many merge
 conflicts, including during the group project. Regardless, here is some
 practice to deal with them.
 

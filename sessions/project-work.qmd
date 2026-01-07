@@ -1,7 +1,7 @@
 # Group project work {#sec-project-work}
 
 To maximize how much you learn and how much you will retain, you as a
-group will take what you learn in the course and apply it to create a
+group will take what you learn in the workshop and apply it to create a
 reproducible project. This project, based on a simple data analysis of a
 dataset of your choice, will have a GitHub repository and an HTML
 document as a report to demonstrate the reproducibility of the analysis.
@@ -9,7 +9,7 @@ The dataset **cannot be the same** as the one we used in class and must
 be one of the ones listed below. The datasets we've selected are tidy
 enough to start working on without too much wrangling.
 
-During the last session of the course you will work on this assignment.
+During the last session of the workshop you will work on this assignment.
 In the last \~20 minutes of this session, the lead instructor will
 download your project from GitHub and re-generate your report to check
 that it is reproducible.
@@ -132,7 +132,7 @@ What we expect you to do for the group project:
 -   Use Git and GitHub throughout your work.
 -   Work collaboratively as a group and share responsibilities and
     tasks.
--   Use as much of what we covered in the course to practice what you
+-   Use as much of what we covered in the workshop to practice what you
     learned.
 
 What we don't expect:
@@ -145,4 +145,4 @@ What we don't expect:
     understandable!
 
 Essentially, the group project is a way to reinforce what you learned
-during the course, but in a more relaxed and collaborative setting.
+during the workshop, but in a more relaxed and collaborative setting.

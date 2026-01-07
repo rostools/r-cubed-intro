@@ -218,9 +218,9 @@ so that we don't accidentally put it publicly on GitHub. Or if your data
 is really large, we don't normally want to keep large files on GitHub
 since that isn't the best place to store those types of files. But
 because the dataset is already an open dataset and because it is small,
-for this course we will save it to the Git history to get practice using
+for this workshop we will save it to the Git history to get practice using
 Git. We also normally don't commit the generated `.html` files, but for
-this course we will commit them to the Git history so that you get
+this workshop we will commit them to the Git history so that you get
 practice with Git. Once done, read over the next section.
 
 ## :book: Reading task: Relative paths in the R project
@@ -361,7 +361,7 @@ Hadley Wickham and described in more detail in the [Tidy Data
 chapter](https://r4ds.hadley.nz/data-tidy.html) of the *R for Data
 Science* online book. Before we continue with tidy data, we need to
 cover something that is related to the concept of "tidy" and that has
-already come up in this course: the `{tidyverse}`. The `{tidyverse}` is
+already come up in this workshop: the `{tidyverse}`. The `{tidyverse}` is
 an ecosystem of R packages that are designed to work well together, that
 all follow a strong "[design philosophy](https://design.tidyverse.org/)"
 and common [style guide](https://style.tidyverse.org/). This makes
@@ -431,7 +431,7 @@ in "sentences" (in a sequential pipeline), you can construct meaningful
 and readable code that describes in plainer English what you are doing
 to the data. This is one simple way that you can enhance the
 reproducibility of your code. There are other ways to make your code
-tidier and more readable, all of which we will cover in this course.
+tidier and more readable, all of which we will cover in this workshop.
 
 -   Document what you did to your data and why you did it, to help you
     remember later on by using comments with `#` hashes as well as using

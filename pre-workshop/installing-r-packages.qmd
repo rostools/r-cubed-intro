@@ -87,7 +87,7 @@ want to use the one function `pak()` and not load all the other
 functions from the `{pak}` package into R. We will be using `::` often
 in this workshop.
 
-Most of the packages we will be using in this course are bundled
+Most of the packages we will be using in this workshop are bundled
 together into one package called `{tidyverse}`. This package is a
 collection of packages that are designed for common tasks in data
 science, ranging from data exploration to data visualization. As the

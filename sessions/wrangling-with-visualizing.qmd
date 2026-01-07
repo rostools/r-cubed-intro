@@ -337,7 +337,7 @@ figure and how your choice of colours will be interpreted. You can use
 built-in colour schemes or create your own. For now, let's stick to
 using built-in ones. There are two we can start with: the `{viridis}`
 and the [ColorBrewer](https://colorbrewer2.org/) colour schemes. Both
-are well designed and are colour blind friendly. For this course, we
+are well designed and are colour blind friendly. For this workshop, we
 will only cover the `{viridis}` package.
 
 ::: callout-tip

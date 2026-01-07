@@ -6,7 +6,7 @@ After lunch, get in your group and walk outside (or inside) to get to
 know one another. Think about, discuss, and/or share this general
 questions:
 
--   Why are you here? Where did you hear about the course?
+-   Why are you here? Where did you hear about the workshop?
 -   What do you currently do and how might you use R in your work?
 -   If you've ever worked in another program to do data analysis (or
     even used R), share some experiences you've had with that. Have you

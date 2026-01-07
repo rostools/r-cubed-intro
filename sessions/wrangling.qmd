@@ -42,7 +42,7 @@ package that gets loaded with `{tidyverse}`:
 | Subset/filter rows | `filter()` | Keeping rows with glucose values above 4. |
 | Rename columns | `rename()` | Changing a column name from 'Q1' to 'participant_name'. |
 | Transform or modify columns | `mutate()` | Multiplying or taking the log of a column's values. |
-| Sort rows | `arrange()` | Show rows with the smallest value at the top. We won't cover this function in this course, but we do have an extra section on it in @sec-extra-arrange. |
+| Sort rows | `arrange()` | Show rows with the smallest value at the top. We won't cover this function in this workshop, but we do have an extra section on it in @sec-extra-arrange. |
 | Calculate summaries | `summarise()` | Calculating the maximum, median, and minimum age. We'll cover this in @sec-split-apply-combine. |
 | Run code by a group | `group_by()` with `summarise()` | Calculate means of age by males and females. We'll cover this in @sec-split-apply-combine. |
 
@@ -183,7 +183,7 @@ select(post_meal_data, contains("0"))
 
 Now that we've tested how to use `select()`, let's simplify our dataset
 a bit. While our data doesn't have too many rows, there are a lot of
-columns to deal with, at least for this course. Let's keep only a few
+columns to deal with, at least for this workshop. Let's keep only a few
 columns for now, so it is easier to look at and explore.
 
 Since we want
@@ -226,7 +226,7 @@ A key component of tidy data and tidy code is making use of the "pipe"
 inspired from the `{magrittr}` `%>%` pipe. You may notice this style of
 piping in documentation online. Both pipes work exactly the same, but
 since the `|>` comes built-in with R, we will use that one for this
-course.
+workshop.
 
 You would use the pipe `|>` operator when you are writing a piece of
 code with multiple operations or steps in sequence. One advantage of the
@@ -473,7 +473,7 @@ stage, even for advanced R users.
 
 Show this table on the screen and briefly explain the first few to them.
 Mention that they can use this table as a reference for the rest of the
-course.
+workshop.
 :::
 
 Below is a table showing most of the logic comparisons to use in R.

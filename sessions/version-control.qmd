@@ -34,7 +34,7 @@ This session's **overall learning outcome** is to:
 Before starting this session, get them to share some of the things they
 discussed during the social activity.
 
-They will have already read it once before, during the pre-course tasks.
+They will have already read it once before, during the pre-workshop tasks.
 Tell them that they'll read it again to refresh their memories and
 reinforce the concepts. This is important because Git and version
 control is something that is *very* difficult to conceptually understand
@@ -59,7 +59,7 @@ This session is *very* text and reading heavy compared to other
 sessions. This is mostly because this topic requires a mental paradigm
 shift in how you view files, and requires you to change your habits of
 how you normally work. While you may get more short-term use out of the
-R portion of this course, knowing and using version control concepts and
+R portion of this workshop, knowing and using version control concepts and
 tools will fundamentally change how you work over the long term. While
 the concepts are quite difficult, the tools to use the concepts aren't,
 and using them often will make the concepts easier to understand.
@@ -184,7 +184,7 @@ learn to do shortly).
 Just like above, they've already read this section but should read it
 again to reinforce the concepts. Briefly go over it again, especially
 making sure everyone has their Git properly configured. Even though they
-do that already during the pre-course tasks, sometimes things happen in
+do that already during the pre-workshop tasks, sometimes things happen in
 the meantime, so its good to check again.
 :::
 
@@ -250,7 +250,7 @@ Setting up a Git repository can be done in several ways:
     can be selected from the "New Projects" setup instructions in
     RStudio.
 -   For existing R Projects, you can type in the console
-    `usethis::use_git()` (*don't do this for the course!*).
+    `usethis::use_git()` (*don't do this for the workshop!*).
 -   The `{prodigenr}` package will automatically set up Git for the
     project.
 
@@ -268,7 +268,7 @@ width="100%"}
 
 Since they will be using the Git interface quite a bit, really take your
 time walking through it and describing it. Show where things are and
-what things to focus on for this course.
+what things to focus on for this workshop.
 :::
 
 Git was initially created to be used in the terminal (i.e command-line).
@@ -382,7 +382,7 @@ changed, why it has been changed, who changed it, and when.
 of a previous version of this lesson, which makes it easy to get an
 overview of what is happening in a project.
 
-![An example of a history for this course's
+![An example of a history for this workshop's
 repository.](/images/rstudio-git-interface-log.png){#fig-rstudio-git-interface-log}
 
 You may notice that the messages in the log give a bit of detail about
@@ -447,7 +447,7 @@ When working on your own projects and when you use Git, you will be
 committing a *lot* of changes to your files into the Git history. Part
 of the initial barrier is simply getting used to this workflow of
 committing what you've changed. Use this exercise to get some practice.
-We will be using this workflow often throughout the rest of the course.
+We will be using this workflow often throughout the rest of the workshop.
 
 1.  Practice the add-commit ("add to staging"-"committing to history")
     sequence by adding and committing *each* of the remaining files (or folders) in
@@ -465,7 +465,7 @@ We will be using this workflow often throughout the rest of the course.
     Add and commit that new line you've written using
     {{< var keybind.git >}}. Normally you wouldn't commit the HTML file
     or any files that are generated from your code or Quarto files. But
-    for this course, we will commit most things.
+    for this workshop, we will commit most things.
 
 {{< text_snippet sticky_up >}}
 

@@ -451,7 +451,7 @@ means with error bars" actually hides the underlying distribution of the
 data. To have a better explanation of this, you can read the article on
 why to [avoid
 barplots](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128)
-after the course. The image below was taken from that paper, and briefly
+after the workshop. The image below was taken from that paper, and briefly
 demonstrates why this plot type is not useful.
 
 ::: {#fig-barplots-deceive}
@@ -587,7 +587,7 @@ follows the `{tidyverse}` [style guide](https://style.tidyverse.org/),
 to automatically reformat our code into the correct style. With
 `{styler}` you can style multiple files at once, one file at a time, or
 based on code you select and highlight. We will style our files a lot as
-we write code throughout this course. We'll use it with
+we write code throughout this workshop. We'll use it with
 {{< var keybind.styler >}}, which should show the "Style active file"
 option.
 
@@ -637,7 +637,7 @@ glucose is a measure of how much glucose is present in the blood over a
 fixed period of time. A higher area under the curve for glucose usually
 suggests that the body has a harder time handling glucose. But, like
 everything in biology, it's more complex than that. But we won't cover
-that complexity in this course.
+that complexity in this workshop.
 
 First, write out a new Markdown header called
 `## Plotting two continuous variables` at the bottom of the document and

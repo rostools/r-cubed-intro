@@ -108,7 +108,7 @@ appear. Enter "Reproducible documents" in the title field and your name
 in the author field. HTML should be automatically selected as the output
 format. There's also the option to use the "visual mode". This mode is
 great if you are used to working with Word and you can test it out on
-your own later. For this course, we will focus on using the normal mode.
+your own later. For this workshop, we will focus on using the normal mode.
 
 After clicking "Create", the new file will open in RStudio. Before
 continuing, let's save this file as `learning.qmd` in the `docs/`
@@ -170,7 +170,7 @@ creating documents from Quarto.
 
 ## RStudio layout and usage
 
-You've already gotten a bit familiar with RStudio in the pre-course
+You've already gotten a bit familiar with RStudio in the pre-workshop
 tasks, but if you want more details, RStudio has a great [cheat
 sheet](https://www.rstudio.com/resources/cheatsheets/#ide) on how to use
 RStudio. The items to know right now are the "Console", "Files"/"Help",
@@ -187,7 +187,7 @@ can either click the button, use the keybinding
 `Code -> Show Document Outline`. The Command Palette is a very useful
 tool to learn, since you can easily access almost all features and
 options inside RStudio through it. Because of this reason, we will be
-using it a lot throughout the course. Open it up with
+using it a lot throughout the workshop. Open it up with
 {{< var keybind.palette >}} and then in the pop-up search bar, type out
 "document outline". The first item should be the one we want, so hit
 `Enter` to activate the Outline.
@@ -242,7 +242,7 @@ something like this:
 
 Let them read it over, then briefly go over the content again. We don't
 need to do most of this as a code-along, since we will be using them a
-lot throughout the course.
+lot throughout the workshop.
 
 Emphasize that, in general, code with `()` means it is a function and
 that it does an action. Mention that, like everything, there are some
@@ -337,13 +337,13 @@ is in its ability for other people to create packages that simplify
 doing complex tasks. For example, if you need to use mixed effects
 models for your data analysis, you can use the `{lme4}` package. Or if
 you want to create figures you can use the `{ggplot2}` package. As you
-experienced from the pre-course tasks, installing packages is easy by
+experienced from the pre-workshop tasks, installing packages is easy by
 using `install.packages()`. Whenever we work with R, we very rarely work
 only with the base R functions. We usually use a lot of functions from
 many other packages, because that is one of the easiest ways for you to
 simplify your work! No need to re-invent the wheel :grin:
 
-One "meta-package" we will use throughout the course is called
+One "meta-package" we will use throughout the workshop is called
 `{tidyverse}`. So let's load the package up so we can use the functions
 from inside it.
 

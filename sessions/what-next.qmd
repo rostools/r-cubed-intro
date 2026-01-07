@@ -22,17 +22,17 @@ it before the presentation.
 
 It is one thing to learn the principles of how to do reproducible
 research. It is quite another thing to do so in daily practice. So, how
-can you practice these skills and tools you learned during the course?
+can you practice these skills and tools you learned during the workshop?
 
 -   If you have your own data already, then it's easy: Start using these
     tools bit by bit, step by step. It doesn't have to be all at once.
-    Slowly and steadily use the tools and skills from this course and
+    Slowly and steadily use the tools and skills from this workshop and
     continue learning. It isn't a race, use what you can without getting
     totally overwhelmed.
 -   Check out the [Learning](https://guides.rostools.org/learning.html)
     page of the Guides website for resources on continued learning.
 -   If your collaborators or supervisor don't use these tools from the
-    course, are not supportive, or are supportive but not able to learn
+    workshop, are not supportive, or are supportive but not able to learn
     and use these tools themselves, e.g. they are too busy, there are
     several steps you can take. This situation is definitely challenging
     and is likely to be most commonly encountered. Use the tools as best
@@ -105,13 +105,13 @@ criticizing it and trying to improve it. We review manuscripts, why not
 code? Do note though, that this is way easier said than done!
 
 You can teach! Teach others. Use these teaching materials. Or get
-involved with this course next year. Or now! Several participants from
-these courses are or will soon be helping to improve the material for
+involved with this workshop next year. Or now! Several participants from
+these workshops are or will soon be helping to improve the material for
 next year. There are also so many other things you can get involved in,
-aside from this course. Let us know if you're interested!
+aside from this workshop. Let us know if you're interested!
 
 ::: {.callout-tip appearance="minimal"}
-:star: Do you find this course material useful? Then please consider
+:star: Do you find this workshop material useful? Then please consider
 "starring" our [GitHub
 repository](https://github.com/rostools/r-cubed-intro/) to show your
 support! Starring will save it to a list of repositories you like that

@@ -38,7 +38,7 @@ only copies over the changes made as commits in the history.
 
 One of the biggest reasons why we teach Git is because of the popularity
 of several Git repository hosting sites. The most popular one is
-[GitHub](https://github.com/) (which this course is hosted on). In this
+[GitHub](https://github.com/) (which this workshop is hosted on). In this
 session, we'll be covering GitHub not only because it is very popular,
 but also because the R community is almost entirely on GitHub.
 
@@ -247,7 +247,7 @@ feature. Instead, you'd need to learn another way of collaborating
 together, a way that is much more effective and extremely powerful. This
 workflow of using Git and GitHub has been tried and tested by tens of
 thousands of teams in tens of hundreds of companies globally. One of the
-goals of this course is to slowly move researchers more into the modern
+goals of this workshop is to slowly move researchers more into the modern
 era, using more modern technology, tools, and workflows so that we can
 produce better research faster.
 
@@ -285,7 +285,7 @@ pushes the changes to the file and the other pulls those changes, you
 end up with a merge conflict that you have to learn how to resolve. A
 work-around is to create separate files for each collaborator and merge
 them together when you are finished with the project. This is what you
-will do for the group project at the end of this course.
+will do for the group project at the end of this workshop.
 
 ::: callout-tip
 For public GitHub repositories, anyone can copy your repository and
@@ -295,8 +295,8 @@ explicitly add collaborators in GitHub.
 
 You add someone to a private (or public) repository by going to
 `Settings -> Manage Access -> Invite a collaborator` (also shown in the
-video below). We won't do this for the course, but we're telling you how
-you can just in case you want to after the course.
+video below). We won't do this for the workshop, but we're telling you how
+you can just in case you want to after the workshop.
 
 {{< video /videos/github-add-collaborator.mp4 >}}
 :::
@@ -315,9 +315,9 @@ file in RStudio, finding the conflict, and deciding which change to keep
 and which to remove. After you've resolved the conflict, you would then
 stage the file and commit it.
 
-We won't go into merge conflicts in this course, though you might deal
+We won't go into merge conflicts in this workshop, though you might deal
 with them during the group project. If you want to learn more about them
-after the course, GitHub has a [practical
+after the workshop, GitHub has a [practical
 tutorial](https://github.com/skills/resolve-merge-conflicts) on it. We
 also have an extra appendix section to deal with merge conflicts in
 @sec-merge-conflicts.
@@ -326,7 +326,7 @@ also have an extra appendix section to deal with merge conflicts in
 ::: callout-note
 A big challenge you'll encounter with becoming better with this way of
 collaborating is that most of your collaborators will likely not be
-familiar with it, at least until they take this course. :wink:
+familiar with it, at least until they take this workshop. :wink:
 
 Sadly, even experienced researchers struggle with this workflow (mainly
 due to their unfamiliarity with Git) and there is no easy answer on how
