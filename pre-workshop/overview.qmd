@@ -54,7 +54,8 @@ finish**, so we suggest planning a full day to complete them.
     computer, and create a GitHub account in @sec-setup-git-and-github
     as well as run some checks to make sure everything is working.
     You'll need to paste this output into the survey later on.
-8.  Complete the pre-workshop [survey](survey.qmd): This survey is
+8.  Read through the Code of Conduct in @sec-code-of-conduct.
+9.  Complete the pre-workshop [survey](survey.qmd): This survey is
     pretty quick, maybe \~10 minutes. There will be some bits from the
     tasks that you will need to paste into this survey.
 
