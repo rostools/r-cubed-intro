@@ -1,0 +1,35 @@
+# Pre-reading {#sec-pre-reading}
+
+If you haven't already, go through the workshop overview section. Read
+the syllabus in @sec-syllabus, especially the part about what the
+workshop will cover and what we expect you to learn at the end of it.
+Then read the 'Is this for you?' section in @sec-is-this-for-you to
+clarify who we've designed and built this workshop for. Lastly, read the
+learning design section in @sec-learning-design to get an overview of
+what types of activities we will do during the workshop as well as the
+reasons for them in relation to learning.
+
+Related to the learning design, an important component of learning is
+repeated exposure to a concept or skill. We want you to read through
+specific sections of the material beforehand as we've found that these
+particular topics are often more difficult to grasp and understand for
+beginners. Reading it beforehand will give your brain some time to start
+processing the information, so that when you see it again during the
+workshop, it will be easier to understand and learn. During the
+workshop, you will read these sections again and we will explain them
+verbally as well, to further reinforce the concepts.
+
+So, please read about version control and Git in
+@sec-what-is-version-control, @sec-what-is-git, and @sec-basics-of-git.
+Git and version control are some of the more difficult things you will
+learn in this workshop because they are fundamentally very different
+ways of working on your computer than you are used to. They require
+changing how you see and interact with your projects and computer in big
+ways.
+
+Lastly, briefly read through the group project work section in
+@sec-project-work so you are familiar with what you will do at the end
+of the workshop. You'll have time during the project work session to
+read through it again, but we've found that participants prefer and want
+to be aware beforehand on what is expected of them during the project
+work.

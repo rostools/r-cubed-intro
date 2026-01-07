@@ -24,7 +24,11 @@ and setup.
 ## Summary of tasks
 
 Here's a quick overview of the tasks you need to do. Specific details
-about them are found as you work through the tasks.
+about them are found as you work through the tasks. Most of the time
+spent on the tasks is on the reading tasks. We include these reading
+tasks to have you as aware and as well-prepared as we can before the
+workshop, so that we have a smoother start and so that you benefit more
+from the improved learning from the earlier and repeated exposure.
 
 ::: callout-important
 Depending on your institution, the installation tasks may require IT
@@ -38,7 +42,7 @@ finish**, so we suggest planning a full day to complete them.
     (below on this page).
 2.  Read about how to read this website in @sec-reading-website (below
     on this page).
-3.  Do some reading tasks in @pre-pre-reading.
+3.  Do some reading tasks in @sec-pre-reading.
 4.  Install the necessary programs and the right versions of those
     programs in @sec-install-programs. As mentioned in the callout block
     above, depending on your institution, this task can take the
