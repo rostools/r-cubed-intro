@@ -46,7 +46,11 @@ has four "panels", dividing the screen into the four sections.
 
 ::: {.callout-note appearance="default"}
 This image may look slightly different from your own computer depending
-on your operating system and other settings.
+on your operating system and other settings. For example, some pictures
+may show a Git pane in RStudio, but you may not see it. If you haven't
+created or opened an RStudio R Project (which is taught in the
+introductory workshop), the Git pane *does not* show up. It only shows
+up in R Projects that use Git to track file changes.
 :::
 
 ![Interface to
