@@ -53,7 +53,7 @@ the workshop to enable you to do the following:
 ::: content-hidden
 [**TODO: Session title**](/sessions/session.qmd)
 
-{{< include /includes/objectives/_session.qmd >}}
+include /includes/objectives/_session.qmd
 :::
 
 Tangibly, during the workshop you will:
