@@ -243,10 +243,9 @@ ggplot(post_meal_data, aes(x = BMI)) +
 ```
 ````
 
-```{r bmi-histogram}
+```{r fig-bmi-histo}
 #| echo: false
 #| fig-cap: "Distribution of BMI."
-#| label: fig-bmi-histo
 ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
@@ -409,9 +408,8 @@ We can layout the figures using the `#| layout-ncol` (or
 `#| layout-nrow` or `#| layout`) option. We can then combine it with
 captions and sub-captions using `#| fig-subcap` to have a nice output!
 
-```{r side-by-side-figs}
+```{r fig-bmi-glycemia}
 #| echo: fenced
-#| label: fig-bmi-glycemia
 #| fig-cap: "BMI and glycemia, side by side."
 #| fig-subcap:
 #|   - "Distribution of BMI."

@@ -1,4 +1,4 @@
-# For teachers
+# For teachers {#sec-for-teachers}
 
 A more general guide to teaching or helping is found on the
 [Guides](https://guides.rostools.org/) website. This page has

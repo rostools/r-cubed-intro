@@ -121,11 +121,18 @@ separated by semicolons, we use the `read_csv2()` function instead.
 So, in the `setup` code chunk, write out the code to import (read) the
 data into R.
 
-```{r setup}
+```{r setup-chunk}
 #| echo: fenced
 library(tidyverse)
 post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
+
+```` {.markdown filename="docs/learning.qmd"}
+```{{r setup}}
+library(tidyverse)
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
+```
+````
 
 In the code chunk above, we are using the `read_csv2()` function that is
 technically from the `{readr}` package, which is loaded in with

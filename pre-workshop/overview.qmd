@@ -48,8 +48,8 @@ finish**, so we suggest planning a full day to complete them.
     above, depending on your institution, this task can take the
     **longest amount of time** because you have to contact your IT to
     install these packages.
-5.  Read about and navigate R and RStudio in @sec-sec-r-and-rstudio.
-6.  Install necessary R packages in @sec-install-r-packages.
+5.  Read about and navigate R and RStudio in @sec-r-and-rstudio.
+6.  Install necessary R packages in @sec-installing-r-packages.
 7.  Read some of the workshop sections on Git, configure Git on your
     computer, and create a GitHub account in @sec-setup-git-and-github
     as well as run some checks to make sure everything is working.
@@ -77,7 +77,7 @@ learning purposes to enable you to:
 
 {{< include /includes/objectives/_pre-workshop.qmd >}}
 
-## How to read this website
+## How to read this website {#sec-reading-website}
 
 {{< include /includes/_reading-website.qmd >}}
 
