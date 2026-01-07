@@ -89,5 +89,5 @@ format:
     include-before-body:
       - "includes/site-counter.html"
 
-execute:
-  warning: false
+metadata-files:
+  - _metadata.yml
