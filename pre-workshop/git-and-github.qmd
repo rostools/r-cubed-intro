@@ -12,7 +12,8 @@ email address so that Git can use that information when recording
 changes you make to your files. You'll learn more about that and how it
 looks like during the workshop. For now, you just need to run one of the
 r3 helper functions to help setup Git for you. In your RStudio, go to
-the Console and type (or copy and paste) the following function:
+the Console (panel "B" in @fig-rstudio-introduction) and type (or copy
+and paste) the following function:
 
 ```{r setup-git-config}
 #| filename: "Console"

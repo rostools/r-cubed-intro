@@ -51,7 +51,7 @@ to install it for you prior to the workshop.
     it much easier to install things, for example installing R is as
     easy as opening a Terminal and running:
 
-    ``` bash
+    ``` {.bash, filename="Terminal"}
     brew install --cask r
     ```
 
@@ -62,14 +62,14 @@ to install it for you prior to the workshop.
     Homebrew, installing RStudio can be done by opening a Terminal and
     writing:
 
-    ``` bash
+    ``` {.bash, filename="Terminal"}
     brew install --cask rstudio
     ```
 
 3.  [Git](https://git-scm.com/download/mac): Git is used throughout many
     sessions in the workshop. With Homebrew:
 
-    ``` bash
+    ``` {.bash, filename="Terminal"}
     brew install git
     ```
 
@@ -79,7 +79,7 @@ to install it for you prior to the workshop.
     above {{< meta versions.r >}}. If you have used R before, you can
     confirm the version by running `R.version.string` in the Console.
 
-    ``` bash
+    ``` {.bash, filename="Terminal"}
     sudo apt -y install r-base
     ```
 
@@ -91,7 +91,7 @@ to install it for you prior to the workshop.
 3.  [Git](https://git-scm.com/download/mac): Git is used throughout many
     sessions in the workshop.
 
-    ``` bash
+    ``` {.bash, filename="Terminal"}
     sudo apt install git
     ```
 :::

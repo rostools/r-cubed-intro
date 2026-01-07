@@ -6,7 +6,8 @@ the "Pre-workshop tasks", **please read them now**.
 You're almost done! Please fill out the pre-workshop survey to finish
 this section. One of the questions of the survey will ask you to copy
 and paste the output of the `r3::check_setup()` function that you ran in
-@sec-setup-git-and-github. You can run it again in the Console:
+@sec-setup-git-and-github. You can run it again in the Console (panel "B"
+in @fig-rstudio-introduction) by copying and pasting the code below:
 
 ```{r run-check-setup-again}
 #| filename: "Console"

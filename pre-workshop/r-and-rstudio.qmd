@@ -1,12 +1,18 @@
 # R and RStudio {#sec-r-and-rstudio}
 
-## What is R?
+```{r}
+#| include: false
+# To trigger downlit linking
+library(downlit)
+```
 
 During this workshop we will be spending most of our time in RStudio.
 RStudio is an "environment" that we use to interact with R. R is like an
 engine, while RStudio is like the tools we use to actually work with
 that engine. Prior to taking a look at what RStudio looks like, let's
 talk briefly about R as a programming language.
+
+## What is R?
 
 R is a free programming language/environment used in statistical
 computing, data analytics, and scientific research. R is used to clean,
@@ -73,6 +79,9 @@ panel layout is what is shown above.
     evaluated by R. This is the "engine". No R code written here is
     saved. All code in this workshop will eventually be sent to the R
     Console, as this is the most common way of using and running R code.
+    **Throughout the rest of the pre-workshop tasks, if you see a code
+    chunk with the label "Console" above it, this is the panel we want you
+    to type or paste the code into.**
 -   Panel "C" contains the Environment, History, Connections, and Git
     tabs. In this workshop, we will only be using the Environment and
     Git tab.

@@ -3,6 +3,12 @@ execute:
   eval: false
 ---
 
+```{r}
+#| include: false
+# To trigger downlit linking
+library(pak)
+```
+
 # Installing R packages {#sec-installing-r-packages}
 
 Now that you have RStudio and R on your computer and have read about
@@ -48,14 +54,8 @@ the text to see if it says "error" or "warning". If it doesn't, then
 ignore it!
 :::
 
-Open your RStudio and watch the video (no audio) below to see how to do
-this:
-
-<!-- TODO: Convert to picture using the Console -->
-
-{{< video /videos/rstudio-install-pak.mp4 >}}
-
-Or paste the following code into the RStudio R Console:
+Open your RStudio and copy and paste the below code into the Console
+(panel "B" in @fig-rstudio-introduction):
 
 ```{r install-pak}
 #| filename: "Console"
@@ -63,16 +63,17 @@ install.packages("pak")
 ```
 
 Next, copy and paste (or type) the function below into the RStudio
-Console to install the r3 package. Hit "Enter" and the r3 helper package
-will be installed. Watch the video below to see how to do this.
-**Note**, what you see in the video (no audio) may look different from
-yours.
+Console (panel "B" in @fig-rstudio-introduction) to install the r3
+package. Hit "Enter" and the r3 helper package will be installed. Watch
+the video below to see how to do this. **Note**, what you see in the
+video (no audio) may look different from yours.
 
 ::: {.callout-warning appearance="default"}
-You might encounter an error when running the below code. That's ok, if you
-restart R by going to `Sessions -> Restart R` and re-running this code,
-it should work. If it still doesn't, try to complete the other tasks,
-complete the survey, and let us know you have a problem in the survey.
+You might encounter an error when running the below code. That's ok, if
+you restart R by going to `Sessions -> Restart R` and re-running this
+code, it should work. If it still doesn't, try to complete the other
+tasks, complete the survey, and let us know you have a problem in the
+survey.
 :::
 
 ```{r install-r3}
