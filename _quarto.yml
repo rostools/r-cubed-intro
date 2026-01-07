@@ -64,13 +64,13 @@ book:
         - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
-    - appendix/for-teachers.qmd
     - appendix/extra-github.qmd
     - appendix/extra-merge-conflicts.qmd
     - appendix/extra-arrange.qmd
-    - appendix/references.qmd
+    - appendix/for-teachers.qmd
     - CHANGELOG.md
     - CONTRIBUTING.md
+    - appendix/references.qmd
   page-footer:
     center:
       - text: "License: CC BY 4.0 {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}}"
