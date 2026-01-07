@@ -1,8 +1,5 @@
 ---
-search: false
-format: r3-theme-revealjs
-bibliography: "../includes/references.bib"
-csl: "../_extensions/rostools/r3-theme/vancouver.csl"
+format: rostools-theme-revealjs
 ---
 
 # What next? Many steps to take! Small reminder though... {.center}

@@ -1,6 +1,6 @@
 ---
 format:
-  r3-theme-html:
+  rostools-theme-html:
     tbl-colwidths: [30, 70]
 ---
 
