@@ -33,8 +33,12 @@ from the improved learning from the earlier and repeated exposure.
 ::: callout-important
 Depending on your institution, the installation tasks may require IT
 approval. This can take some time, sometimes a few weeks even with
-reminder emails. We suggest these tasks could take between **3-5 hrs to
-finish**, so we suggest planning a full day to complete them.
+reminder emails. We suggest starting the tasks early, especially the
+installation tasks.
+
+Aside from waiting for IT approval, these tasks should take between
+**3-5 hrs to finish**, so we suggest planning a full day to complete
+them.
 :::
 
 1.  Read the learning objectives in
