@@ -48,18 +48,18 @@ book:
         - pre-workshop/survey.qmd
     - part: "Sessions"
       chapters:
-      - sessions/introduction.qmd
-      - sessions/setup-project.qmd
-      - sessions/reproducible-documents.qmd
-      - sessions/version-control.qmd
-      - sessions/import-data.qmd
-      - sessions/visualization.qmd
-      - sessions/github.qmd
-      - sessions/wrangling.qmd
-      - sessions/wrangling-with-visualizing.qmd
-      - sessions/split-apply-combine.qmd
-      - sessions/project-work.qmd
-      - sessions/what-next.qmd
+        - sessions/introduction.qmd
+        - sessions/setup-project.qmd
+        - sessions/reproducible-documents.qmd
+        - sessions/version-control.qmd
+        - sessions/import-data.qmd
+        - sessions/visualization.qmd
+        - sessions/github.qmd
+        - sessions/wrangling.qmd
+        - sessions/wrangling-with-visualizing.qmd
+        - sessions/split-apply-combine.qmd
+        - sessions/project-work.qmd
+        - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
     - appendix/for-teachers.qmd
