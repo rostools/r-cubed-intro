@@ -4,6 +4,7 @@ project:
     - quarto render slides/*.qmd
   resources:
     - slides/*.html
+    - videos/*
 
 book:
   title: "Intro Reproducible Research in R"
