@@ -3,8 +3,19 @@
 If you haven't read the sections under "Workshop overview" and completed
 the "Pre-workshop tasks", **please read them now**.
 
-You're almost done. Please fill out the pre-workshop survey to finish
-this section:
+You're almost done! Please fill out the pre-workshop survey to finish
+this section. One of the questions of the survey will ask you to copy
+and paste the output of the `r3::check_setup()` function that you ran in
+@sec-setup-git-and-github. You can run it again in the Console:
+
+```{r run-check-setup-again}
+#| filename: "Console"
+#| eval: false
+r3::check_setup()
+```
+
+Enter into the survey with the button below and eventually paste the
+output from above into one of the questions.
 
 [Pre-workshop survey :tada:]({{< meta surveys.pre-workshop >}}){.btn
 .btn-primary role="button"}
