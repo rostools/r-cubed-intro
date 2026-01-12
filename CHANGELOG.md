@@ -95,7 +95,7 @@ has been changed since you last used it.
 
 ### Feat
 
-- select the columnt that gets filtered so we can see the change
+- select the column that gets filtered so we can see the change
 - finish adding the filename to the rest of chunks
 - add note about keybind help in RStudio.
 - use filename to add location for code chunk.
