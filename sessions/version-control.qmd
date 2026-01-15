@@ -412,6 +412,13 @@ you'll notice that the `README.md` file is no longer on the left side.
 That's because we've put the change into the history. We'll return to
 that shortly.
 
+::: callout-note
+Some Mac users may get an error with committing changes. RStudio seems
+to set a default option that causes this issue. Fix this by going to
+"Global Options", then "Git/SVN", and then unchecking the "Sign git
+commits" box (or something similar that mentions GPG or signing).
+:::
+
 Next, open up the `README.md` file in RStudio using the Files tab. At
 the top of the file, write your name and your field of research, and
 then save the file. Open up the Git interface again (with the Git icon
