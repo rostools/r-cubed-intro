@@ -184,8 +184,10 @@ learn to do shortly).
 Just like above, they've already read this section but should read it
 again to reinforce the concepts. Briefly go over it again, especially
 making sure everyone has their Git properly configured. Even though they
-do that already during the pre-workshop tasks, sometimes things happen in
-the meantime, so its good to check again.
+do that already during the pre-workshop tasks, sometimes things happen
+in the meantime, so its good to check again.
+
+Reinforce the Git repo = one R project = one research project.
 :::
 
 **Time: \~8 minutes**
@@ -253,6 +255,12 @@ Setting up a Git repository can be done in several ways:
     `usethis::use_git()` (*don't do this for the workshop!*).
 -   The `{prodigenr}` package will automatically set up Git for the
     project.
+
+What should a Git repository contain? In general, a common pattern
+is that one Git repository is one RStudio R Project, which should
+be one research project. This helps ensure your project is reproducible
+and makes things much easier to manage and share as you work on the
+project.
 
 ![How we can stand on the shoulders of "usethis" to be productive.
 Artwork by
