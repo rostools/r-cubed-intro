@@ -355,3 +355,9 @@ of the Guides website.
     working, but does take some learning. Collaborating involves each
     collaborator creating a copy of the remote repository that you each
     push and pull to as you work together.
+
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}

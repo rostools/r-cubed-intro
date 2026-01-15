@@ -588,3 +588,11 @@ ___
 -   Use Markdown syntax like headers (`# Header 1`), text formatting
     (`**bold**`) and lists (`-`) in the Quarto file to format the text
     in the output document.
+
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
+{{< include /includes/_code-appendix.qmd >}}

@@ -441,4 +441,10 @@ post_meal_data |>
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.
 
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
 {{< include /includes/_code-appendix.qmd >}}

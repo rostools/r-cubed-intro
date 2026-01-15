@@ -655,4 +655,10 @@ experience, that you can only get by practicing more coding!
 -   Never edit raw data. Instead, use R code to make changes and clean
     up the raw data, rather than manually editing the dataset.
 
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
 {{< include /includes/_code-appendix.qmd >}}

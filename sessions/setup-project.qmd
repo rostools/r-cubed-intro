@@ -329,3 +329,11 @@ trying.something.here.R
 -   How you name your files is the first step to communicating the
     files' contents with yourself in the future and with others. Use the
     tidyverse style guide for file naming.
+
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
+{{< include /includes/_code-appendix.qmd >}}

@@ -401,4 +401,10 @@ post_meal_data |>
     options to label and caption tables, and reference the table in the
     text with `@tbl-LABELNAME`.
 
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
 {{< include /includes/_code-appendix.qmd >}}

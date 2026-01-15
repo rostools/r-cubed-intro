@@ -483,3 +483,9 @@ We will be using this workflow often throughout the rest of the workshop.
 -   When committing to history, keep messages short and meaningful.
     Focus more on **why** the change was made, not what.
 -   Almost all Git actions can be done using RStudio's Git interface.
+
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
