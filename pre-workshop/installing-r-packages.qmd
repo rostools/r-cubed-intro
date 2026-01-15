@@ -74,6 +74,11 @@ you restart R by going to `Sessions -> Restart R` and re-running this
 code, it should work. If it still doesn't, try to complete the other
 tasks, complete the survey, and let us know you have a problem in the
 survey.
+
+The problem usually happens because some institutions block or restrict
+what types of software get installed. If you run into issues, try to
+install in administrator mode, or ask IT to allow you to install the
+package.
 :::
 
 ```{r install-r3}
@@ -111,6 +116,17 @@ use for this workshop, copy and paste this command into the R Console:
 #| filename: "Console"
 r3::install_packages_introduction()
 ```
+
+::: callout-important
+This step sometimes fails for some people because their work computer
+restricts how certain software are installed. If you do have issues, you
+can manually install the necessary packages with this code:
+
+```{r manual-install-packages}
+#| filename: "Console"
+install.packages(c("tidyverse", "here", "hexbin", "prodigenr", "styler", "usethis"))
+```
+:::
 
 Same as when you installed the r3 package, this may take some time to
 install all the packages. We have you use this function to install
