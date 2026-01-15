@@ -11,9 +11,24 @@ Git properly, you need to set some options that tell Git your name and
 email address so that Git can use that information when recording
 changes you make to your files. You'll learn more about that and how it
 looks like during the workshop. For now, you just need to run one of the
-r3 helper functions to help setup Git for you. In your RStudio, go to
-the Console (panel "B" in @fig-rstudio-introduction) and type (or copy
-and paste) the following function:
+r3 helper functions to help setup Git for you.
+
+::: {.callout-note appearance="default"}
+*GitHub* is a company and website (like Google), while *Git* is a
+software (like R). There is sometimes confusion about these two things
+since they both say "Git". It's important to distinguish that they are
+two *separate* things.
+:::
+
+In your RStudio, go to the Console (panel "B" in
+@fig-rstudio-introduction) and type (or copy and paste) the following
+function.
+
+::: callout-note
+This function only setups up configuration options for **Git** on you
+computer. This **does not** create a *GitHub* account for you. You will
+do that after this step.
+:::
 
 ```{r setup-git-config}
 #| filename: "Console"
@@ -24,6 +39,12 @@ Hit enter and follow the instructions. Finally, type and run this next
 function to make sure everything is working with your setup. When you
 complete the survey later, you will need to copy and paste the output of
 this function. For now, run it to confirm everything is setup properly.
+
+::: callout-important
+The output of the code below is what you need to copy into the
+pre-workshop survey later on. We remind you of the code to use when you
+get to the [survey page](survey.qmd).
+:::
 
 ```{r run-check-setup}
 #| filename: "Console"
@@ -51,10 +72,3 @@ we will ask you for it in the pre-workshop survey. Make sure to
 manager](https://en.wikipedia.org/wiki/Password_manager) if you
 installed one already or during the pre-workshop tasks so that it can
 store your password for you.
-
-::: {.callout-note appearance="default"}
-*GitHub* is a company and website (like Google), while *Git* is a
-software (like R). There is sometimes confusion about these two things
-since they both say "Git". It's important to distinguish that they are
-two *separate* things.
-:::
