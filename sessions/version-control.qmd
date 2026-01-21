@@ -34,9 +34,9 @@ This session's **overall learning outcome** is to:
 Before starting this session, get them to share some of the things they
 discussed during the social activity.
 
-They will have already read it once before, during the pre-workshop tasks.
-Tell them that they'll read it again to refresh their memories and
-reinforce the concepts. This is important because Git and version
+They will have already read it once before, during the pre-workshop
+tasks. Tell them that they'll read it again to refresh their memories
+and reinforce the concepts. This is important because Git and version
 control is something that is *very* difficult to conceptually understand
 and takes some time and practice.
 
@@ -59,10 +59,11 @@ This session is *very* text and reading heavy compared to other
 sessions. This is mostly because this topic requires a mental paradigm
 shift in how you view files, and requires you to change your habits of
 how you normally work. While you may get more short-term use out of the
-R portion of this workshop, knowing and using version control concepts and
-tools will fundamentally change how you work over the long term. While
-the concepts are quite difficult, the tools to use the concepts aren't,
-and using them often will make the concepts easier to understand.
+R portion of this workshop, knowing and using version control concepts
+and tools will fundamentally change how you work over the long term.
+While the concepts are quite difficult, the tools to use the concepts
+aren't, and using them often will make the concepts easier to
+understand.
 :::
 
 !['Final' version of a document, using a common but manual 'version
@@ -454,6 +455,8 @@ related to each other and to the commit message. Following this basic
 principle will make your history easier for you to read and make it
 easier for others as well.
 
+## Ignoring files with `.gitignore`
+
 ## :technologist: Exercise: Committing everything to the history
 
 **Time: \~15 minutes.**
@@ -462,14 +465,16 @@ When working on your own projects and when you use Git, you will be
 committing a *lot* of changes to your files into the Git history. Part
 of the initial barrier is simply getting used to this workflow of
 committing what you've changed. Use this exercise to get some practice.
-We will be using this workflow often throughout the rest of the workshop.
+We will be using this workflow often throughout the rest of the
+workshop.
 
 1.  Practice the add-commit ("add to staging"-"committing to history")
-    sequence by adding and committing *each* of the remaining files (or folders) in
-    your R project *one at a time* into the Git history. At the end, **all** of
-    your files and folders should be committed to the history.  While you could
-    add and commit them all at once, we want you to do them one at
-    a time so you practice using this workflow.
+    sequence by adding and committing *each* of the remaining files (or
+    folders) in your R project *one at a time* into the Git history. At
+    the end, **all** of your files and folders should be committed to
+    the history. While you could add and commit them all at once, we
+    want you to do them one at a time so you practice using this
+    workflow.
     -   Make sure to write a meaningful and short message about what you
         added and why. In this case, the "why" is simply that you are
         saving the file into the history for the first time.
