@@ -148,24 +148,225 @@ next exercise.
 
 {{< text_snippet sticky_up >}}
 
-## :technologist: Exercise: Linking your project to GitHub
+## :book: Reading task: Authenticating with GitHub
 
-**Time: \~20 minutes.**
+::: {.callout-note collapse="true"}
+## :teacher: Teacher note
+
+Very briefly reinforce the importance of using a PAT rather than
+your own password. Also emphasize the use of a password manager.
+:::
+
+**Time: ~3 minutes.**
+
+Any time we do anything on the Internet, there is some risk to having
+our information maliciously hacked. This is no different when using
+GitHub, so if you can, you should try to be more secure with what you send
+across the internet. In fact, most functions that relate to Git or using
+GitHub *require* using more secure features in order to work.
+`{usethis}` makes this much easier, thankfully, with several functions.
+The `{usethis}` website has a really [well written
+guide](https://usethis.r-lib.org/articles/articles/git-credentials.html)
+on setting it up. Here is a very simplified version of what they
+recommend that is relevant for what we are doing in this workshop.
+
+-   Use personal access tokens (PAT, or simply called a "token") when
+    interacting with your GitHub remote repositories while outside of
+    the GitHub website (e.g. when using R or `{usethis}`). PAT's are
+    like temporary passwords that provide limited access to your GitHub
+    account, like being able to read or write to your GitHub
+    repositories, but not being able to delete them. They are useful
+    because you can easily delete the PAT if you feel someone got access
+    to it and prevent it from being used, unlike your own password which
+    you would have to manually change if it was stolen.
+
+-   Use a password manager to save the PAT for later use. Using password
+    managers is basically a requirement for having secure online
+    accounts, because they can generate random and long passwords that
+    you don't have to remember.
+
+-   Use packages like `{gitcreds}` to give `{usethis}` access to the PAT
+    and to interact with your GitHub repositories. You normally would
+    use `{gitcreds}` every time you restart your computer or after a
+    certain period of time.
+
+::: callout-tip
+What is a password manager? It is an app or web service that
+        let's you save or create passwords for all your accounts, like
+        banking or social media. Instead of having to remember multiple
+        passwords used across multiple accounts, or the very insecure
+        approach of one or two passwords for all your accounts, you
+        instead need to remember only one very secure password that
+        contains all your other very secure passwords. Google "password
+        manager" and your operating system (Windows, MacOS) to find
+        possible ones to install or use. We recommend using
+        [Bitwarden](https://bitwarden.com/).
+:::
+
+{{< text_snippet sticky_up >}}
+
+## Linking your project to GitHub
+
+::: {.callout-note collapse="true"}
+## :teacher: Teacher note
+
+Go through this with them slowly, explaining things along the way.
+:::
 
 Since we use R, there is a really useful set of functions from
 `{usethis}` to make it easy interact with and setup connections to
-GitHub from RStudio. Complete all of the [Connect to
-GitHub](https://guides.rostools.org/connect-github.html) guide for this
-exercise. In the end, you should have your `LearningR` project on
-GitHub.
+GitHub from RStudio.
+So, let's connect our projects to GitHub! Before we can link the projects'
+Git repository to GitHub, we need to inform GitHub (authenticate) that
+we are the owner of the account.
 
-::: {.callout-note collapse="true"}
-## Instructor note
+Very likely no one has set up a PAT, but let's check just in case
+by running this function in the Console, which should give
+an output similar to the below:
 
-On your own, run the commands in the guides. After they complete the
-tasks, make sure that they have the "Push" and "Pull" buttons as well as
-having the `LearningR` on GitHub.
+``` {.r filename="Console"}
+usethis::gh_token_help()
+```
+
+```
+• GitHub host: 'https://github.com'
+• Personal access token for 'https://github.com': <unset>
+• To create a personal access token, call `create_github_token()`
+• To store a token for current and future use, call `gitcreds::gitcreds_set()`
+ℹ Read more in the 'Managing Git(Hub) Credentials' article:
+  https://usethis.r-lib.org/articles/articles/git-credentials.html
+```
+
+The output is saying the token is `<unset>`, which means we need to make
+Git and `{usethis}` aware of it. We do that by typing the next function
+in the Console to create the token on GitHub (if one isn't set already).
+
+``` {.r filename="Console"}
+usethis::create_github_token()
+```
+
+This function sends us to the GitHub "Generate new token" webpage with
+all the necessary settings checked. Set the "Expiry date" to 90 days
+(this is a good security feature). Then, click the green button at the
+bottom called "Generate token" and there will be a very long string
+that's been generated that starts with `ghp_`. **Save this token in your
+password manager**. Alternatively, leave this
+page open to copy and paste the token whenever it's needed.
+If this token gets lost, no worries! It's very easy create a new one by
+re-running the function above.
+
+::: callout-important
+Do *not* save the token in the project we're working in for the workshop!
+Save it somewhere else.
 :::
+
+This token we created is what we'll use every time we open
+up RStudio and interact with GitHub through R. We do **not** need to
+create a new token for each R project or package we make, we only need
+to create one after our current token expires (typically every couple
+of months), if we've forgotten the token or lost it, or if we've
+changed to a new computer.
+
+In the Console, run:
+
+``` {.r filename="Console"}
+gitcreds::gitcreds_set()
+```
+
+And then copy and paste your token into the prompt in the Console. This
+token usually gets saved for the day (it gets cached), but after
+restarting you will need to run the action again. If it asks to replace
+an existing one, select the "yes" option. Doing this is a bit like using
+the two-factor authentication (2FA) you often have to do when, for
+instance, accessing your online bank account or other government
+website. In this case, you are telling GitHub (when interacting to it
+through RStudio, like uploading and downloading your changes) that you
+are who you claim to digitally be.
+
+::: callout-tip
+There is another great helper function that runs a lot of checks and
+gives some advice when it finds potential problems.
+
+``` r
+usethis::git_sitrep()
+```
+
+Just to be aware, using this function outputs a *lot* of stuff, most of
+which you probably don't even need to know or don't even know what it
+means. That's ok, since it is meant as a diagnostic tool.
+:::
+
+## Linking your project to GitHub
+
+Now that we can authenticate to GitHub that you are digitally you, we
+can connect our project's Git repository to GitHub. If you are new to
+Git and GitHub, we strongly recommend starting your first work
+project(s) as private, in case you accidentally add files you aren't
+supposed to. It will also help get you feeling comfortable with using
+Git and GitHub. However, for this workshop, we will be keeping it public.
+To make it private, we would add the argument `private = TRUE` to the
+code below. For now, go to the the Console and run this function to make
+a public repository:
+
+``` r
+usethis::use_github()
+```
+
+::: callout-note
+You may have to manually enter your username and password, even though
+you used `gitcreds::gitcreds_set()`.
+
+If you have troubles logging in, you may need to update Git.
+:::
+
+You might notice the word `origin` when referring to remotes. The word
+*origin* is the default short name to refer to the location of the
+remote (the GitHub URL). You will probably see this word in many other
+places to refer to a remote.
+
+This will take your project and upload it to GitHub. Now, whenever you
+use Git and save your changes to the Git history, whenever you "Push"
+your changes it will be sent to your project on GitHub. The diagram
+below shows how it conceptually looks like:
+
+```{mermaid fig-local-vs-remote}
+%%| label: fig-local-vs-remote
+%%| fig-cap: Schematic showing a local repository connected to GitHub's remote repository.
+%%| echo: false
+%%| eval: true
+%%{init:{'theme':'forest', 'flowchart':{'nodeSpacing': 20, 'rankSpacing':30}}}%%
+graph LR;
+    yours(Your local) -->|Push| github(GitHub)
+    github -->|Pull| yours
+```
+
+The "Your local" is your own computer. Whenever you "push" to GitHub, it
+means it will upload your file changes (like synchronizing in Dropbox).
+Whenever you "pull" from GitHub, it takes any changes made on GitHub and
+downloads them to your "Local" computer.
+
+Why use GitHub? For one, it is one of the most effective ways of
+collaborating on a shared project. Hundreds of companies and hundreds of
+thousands of workers use Git and services like GitHub to work together
+on massive projects. The way collaboration works would conceptually look
+like:
+
+```{mermaid fig-local-collab-and-remote}
+%%| label: fig-local-collab-and-remote
+%%| fig-cap: Schematic showing a local repository, GitHub's remote repository, and a collaborator's repository.
+%%| echo: false
+%%| eval: true
+%%{init:{'theme':'forest', 'flowchart':{'nodeSpacing': 20, 'rankSpacing':30}}}%%
+graph LR;
+    yours(Your local) -->|Push| github(GitHub)
+    github -->|Pull| yours
+    others(Collaborator's<br>local) -->|Push| github
+    github -->|Pull| others
+```
+
+This approach to collaborating makes it much easier to contribute
+*directly* (not through emails) to projects and to more easily help
+others out with issues.
 
 {{< text_snippet sticky_up >}}
 
