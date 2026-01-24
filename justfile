@@ -1,7 +1,7 @@
 @_default:
   just --list --unsorted
 
-check: check-spelling check-links check-commits
+check: check-spelling check-urls check-commits
 build: build-contributors build-readme build-website
 update: update-from-template update-quarto-theme
 
@@ -39,10 +39,12 @@ update-quarto-theme:
 check-spelling:
   uvx typos
 
-# Check URL links
-check-links:
-  # Install from Cargo
-  lychee .
+# Install lychee from https://lychee.cli.rs/guides/getting-started/
+# Check that URLs work
+check-urls:
+  lychee . \
+    --extensions md,qmd,jinja \
+    --exclude-path "_badges.qmd"
 
 # Check the commit messages on the current branch that are not on the main branch
 check-commits:
