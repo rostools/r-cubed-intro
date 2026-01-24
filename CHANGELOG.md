@@ -21,6 +21,13 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.1.1 (2026-01-15)
+
+### Fix
+
+- **pre-workshop**: :pencil2: clarify that Git and GitHub setup are separate things
+- **pre-workshop**: :pencil2: clarify to install packages manually if having issues
+
 ## 5.1.0 (2026-01-07)
 
 Started using Commitizen for releases.
