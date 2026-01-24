@@ -21,6 +21,12 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.1.2 (2026-01-24)
+
+### Refactor
+
+- :recycle: move GitHub section in guides to this repo (#156)
+
 ## 5.1.1 (2026-01-15)
 
 ### Fix
