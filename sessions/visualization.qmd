@@ -709,4 +709,10 @@ history with {{< var keybind.git >}}.
 -   Use `geom_smooth()` to add a smoothing line to the scatterplot.
 -   Use `geom_bar()` to create a barplot of discrete variables.
 
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
 {{< include /includes/_code-appendix.qmd >}}

@@ -118,3 +118,9 @@ support! Starring will save it to a list of repositories you like that
 you can easily find again, plus it helps give our project more
 visibility!
 :::
+
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}

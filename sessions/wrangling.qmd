@@ -790,4 +790,10 @@ post_meal_data |>
 -   Use the pipe `|>` to write easy-to-read code, similar to reading a
     text consisting of multiple sentences.
 
+## Survey
+
+Please complete the survey for this session:
+
+{{< include /includes/_survey.qmd >}}
+
 {{< include /includes/_code-appendix.qmd >}}
