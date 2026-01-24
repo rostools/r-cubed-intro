@@ -53,7 +53,8 @@ them.
     **longest amount of time** because you have to contact your IT to
     install these packages.
 5.  Read about and navigate R and RStudio in @sec-r-and-rstudio.
-6.  Install necessary R packages in @sec-installing-r-packages.
+6.  Install necessary R packages in @sec-installing-r-packages. This may
+    also require IT approval, so start early.
 7.  Read some of the workshop sections on Git, configure Git on your
     computer, and create a GitHub account in @sec-setup-git-and-github
     as well as run some checks to make sure everything is working.
