@@ -21,6 +21,17 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.1.3 (2026-01-24)
+
+### Fix
+
+- **pre-workshop**: :bug: code chunk was rendered as sidebar title
+- **pre-workshop**: :pencil2: remove mention of video in installing tasks
+
+### Refactor
+
+- **pre-workshop**: :pencil2: clarify that installing R packages may need IT help
+
 ## 5.1.2 (2026-01-24)
 
 ### Refactor
