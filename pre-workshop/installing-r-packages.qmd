@@ -64,9 +64,7 @@ install.packages("pak")
 
 Next, copy and paste (or type) the function below into the RStudio
 Console (panel "B" in @fig-rstudio-introduction) to install the r3
-package. Hit "Enter" and the r3 helper package will be installed. Watch
-the video below to see how to do this. **Note**, what you see in the
-video (no audio) may look different from yours.
+package. Hit "Enter" and the r3 helper package will be installed.
 
 ::: {.callout-warning appearance="default"}
 You might encounter an error when running the below code. That's ok, if
