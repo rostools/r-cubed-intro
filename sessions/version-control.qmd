@@ -257,11 +257,10 @@ Setting up a Git repository can be done in several ways:
 -   The `{prodigenr}` package will automatically set up Git for the
     project.
 
-What should a Git repository contain? In general, a common pattern
-is that one Git repository is one RStudio R Project, which should
-be one research project. This helps ensure your project is reproducible
-and makes things much easier to manage and share as you work on the
-project.
+What should a Git repository contain? In general, a common pattern is
+that one Git repository is one RStudio R Project, which should be one
+research project. This helps ensure your project is reproducible and
+makes things much easier to manage and share as you work on the project.
 
 ![How we can stand on the shoulders of "usethis" to be productive.
 Artwork by
@@ -456,6 +455,45 @@ principle will make your history easier for you to read and make it
 easier for others as well.
 
 ## Ignoring files with `.gitignore`
+
+::: {.callout-note collapse="true"}
+## :teacher: Teacher note
+
+Reinforce that we don't always want Git to track everything. Make sure
+to explain why we want to ignore generated files and what the `*` means
+(wildcard for any characters).
+:::
+
+We already read about the `.gitignore` file earlier. There are actually
+some files that we don't want to track as we work on our project. We use
+Quarto to build documents that others can read, such as HTML or Word
+files. Because these files are generated from our Quarto files, we don't
+need to track them in Git. As long as we have the original Quarto files,
+we can always regenerate the HTML or Word files later. Tracking these
+generated files can also lead to unnecessary problems later on, so it's
+best to not track them at all. So let's tell Git to not track the HTML
+files as well as the folders ending with `_files/` that are generated
+alongside the HTML files by Quarto.
+
+We can quickly do this by using the `{usethis}` package. In the RStudio
+Console, type in the following code:
+
+``` {.r filename="Console"}
+usethis::use_git_ignore(c("*.html", "*_files/"))
+```
+
+The `*` is a "wildcard" that means "any characters". So `*.html` means
+"any file that ends with `.html`". Similarly, `*_files/` means "any
+folder that ends with `_files/`".
+
+After you run this, it should tell you that it has added these files to
+the `.gitignore` file. Let's open up the Git interface again with
+{{< var keybind.git >}} to see the changes made. When we click the
+`.gitignore` file, we can see that the two lines have been added to the
+file. These two lines tell Git to not track any files that end with
+`.html` as well as any folders that end with `_files/`. Let's stage and
+commit this change with a message like "Ignore generated HTML files and
+folders".
 
 ## :technologist: Exercise: Committing everything to the history
 
