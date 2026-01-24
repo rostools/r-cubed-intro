@@ -38,9 +38,9 @@ only copies over the changes made as commits in the history.
 
 One of the biggest reasons why we teach Git is because of the popularity
 of several Git repository hosting sites. The most popular one is
-[GitHub](https://github.com/) (which this workshop is hosted on). In this
-session, we'll be covering GitHub not only because it is very popular,
-but also because the R community is almost entirely on GitHub.
+[GitHub](https://github.com/) (which this workshop is hosted on). In
+this session, we'll be covering GitHub not only because it is very
+popular, but also because the R community is almost entirely on GitHub.
 
 ```{mermaid}
 %%| label: fig-git-remotes
@@ -64,7 +64,7 @@ Go over the interface of GitHub, especially where repositories are
 listed, the sidebar of the landing page (of your account), and where
 your account settings are.
 
-Also, reinforce the warning below.
+Also, reinforce the warning and note below.
 :::
 
 ::: {.callout-warning appearance="default"}
@@ -79,6 +79,15 @@ online. Some things to think about are:
 
 In both cases, it's better to use another tool to store files like that,
 rather than through Git and GitHub.
+:::
+
+::: callout-note
+Some research projects require working on restricted server environments
+(such as [Denmark Statistics](https://www.dst.dk/en) when doing research
+on the Danish register data), where access to the internet is not
+available. This means that you can't use GitHub or any other online Git
+repository hosting service. However, you can still use Git on those
+servers without using a remote.
 :::
 
 ## :book: Reading task: Using GitHub as a remote
@@ -116,7 +125,7 @@ graph TB
 
 So, when we put the concepts back into the framework of the "states",
 first introduced in @sec-basics-of-git, pushing and pulling *happen only
-to the history*. Things that you've changed and then saved to the
+to the history*. Things that you've changed *and then* saved to the
 history, either on the remote or the local repository, are synchronized
 from or to GitHub. So, as shown in @fig-git-states-with-github, pushing
 copies of the history over to GitHub and pulling copies of the history
@@ -153,17 +162,17 @@ next exercise.
 ::: {.callout-note collapse="true"}
 ## :teacher: Teacher note
 
-Very briefly reinforce the importance of using a PAT rather than
-your own password. Also emphasize the use of a password manager.
+Very briefly reinforce the importance of using a PAT rather than your
+own password. Also emphasize the use of a password manager.
 :::
 
-**Time: ~3 minutes.**
+**Time: \~3 minutes.**
 
-Any time we do anything on the Internet, there is some risk to having
+Any time we do anything on the internet, there is some risk to having
 our information maliciously hacked. This is no different when using
-GitHub, so if you can, you should try to be more secure with what you send
-across the internet. In fact, most functions that relate to Git or using
-GitHub *require* using more secure features in order to work.
+GitHub, so if you can, you should try to be more secure with what you
+send across the internet. In fact, most functions that relate to Git or
+using GitHub *require* using more secure features in order to work.
 `{usethis}` makes this much easier, thankfully, with several functions.
 The `{usethis}` website has a really [well written
 guide](https://usethis.r-lib.org/articles/articles/git-credentials.html)
@@ -174,16 +183,17 @@ recommend that is relevant for what we are doing in this workshop.
     interacting with your GitHub remote repositories while outside of
     the GitHub website (e.g. when using R or `{usethis}`). PAT's are
     like temporary passwords that provide limited access to your GitHub
-    account, like being able to read or write to your GitHub
+    account, like being able to upload to or download from your GitHub
     repositories, but not being able to delete them. They are useful
-    because you can easily delete the PAT if you feel someone got access
-    to it and prevent it from being used, unlike your own password which
-    you would have to manually change if it was stolen.
+    because you can easily delete the PAT if you think someone got
+    access to it so that you can stop the PAT from being used for
+    harmful purposes.
 
 -   Use a password manager to save the PAT for later use. Using password
     managers is basically a requirement for having secure online
     accounts, because they can generate random and long passwords that
-    you don't have to remember.
+    you don't have to remember. This is why we recommended you install
+    one during the pre-workshop tasks.
 
 -   Use packages like `{gitcreds}` to give `{usethis}` access to the PAT
     and to interact with your GitHub repositories. You normally would
@@ -191,42 +201,44 @@ recommend that is relevant for what we are doing in this workshop.
     certain period of time.
 
 ::: callout-tip
-What is a password manager? It is an app or web service that
-        let's you save or create passwords for all your accounts, like
-        banking or social media. Instead of having to remember multiple
-        passwords used across multiple accounts, or the very insecure
-        approach of one or two passwords for all your accounts, you
-        instead need to remember only one very secure password that
-        contains all your other very secure passwords. Google "password
-        manager" and your operating system (Windows, MacOS) to find
-        possible ones to install or use. We recommend using
-        [Bitwarden](https://bitwarden.com/).
+As a reminder, a password manager is an app or web service that let's
+you save or create passwords for all your accounts, like banking or
+social media. Instead of having to remember multiple passwords used
+across multiple accounts, or the very insecure approach of one or two
+passwords for all your accounts, you instead need to remember only one
+very secure password that contains all your other very secure passwords.
+You can google "password manager" and your operating system (Windows,
+MacOS) to search for possible ones to install or use. We recommend using
+[Bitwarden](https://bitwarden.com/).
 :::
 
 {{< text_snippet sticky_up >}}
 
-## Linking your project to GitHub
+## Authenticating with GitHub
 
 ::: {.callout-note collapse="true"}
 ## :teacher: Teacher note
 
 Go through this with them slowly, explaining things along the way.
+Especially emphasize the importance of saving the PAT in a password
+manager, at the least to **not** save it in a file in the project
+itself.
 :::
 
 Since we use R, there is a really useful set of functions from
 `{usethis}` to make it easy interact with and setup connections to
-GitHub from RStudio.
-So, let's connect our projects to GitHub! Before we can link the projects'
-Git repository to GitHub, we need to inform GitHub (authenticate) that
-we are the owner of the account.
+GitHub from RStudio. So, let's connect our projects to GitHub! Before we
+can link the projects' Git repository to GitHub, we need to inform
+GitHub that we are the owner of the account by authenticating ourselves.
 
-Very likely no one has set up a PAT, but let's check just in case
-by running this function in the Console, which should give
-an output similar to the below:
+Very likely no one has set up a PAT yet with GitHub, but we'll run a
+check just to see by running this function in the Console.
 
 ``` {.r filename="Console"}
 usethis::gh_token_help()
 ```
+
+Which should output something like this:
 
 ```
 • GitHub host: 'https://github.com'
@@ -237,9 +249,9 @@ usethis::gh_token_help()
   https://usethis.r-lib.org/articles/articles/git-credentials.html
 ```
 
-The output is saying the token is `<unset>`, which means we need to make
-Git and `{usethis}` aware of it. We do that by typing the next function
-in the Console to create the token on GitHub (if one isn't set already).
+The output is saying the token is `<unset>`, which means we need to set
+it up on our computer. We do that by typing the next function in the
+Console to create the token on GitHub (if one isn't set already).
 
 ``` {.r filename="Console"}
 usethis::create_github_token()
@@ -247,25 +259,25 @@ usethis::create_github_token()
 
 This function sends us to the GitHub "Generate new token" webpage with
 all the necessary settings checked. Set the "Expiry date" to 90 days
-(this is a good security feature). Then, click the green button at the
-bottom called "Generate token" and there will be a very long string
+(this is a good security feature). Then, scroll down to the bottom
+without changing anything else and click the green button at the bottom
+called "Generate token". Afterwards there will be a very long string
 that's been generated that starts with `ghp_`. **Save this token in your
-password manager**. Alternatively, leave this
-page open to copy and paste the token whenever it's needed.
-If this token gets lost, no worries! It's very easy create a new one by
-re-running the function above.
+password manager**. Alternatively, leave this page open to copy and
+paste the token whenever it's needed. If this token gets lost, no
+worries! It's very easy create a new one by re-running the
+`usethis::create_github_token()` function.
 
 ::: callout-important
-Do *not* save the token in the project we're working in for the workshop!
-Save it somewhere else.
+Do *not* save the token in the project we're working in for the
+workshop! Save it somewhere else.
 :::
 
-This token we created is what we'll use every time we open
-up RStudio and interact with GitHub through R. We do **not** need to
-create a new token for each R project or package we make, we only need
-to create one after our current token expires (typically every couple
-of months), if we've forgotten the token or lost it, or if we've
-changed to a new computer.
+This token we created is what we'll use every time we open up RStudio
+and interact with GitHub through R. A token does **not** need to be
+created for each of our R projects. A new token is only needed when the
+current token expires (typically every couple of months) or if we've
+lost the token.
 
 In the Console, run:
 
@@ -275,13 +287,19 @@ gitcreds::gitcreds_set()
 
 And then copy and paste your token into the prompt in the Console. This
 token usually gets saved for the day (it gets cached), but after
-restarting you will need to run the action again. If it asks to replace
-an existing one, select the "yes" option. Doing this is a bit like using
-the two-factor authentication (2FA) you often have to do when, for
-instance, accessing your online bank account or other government
-website. In this case, you are telling GitHub (when interacting to it
-through RStudio, like uploading and downloading your changes) that you
-are who you claim to digitally be.
+restarting you may likely need to run the action again. If it asks to
+replace an existing one, select the "yes" option. Doing this is a bit
+like using the two-factor authentication (2FA) you have to do when you,
+for instance, want to access your online bank account or other
+government website. In this case, you are telling GitHub (when
+interacting with it through RStudio, like uploading and downloading your
+changes) that you are who you claim to digitally be.
+
+::: {.callout-note collapse="true"}
+## :teacher: Teacher note
+
+Mention this helpful function below, but you don't need to run it.
+:::
 
 ::: callout-tip
 There is another great helper function that runs a lot of checks and
@@ -298,17 +316,26 @@ means. That's ok, since it is meant as a diagnostic tool.
 
 ## Linking your project to GitHub
 
-Now that we can authenticate to GitHub that you are digitally you, we
-can connect our project's Git repository to GitHub. If you are new to
-Git and GitHub, we strongly recommend starting your first work
-project(s) as private, in case you accidentally add files you aren't
-supposed to. It will also help get you feeling comfortable with using
-Git and GitHub. However, for this workshop, we will be keeping it public.
-To make it private, we would add the argument `private = TRUE` to the
-code below. For now, go to the the Console and run this function to make
-a public repository:
+::: {.callout-note collapse="true"}
+## :teacher: Teacher note
 
-``` r
+As with above, go through this section slowly, explaining things as you
+go along. Briefly expand on and reinforce what the word "origin" means
+when it comes up.
+
+Visually show the diagrams and explain it.
+:::
+
+Now that we have authenticated ourselves to GitHub, we can connect our
+project's Git repository to GitHub. If you are new to Git and GitHub, we
+strongly recommend starting your first work project(s) as private, in
+case you accidentally add files you aren't supposed to. It will also
+help get you get more comfortable with using Git and GitHub. However,
+for this workshop, we will be keeping it public. To make it private, we
+would add the argument `private = TRUE` to the function below. For now,
+go to the Console and run this function to make a public repository:
+
+``` {.r filename="Console"}
 usethis::use_github()
 ```
 
@@ -319,15 +346,18 @@ you used `gitcreds::gitcreds_set()`.
 If you have troubles logging in, you may need to update Git.
 :::
 
+::: callout-tip
 You might notice the word `origin` when referring to remotes. The word
 *origin* is the default short name to refer to the location of the
 remote (the GitHub URL). You will probably see this word in many other
 places to refer to a remote.
+:::
 
-This will take your project and upload it to GitHub. Now, whenever you
-use Git and save your changes to the Git history, whenever you "Push"
-your changes it will be sent to your project on GitHub. The diagram
-below shows how it conceptually looks like:
+The `use_github()` function will take your project and upload it to
+GitHub. Now, whenever you use Git and save your changes to the Git
+history, whenever you "Push" your changes it will be sent to your
+project on GitHub. The diagram below shows how it conceptually looks
+like:
 
 ```{mermaid fig-local-vs-remote}
 %%| label: fig-local-vs-remote
@@ -345,8 +375,8 @@ means it will upload your file changes (like synchronizing in Dropbox).
 Whenever you "pull" from GitHub, it takes any changes made on GitHub and
 downloads them to your "Local" computer.
 
-Why use GitHub? For one, it is one of the most effective ways of
-collaborating on a shared project. Hundreds of companies and hundreds of
+Using GitHub (because of Git) is one of the most effective ways to
+collaborate on a project. Hundreds of companies and hundreds of
 thousands of workers use Git and services like GitHub to work together
 on massive projects. The way collaboration works would conceptually look
 like:
@@ -368,8 +398,6 @@ This approach to collaborating makes it much easier to contribute
 *directly* (not through emails) to projects and to more easily help
 others out with issues.
 
-{{< text_snippet sticky_up >}}
-
 ## Synchronizing with GitHub
 
 ::: {.callout-note appearance="minimal" collapse="true"}
@@ -383,34 +411,35 @@ After we've created the token and put our project onto GitHub, we can
 now push and pull any changes you make to the files. Let's practice how
 it works.
 
-Open up the `README.md` and write a random sentence somewhere near the
-top of the file. Then save the file. Open the Git interface with
-{{< var keybind.git >}}, "stage" the file, and write a commit message.
-Click the "Commit" button.
+Open up the `docs/learning.qmd` and write a random sentence somewhere
+near the top of the file (below the YAML header). Then save the file.
+Open the Git interface with {{< var keybind.git >}}, "stage" the file,
+and write a commit message. Click the "Commit" button.
 
 Now time to test out pushing the change to GitHub. Click the "Push"
 button in the top right corner of the Git interface. A pop-up will
 indicate that it's pushing and will show some text after it's pushed. Go
 to our GitHub repository to see that it worked!
 
-Now let's try the opposite way, by committing and pulling changes from
-GitHub to your local repository.
+Now let's try the opposite way, by making a change on GitHub, committing
+the changes there, and then pulling changes from GitHub to your local
+repository (on your computer).
 
-While in your `LearningR` GitHub repository, click the `README.md` file
-on the GitHub website, and then click the "Edit" button (see the video
-below, which shows it for a random repository called `learning-github`).
+While in your `LearningR` GitHub repository, click into the `docs/`
+folder and then click the `learning.qmd` file there. Then click the
+"Edit" button (the pencil icon) in the top right corner of the file
+view. You'll be taken to a web-based editor.
 
-Write Add another random sentence somewhere near the top of the file.
-Scroll down to the commit message box, and type out a commit message.
-Then, click the "Commit" button. We've made a change on the repository
-in GitHub. Let's synchronize it to our local repository.
+Write another random sentence somewhere near the top of the file (below
+the YAML header). Scroll down to the commit message box, and type out a
+commit message. Then, click the "Commit" button. We've now made a change
+on the repository in GitHub. Let's synchronize it to our local
+repository.
 
 Go back to RStudio, open the Git interface and now click the "Pull"
 button in the top right corner beside the "Push" button. Wait for it to
-finish pulling and check your `README.md` file for the new change.
-You've now updated your project!
-
-{{< video /videos/github-edit-and-commit-file.mp4 >}}
+finish pulling and check your `docs/learning.qmd` file for the new
+change. You've now updated your project!
 
 ## :book: Reading task: Collaborating using Git and GitHub
 
@@ -424,41 +453,42 @@ experiences, please share them!
 
 **Time: \~10 minutes**
 
-While all of the previous Git tools we covered are extremely useful when
-working alone, we've been building up to using Git for it's main and
-biggest advantage: to easily collaborate with others on a project.
+While Git and GitHub are useful on even when you work alone, it's main
+and biggest advantage is that it makes it much easier to collaborate
+with others on a project.
 
 Academia is unfortunately far behind when it comes to using modern tools
 to effectively collaborate together. Most researchers still use emails
-to send files back and forth, and while this is a very simple and easy
-way to start doing with no learning or training required, it is *not*
-very effective.
+to send Word or other files back and forth, and while this is a very
+simple and non-technical way to collaborate as it requires very little
+learning or training to use, it is *not* very effective.
 
 Usually this style of collaborating revolves around one or two people
-doing the most of the actual writing or direct contributing, while
-others give feedback or indirectly contribute through discussions or
-meetings. You might be familiar with using "Track changes" in Word when
-doing this style of collaborating. If your collaborators are a bit more
-technical, you all might be using Google Docs to do real-time
-collaboration together.
+doing most of the actual writing or direct contributing, while others
+give feedback or indirectly contribute through discussions or meetings.
+You might be familiar with using "Track changes" in Word when doing this
+style of collaborating. If your collaborators are a bit more technical,
+you all might be using Google Docs to do real-time collaboration
+together.
 
-When using Git and GitHub, as well as Quarto documents, this style of
+When you use Git and GitHub and write in Quarto documents, this style of
 collaborating isn't possible. For one, there is no "track changes"
-feature. Instead, you'd need to learn another way of collaborating
-together, a way that is much more effective and extremely powerful. This
-workflow of using Git and GitHub has been tried and tested by tens of
-thousands of teams in tens of hundreds of companies globally. One of the
-goals of this workshop is to slowly move researchers more into the modern
-era, using more modern technology, tools, and workflows so that we can
-produce better research faster.
+feature in Quarto documents. Instead, you need to use another way of
+collaborating, one that is much more effective and extremely powerful.
+This workflow of using Git and GitHub has been tried and tested by tens
+of thousands of teams in tens of hundreds of companies globally. One of
+the goals of this workshop is to slowly move researchers more into the
+modern era, using more modern technology, tools, and workflows so that
+we can produce better research faster.
 
-How does the workflow look like when using Git and GitHub? It works on
-the concept of remotes that we introduced earlier. Since a local
+How does the workflow look like when using Git and GitHub? It works by
+using the concept of remotes that we introduced earlier. Since a local
 repository is a copy of a remote repository, anyone else can collaborate
 on your project by copying the remote repository. When they want to
 contribute back, they make commits to their local copy and push those
-changes up to the remote. Then you can pull to your local copy and do
-the same thing. This is illustrated in @fig-git-remotes-collaborate.
+changes up to the remote. Then you can pull those changes to your local
+repository and do the same thing by committing and then pushing. This is
+illustrated in @fig-git-remotes-collaborate.
 
 ```{mermaid}
 %%| label: fig-git-remotes-collaborate
@@ -478,15 +508,30 @@ graph TB
 ```
 
 A disadvantage to this workflow is, in order to use it to effectively,
-it takes time to learn and get used to. For instance, while it is
-entirely possible to make changes to the same file as other
-collaborators if you use Git the way it was designed for, you may not be
-using it as intended since you are still learning. So when one of you
-pushes the changes to the file and the other pulls those changes, you
-end up with a merge conflict that you have to learn how to resolve. A
-work-around is to create separate files for each collaborator and merge
-them together when you are finished with the project. This is what you
-will do for the group project at the end of this workshop.
+it takes time to learn and get used to. For instance, you may think that
+you can just collaborate with others by making changes directly to the
+same file at the same time. But a problem comes up when you both push
+and pull changes to the same file. You will encounter something called a
+"merge conflict", which you'll have to learn how to resolve. Git knows
+that changes were made to the same file, but it doesn't know which
+change to keep and which to discard. You have to manually resolve the
+conflict by opening the file and deciding which change to keep.
+
+So, how do you manage this when collaborating with others? Always
+dealing with merge conflicts sounds time-consuming and frustrating,
+doesn't it? Well, that's because Git wasn't designed for that style of
+collaborating. Instead, Git uses a concept called
+["branches"](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+to more effectively manage multiple collaborators working on the same
+project. However, branches are a bit more of an advanced topic that we
+won't be covering in this workshop. Instead, when collaborating with
+others, we recommend that each collaborator create their own separate
+file to work on. For instance, if you are collaborating on writing a
+report together, each collaborator would create their own Quarto
+document to write in. When everyone is finished writing, one person can
+then merge all the documents together into one final report. This way,
+you avoid merge conflicts entirely. This is the approach we will get you
+to use for the group project at the end of this workshop.
 
 ::: callout-tip
 For public GitHub repositories, anyone can copy your repository and
@@ -495,11 +540,9 @@ collaborators is easy. When you have a private repository, you need to
 explicitly add collaborators in GitHub.
 
 You add someone to a private (or public) repository by going to
-`Settings -> Manage Access -> Invite a collaborator` (also shown in the
-video below). We won't do this for the workshop, but we're telling you how
-you can just in case you want to after the workshop.
-
-{{< video /videos/github-add-collaborator.mp4 >}}
+"Settings \> Manage Access \> Invite a collaborator". We won't do this
+for the workshop, but we're telling you how you can just in case you
+want to after the workshop.
 :::
 
 ::: callout-tip
@@ -530,7 +573,7 @@ collaborating is that most of your collaborators will likely not be
 familiar with it, at least until they take this workshop. :wink:
 
 Sadly, even experienced researchers struggle with this workflow (mainly
-due to their unfamiliarity with Git) and there is no easy answer on how
+due to not being familiar with Git) and there is no easy answer on how
 to handle this. The best way (in our opinion) is to start training any
 colleague who is interested in collaborating this way and slowly
 surround yourself with collaborators who also work this way.
@@ -538,8 +581,8 @@ surround yourself with collaborators who also work this way.
 
 ::: callout-tip
 Want to see how others use Git and GitHub in their research as examples?
-Check out the [Examples](https://guides.rostools.org/learning) section
-of the Guides website.
+Check out the [Examples](https://guides.rostools.org/learning#examples)
+section of the Guides website.
 :::
 
 {{< text_snippet sticky_up >}}
