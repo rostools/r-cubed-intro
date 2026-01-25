@@ -1,137 +1,176 @@
-# Group project work {#sec-project-work}
+# Team project work {#sec-project-work}
 
-To maximize how much you learn and how much you will retain, you as a
-group will take what you learn in the workshop and apply it to create a
-reproducible project. This project, based on a simple data analysis of a
-dataset of your choice, will have a GitHub repository and an HTML
-document as a report to demonstrate the reproducibility of the analysis.
-The dataset **cannot be the same** as the one we used in class and must
-be one of the ones listed below. The datasets we've selected are tidy
-enough to start working on without too much wrangling.
+In this last session of the workshop, you will take what you learned and
+apply it to create a reproducible project while working in a team (of 2
+or 3 people). This will help you reinforce what you learned in the
+previous sessions. The aim of this project is to create a reproducible
+data analysis report in HTML using Quarto and R and sharing it on
+GitHub. The open dataset you will all be working on is from the study
+[*Associations of serum uric acid with cardiovascular disease risk
+factors: a retrospective cohort study in Southeastern
+China*](https://zenodo.org/records/8292712).
 
-During the last session of the workshop you will work on this assignment.
-In the last \~20 minutes of this session, the lead instructor will
+During the last 15-20 minutes of this session, the lead teacher will
 download your project from GitHub and re-generate your report to check
-that it is reproducible.
+that it is reproducible. The teacher will run approximately these
+functions after downloading your project:
+
+-   `styler::style_dir()` to check that your code is styled.
+-   `quarto::quarto_render()` on the Quarto documents to render your
+    report.
 
 ## Specific tasks
 
 You will be collaborating as a team using Git and GitHub to manage your
-group assignment. We will set up the project with Git and GitHub for you
+team assignment. We will set up the project with Git and GitHub for you
 so you can quickly start collaborating together on the project. You will
 be pushing and pulling a lot of content, so you will need to maintain
 regular and open communication with your team members.
 
-Your specific tasks are:
+Below are a list of tasks to complete in order. Read through each tasks
+first before starting any of them.
 
-1.  All team members need to **clone your team's repository to their own
-    computer**. The steps are found through
-    `File -> New Project -> Version Control -> Git`.
+### Clone team repository
 
-2.  **Select one of the open datasets** to use for your analysis and
-    report:
+All team members need to clone (download) your team's repository to
+their own computer. The steps are found in RStudio in the "File" menu on
+the top menu bar. Under the "File" menu, click "New Project...", then
+select "Version Control", then "Git". In the next screen, paste your
+team's repository URL (copied from the team's repository page on GitHub)
+into the "Repository URL" box. Don't change the name of the project in
+the "Project directory name". Select the "Browse..." button next to the
+"Create project as subdirectory of" box and choose to save the project
+to your `Desktop/` folder. Finally, click the "Create Project". After
+you clone the repository in RStudio, it should open up as an R project
+for you.
 
-    -   [Price discounts on low energy dense foods on food intake and
-        health status](https://zenodo.org/records/10909325). Click this
-        [link](https://zenodo.org/records/10909325/files/Supermarket_dataset_v3.csv?download=1)
-        to directly download the data.
-    -   [Associations of serum uric acid with cardiovascular disease
-        risk factors: a retrospective cohort study in Southeastern
-        China](https://zenodo.org/records/8292712). Click this
-        [link](https://zenodo.org/records/8292712/files/SUA_CVDs_risk_factors.csv?download=1)
-        to directly download the data.
+### Download the dataset
 
-3.  Assign one team member to **download the dataset** and put it into
-    the `data/` folder of your project.
+Each team member needs to **download the dataset** for the project work
+and save the file into the `data/` folder of the R project. We already
+set the project to ignore the `data/` folder, so the data will not be
+tracked by Git. There are two ways to download the dataset:
 
-    -   If there is any documentation on the dataset, e.g. variable
-        definitions, put those files in the `data/` folder as well.
-    -   This team member should then add and commit the new file(s) in
-        the project, so it gets saved to the Git history. Then push the
-        changes to the team's GitHub repository.
-    -   Next, have all team members pull the new changes to their own
-        computers.
+-   Manually download the dataset and move it from your `Downloads/`
+    folder of your computer into the R project's `data/` folder by using
+    your file manager (like Finder or File Explorer). Use [this
+    link](https://zenodo.org/records/8292712/files/SUA_CVDs_risk_factors.csv?download=1)
+    to directly download the data.
 
-4.  **Each team member creates a Quarto file** named
-    `report-YOURNAME.qmd` (replacing `YOURNAME` with your actual name)
-    in the `docs/` folder of your project (covered in
-    @sec-reproducible-documents). This means that each team member will
-    have their own document to work in without conflicting with the
-    other team members. **Note**, if there are several members with the
-    same name, make sure your `qmd` documents are unique (for instance,
-    by using your full name).
+-   Or, run this code below into the Console while in the R project to
+    download the data directly into the `data/` folder:
 
-    -   For each team member's `.qmd` file, include a `setup` code chunk
-        at the top that lists the packages used. Include code to import
-        your data in this `setup` code chunk.
+    ``` {.r filename="Console"}
+    download.file(
+      url = "https://zenodo.org/records/8292712/files/SUA_CVDs_risk_factors.csv",
+      destfile = here::here("data/SUA_CVDs_risk_factors.csv")
+    )
+    ```
 
-    -   Create a few figures of the data. Discuss with your team what
-        figures to create and divide which figures to make between your
-        team members.
+### Create a Quarto file
 
-    -   Create at least one table. Discuss with your team what table to
-        make, if you want to create more than one, and assign who will
-        create it.
+Each team member creates a Quarto file by running
+`prodigenr::create_report()` in the Console while in the team's RStudio
+R project. This will create a file called `docs/report.qmd`. Rename this
+file `report-YOURNAME.qmd` (replacing `YOURNAME` with your actual name)
+in the `docs/` folder of your project.
 
-    -   When making both the figures and the tables, make sure to
-        incorporate some data wrangling code from `{dplyr}`.
+This means that each team member will have their own document to work in
+without conflicting with the other team members. If there are several
+members with the same name, make sure your `.qmd` documents are unique,
+for example, by using your full name.
 
-    -   Use the "Git workflow" by adding to the staged area, committing,
-        pushing, and pulling the changes you and your teammate have
-        made.
+Inside each team member's `.qmd` file, write code in the `setup` code
+chunk at the top to load the `library(tidyverse)` and to import your
+data found in the `data/` folder. You can use the `read_csv()` function
+like you learned in @sec-importing-data.
 
-    -   Make sure to "render" your document to HTML often to ensure it
-        is always reproducible.
+### Create some figures and tables
 
-5.  Assign one team member as the "report coordinator" and have them
-    **merge all the individual `report-YOURNAME.qmd` into one
-    `report.qmd`** file on their computer (after having everyone push,
-    and the coordinator will pull). They do this by copying and pasting
-    the content of the reports into section headers (using `##`) in the
-    report. After they are done, add and commit the `report.qmd`.
-    Lastly, delete all the report files *except* the `report.qmd` and
-    add and commit these deleted files to the Git history. There should
-    only be the `report.qmd` file in the repository.
+This task will take the most amount of time. We want each team member to
+create a few figures and tables. Ideally, each team member would create
+*different* figures and tables, so that you get practice on your own. So
+this will require some coordination and communication between team
+members.
 
-    -   Create section headers (e.g. `# Results`, `## Tables`,
-        `## Figures`, and `# Discussion`).
+::: callout-tip
+You can do any wrangling, plotting, and table-making that you want, as
+long as you use the code and techniques you learned during the workshop.
+Just to remind you, you can wrangling and analyse the data any way you
+want, even if technically it might not make sense or be wrong. The point
+of this project is to practice what you learned and have fun along the
+way.
+:::
 
-    -   As the report coordinator merges the report file, assign another
-        team member to update the `README.md` file with some details
-        about the project and about who was on the team. Save, add,
-        commit, and push these changes to the GitHub repository.
+::: callout-important
+Keep the figures and tables simple. The simpler the better. The goal is
+to practice what you learned, not to create a perfect analysis.
+:::
 
-    -   Once there is one report, as a group discuss and write a few
-        sentences in the "Discussion" section of their report file on
-        some things you liked about doing the project with the tools you
-        learned and a few sentences on some challenges you experienced.
+To help you get started or to give you some ideas, here are some plots
+and tables you could make:
 
-6.  **Generate an HTML of the report** and commit it to Git, then push
-    it up to GitHub. Include all the updated code and files on GitHub.
+-   A table of the mean of `Age` and `BMI` (using `summarise()`) grouped
+    by `Sex`. Make the table with `knitr::kable()`.
+-   A table of the mean of `Age`, `BMI`, `SBP`, and `DBP` (using
+    `summarise()`) grouped by `hypertension` (or `dyslipidemia` or
+    `hyperglycemia`). Make the table with `knitr::kable()`.
+-   A histogram of `BMI` with `geom_histogram()`, with `hyperglycemia`
+    as the `fill` (in `aes()`) or using `facet_grid()`.
+-   A scatter plot of `SBP` vs `DBP` with `geom_point()`, colored by
+    `hypertension` (maybe with a `geom_smooth()` line).
+-   A bar plot of the counts of `hyperglycemia` status with
+    `geom_bar()`, making facets of `Times` (using `facet_grid()`).
+-   A boxplot of `TC` (total cholesterol) by `dyslipidemia` status with
+    `geom_boxplot()`.
+-   Find the mean `BMI` by `hyperglycemia` and pipe to create a bar plot
+    with `geom_col()`.
 
-These tasks may seem like a lot, with a lot of new terminology and tools
-to use. But don't worry! We will be going over many of these topics and
-you will have time to complete the project over the three days.
+We suggest that you talk with your team members to get some other ideas
+or to decide who does what. As you code, get or give help to your
+teammates.
 
-At the end, the lead instructor will download each of the teams' Git
-projects and will render the documents to test their reproducibility.
+### Regularly style your code
+
+Make sure your code is styled correctly by regularly using
+{{< var keybind.styler >}} to style your code as you work in your Quarto
+document. Nicely formatted code is just as important as code that runs,
+as it makes it easier to read and understand. So practice styling your
+code often!
+
+### Regularly commit the changes
+
+Use the "Git workflow" by adding to the staged area, committing,
+pushing, and pulling the changes you and your teammate have made. You
+may encounter merge conflicts. If you do, get one of the helpers or
+teachers to help you out!
+
+### Regularly render the Quarto document
+
+Render your Quarto document to HTML often to ensure reproducibility of
+your document as well as to see how your report looks like. You don't
+need to commit the rendered HTML file if you don't want to.
 
 ## Quick "checklist" for a good project
 
 -   Project used Git and is on GitHub.
--   Included a README with some basic details.
 -   Used Quarto for making figures and tables.
--   Added some basic challenges and general experiences in the
-    discussion section.
--   Generated a final HTML file from a single `report.qmd` Quarto file.
+-   Used `{tidyverse}` for data wrangling and plotting.
+-   Code is correctly styled.
+
+## Checking reproducibility
+
+At the end, the lead teacher will download each of the teams' projects
+from GitHub to their computer and will render the documents to test
+their reproducibility. The teacher will also run `styler::style_dir()`
+to check that the code is correctly styled.
 
 ## Expectations for the project
 
-What we expect you to do for the group project:
+What we expect you to do for the team project:
 
 -   Use Git and GitHub throughout your work.
--   Work collaboratively as a group and share responsibilities and
-    tasks.
+-   Work collaboratively as a team and share responsibilities and tasks.
 -   Use as much of what we covered in the workshop to practice what you
     learned.
 
@@ -144,5 +183,5 @@ What we don't expect:
     *always* better than clever or concise code. Keep it simple and
     understandable!
 
-Essentially, the group project is a way to reinforce what you learned
+Essentially, the team project is a way to reinforce what you learned
 during the workshop, but in a more relaxed and collaborative setting.
