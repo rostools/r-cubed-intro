@@ -108,17 +108,10 @@ services.
 
 There are many ways one could organise a project folder. We'll be
 setting up a project folder and file structure using `{prodigenr}`.
-We'll use RStudio's "New Project" menu item under:
-
-```
-File -> New Project.. -> New directory -> Scientific Analysis Project using prodigenr
-```
-
-We'll call the new project **`LearningR`**. Save it on your `Desktop/`.
-See @fig-prodigenr-project-creation for the steps to do it:
-
-![Creating a new analysis project in
-RStudio.](/videos/rstudio-prodigenr-projects.gif){#fig-prodigenr-project-creation}
+We'll use RStudio's "New Project" menu item under
+"File -> New Project...". A new pop-up window shows up. Click
+"New directory" and scroll down to "Scientific Analysis Project using prodigenr".
+Type out `LearningR` as the directory name and save it to the `Desktop/`.
 
 ::: {.callout-tip appearance="default"}
 You can also type the below function into the Console, but we won't do
