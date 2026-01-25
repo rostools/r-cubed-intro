@@ -21,6 +21,22 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.2.0 (2026-01-25)
+
+### Feat
+
+- **sessions**: :sparkles: add section on ignoring Quarto output
+
+### Fix
+
+- :pencil2: small typo fixes
+- :globe_with_meridians: fix broken URLs
+- **pre-workshop**: :pencil2: clarify Mac users don't need to use Homebrew
+
+### Refactor
+
+- :truck: objectives into includes to put in syllabus
+
 ## 5.1.3 (2026-01-24)
 
 ### Fix
