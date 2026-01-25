@@ -21,6 +21,14 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.2.1 (2026-01-25)
+
+### Refactor
+
+- **sessions**: :recycle: replace with star us includes
+- **sessions**: :recycle: simplify team project work
+- **sessions**: 🔥 remove prodigenr GIF, use text instead to describe
+
 ## 5.2.0 (2026-01-25)
 
 ### Feat
