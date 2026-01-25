@@ -46,14 +46,14 @@ guide and overview.
 | 13:35 | {{< fa laptop-code >}} [Collaborating with GitHub](/sessions/github.qmd) |
 | 14:40 | {{< fa comment-dots >}} [End of session short survey]({{< meta surveys.feedback >}}) |
 | 14:45 | {{< fa mug-hot >}} Break with coffee and snacks |
-| 15:00 | {{< fa laptop-code >}} [Basic data wrangling](/sessions/wrangling.qmd) |
+| 15:00 | {{< fa laptop-code >}} [Data management and wrangling](/sessions/wrangling.qmd) |
 | 16:30 | {{< fa comment-dots >}} [End of session short survey]({{< meta surveys.feedback >}}) |
 
 ## Day 3 {.unnumbered}
 
 | Time | Session topic |
 |:---|:---|
-| 9:00 | {{< fa laptop-code >}} [Wrangling with visualizing](/sessions/wrangling-with-visualizing.qmd) |
+| 9:00 | {{< fa laptop-code >}} [Data wrangling with visualizing](/sessions/wrangling-with-visualizing.qmd) |
 | 10:10 | {{< fa comment-dots >}} [End of session short survey]({{< meta surveys.feedback >}}) |
 | 10:15 | {{< fa mug-hot >}} Break with coffee and snacks |
 | 10:30 | {{< fa laptop-code >}} [Split, apply, and combine](/sessions/split-apply-combine.qmd) |

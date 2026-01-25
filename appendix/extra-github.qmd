@@ -1,4 +1,4 @@
-# Extras: Create a GitHub repo {#sec-extra-github}
+# Extras: Manually create a GitHub repo {#sec-extra-github}
 
 Open up GitHub in a browser, make sure you are logged in, and create a
 new, empty repository. New repositories can be created by either

@@ -65,11 +65,11 @@ can you practice these skills and tools you learned during the workshop?
 ## How do you share?
 
 How do you share? We recommend a combination of GitHub and
-[Zenodo](https://zenodo.org/) to share your code. And we're already
-showing you how to use GitHub, so you're one step closer to sharing on
+[Zenodo](https://zenodo.org/) to share your code. And we've already
+shown you how to use GitHub, so you're one step closer to sharing on
 your own!
 
-Next question might, when do you share? Right away! No matter how ugly
+Next question might be, when do you share? Right away! No matter how ugly
 the code is. If its ugly, that's fine! The point is you start and that
 you get more comfortable doing it until it becomes second nature to
 share and in the process, your code gets better because you know someone
