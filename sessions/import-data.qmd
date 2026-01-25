@@ -623,13 +623,11 @@ If you still can't find the problem, here are some other steps to take:
     the relevant package or function as a keyword in your search.
 
 7.  If all else fails, you can always turn to the trusty **online R
-    community**. Check
-    [StackOverflow](https://stackoverflow.com/questions/tagged/r), a
-    coding-related question and answer website, to see whether your
-    issue has already been asked and solved by others. If it hasn't and
-    you are considering submitting a question, make sure to read the
-    posting guides beforehand to ensure that you are asking the question
-    in a helpful way.
+    community**. Check StackOverflow, a coding-related question and
+    answer website, to see whether your issue has already been asked and
+    solved by others. If it hasn't and you are considering submitting a
+    question, make sure to read the posting guides beforehand to ensure
+    that you are asking the question in a helpful way.
 
 *Final words:* It is important to always work towards writing "better"
 and "neater" code, as this can make it easier to break down pieces of

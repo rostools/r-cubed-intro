@@ -111,7 +111,7 @@ sources.
 
 Content from multiple sources was used as inspiration for this workshop,
 including the [R for Data Science](https://r4ds.had.co.nz/) book and the
-[Fundamentals of Data Visualization](https://serialmentor.com/dataviz/).
+[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/).
 
 The [Danish Diabetes and Endocrinology
 Academy](https://www.ddeacademy.dk/) has hosted, organized, and

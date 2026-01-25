@@ -31,7 +31,7 @@ associated workshop administration files.
 
 For more detail on the workshop, check out the [welcome
 page](https://r-cubed-intro.rostools.org/) and the
-[syllabus](https://r-cubed-intro.rostools.org/preamble/syllabus.html).
+[syllabus](https://r-cubed-intro.rostools.org/overview/syllabus.html).
 For re-using and learning more about the workshop, check out our
 [paper](paper.md) describing it.
 
@@ -112,7 +112,8 @@ follows the file and folder structure conventions from that package.
 If you are interested in contributing to the workshop material, please
 refer to the [contributing guidelines](CONTRIBUTING.md). For guidelines
 on how to be a helper or teacher, check out the [For
-teachers](https://r-cubed.rostools.org/for-teachers.html) page.
+teachers](https://r-cubed-intro.rostools.org/appendix/for-teachers.html)
+page.
 
 Please note that the project is released with a [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to or being involved in
