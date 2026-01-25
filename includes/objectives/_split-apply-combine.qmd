@@ -1,0 +1,4 @@
+1.  Describe the "split-apply-combine" method of analyses,
+    then use `group_by()` together with `summarise()` to calculate
+    summary statistics, by categorical variables.
+2.  Create tables of results in a document using `knitr::kable()`.

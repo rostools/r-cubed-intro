@@ -6,25 +6,16 @@
 library(downlit)
 ```
 
-<!-- TODO: Add an introduction here -->
+Tracking what changes have been made to your files is an incredibly
+useful tool for managing your analysis project. It also makes it much
+easier to collaborate with others (like yourself in the future) and to
+share your work. Sharing your analysis code is a critical step in
+ensuring your research is reproducible. This session will cover what
+version control is and how to do it using Git within RStudio.
 
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Describe what version control means, how it can be used in a
-    research project, and why it is important from a research
-    perspective.
-
-**Specific objectives** are to:
-
-1.  Explain what "formal" version control is and recognize its
-    importance.
-2.  Use the basic functionality of Git for version control through
-    RStudio's integrated Git interface.
-3.  Describe and apply the basic workflow of Git version control: View
-    changes to files, record and save those changes to a history, called
-    "committing".
+{{< include /includes/objectives/_version-control.qmd >}}
 
 ## :book: Reading task: What is version control? {#sec-what-is-version-control}
 

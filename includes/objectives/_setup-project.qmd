@@ -1,0 +1,8 @@
+1.  Describe why the contents of a project, like files, should be
+    self-contained within a single folder and sub-folders, and explain
+    how that helps with reproducibility and helping you keep organized.
+2.  Use built-in tools in RStudio to make it easier to manage R
+    projects.
+3.  Explain why naming files is the first step to effectively
+    communicating the contents of the file and describe a commonly used
+    style guide for file naming.

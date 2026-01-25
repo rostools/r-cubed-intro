@@ -18,20 +18,16 @@ tidied_post_meal_data <- post_meal_data |>
   )
 ```
 
+The split-apply-combine method is a powerful technique for performing
+data analysis. It involves splitting a dataset into groups based on
+some categorical variable(s), performing some analysis to each group,
+and then combining the results back together into a single dataset. In
+this session, we'll explore how to use this technique in R using the
+`group_by()` and `summarise()` functions from the `{dplyr}` package.
+
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Explain the split-apply-combine technique and use a combination of
-    functions to use it, while outputting the results into report-friendly
-    tables.
-
-**Specific objectives** are to:
-
-1.  Describe the "split-apply-combine" method of analyses,
-    then use `group_by()` together with `summarise()` to calculate
-    summary statistics, by categorical variables.
-2.  Create tables of results in a document using `knitr::kable()`.
+{{< include /includes/objectives/_split-apply-combine.qmd >}}
 
 ## :book: Reading task: Split-apply-combine to summarize data
 

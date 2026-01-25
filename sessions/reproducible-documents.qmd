@@ -1,23 +1,15 @@
 # Analytically reproducible documents {#sec-reproducible-documents}
 
+Reproducibility is a cornerstone of good scientific practice. One of the
+first ways to ensure your report or paper is reproducible is by ensuring
+the results you show are directly generated from the code you used to do
+the analysis. In this session, we will go over how to use
+[Quarto](https://quarto.org/) to write code within a document to make a
+big step towards a reproducible analysis.
+
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Describe what a reproducible document is, explain why it is
-    important, and use it to write R code to create an output document.
-
-**Specific objectives** are to:
-
-1.  Describe what Quarto is and how it helps with reproducibility, and
-    why it can save you time and effort.
-2.  Write and use R code within a document, so that it will
-    automatically insert the R output into the final document.
-3.  Identify what some Markdown syntax does to the formatting of the
-    generated HTML file and write some Markdown to make some simple
-    formatting of your document.
-4.  Define some basic objects and data types in R and write some simple
-    R code within the Quarto document.
+{{< include /includes/objectives/_reproducible-documents.qmd >}}
 
 ## :book: Reading task: Why and how to be reproducible?
 

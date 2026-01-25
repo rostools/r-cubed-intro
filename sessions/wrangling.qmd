@@ -6,24 +6,14 @@ library(tidyverse)
 post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
 
-<!-- TODO: Add an introduction here -->
+Wrangling data into different forms and structures is one of the most
+common tasks you'll do when working with data. In this session, we will
+cover a "vocabulary" of the main wrangling tasks and use these "verbs"
+to work with our data.
 
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Describe some basic, common "verbs" for wrangling data, such as
-    selecting and renaming columns, filtering rows, and "mutating"
-    columns by modifying or creating them. Then use functions within the
-    `{tidyverse}` to perform these actions.
-
-**Specific objectives** are to:
-
-1.  Select specific columns in a dataset using the `select()` function.
-2.  Rename columns in a dataset using the `rename()` function.
-3.  Filter rows in a dataset using the `filter()` function.
-4.  Modify or add columns in a dataset using the `mutate()` function.
-5.  Use the pipe operator `|>` to chain actions together.
+{{< include /includes/objectives/_wrangling.qmd >}}
 
 ## :book: Reading task: Data wrangling verbs
 

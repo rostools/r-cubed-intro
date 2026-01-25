@@ -8,31 +8,13 @@ post_meal_data <- read_csv2(
 )
 ```
 
-<!-- TODO: Add an introduction here -->
+Visualizing research data and especially the results of an analysis can
+be an effective way of communicating your findings to others. In this
+session, we will cover the basics of creating plots.
 
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Describe of the "grammar" for making plots and use the `{ggplot2}`
-    package to make it easier to create them.
-
-**Specific objectives** are to:
-
-1.  Describe and list some features of the "Grammar of Graphics"
-    approach to creating plots, and connect that to how `{ggplot2}`
-    works.
-2.  Identify ways to present your figures in an output document by using
-    Quarto chunk options.
-3.  Explain why some commonly used graphs in science are inappropriate
-    to use for certain data, like the barplot with mean and standard
-    error.
-4.  Use the `geom_point()` and `geom_smooth()` functions to create a
-    scatterplot of two continuous variables, or `geom_bar()` for showing
-    counts of discrete variables.
-5.  Recognize the importance of writing readable code that follows a
-    consistent style guide and use the `{styler}` package to help with
-    that.
+{{< include /includes/objectives/_visualization.qmd >}}
 
 ## :book: Reading task: Basic principles for creating graphs
 

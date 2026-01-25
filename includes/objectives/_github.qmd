@@ -1,0 +1,7 @@
+1.  Describe the difference between a "remote" and a "local" repository.
+2.  Explain why GitHub can be an effective way to collaborate with
+    others on a project.
+3.  Use GitHub to store your Git repository by connecting your R project
+    to GitHub.
+4.  Use "pushing" and "pulling" to synchronize any changes you make
+    between the local and remote repositories.

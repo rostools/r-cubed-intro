@@ -1,0 +1,7 @@
+1.  Apply what was learned separately in the wrangling and visualizing
+    sessions by piping the output of one into the other.
+2.  Explain why the choice of colour matters when it comes
+    to having figures be accessible and understandable to more people,
+    especially to those with colour blindness.
+3.  Use features of `{ggplot2}` to make plots that contain three or
+    more variables in them, through the use of colours and facetting.

@@ -1,0 +1,15 @@
+1.  Describe different ways of importing data into R and identify which
+    method to use based on the file extension, then use one of these
+    methods to import a dataset.
+2.  Explain how to ensure your project is self-contained by using
+    relative file paths within the R project and use the `here::here()`
+    function to make these paths.
+3.  Use a tool called "auto-completion" to more quickly type out objects
+    in R.
+4.  Use options in Quarto Markdown's code chunks to control what gets
+    shown from the output of the code chunk when generating the output
+    document.
+5.  Describe the difference between "messy" and "tidy" data and explain
+    why you should aim to make data tidier.
+6.  Identify some approaches to help resolve problems when you encounter
+    errors or warnings in R.

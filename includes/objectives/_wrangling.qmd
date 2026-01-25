@@ -1,0 +1,5 @@
+1.  Select specific columns in a dataset using the `select()` function.
+2.  Rename columns in a dataset using the `rename()` function.
+3.  Filter rows in a dataset using the `filter()` function.
+4.  Modify or add columns in a dataset using the `mutate()` function.
+5.  Use the pipe operator `|>` to chain actions together.

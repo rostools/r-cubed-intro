@@ -2,21 +2,14 @@
 
 <!-- TODO: Add an introduction here -->
 
+GitHub is a popular online service for hosting Git repositories. It
+also makes collaborating on projects much easier. In this session, we
+will cover what GitHub is and how to use it with your R project that
+is a Git repository.
+
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Explain how to collaborate with others (or your future self) through
-    Git and GitHub, while also using it as a form of a backup.
-
-**Specific objectives** are to:
-
-1.  Describe the difference between a "remote" and a "local" repository.
-2.  Use GitHub to store your Git repository by connecting your R project
-    to GitHub.
-3.  Use "pushing" and "pulling" to synchronize any changes you make
-    between the local and remote repositories.
-4.  Use GitHub to collaborate with others on a project.
+{{< include /includes/objectives/_github.qmd >}}
 
 ## "Remotes": Storing your repository online {#sec-remotes-setting-up}
 

@@ -1,0 +1,7 @@
+1.  Explain what "formal" version control is and recognize its
+    importance.
+2.  Use the basic functionality of Git for version control through
+    RStudio's integrated Git interface.
+3.  Describe and apply the basic workflow of Git version control: View
+    changes to files, record and save those changes to a history, called
+    "committing".

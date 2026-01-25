@@ -55,34 +55,48 @@ The overall aim of this workshop is to enable you to:
 
 1.  Describe the fundamentals of what an open and reproducible data
     analysis looks like and then create a project that applies some of
-    the basics of these concepts using R.
+    the basics of these concepts using R, RStudio, Git, and Quarto.
 
 Broken down into specific objectives for each session, we've designed
 the workshop to enable you to do the following:
 
-1.  Explain what an open and reproducible data analysis workflow is,
-    what it looks like, and why it is important.
+[**Setting up an R project**](/sessions/setup-project.qmd)
 
-2.  Explain and demonstrate why [R](https://www.r-project.org/) is
-    rapidly becoming the standard program of choice for doing modern
-    data analysis in science.
+{{< include /includes/objectives/_setup-project.qmd >}}
 
-3.  Demonstrate and apply collaborative tools and techniques when
-    working in team settings (including working with your future self).
+[**Analytically reproducible
+documents**](/sessions/reproducible-documents.qmd)
 
-4.  Show and apply the fundamental tools and skills for conducting a
-    reproducible and modern analysis for a research project, focusing on
-    the basics of wrangling and visualizing data, writing reproducible
-    reports, and structuring projects.
+{{< include /includes/objectives/_reproducible-documents.qmd >}}
 
-5.  Show where to go to get help and to continue learning modern data
-    analysis skills.
+[**Version control with Git**](/sessions/version-control.qmd)
 
-::: content-hidden
-[**TODO: Session title**](/sessions/session.qmd)
+{{< include /includes/objectives/_version-control.qmd >}}
 
-include /includes/objectives/\_session.qmd
-:::
+[**Importing data into R**](/sessions/import-data.qmd)
+
+{{< include /includes/objectives/_import-data.qmd >}}
+
+[**Basic data visualization**](/sessions/visualization.qmd)
+
+{{< include /includes/objectives/_visualization.qmd >}}
+
+[**Collaborating with GitHub**](/sessions/github.qmd)
+
+{{< include /includes/objectives/_github.qmd >}}
+
+[**Data management and wrangling**](/sessions/wrangling.qmd)
+
+{{< include /includes/objectives/_wrangling.qmd >}}
+
+[**Data wrangling with
+visualizing**](/sessions/wrangling-with-visualizing.qmd)
+
+{{< include /includes/objectives/_wrangling-with-visualizing.qmd >}}
+
+[**Split, apply, and combine**](/sessions/split-apply-combine.qmd)
+
+{{< include /includes/objectives/_split-apply-combine.qmd >}}
 
 Because learning and coding is ultimately not *just* a solo activity, in
 addition to the group project work, during this workshop we also aim to

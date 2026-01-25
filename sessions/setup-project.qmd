@@ -7,26 +7,16 @@ Because it is the first session, take it slowly. Regularly check for
 learner's understanding and make use of the stickies/hats to do so.
 :::
 
+To do data analysis effectively and in an organised and less stressful
+way, everything comes down to how you setup and structure your folders
+and files. Essentially, how to make your analysis project into a
+self-contained project at the folder level. This session will cover how
+to set up a project into an RStudio R Project and structure the files
+and folders using the `{prodigenr}` package.
+
 ## Learning objectives
 
-This session's **overall learning outcome** is to:
-
-1.  Explain why it's important where file and folders are stored, how
-    they are named, and how they are organized from a reproducibility
-    and ease of use perspective. Then use R packages and tools in
-    RStudio to help create and manage these file and folders as a
-    project.
-
-**Specific objectives** are to:
-
-1.  Describe why the contents of a project, like files, should be
-    self-contained within a single folder and sub-folders, and how that
-    helps with reproducibility and helping you keep organized.
-2.  Use built-in tools in RStudio to make it easier to manage R
-    projects.
-3.  Explain why naming files is the first step to effectively
-    communicating the contents of the file and describe a commonly used
-    style guide for file naming.
+{{< include /includes/objectives/_setup-project.qmd >}}
 
 ## :book: Reading task: What is a project and why use it?
 

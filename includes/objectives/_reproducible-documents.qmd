@@ -1,0 +1,9 @@
+1.  Describe what Quarto is and how it helps with reproducibility, and
+    why it can save you time and effort.
+2.  Write and use R code within a document, so that it will
+    automatically insert the R output into the final document.
+3.  Identify what some Markdown syntax does to the formatting of the
+    generated HTML file and write some Markdown to make some simple
+    formatting of your document.
+4.  Define some basic objects and data types in R and write some simple
+    R code within the Quarto document.
