@@ -165,9 +165,10 @@ tidied_post_meal_data |>
 
 Which do you find more informative?
 
-We can modify the axis labels to have clearer descriptions by using the function `labs()`.
-To change the y-axis title, use the `y` argument in `labs()`.
-For the x-axis, it is `x`. Let's add x and y axis labels to our existing plot.
+We can modify the axis labels to have clearer descriptions by using the
+function `labs()`. To change the y-axis title, use the `y` argument in
+`labs()`. For the x-axis, it is `x`. Let's add x and y axis labels to
+our existing plot.
 
 ```{r labels}
 #| filename: "docs/learning.qmd"
@@ -183,7 +184,8 @@ tidied_post_meal_data |>
   )
 ```
 
-When we run that with {{< var keybind.run-code >}}, we now have labels that are more descriptive!
+When we run that with {{< var keybind.run-code >}}, we now have labels
+that are more descriptive!
 
 ::: callout-tip
 To save the plot you created, you can use the `ggsave()` function.
@@ -204,7 +206,7 @@ like we did in @sec-visualization with the Quarto code chunk
 called `## Make multi-dimensional plots!`, then below it copy and paste
 the template code chunk shown below into your document.
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: fig-multidimensional
 #| fig-cap: "Two, mult-dimensional plots of our data."
@@ -389,9 +391,9 @@ to use below.
     well, we are using the `colour =` argument. The `_c` at the end
     indicates the variable are continuous.
 
-4.  Similar to task 2 above, use the `option = "inferno"` argument to set the
-    palette and see how the colour changes. Select which
-    colour scheme you would like.
+4.  Similar to task 2 above, use the `option = "inferno"` argument to
+    set the palette and see how the colour changes. Select which colour
+    scheme you would like.
 
 Once you are done, style your code with `{styler}` using
 {{< var keybind.styler >}}, render the document with
@@ -424,8 +426,8 @@ post_meal_data |>
 
 -   Pipe `|>` the output of your wrangling directly into making a plot
     to streamline your code.
--   Use `geom_jitter()`, `geom_boxplot()`, or `geom_violin()` to show the
-    relationship between a continuous and a discrete variable.
+-   Use `geom_jitter()`, `geom_boxplot()`, or `geom_violin()` to show
+    the relationship between a continuous and a discrete variable.
 -   To plot more dimensions, use colour, the X axis, the Y axis, or
     `facet_grid()`.
 -   Use colour blind-friendly palettes, such as `{viridis}`.

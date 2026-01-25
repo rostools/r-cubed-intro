@@ -429,15 +429,15 @@ We can view the history by clicking the "History" button in the top-left
 corner of the RStudio Git interface. Here you can see what has been done
 in previous commits. The "History" section is quite powerful. As long as
 you commit something into the Git history, it will never be completely
-gone[^version-control-1]. For instance, we can see the full contents of
-a file at a specific commit by clicking the commit, moving to the file
-you want to look into, and clicking the link that says
-`View file @ ...`. Try that with the second commit of the README file.
-It shows you what the file was like in that commit, so we can always go
-back the changes we made there.
+gone[^1]. For instance, we can see the full contents of a file at a
+specific commit by clicking the commit, moving to the file you want to
+look into, and clicking the link that says `View file @ ...`. Try that
+with the second commit of the README file. It shows you what the file
+was like in that commit, so we can always go back the changes we made
+there.
 
-[^version-control-1]: This isn't completely true, you can delete stuff,
-    like if you accidentally add a password or personal data.
+[^1]: This isn't completely true, you can delete stuff, like if you
+    accidentally add a password or personal data.
 
 A question that may come up is "how often should I commit"? In general,
 it's better to commit fairly frequently and to commit changes that are

@@ -100,7 +100,8 @@ appear. Enter "Reproducible documents" in the title field and your name
 in the author field. HTML should be automatically selected as the output
 format. There's also the option to use the "visual mode". This mode is
 great if you are used to working with Word and you can test it out on
-your own later. For this workshop, we will focus on using the normal mode.
+your own later. For this workshop, we will focus on using the normal
+mode.
 
 After clicking "Create", the new file will open in RStudio. Before
 continuing, let's save this file as `learning.qmd` in the `docs/`
@@ -523,7 +524,7 @@ Get some practice writing Markdown by completing these tasks in the
 `docs/learning.qmd` file. Use this scaffold below to help guide you by
 replacing the `___` with the instructions from above:
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 
 ## ___
 

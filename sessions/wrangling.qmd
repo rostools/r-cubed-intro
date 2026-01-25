@@ -99,8 +99,8 @@ you do.
 select(post_meal_data, Age)
 ```
 
-When you run this code with {{< var keybind.run-code >}}, you will see that
-only the `Age` column is shown in the output.
+When you run this code with {{< var keybind.run-code >}}, you will see
+that only the `Age` column is shown in the output.
 
 ::: {.callout-note appearance="minimal" collapse="true"}
 ## :teacher: Instructor note
@@ -176,9 +176,9 @@ a bit. While our data doesn't have too many rows, there are a lot of
 columns to deal with, at least for this workshop. Let's keep only a few
 columns for now, so it is easier to look at and explore.
 
-Since we want
-this code to run every time we restart this Quarto document, we should put it into the `setup` code chunk.
-Go to the `setup` code chunk and at the bottom of it, add the following code:
+Since we want this code to run every time we restart this Quarto
+document, we should put it into the `setup` code chunk. Go to the
+`setup` code chunk and at the bottom of it, add the following code:
 
 ```{r create-smaller-data}
 #| filename: "docs/learning.qmd"
@@ -186,8 +186,8 @@ small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_
 ```
 
 Run the code with {{< var keybind.run-code >}} to assign the object,
-then in the **Console**, check what it looks like by typing out the newly
-created object there:
+then in the **Console**, check what it looks like by typing out the
+newly created object there:
 
 ```{r}
 #| filename: "Console"
@@ -322,8 +322,8 @@ small_post_meal_data |>
 
 The pipe automatically takes `post_meal_data` and puts it into the first
 position, so we don't need to specify `post_meal_data` inside the
-`rename()` function. Run this code with {{< var keybind.run-code >}} and you
-will see the output with the new column name. We also have a column
+`rename()` function. Run this code with {{< var keybind.run-code >}} and
+you will see the output with the new column name. We also have a column
 `auc_ins` that we can rename to `auc_insulin`. Add this to the code
 chunk below the previous code.
 
@@ -384,10 +384,10 @@ the template:
 2.  `select()` columns that `contains()` the characters `".."` but
     exclude `-` columns that `contains()` the characters `"..."`.
 
-3.  Based on the columns from task 2 above, use `rename()` on those columns
-    so that the `..` inside their name is `.minus`. You will need to type
-    out these column names, both the old and the new, manually.
-    Recall that renaming is in the form `new = old`.
+3.  Based on the columns from task 2 above, use `rename()` on those
+    columns so that the `..` inside their name is `.minus`. You will
+    need to type out these column names, both the old and the new,
+    manually. Recall that renaming is in the form `new = old`.
 
 4.  Read through (in your head) the code below `# Task 4.` above. How
     intuitive is it to read? Now, re-write this code to use the pipe
@@ -515,9 +515,9 @@ small_post_meal_data |>
   filter(BMI >= 25)
 ```
 
-Run this by using {{< var keybind.run-code >}}. We'll see that more than half
-of the participants are above overweight. Let's see how many are in the
-`"CTR"` group, again, within the same code chunk.
+Run this by using {{< var keybind.run-code >}}. We'll see that more than
+half of the participants are above overweight. Let's see how many are in
+the `"CTR"` group, again, within the same code chunk.
 
 ```{r filter-logic-condition-ctr}
 #| filename: "docs/learning.qmd"
@@ -611,8 +611,8 @@ remove them for now. We'll also remove the `glykemi` column since we
 don't need it anymore.
 
 Since we want this code available to us easily, let's put it into the
-`setup` code chunk. Go to the `setup` code chunk and at the bottom of it,
-write out the code below to create a new data object.
+`setup` code chunk. Go to the `setup` code chunk and at the bottom of
+it, write out the code below to create a new data object.
 
 ```{r create-new-data-object-filtered}
 #| filename: "docs/learning.qmd"
@@ -626,8 +626,8 @@ tidier_post_meal_data <- small_post_meal_data |>
 tidier_post_meal_data
 ```
 
-Run this code with {{< var keybind.run-code >}} to see the output and see
-what it looks like now. Great! Before moving on, let's style our
+Run this code with {{< var keybind.run-code >}} to see the output and
+see what it looks like now. Great! Before moving on, let's style our
 document with {{< var keybind.styler >}}, render the document with
 {{< var keybind.render >}}, and then add and commit the changes to the
 Git history with {{< var keybind.git >}}. Finally, push the changes to
@@ -688,12 +688,13 @@ tidier_post_meal_data |>
   )
 ```
 
-Run this code with {{< var keybind.run-code >}} to see the new column. To
-make use of this new data object, we should assign it to a new object.
-Similar to the `small_post_meal_data` and `tidier_post_meal_data`
-objects, we want these available to us easily, so let's put this into
-the `setup` code chunk. Go to the `setup` code chunk and at the bottom of
-it, write out the code below to create a new data object.
+Run this code with {{< var keybind.run-code >}} to see the new column.
+To make use of this new data object, we should assign it to a new
+object. Similar to the `small_post_meal_data` and
+`tidier_post_meal_data` objects, we want these available to us easily,
+so let's put this into the `setup` code chunk. Go to the `setup` code
+chunk and at the bottom of it, write out the code below to create a new
+data object.
 
 ```{r assign-modified-columns-to-object}
 #| filename: "docs/learning.qmd"
@@ -704,8 +705,8 @@ tidied_post_meal_data <- tidier_post_meal_data |>
   )
 ```
 
-Run this code with {{< var keybind.run-code >}} to see the new column. We'll
-use this new data object in our next session.
+Run this code with {{< var keybind.run-code >}} to see the new column.
+We'll use this new data object in our next session.
 
 Before moving on, run `{styler}` with {{< var keybind.styler >}}, render
 with {{< var keybind.render >}}, and then add and commit all the files

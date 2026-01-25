@@ -138,7 +138,7 @@ like. At the bottom of your `docs/learning.qmd` file, create a new level
 2 header called "Showing the data" and insert a new code chunk with
 {{< var keybind.chunk >}}, which should look like the following:
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 
 ## Showing the data
 
@@ -208,10 +208,10 @@ so that we don't accidentally put it publicly on GitHub. Or if your data
 is really large, we don't normally want to keep large files on GitHub
 since that isn't the best place to store those types of files. But
 because the dataset is already an open dataset and because it is small,
-for this workshop we will save it to the Git history to get practice using
-Git. We also normally don't commit the generated `.html` files, but for
-this workshop we will commit them to the Git history so that you get
-practice with Git. Once done, read over the next section.
+for this workshop we will save it to the Git history to get practice
+using Git. We also normally don't commit the generated `.html` files,
+but for this workshop we will commit them to the Git history so that you
+get practice with Git. Once done, read over the next section.
 
 ## :book: Reading task: Relative paths in the R project
 
@@ -267,10 +267,10 @@ on.
 
 ## Setting code chunk options
 
-One thing you may have noticed when we render the document to
-HTML, is that there is a bunch of extra output, especially below the `setup`
-code chunk. You probably don't want this text in your generated
-document, so we will add a [chunk
+One thing you may have noticed when we render the document to HTML, is
+that there is a bunch of extra output, especially below the `setup` code
+chunk. You probably don't want this text in your generated document, so
+we will add a [chunk
 option](https://quarto.org/docs/reference/cells/cells-knitr.html) to
 remove this message.
 
@@ -351,12 +351,13 @@ Hadley Wickham and described in more detail in the [Tidy Data
 chapter](https://r4ds.hadley.nz/data-tidy.html) of the *R for Data
 Science* online book. Before we continue with tidy data, we need to
 cover something that is related to the concept of "tidy" and that has
-already come up in this workshop: the `{tidyverse}`. The `{tidyverse}` is
-an ecosystem of R packages that are designed to work well together, that
-all follow a strong "[design philosophy](https://design.tidyverse.org/)"
-and common [style guide](https://style.tidyverse.org/). This makes
-combining these packages in the tidyverse much easier. We teach the
-tidyverse because of these reasons.
+already come up in this workshop: the `{tidyverse}`. The `{tidyverse}`
+is an ecosystem of R packages that are designed to work well together,
+that all follow a strong "[design
+philosophy](https://design.tidyverse.org/)" and common [style
+guide](https://style.tidyverse.org/). This makes combining these
+packages in the tidyverse much easier. We teach the tidyverse because of
+these reasons.
 
 Part of the "tidy" part of tidyverse revolves around tidy data. A tidy
 dataset is when:
@@ -412,8 +413,8 @@ Tidy data has a few notable benefits:
     build off and wrangle (i.e. "manipulate", "clean up", "manage") data
     in simpler and easy-to-interpret ways, especially when used within
     the framework of the tidyverse.
-3.  Tidier data is easier to visualize and "map" onto different axes
-    of the plot, like the x and y axes.
+3.  Tidier data is easier to visualize and "map" onto different axes of
+    the plot, like the x and y axes.
 
 The concept of tidy data also gives rise to "tidy code" for visualizing
 and wrangling. By using "verbs" (R functions) and chaining them together
@@ -441,8 +442,8 @@ principles to follow:
         your team. You may end up storing and processing the data in
         another folder as a project of its own.
 -   **Never** edit your raw data directly. If you have to edit it to fix
-    mistakes, have some version control of it so you can track it and see
-    what has been changed.
+    mistakes, have some version control of it so you can track it and
+    see what has been changed.
 -   Only work with your raw data using R code. *As much as possible or
     is reasonable, don't manually edit it*. Manual editing doesn't leave
     a history of what you've done to it, so you can't go back and see
