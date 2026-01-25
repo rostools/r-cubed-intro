@@ -110,14 +110,7 @@ these workshops are or will soon be helping to improve the material for
 next year. There are also so many other things you can get involved in,
 aside from this workshop. Let us know if you're interested!
 
-::: {.callout-tip appearance="minimal"}
-:star: Do you find this workshop material useful? Then please consider
-"starring" our [GitHub
-repository](https://github.com/rostools/r-cubed-intro/) to show your
-support! Starring will save it to a list of repositories you like that
-you can easily find again, plus it helps give our project more
-visibility!
-:::
+{{< include /includes/_star-us.qmd >}}
 
 ## Survey
 
