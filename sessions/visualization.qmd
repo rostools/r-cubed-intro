@@ -320,10 +320,11 @@ ggplot(post_meal_data, aes(x = Group, fill = glykemi)) +
 ```
 
 Run this code with {{< var keybind.run-code >}}. You'll see we get a
-warning message. That's because the `glykemi` variable is actually a
-number, and `{ggplot2}` needs a character vector for `fill`. We can
-easily fix this by using `as.character()` on the `glykemi` variable in
-the `aes()` function.
+warning message, which tells us the problem: `glykemi` should be a
+factor or a character for the `fill` aesthetic, but it is actually a
+number. The `fill` aesthetic needs a categorical variable, not a
+continuous one. We can easily fix this by using `as.character()` on the
+`glykemi` variable in the `aes()` function.
 
 ```{r two-discrete-variables-convert-to-character}
 #| filename: "docs/learning.qmd"
