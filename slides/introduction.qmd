@@ -4,9 +4,9 @@ format: rostools-theme-revealjs
 
 # Welcome to the Introductory R^3^ workshop!
 
--   :heavy_check_mark: Pick a group name from the basket and go to that
+-   :heavy_check_mark: Pick a table name from the basket and go to that
     table
--   :heavy_check_mark: Introduce yourself to your group members
+-   :heavy_check_mark: Introduce yourself to your table mates
 -   :heavy_check_mark: Accept the GitHub Organization invite
 
 ::: notes
@@ -202,7 +202,7 @@ that, we all have that power to do something, even if its small thing.
 -   The workshop is mix of:
     -   "Code-alongs" (we type and explain, you type along)
     -   Hands-on coding, discussing, and reading exercises
-    -   Group project (quickly go over it and the GitHub page)
+    -   Team project (quickly go over it and the GitHub page)
 -   All material is online (and [openly
     licensed](https://r-cubed-intro.rostools.org/LICENSE.html))
 -   [Resources Appendix](https://guides.rostools.org/learning.html)
@@ -223,12 +223,12 @@ that, we all have that power to do something, even if its small thing.
 Explain a bit more about the reading, why doing it, and that this workshop
 in particular has a lot more of it than more advanced workshops.
 
-With the final group project, you'll be in the same group for the
+With the final team project, you'll be in the same team for the
 workshop, working together on it and on the final exercises. As a team,
 you'll help each other out with learning and overcoming any struggles,
 with of workshop our help too!
 
-I've tried to organize the groups to include a range of skills and
+I've tried to organize the teams to include a range of skills and
 experiences, so there is a mix of novice and more experienced users.
 :::
 

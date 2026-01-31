@@ -33,7 +33,7 @@ ways of working on your computer than you are used to. They require
 changing how you see and interact with your projects and computer in big
 ways.
 
-Lastly, briefly read through the group project work section in
+Lastly, briefly read through the team project work section in
 @sec-project-work so you are familiar with what you will do at the end
 of the workshop. You'll have time during the project work session to
 read through it again, but we've found that participants prefer and want
@@ -60,7 +60,7 @@ fantastic resources and a great reference to have readily available,
 either on your computer or printed out. We suggest that you download at
 least these following cheatsheets and have them available either
 digitally or printed out during the workshop, especially for when you do
-the exercises and group project work:
+the exercises and team project work:
 
 -   [RStudio IDE](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
 -   [Quarto](https://rstudio.github.io/cheatsheets/quarto.pdf)

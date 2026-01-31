@@ -524,7 +524,7 @@ report together, each collaborator would create their own Quarto
 document to write in. When everyone is finished writing, one person can
 then merge all the documents together into one final report. This way,
 you avoid merge conflicts entirely. This is the approach we will get you
-to use for the group project at the end of this workshop.
+to use for the team project at the end of this workshop.
 
 ::: callout-tip
 For public GitHub repositories, anyone can copy your repository and
@@ -553,7 +553,7 @@ and which to remove. After you've resolved the conflict, you would then
 stage the file and commit it.
 
 We won't go into merge conflicts in this workshop, though you might deal
-with them during the group project. If you want to learn more about them
+with them during the team project. If you want to learn more about them
 after the workshop, GitHub has a [practical
 tutorial](https://github.com/skills/resolve-merge-conflicts) on it. We
 also have an extra appendix section to deal with merge conflicts in

@@ -44,7 +44,7 @@ doing reproducible and open data analysis to get you familiar with and
 prepared for the type of work needed in research now and in the future.
 We use a very practical approach based largely on code-along sessions
 (instructor and learner coding together), hands-on exercises, reading
-activities, and a group project.
+activities, and a team project.
 
 This workshop lasts 3 days and is split into multiple sessions listed in
 the [schedule](/overview/schedule.qmd) (@sec-schedule).
@@ -99,7 +99,7 @@ visualizing**](/sessions/wrangling-with-visualizing.qmd)
 {{< include /includes/objectives/_split-apply-combine.qmd >}}
 
 Because learning and coding is ultimately not *just* a solo activity, in
-addition to the group project work, during this workshop we also aim to
+addition to the team project work, during this workshop we also aim to
 provide opportunities to chat with fellow participants, learn about
 their work and how they do analyses, and to build networks of support
 and collaboration.

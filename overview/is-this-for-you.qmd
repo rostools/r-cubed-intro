@@ -34,7 +34,7 @@ you:
 -   How to use R, starting from the very basics and targeted to
     beginners.
 -   Using a team science, reproducible research, and open scientific
-    approach (i.e. by including a collaborative group project that
+    approach (i.e. by including a collaborative team project that
     uses a transparent and reproducible analysis workflow).
 -   Using practical, applied, and hands-on lessons and exercises.
 

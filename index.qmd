@@ -22,7 +22,7 @@ reproducible by using R, RStudio, Quarto, Git, and GitHub. It is
 designed for doing participatory live-typing, where the teacher
 demonstrates the tasks on their computer connected to a projector while
 learners type along on their own computer. The workshop also includes
-reading tasks, discussion activities, hands-on exercises, and a group
+reading tasks, discussion activities, hands-on exercises, and a team
 project.
 
 This website contains all of the material for the workshop, including
