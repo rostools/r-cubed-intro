@@ -1,44 +1,43 @@
 # Extras: Manually create a GitHub repo {#sec-extra-github}
 
-Open up GitHub in a browser, make sure you are logged in, and create a
-new, empty repository. New repositories can be created by either
-clicking the green "New" button on the left sidebar or by clicking the
-`+` symbol at the top right to open a menu and selecting the "New
-repository" item.
+This is a short guide on how to manually create a GitHub repository,
+starting from the GitHub interface rather than from RStudio.
 
-You'll be sent to a screen with some options for the new repository. For
-now, type out `learning-github` as a name for the repository and leave
-everything else blank. Make the repository "Private" for now. The video
-below can be used as a reference.
+Open up GitHub in a browser and make sure you are logged in. Create a
+new repository by clicking the `+` symbol at the top right to open a
+menu and selecting the "New repository" item.
 
-{{< video /videos/github-new-repository.mp4 >}}
+You'll be sent to a screen with some options for the new repository. In
+this new page, type out a name for the new repository under "Repository
+name". For this guide, you can type out `learning-github` as a name for
+the repository and leave everything else blank. If you want, you can set
+the repository to "Private" under the "Configurations" section in
+"Choose visibility".
 
-Ok, we now have a remote repository to work with. The next step depends
-on whether you have an existing repository with a history or you are
-starting completely from new. If you haven't created a Git repository
-and saved to its history locally, the easiest way of getting your GitHub
-repository onto your computer as a local repository is to download it
-(or to "clone" it in Git terms). You can "clone" a GitHub repository
-easily from RStudio's "Create Project from Version Control" interface.
-We'll do that now, as detailed in the videos below. Where you save the
-new project doesn't matter, but to make things easy, save it to the
-Desktop.
+Ok, we now have a remote (GitHub) repository to work with. The next step
+depends on whether you have an existing repository with a history or you
+are starting completely from new. If you haven't created a Git
+repository and saved to its history locally, the easiest way of getting
+your GitHub repository onto your computer as a local repository is to
+download it (or to "clone" it in Git terms).
 
-First we will find our repository link and create a new project from
-version control.
+You can "clone" a GitHub repository easily from RStudio's "Create
+Project from Version Control" interface. Go to RStudio and click the
+"File" menu on the top menu bar. Under the "File" menu, click "New
+Project...", then select "Version Control", then "Git". In the next
+screen, paste your repository URL (copied from your repository page on
+GitHub) into the "Repository URL" box. Don't change the name of the
+project in the "Project directory name". Select the "Browse..." button
+next to the "Create project as subdirectory of" box and choose to save
+the project to your `Desktop/` folder (or another folder if you want).
+Finally, click the "Create Project" button.
 
-{{< video /videos/rstudio-clone-repository.mp4 >}}
-
-When attempting to clone your repository, GitHub will require you to
-authenticate yourself. In most cases when using GitHub, you can use the
-password created during signup. However, when indirectly communicating
-with GitHub using RStudio, we need to use a "Personal Access Token"
-(PAT).
-
-::: callout-tip
-These tokens need to be manually generated on GitHub, and gives us a
-more secure way to communicate with our GitHub account and repositories.
-Creating a token can be confusing, but we have a
-[guide](https://guides.rostools.org/connect-github#authenticating-with-github)
-for that.
+::: callout-note
+If you created a private GitHub repository, you will need to
+authenticate with GitHub. Depending on your setup, your computer may
+already be authenticated with GitHub, or you may need to set it up. We
+cover authenticating with GitHub in @sec-github.
 :::
+
+You now have a local copy of the manually created GitHub repository on
+your computer! :tada:
