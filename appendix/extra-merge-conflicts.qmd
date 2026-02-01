@@ -73,33 +73,6 @@ without writing a commit message (this is not necessary when resolving merge
 conflicts). Push the changes to GitHub, then open up the Git repository in
 GitHub, refresh the browser, and view that the changes have taken place.
 
-## :technologist: Exercise: Dealing with merge conflicts
-
-**Time: ~10 minutes.**
-
-Throughout this workshop you *hopefully* won't encounter many merge
-conflicts, including during the team project. Regardless, here is some
-practice to deal with them.
-
-1.  In your GitHub `LearningR` repository, edit the `README.md` file by
-    replacing one word with a random word (e.g. "blahblah"). Commit the
-    change.
-2.  Go to your RStudio `LearningR.Rproj` project and, **without pulling
-    from GitHub**, replace the same word you did on the GitHub version
-    of the `README.md` file, but instead use a different random word
-    (e.g. "ticktock" instead of "blahblah" from above). Add to the
-    staging and commit the change with RStudio's Git interface
-    using {{< var keybind.git >}}.
-3.  While in RStudio's Git interface, pull the changes from GitHub.
-    There should be a warning about merge conflicts. Now you can
-    practice dealing with and fixing merge conflicts. Add the changes to
-    the staging **after** you fixed them and click the commit button
-    (you don't need to type out a commit message).
-4.  Push the changes up to GitHub and view them there to make sure they
-    have been synchronized (you may need to refresh the browser).
-
-{{< text_snippet sticky_up >}}
-
 ## Summary
 
 -   When there are differences in changes to the same lines in a file, a
