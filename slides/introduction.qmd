@@ -181,6 +181,21 @@ researcher, so the results are a bit biased.
 
 ## Scientific culture is not well-prepared for analytic and computation era {.center}
 
+## With "AI" tools, generating (or "vibing") lots of code is easy... but... {.center}
+
+## ... If you aren't experienced in code, how can you assess it? {.center}
+
+::: notes
+Problem with AI tools, it predicts the average next items. Key word,
+average. Do you want to go for average? Is average code even good?
+There's a lot of shit code in the world, that, the AI has been trained
+on.
+:::
+
+## More code = means more reading, maintenance, and hidden bugs {.center}
+
+## Using "AI" tools means you need to be *more skilled* in coding, not less {.center}
+
 ## These issues can be fixed by creating and nurturing a culture of openness {.center}
 
 ::: notes
