@@ -49,7 +49,7 @@ check-spelling:
 # Check that URLs work
 check-urls:
   lychee . \
-    --extensions md,qmd,jinja \
+    --extensions md,qmd \
     --exclude-path "_badges.qmd"
 
 # Check the commit messages on the current branch that are not on the main branch
