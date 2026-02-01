@@ -83,7 +83,7 @@ for example, by using your full name.
 Inside each team member's `.qmd` file, write code in the `setup` code
 chunk at the top to load the `library(tidyverse)` and to import your
 data found in the `data/` folder. You can use the `read_csv()` function
-like you learned in @sec-importing-data.
+like you learned in @sec-import-data.
 
 ### Create some figures and tables
 
