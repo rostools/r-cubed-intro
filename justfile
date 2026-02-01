@@ -1,12 +1,18 @@
 @_default:
   just --list --unsorted
 
-check: check-spelling check-urls check-commits
-build: build-contributors build-readme build-website
-update: update-from-template update-quarto-theme
 
 # Run all recipes
 run-all: install-dependencies check style build
+
+# Run all check recipes
+check: check-spelling check-urls check-commits
+
+# Run all build recipes
+build: build-contributors build-readme build-website
+
+# Run all update recipes
+update: update-from-template update-quarto-theme
 
 # List all TODOs in the repository.
 list-todos:
