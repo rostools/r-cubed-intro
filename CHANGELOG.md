@@ -21,6 +21,20 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.2.2 (2026-02-01)
+
+### Fix
+
+- **sessions**: :bug: correct ref to Import data session
+- :bug: reformat to correct for same `[^1]` footnote
+- **sessions**: :pencil2: clarify about `glykemi` in the bar plot
+
+### Refactor
+
+- **appendix**: :recycle: simplified social discussions
+- :pencil2: replace "group project" with "team project"
+- **overview**: :recycle: match schedule with venue's times
+
 ## 5.2.1 (2026-01-25)
 
 ### Refactor
