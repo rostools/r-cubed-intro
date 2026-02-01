@@ -21,6 +21,18 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.0 (2026-02-01)
+
+### Feat
+
+- **sessions**: :sparkles: add slides mentioning AI tools
+
+### Refactor
+
+- **appendix**: :fire: remove unused exercise from appendix file
+- **sessions**: :pencil2: small fixes to intro slides
+- **appendix**: :recycle: update GitHub extras, removing videos and using only text
+
 ## 5.2.2 (2026-02-01)
 
 ### Fix
