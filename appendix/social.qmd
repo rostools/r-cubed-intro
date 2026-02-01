@@ -2,41 +2,31 @@
 
 ## Day 1 {#social-day-1 .unnumbered}
 
-After lunch, get in your group and walk outside (or inside) to get to
-know one another. Think about, discuss, and/or share this general
-questions:
+After lunch, get together with people from your table during the
+workshop and walk outside (or inside). Think about, discuss, and share
+with each other these general questions:
 
--   Why are you here? Where did you hear about the workshop?
--   What do you currently do and how might you use R in your work?
--   If you've ever worked in another program to do data analysis (or
-    even used R), share some experiences you've had with that. Have you
-    ever had to re-do an analysis? Was it easy? Did it take long?
--   If you've ever written a document, like a scientific report or
-    essay, share some experiences you've had with that. How did you
-    write it? Did you ever accidentally delete something and couldn't
-    find it again? Did you look for it in a backup and if so, was it
-    easy and did it take long?
+-   How do you organise your files and folders for projects? How do you
+    manage the different versions and changes to those files, like a
+    paper or report? Do you feel content and happy with that system? Do
+    you have any tensions or frictions with it?
+
+-   Have you ever written a document that includes an analysis of some
+    type, maybe with results or figures? How did you include them in the
+    document? Is that an enjoyable or frustrating experience? What were
+    some frictions or challenges?
 
 ## Day 2 {#social-day-2 .unnumbered}
 
-After lunch, get in your group and walk outside (or inside) while
-discussing the general topic around your experiences and workflows for
-working on a paper or document that had research results, either alone
-or with collaborators. If no one has any experiences or workflows to
-share, you can instead brainstorm or generally discuss these topics.
+After lunch, get together with people from your table and walk outside
+(or inside). Think about, discuss, and share with each other these
+general questions:
 
--   Share some experiences you have where you've collaborated on a
-    project. How did you collaborate? Was it mostly discussing things
-    together? Did you distribute tasks? How did you coordinate your
-    documents, your work, your tasks? How did you keep updated on the
-    latest versions of the files?
+-   Have you ever collaborated with others on a project? How did you do
+    it? How was that experience? Was it enjoyable and easy to
+    contribute? What were some frictions or challenges?
 
--   What other experiences do you have around working with analysis
-    results? How did you include them into documents? Or how did you
-    collaborate with others or at least getting feedback?
-
--   When you send a paper for review to co-authors, how do you manage
-    all the comments you get back? How do you save the files? When you
-    work on a project, where do you save all your files related to that
-    project? When you are writing documents, do you have a version for
-    each day or keep working on that file?
+-   Have you ever sent a document to be reviewed by others? How did you
+    manage the comments you got back? How did you update the document
+    with those comments? How was that experience? Was it enjoyable or
+    frustrating? What were some frictions or challenges?
