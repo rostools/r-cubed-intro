@@ -20,13 +20,14 @@ scale technological and societal changes:
     leading to an increasing rise in more complex analytics and data
     processing, such as through machine learning and AI.
 -   Increasingly one's research output is someone else's research input,
-    such as with meta-research[^1] or meta-analysis.
+    such as with meta-research[^syllabus-1] or meta-analysis.
 -   The growing presence of large language models (LLMs) and similar
     tools that can help with coding, writing, and other aspects of
     research, which makes it even more important to learn how to code,
     what code means, and what it is doing.
 
-[^1]: Evidence-based evaluation and development of research methods.
+[^syllabus-1]: Evidence-based evaluation and development of research
+    methods.
 
 At the same time, institutional support, training, and incentive
 structures for researchers to adapt to these changes are far behind what
