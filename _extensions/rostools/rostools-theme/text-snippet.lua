@@ -13,12 +13,12 @@ session.
 :::
 ]]
 
-local sticky_up = [[
+local hats_up = [[
 ::: {.callout-caution appearance="minimal"}
-## Sticky/hat up!
+## Origami hats up!
 
-When you're ready to continue, place the sticky/paper hat on your
-computer to indicate this to the teacher :womans_hat: :tophat:
+When you're ready to continue, place the paper hat on your computer to
+indicate this to the teacher :womans_hat: :tophat:
 :::
 ]]
 
@@ -47,8 +47,8 @@ function text_snippet(args)
 
   if snippet_type == "review_note" then
     return quarto.utils.string_to_blocks(review_note)
-  elseif snippet_type == "sticky_up" then
-    return quarto.utils.string_to_blocks(sticky_up)
+  elseif snippet_type == "hats_up" then
+    return quarto.utils.string_to_blocks(hats_up)
   elseif snippet_type == "wip" then
     return quarto.utils.string_to_blocks(wip)
   elseif snippet_type == "faq_text" then

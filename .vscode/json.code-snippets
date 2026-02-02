@@ -25,7 +25,7 @@
       "",
       "${2:Text}",
       "",
-      "{{< text_snippet sticky_up >}}",
+      "{{< text_snippet hats_up >}}",
     ],
     "description": "Insert a hands-on coding exercise section."
   },
@@ -51,7 +51,7 @@
       "",
       "${2:Text}",
       "",
-      "{{< text_snippet sticky_up >}}",
+      "{{< text_snippet hats_up >}}",
     ],
     "description": "Insert reading task section."
   },

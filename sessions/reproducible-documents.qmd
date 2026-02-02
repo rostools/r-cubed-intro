@@ -80,7 +80,7 @@ document-writing. Which means that:
     what was done in their analysis because the logic and sequence is
     shown in the document itself.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Creating a Quarto file
 
@@ -318,7 +318,7 @@ arguments (like `c()`). Others, like `head()` can only take a few
 arguments. In the case of `head()`, the first argument requires a data
 frame object.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Adding the special "setup" code chunk
 
@@ -514,7 +514,7 @@ And numbered lists look like:
 | `super^script^` | super^script^ |
 | `sub~script~`   | sub~script~   |
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :technologist: Exercise: Practice using Markdown
 
@@ -554,7 +554,7 @@ ___
 6.  Finally, render the document with {{< var keybind.render >}} to see
     how it looks.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 

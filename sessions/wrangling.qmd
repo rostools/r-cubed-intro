@@ -59,7 +59,7 @@ which is very specific and isn't really meaningful to us humans as a
 concept. If we split it up into two new columns, `Insulin` and `Time`,
 then both `Insulin` and `Time` would be variables.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Selecting specific columns in a dataset
 
@@ -278,7 +278,7 @@ operator. All input goes into the first position argument of the
 function. Within the `{tidyverse}` packages, all functions take a data
 frame (or vector) as the first argument in order to work with the pipe.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Renaming specific columns
 
@@ -426,7 +426,7 @@ post_meal_data |>
   rename(Height = Length)
 ```
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Filtering data by row
 
@@ -768,7 +768,7 @@ post_meal_data |>
   filter(percent_body_fat > 30)
 ```
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 

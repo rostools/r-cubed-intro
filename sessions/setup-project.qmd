@@ -61,7 +61,7 @@ analysis. And by managing your projects in a reproducible fashion,
 you'll not only make your science better and more rigorous, it also
 makes your life easier too!
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :speech_balloon: Discussion activity: How do you organise your files and projects?
 
@@ -300,7 +300,7 @@ text after the dot is the file extensions.
 trying.something.here.R
 ```
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 

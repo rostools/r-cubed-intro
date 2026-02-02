@@ -148,7 +148,7 @@ Interacting with GitHub through R requires us to use something called a
 "personal access token", which you will learn about and create in the
 next exercise.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :book: Reading task: Authenticating with GitHub
 
@@ -205,7 +205,7 @@ MacOS) to search for possible ones to install or use. We recommend using
 [Bitwarden](https://bitwarden.com/).
 :::
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Authenticating with GitHub
 
@@ -578,7 +578,7 @@ Check out the [Examples](https://guides.rostools.org/learning#examples)
 section of the Guides website.
 :::
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 

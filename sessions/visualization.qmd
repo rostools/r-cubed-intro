@@ -51,7 +51,7 @@ There are also excellent online books on this that are included in the
 [resources](https://guides.rostools.org/learning.html) page of the
 Guides website.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :book: Reading task: Basic structure of using ggplot2
 
@@ -138,7 +138,7 @@ On the other hand, `{ggplot2}`:
 
 These are the reasons we teach and use `{ggplot2}`.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Plot one continuous variable
 
@@ -298,7 +298,7 @@ ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Plot two discrete variables
 
@@ -455,7 +455,7 @@ Barplots hide interesting results. Artwork by
 [\@allison_horst](https://github.com/allisonhorst/stats-illustrations).
 :::
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :book: Reading task: Making code more readable
 
@@ -551,7 +551,7 @@ come down to effective or correct use of spacing and tabs.
     read. You tab code within functions, if statements, and other
     situations to make it easier to read.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Using styler to fix code styling issues
 

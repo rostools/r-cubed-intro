@@ -303,7 +303,7 @@ post_meal_data |>
   facet_grid(cols = vars(insulin_insensitive))
 ```
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :book: Reading task: Using accessible colours in your plot
 
@@ -420,7 +420,7 @@ post_meal_data |>
 # scale_colour_viridis_c(option = "inferno")
 ```
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 

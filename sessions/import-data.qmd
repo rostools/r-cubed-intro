@@ -46,7 +46,7 @@ are listed below. *Don't run these code, just read for now*.
     [haven](https://haven.tidyverse.org/) to import those types of data
     files into R.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Importing a CSV file
 
@@ -263,7 +263,7 @@ is found) and then use that file path. This simple function can make
 your work more reproducible and easier for you and others to use later
 on.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Setting code chunk options
 
@@ -455,7 +455,7 @@ principles to follow:
 We are saving to `data/` because the dataset is already collected and
 published, so the original raw data can always be downloaded again.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :speech_balloon: Discussion activity: How tidy is our data?
 
@@ -618,7 +618,7 @@ and "neater" code, as this can make it easier to break down pieces of
 code and troubleshoot problems. Knowing how to do that takes some
 experience, that you can only get by practicing more coding!
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 

@@ -124,7 +124,7 @@ In this session we'll be covering a version control tool called
 While Git on its own can be quite difficult to use, RStudio thankfully
 has an amazing and straight-forward integration to it.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :book: Reading task: What is Git? {#sec-what-is-git}
 
@@ -166,7 +166,7 @@ using Git for files that are not plain text like R scripts are). You can
 save files into the history by adding and committing them (as we will
 learn to do shortly).
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## :book: Reading task: Basics of Git {#sec-basics-of-git}
 
@@ -258,7 +258,7 @@ Artwork by
 [\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](/images/art-usethis.png){#fig-art-usethis
 width="100%"}
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Using Git in RStudio
 
@@ -394,7 +394,7 @@ time in the future when you come back to a project after some time and
 forget what you were doing. With a well written history you can get a
 quick idea or reminder about the state of the project.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Adding changes to the Git History
 
@@ -514,7 +514,7 @@ workshop.
     Add and commit that new line you've written using
     {{< var keybind.git >}}.
 
-{{< text_snippet sticky_up >}}
+{{< text_snippet hats_up >}}
 
 ## Summary
 
