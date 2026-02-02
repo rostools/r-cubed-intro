@@ -199,33 +199,34 @@ that, we all have that power to do something, even if its small thing.
 
 ## Goal of this workshop: Start changing the culture by providing the training {.center}
 
-# workshop details
+# Workshop details
 
-## Setup and layout {.smaller}
+## Setup and layout {.center}
 
 ::::: columns
 ::: column
--   The workshop is mix of:
-    -   "Code-alongs" (we type and explain, you type along)
-    -   Hands-on coding, discussing, and reading exercises
-    -   Team project (quickly go over it and the GitHub page)
--   [Resources Appendix](https://guides.rostools.org/learning.html)
-    -   Material for further learning
+### Mix of activities
+
+-   "Code-alongs" (we type and explain, you type along)
+-   Hands-on coding, discussing, and reading exercises
+-   Team project (quickly go over it and the GitHub page)
+-   For some, the pace may feel too slow. For others, too fast.
 :::
 
 ::: column
--   Coding is just as much social as it is solo
-    -   Every morning, draw a table names from the bowl and sit at that
-        table
-    -   Introduce yourself to your table mates
-    -   During lunch, sit beside someone you don't know
-    -   Networking activities after lunch
+### Building networks of coders
+
+-   Every morning, draw a table names from the bowl, sit at that table,
+    and introduce yourself
+-   After lunch social discussions
+-   Introverts: It's ok to take breaks alone!
 :::
 :::::
 
 ::: notes
-Explain a bit more about the reading, why doing it, and that this workshop
-in particular has a lot more of it than more advanced workshops.
+Explain a bit more about the reading, why doing it, and that this
+workshop in particular has a lot more of it than more advanced
+workshops.
 
 With the final team project, you'll be in the same team for the
 workshop, working together on it and on the final exercises. As a team,
@@ -236,15 +237,13 @@ I've tried to organize the teams to include a range of skills and
 experiences, so there is a mix of novice and more experienced users.
 :::
 
-## Getting or asking for help :raising_hand_woman::raising_hand_man:
+## Getting or asking for help :raising_hand_woman::raising_hand_man: {.center}
 
 ::::: columns
 ::: column
--   Put the sticky/origami hats :tophat: on your laptop to get help
+-   Put the origami hats :tophat: on your laptop to get help
 -   There are lots of helpers
 -   Table mates, try to help out too
--   For some, the pace may feel too slow. For others, too fast. We want
-    fewer people to say it was too fast.
 :::
 
 ::: column
@@ -256,13 +255,14 @@ experiences, so there is a mix of novice and more experienced users.
 
 ::: notes
 We always get feedback that for some it is too fast and for others it is
-too slow, especially during this introductory workshop. Ideally, everyone
-would say it was the perfect speed. But that is impossible to achieve.
-So instead, we aim as much as possible to have fewer people say it was
-too fast than people who say it was too slow. This is an introduction
-workshop, so we're trying to assume as little to no knowledge on many of
-these concepts. So, for those with some knowledge, it *will* feel slow
-at times! You can always help your neighbour out to help pass the time
+too slow, especially during this introductory workshop. Ideally,
+everyone would say it was the perfect speed. But that is impossible to
+achieve. So instead, we aim as much as possible to have fewer people say
+it was too fast than people who say it was too slow. This is an
+introduction workshop, so we're trying to assume as little to no
+knowledge on many of these concepts. So, for those with some knowledge,
+it *will* feel slow at times! You can always help your neighbour out to
+help pass the time
 :::
 
 ## Practice using stickies: Have you joined the GitHub Organization? {.center}
