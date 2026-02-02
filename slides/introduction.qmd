@@ -1,5 +1,6 @@
 ---
 format: rostools-theme-revealjs
+bibliography: ../includes/references.bib
 ---
 
 # Welcome to the Introductory R^3^ workshop!
