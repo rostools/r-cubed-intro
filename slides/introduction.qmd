@@ -34,16 +34,6 @@ And you've probably realize by now, way more is done than shown in the
 "Methods".
 :::
 
-## :raising_hand_man: Have you ever received confusing code? Or maybe have written your own confusing code? {.center}
-
-::: notes
-For those that have worked with code.
-
-I definitely have in my research career. We want to change the culture
-around code by encouraging and teaching how to share code and to write
-better code in general.
-:::
-
 # These highlight a problem in science... {.center}
 
 ## The scientific principle of "reproducibility" and code sharing {.smaller}
