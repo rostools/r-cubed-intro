@@ -61,7 +61,7 @@ reproducible?
 -   Linked to the "irreproducibility crisis"[^introduction-2]
 :::
 
-::: {.column width="50%"}
+::: {.column .fragment width="50%"}
 ### Reproducibility
 
 -   Same data + same code = same result?
