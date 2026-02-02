@@ -21,6 +21,12 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.1 (2026-02-02)
+
+### Fix
+
+- **sessions**: :pencil2: don't tell them to commit the HTML files
+
 ## 5.3.0 (2026-02-01)
 
 ### Feat
