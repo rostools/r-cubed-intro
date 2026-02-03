@@ -334,22 +334,24 @@ See @tbl-___, very nice table! :D
     columns `"AUC c-Peptide"`, `"AUC Glucose"`, and `"AUC Insulin"`
     (note the `""` around the names).
 
-5.  `rename()` the columns to be more human readable. Rename `age_group`
+5.  Add `.groups = "drop"` inside the `summarise()` function to ungroup
+    the data.
+
+6.  `rename()` the columns to be more human readable. Rename `age_group`
     to `"Age group"` and `Group` to `"Family history"`. Remember,
     renaming follows the `new = old` format.
 
-6.  Next, `ungroup()` the data before sending it to `knitr::kable()` to
-    create the table.
+7.  Next, send the data to `knitr::kable()` to create the table.
 
-7.  In the text below the code chunk, reference the table with
+8.  In the text below the code chunk, reference the table with
     `@tbl-summary-table`.
 
-8.  Run `{styler}` on the document with {{< var keybind.styler >}}.
+9.  Run `{styler}` on the document with {{< var keybind.styler >}}.
 
-9.  Render the document to HTML with {{< var keybind.render >}} to see
+10. Render the document to HTML with {{< var keybind.render >}} to see
     what the table looks like.
 
-10. End the exercise by adding and committing to the Git history with
+11. End the exercise by adding and committing to the Git history with
     {{< var keybind.git >}}, then push to GitHub.
 
 ```{r solution-create-pretty-table}
@@ -372,15 +374,16 @@ post_meal_data |>
   summarise(
     "AUC c-Peptide" = round(median(auc_cp), 1),
     "AUC Glucose" = round(median(auc_pg), 1),
-    "AUC Insulin" = round(median(auc_ins), 1)
-  ) |>
+    "AUC Insulin" = round(median(auc_ins), 1),
   # Task 5.
+    .groups = "drop"
+  ) |>
+  # Task 6.
   rename(
     "Age group" = age_group,
     "Family history" = Group
   ) |>
-  # Task 6.
-  ungroup() |>
+  # Task 7.
   knitr::kable()
 
 # See @tbl-summary-table, very nice table! :D
