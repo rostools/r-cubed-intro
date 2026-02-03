@@ -41,6 +41,12 @@ analysis tasks that can be approached using the
 method, which involves splitting the data into groups, applying some
 analysis to each group, and then combining the results together.
 
+![A diagram showing how a data frame is split up, an action is applied
+to the splits that outputs a new result, and the results are combined
+back together. Taken from [Software Carpentries R for Reproducible
+Scientific
+Analysis](https://unlhcc.github.io/r-novice-gapminder/16-plyr/).](/images/split-apply-combine.png)
+
 As we briefly showed in @tbl-wrangling-verbs, `{dplyr}` has some
 wrangling verbs that include one to `summarise()` the data. If you want
 to do a split-apply-combine analysis to, for example, find the max
