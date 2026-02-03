@@ -142,7 +142,8 @@ run it.
 
 Run this code chunk with {{< var keybind.run-code >}} to see the output.
 Cool! Since we don't need the dataset grouped anymore, it's good
-practice to end the grouping with `ungroup()`.
+practice to end the grouping with `ungroup()` or add `.groups = "drop"`
+inside the `summarise()` function.
 
 ```{r ungroup-data}
 #| filename: "docs/learning.qmd"
@@ -408,3 +409,4 @@ Please complete the survey for this session:
 {{< include /includes/_survey.qmd >}}
 
 {{< include /includes/_code-appendix.qmd >}}
+
