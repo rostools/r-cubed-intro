@@ -21,6 +21,18 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.2 (2026-02-03)
+
+### Fix
+
+- **sessions**: :bug: link bibliography in slides
+
+### Refactor
+
+- **sessions**: :recycle: small improvements to flow in intro slide
+- **sessions**: :fire: remove question in slide that isn't relevant to beginners
+- :lipstick: remove use of sticky, go with origami hat instead
+
 ## 5.3.1 (2026-02-02)
 
 ### Fix
