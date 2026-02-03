@@ -226,7 +226,6 @@ tidied_post_meal_data |>
     "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
     .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -409,4 +408,3 @@ Please complete the survey for this session:
 {{< include /includes/_survey.qmd >}}
 
 {{< include /includes/_code-appendix.qmd >}}
-
