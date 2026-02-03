@@ -19,10 +19,10 @@ tidied_post_meal_data <- post_meal_data |>
 ```
 
 The split-apply-combine method is a powerful technique for performing
-data analysis. It involves splitting a dataset into groups based on
-some categorical variable(s), performing some analysis to each group,
-and then combining the results back together into a single dataset. In
-this session, we'll explore how to use this technique in R using the
+data analysis. It involves splitting a dataset into groups based on some
+categorical variable(s), performing some analysis to each group, and
+then combining the results back together into a single dataset. In this
+session, we'll explore how to use this technique in R using the
 `group_by()` and `summarise()` functions from the `{dplyr}` package.
 
 ## Learning objectives
@@ -150,9 +150,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = mean(Age),
-    mean_bmi = mean(BMI)
-  ) |>
-  ungroup()
+    mean_bmi = mean(BMI), 
+    .groups = "drop"
+  ) 
 ```
 
 Run this code chunk with {{< var keybind.run-code >}} to see the output.
@@ -179,9 +179,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = mean(Age),
-    mean_bmi = mean(BMI)
+    mean_bmi = mean(BMI),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -203,9 +203,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = round(mean(Age), 1),
-    mean_bmi = round(mean(BMI), 1)
+    mean_bmi = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -222,7 +222,8 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     "Mean Age (yrs)" = round(mean(Age), 1),
-    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1)
+    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
   ungroup() |>
   knitr::kable()
@@ -234,7 +235,7 @@ To add the caption, there are two ways to do it: as an argument to
 works similar to the one for figures. We can also reference the table
 too if we include a label with `#| label: tbl-`.
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-mean-age-bmi
 #| tbl-cap: "Mean values of Age and BMI for each group."
@@ -242,9 +243,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     "Mean Age (yrs)" = round(mean(Age), 1),
-    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1)
+    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 ````
@@ -257,9 +258,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     "Mean Age (yrs)" = round(mean(Age), 1),
-    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1)
+    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -281,7 +282,7 @@ file, create a new header called `## Bigger table`. Then copy the code
 template below and paste it below the new header. Then, using this
 template, complete each of the items below.
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-___
 #| tbl-cap: "___"
