@@ -2,6 +2,12 @@
 
 <!-- TODO: Add an introduction here -->
 
+```{r}
+#| include: false
+# To trigger package linking
+library(downlit)
+```
+
 GitHub is a popular online service for hosting Git repositories. It
 also makes collaborating on projects much easier. In this session, we
 will cover what GitHub is and how to use it with your R project that

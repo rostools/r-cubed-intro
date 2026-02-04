@@ -63,6 +63,7 @@ book:
         - sessions/what-next.qmd
   appendices:
     - appendix/social.qmd
+    - appendix/troubleshooting.qmd
     - appendix/extra-github.qmd
     - appendix/extra-merge-conflicts.qmd
     - appendix/extra-arrange.qmd

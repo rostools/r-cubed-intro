@@ -21,6 +21,30 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.6 (2026-02-04)
+
+### Refactor
+
+- **sessions**: :recycle: set last exercise as optional (in case of overtime)
+
+## 5.3.5 (2026-02-04)
+
+### Fix
+
+- **sessions**: :bug: need to trigger downlit for GitHub session
+
+## 5.3.4 (2026-02-04)
+
+### Refactor
+
+- :truck: move troubleshooting section into appendix
+
+## 5.3.3 (2026-02-04)
+
+### Fix
+
+- **overview**: :pencil2: random random word that was added accidentally
+
 ## 5.3.2 (2026-02-03)
 
 ### Fix
