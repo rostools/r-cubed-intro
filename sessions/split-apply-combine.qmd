@@ -157,9 +157,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = mean(Age),
-    mean_bmi = mean(BMI), 
+    mean_bmi = mean(BMI),
     .groups = "drop"
-  ) 
+  )
 ```
 
 Run this code chunk with {{< var keybind.run-code >}} to see the output.
