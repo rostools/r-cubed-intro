@@ -50,9 +50,10 @@ Analysis](https://unlhcc.github.io/r-novice-gapminder/16-plyr/).](/images/split-
 As we briefly showed in @tbl-wrangling-verbs, `{dplyr}` has some
 wrangling verbs that include one to `summarise()` the data. If you want
 to do a split-apply-combine analysis to, for example, find the max
-height by a group, you would use the functions `group_by()` and then
-`summarise()`. Using `group_by()` splits the data up and `summarise()`
-applies an analysis, then immediately combines it back together.
+height by a group, you would use the argument `.by = "group"` inside
+`summarise()`. Here, `"group"`refers to the column name you want to
+split your data into. This will tell `summarise()` to split the data up
+and apply an analysis, then immediately combine it back together.
 
 The first position argument to `group_by()` is, as usual, the data. The
 next arguments are the columns that contain the values you want to group
