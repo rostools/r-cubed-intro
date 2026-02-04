@@ -237,7 +237,7 @@ saved in*, e.g. in the `docs/` folder. So your file path
 `data/post-meal-insulin.csv` won't work because there isn't a folder
 called `data/` in the `docs/` folder.
 
-```         
+```
 LearningR <-- R Project working directory starts here.
 ├── R
 │   └── README.md
