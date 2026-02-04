@@ -1,5 +1,11 @@
 # What next?
 
+```{r}
+#| include: false
+# To trigger downlit linking
+library(downlit)
+```
+
 > [**What Next slides**](../slides/what-next.html)
 
 <div>
