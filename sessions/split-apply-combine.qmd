@@ -50,16 +50,13 @@ Analysis](https://unlhcc.github.io/r-novice-gapminder/16-plyr/).](/images/split-
 As we briefly showed in @tbl-wrangling-verbs, `{dplyr}` has some
 wrangling verbs that include one to `summarise()` the data. If you want
 to do a split-apply-combine analysis to, for example, find the max
-height by a group, you would use the argument `.by = "group"` inside
-`summarise()`. Here, `"group"`refers to the column name you want to
-split your data into. This will tell `summarise()` to split the data up
-and apply an analysis, then immediately combine it back together.
-
-The first position argument to `group_by()` is, as usual, the data. The
-next arguments are the columns that contain the values you want to group
-by. These columns must contain **categorical** data (e.g. education).
-`group_by()` tells R to compute the next operations on the data within
-each grouping, rather than on all the data.
+height by a group, you would use the argument `.by` inside
+`summarise()`. Using `.by` will allow you to specify a grouping variable
+that you want to split your data into. This will tell `summarise()` to
+split the data up and apply an analysis, then immediately combine it
+back together. These grouping variables are the columns names of the
+columns that you want to group by These columns must contain categorical
+data (e.g. education).
 
 As with the other functions, `summarise()` takes the data as the first
 position argument. The next arguments work similar to the arguments in
@@ -68,20 +65,18 @@ position argument. The next arguments work similar to the arguments in
 adding new columns separated by `,`. You would use `summarise()` to
 derive basic descriptive statistics of a certain variable, including
 `min()`, `max()`, `mean()`, `median()`, or `sd()` (standard deviation).
-
-The `group_by()` function doesn't do anything by itself and only is used
-in combination with a `summarise()`, `mutate()`, `arrange()`, or other
-function. However, the `summarise()` function can be used on its own.
+The `summarise()` function can be used on its own, but we can also use
+it with the `.by` argument to specify the grouping variable.
 
 {{< text_snippet hats_up >}}
 
 ## Calculating summary statistics
 
-Let's try using `summarise()` without using `group_by()`. Go to the
-bottom of your `docs/learning.qmd` Quarto file and create a new header
-called `## Calculating summary statistics`. Then, create a new code
-chunk with {{< var keybind.chunk >}}. Let's start with calculating the
-maximum value of the BMI variable.
+Let's try using `summarise()` without using `.by`. Go to the bottom of
+your `docs/learning.qmd` Quarto file and create a new header called
+`## Calculating summary statistics`. Then, create a new code chunk with
+{{< var keybind.chunk >}}. Let's start with calculating the maximum
+value of the BMI variable.
 
 ```{r calculate-max-bmi}
 #| filename: "docs/learning.qmd"
@@ -118,13 +113,13 @@ tidied_post_meal_data |>
 ```
 
 This is the basics of using `summarise()` to calculate summary
-statistics. The real power of this function comes when you combine it
-with `group_by()`.
+statistics. The real power of this function comes when you use it with
+`.by`.
 
 ## Summary statistics by a group
 
 While the `summarise()` function is useful enough on its own, it really
-shines when combined with `group_by()`. Create a new header called
+shines when combined with `.by`. Create a new header called
 `## Summarise with group by` and below that add a new code chunk with
 {{< var keybind.chunk >}}. Let's calculate the mean age and BMI between
 the two groups.
@@ -132,10 +127,10 @@ the two groups.
 ```{r calculate-mean-age-bmi-by-group}
 #| filename: "docs/learning.qmd"
 tidied_post_meal_data |>
-  group_by(Group) |>
   summarise(
     mean_age = mean(Age),
-    mean_bmi = mean(BMI)
+    mean_bmi = mean(BMI),
+    .by = "Group"
   )
 ```
 
