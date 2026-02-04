@@ -21,6 +21,12 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.3 (2026-02-04)
+
+### Fix
+
+- **overview**: :pencil2: random random word that was added accidentally
+
 ## 5.3.2 (2026-02-03)
 
 ### Fix
