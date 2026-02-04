@@ -38,7 +38,7 @@ guide and overview.
 |:---|:---|
 | 9:00 | {{< fa laptop-code >}} [Importing data into R](/sessions/import-data.qmd) |
 | 10:10 | {{< fa comment-dots >}} [End of session short survey]({{< meta surveys.feedback >}}) |
-| 10:15 | {{< fa mug-hot >}} Break with coffee, team and snacks |
+| 10:15 | {{< fa mug-hot >}} Break with coffee and snacks |
 | 10:30 | {{< fa laptop-code >}} [Basic data visualization](/sessions/visualization.qmd) |
 | 11:55 | {{< fa comment-dots >}} [End of session short survey]({{< meta surveys.feedback >}}) |
 | 12:00 | {{< fa utensils >}} Lunch |
