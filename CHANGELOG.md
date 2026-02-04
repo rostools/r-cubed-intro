@@ -21,6 +21,18 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.8 (2026-02-04)
+
+### Fix
+
+- **sessions**: :bug: trigger downlit linking
+
+### Refactor
+
+- **sessions**: :fire: simplify and cut down on last slides
+- **sessions**: :recycle: convert last exercise of wrangle and visualise to optional
+- **sessions**: :recycle: small edits and formatting changes to "what next"
+
 ## 5.3.7 (2026-02-04)
 
 ### Refactor
