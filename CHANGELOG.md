@@ -21,6 +21,12 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.5 (2026-02-04)
+
+### Fix
+
+- **sessions**: :bug: need to trigger downlit for GitHub session
+
 ## 5.3.4 (2026-02-04)
 
 ### Refactor
