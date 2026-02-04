@@ -237,7 +237,7 @@ saved in*, e.g. in the `docs/` folder. So your file path
 `data/post-meal-insulin.csv` won't work because there isn't a folder
 called `data/` in the `docs/` folder.
 
-```
+```         
 LearningR <-- R Project working directory starts here.
 ├── R
 │   └── README.md
@@ -489,7 +489,7 @@ The 6 main things are:
 3.  Some columns that contain a number at the end, likely indicating
     time, also contain `..` instead of `.`. This likely means it was
     minus the number (`-5`, 5 minutes before the test). So it should be
-    renamed to something like `.minus5`.
+    renamed to something like `_minus5`.
 4.  The data could actually be split into two or three datasets, one in
     the long format for the measurements taken at regular minute
     intervals, one for the measurements taken at 30 minute intervals
