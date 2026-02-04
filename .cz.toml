@@ -1,5 +1,5 @@
 [tool.commitizen]
-version = "5.3.3"
+version = "5.3.4"
 bump_message = "build(version): :bookmark: update version from $current_version to $new_version"
 version_schema = "semver"
 version_provider = "commitizen"
