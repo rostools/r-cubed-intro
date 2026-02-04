@@ -21,6 +21,12 @@ If you attended a workshop or used the workshop material as some point
 in time, you can always refer to this changelog page to find out what
 has been changed since you last used it.
 
+## 5.3.7 (2026-02-04)
+
+### Refactor
+
+- :pencil2: rename `.minus` to `_minus` for new column name (#167)
+
 ## 5.3.6 (2026-02-04)
 
 ### Refactor
