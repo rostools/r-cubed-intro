@@ -11,5 +11,3 @@
     document.
 5.  Describe the difference between "messy" and "tidy" data and explain
     why you should aim to make data tidier.
-6.  Identify some approaches to help resolve problems when you encounter
-    errors or warnings in R.

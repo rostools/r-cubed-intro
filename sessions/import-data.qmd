@@ -489,7 +489,7 @@ The 6 main things are:
 3.  Some columns that contain a number at the end, likely indicating
     time, also contain `..` instead of `.`. This likely means it was
     minus the number (`-5`, 5 minutes before the test). So it should be
-    renamed to something like `.minus5`.
+    renamed to something like `_minus5`.
 4.  The data could actually be split into two or three datasets, one in
     the long format for the measurements taken at regular minute
     intervals, one for the measurements taken at 30 minute intervals
@@ -501,125 +501,6 @@ The 6 main things are:
     `Insulin.0.OGTT.X` and `Insulin.0.OGTT`.
 :::
 
-## :book: Reading task: Encountering problems and finding help
-
-::: {.callout-note collapse="true"}
-## Instructor note
-
-Briefly go over this section with them, especially emphasize "Restart
-R", reading the error or warning message, and checking for missing
-commas, brackets or misspelled words.
-:::
-
-**Time: \~10 minutes**
-
-![A common and frequent experience when working in R. Artwork by
-[\@allison_horst](https://github.com/allisonhorst/stats-illustrations).](../images/art-debugging.jpg){#fig-art-debugging
-width="90%"}
-
-You *will* encounter problems and errors when working with R, and you
-will encounter them *all the time*. In fact, a large amount of your time
-in R will be spent figuring out solutions to these errors ("debugging").
-
-RStudio has many cheat sheets of its own that can help you in your
-learning journey, which you can find with the Command Palette
-({{< var keybind.palette >}}, then type "cheat sheet"). However, even
-with these cheat sheets, you will still encounter other problems like
-errors or warnings.
-
-Error messages will appear in red text in your Console and will start
-with the word "Error:". Warning messages are also (usually) in red text,
-but are often either harmless or informative, so make sure to *read* the
-message first and see if it says "Error" or not. Here are some initial
-steps to take when you encounter an error:
-
-1.  **First, try to stay calm**; problems happen to everyone, no matter
-    their skill level.
-2.  **Read through the error or warning message and see if you can
-    understand what R is telling you**. Some common error messages
-    include:
-    -   *"Could not find function"*: Usually means that you have
-        misspelled the function or an R package has not loaded properly.
-    -   *"Object not found"*: Usually means that you have not
-        initialized (created) the object or the object is initialized
-        but empty.
-    -   *"Error in..."*: Usually means that you are referring to an
-        object that doesn't exist.
-    -   *"Unexpected symbol in..."*: Usually means that you misspelled a
-        variable or object name, so R can't find it.
-3.  **Go over the code again and carefully check for any mistakes:**
-    -   Missing commas or pipes?
-    -   Missing end brackets like `]`, `)`, or `}`?
-    -   Capitalized something that shouldn't be capitalized?
-    -   Object or column name misspelled?
-    -   Forgot to load your data before working on it?
-    -   Forgot to load or re-load your packages? Packages are
-        automatically unloaded when you exit RStudio and R. So you need
-        to load them each new session with the `library()` function.
-4.  **Go back to the start of the code and run each line one at a
-    time**, to see where the problem occurs. You will get an opportunity
-    to practice this later, once you are working with bigger chunks of
-    code.
-
-If you still can't find the problem, here are some other steps to take:
-
-1.  **Restart the R session with** {{< var keybind.restart-r >}} **or
-    with the menu item `Session -> Restart R`**. Then load your packages
-    (and data if needed) and run the code from the beginning, tracking
-    which objects get created, and if the proper object name is used
-    later on.
-
-2.  (Rarely need to do) **Close/re-open RStudio and try again.**
-
-3.  **Use `help()` or `?` to access built-in documentation about a
-    function or package.** You may be using the function incorrectly, so
-    find out more about the function by looking at the built-in
-    documentation. The documentation will open up in the "Help" pane of
-    RStudio (bottom right-hand corner). **Try it out:** Enter either of
-    the following commands into the Console and run it (hit `Enter`).
-
-    ``` {.r filename="Console"}
-    ?colnames
-    help(colnames)
-    ```
-
-    Sometimes, this documentation can be hard to read and seem overly
-    complex for a beginner. You can also try finding the website for the
-    package you are having trouble with, as they often have guides that
-    are a little easier to understand. The
-    [tidyverse](https://www.tidyverse.org/packages/) packages all have
-    amazing documentation that you can use to help you with problems you
-    may have.
-
-4.  **Consider explaining the problem out loud to a colleague or
-    friend.** (or to yourself!) You might find that, in verbally going
-    through the problem and explaining it, you will likely come up with
-    the solution yourself.
-
-5.  **Take a break and come back to it later!**
-
-6.  **Google it.** Chances are that someone has already encountered that
-    error and has asked about it online. In fact, those who are
-    "experts" in coding languages like R are experts largely because of
-    their skill in knowing the right words or terms or questions to ask
-    Google. Usually googling the error message will be enough to find
-    the answer, but sometimes you'll need to include "R" or "rstats" and
-    the relevant package or function as a keyword in your search.
-
-7.  If all else fails, you can always turn to the trusty **online R
-    community**. Check StackOverflow, a coding-related question and
-    answer website, to see whether your issue has already been asked and
-    solved by others. If it hasn't and you are considering submitting a
-    question, make sure to read the posting guides beforehand to ensure
-    that you are asking the question in a helpful way.
-
-*Final words:* It is important to always work towards writing "better"
-and "neater" code, as this can make it easier to break down pieces of
-code and troubleshoot problems. Knowing how to do that takes some
-experience, that you can only get by practicing more coding!
-
-{{< text_snippet hats_up >}}
-
 ## Summary
 
 -   Use `read_csv()` or `read_csv2()` to import data from a `.csv`
@@ -629,8 +510,6 @@ experience, that you can only get by practicing more coding!
 -   Use `glimpse()` to get an overview of the data.
 -   Use the Quarto code chunk options like `echo`, `message`, or
     `warning` to control what is shown in the output of the code chunk.
--   Use `?` to get help on an R object. Use the cheat sheets to help
-    guide you in learning R.
 -   Use tab auto-completion when writing code.
 -   With tidy data, each variable has its own column, each observation
     has its own row, and each value has its own cell.

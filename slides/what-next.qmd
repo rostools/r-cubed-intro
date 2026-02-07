@@ -24,8 +24,6 @@ support or infrastructure. You're basically doing this on your own.
 Which probably isn't that uncommon anyway.
 :::
 
-. . .
-
 ## Research culture values publications over all else {.center}
 
 What would you spend your time on if we didn't have this
@@ -43,17 +41,6 @@ matter for getting funding or getting a research job. What would you
 spend your time on? What would you do differently compared to now?
 :::
 
-## Legal and privacy concerns about sharing data, intellectual property protection, patents {.center}
-
-::: notes
-Legal and privacy concerns are big topics that institutions in
-particular focus on a lot, about ownership and so on, since research can
-lead to commercialization and the potential for profit. For individual
-researchers, we often worry about these concerns too much and sometimes
-stops us from doing work because we're afraid we're doing something
-wrong
-:::
-
 ## More traditional academics don't understand or resist change {.center}
 
 ::: notes
@@ -65,35 +52,7 @@ because they succeeded. But all the others that didn't succeed? We don't
 count that data.
 :::
 
-## 'Business as usual' is easier {.center}
-
-::: notes
-We have a system that favours each individual person repeating the same
-mistakes that others make because the system doesn't allow for us to
-take the time to create tools and infrastructure that helps ourselves
-and others out.
-
-Because business as usual is the easiest way in the short term. Our
-current scientific culture is just not prepared for this, for the rising
-modern analytic and computational era.
-:::
-
 # There are also personal barriers
-
-## Fear of ... {.center}
-
--   Fear of being scooped or ideas being stolen
--   Not being credited for ideas
--   Errors and public humiliation
--   Risk to reputation
-
-::: notes
-And there aren't just institutional barriers. We as researchers have
-fears of being scooped, of embarrassment and humiliation for your
-methods being *gasp* wrong. Which is actually just part of science.
-
-Mention Black Hole imaging issue for reputation/not being credited.
-:::
 
 ## Overwhelmed with everything that needs to be done {.center}
 
@@ -119,17 +78,9 @@ reason you don't see a lot of researchers sharing their code or being
 more reproducible is.. they end up getting picked up by industry and
 paid really well or decide to leave academia for the reasons I
 mentioned.
-
-Just as an example, I found a Norwegian group who had a really
-inefficient workflow and decided to re-build their workflow to make use
-of programming, to be reproducible, to have a pipeline. I looked up the
-lead author as well as several other of the co-authors and guess what...
-many of them now work in really great companies as data scientists or
-software engineers, probably making a lot of money and having
-potentially a less stressful life.
 :::
 
-# So... what can you do right now? {.center}
+# Aside from these barriers, what next? {.center}
 
 ## Remember: Reproducibility is a spectrum, not a binary state {.center}
 

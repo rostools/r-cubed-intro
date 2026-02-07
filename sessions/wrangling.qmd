@@ -27,7 +27,7 @@ analyses. The table below lists some common "verbs" from the `{dplyr}`
 package that gets loaded with `{tidyverse}`:
 
 | Task | Function | Example |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | Select columns | `select()` | Remove data entry columns such as the person's name who entered the data. |
 | Subset/filter rows | `filter()` | Keeping rows with glucose values above 4. |
 | Rename columns | `rename()` | Changing a column name from 'Q1' to 'participant_name'. |
@@ -384,10 +384,11 @@ the template:
 2.  `select()` columns that `contains()` the characters `".."` but
     exclude `-` columns that `contains()` the characters `"..."`.
 
-3.  Based on the columns from task 2 above, use `rename()` on those
-    columns so that the `..` inside their name is `.minus`. You will
-    need to type out these column names, both the old and the new,
-    manually. Recall that renaming is in the form `new = old`.
+3.  Based on the columns that was selected from task 2 above, use
+    `rename()` on those columns so that the `..` inside their name is
+    replaced with `_minus`. You will need to type out these column
+    names, both the old and the new, manually. Recall that renaming is
+    in the form `new = old`.
 
 4.  Read through (in your head) the code below `# Task 4.` above. How
     intuitive is it to read? Now, re-write this code to use the pipe
@@ -415,8 +416,8 @@ post_meal_data |>
 # Task 3.
 post_meal_data |>
   rename(
-    P.Glucose.minus5.OGTT = P.Glucose..5.OGTT,
-    Insulin.minus5.OGTT.X = Insulin..5.OGTT.X
+    P.Glucose_minus5.OGTT = P.Glucose..5.OGTT,
+    Insulin_minus5.OGTT.X = Insulin..5.OGTT.X
   )
 
 

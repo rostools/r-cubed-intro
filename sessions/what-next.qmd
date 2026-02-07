@@ -1,5 +1,11 @@
 # What next?
 
+```{r}
+#| include: false
+# To trigger downlit linking
+library(downlit)
+```
+
 > [**What Next slides**](../slides/what-next.html)
 
 <div>
@@ -29,18 +35,21 @@ can you practice these skills and tools you learned during the workshop?
     Slowly and steadily use the tools and skills from this workshop and
     continue learning. It isn't a race, use what you can without getting
     totally overwhelmed.
+
 -   Check out the [Learning](https://guides.rostools.org/learning.html)
     page of the Guides website for resources on continued learning.
+
 -   If your collaborators or supervisor don't use these tools from the
-    workshop, are not supportive, or are supportive but not able to learn
-    and use these tools themselves, e.g. they are too busy, there are
-    several steps you can take. This situation is definitely challenging
-    and is likely to be most commonly encountered. Use the tools as best
-    you can, small bits at a time, so that you continue learning but
-    don't get completely overwhelmed with all the new things and ways to
-    do things. Below are some potential small steps to take that you can
-    choose from to start incorporating and using R and reproducibility
-    in your work:
+    workshop, are not supportive, or are supportive but not able to
+    learn and use these tools themselves, e.g. they are too busy, there
+    are several steps you can take. This situation is definitely
+    challenging and is likely to be most commonly encountered. Use the
+    tools as best you can, small bits at a time, so that you continue
+    learning but don't get completely overwhelmed with all the new
+    things and ways to do things. Below are some potential small steps
+    to take that you can choose from to start incorporating and using R
+    and reproducibility in your work:
+
     -   As much as possible, setup your projects, folders, and files in
         a more reproducible way (e.g. through using the structure
         created from the `{prodigenr}` package).
@@ -56,6 +65,7 @@ can you practice these skills and tools you learned during the workshop?
         without putting it up online.
     -   Use R entirely to wrangle and clean your data rather than, e.g.
         opening up Excel and editing the data there.
+
 -   If you're restricted to working with your data in a virtual remote
     environment (e.g. in Denmark Statistics), you may not have
     authorization to install some programs. However, most remote
@@ -69,9 +79,9 @@ How do you share? We recommend a combination of GitHub and
 shown you how to use GitHub, so you're one step closer to sharing on
 your own!
 
-Next question might be, when do you share? Right away! No matter how ugly
-the code is. If its ugly, that's fine! The point is you start and that
-you get more comfortable doing it until it becomes second nature to
+Next question might be, when do you share? Right away! No matter how
+ugly the code is. If its ugly, that's fine! The point is you start and
+that you get more comfortable doing it until it becomes second nature to
 share and in the process, your code gets better because you know someone
 might look at your code.
 

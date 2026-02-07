@@ -343,7 +343,7 @@ palette!
 Continue to the exercise once you've finished reading this section to
 test out the `{viridis}` colour scheme.
 
-## :technologist: Exercise: Changing the colour schemes
+## :technologist: Optional exercise: Changing the colour schemes
 
 **Time: \~8 minutes.**
 

@@ -271,7 +271,7 @@ table like this: @tbl-mean-age-bmi, cool eh! Let's run `{styler}` using
 Before continuing, add and commit these changes into the Git history
 using {{< var keybind.git >}}, followed by pushing to GitHub.
 
-## :technologist: Exercise: Creating a table using R code
+## :technologist: Optional exercise: Creating a table using R code
 
 **Time: \~15 minutes.**
 
