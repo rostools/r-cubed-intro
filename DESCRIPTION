@@ -1,6 +1,6 @@
 Package: rcubedintro
 Type: Website
-Version: 5.3.8
+Version: 5.3.9
 Title: Introductory Workshop for Reproducible Research in R
 Depends:
     R (>= 4.4.0)
