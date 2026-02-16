@@ -25,6 +25,6 @@ repos:
   # sub-packages, which confuses pre-commit when it tries to find the latest
   # version
   - repo: https://github.com/adhtruong/mirrors-typos
-    rev: v1.43.3
+    rev: v1.43.4
     hooks:
       - id: typos
