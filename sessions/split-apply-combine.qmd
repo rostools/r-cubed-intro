@@ -19,10 +19,10 @@ tidied_post_meal_data <- post_meal_data |>
 ```
 
 The split-apply-combine method is a powerful technique for performing
-data analysis. It involves splitting a dataset into groups based on
-some categorical variable(s), performing some analysis to each group,
-and then combining the results back together into a single dataset. In
-this session, we'll explore how to use this technique in R using the
+data analysis. It involves splitting a dataset into groups based on some
+categorical variable(s), performing some analysis to each group, and
+then combining the results back together into a single dataset. In this
+session, we'll explore how to use this technique in R using the
 `group_by()` and `summarise()` functions from the `{dplyr}` package.
 
 ## Learning objectives
@@ -40,6 +40,12 @@ analysis tasks that can be approached using the
 [split-apply-combine](https://www.jstatsoft.org/article/view/v040i01)
 method, which involves splitting the data into groups, applying some
 analysis to each group, and then combining the results together.
+
+![A diagram showing how a data frame is split up, an action is applied
+to the splits that outputs a new result, and the results are combined
+back together. Taken from [Software Carpentries R for Reproducible
+Scientific
+Analysis](https://unlhcc.github.io/r-novice-gapminder/16-plyr/).](/images/split-apply-combine.png)
 
 As we briefly showed in @tbl-wrangling-verbs, `{dplyr}` has some
 wrangling verbs that include one to `summarise()` the data. If you want
@@ -142,7 +148,8 @@ run it.
 
 Run this code chunk with {{< var keybind.run-code >}} to see the output.
 Cool! Since we don't need the dataset grouped anymore, it's good
-practice to end the grouping with `ungroup()`.
+practice to end the grouping with `ungroup()` or add `.groups = "drop"`
+inside the `summarise()` function.
 
 ```{r ungroup-data}
 #| filename: "docs/learning.qmd"
@@ -150,9 +157,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = mean(Age),
-    mean_bmi = mean(BMI)
-  ) |>
-  ungroup()
+    mean_bmi = mean(BMI),
+    .groups = "drop"
+  )
 ```
 
 Run this code chunk with {{< var keybind.run-code >}} to see the output.
@@ -179,9 +186,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = mean(Age),
-    mean_bmi = mean(BMI)
+    mean_bmi = mean(BMI),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -203,9 +210,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     mean_age = round(mean(Age), 1),
-    mean_bmi = round(mean(BMI), 1)
+    mean_bmi = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -222,9 +229,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     "Mean Age (yrs)" = round(mean(Age), 1),
-    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1)
+    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -234,7 +241,7 @@ To add the caption, there are two ways to do it: as an argument to
 works similar to the one for figures. We can also reference the table
 too if we include a label with `#| label: tbl-`.
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-mean-age-bmi
 #| tbl-cap: "Mean values of Age and BMI for each group."
@@ -242,9 +249,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     "Mean Age (yrs)" = round(mean(Age), 1),
-    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1)
+    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 ````
@@ -257,9 +264,9 @@ tidied_post_meal_data |>
   group_by(Group) |>
   summarise(
     "Mean Age (yrs)" = round(mean(Age), 1),
-    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1)
+    "Mean BMI (kg/m^2^)" = round(mean(BMI), 1),
+    .groups = "drop"
   ) |>
-  ungroup() |>
   knitr::kable()
 ```
 
@@ -281,7 +288,7 @@ file, create a new header called `## Bigger table`. Then copy the code
 template below and paste it below the new header. Then, using this
 template, complete each of the items below.
 
-````{.markdown filename="docs/learning.qmd"}
+```` {.markdown filename="docs/learning.qmd"}
 ```{{r}}
 #| label: tbl-___
 #| tbl-cap: "___"
@@ -333,22 +340,24 @@ See @tbl-___, very nice table! :D
     columns `"AUC c-Peptide"`, `"AUC Glucose"`, and `"AUC Insulin"`
     (note the `""` around the names).
 
-5.  `rename()` the columns to be more human readable. Rename `age_group`
+5.  Add `.groups = "drop"` inside the `summarise()` function to ungroup
+    the data.
+
+6.  `rename()` the columns to be more human readable. Rename `age_group`
     to `"Age group"` and `Group` to `"Family history"`. Remember,
     renaming follows the `new = old` format.
 
-6.  Next, `ungroup()` the data before sending it to `knitr::kable()` to
-    create the table.
+7.  Next, send the data to `knitr::kable()` to create the table.
 
-7.  In the text below the code chunk, reference the table with
+8.  In the text below the code chunk, reference the table with
     `@tbl-summary-table`.
 
-8.  Run `{styler}` on the document with {{< var keybind.styler >}}.
+9.  Run `{styler}` on the document with {{< var keybind.styler >}}.
 
-9.  Render the document to HTML with {{< var keybind.render >}} to see
+10. Render the document to HTML with {{< var keybind.render >}} to see
     what the table looks like.
 
-10. End the exercise by adding and committing to the Git history with
+11. End the exercise by adding and committing to the Git history with
     {{< var keybind.git >}}, then push to GitHub.
 
 ```{r solution-create-pretty-table}
@@ -371,15 +380,16 @@ post_meal_data |>
   summarise(
     "AUC c-Peptide" = round(median(auc_cp), 1),
     "AUC Glucose" = round(median(auc_pg), 1),
-    "AUC Insulin" = round(median(auc_ins), 1)
-  ) |>
+    "AUC Insulin" = round(median(auc_ins), 1),
   # Task 5.
+    .groups = "drop"
+  ) |>
+  # Task 6.
   rename(
     "Age group" = age_group,
     "Family history" = Group
   ) |>
-  # Task 6.
-  ungroup() |>
+  # Task 7.
   knitr::kable()
 
 # See @tbl-summary-table, very nice table! :D
